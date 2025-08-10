@@ -639,71 +639,73 @@ define internal fastcc range(i32 -2147483648, 2) i32 @codec_reinit(ptr noundef %
 get_quant_quality.exit:                           ; preds = %16, %4
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load i32, ptr %27, align 16, !tbaa !35
-  %.not = icmp eq i32 %8, %28
-  br i1 %.not, label %29, label %32
+  %29 = and i32 %28, 1
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %30, label %34
 
-29:                                               ; preds = %get_quant_quality.exit
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %31 = load i32, ptr %30, align 4, !tbaa !36
-  %.not44 = icmp eq i32 %10, %31
-  br i1 %.not44, label %56, label %32
+30:                                               ; preds = %get_quant_quality.exit
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %32 = load i32, ptr %31, align 4, !tbaa !36
+  %33 = and i32 %32, 1
+  %.not44 = icmp eq i32 %33, 0
+  br i1 %.not44, label %58, label %34
 
-32:                                               ; preds = %29, %get_quant_quality.exit
-  %33 = sext i32 %10 to i64
-  %34 = sext i32 %8 to i64
-  %35 = mul nsw i64 %33, %34
-  %36 = ashr exact i64 %35, 1
-  %37 = add nsw i64 %36, %35
-  %38 = add nsw i64 %37, 76
-  %39 = icmp sgt i64 %37, 268435379
-  br i1 %39, label %63, label %40
+34:                                               ; preds = %30, %get_quant_quality.exit
+  %35 = sext i32 %10 to i64
+  %36 = sext i32 %8 to i64
+  %37 = mul nsw i64 %35, %36
+  %38 = ashr exact i64 %37, 1
+  %39 = add nsw i64 %38, %37
+  %40 = add nsw i64 %39, 76
+  %41 = icmp sgt i64 %39, 268435379
+  br i1 %41, label %65, label %42
 
-40:                                               ; preds = %32
-  %41 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %10) #6
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %63, label %43
+42:                                               ; preds = %34
+  %43 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %10) #6
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %65, label %45
 
-43:                                               ; preds = %40
+45:                                               ; preds = %42
   store i32 %8, ptr %27, align 16, !tbaa !35
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %10, ptr %44, align 4, !tbaa !36
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @av_fast_malloc(ptr noundef nonnull %45, ptr noundef nonnull %46, i64 noundef %38) #6
-  %47 = load ptr, ptr %45, align 16, !tbaa !33
-  %.not46 = icmp eq ptr %47, null
-  br i1 %.not46, label %48, label %49
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %10, ptr %46, align 4, !tbaa !36
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  tail call void @av_fast_malloc(ptr noundef nonnull %47, ptr noundef nonnull %48, i64 noundef %40) #6
+  %49 = load ptr, ptr %47, align 16, !tbaa !33
+  %.not46 = icmp eq ptr %49, null
+  br i1 %.not46, label %50, label %51
 
-48:                                               ; preds = %43
+50:                                               ; preds = %45
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
-  br label %63
+  br label %65
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 560
-  %51 = load i32, ptr %27, align 16, !tbaa !35
-  %52 = load i32, ptr %44, align 4, !tbaa !36
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  tail call void @ff_rtjpeg_decode_init(ptr noundef nonnull %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull %53, ptr noundef nonnull %54) #6
-  %55 = load ptr, ptr %6, align 16, !tbaa !27
-  tail call void @av_frame_unref(ptr noundef %55) #6
-  br label %63
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 560
+  %53 = load i32, ptr %27, align 16, !tbaa !35
+  %54 = load i32, ptr %46, align 4, !tbaa !36
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 296
+  tail call void @ff_rtjpeg_decode_init(ptr noundef nonnull %52, i32 noundef %53, i32 noundef %54, ptr noundef nonnull %55, ptr noundef nonnull %56) #6
+  %57 = load ptr, ptr %6, align 16, !tbaa !27
+  tail call void @av_frame_unref(ptr noundef %57) #6
+  br label %65
 
-56:                                               ; preds = %29
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %58 = load i32, ptr %57, align 4, !tbaa !34
-  %.not45 = icmp eq i32 %3, %58
-  br i1 %.not45, label %63, label %59
+58:                                               ; preds = %30
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !34
+  %.not45 = icmp eq i32 %3, %60
+  br i1 %.not45, label %65, label %61
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 560
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  tail call void @ff_rtjpeg_decode_init(ptr noundef nonnull %60, i32 noundef %8, i32 noundef %10, ptr noundef nonnull %61, ptr noundef nonnull %62) #6
-  br label %63
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 560
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 296
+  tail call void @ff_rtjpeg_decode_init(ptr noundef nonnull %62, i32 noundef %28, i32 noundef %32, ptr noundef nonnull %63, ptr noundef nonnull %64) #6
+  br label %65
 
-63:                                               ; preds = %59, %56, %48, %49, %32, %40
-  %.1 = phi i32 [ 1, %49 ], [ -12, %48 ], [ -1, %32 ], [ %41, %40 ], [ 0, %56 ], [ 0, %59 ]
+65:                                               ; preds = %61, %58, %50, %51, %34, %42
+  %.1 = phi i32 [ 1, %51 ], [ -12, %50 ], [ -1, %34 ], [ %43, %42 ], [ 0, %58 ], [ 0, %61 ]
   ret i32 %.1
 }
 

@@ -113,65 +113,66 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
 
 60:                                               ; preds = %51
   call void @pfree(ptr noundef nonnull %28) #11
-  br label %90
+  br label %91
 
 61:                                               ; preds = %38
-  %.not = icmp eq i32 %48, %31
-  br i1 %.not, label %73, label %62
+  %62 = and i16 %.val, 7
+  %.not = icmp eq i16 %62, 0
+  br i1 %.not, label %74, label %63
 
-62:                                               ; preds = %61
-  %63 = call ptr @repalloc(ptr noundef nonnull %28, i64 noundef %49) #11
-  %64 = getelementptr i8, ptr %63, i64 6
-  %.val59 = load i16, ptr %64, align 2
-  %65 = and i16 %.val59, 8191
-  %66 = zext nneg i16 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %66
-  %68 = sub nsw i64 %49, %66
-  call void @llvm.memset.p0.i64(ptr align 1 %67, i8 0, i64 %68, i1 false)
-  %69 = load i16, ptr %64, align 2
-  %70 = and i16 %69, -8192
-  %71 = trunc nuw nsw i32 %48 to i16
-  %72 = or disjoint i16 %70, %71
-  store i16 %72, ptr %64, align 2
-  br label %73
+63:                                               ; preds = %61
+  %64 = call ptr @repalloc(ptr noundef nonnull %28, i64 noundef %49) #11
+  %65 = getelementptr i8, ptr %64, i64 6
+  %.val59 = load i16, ptr %65, align 2
+  %66 = and i16 %.val59, 8191
+  %67 = zext nneg i16 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
+  %69 = sub nsw i64 %49, %67
+  call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %69, i1 false)
+  %70 = load i16, ptr %65, align 2
+  %71 = and i16 %70, -8192
+  %72 = trunc nuw nsw i32 %48 to i16
+  %73 = or disjoint i16 %71, %72
+  store i16 %73, ptr %65, align 2
+  br label %74
 
-73:                                               ; preds = %62, %61
-  %.052 = phi ptr [ %63, %62 ], [ %28, %61 ]
+74:                                               ; preds = %63, %61
+  %.052 = phi ptr [ %64, %63 ], [ %28, %61 ]
   %.not56 = icmp eq ptr %4, null
-  br i1 %.not56, label %81, label %74
+  br i1 %.not56, label %82, label %75
 
-74:                                               ; preds = %73
+75:                                               ; preds = %74
   %.052.val = load i16, ptr %.052, align 2
-  %75 = getelementptr i8, ptr %.052, i64 2
-  %.052.val62 = load i16, ptr %75, align 2
-  %76 = zext i16 %.052.val to i64
-  %77 = shl nuw nsw i64 %76, 16
-  %78 = zext i16 %.052.val62 to i64
-  %.masked = and i64 %77, 2147418112
-  %79 = getelementptr inbounds nuw i8, ptr %.052, i64 %.masked
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %4, i64 %5, i1 false)
-  br label %81
+  %76 = getelementptr i8, ptr %.052, i64 2
+  %.052.val62 = load i16, ptr %76, align 2
+  %77 = zext i16 %.052.val to i64
+  %78 = shl nuw nsw i64 %77, 16
+  %79 = zext i16 %.052.val62 to i64
+  %.masked = and i64 %78, 2147418112
+  %80 = getelementptr inbounds nuw i8, ptr %.052, i64 %.masked
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %79
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr nonnull align 1 %4, i64 %5, i1 false)
+  br label %82
 
-81:                                               ; preds = %74, %73
+82:                                               ; preds = %75, %74
   %.not57 = icmp eq i8 %3, 0
-  br i1 %.not57, label %90, label %82
+  br i1 %.not57, label %91, label %83
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %.052, i64 6
-  %84 = load i16, ptr %83, align 2
-  %.not.i63 = icmp sgt i16 %84, -1
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %.052, i64 6
+  %85 = load i16, ptr %84, align 2
+  %.not.i63 = icmp sgt i16 %85, -1
   %..i64 = select i1 %.not.i63, i64 8, i64 16
-  %85 = load i8, ptr %11, align 8, !range !4, !noundef !5
-  %86 = trunc nuw i8 %85 to i1
-  %87 = select i1 %86, i64 0, i64 2
-  %88 = getelementptr inbounds nuw i8, ptr %.052, i64 %..i64
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %87
-  store i8 %3, ptr %89, align 1
-  br label %90
+  %86 = load i8, ptr %11, align 8, !range !4, !noundef !5
+  %87 = trunc nuw i8 %86 to i1
+  %88 = select i1 %87, i64 0, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.052, i64 %..i64
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %88
+  store i8 %3, ptr %90, align 1
+  br label %91
 
-90:                                               ; preds = %81, %82, %60
-  %.0 = phi ptr [ null, %60 ], [ %.052, %82 ], [ %.052, %81 ]
+91:                                               ; preds = %82, %83, %60
+  %.0 = phi ptr [ null, %60 ], [ %.052, %83 ], [ %.052, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0

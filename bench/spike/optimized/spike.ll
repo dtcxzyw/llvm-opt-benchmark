@@ -6416,29 +6416,30 @@ define internal fastcc { i64, i64 } @_ZL17create_mem_regionyy(i64 noundef %0, i6
   %6 = add nuw nsw i64 %4, 4095
   %.biased = add i64 %6, %1
   %.0 = and i64 %.biased, -4096
-  %.not25 = icmp eq i64 %.0, %1
-  br i1 %.not25, label %14, label %7
+  %7 = and i64 %1, 4095
+  %.not25 = icmp eq i64 %7, 0
+  br i1 %.not25, label %15, label %8
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !72
-  %9 = add i64 %0, -1
-  %10 = add i64 %9, %1
-  %11 = add i64 %5, -1
-  %12 = add i64 %11, %.0
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.111, i64 noundef %0, i64 noundef %10, i64 noundef 4, i64 noundef %5, i64 noundef %12) #41
-  br label %14
+8:                                                ; preds = %2
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !72
+  %10 = add i64 %0, -1
+  %11 = add i64 %10, %1
+  %12 = add i64 %5, -1
+  %13 = add i64 %12, %.0
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.111, i64 noundef %0, i64 noundef %11, i64 noundef 4, i64 noundef %5, i64 noundef %13) #41
+  br label %15
 
-14:                                               ; preds = %7, %2
-  %15 = tail call noundef zeroext i1 @_ZN9mem_cfg_t18check_if_supportedEmm(i64 noundef %5, i64 noundef %.0)
-  br i1 %15, label %19, label %16
+15:                                               ; preds = %8, %2
+  %16 = tail call noundef zeroext i1 @_ZN9mem_cfg_t18check_if_supportedEmm(i64 noundef %5, i64 noundef %.0)
+  br i1 %16, label %20, label %17
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !72
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.112, i64 noundef %5, i64 noundef %.0) #41
+17:                                               ; preds = %15
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !72
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.112, i64 noundef %5, i64 noundef %.0) #41
   tail call void @exit(i32 noundef 1) #39
   unreachable
 
-19:                                               ; preds = %14
+20:                                               ; preds = %15
   call void @_ZN9mem_cfg_tC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %5, i64 noundef %.0)
   %.fca.0.load = load i64, ptr %3, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0

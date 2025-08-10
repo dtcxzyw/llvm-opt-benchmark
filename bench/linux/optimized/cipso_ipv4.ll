@@ -2817,7 +2817,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !31
   %6 = call fastcc i32 @cipso_v4_genopt(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %118, label %8
+  br i1 %7, label %119, label %8
 
 8:                                                ; preds = %3
   %9 = add nuw i32 %6, 3
@@ -2865,7 +2865,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
   %45 = and i32 %44, -64
   %46 = call i32 @pskb_expand_head(ptr noundef %0, i32 noundef %45, i32 noundef 0, i32 noundef 2080) #15
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %118, label %.thread
+  br i1 %47, label %119, label %.thread
 
 .thread:                                          ; preds = %38, %43
   %48 = icmp sgt i32 %14, 0
@@ -2951,36 +2951,37 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
   br label %100
 
 100:                                              ; preds = %96, %88
-  %101 = icmp eq i32 %10, %13
-  br i1 %101, label %117, label %102
+  %101 = and i32 %13, 3
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %118, label %103
 
-102:                                              ; preds = %100
-  %103 = trunc i32 %9 to i8
-  %104 = lshr i8 %103, 2
-  %105 = add nuw nsw i8 %104, 5
-  %106 = load i8, ptr %83, align 4
-  %107 = and i8 %105, 15
-  %108 = and i8 %106, -16
-  %109 = or disjoint i8 %108, %107
-  store i8 %109, ptr %83, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp ult i32 %111, 65536
-  %113 = trunc i32 %111 to i16
-  %114 = call i16 @llvm.bswap.i16(i16 %113)
-  %115 = select i1 %112, i16 %114, i16 0
-  %116 = getelementptr inbounds nuw i8, ptr %83, i64 2
-  store i16 %115, ptr %116, align 2
-  br label %117
-
-117:                                              ; preds = %102, %100
-  call void @ip_send_check(ptr noundef %83) #15
+103:                                              ; preds = %100
+  %104 = trunc i32 %9 to i8
+  %105 = lshr i8 %104, 2
+  %106 = add nuw nsw i8 %105, 5
+  %107 = load i8, ptr %83, align 4
+  %108 = and i8 %106, 15
+  %109 = and i8 %107, -16
+  %110 = or disjoint i8 %109, %108
+  store i8 %110, ptr %83, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp ult i32 %112, 65536
+  %114 = trunc i32 %112 to i16
+  %115 = call i16 @llvm.bswap.i16(i16 %114)
+  %116 = select i1 %113, i16 %115, i16 0
+  %117 = getelementptr inbounds nuw i8, ptr %83, i64 2
+  store i16 %116, ptr %117, align 2
   br label %118
 
-118:                                              ; preds = %117, %43, %3
-  %119 = phi i32 [ 0, %117 ], [ %6, %3 ], [ %46, %43 ]
+118:                                              ; preds = %103, %100
+  call void @ip_send_check(ptr noundef %83) #15
+  br label %119
+
+119:                                              ; preds = %118, %43, %3
+  %120 = phi i32 [ 0, %118 ], [ %6, %3 ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %119
+  ret i32 %120
 }
 
 ; Function Attrs: null_pointer_is_valid

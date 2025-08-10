@@ -1279,7 +1279,7 @@ define internal fastcc void @tarClose(ptr noundef readonly captures(none) %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 119
-  br i1 %11, label %12, label %68
+  br i1 %11, label %12, label %69
 
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %0, i64 592
@@ -1405,39 +1405,44 @@ _tarWriteHeader.exit.i:                           ; preds = %26
 55:                                               ; preds = %52
   %56 = add i64 %.0.lcssa.i, 511
   %57 = and i64 %56, -512
-  %58 = sub i64 %57, %.0.lcssa.i
-  %.not8.i = icmp eq i64 %57, %.0.lcssa.i
-  br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.i
+  %58 = and i64 %.0.lcssa.i, 511
+  %.not8.i = icmp eq i64 %58, 0
+  br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.preheader.i
 
-59:                                               ; preds = %.lr.ph6.i
-  %60 = add nuw i64 %.0284.i, 1
-  %exitcond.not.i = icmp eq i64 %60, %58
+.lr.ph6.preheader.i:                              ; preds = %55
+  %59 = sub i64 %57, %.0.lcssa.i
+  %umax.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
+  br label %.lr.ph6.i
+
+60:                                               ; preds = %.lr.ph6.i
+  %61 = add nuw i64 %.0284.i, 1
+  %exitcond.not.i = icmp eq i64 %61, %umax.i
   br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !16
 
-.lr.ph6.i:                                        ; preds = %55, %59
-  %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
-  %61 = load ptr, ptr %32, align 8
-  %62 = call i32 @fputc(i32 noundef 0, ptr noundef %61)
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %64, label %59
+.lr.ph6.i:                                        ; preds = %60, %.lr.ph6.preheader.i
+  %.0284.i = phi i64 [ %61, %60 ], [ 0, %.lr.ph6.preheader.i ]
+  %62 = load ptr, ptr %32, align 8
+  %63 = call i32 @fputc(i32 noundef 0, ptr noundef %62)
+  %64 = icmp eq i32 %63, -1
+  br i1 %64, label %65, label %60
 
-64:                                               ; preds = %.lr.ph6.i
+65:                                               ; preds = %.lr.ph6.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30) #17
   call void @exit_nicely(i32 noundef 1) #18
   unreachable
 
-_tarAddFile.exit:                                 ; preds = %59, %55
-  %65 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %66 = load i64, ptr %65, align 8
-  %67 = add i64 %66, %57
-  store i64 %67, ptr %65, align 8
+_tarAddFile.exit:                                 ; preds = %60, %55
+  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, %57
+  store i64 %68, ptr %66, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %68
+  br label %69
 
-68:                                               ; preds = %_tarAddFile.exit, %8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load ptr, ptr %69, align 8
-  call void @free(ptr noundef %70) #17
+69:                                               ; preds = %_tarAddFile.exit, %8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %71 = load ptr, ptr %70, align 8
+  call void @free(ptr noundef %71) #17
   store ptr null, ptr %1, align 8
   ret void
 }
@@ -1845,6 +1850,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16

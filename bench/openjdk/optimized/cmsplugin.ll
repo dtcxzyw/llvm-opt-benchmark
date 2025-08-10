@@ -726,23 +726,24 @@ define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnam
   %6 = add i32 %5, 3
   %7 = and i32 %6, -4
   %8 = sub i32 %7, %5
-  %9 = icmp eq i32 %7, %5
-  br i1 %9, label %18, label %10
+  %9 = and i32 %5, 3
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %19, label %11
 
-10:                                               ; preds = %1
-  %11 = icmp ugt i32 %8, 4
-  br i1 %11, label %18, label %12
+11:                                               ; preds = %1
+  %12 = icmp ugt i32 %8, 4
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1) #12
-  %16 = icmp eq i32 %15, 1
-  %17 = zext i1 %16 to i32
-  br label %18
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1) #12
+  %17 = icmp eq i32 %16, 1
+  %18 = zext i1 %17 to i32
+  br label %19
 
-18:                                               ; preds = %10, %1, %12
-  %.0 = phi i32 [ %17, %12 ], [ 1, %1 ], [ 0, %10 ]
+19:                                               ; preds = %11, %1, %13
+  %.0 = phi i32 [ %18, %13 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -755,23 +756,24 @@ define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
   %6 = add i32 %5, 3
   %7 = and i32 %6, -4
   %8 = sub i32 %7, %5
-  %9 = icmp eq i32 %7, %5
-  br i1 %9, label %17, label %10
+  %9 = and i32 %5, 3
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %1
-  %11 = icmp ugt i32 %8, 4
-  br i1 %11, label %17, label %12
+11:                                               ; preds = %1
+  %12 = icmp ugt i32 %8, 4
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %10
-  %13 = zext nneg i32 %8 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %13, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %2) #12
-  br label %17
+13:                                               ; preds = %11
+  %14 = zext nneg i32 %8 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %14, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %16(ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %2) #12
+  br label %18
 
-17:                                               ; preds = %10, %1, %12
-  %.0 = phi i32 [ %16, %12 ], [ 1, %1 ], [ 0, %10 ]
+18:                                               ; preds = %11, %1, %13
+  %.0 = phi i32 [ %17, %13 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 

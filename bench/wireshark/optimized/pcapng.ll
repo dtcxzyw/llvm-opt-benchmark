@@ -835,7 +835,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %1, align 4
-  switch i32 %13, label %117 [
+  switch i32 %13, label %118 [
     i32 0, label %14
     i32 -12, label %14
   ]
@@ -845,12 +845,12 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %15)
   store ptr null, ptr %2, align 8
-  br label %117
+  br label %118
 
 16:                                               ; preds = %3
   %17 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %17, 168627466
-  br i1 %.not, label %18, label %117
+  br i1 %.not, label %18, label %118
 
 18:                                               ; preds = %16
   store i32 168627466, ptr %5, align 8
@@ -870,27 +870,27 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %24 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %24)
   store ptr null, ptr %2, align 8
-  br label %117
+  br label %118
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %26)
   %27 = load i32, ptr %1, align 4
   %28 = icmp eq i32 %27, -12
-  br i1 %28, label %29, label %117
+  br i1 %28, label %29, label %118
 
 29:                                               ; preds = %25
   store i32 0, ptr %1, align 4
   %30 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %30)
   store ptr null, ptr %2, align 8
-  br label %117
+  br label %118
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = call zeroext i1 @wtap_read_bytes(ptr noundef %32, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2)
-  br i1 %33, label %34, label %47
+  br i1 %33, label %34, label %48
 
 34:                                               ; preds = %31
   %35 = load i8, ptr %8, align 8, !range !6, !noundef !7
@@ -909,129 +909,130 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   store i32 %42, ptr %4, align 4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = load i32, ptr %43, align 4
-  %.not.i = icmp eq i32 %42, %44
-  br i1 %.not.i, label %49, label %45
+  %45 = and i32 %44, 3
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %50, label %46
 
-45:                                               ; preds = %39
+46:                                               ; preds = %39
   store i32 -13, ptr %1, align 4
-  %46 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %44, i32 noundef %42)
-  store ptr %46, ptr %2, align 8
-  br label %47
+  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %44, i32 noundef %42)
+  store ptr %47, ptr %2, align 8
+  br label %48
 
-47:                                               ; preds = %45, %31
+48:                                               ; preds = %46, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %48 = load ptr, ptr %19, align 8
-  call void @wtap_block_unref(ptr noundef %48)
-  br label %117
+  %49 = load ptr, ptr %19, align 8
+  call void @wtap_block_unref(ptr noundef %49)
+  br label %118
 
-49:                                               ; preds = %39
+50:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %51 = load ptr, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %19, align 8
-  call void @wtap_block_copy(ptr noundef %53, ptr noundef %54)
+  %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %19, align 8
-  call void @wtap_block_unref(ptr noundef %55)
+  call void @wtap_block_copy(ptr noundef %54, ptr noundef %55)
+  %56 = load ptr, ptr %19, align 8
+  call void @wtap_block_unref(ptr noundef %56)
   store ptr null, ptr %19, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 -2, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 -2, ptr %58, align 4
-  %59 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %59, ptr %60, align 8
-  store i32 0, ptr %59, align 8
-  %61 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40)
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %63, align 8
-  %64 = call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 48, i32 noundef 1)
-  %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %64, ptr %65, align 8
-  %66 = call ptr @g_array_append_vals(ptr noundef %64, ptr noundef nonnull %8, i32 noundef 1)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @pcapng_read, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @pcapng_seek_read, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @pcapng_close, ptr %69, align 8
-  %70 = load i32, ptr @pcapng_file_type_subtype, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %70, ptr %71, align 4
-  %72 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %72, ptr %73, align 8
-  %74 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %74, ptr %75, align 8
-  %76 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %76, ptr %77, align 8
-  %78 = load ptr, ptr %0, align 8
-  %79 = call i32 @file_eof(ptr noundef %78)
-  %.not8287 = icmp eq i32 %79, 0
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 -2, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 -2, ptr %59, align 4
+  %60 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %60, ptr %61, align 8
+  store i32 0, ptr %60, align 8
+  %62 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40)
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %64, align 8
+  %65 = call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 48, i32 noundef 1)
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %65, ptr %66, align 8
+  %67 = call ptr @g_array_append_vals(ptr noundef %65, ptr noundef nonnull %8, i32 noundef 1)
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @pcapng_read, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @pcapng_seek_read, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @pcapng_close, ptr %70, align 8
+  %71 = load i32, ptr @pcapng_file_type_subtype, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %71, ptr %72, align 4
+  %73 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %73, ptr %74, align 8
+  %75 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %75, ptr %76, align 8
+  %77 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %77, ptr %78, align 8
+  %79 = load ptr, ptr %0, align 8
+  %80 = call i32 @file_eof(ptr noundef %79)
+  %.not8287 = icmp eq i32 %80, 0
   br i1 %.not8287, label %.lr.ph, label %get_block_type_internal.exit
 
-.lr.ph:                                           ; preds = %49, %114
-  %80 = load ptr, ptr %0, align 8
-  %81 = call i64 @file_tell(ptr noundef %80)
-  store i64 %81, ptr %7, align 8
-  %82 = load ptr, ptr %0, align 8
-  %83 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %82, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2)
-  br i1 %83, label %87, label %84
+.lr.ph:                                           ; preds = %50, %115
+  %81 = load ptr, ptr %0, align 8
+  %82 = call i64 @file_tell(ptr noundef %81)
+  store i64 %82, ptr %7, align 8
+  %83 = load ptr, ptr %0, align 8
+  %84 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %83, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2)
+  br i1 %84, label %88, label %85
 
-84:                                               ; preds = %.lr.ph
-  %85 = load i32, ptr %1, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %get_block_type_internal.exit, label %117
+85:                                               ; preds = %.lr.ph
+  %86 = load i32, ptr %1, align 4
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %get_block_type_internal.exit, label %118
 
-87:                                               ; preds = %.lr.ph
-  %88 = load ptr, ptr %0, align 8
-  %89 = call i64 @file_seek(ptr noundef %88, i64 noundef %81, i32 noundef 0, ptr noundef %1)
-  %90 = load ptr, ptr %65, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = load i32, ptr %59, align 8
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr %struct.section_info_t, ptr %91, i64 %93
-  %95 = load i8, ptr %94, align 8, !range !6, !noundef !7
-  %96 = trunc nuw i8 %95 to i1
-  %97 = load i32, ptr %6, align 4
-  br i1 %96, label %98, label %thread-pre-split
+88:                                               ; preds = %.lr.ph
+  %89 = load ptr, ptr %0, align 8
+  %90 = call i64 @file_seek(ptr noundef %89, i64 noundef %82, i32 noundef 0, ptr noundef %1)
+  %91 = load ptr, ptr %66, align 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %60, align 8
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr %struct.section_info_t, ptr %92, i64 %94
+  %96 = load i8, ptr %95, align 8, !range !6, !noundef !7
+  %97 = trunc nuw i8 %96 to i1
+  %98 = load i32, ptr %6, align 4
+  br i1 %97, label %99, label %thread-pre-split
 
-98:                                               ; preds = %87
-  %99 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %97) #19, !srcloc !23
-  store i32 %99, ptr %6, align 4
+99:                                               ; preds = %88
+  %100 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %98) #19, !srcloc !23
+  store i32 %100, ptr %6, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %87, %98
-  %100 = phi i32 [ %99, %98 ], [ %97, %87 ]
-  switch i32 %100, label %101 [
-    i32 168627466, label %107
-    i32 1, label %107
-    i32 4, label %107
-    i32 10, label %107
-    i32 5, label %107
-    i32 513, label %107
-    i32 514, label %107
-    i32 515, label %107
-    i32 517, label %107
-    i32 518, label %107
-    i32 519, label %107
-    i32 521, label %107
-    i32 528, label %107
-    i32 529, label %107
-    i32 530, label %107
-    i32 531, label %107
-    i32 532, label %107
-    i32 533, label %107
-    i32 536, label %107
-    i32 537, label %107
-    i32 544, label %107
+thread-pre-split:                                 ; preds = %88, %99
+  %101 = phi i32 [ %100, %99 ], [ %98, %88 ]
+  switch i32 %101, label %102 [
+    i32 168627466, label %108
+    i32 1, label %108
+    i32 4, label %108
+    i32 10, label %108
+    i32 5, label %108
+    i32 513, label %108
+    i32 514, label %108
+    i32 515, label %108
+    i32 517, label %108
+    i32 518, label %108
+    i32 519, label %108
+    i32 521, label %108
+    i32 528, label %108
+    i32 529, label %108
+    i32 530, label %108
+    i32 531, label %108
+    i32 532, label %108
+    i32 533, label %108
+    i32 536, label %108
+    i32 537, label %108
+    i32 544, label %108
     i32 2, label %get_block_type_internal.exit
     i32 6, label %get_block_type_internal.exit
     i32 3, label %get_block_type_internal.exit
@@ -1043,42 +1044,42 @@ thread-pre-split:                                 ; preds = %87, %98
     i32 9, label %get_block_type_internal.exit
   ]
 
-101:                                              ; preds = %thread-pre-split
-  %102 = load ptr, ptr @block_handlers, align 8
-  %.not.i84 = icmp eq ptr %102, null
-  br i1 %.not.i84, label %107, label %103
+102:                                              ; preds = %thread-pre-split
+  %103 = load ptr, ptr @block_handlers, align 8
+  %.not.i84 = icmp eq ptr %103, null
+  br i1 %.not.i84, label %108, label %104
 
-103:                                              ; preds = %101
-  %104 = zext i32 %100 to i64
-  %105 = inttoptr i64 %104 to ptr
-  %106 = call ptr @g_hash_table_lookup(ptr noundef nonnull %102, ptr noundef %105)
-  %.not3.i = icmp eq ptr %106, null
-  br i1 %.not3.i, label %107, label %get_block_type_internal.exit
+104:                                              ; preds = %102
+  %105 = zext i32 %101 to i64
+  %106 = inttoptr i64 %105 to ptr
+  %107 = call ptr @g_hash_table_lookup(ptr noundef nonnull %103, ptr noundef %106)
+  %.not3.i = icmp eq ptr %107, null
+  br i1 %.not3.i, label %108, label %get_block_type_internal.exit
 
-107:                                              ; preds = %101, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
-  %108 = load ptr, ptr %0, align 8
-  %109 = call fastcc zeroext i1 @pcapng_read_block(ptr noundef %0, ptr noundef %108, ptr noundef %94, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
-  br i1 %109, label %114, label %110
+108:                                              ; preds = %102, %104, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
+  %109 = load ptr, ptr %0, align 8
+  %110 = call fastcc zeroext i1 @pcapng_read_block(ptr noundef %0, ptr noundef %109, ptr noundef %95, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  br i1 %110, label %115, label %111
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %19, align 8
-  call void @wtap_block_unref(ptr noundef %111)
-  %112 = load i32, ptr %1, align 4
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %get_block_type_internal.exit, label %117
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %19, align 8
+  call void @wtap_block_unref(ptr noundef %112)
+  %113 = load i32, ptr %1, align 4
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %get_block_type_internal.exit, label %118
 
-114:                                              ; preds = %107
-  call fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr noundef %59, ptr noundef %94, ptr noundef nonnull byval(%struct.section_info_t) align 8 %9, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %115 = load ptr, ptr %0, align 8
-  %116 = call i32 @file_eof(ptr noundef %115)
-  %.not82 = icmp eq i32 %116, 0
+115:                                              ; preds = %108
+  call fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr noundef %60, ptr noundef %95, ptr noundef nonnull byval(%struct.section_info_t) align 8 %9, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %116 = load ptr, ptr %0, align 8
+  %117 = call i32 @file_eof(ptr noundef %116)
+  %.not82 = icmp eq i32 %117, 0
   br i1 %.not82, label %.lr.ph, label %get_block_type_internal.exit, !llvm.loop !24
 
-get_block_type_internal.exit:                     ; preds = %114, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %49, %110, %84
-  br label %117
+get_block_type_internal.exit:                     ; preds = %115, %104, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %50, %111, %85
+  br label %118
 
-117:                                              ; preds = %110, %84, %25, %16, %12, %get_block_type_internal.exit, %47, %29, %22, %14
-  %.0 = phi i32 [ 1, %get_block_type_internal.exit ], [ -1, %47 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %110 ]
+118:                                              ; preds = %111, %85, %25, %16, %12, %get_block_type_internal.exit, %48, %29, %22, %14
+  %.0 = phi i32 [ 1, %get_block_type_internal.exit ], [ -1, %48 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %85 ], [ -1, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1811,17 +1812,18 @@ pcapng_read_sysdig_event_block.exit:              ; preds = %169
   store i32 %199, ptr %8, align 4
   %200 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %201 = load i32, ptr %200, align 4
-  %.not.i104 = icmp eq i32 %199, %201
-  br i1 %.not.i104, label %pcapng_read_and_check_block_trailer.exit, label %202
+  %202 = and i32 %201, 3
+  %.not.i104 = icmp eq i32 %202, 0
+  br i1 %.not.i104, label %pcapng_read_and_check_block_trailer.exit, label %203
 
-202:                                              ; preds = %196
+203:                                              ; preds = %196
   store i32 -13, ptr %5, align 4
-  %203 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %201, i32 noundef %199)
-  store ptr %203, ptr %6, align 8
+  %204 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %201, i32 noundef %199)
+  store ptr %204, ptr %6, align 8
   br label %pcapng_read_and_check_block_trailer.exit
 
-pcapng_read_and_check_block_trailer.exit:         ; preds = %189, %196, %202
-  %.0.i103 = phi i1 [ false, %202 ], [ false, %189 ], [ true, %196 ]
+pcapng_read_and_check_block_trailer.exit:         ; preds = %189, %196, %203
+  %.0.i103 = phi i1 [ false, %203 ], [ false, %189 ], [ true, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %pcapng_read_meta_event_block.exit.thread
 

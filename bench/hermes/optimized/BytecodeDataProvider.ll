@@ -240,9 +240,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit47:               ; preds = %if.then.i.i45, %if.
 
 if.end8:                                          ; preds = %entry
   %6 = ptrtoint ptr %aref.coerce0 to i64
-  %sub.i = add i64 %6, 3
-  %and.i = and i64 %sub.i, -4
-  %cmp12.not = icmp eq i64 %and.i, %6
+  %7 = and i64 %6, 3
+  %cmp12.not = icmp eq i64 %7, 0
   br i1 %cmp12.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.end8
@@ -256,8 +255,8 @@ if.then15:                                        ; preds = %if.then13
 if.end18:                                         ; preds = %if.end8
   %cmp20 = icmp eq i32 %form, 1
   %cond = select i1 %cmp20, i64 -2240826417119764423, i64 2240826417119764422
-  %7 = load i64, ptr %aref.coerce0, align 1
-  %cmp22.not = icmp eq i64 %7, %cond
+  %8 = load i64, ptr %aref.coerce0, align 1
+  %cmp22.not = icmp eq i64 %8, %cond
   br i1 %cmp22.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.end18
@@ -270,8 +269,8 @@ if.then25:                                        ; preds = %if.then23
 
 if.end28:                                         ; preds = %if.end18
   %version = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 8
-  %8 = load i32, ptr %version, align 1
-  %cmp29.not = icmp eq i32 %8, 96
+  %9 = load i32, ptr %version, align 1
+  %cmp29.not = icmp eq i32 %9, 96
   br i1 %cmp29.not, label %if.end40, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
@@ -289,11 +288,11 @@ if.then32:                                        ; preds = %if.then30
   %call3.i.i64 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %errs33, ptr noundef nonnull @.str.5, i64 noundef 33) #19
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %call3.i.i64, i64 noundef 96) #19
   %OutBufEnd.i5.i67 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  %9 = load ptr, ptr %OutBufEnd.i5.i67, align 8
+  %10 = load ptr, ptr %OutBufEnd.i5.i67, align 8
   %OutBufCur.i6.i68 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  %10 = load ptr, ptr %OutBufCur.i6.i68, align 8
-  %sub.ptr.lhs.cast.i7.i69 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i8.i70 = ptrtoint ptr %10 to i64
+  %11 = load ptr, ptr %OutBufCur.i6.i68, align 8
+  %sub.ptr.lhs.cast.i7.i69 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i8.i70 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i9.i71 = sub i64 %sub.ptr.lhs.cast.i7.i69, %sub.ptr.rhs.cast.i8.i70
   %cmp.i.i72 = icmp ult i64 %sub.ptr.sub.i9.i71, 9
   br i1 %cmp.i.i72, label %if.then.i.i78, label %if.then4.i.i75
@@ -303,24 +302,24 @@ if.then.i.i78:                                    ; preds = %if.then32
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit80
 
 if.then4.i.i75:                                   ; preds = %if.then32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
-  %11 = load ptr, ptr %OutBufCur.i6.i68, align 8
-  %add.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %11, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
+  %12 = load ptr, ptr %OutBufCur.i6.i68, align 8
+  %add.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store ptr %add.ptr.i.i76, ptr %OutBufCur.i6.i68, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit80
 
 _ZN4llvh11raw_ostreamlsEPKc.exit80:               ; preds = %if.then.i.i78, %if.then4.i.i75
   %phi.call.i77 = phi ptr [ %call3.i.i79, %if.then.i.i78 ], [ %call.i, %if.then4.i.i75 ]
-  %12 = load i32, ptr %version, align 1
-  %conv.i = zext i32 %12 to i64
+  %13 = load i32, ptr %version, align 1
+  %conv.i = zext i32 %13 to i64
   %call.i81 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i77, i64 noundef %conv.i) #19
   call void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %errs33) #19
   br label %return
 
 if.end40:                                         ; preds = %if.end28
   %functionCount = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 40
-  %13 = load i32, ptr %functionCount, align 1
-  %cmp41 = icmp eq i32 %13, 0
+  %14 = load i32, ptr %functionCount, align 1
+  %cmp41 = icmp eq i32 %14, 0
   br i1 %cmp41, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.end40
@@ -333,8 +332,8 @@ if.then44:                                        ; preds = %if.then42
 
 if.end47:                                         ; preds = %if.end40
   %fileLength = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
-  %14 = load i32, ptr %fileLength, align 1
-  %conv = zext i32 %14 to i64
+  %15 = load i32, ptr %fileLength, align 1
+  %conv = zext i32 %15 to i64
   %cmp49 = icmp ult i64 %aref.coerce1, %conv
   br i1 %cmp49, label %if.then50, label %return
 
@@ -351,8 +350,8 @@ if.then52:                                        ; preds = %if.then50
   %OS.i85 = getelementptr inbounds nuw i8, ptr %errs53, i64 40
   store ptr %errorMessage, ptr %OS.i85, align 8
   %call54 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %errs53, ptr noundef nonnull @.str.8)
-  %15 = load i32, ptr %fileLength, align 1
-  %conv.i86 = zext i32 %15 to i64
+  %16 = load i32, ptr %fileLength, align 1
+  %conv.i86 = zext i32 %16 to i64
   %call.i87 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %call54, i64 noundef %conv.i86) #19
   %call57 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call.i87, ptr noundef nonnull @.str.1)
   %call59 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %call57, i64 noundef %aref.coerce1) #19

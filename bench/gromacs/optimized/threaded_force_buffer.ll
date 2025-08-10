@@ -613,53 +613,54 @@ define weak_odr void @_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE24resizeBu
 
 _ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
   %23 = and i32 %4, -32
-  %24 = icmp eq i32 %23, %1
-  %25 = zext i1 %24 to i32
-  %spec.select = or disjoint i32 %23, %25
-  %26 = sext i32 %spec.select to i64
-  %27 = mul nsw i64 %26, 3
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !54
-  %30 = load ptr, ptr %0, align 8, !tbaa !49
-  %31 = ptrtoint ptr %29 to i64
+  %24 = and i32 %1, 31
+  %25 = icmp eq i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %spec.select = or disjoint i32 %23, %26
+  %27 = sext i32 %spec.select to i64
+  %28 = mul nsw i64 %27, 3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %31 = load ptr, ptr %0, align 8, !tbaa !49
   %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 2
-  %35 = icmp ugt i64 %27, %34
-  br i1 %35, label %36, label %38
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 2
+  %36 = icmp ugt i64 %28, %35
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %37 = sub nuw nsw i64 %27, %34
-  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %37)
+37:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
+  %38 = sub nuw nsw i64 %28, %35
+  tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %38)
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-38:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
-  %39 = icmp ult i64 %27, %34
-  br i1 %39, label %40, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+39:                                               ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EE6resizeEm.exit
+  %40 = icmp ult i64 %28, %35
+  br i1 %40, label %41, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw float, ptr %30, i64 %27
-  %.not.i.i12 = icmp eq ptr %29, %41
-  br i1 %.not.i.i12, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %42
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw float, ptr %31, i64 %28
+  %.not.i.i12 = icmp eq ptr %30, %42
+  br i1 %.not.i.i12, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %43
 
-42:                                               ; preds = %40
-  store ptr %41, ptr %28, align 8, !tbaa !54
+43:                                               ; preds = %41
+  store ptr %42, ptr %29, align 8, !tbaa !54
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %36, %38, %40, %42
-  %43 = load ptr, ptr %6, align 8, !tbaa !55
-  %44 = load ptr, ptr %8, align 8, !tbaa !55
-  %.not16 = icmp eq ptr %43, %44
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %37, %39, %41, %43
+  %44 = load ptr, ptr %6, align 8, !tbaa !55
+  %45 = load ptr, ptr %8, align 8, !tbaa !55
+  %.not16 = icmp eq ptr %44, %45
   br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %43 to i64
-  %47 = add i64 %45, -16
-  %48 = sub i64 %47, %46
-  %49 = and i64 %48, -16
-  %50 = add i64 %49, 16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %50, i1 false), !tbaa !56
+  %46 = ptrtoint ptr %45 to i64
+  %47 = ptrtoint ptr %44 to i64
+  %48 = add i64 %46, -16
+  %49 = sub i64 %48, %47
+  %50 = and i64 %49, -16
+  %51 = add i64 %50, 16
+  tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %51, i1 false), !tbaa !56
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit

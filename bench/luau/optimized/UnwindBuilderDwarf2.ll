@@ -85,15 +85,17 @@ _ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %17, %16
   %20 = ptrtoint ptr %storemerge to i64
   %21 = ptrtoint ptr %3 to i64
   %22 = sub i64 %20, %21
-  %23 = add i64 %22, 7
-  %24 = and i64 %23, -8
-  %.not.i13 = icmp eq i64 %24, %22
+  %23 = and i64 %22, 7
+  %.not.i13 = icmp eq i64 %23, 0
   br i1 %.not.i13, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZL27defineSavedRegisterLocationPhij.exit
-  %25 = sub i64 %24, %22
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %storemerge, i8 0, i64 %25, i1 false), !tbaa !18
-  %scevgep.i = getelementptr i8, ptr %storemerge, i64 %25
+  %24 = add i64 %22, 7
+  %25 = and i64 %24, -8
+  %26 = sub i64 %25, %22
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storemerge, i8 0, i64 %umax.i, i1 false), !tbaa !18
+  %scevgep.i = getelementptr i8, ptr %storemerge, i64 %umax.i
   %.pre = ptrtoint ptr %scevgep.i to i64
   %.pre14 = sub i64 %.pre, %21
   br label %_ZL13alignPositionPhS_.exit
@@ -102,9 +104,9 @@ _ZL13alignPositionPhS_.exit:                      ; preds = %_ZL27defineSavedReg
   %.pre-phi15 = phi i64 [ %22, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %.pre14, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %storemerge, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %2, align 8, !tbaa !17
-  %26 = trunc i64 %.pre-phi15 to i32
-  %27 = add i32 %26, -4
-  store i32 %27, ptr %3, align 1
+  %27 = trunc i64 %.pre-phi15 to i32
+  %28 = add i32 %27, -4
+  store i32 %28, ptr %3, align 1
   ret void
 }
 
@@ -223,15 +225,17 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
-  %15 = add i64 %14, 7
-  %16 = and i64 %15, -8
-  %.not.i = icmp eq i64 %16, %14
+  %15 = and i64 %14, 7
+  %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %17 = sub i64 %16, %14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %17, i1 false), !tbaa !18
-  %scevgep.i = getelementptr i8, ptr %11, i64 %17
+  %16 = add i64 %14, 7
+  %17 = and i64 %16, -8
+  %18 = sub i64 %17, %14
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 0, i64 %umax.i, i1 false), !tbaa !18
+  %scevgep.i = getelementptr i8, ptr %11, i64 %umax.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !26
   %.pre2 = ptrtoint ptr %scevgep.i to i64
   %.pre3 = ptrtoint ptr %.pre to i64
@@ -240,12 +244,12 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(
 
 _ZL13alignPositionPhS_.exit:                      ; preds = %3, %.lr.ph.preheader.i
   %.pre-phi6 = phi i64 [ %14, %3 ], [ %.pre5, %.lr.ph.preheader.i ]
-  %18 = phi ptr [ %9, %3 ], [ %.pre, %.lr.ph.preheader.i ]
+  %19 = phi ptr [ %9, %3 ], [ %.pre, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %11, %3 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %10, align 8, !tbaa !17
-  %19 = trunc i64 %.pre-phi6 to i32
-  %20 = add i32 %19, -4
-  store i32 %20, ptr %18, align 1
+  %20 = trunc i64 %.pre-phi6 to i32
+  %21 = add i32 %20, -4
+  store i32 %21, ptr %19, align 1
   ret void
 }
 

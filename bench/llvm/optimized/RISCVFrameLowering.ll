@@ -410,19 +410,20 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   %50 = zext nneg i8 %.sroa.0.0.copyload.i21 to i64
   %51 = shl nuw i64 1, %50
   %52 = add i64 %51, -1
-  %53 = add i64 %52, %48
-  %54 = sub i64 0, %51
-  %55 = and i64 %53, %54
-  %.not20 = icmp eq i64 %55, %48
-  br i1 %.not20, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %56
+  %53 = and i64 %48, %52
+  %.not20 = icmp eq i64 %53, 0
+  br i1 %.not20, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %54
 
-56:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
-  %57 = sub i64 %55, %48
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 %57, ptr %58, align 8, !tbaa !295
+54:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
+  %55 = add i64 %52, %48
+  %56 = sub i64 0, %51
+  %57 = and i64 %55, %56
+  %58 = sub i64 %57, %48
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %58, ptr %59, align 8, !tbaa !295
   br label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
 
-_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread: ; preds = %31, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread, %56, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, %2
+_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread: ; preds = %31, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread, %54, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, %2
   ret void
 }
 

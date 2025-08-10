@@ -1199,7 +1199,7 @@ define internal fastcc void @_ZN5folly12_GLOBAL__N_113HugePageArena9map_pagesEmm
   %5 = add nsw i64 %4, 2097152
   %6 = tail call ptr @mmap(ptr noundef null, i64 noundef %5, i32 noundef 0, i32 noundef 34, i32 noundef -1, i64 noundef 0) #22
   %7 = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %25, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
   %9 = ptrtoint ptr %6 to i64
@@ -1207,36 +1207,37 @@ define internal fastcc void @_ZN5folly12_GLOBAL__N_113HugePageArena9map_pagesEmm
   %11 = and i64 %10, -2097152
   %12 = sub i64 %11, %9
   %13 = sub i64 2097152, %12
-  %.not = icmp eq i64 %11, %9
-  br i1 %.not, label %16, label %14
+  %14 = and i64 %9, 2097151
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %17, label %15
 
-14:                                               ; preds = %8
-  %15 = tail call i32 @munmap(ptr noundef %6, i64 noundef %12) #22
-  br label %16
+15:                                               ; preds = %8
+  %16 = tail call i32 @munmap(ptr noundef %6, i64 noundef %12) #22
+  br label %17
 
-16:                                               ; preds = %14, %8
+17:                                               ; preds = %15, %8
   %.not21 = icmp eq i64 %12, 2097152
   %.pre = add i64 %11, %4
-  br i1 %.not21, label %._crit_edge, label %17
+  br i1 %.not21, label %._crit_edge, label %18
 
-17:                                               ; preds = %16
-  %18 = inttoptr i64 %.pre to ptr
-  %19 = tail call i32 @munmap(ptr noundef %18, i64 noundef %13) #22
+18:                                               ; preds = %17
+  %19 = inttoptr i64 %.pre to ptr
+  %20 = tail call i32 @munmap(ptr noundef %19, i64 noundef %13) #22
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %16, %17
+._crit_edge:                                      ; preds = %17, %18
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !88
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 16), align 8, !tbaa !86
   store i64 %11, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !76
   store i64 %.pre, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !87
-  %20 = inttoptr i64 %11 to ptr
-  %21 = tail call i32 @madvise(ptr noundef %20, i64 noundef %4, i32 noundef 16) #22
-  %22 = load i64, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !76
-  %23 = add i64 %22, %3
-  %24 = tail call fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_113HugePageArena16setup_next_pagesEm(i64 noundef %23)
-  br label %25
+  %21 = inttoptr i64 %11 to ptr
+  %22 = tail call i32 @madvise(ptr noundef %21, i64 noundef %4, i32 noundef 16) #22
+  %23 = load i64, ptr @_ZN5folly12_GLOBAL__N_15arenaE, align 8, !tbaa !76
+  %24 = add i64 %23, %3
+  %25 = tail call fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_113HugePageArena16setup_next_pagesEm(i64 noundef %24)
+  br label %26
 
-25:                                               ; preds = %2, %._crit_edge
+26:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -1391,52 +1392,53 @@ define internal fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_113HugePageAren
   %3 = add i64 %0, 2097151
   %4 = and i64 %3, -2097152
   %5 = sub i64 %4, %2
-  %6 = icmp eq i64 %4, %2
-  br i1 %6, label %23, label %7
+  %6 = and i64 %2, 2097151
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %24, label %8
 
-7:                                                ; preds = %1
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !87
-  %9 = icmp ugt i64 %4, %8
-  br i1 %9, label %23, label %10
+8:                                                ; preds = %1
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 8), align 8, !tbaa !87
+  %10 = icmp ugt i64 %4, %9
+  br i1 %10, label %24, label %11
 
-10:                                               ; preds = %7
-  %11 = inttoptr i64 %2 to ptr
-  %12 = tail call i32 @madvise(ptr noundef %11, i64 noundef %5, i32 noundef 14) #22
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %23
+11:                                               ; preds = %8
+  %12 = inttoptr i64 %2 to ptr
+  %13 = tail call i32 @madvise(ptr noundef %12, i64 noundef %5, i32 noundef 14) #22
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %14, label %24
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @mprotect(ptr noundef %11, i64 noundef %5, i32 noundef 3) #22
-  %.not24 = icmp eq i32 %14, 0
-  br i1 %.not24, label %15, label %23
+14:                                               ; preds = %11
+  %15 = tail call i32 @mprotect(ptr noundef %12, i64 noundef %5, i32 noundef 3) #22
+  %.not24 = icmp eq i32 %15, 0
+  br i1 %.not24, label %16, label %24
 
-15:                                               ; preds = %13
-  %16 = tail call i32 @madvise(ptr noundef %11, i64 noundef %5, i32 noundef 17) #22
-  %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %18, label %17
+16:                                               ; preds = %14
+  %17 = tail call i32 @madvise(ptr noundef %12, i64 noundef %5, i32 noundef 17) #22
+  %.not25 = icmp eq i32 %17, 0
+  br i1 %.not25, label %19, label %18
 
-17:                                               ; preds = %15
-  tail call fastcc void @_ZN5folly12_GLOBAL__N_111print_errorEiPKc(i32 noundef %16, ptr noundef nonnull @.str.21)
-  br label %18
+18:                                               ; preds = %16
+  tail call fastcc void @_ZN5folly12_GLOBAL__N_111print_errorEiPKc(i32 noundef %17, ptr noundef nonnull @.str.21)
+  br label %19
 
-18:                                               ; preds = %17, %15
-  %19 = icmp ult i64 %2, %4
-  br i1 %19, label %.lr.ph, label %._crit_edge
+19:                                               ; preds = %18, %16
+  %20 = icmp ult i64 %2, %4
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %18
+._crit_edge:                                      ; preds = %.lr.ph, %19
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly12_GLOBAL__N_15arenaE, i64 24), align 8, !tbaa !88
-  br label %23
+  br label %24
 
-.lr.ph:                                           ; preds = %18, %.lr.ph
-  %.01 = phi i64 [ %21, %.lr.ph ], [ %2, %18 ]
-  %20 = inttoptr i64 %.01 to ptr
-  store i8 0, ptr %20, align 1
-  %21 = add nuw i64 %.01, 2097152
-  %22 = icmp ult i64 %21, %4
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !91
+.lr.ph:                                           ; preds = %19, %.lr.ph
+  %.01 = phi i64 [ %22, %.lr.ph ], [ %2, %19 ]
+  %21 = inttoptr i64 %.01 to ptr
+  store i8 0, ptr %21, align 1
+  %22 = add nuw i64 %.01, 2097152
+  %23 = icmp ult i64 %22, %4
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
-23:                                               ; preds = %13, %10, %7, %1, %._crit_edge
-  %.020 = phi i1 [ true, %._crit_edge ], [ true, %1 ], [ false, %7 ], [ false, %10 ], [ false, %13 ]
+24:                                               ; preds = %14, %11, %8, %1, %._crit_edge
+  %.020 = phi i1 [ true, %._crit_edge ], [ true, %1 ], [ false, %8 ], [ false, %11 ], [ false, %14 ]
   ret i1 %.020
 }
 

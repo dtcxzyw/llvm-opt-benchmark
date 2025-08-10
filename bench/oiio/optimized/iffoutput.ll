@@ -3045,51 +3045,53 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09IffOutput
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %10, i64 noundef %12, i64 noundef 1)
-  %14 = add i64 %12, 3
-  %15 = and i64 %14, -4
-  %.not.i = icmp eq i64 %15, %12
-  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit, label %16
+  %14 = and i64 %12, 3
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit, label %15
 
-16:                                               ; preds = %9
-  %17 = sub i64 %15, %12
-  %18 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull @_ZZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEmE3pad, i64 noundef %17, i64 noundef 1)
-  %19 = and i1 %13, %18
-  br i1 %19, label %20, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
+15:                                               ; preds = %9
+  %16 = add i64 %12, 3
+  %17 = and i64 %16, -4
+  %18 = sub i64 %17, %12
+  %19 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull @_ZZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEmE3pad, i64 noundef %18, i64 noundef 1)
+  %20 = and i1 %13, %19
+  br i1 %20, label %21, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
 
 _ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit: ; preds = %9
-  br i1 %13, label %20, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
+  br i1 %13, label %21, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
 
-20:                                               ; preds = %16, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit
-  %21 = load i64, ptr %6, align 8, !tbaa !21
-  %22 = trunc i64 %21 to i32
+21:                                               ; preds = %15, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit
+  %22 = load i64, ptr %6, align 8, !tbaa !21
+  %23 = trunc i64 %22 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
-  store i32 %23, ptr %5, align 16, !tbaa !88
-  %24 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1)
+  %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
+  store i32 %24, ptr %5, align 16, !tbaa !88
+  %25 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %24, label %25, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
+  br i1 %25, label %26, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
 
-25:                                               ; preds = %20
-  %26 = load i64, ptr %6, align 8, !tbaa !21
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5, label %28
+26:                                               ; preds = %21
+  %27 = load i64, ptr %6, align 8, !tbaa !21
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5, label %29
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %2, align 8, !tbaa !19
-  %30 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %29, i64 noundef %26, i64 noundef 1)
-  %31 = add i64 %26, 3
-  %32 = and i64 %31, -4
-  %.not.i3 = icmp eq i64 %32, %26
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %30, i64 noundef %27, i64 noundef 1)
+  %32 = and i64 %27, 3
+  %.not.i3 = icmp eq i64 %32, 0
   br i1 %.not.i3, label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5, label %33
 
-33:                                               ; preds = %28
-  %34 = sub i64 %32, %26
-  %35 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull @_ZZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEmE3pad, i64 noundef %34, i64 noundef 1)
-  %36 = and i1 %30, %35
+33:                                               ; preds = %29
+  %34 = add i64 %27, 3
+  %35 = and i64 %34, -4
+  %36 = sub i64 %35, %27
+  %37 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull @_ZZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEmE3pad, i64 noundef %36, i64 noundef 1)
+  %38 = and i1 %31, %37
   br label %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5
 
-_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5: ; preds = %33, %28, %16, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit, %20, %25, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %20 ], [ false, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit ], [ true, %25 ], [ false, %16 ], [ %36, %33 ], [ %30, %28 ]
+_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit5: ; preds = %33, %29, %15, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit, %21, %26, %4
+  %.0 = phi i1 [ true, %4 ], [ false, %21 ], [ false, %_ZN11OpenImageIO6v3_1_09IffOutput9write_strENS0_17basic_string_viewIcSt11char_traitsIcEEEm.exit ], [ true, %26 ], [ false, %15 ], [ %38, %33 ], [ %31, %29 ]
   ret i1 %.0
 }
 

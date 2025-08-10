@@ -165,7 +165,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %18 unwind label %116
+          to label %18 unwind label %117
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -175,8 +175,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -824761590, ptr %5, align 4, !tbaa !3
   %20 = trunc i64 %2 to i32
-  %21 = add i32 %20, 3
-  %22 = and i32 %21, -4
+  %21 = add i64 %2, 3
+  %22 = and i64 %21, 4294967292
   %.not57 = icmp ult i32 %20, 4
   br i1 %.not57, label %._crit_edge.thread, label %.lr.ph
 
@@ -311,30 +311,31 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54: ; preds = %_ZStl
 106:                                              ; preds = %97, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  %.not51 = icmp eq i32 %22, %20
-  br i1 %.not51, label %115, label %107
+  %107 = and i32 %20, 3
+  %.not51 = icmp eq i32 %107, 0
+  br i1 %.not51, label %116, label %108
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %0, align 8, !tbaa !7
-  %109 = sub i32 %22, %20
-  %110 = zext i32 %109 to i64
-  %111 = load ptr, ptr %108, align 8, !tbaa !13
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull %8, i64 noundef %110)
-  br label %115
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %0, align 8, !tbaa !7
+  %110 = sub i64 %22, %2
+  %111 = and i64 %110, 4294967295
+  %112 = load ptr, ptr %109, align 8, !tbaa !13
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull %8, i64 noundef %111)
+  br label %116
 
-115:                                              ; preds = %107, %106
+116:                                              ; preds = %108, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-116:                                              ; preds = %16
-  %117 = landingpad { ptr, i32 }
+117:                                              ; preds = %16
+  %118 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #27
+  %119 = extractvalue { ptr, i32 } %118, 0
+  call void @__clang_call_terminate(ptr %119) #27
   unreachable
 }
 

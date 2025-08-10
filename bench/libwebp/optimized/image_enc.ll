@@ -326,17 +326,18 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 
 .thread:                                          ; preds = %8, %8, %8, %8, %8, %WebPIsAlphaMode.exit, %11
   %12 = phi i32 [ 54, %11 ], [ 70, %WebPIsAlphaMode.exit ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ]
-  %.not7678 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
+  %.not7780 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
   %13 = phi i32 [ 3, %11 ], [ 4, %WebPIsAlphaMode.exit ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !11
+  %.fr79 = freeze i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !16
-  %22 = mul i32 %13, %15
+  %22 = mul i32 %13, %.fr79
   %23 = add i32 %22, 3
   %24 = and i32 %23, -4
   %25 = icmp eq ptr %19, null
@@ -356,7 +357,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %33 = add nsw i32 %12, -14
   store i32 %33, ptr %32, align 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i32 %15, ptr %34, align 2
+  store i32 %.fr79, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i32 %17, ptr %35, align 2
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 26
@@ -366,7 +367,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %38 = shl nuw nsw i16 %.tr, 3
   store i16 %38, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 30
-  %40 = select i1 %.not7678, i32 0, i32 3
+  %40 = select i1 %.not7780, i32 0, i32 3
   store i32 %40, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i32 %27, ptr %41, align 2
@@ -376,7 +377,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   store i32 2400, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 46
   store i32 0, ptr %44, align 2
-  br i1 %.not7678, label %50, label %45
+  br i1 %.not7780, label %50, label %45
 
 45:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 54
@@ -402,57 +403,57 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 .lr.ph:                                           ; preds = %.preheader
   %53 = sext i32 %21 to i64
   %54 = zext i32 %22 to i64
-  %.not58 = icmp eq i32 %24, %22
-  %55 = sub i32 %24, %22
-  %56 = zext i32 %55 to i64
-  %.not58.fr = freeze i1 %.not58
-  %wide.trip.count73 = zext i32 %17 to i64
-  br i1 %.not58.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %55 = and i32 %22, 3
+  %.not58 = icmp eq i32 %55, 0
+  %56 = sub i32 %24, %22
+  %57 = zext i32 %56 to i64
+  %wide.trip.count74 = zext i32 %17 to i64
+  br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.critedge.us ], [ 0, %.lr.ph ]
-  %57 = trunc nuw i64 %indvars.iv70 to i32
-  %58 = xor i32 %57, -1
-  %59 = add i32 %17, %58
-  %60 = zext i32 %59 to i64
-  %61 = mul nsw i64 %60, %53
-  %62 = getelementptr inbounds nuw i8, ptr %19, i64 %61
-  %63 = tail call i64 @fwrite(ptr noundef nonnull %62, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
-  %.not57.us = icmp eq i64 %63, 1
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.critedge.us ], [ 0, %.lr.ph ]
+  %58 = trunc nuw i64 %indvars.iv71 to i32
+  %59 = xor i32 %58, -1
+  %60 = add i32 %17, %59
+  %61 = zext i32 %60 to i64
+  %62 = mul nsw i64 %61, %53
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 %62
+  %64 = tail call i64 @fwrite(ptr noundef nonnull %63, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
+  %.not57.us = icmp eq i64 %64, 1
   br i1 %.not57.us, label %.critedge.us, label %.loopexit
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
-  %64 = trunc nuw i64 %indvars.iv to i32
-  %65 = xor i32 %64, -1
-  %66 = add i32 %17, %65
-  %67 = zext i32 %66 to i64
-  %68 = mul nsw i64 %67, %53
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 %68
-  %70 = tail call i64 @fwrite(ptr noundef nonnull %69, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
-  %.not57 = icmp eq i64 %70, 1
-  br i1 %.not57, label %71, label %.loopexit
+  %65 = trunc nuw i64 %indvars.iv to i32
+  %66 = xor i32 %65, -1
+  %67 = add i32 %17, %66
+  %68 = zext i32 %67 to i64
+  %69 = mul nsw i64 %68, %53
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 %69
+  %71 = tail call i64 @fwrite(ptr noundef nonnull %70, i64 noundef %54, i64 noundef 1, ptr noundef nonnull %0)
+  %.not57 = icmp eq i64 %71, 1
+  br i1 %.not57, label %72, label %.loopexit
 
-71:                                               ; preds = %.lr.ph.split
+72:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
-  %72 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef %56, i64 noundef 1, ptr noundef nonnull %0)
-  %.not59 = icmp eq i64 %72, 1
+  %73 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef %57, i64 noundef 1, ptr noundef nonnull %0)
+  %.not59 = icmp eq i64 %73, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not59, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %71
+.critedge:                                        ; preds = %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count74
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.lr.ph.split, %71, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %50, %.thread, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %50 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %.lr.ph.split ], [ 0, %71 ], [ 1, %.critedge ]
+.loopexit:                                        ; preds = %.lr.ph.split, %72, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %50, %.thread, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %50 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %.lr.ph.split ], [ 0, %72 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

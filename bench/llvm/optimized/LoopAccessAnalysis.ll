@@ -6565,7 +6565,7 @@ define dso_local void @_ZN4llvm16MemoryDepChecker34getDependenceDistanceStrideAn
 
 24:                                               ; preds = %6
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 25:                                               ; preds = %6
   %26 = load i8, ptr %3, align 8, !tbaa !234
@@ -6638,7 +6638,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit90:  ; preds = %_ZNK4llvm4Type22get
 
 58:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit90
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 59:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit90
   %60 = load ptr, ptr %9, align 8, !tbaa !210
@@ -6750,7 +6750,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 .critedge:                                        ; preds = %125
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 129:                                              ; preds = %125
   %130 = call noundef ptr @_ZN4llvm15ScalarEvolution15applyLoopGuardsEPKNS_4SCEVERKNS0_10LoopGuardsE(ptr noundef nonnull align 8 dereferenceable(1344) %17, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(40) %113) #28
@@ -6760,7 +6760,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 133:                                              ; preds = %129
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 .critedge79:                                      ; preds = %129, %87, %106, %108, %110, %84
   %134 = trunc nuw i8 %.sroa.8151.0 to i1
@@ -6769,7 +6769,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 135:                                              ; preds = %.critedge79
   store i32 2, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 136:                                              ; preds = %.critedge79
   %137 = icmp ne i64 %.sroa.0153.0, 0
@@ -6779,7 +6779,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 139:                                              ; preds = %136
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 140:                                              ; preds = %136
   %141 = icmp sgt i64 %.sroa.0153.0, 0
@@ -6789,7 +6789,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 143:                                              ; preds = %140
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %165
+  br label %160
 
 _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit: ; preds = %140
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6802,36 +6802,29 @@ _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %145 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %146 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %14, ptr noundef %.0)
-  %.fca.0.extract.i = extractvalue { i64, i8 } %146, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %146, 1
-  %147 = add i64 %.fca.0.extract.i, 7
-  %148 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %14, ptr noundef %.0174)
-  %.fca.0.extract.i91 = extractvalue { i64, i8 } %148, 0
-  %.fca.1.extract.i92 = extractvalue { i64, i8 } %148, 1
-  %149 = add i64 %.fca.0.extract.i91, 7
-  %150 = xor i64 %149, %147
-  %151 = icmp ult i64 %150, 8
-  %152 = xor i8 %.fca.1.extract.i92, %.fca.1.extract.i
-  %153 = and i8 %152, 1
-  %154 = icmp eq i8 %153, 0
-  %155 = select i1 %151, i1 %154, i1 false
-  %spec.select = select i1 %155, i64 %145, i64 0
-  %156 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0153.0, i1 true)
-  %157 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0148.0, i1 true)
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %156, i64 %157)
-  %158 = icmp eq i64 %156, %157
-  %spec.select180 = zext i1 %158 to i8
-  %159 = trunc i64 %.0.copyload.i.i.i.i to i8
-  %160 = lshr i8 %159, 2
-  %161 = and i8 %160, 1
-  %162 = trunc i64 %.0.copyload.i.i.i.i81 to i8
-  %163 = lshr i8 %162, 2
-  %164 = and i8 %163, 1
+  %147 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %14, ptr noundef %.0174)
+  %.fca.1.extract.i92 = extractvalue { i64, i8 } %147, 1
+  %148 = xor i8 %.fca.1.extract.i92, %.fca.1.extract.i
+  %149 = and i8 %148, 1
+  %150 = icmp eq i8 %149, 0
+  %spec.select = select i1 %150, i64 %145, i64 0
+  %151 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0153.0, i1 true)
+  %152 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0148.0, i1 true)
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %151, i64 %152)
+  %153 = icmp eq i64 %151, %152
+  %spec.select180 = zext i1 %153 to i8
+  %154 = trunc i64 %.0.copyload.i.i.i.i to i8
+  %155 = lshr i8 %154, 2
+  %156 = and i8 %155, 1
+  %157 = trunc i64 %.0.copyload.i.i.i.i81 to i8
+  %158 = lshr i8 %157, 2
+  %159 = and i8 %158, 1
   store ptr %81, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.speculated, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %156, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %151, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %spec.select180, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6839,15 +6832,15 @@ _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %.sroa.897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %spec.select, ptr %.sroa.897.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %161, ptr %.sroa.9.0..sroa_idx, align 8
+  store i8 %156, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %164, ptr %.sroa.10.0..sroa_idx, align 1
-  br label %165
+  store i8 %159, ptr %.sroa.10.0..sroa_idx, align 1
+  br label %160
 
-165:                                              ; preds = %58, %139, %143, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit, %.critedge, %133, %135, %24
+160:                                              ; preds = %58, %139, %143, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit, %.critedge, %133, %135, %24
   %.sink = phi i8 [ 0, %58 ], [ 0, %139 ], [ 0, %143 ], [ 1, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit ], [ 0, %.critedge ], [ 0, %133 ], [ 0, %135 ], [ 0, %24 ]
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.sink, ptr %166, align 8, !tbaa !378
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.sink, ptr %161, align 8, !tbaa !378
   ret void
 }
 
