@@ -4844,7 +4844,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._crit_edge57, %._c
   ret void
 
 .lr.ph61:                                         ; preds = %._crit_edge, %._crit_edge57
-  %.sroa.035.059 = phi ptr [ %74, %._crit_edge57 ], [ %46, %._crit_edge ]
+  %.sroa.035.059 = phi ptr [ %73, %._crit_edge57 ], [ %46, %._crit_edge ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.035.059, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !284
   %57 = load ptr, ptr %40, align 8, !tbaa !295
@@ -4868,37 +4868,37 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._crit_edge57, %._c
   br i1 %.not63, label %._crit_edge57, label %.lr.ph56
 
 .lr.ph52:                                         ; preds = %.lr.ph61, %.lr.ph52
-  %65 = phi i64 [ %72, %.lr.ph52 ], [ 0, %.lr.ph61 ]
-  %.02550 = phi i32 [ %71, %.lr.ph52 ], [ 0, %.lr.ph61 ]
-  %66 = load ptr, ptr %.sroa.035.059, align 8, !tbaa !86
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
-  %68 = load i8, ptr %67, align 1, !tbaa !104
-  %69 = load ptr, ptr %40, align 8, !tbaa !295
+  %64 = phi i64 [ %71, %.lr.ph52 ], [ 0, %.lr.ph61 ]
+  %.02550 = phi i32 [ %70, %.lr.ph52 ], [ 0, %.lr.ph61 ]
+  %65 = load ptr, ptr %.sroa.035.059, align 8, !tbaa !86
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
+  %67 = load i8, ptr %66, align 1, !tbaa !104
+  %68 = load ptr, ptr %40, align 8, !tbaa !295
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i8 %68, ptr %5, align 1, !tbaa !104
-  %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull %5, i64 noundef 1) #25
+  store i8 %67, ptr %5, align 1, !tbaa !104
+  %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull %5, i64 noundef 1) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %71 = add i32 %.02550, 1
-  %72 = zext i32 %71 to i64
-  %73 = icmp ugt i64 %56, %72
-  br i1 %73, label %.lr.ph52, label %._crit_edge53, !llvm.loop !299
+  %70 = add i32 %.02550, 1
+  %71 = zext i32 %70 to i64
+  %72 = icmp ugt i64 %56, %71
+  br i1 %72, label %.lr.ph52, label %._crit_edge53, !llvm.loop !299
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %.lr.ph61, %._crit_edge53
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.035.059, i64 40
-  %.not46 = icmp eq ptr %74, %47
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.035.059, i64 40
+  %.not46 = icmp eq ptr %73, %47
   br i1 %.not46, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph61
 
 .lr.ph56:                                         ; preds = %._crit_edge53, %.lr.ph56
-  %.054 = phi i32 [ %77, %.lr.ph56 ], [ 0, %._crit_edge53 ]
-  %75 = load ptr, ptr %40, align 8, !tbaa !295
+  %.054 = phi i32 [ %76, %.lr.ph56 ], [ 0, %._crit_edge53 ]
+  %74 = load ptr, ptr %40, align 8, !tbaa !295
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !104
-  %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull %4, i64 noundef 1) #25
+  %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %4, i64 noundef 1) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %77 = add i32 %.054, 1
-  %78 = zext i32 %77 to i64
-  %79 = icmp ugt i64 %63, %78
-  br i1 %79, label %.lr.ph56, label %._crit_edge57, !llvm.loop !300
+  %76 = add i32 %.054, 1
+  %77 = zext i32 %76 to i64
+  %78 = icmp ugt i64 %63, %77
+  br i1 %78, label %.lr.ph56, label %._crit_edge57, !llvm.loop !300
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

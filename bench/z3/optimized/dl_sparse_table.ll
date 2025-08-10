@@ -1174,21 +1174,21 @@ _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %2
   %9 = getelementptr inbounds i8, ptr %6, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !59
   %11 = sub i32 %10, %5
-  %.not57 = icmp eq i32 %10, 0
-  br i1 %.not57, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit, label %.lr.ph.preheader
+  %.not56 = icmp eq i32 %10, 0
+  br i1 %.not56, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
   %12 = zext i32 %11 to i64
   %wide.trip.count = zext i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %._crit_edge60
-  %13 = getelementptr inbounds i8, ptr %145, i64 -4
+._crit_edge:                                      ; preds = %._crit_edge59
+  %13 = getelementptr inbounds i8, ptr %141, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !59
   br label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.thread, %_ZNK6vectorImLb0EjE4sizeEv.exit, %._crit_edge
-  %15 = phi ptr [ %145, %._crit_edge ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.thread ]
+  %15 = phi ptr [ %141, %._crit_edge ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.thread ]
   %16 = phi i32 [ %11, %._crit_edge ], [ %11, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %8, %_ZNK6vectorImLb0EjE4sizeEv.exit.thread ]
   %.0.i27 = phi i32 [ %14, %._crit_edge ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorImLb0EjE4sizeEv.exit.thread ]
   %17 = add i32 %.0.i27, -1
@@ -1201,9 +1201,9 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit: ; preds = %
   %24 = add i32 %23, %21
   %25 = and i32 %24, 7
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %.loopexit, label %26
+  br i1 %.not.i, label %.loopexit, label %24
 
-26:                                               ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit
+.lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit
   %.biased.i = add i32 %24, 7
   %27 = and i32 %.biased.i, -8
   %28 = sub i32 %27, %24
@@ -1221,88 +1221,88 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit: ; preds = %
   %34 = icmp ult i32 %33, 64
   br i1 %34, label %35, label %39
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = sub nuw nsw i32 64, %33
+.lr.ph.i:                                         ; preds = %.lr.ph.i
+  %36 = sub nuw nsw i32 62, %33
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %.03537.i, i32 %36)
   %37 = sub i32 %.03537.i, %.sroa.speculated.i
   %38 = add nsw i32 %.sroa.speculated.i, %33
   br label %39
 
-39:                                               ; preds = %35, %.lr.ph.i
-  %.1.i = phi i32 [ %37, %35 ], [ %.03537.i, %.lr.ph.i ]
-  %.023.i = phi i32 [ %38, %35 ], [ %33, %.lr.ph.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !60
-  %42 = add i32 %41, %.1.i
-  %43 = lshr i32 %42, 3
-  %44 = and i32 %42, 7
-  %45 = icmp eq i32 %.023.i, 64
-  %46 = zext nneg i32 %.023.i to i64
-  %notmask.i.i = shl nsw i64 -1, %46
-  %47 = xor i64 %notmask.i.i, -1
-  %48 = select i1 %45, i64 -1, i64 %47
-  %49 = zext nneg i32 %44 to i64
-  %50 = shl i64 %48, %49
-  %51 = xor i64 %50, -1
-  store i32 %43, ptr %31, align 8, !tbaa !59
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %44, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !59
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %48, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %51, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !8
-  store i32 %42, ptr %40, align 8, !tbaa !59
-  store i32 %.023.i, ptr %32, align 4, !tbaa !59
+37:                                               ; preds = %33, %.lr.ph.i
+  %.1.i = phi i32 [ %35, %33 ], [ %.03537.i, %.lr.ph.i ]
+  %.023.i = phi i32 [ %36, %33 ], [ %31, %.lr.ph.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !60
+  %40 = add i32 %39, %.1.i
+  %41 = lshr i32 %40, 3
+  %42 = and i32 %40, 7
+  %43 = icmp eq i32 %.023.i, 64
+  %44 = zext nneg i32 %.023.i to i64
+  %notmask.i.i = shl nsw i64 -1, %44
+  %45 = xor i64 %notmask.i.i, -1
+  %46 = select i1 %43, i64 -1, i64 %45
+  %47 = zext nneg i32 %42 to i64
+  %48 = shl i64 %46, %47
+  %49 = xor i64 %48, -1
+  store i32 %41, ptr %29, align 8, !tbaa !59
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 %42, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !59
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i64 %46, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i64 %49, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !8
+  store i32 %40, ptr %38, align 8, !tbaa !59
+  store i32 %.023.i, ptr %30, align 4, !tbaa !59
   %.not28.i = icmp eq i32 %.1.i, 0
   br i1 %.not28.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !63
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge60
-  %52 = phi ptr [ null, %.lr.ph.preheader ], [ %145, %._crit_edge60 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge59
+  %50 = phi ptr [ null, %.lr.ph.preheader ], [ %141, %._crit_edge60 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge60 ]
-  %.02255 = phi i32 [ 0, %.lr.ph.preheader ], [ %150, %._crit_edge60 ]
-  %53 = load ptr, ptr %1, align 8, !tbaa !58
-  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv
-  %55 = load i64, ptr %54, align 8, !tbaa !8
-  %56 = icmp ugt i64 %55, 4294967295
-  br i1 %56, label %57, label %64
+  %.02254 = phi i32 [ 0, %.lr.ph.preheader ], [ %146, %._crit_edge60 ]
+  %51 = load ptr, ptr %1, align 8, !tbaa !58
+  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
+  %53 = load i64, ptr %52, align 8, !tbaa !8
+  %54 = icmp ugt i64 %53, 4294967295
+  br i1 %54, label %55, label %62
 
-57:                                               ; preds = %.lr.ph
-  %58 = lshr i64 %55, 32
-  %59 = trunc nuw i64 %58 to i32
-  %60 = and i64 %55, 4294967295
-  %61 = icmp ne i64 %60, 0
-  %62 = icmp ne i64 %58, 4294967295
-  %or.cond.i = and i1 %61, %62
-  %63 = add nuw i32 %59, 1
-  br i1 %or.cond.i, label %.thread.i, label %66
+55:                                               ; preds = %.lr.ph
+  %56 = lshr i64 %53, 32
+  %57 = trunc nuw i64 %56 to i32
+  %58 = and i64 %53, 4294967295
+  %59 = icmp ne i64 %58, 0
+  %60 = icmp ne i64 %56, 4294967295
+  %or.cond.i = and i1 %59, %60
+  %61 = add nuw i32 %57, 1
+  br i1 %or.cond.i, label %.thread.i, label %64
 
-64:                                               ; preds = %.lr.ph
-  %65 = trunc nuw i64 %55 to i32
-  br label %66
+62:                                               ; preds = %.lr.ph
+  %63 = trunc nuw i64 %53 to i32
+  br label %64
 
-66:                                               ; preds = %64, %57
+64:                                               ; preds = %62, %55
   %.015.i = phi i32 [ 0, %64 ], [ 32, %57 ]
-  %.0.i28 = phi i32 [ %65, %64 ], [ %59, %57 ]
-  %67 = icmp eq i32 %.0.i28, 1
-  br i1 %67, label %68, label %.thread.i
+  %.0.i28 = phi i32 [ %63, %64 ], [ %57, %57 ]
+  %65 = icmp eq i32 %.0.i28, 1
+  br i1 %65, label %66, label %.thread.i
 
-68:                                               ; preds = %66
-  %69 = or disjoint i32 %.015.i, 1
+66:                                               ; preds = %64
+  %67 = or disjoint i32 %.015.i, 1
   br label %_ZN7datalog17get_domain_lengthEm.exit
 
-.thread.i:                                        ; preds = %66, %57
-  %.022.i = phi i32 [ %.0.i28, %66 ], [ %63, %57 ]
+.thread.i:                                        ; preds = %64, %55
+  %.022.i = phi i32 [ %.0.i28, %66 ], [ %61, %57 ]
   %.01521.i = phi i32 [ %.015.i, %66 ], [ 32, %57 ]
-  %70 = icmp ugt i32 %.022.i, -2147483648
-  br i1 %70, label %71, label %73
+  %68 = icmp ugt i32 %.022.i, -2147483648
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %.thread.i
+  %70 = add nuw nsw i32 %.01521.i, 32
+  br label %_ZN7datalog17get_domain_lengthEm.exit
 
 71:                                               ; preds = %.thread.i
-  %72 = add nuw nsw i32 %.01521.i, 32
-  br label %_ZN7datalog17get_domain_lengthEm.exit
-
-73:                                               ; preds = %.thread.i
-  %74 = add i32 %.022.i, -1
-  %75 = lshr i32 %74, 1
+  %72 = add i32 %.022.i, -1
+  %73 = lshr i32 %72, 1
   %76 = or i32 %75, %74
   %77 = lshr i32 %76, 2
   %78 = or i32 %77, %76
@@ -1316,40 +1316,40 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit: ; preds = %
   %86 = add nuw nsw i32 %85, %.01521.i
   br label %_ZN7datalog17get_domain_lengthEm.exit
 
-_ZN7datalog17get_domain_lengthEm.exit:            ; preds = %73, %71, %68
-  %.1.i29 = phi i32 [ %69, %68 ], [ %72, %71 ], [ %86, %73 ]
-  %87 = icmp eq ptr %52, null
-  br i1 %87, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
+_ZN7datalog17get_domain_lengthEm.exit:            ; preds = %71, %69, %66
+  %.1.i29 = phi i32 [ %67, %68 ], [ %70, %71 ], [ %86, %73 ]
+  %85 = icmp eq ptr %50, null
+  br i1 %85, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
 
 _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31: ; preds = %_ZN7datalog17get_domain_lengthEm.exit
-  %88 = getelementptr inbounds i8, ptr %52, i64 -4
-  %89 = load i32, ptr %88, align 4, !tbaa !59
-  %.not24 = icmp eq i32 %89, 0
-  br i1 %.not24, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %90
+  %86 = getelementptr inbounds i8, ptr %50, i64 -4
+  %87 = load i32, ptr %86, align 4, !tbaa !59
+  %.not24 = icmp eq i32 %87, 0
+  br i1 %.not24, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %88
 
-90:                                               ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
-  %91 = icmp samesign ugt i32 %.1.i29, 54
-  %92 = icmp eq i64 %indvars.iv, %12
-  %or.cond = select i1 %91, i1 true, i1 %92
+88:                                               ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
+  %89 = icmp samesign ugt i32 %.1.i29, 54
+  %90 = icmp eq i64 %indvars.iv, %12
+  %or.cond = select i1 %89, i1 true, i1 %90
   br i1 %or.cond, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
 
-_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33: ; preds = %90
-  %93 = add i32 %89, -1
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %52, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %97 = load i32, ptr %96, align 8, !tbaa !60
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 28
-  %99 = load i32, ptr %98, align 4, !tbaa !62
-  %100 = add i32 %99, %97
-  %101 = and i32 %100, 7
+_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33: ; preds = %88
+  %91 = add i32 %87, -1
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %50, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %95 = load i32, ptr %94, align 8, !tbaa !60
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 28
+  %97 = load i32, ptr %96, align 4, !tbaa !62
+  %98 = add i32 %97, %95
+  %101 = and i32 %98, 7
   %.not.i34 = icmp eq i32 %101, 0
   br i1 %.not.i34, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %102
 
 102:                                              ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33
-  %.biased.i35 = add i32 %100, 7
+  %.biased.i35 = add i32 %98, 7
   %103 = and i32 %.biased.i35, -8
-  %104 = sub i32 %103, %100
+  %104 = sub i32 %103, %98
   %.not2836.i36 = icmp eq i32 %104, 0
   br i1 %.not2836.i36, label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread, label %.lr.ph.i38
 
@@ -1371,19 +1371,19 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33: ; preds =
   %114 = add nsw i32 %.sroa.speculated.i48, %109
   br label %115
 
-115:                                              ; preds = %111, %.lr.ph.i38
-  %.1.i41 = phi i32 [ %113, %111 ], [ %.03537.i40, %.lr.ph.i38 ]
-  %.023.i42 = phi i32 [ %114, %111 ], [ %109, %.lr.ph.i38 ]
+.lr.ph.i37:                                       ; preds = %111, %.lr.ph.i38
+  %.038.i38 = phi i32 [ %113, %111 ], [ %.03537.i40, %.lr.ph.i38 ]
+  %.03537.i39 = phi i32 [ %114, %111 ], [ %109, %.lr.ph.i38 ]
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %117 = load i32, ptr %116, align 8, !tbaa !60
   %118 = add i32 %117, %.1.i41
   %119 = lshr i32 %118, 3
   %120 = and i32 %118, 7
-  %121 = icmp eq i32 %.023.i42, 64
-  %122 = zext nneg i32 %.023.i42 to i64
+  %106 = icmp eq i32 %.03537.i39, 64
+  %122 = zext nneg i32 %.03537.i39 to i64
   %notmask.i.i43 = shl nsw i64 -1, %122
   %123 = xor i64 %notmask.i.i43, -1
-  %124 = select i1 %121, i64 -1, i64 %123
+  %124 = select i1 %106, i64 -1, i64 %123
   %125 = zext nneg i32 %120 to i64
   %126 = shl i64 %124, %125
   %127 = xor i64 %126, -1
@@ -1392,111 +1392,111 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33: ; preds =
   store i32 %120, ptr %.sroa.4.0..sroa_idx.i44, align 4, !tbaa !59
   %.sroa.5.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 %124, ptr %.sroa.5.0..sroa_idx.i45, align 8, !tbaa !8
-  %.sroa.6.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store i64 %127, ptr %.sroa.6.0..sroa_idx.i46, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  store i64 %127, ptr %112, align 8, !tbaa !8
   store i32 %118, ptr %116, align 8, !tbaa !59
   store i32 %.023.i42, ptr %108, align 4, !tbaa !59
   %.not28.i47 = icmp eq i32 %.1.i41, 0
   br i1 %.not28.i47, label %.loopexit54.loopexit, label %.lr.ph.i38, !llvm.loop !63
 
-.loopexit54.loopexit:                             ; preds = %115
+.loopexit54.loopexit:; preds = %115
   %.pre = load i32, ptr %96, align 8, !tbaa !60
   %.pre59 = load i32, ptr %98, align 4, !tbaa !62
   %.pre62 = add i32 %.pre59, %.pre
   br label %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
 
-_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread: ; preds = %102, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33, %.loopexit54.loopexit, %_ZN7datalog17get_domain_lengthEm.exit, %90, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
-  %.123 = phi i32 [ %.02255, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31 ], [ %.02255, %90 ], [ %.02255, %_ZN7datalog17get_domain_lengthEm.exit ], [ %.pre62, %.loopexit54.loopexit ], [ %100, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33 ], [ %100, %102 ]
-  %128 = lshr i32 %.123, 3
-  %129 = and i32 %.123, 7
-  %130 = icmp eq i32 %.1.i29, 64
-  %131 = zext nneg i32 %.1.i29 to i64
-  %notmask.i = shl nsw i64 -1, %131
-  %132 = xor i64 %notmask.i, -1
-  %133 = select i1 %130, i64 -1, i64 %132
-  %134 = zext nneg i32 %129 to i64
-  %135 = shl i64 %133, %134
-  %136 = xor i64 %135, -1
-  br i1 %87, label %143, label %137
+_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread: ; preds = %102, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33, %.loopexit54.loopexit, %_ZN7datalog17get_domain_lengthEm.exit, %88, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31
+  %.123 = phi i32 [ %.02254, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31 ], [ %.02254, %90 ], [ %.02254, %_ZN7datalog17get_domain_lengthEm.exit ], [ %.pre62, %.loopexit54.loopexit ], [ %98, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit33 ], [ %98, %102 ]
+  %124 = lshr i32 %.123, 3
+  %125 = and i32 %.123, 7
+  %126 = icmp eq i32 %.1.i29, 64
+  %127 = zext nneg i32 %.1.i29 to i64
+  %notmask.i = shl nsw i64 -1, %127
+  %128 = xor i64 %notmask.i, -1
+  %129 = select i1 %126, i64 -1, i64 %128
+  %130 = zext nneg i32 %125 to i64
+  %131 = shl i64 %129, %130
+  %132 = xor i64 %131, -1
+  br i1 %85, label %139, label %133
 
-137:                                              ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
-  %138 = getelementptr inbounds i8, ptr %52, i64 -4
-  %139 = load i32, ptr %138, align 4, !tbaa !59
-  %140 = getelementptr inbounds i8, ptr %52, i64 -8
-  %141 = load i32, ptr %140, align 4, !tbaa !59
-  %142 = icmp eq i32 %139, %141
-  br i1 %142, label %143, label %._crit_edge60
+133:                                              ; preds = %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
+  %134 = getelementptr inbounds i8, ptr %50, i64 -4
+  %135 = load i32, ptr %134, align 4, !tbaa !59
+  %136 = getelementptr inbounds i8, ptr %50, i64 -8
+  %137 = load i32, ptr %136, align 4, !tbaa !59
+  %138 = icmp eq i32 %135, %137
+  br i1 %138, label %139, label %._crit_edge59
 
-143:                                              ; preds = %137, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
+139:                                              ; preds = %133, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread
   invoke void @_ZN6vectorIN7datalog12sparse_table11column_infoELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.noexc unwind label %151
+          to label %.noexc unwind label %147
 
-.noexc:                                           ; preds = %143
+.noexc:                                           ; preds = %139
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !46
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !59
-  br label %._crit_edge60
+  br label %._crit_edge59
 
-._crit_edge60:                                    ; preds = %137, %.noexc
-  %144 = phi i32 [ %.pre2.i, %.noexc ], [ %139, %137 ]
-  %145 = phi ptr [ %.pre.i, %.noexc ], [ %52, %137 ]
-  %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %145, i64 %146
-  store i32 %128, ptr %147, align 8, !tbaa !59
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 4
-  store i32 %129, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !59
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i64 %133, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 16
-  store i64 %136, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 24
+._crit_edge59:                                    ; preds = %133, %.noexc
+  %140 = phi i32 [ %.pre2.i, %.noexc ], [ %135, %137 ]
+  %141 = phi ptr [ %.pre.i, %.noexc ], [ %50, %137 ]
+  %142 = zext i32 %140 to i64
+  %143 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %141, i64 %142
+  store i32 %124, ptr %143, align 8, !tbaa !59
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 4
+  store i32 %125, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !59
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store i64 %129, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 16
+  store i64 %132, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i32 %.123, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !59
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 28
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 28
   store i32 %.1.i29, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !59
-  %148 = getelementptr inbounds i8, ptr %145, i64 -4
-  %149 = add i32 %144, 1
-  store i32 %149, ptr %148, align 4, !tbaa !59
-  %150 = add i32 %.123, %.1.i29
+  %144 = getelementptr inbounds i8, ptr %141, i64 -4
+  %145 = add i32 %140, 1
+  store i32 %145, ptr %144, align 4, !tbaa !59
+  %146 = add i32 %.123, %.1.i29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
-151:                                              ; preds = %143
-  %152 = landingpad { ptr, i32 }
+147:                                              ; preds = %139
+  %148 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6vectorIN7datalog12sparse_table11column_infoELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
-  resume { ptr, i32 } %152
+  resume { ptr, i32 } %148
 
-.loopexit:                                        ; preds = %39, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit, %26
-  %153 = getelementptr inbounds i8, ptr %15, i64 -4
-  %154 = load i32, ptr %153, align 4, !tbaa !59
-  %155 = add i32 %154, -1
-  %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %156
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  %159 = load i32, ptr %158, align 8, !tbaa !60
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 28
-  %161 = load i32, ptr %160, align 4, !tbaa !62
-  %162 = add i32 %161, %159
-  %163 = lshr i32 %162, 3
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %163, ptr %164, align 8, !tbaa !65
-  %165 = load i32, ptr %3, align 8, !tbaa !55
-  %.not = icmp eq i32 %165, 0
-  br i1 %.not, label %172, label %166
+.loopexit:                                        ; preds = %37, %_ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit, %26
+  %149 = getelementptr inbounds i8, ptr %15, i64 -4
+  %150 = load i32, ptr %149, align 4, !tbaa !59
+  %151 = add i32 %150, -1
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %155 = load i32, ptr %154, align 8, !tbaa !60
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 28
+  %157 = load i32, ptr %156, align 4, !tbaa !62
+  %158 = add i32 %157, %155
+  %159 = lshr i32 %158, 3
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %159, ptr %160, align 8, !tbaa !65
+  %161 = load i32, ptr %3, align 8, !tbaa !55
+  %.not = icmp eq i32 %161, 0
+  br i1 %.not, label %168, label %162
 
-166:                                              ; preds = %.loopexit
-  %167 = zext i32 %16 to i64
-  %168 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %167, i32 4
-  %169 = load i32, ptr %168, align 8, !tbaa !60
-  %170 = lshr i32 %169, 3
-  %171 = sub nsw i32 %163, %170
-  br label %172
+162:                                              ; preds = %.loopexit
+  %163 = zext i32 %16 to i64
+  %164 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %163, i32 4
+  %165 = load i32, ptr %164, align 8, !tbaa !60
+  %166 = lshr i32 %165, 3
+  %167 = sub nsw i32 %159, %166
+  br label %168
 
-172:                                              ; preds = %.loopexit, %166
-  %.sink = phi i32 [ %171, %166 ], [ 0, %.loopexit ]
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %173, align 4, !tbaa !66
+168:                                              ; preds = %.loopexit, %162
+  %.sink = phi i32 [ %167, %166 ], [ 0, %.loopexit ]
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sink, ptr %169, align 4, !tbaa !66
   ret void
 }
 
@@ -1518,62 +1518,62 @@ define hidden void @_ZN7datalog12sparse_table13column_layout21make_byte_aligned_
 
 12:                                               ; preds = %2
   %.biased = add i32 %10, 7
-  %13 = and i32 %.biased, -8
-  %14 = sub i32 %13, %10
+  %11 = and i32 %.biased, -8
+  %14 = sub i32 %11, %10
   %.not2836 = icmp eq i32 %14, 0
   br i1 %.not2836, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
-  %15 = add i32 %1, 1
+  %12 = add i32 %1, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.038 = phi i32 [ %16, %26 ], [ %15, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %.038 = phi i32 [ %14, %26 ], [ %12, %.lr.ph.preheader ]
   %.03537 = phi i32 [ %.1, %26 ], [ %14, %.lr.ph.preheader ]
-  %16 = add i32 %.038, -1
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %3, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !62
-  %21 = icmp ult i32 %20, 64
-  br i1 %21, label %22, label %26
+  %14 = add i32 %.038, -1
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %3, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %18 = load i32, ptr %17, align 4, !tbaa !62
+  %19 = icmp ult i32 %18, 64
+  br i1 %19, label %20, label %24
 
-22:                                               ; preds = %.lr.ph
-  %23 = sub nuw nsw i32 64, %20
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.03537, i32 %23)
-  %24 = sub i32 %.03537, %.sroa.speculated
-  %25 = add nsw i32 %.sroa.speculated, %20
-  br label %26
+20:                                               ; preds = %.lr.ph
+  %21 = sub nuw nsw i32 64, %18
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.03537, i32 %21)
+  %22 = sub i32 %.03537, %.sroa.speculated
+  %23 = add nsw i32 %.sroa.speculated, %18
+  br label %24
 
-26:                                               ; preds = %22, %.lr.ph
-  %.1 = phi i32 [ %24, %22 ], [ %.03537, %.lr.ph ]
-  %.023 = phi i32 [ %25, %22 ], [ %20, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %28 = load i32, ptr %27, align 8, !tbaa !60
-  %29 = add i32 %28, %.1
-  %30 = lshr i32 %29, 3
-  %31 = and i32 %29, 7
-  %32 = icmp eq i32 %.023, 64
-  %33 = zext nneg i32 %.023 to i64
-  %notmask.i = shl nsw i64 -1, %33
-  %34 = xor i64 %notmask.i, -1
-  %35 = select i1 %32, i64 -1, i64 %34
-  %36 = zext nneg i32 %31 to i64
-  %37 = shl i64 %35, %36
-  %38 = xor i64 %37, -1
-  store i32 %30, ptr %18, align 8, !tbaa !59
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %31, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %35, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %38, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !8
-  store i32 %29, ptr %27, align 8, !tbaa !59
-  store i32 %.023, ptr %19, align 4, !tbaa !59
+24:                                               ; preds = %20, %.lr.ph
+  %.1 = phi i32 [ %22, %22 ], [ %.03537, %.lr.ph ]
+  %.023 = phi i32 [ %23, %22 ], [ %18, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !60
+  %27 = add i32 %26, %.1
+  %28 = lshr i32 %27, 3
+  %29 = and i32 %27, 7
+  %30 = icmp eq i32 %.023, 64
+  %31 = zext nneg i32 %.023 to i64
+  %notmask.i = shl nsw i64 -1, %31
+  %32 = xor i64 %notmask.i, -1
+  %33 = select i1 %30, i64 -1, i64 %32
+  %34 = zext nneg i32 %29 to i64
+  %35 = shl i64 %33, %34
+  %36 = xor i64 %35, -1
+  store i32 %28, ptr %16, align 8, !tbaa !59
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 %29, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %33, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %36, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !8
+  store i32 %27, ptr %25, align 8, !tbaa !59
+  store i32 %.023, ptr %17, align 4, !tbaa !59
   %.not28 = icmp eq i32 %.1, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
-.loopexit:                                        ; preds = %26, %12, %2
+.loopexit:                                        ; preds = %24, %12, %2
   ret void
 }
 

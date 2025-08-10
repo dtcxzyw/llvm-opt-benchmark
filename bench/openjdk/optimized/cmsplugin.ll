@@ -730,20 +730,20 @@ define hidden range(i32 0, 2) i32 @_cmsReadAlignment(ptr noundef %0) local_unnam
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %19, label %11
 
-11:                                               ; preds = %1
-  %12 = icmp ugt i32 %8, 4
-  br i1 %12, label %19, label %13
+10:                                               ; preds = %1
+  %11 = icmp ugt i32 %8, 4
+  br i1 %11, label %18, label %12
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1) #12
-  %17 = icmp eq i32 %16, 1
-  %18 = zext i1 %17 to i32
-  br label %19
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1) #12
+  %16 = icmp eq i32 %15, 1
+  %17 = zext i1 %16 to i32
+  br label %18
 
-19:                                               ; preds = %11, %1, %13
-  %.0 = phi i32 [ %18, %13 ], [ 1, %1 ], [ 0, %11 ]
+18:                                               ; preds = %10, %1, %12
+  %.0 = phi i32 [ %17, %13 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -760,11 +760,11 @@ define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %18, label %11
 
-11:                                               ; preds = %1
-  %12 = icmp ugt i32 %8, 4
+11:; preds = %1
+  %11 = icmp ugt i32 %8, 4
   br i1 %12, label %18, label %13
 
-13:                                               ; preds = %11
+13:; preds = %11
   %14 = zext nneg i32 %8 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %14, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -772,8 +772,8 @@ define hidden i32 @_cmsWriteAlignment(ptr noundef %0) local_unnamed_addr #2 {
   %17 = call i32 %16(ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %2) #12
   br label %18
 
-18:                                               ; preds = %11, %1, %13
-  %.0 = phi i32 [ %17, %13 ], [ 1, %1 ], [ 0, %11 ]
+17:                                               ; preds = %10, %1, %12
+  %.0 = phi i32 [ %16, %13 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 

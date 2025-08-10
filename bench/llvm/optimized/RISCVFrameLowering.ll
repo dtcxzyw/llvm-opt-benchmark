@@ -414,7 +414,7 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread: ; pred
   %.not20 = icmp eq i64 %53, 0
   br i1 %.not20, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %54
 
-54:                                               ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
+54:  ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
   %55 = add i64 %52, %48
   %56 = sub i64 0, %51
   %57 = and i64 %55, %56

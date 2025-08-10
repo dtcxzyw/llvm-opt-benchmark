@@ -104,9 +104,9 @@ _ZL13alignPositionPhS_.exit:                      ; preds = %_ZL27defineSavedReg
   %.pre-phi15 = phi i64 [ %22, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %.pre14, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %storemerge, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %2, align 8, !tbaa !17
-  %27 = trunc i64 %.pre-phi15 to i32
-  %28 = add i32 %27, -4
-  store i32 %28, ptr %3, align 1
+  %26 = trunc i64 %.pre-phi15 to i32
+  %27 = add i32 %26, -4
+  store i32 %27, ptr %3, align 1
   ret void
 }
 
@@ -244,12 +244,12 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(
 
 _ZL13alignPositionPhS_.exit:                      ; preds = %3, %.lr.ph.preheader.i
   %.pre-phi6 = phi i64 [ %14, %3 ], [ %.pre5, %.lr.ph.preheader.i ]
-  %19 = phi ptr [ %9, %3 ], [ %.pre, %.lr.ph.preheader.i ]
+  %18 = phi ptr [ %9, %3 ], [ %.pre, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %11, %3 ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %10, align 8, !tbaa !17
-  %20 = trunc i64 %.pre-phi6 to i32
-  %21 = add i32 %20, -4
-  store i32 %21, ptr %19, align 1
+  %19 = trunc i64 %.pre-phi6 to i32
+  %20 = add i32 %19, -4
+  store i32 %20, ptr %18, align 1
   ret void
 }
 

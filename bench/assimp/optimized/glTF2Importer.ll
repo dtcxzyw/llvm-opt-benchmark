@@ -50319,7 +50319,7 @@ define linkonce_odr hidden void @_ZN5glTF25Asset16ReadBinaryHeaderERN6Assimp8IOS
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %13) #37
-  br label %160
+  br label %159
 
 17:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
@@ -50339,7 +50339,7 @@ define linkonce_odr hidden void @_ZN5glTF25Asset16ReadBinaryHeaderERN6Assimp8IOS
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %19) #37
-  br label %160
+  br label %159
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -50474,7 +50474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %74) #37
-  br label %160
+  br label %159
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -50497,7 +50497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 86:                                               ; preds = %83
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %159
+  br label %158
 
 88:                                               ; preds = %78
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -50517,7 +50517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 94:                                               ; preds = %91
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %159
+  br label %158
 
 96:                                               ; preds = %88
   %97 = load i32, ptr %6, align 4
@@ -50552,7 +50552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 114:                                              ; preds = %111
   %115 = landingpad { ptr, i32 }
           cleanup
-  br label %159
+  br label %158
 
 116:                                              ; preds = %96
   %117 = load i32, ptr %6, align 4
@@ -50563,92 +50563,92 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not22 = icmp eq i32 %121, 0
   br i1 %.not22, label %128, label %122
 
-122:                                              ; preds = %116
+122:; preds = %116
   %123 = zext i32 %120 to i64
   %124 = load ptr, ptr %1, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %123, i32 noundef 1)
   %.pre = load i32, ptr %6, align 4
-  br label %128
+  br label %127
 
-128:                                              ; preds = %122, %116
-  %129 = phi i32 [ %.pre, %122 ], [ %117, %116 ]
-  %130 = add i32 %120, 28
-  %131 = add i32 %130, %129
-  %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3200
-  store i64 %132, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %135 = load i32, ptr %134, align 1
-  %.not23 = icmp ult i32 %135, %131
-  br i1 %.not23, label %157, label %136
+127:                                              ; preds = %122, %116
+  %128 = phi i32 [ %.pre, %122 ], [ %117, %116 ]
+  %129 = add i32 %120, 28
+  %130 = add i32 %129, %128
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 3200
+  store i64 %131, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %134 = load i32, ptr %133, align 1
+  %.not23 = icmp ult i32 %134, %130
+  br i1 %.not23, label %156, label %135
 
-136:                                              ; preds = %128
-  %137 = load ptr, ptr %1, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1)
-  %.not24 = icmp eq i64 %140, 1
-  br i1 %.not24, label %146, label %141
+135:                                              ; preds = %127
+  %136 = load ptr, ptr %1, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load ptr, ptr %137, align 8
+  %139 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1)
+  %.not24 = icmp eq i64 %139, 1
+  br i1 %.not24, label %145, label %140
 
-141:                                              ; preds = %136
-  %142 = call ptr @__cxa_allocate_exception(i64 16) #37
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull @.str.236)
-          to label %143 unwind label %144
+140:                                              ; preds = %135
+  %141 = call ptr @__cxa_allocate_exception(i64 16) #37
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull @.str.236)
+          to label %143 unwind label %143
 
-143:                                              ; preds = %141
-  call void @__cxa_throw(ptr nonnull %142, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
+142:                                              ; preds = %140
+  call void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
   unreachable
 
-144:                                              ; preds = %141
-  %145 = landingpad { ptr, i32 }
+143:                                              ; preds = %140
+  %144 = landingpad { ptr, i32 }
           cleanup
-  br label %159
+  br label %158
 
-146:                                              ; preds = %136
-  %147 = load i32, ptr %89, align 4
-  %.not25 = icmp eq i32 %147, 5130562
-  br i1 %.not25, label %153, label %148
+145:                                              ; preds = %135
+  %146 = load i32, ptr %89, align 4
+  %.not25 = icmp eq i32 %146, 5130562
+  br i1 %.not25, label %152, label %147
 
-148:                                              ; preds = %146
-  %149 = call ptr @__cxa_allocate_exception(i64 16) #37
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull @.str.237)
-          to label %150 unwind label %151
+147:                                              ; preds = %145
+  %148 = call ptr @__cxa_allocate_exception(i64 16) #37
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull @.str.237)
+          to label %150 unwind label %150
 
-150:                                              ; preds = %148
-  call void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
+149:                                              ; preds = %147
+  call void @__cxa_throw(ptr nonnull %148, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #39
   unreachable
 
-151:                                              ; preds = %148
-  %152 = landingpad { ptr, i32 }
+150:                                              ; preds = %147
+  %151 = landingpad { ptr, i32 }
           cleanup
-  br label %159
-
-153:                                              ; preds = %146
-  %154 = load i32, ptr %6, align 4
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 3208
-  store i64 %155, ptr %156, align 8
   br label %158
 
-157:                                              ; preds = %128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
-  br label %158
+152:                                              ; preds = %145
+  %153 = load i32, ptr %6, align 4
+  %154 = zext i32 %153 to i64
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 3208
+  store i64 %154, ptr %155, align 8
+  br label %157
 
-158:                                              ; preds = %157, %153
+156:                                              ; preds = %127
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
+  br label %157
+
+157:                                              ; preds = %156, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-159:                                              ; preds = %144, %151, %114, %94, %86
-  %.sink = phi ptr [ %142, %144 ], [ %149, %151 ], [ %112, %114 ], [ %92, %94 ], [ %84, %86 ]
-  %.pn27 = phi { ptr, i32 } [ %145, %144 ], [ %152, %151 ], [ %115, %114 ], [ %95, %94 ], [ %87, %86 ]
+158:                                              ; preds = %143, %150, %114, %94, %86
+  %.sink = phi ptr [ %141, %144 ], [ %148, %151 ], [ %112, %114 ], [ %92, %94 ], [ %84, %86 ]
+  %.pn27 = phi { ptr, i32 } [ %144, %144 ], [ %151, %151 ], [ %115, %114 ], [ %95, %94 ], [ %87, %86 ]
   call void @__cxa_free_exception(ptr nonnull %.sink) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %160
+  br label %159
 
-160:                                              ; preds = %159, %76, %21, %15
+159:                                              ; preds = %158, %76, %21, %15
   %.pn29 = phi { ptr, i32 } [ %16, %15 ], [ %22, %21 ], [ %77, %76 ], [ %.pn27, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn29

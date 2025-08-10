@@ -1589,12 +1589,12 @@ define dso_local i64 @crash_get_memory_size() local_unnamed_addr #2 align 16 {
 define dso_local range(i32 -22, 1) i32 @crash_shrink_memory(i64 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #17, !srcloc !29
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %51
+  br i1 %3, label %4, label %50
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @kexec_crash_image, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %49
+  br i1 %6, label %7, label %48
 
 7:                                                ; preds = %4
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @crashk_low_res, i64 8), align 8
@@ -1621,25 +1621,25 @@ define dso_local range(i32 -22, 1) i32 @crash_shrink_memory(i64 noundef %0) loca
   %27 = select i1 %26, i32 0, i32 -22
   br label %49
 
-28:                                               ; preds = %7
+28:; preds = %7
   %29 = icmp ugt i64 %13, %22
   br i1 %29, label %30, label %35
 
-30:                                               ; preds = %28
+30:; preds = %28
   %31 = tail call fastcc i32 @__crash_shrink_memory(ptr noundef nonnull @crashk_res, i64 noundef 0), !range !54
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %49
 
-33:                                               ; preds = %30
+33:; preds = %30
   %34 = tail call fastcc i32 @__crash_shrink_memory(ptr noundef nonnull @crashk_low_res, i64 noundef %22), !range !54
   br label %38
 
-35:                                               ; preds = %28
+35:; preds = %28
   %36 = sub nuw i64 %22, %13
   %37 = tail call fastcc i32 @__crash_shrink_memory(ptr noundef nonnull @crashk_res, i64 noundef %36), !range !54
   br label %38
 
-38:                                               ; preds = %35, %33
+38:; preds = %35, %33
   %39 = phi i32 [ %34, %33 ], [ %37, %35 ]
   %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @crashk_res, i64 8), align 8
   %41 = icmp eq i64 %40, 0
@@ -1648,24 +1648,24 @@ define dso_local range(i32 -22, 1) i32 @crash_shrink_memory(i64 noundef %0) loca
   %44 = select i1 %41, i1 %43, i1 false
   br i1 %44, label %45, label %49
 
-45:                                               ; preds = %38
+45:; preds = %38
   %46 = load i64, ptr @crashk_low_res, align 8
   store i64 %46, ptr @crashk_res, align 8
   store i64 %42, ptr getelementptr inbounds nuw (i8, ptr @crashk_res, i64 8), align 8
   %47 = tail call i32 @release_resource(ptr noundef nonnull @crashk_low_res) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @crashk_low_res, i8 0, i64 16, i1 false)
-  %48 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_res) #17
-  br label %49
+  %47 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_res) #17
+  br label %48
 
-49:                                               ; preds = %45, %38, %30, %24, %4
-  %50 = phi i32 [ %27, %24 ], [ %31, %30 ], [ %39, %45 ], [ %39, %38 ], [ -2, %4 ]
+48:                                               ; preds = %45, %38, %30, %24, %4
+  %49 = phi i32 [ %27, %24 ], [ %31, %30 ], [ %39, %45 ], [ %39, %38 ], [ -2, %4 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !51
   store volatile i32 0, ptr @__kexec_lock, align 4
-  br label %51
+  br label %50
 
-51:                                               ; preds = %49, %1
-  %52 = phi i32 [ %50, %49 ], [ -16, %1 ]
-  ret i32 %52
+50:                                               ; preds = %48, %1
+  %51 = phi i32 [ %49, %49 ], [ -16, %1 ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

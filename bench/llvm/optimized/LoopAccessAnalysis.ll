@@ -6565,7 +6565,7 @@ define dso_local void @_ZN4llvm16MemoryDepChecker34getDependenceDistanceStrideAn
 
 24:                                               ; preds = %6
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 25:                                               ; preds = %6
   %26 = load i8, ptr %3, align 8, !tbaa !234
@@ -6638,7 +6638,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit90:  ; preds = %_ZNK4llvm4Type22get
 
 58:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit90
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 59:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit90
   %60 = load ptr, ptr %9, align 8, !tbaa !210
@@ -6750,7 +6750,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 .critedge:                                        ; preds = %125
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 129:                                              ; preds = %125
   %130 = call noundef ptr @_ZN4llvm15ScalarEvolution15applyLoopGuardsEPKNS_4SCEVERKNS0_10LoopGuardsE(ptr noundef nonnull align 8 dereferenceable(1344) %17, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(40) %113) #28
@@ -6760,7 +6760,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 133:                                              ; preds = %129
   store i32 0, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 .critedge79:                                      ; preds = %129, %87, %106, %108, %110, %84
   %134 = trunc nuw i8 %.sroa.8151.0 to i1
@@ -6769,7 +6769,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 135:                                              ; preds = %.critedge79
   store i32 2, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 136:                                              ; preds = %.critedge79
   %137 = icmp ne i64 %.sroa.0153.0, 0
@@ -6779,7 +6779,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 139:                                              ; preds = %136
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 140:                                              ; preds = %136
   %141 = icmp sgt i64 %.sroa.0153.0, 0
@@ -6789,7 +6789,7 @@ _ZSt4swapIlENSt9enable_ifIXaa23is_move_constructible_vIT_E14is_swappable_vIS1_EE
 
 143:                                              ; preds = %140
   store i32 1, ptr %0, align 8, !tbaa !370
-  br label %160
+  br label %165
 
 _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit: ; preds = %140
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6812,7 +6812,7 @@ _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %151 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0153.0, i1 true)
   %152 = call noundef i64 @llvm.abs.i64(i64 %.sroa.0148.0, i1 true)
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %151, i64 %152)
-  %153 = icmp eq i64 %151, %152
+  %154 = icmp eq i64 %151, %152
   %spec.select180 = zext i1 %153 to i8
   %154 = trunc i64 %.0.copyload.i.i.i.i to i8
   %155 = lshr i8 %154, 2
@@ -6835,12 +6835,12 @@ _ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   store i8 %156, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 %159, ptr %.sroa.10.0..sroa_idx, align 1
-  br label %160
+  br label %165
 
-160:                                              ; preds = %58, %139, %143, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit, %.critedge, %133, %135, %24
+165:                                              ; preds = %58, %139, %143, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit, %.critedge, %133, %135, %24
   %.sink = phi i8 [ 0, %58 ], [ 0, %139 ], [ 0, %143 ], [ 1, %_ZNSt8optionalImEaSIRlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarImES5_ImNSt5decayIS8_E4typeEEEEESt16is_constructibleImJS8_EESt13is_assignableIRmS8_EEERS0_E4typeEOS8_.exit ], [ 0, %.critedge ], [ 0, %133 ], [ 0, %135 ], [ 0, %24 ]
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.sink, ptr %161, align 8, !tbaa !378
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.sink, ptr %166, align 8, !tbaa !378
   ret void
 }
 

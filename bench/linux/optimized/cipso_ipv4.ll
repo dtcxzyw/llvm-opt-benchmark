@@ -2955,7 +2955,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %118, label %103
 
-103:                                              ; preds = %100
+103:; preds = %100
   %104 = trunc i32 %9 to i8
   %105 = lshr i8 %104, 2
   %106 = add nuw nsw i8 %105, 5
