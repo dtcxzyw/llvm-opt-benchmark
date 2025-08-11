@@ -2694,30 +2694,30 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   br i1 %24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %.sroa.074.1256 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.074.1255 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %.sroa.5.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %.sroa.5.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 49
-  %.sroa.9.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %22, i64 50
+  %.sroa.9.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %22, i64 50
   br label %29
 
 29:                                               ; preds = %.lr.ph, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit
-  %.sroa.074.1265 = phi ptr [ %.sroa.074.1256, %.lr.ph ], [ %.sroa.074.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.017.0264 = phi i64 [ 0, %.lr.ph ], [ %.sroa.017.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.5.0263 = phi i64 [ 0, %.lr.ph ], [ %.sroa.5.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.627.0262 = phi i64 [ 0, %.lr.ph ], [ %.sroa.627.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.7.0261 = phi i64 [ 0, %.lr.ph ], [ %.sroa.7.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.840.0260 = phi i8 [ 0, %.lr.ph ], [ %.sroa.840.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.10.0259 = phi i8 [ 0, %.lr.ph ], [ %.sroa.10.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.057.0258 = phi i64 [ 0, %.lr.ph ], [ %.sroa.057.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %.sroa.074.0257 = phi ptr [ %6, %.lr.ph ], [ %.sroa.074.1265, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
-  %30 = load i64, ptr %.sroa.074.0257, align 8, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.074.0257, i64 8
+  %.sroa.074.1264 = phi ptr [ %.sroa.074.1255, %.lr.ph ], [ %.sroa.074.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.017.0263 = phi i64 [ 0, %.lr.ph ], [ %.sroa.017.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.5.0262 = phi i64 [ 0, %.lr.ph ], [ %.sroa.5.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.627.0261 = phi i64 [ 0, %.lr.ph ], [ %.sroa.627.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.7.0260 = phi i64 [ 0, %.lr.ph ], [ %.sroa.7.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.840.0259 = phi i8 [ 0, %.lr.ph ], [ %.sroa.840.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.10.0258 = phi i8 [ 0, %.lr.ph ], [ %.sroa.10.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.057.0257 = phi i64 [ 0, %.lr.ph ], [ %.sroa.057.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %.sroa.074.0256 = phi ptr [ %6, %.lr.ph ], [ %.sroa.074.1264, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
+  %30 = load i64, ptr %.sroa.074.0256, align 8, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.074.0256, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %33 = load i64, ptr %25, align 8, !alias.scope !158, !noalias !161, !noundef !3
@@ -2738,7 +2738,7 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %.sroa.5.0.lcssa = phi i64 [ 0, %12 ], [ %.sroa.5.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
   %.sroa.017.0.lcssa = phi i64 [ 0, %12 ], [ %.sroa.017.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit ]
   %36 = icmp eq i64 %5, 0
-  br i1 %36, label %37, label %.lr.ph276.lr.ph
+  br i1 %36, label %37, label %.lr.ph275.lr.ph
 
 37:                                               ; preds = %._crit_edge
   store i64 0, ptr %0, align 8
@@ -2766,11 +2766,11 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   store i64 0, ptr %42, align 8
   br label %63
 
-.lr.ph276.lr.ph:                                  ; preds = %._crit_edge
+.lr.ph275.lr.ph:                                  ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.44)
-  %.idx342 = mul nuw nsw i64 %5, 24
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx342
-  %.sroa.075.1273309 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.idx341 = mul nuw nsw i64 %5, 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx341
+  %.sroa.075.1272308 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2803,35 +2803,35 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %.lr.ph276
+  br label %.lr.ph275
 
-.lr.ph276:                                        ; preds = %.lr.ph276.lr.ph, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128
-  %.sroa.075.1273326 = phi ptr [ %.sroa.075.1273309, %.lr.ph276.lr.ph ], [ %.sroa.075.1273, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.15.0.ph325 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ %129, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.12.0.ph324 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.1089.0.ph323 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.930.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.884.0.ph322 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.829.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.579.0.ph321 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.728.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.056.0.ph320 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %133, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.058.0.ph319 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.0.0.sroa.speculated.i126, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.460.0.ph318 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.3.0.i125, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.076.0.ph317 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.627.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.075.0.ph316 = phi ptr [ %4, %.lr.ph276.lr.ph ], [ %.sroa.075.1275, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.0131.0.ph315 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.8134.0.ph314 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.8134.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.12.0148.ph313 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.0.0.sroa.speculated.i123, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.15.0150.ph312 = phi i32 [ 1000000000, %.lr.ph276.lr.ph ], [ %.sroa.3.0.i122, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.47.0.ph311 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %spec.select191, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.52.0.ph310 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+.lr.ph275:                                        ; preds = %.lr.ph275.lr.ph, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126
+  %.sroa.075.1272325 = phi ptr [ %.sroa.075.1272308, %.lr.ph276.lr.ph ], [ %.sroa.075.1272, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.15.0.ph324 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ %129, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.12.0.ph323 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.1089.0.ph322 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.930.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.884.0.ph321 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.829.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.579.0.ph320 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.728.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.056.0.ph319 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %133, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.058.0.ph318 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.0.0.sroa.speculated.i124, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.460.0.ph317 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.3.0.i123, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.076.0.ph316 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.627.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.075.0.ph315 = phi ptr [ %4, %.lr.ph276.lr.ph ], [ %.sroa.075.1274, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.0129.0.ph314 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.8132.0.ph313 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.8132.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.12.0146.ph312 = phi i64 [ undef, %.lr.ph276.lr.ph ], [ %.sroa.0.0.sroa.speculated.i121, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.15.0148.ph311 = phi i32 [ 1000000000, %.lr.ph276.lr.ph ], [ %.sroa.3.0.i120, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.47.0.ph310 = phi i64 [ 0, %.lr.ph276.lr.ph ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.52.0.ph309 = phi i8 [ 0, %.lr.ph276.lr.ph ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
   br label %64
 
 63:                                               ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit, %37
   ret void
 
-64:                                               ; preds = %.lr.ph276, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread
-  %.sroa.075.1275 = phi ptr [ %.sroa.075.1273326, %.lr.ph276 ], [ %.sroa.075.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ]
-  %.sroa.075.0274 = phi ptr [ %.sroa.075.0.ph316, %.lr.ph276 ], [ %.sroa.075.1275, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ]
-  %65 = load i64, ptr %.sroa.075.0274, align 8, !noundef !3
+64:                                               ; preds = %.lr.ph275, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread
+  %.sroa.075.1274 = phi ptr [ %.sroa.075.1272325, %.lr.ph276 ], [ %.sroa.075.1, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ]
+  %.sroa.075.0273 = phi ptr [ %.sroa.075.0.ph315, %.lr.ph276 ], [ %.sroa.075.1274, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ]
+  %65 = load i64, ptr %.sroa.075.0273, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %2, ptr %21, align 8, !noalias !167
@@ -2840,8 +2840,8 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !167
   call void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27ConnectionStateMap$LT$T$GT$4take17hc9764e97c8e3b46bE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %20, ptr noalias noundef nonnull align 8 dereferenceable(32) %46, i64 noundef %65), !noalias !169
   %66 = load i32, ptr %47, align 8, !range !19, !noalias !167, !noundef !3
-  %.not.i108 = icmp eq i32 %66, 1000000000
-  br i1 %.not.i108, label %72, label %67
+  %.not.i106 = icmp eq i32 %66, 1000000000
+  br i1 %.not.i106, label %72, label %67
 
 67:                                               ; preds = %64
   %.sroa.025.0.copyload.i = load i64, ptr %20, align 8, !noalias !167
@@ -3012,9 +3012,9 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler15choos
 
 _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread: ; preds = %72, %120, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %121 = icmp eq ptr %.sroa.075.1275, %43
+  %121 = icmp eq ptr %.sroa.075.1274, %43
   %.sroa.075.1.idx = select i1 %121, i64 0, i64 24
-  %.sroa.075.1 = getelementptr inbounds nuw i8, ptr %.sroa.075.1275, i64 %.sroa.075.1.idx
+  %.sroa.075.1 = getelementptr inbounds nuw i8, ptr %.sroa.075.1274, i64 %.sroa.075.1.idx
   br i1 %121, label %.outer._crit_edge, label %64
 
 _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit: ; preds = %118, %120
@@ -3034,69 +3034,69 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_pa
   %132 = trunc nuw i64 %.sroa.014.0.i to i1
   %.sroa.0.0.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %127, i64 %.sroa.416.0.i)
   %.sroa.013.0.i = select i1 %132, i64 %.sroa.0.0.sroa.speculated.i.i, i64 %127
-  %133 = load i64, ptr %.sroa.075.0274, align 8, !noundef !3
-  %.not.i120 = icmp eq i32 %.sroa.15.0150.ph312, 1000000000
-  %spec.select = select i1 %.not.i120, i32 %130, i32 %.sroa.15.0150.ph312
-  %spec.select190 = select i1 %.not.i120, i64 %131, i64 %.sroa.12.0148.ph313
-  %134 = icmp eq i64 %spec.select190, %131
+  %133 = load i64, ptr %.sroa.075.0273, align 8, !noundef !3
+  %.not.i118 = icmp eq i32 %.sroa.15.0148.ph311, 1000000000
+  %spec.select = select i1 %.not.i118, i32 %130, i32 %.sroa.15.0148.ph311
+  %spec.select189 = select i1 %.not.i118, i64 %131, i64 %.sroa.12.0146.ph312
+  %134 = icmp eq i64 %spec.select189, %131
   %135 = icmp samesign ult i32 %spec.select, %130
-  %136 = icmp ult i64 %spec.select190, %131
-  %.sroa.0.0.i.i.i121 = select i1 %134, i1 %135, i1 %136
-  %.sroa.3.0.i122 = select i1 %.sroa.0.0.i.i.i121, i32 %spec.select, i32 %130
-  %.sroa.0.0.sroa.speculated.i123 = select i1 %.sroa.0.0.i.i.i121, i64 %spec.select190, i64 %131
-  %137 = trunc nuw i64 %.sroa.0131.0.ph315 to i1
-  %138 = icmp ule i64 %.sroa.013.0.i, %.sroa.8134.0.ph314
+  %136 = icmp ult i64 %spec.select189, %131
+  %.sroa.0.0.i.i.i119 = select i1 %134, i1 %135, i1 %136
+  %.sroa.3.0.i120 = select i1 %.sroa.0.0.i.i.i119, i32 %spec.select, i32 %130
+  %.sroa.0.0.sroa.speculated.i121 = select i1 %.sroa.0.0.i.i.i119, i64 %spec.select189, i64 %131
+  %137 = trunc nuw i64 %.sroa.0129.0.ph314 to i1
+  %138 = icmp ule i64 %.sroa.013.0.i, %.sroa.8132.0.ph313
   %.sroa.070.0.not = select i1 %137, i1 %138, i1 false
-  %.sroa.52.1 = select i1 %.sroa.070.0.not, i8 %.sroa.52.0.ph310, i8 %129
-  %.sroa.8134.1 = select i1 %.sroa.070.0.not, i64 %.sroa.8134.0.ph314, i64 %.sroa.013.0.i
+  %.sroa.52.1 = select i1 %.sroa.070.0.not, i8 %.sroa.52.0.ph309, i8 %129
+  %.sroa.8132.1 = select i1 %.sroa.070.0.not, i64 %.sroa.8132.0.ph313, i64 %.sroa.013.0.i
   br i1 %132, label %297, label %300
 
-.outer._crit_edge:                                ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread
-  %.sroa.52.0.ph.lcssa254 = phi i8 [ %.sroa.52.0.ph310, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.47.0.ph.lcssa252 = phi i64 [ %.sroa.47.0.ph311, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %spec.select191, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.15.0150.ph.lcssa250 = phi i32 [ %.sroa.15.0150.ph312, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.3.0.i122, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.12.0148.ph.lcssa248 = phi i64 [ %.sroa.12.0148.ph313, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.0.0.sroa.speculated.i123, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.8134.0.ph.lcssa245 = phi i64 [ %.sroa.8134.0.ph314, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.8134.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.0131.0.ph.lcssa242 = phi i64 [ %.sroa.0131.0.ph315, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.076.0.ph.lcssa240 = phi i64 [ %.sroa.076.0.ph317, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.627.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.460.0.ph.lcssa238 = phi i64 [ %.sroa.460.0.ph318, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.3.0.i125, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.058.0.ph.lcssa236 = phi i64 [ %.sroa.058.0.ph319, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.0.0.sroa.speculated.i126, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.056.0.ph.lcssa234 = phi i64 [ %.sroa.056.0.ph320, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %133, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.579.0.ph.lcssa232 = phi i64 [ %.sroa.579.0.ph321, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.728.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.884.0.ph.lcssa230 = phi i64 [ %.sroa.884.0.ph322, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.829.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.1089.0.ph.lcssa228 = phi i64 [ %.sroa.1089.0.ph323, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.930.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.12.0.ph.lcssa226 = phi i8 [ %.sroa.12.0.ph324, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
-  %.sroa.15.0.ph.lcssa224 = phi i8 [ %.sroa.15.0.ph325, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %129, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+.outer._crit_edge:                                ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread
+  %.sroa.52.0.ph.lcssa253 = phi i8 [ %.sroa.52.0.ph309, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.47.0.ph.lcssa251 = phi i64 [ %.sroa.47.0.ph310, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.15.0148.ph.lcssa249 = phi i32 [ %.sroa.15.0148.ph311, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.3.0.i120, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.12.0146.ph.lcssa247 = phi i64 [ %.sroa.12.0146.ph312, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.0.0.sroa.speculated.i121, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.8132.0.ph.lcssa244 = phi i64 [ %.sroa.8132.0.ph313, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.8132.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.0129.0.ph.lcssa241 = phi i64 [ %.sroa.0129.0.ph314, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.076.0.ph.lcssa239 = phi i64 [ %.sroa.076.0.ph316, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.627.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.460.0.ph.lcssa237 = phi i64 [ %.sroa.460.0.ph317, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.3.0.i123, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.058.0.ph.lcssa235 = phi i64 [ %.sroa.058.0.ph318, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.0.0.sroa.speculated.i124, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.056.0.ph.lcssa233 = phi i64 [ %.sroa.056.0.ph319, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %133, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.579.0.ph.lcssa231 = phi i64 [ %.sroa.579.0.ph320, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.728.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.884.0.ph.lcssa229 = phi i64 [ %.sroa.884.0.ph321, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.829.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.1089.0.ph.lcssa227 = phi i64 [ %.sroa.1089.0.ph322, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.930.0.copyload.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.12.0.ph.lcssa225 = phi i8 [ %.sroa.12.0.ph323, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ 1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
+  %.sroa.15.0.ph.lcssa223 = phi i8 [ %.sroa.15.0.ph324, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %129, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128 ]
   %139 = trunc nuw i8 %.sroa.840.0.lcssa to i1
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %.outer._crit_edge
-  %141 = trunc nuw i8 %.sroa.12.0.ph.lcssa226 to i1
+  %141 = trunc nuw i8 %.sroa.12.0.ph.lcssa225 to i1
   br i1 %141, label %145, label %.sink.split
 
 .sink.split:                                      ; preds = %145, %147, %140
   %.sroa.11.sink = phi ptr [ %.sroa.11, %140 ], [ %.sroa.18, %147 ], [ %.sroa.18, %145 ]
-  %.sroa.40.0.ph = phi i8 [ %.sroa.10.0.lcssa, %140 ], [ %.sroa.10.0.lcssa, %147 ], [ %.sroa.15.0.ph.lcssa224, %145 ]
-  %.sroa.32.0.ph = phi i64 [ %.sroa.7.0.lcssa, %140 ], [ %.sroa.7.0.lcssa, %147 ], [ %.sroa.1089.0.ph.lcssa228, %145 ]
-  %.sroa.28.0.ph = phi i64 [ %.sroa.627.0.lcssa, %140 ], [ %.sroa.627.0.lcssa, %147 ], [ %.sroa.884.0.ph.lcssa230, %145 ]
-  %.sroa.24.0.ph = phi i64 [ %.sroa.5.0.lcssa, %140 ], [ %.sroa.5.0.lcssa, %147 ], [ %.sroa.579.0.ph.lcssa232, %145 ]
-  %.sroa.20138.0.ph = phi i64 [ %.sroa.017.0.lcssa, %140 ], [ %.sroa.017.0.lcssa, %147 ], [ %.sroa.076.0.ph.lcssa240, %145 ]
+  %.sroa.40.0.ph = phi i8 [ %.sroa.10.0.lcssa, %140 ], [ %.sroa.10.0.lcssa, %147 ], [ %.sroa.15.0.ph.lcssa223, %145 ]
+  %.sroa.32.0.ph = phi i64 [ %.sroa.7.0.lcssa, %140 ], [ %.sroa.7.0.lcssa, %147 ], [ %.sroa.1089.0.ph.lcssa227, %145 ]
+  %.sroa.28.0.ph = phi i64 [ %.sroa.627.0.lcssa, %140 ], [ %.sroa.627.0.lcssa, %147 ], [ %.sroa.884.0.ph.lcssa229, %145 ]
+  %.sroa.24.0.ph = phi i64 [ %.sroa.5.0.lcssa, %140 ], [ %.sroa.5.0.lcssa, %147 ], [ %.sroa.579.0.ph.lcssa231, %145 ]
+  %.sroa.20136.0.ph = phi i64 [ %.sroa.017.0.lcssa, %140 ], [ %.sroa.017.0.lcssa, %147 ], [ %.sroa.076.0.ph.lcssa239, %145 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.44, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.sink, i64 6, i1 false)
   br label %142
 
 142:                                              ; preds = %.sink.split, %.outer._crit_edge
-  %.sroa.40.0 = phi i8 [ %.sroa.15.0.ph.lcssa224, %.outer._crit_edge ], [ %.sroa.40.0.ph, %.sink.split ]
-  %.sroa.36.0 = phi i8 [ %.sroa.12.0.ph.lcssa226, %.outer._crit_edge ], [ 1, %.sink.split ]
-  %.sroa.32.0 = phi i64 [ %.sroa.1089.0.ph.lcssa228, %.outer._crit_edge ], [ %.sroa.32.0.ph, %.sink.split ]
-  %.sroa.28.0 = phi i64 [ %.sroa.884.0.ph.lcssa230, %.outer._crit_edge ], [ %.sroa.28.0.ph, %.sink.split ]
-  %.sroa.24.0 = phi i64 [ %.sroa.579.0.ph.lcssa232, %.outer._crit_edge ], [ %.sroa.24.0.ph, %.sink.split ]
-  %.sroa.20138.0 = phi i64 [ %.sroa.076.0.ph.lcssa240, %.outer._crit_edge ], [ %.sroa.20138.0.ph, %.sink.split ]
-  %143 = trunc nuw i64 %.sroa.0131.0.ph.lcssa242 to i1
+  %.sroa.40.0 = phi i8 [ %.sroa.15.0.ph.lcssa223, %.outer._crit_edge ], [ %.sroa.40.0.ph, %.sink.split ]
+  %.sroa.36.0 = phi i8 [ %.sroa.12.0.ph.lcssa225, %.outer._crit_edge ], [ 1, %.sink.split ]
+  %.sroa.32.0 = phi i64 [ %.sroa.1089.0.ph.lcssa227, %.outer._crit_edge ], [ %.sroa.32.0.ph, %.sink.split ]
+  %.sroa.28.0 = phi i64 [ %.sroa.884.0.ph.lcssa229, %.outer._crit_edge ], [ %.sroa.28.0.ph, %.sink.split ]
+  %.sroa.24.0 = phi i64 [ %.sroa.579.0.ph.lcssa231, %.outer._crit_edge ], [ %.sroa.24.0.ph, %.sink.split ]
+  %.sroa.20136.0 = phi i64 [ %.sroa.076.0.ph.lcssa239, %.outer._crit_edge ], [ %.sroa.20136.0.ph, %.sink.split ]
+  %143 = trunc nuw i64 %.sroa.0129.0.ph.lcssa241 to i1
   %144 = trunc nuw i64 %8 to i1
   br i1 %143, label %148, label %150
 
 145:                                              ; preds = %140
-  %146 = icmp ugt i64 %.sroa.056.0.ph.lcssa234, %.sroa.057.0.lcssa
+  %146 = icmp ugt i64 %.sroa.056.0.ph.lcssa233, %.sroa.057.0.lcssa
   br i1 %146, label %.sink.split, label %147
 
 147:                                              ; preds = %145
@@ -3104,41 +3104,41 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_pa
   br label %.sink.split
 
 148:                                              ; preds = %142
-  br i1 %144, label %.thread, label %.thread187
+  br i1 %144, label %.thread, label %.thread186
 
 .thread:                                          ; preds = %148
-  %149 = icmp ugt i64 %.sroa.8134.0.ph.lcssa245, %9
+  %149 = icmp ugt i64 %.sroa.8132.0.ph.lcssa244, %9
   br label %151
 
 150:                                              ; preds = %142
-  br i1 %144, label %151, label %.thread187
+  br i1 %144, label %151, label %.thread186
 
 151:                                              ; preds = %.thread, %150
-  %.sroa.072.0186 = phi i1 [ %149, %.thread ], [ false, %150 ]
-  %152 = icmp ult i64 %9, %.sroa.8134.0.ph.lcssa245
+  %.sroa.072.0185 = phi i1 [ %149, %.thread ], [ false, %150 ]
+  %152 = icmp ult i64 %9, %.sroa.8132.0.ph.lcssa244
   %spec.select.i.i = select i1 %143, i1 %152, i1 false
   br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit
 
-.thread187:                                       ; preds = %148, %150
-  %153 = icmp ne i64 %.sroa.0131.0.ph.lcssa242, 0
+.thread186:                                       ; preds = %148, %150
+  %153 = icmp ne i64 %.sroa.0129.0.ph.lcssa241, 0
   br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit
 
-_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit:    ; preds = %151, %.thread187
-  %.sroa.072.0185 = phi i1 [ %143, %.thread187 ], [ %.sroa.072.0186, %151 ]
+_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit:    ; preds = %151, %.thread186
+  %.sroa.072.0184 = phi i1 [ %143, %.thread187 ], [ %.sroa.072.0185, %151 ]
   %.sroa.0.0.i.i.i = phi i1 [ %153, %.thread187 ], [ %spec.select.i.i, %151 ]
-  %.sroa.3.0.i109 = select i1 %.sroa.0.0.i.i.i, i64 %.sroa.8134.0.ph.lcssa245, i64 %9
-  %.sroa.0.0.sroa.speculated.i = select i1 %.sroa.0.0.i.i.i, i64 %.sroa.0131.0.ph.lcssa242, i64 %8
+  %.sroa.3.0.i107 = select i1 %.sroa.0.0.i.i.i, i64 %.sroa.8132.0.ph.lcssa244, i64 %9
+  %.sroa.0.0.sroa.speculated.i = select i1 %.sroa.0.0.i.i.i, i64 %.sroa.0129.0.ph.lcssa241, i64 %8
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 434
   %155 = load i8, ptr %154, align 2, !range !24, !noundef !3
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %164, label %157
 
-157:                                              ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit
-  %.sroa.8.0 = phi i64 [ %.sroa.3.0.i111, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114 ], [ %.sroa.3.0.i109, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i112, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114 ], [ %.sroa.0.0.sroa.speculated.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit ]
+157:                                              ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit112, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit
+  %.sroa.8.0 = phi i64 [ %.sroa.3.0.i109, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114 ], [ %.sroa.3.0.i107, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i110, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114 ], [ %.sroa.0.0.sroa.speculated.i, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit ]
   %158 = trunc nuw i64 %.sroa.0.0 to i1
-  %.sroa.0.0.sroa.speculated.i115 = call i64 @llvm.umin.i64(i64 %10, i64 %.sroa.8.0)
-  %.sroa.062.0 = select i1 %158, i64 %.sroa.0.0.sroa.speculated.i115, i64 %10
+  %.sroa.0.0.sroa.speculated.i113 = call i64 @llvm.umin.i64(i64 %10, i64 %.sroa.8.0)
+  %.sroa.062.0 = select i1 %158, i64 %.sroa.0.0.sroa.speculated.i113, i64 %10
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %160 = load i64, ptr %159, align 8, !alias.scope !189, !noundef !3
@@ -3148,23 +3148,23 @@ _ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit:    ; preds = %151, %.thread187
   br i1 %163, label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit, label %171
 
 164:                                              ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit
-  %165 = trunc nuw i64 %.sroa.058.0.ph.lcssa236 to i1
+  %165 = trunc nuw i64 %.sroa.058.0.ph.lcssa235 to i1
   br i1 %165, label %166, label %169
 
 166:                                              ; preds = %164
   %167 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i to i1
-  %168 = icmp ult i64 %.sroa.460.0.ph.lcssa238, %.sroa.3.0.i109
-  %spec.select.i.i113 = select i1 %167, i1 %168, i1 false
-  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114
+  %168 = icmp ult i64 %.sroa.460.0.ph.lcssa237, %.sroa.3.0.i107
+  %spec.select.i.i111 = select i1 %167, i1 %168, i1 false
+  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit112
 
 169:                                              ; preds = %164
   %170 = icmp ne i64 %.sroa.0.0.sroa.speculated.i, 0
-  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114
+  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit112
 
-_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114: ; preds = %166, %169
-  %.sroa.0.0.i.i.i110 = phi i1 [ %170, %169 ], [ %spec.select.i.i113, %166 ]
-  %.sroa.3.0.i111 = select i1 %.sroa.0.0.i.i.i110, i64 %.sroa.3.0.i109, i64 %.sroa.460.0.ph.lcssa238
-  %.sroa.0.0.sroa.speculated.i112 = select i1 %.sroa.0.0.i.i.i110, i64 %.sroa.0.0.sroa.speculated.i, i64 %.sroa.058.0.ph.lcssa236
+_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit112: ; preds = %166, %169
+  %.sroa.0.0.i.i.i108 = phi i1 [ %170, %169 ], [ %spec.select.i.i111, %166 ]
+  %.sroa.3.0.i109 = select i1 %.sroa.0.0.i.i.i108, i64 %.sroa.3.0.i107, i64 %.sroa.460.0.ph.lcssa237
+  %.sroa.0.0.sroa.speculated.i110 = select i1 %.sroa.0.0.i.i.i108, i64 %.sroa.0.0.sroa.speculated.i, i64 %.sroa.058.0.ph.lcssa235
   br label %157
 
 171:                                              ; preds = %157
@@ -3191,7 +3191,7 @@ _ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114: ; preds = %166, %169
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 313
   %184 = load i8, ptr %183, align 1, !range !24, !alias.scope !195, !noundef !3
   %185 = trunc nuw i8 %184 to i1
-  %brmerge.demorgan.i.i = and i1 %.sroa.072.0185, %185
+  %brmerge.demorgan.i.i = and i1 %.sroa.072.0184, %185
   br i1 %brmerge.demorgan.i.i, label %193, label %186
 
 186:                                              ; preds = %247, %238, %171
@@ -3208,8 +3208,8 @@ _ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit114: ; preds = %166, %169
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %196 = load i32, ptr %195, align 8, !range !19, !alias.scope !195, !noundef !3
-  %.not.i.i119 = icmp eq i32 %196, 1000000000
-  br i1 %.not.i.i119, label %199, label %197
+  %.not.i.i117 = icmp eq i32 %196, 1000000000
+  br i1 %.not.i.i117, label %199, label %197
 
 197:                                              ; preds = %193
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3386,8 +3386,8 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler19MaxAckHeightTracker6upd
   %288 = load i8, ptr %287, align 1, !range !24, !alias.scope !189, !noundef !3
   %289 = trunc nuw i8 %288 to i1
   %290 = icmp eq i64 %.sroa.0.0.i.i, 0
-  %or.cond.i116 = and i1 %290, %289
-  br i1 %or.cond.i116, label %291, label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit
+  %or.cond.i114 = and i1 %290, %289
+  br i1 %or.cond.i114, label %291, label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit
 
 291:                                              ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler19MaxAckHeightTracker6update17hcf90e9af3194542eE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !189
@@ -3412,8 +3412,8 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_r
   %.sroa.7.0.copyload8.i = load i32, ptr %.sroa.7.0..sroa_idx7.i, align 4, !alias.scope !202
   %.sroa.5.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %1, i64 360
   %.sroa.5.0.copyload6.i = load i32, ptr %.sroa.5.0..sroa_idx5.i, align 8, !alias.scope !202
-  %.not.i118 = icmp eq i32 %.sroa.5.0.copyload6.i, 1000000000
-  br i1 %.not.i118, label %296, label %294, !prof !203
+  %.not.i116 = icmp eq i32 %.sroa.5.0.copyload6.i, 1000000000
+  br i1 %.not.i116, label %296, label %294, !prof !203
 
 294:                                              ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_recent_point17h6b4adfca2f5c3b91E.exit.i, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_recent_point17h6b4adfca2f5c3b91E.exit.thread.i
   %.sroa.5.013.i = phi i32 [ %.sroa.2.0.copyload.i.i, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_recent_point17h6b4adfca2f5c3b91E.exit.thread.i ], [ %.sroa.5.0.copyload6.i, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_recent_point17h6b4adfca2f5c3b91E.exit.i ]
@@ -3434,16 +3434,16 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints17less_r
   unreachable
 
 _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit: ; preds = %157, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler19MaxAckHeightTracker6update17hcf90e9af3194542eE.exit.i, %294
-  %.sroa.0.0.i117 = phi i64 [ 0, %294 ], [ %.sroa.0.0.i.i, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler19MaxAckHeightTracker6update17hcf90e9af3194542eE.exit.i ], [ 0, %157 ]
-  store i64 %.sroa.0131.0.ph.lcssa242, ptr %0, align 8
-  %.sroa.8134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.8134.0.ph.lcssa245, ptr %.sroa.8134.0..sroa_idx, align 8
+  %.sroa.0.0.i115 = phi i64 [ 0, %294 ], [ %.sroa.0.0.i.i, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler19MaxAckHeightTracker6update17hcf90e9af3194542eE.exit.i ], [ 0, %157 ]
+  store i64 %.sroa.0129.0.ph.lcssa241, ptr %0, align 8
+  %.sroa.8132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.8132.0.ph.lcssa244, ptr %.sroa.8132.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.12.0148.ph.lcssa248, ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %.sroa.12.0146.ph.lcssa247, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.15.0150.ph.lcssa250, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.20138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.20138.0, ptr %.sroa.20138.0..sroa_idx, align 8
+  store i32 %.sroa.15.0148.ph.lcssa249, ptr %.sroa.15.0..sroa_idx, align 8
+  %.sroa.20136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.20136.0, ptr %.sroa.20136.0..sroa_idx, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.24.0, ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3457,57 +3457,57 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ac
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.44, i64 6, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.47.0.ph.lcssa252, ptr %.sroa.47.0..sroa_idx, align 8
+  store i64 %.sroa.47.0.ph.lcssa251, ptr %.sroa.47.0..sroa_idx, align 8
   %.sroa.50.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sroa.0.0.i117, ptr %.sroa.50.0..sroa_idx, align 8
+  store i64 %.sroa.0.0.i115, ptr %.sroa.50.0..sroa_idx, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %.sroa.52.0.ph.lcssa254, ptr %.sroa.52.0..sroa_idx, align 8
+  store i8 %.sroa.52.0.ph.lcssa253, ptr %.sroa.52.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.44)
   br label %63
 
 297:                                              ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit
-  %298 = trunc nuw i64 %.sroa.058.0.ph319 to i1
-  %299 = icmp ult i64 %.sroa.416.0.i, %.sroa.460.0.ph318
-  %spec.select.i.i127 = select i1 %298, i1 %299, i1 false
-  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128
+  %298 = trunc nuw i64 %.sroa.058.0.ph318 to i1
+  %299 = icmp ult i64 %.sroa.416.0.i, %.sroa.460.0.ph317
+  %spec.select.i.i125 = select i1 %298, i1 %299, i1 false
+  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126
 
 300:                                              ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit
-  %301 = icmp ne i64 %.sroa.058.0.ph319, 0
-  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128
+  %301 = icmp ne i64 %.sroa.058.0.ph318, 0
+  br label %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126
 
-_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit128: ; preds = %297, %300
-  %.sroa.0.0.i.i.i124 = phi i1 [ %301, %300 ], [ %spec.select.i.i127, %297 ]
-  %.sroa.3.0.i125 = select i1 %.sroa.0.0.i.i.i124, i64 %.sroa.460.0.ph318, i64 %.sroa.416.0.i
-  %.sroa.0.0.sroa.speculated.i126 = select i1 %.sroa.0.0.i.i.i124, i64 %.sroa.058.0.ph319, i64 %.sroa.014.0.i
+_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126: ; preds = %297, %300
+  %.sroa.0.0.i.i.i122 = phi i1 [ %301, %300 ], [ %spec.select.i.i125, %297 ]
+  %.sroa.3.0.i123 = select i1 %.sroa.0.0.i.i.i122, i64 %.sroa.460.0.ph317, i64 %.sroa.416.0.i
+  %.sroa.0.0.sroa.speculated.i124 = select i1 %.sroa.0.0.i.i.i122, i64 %.sroa.058.0.ph318, i64 %.sroa.014.0.i
   %302 = load i64, ptr %48, align 8, !noundef !3
   %303 = sub i64 %302, %.sroa.728.0.copyload.i
-  %spec.select191 = call i64 @llvm.umax.i64(i64 %303, i64 %.sroa.47.0.ph311)
-  %304 = icmp eq ptr %.sroa.075.1275, %43
-  %.sroa.075.1.idx272 = select i1 %304, i64 0, i64 24
-  %.sroa.075.1273 = getelementptr inbounds nuw i8, ptr %.sroa.075.1275, i64 %.sroa.075.1.idx272
-  br i1 %304, label %.outer._crit_edge, label %.lr.ph276
+  %spec.select190 = call i64 @llvm.umax.i64(i64 %303, i64 %.sroa.47.0.ph310)
+  %304 = icmp eq ptr %.sroa.075.1274, %43
+  %.sroa.075.1.idx271 = select i1 %304, i64 0, i64 24
+  %.sroa.075.1272 = getelementptr inbounds nuw i8, ptr %.sroa.075.1274, i64 %.sroa.075.1.idx271
+  br i1 %304, label %.outer._crit_edge, label %.lr.ph275
 
 _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit: ; preds = %29, %306
-  %.sroa.057.1 = phi i64 [ %30, %306 ], [ %.sroa.057.0258, %29 ]
-  %.sroa.10.1 = phi i8 [ %.sroa.8.0.copyload, %306 ], [ %.sroa.10.0259, %29 ]
-  %.sroa.840.1 = phi i8 [ 1, %306 ], [ %.sroa.840.0260, %29 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.5.0.copyload, %306 ], [ %.sroa.7.0261, %29 ]
-  %.sroa.627.1 = phi i64 [ %.sroa.4.0.copyload, %306 ], [ %.sroa.627.0262, %29 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.3.0.copyload, %306 ], [ %.sroa.5.0263, %29 ]
-  %.sroa.017.1 = phi i64 [ %.sroa.0.0.copyload, %306 ], [ %.sroa.017.0264, %29 ]
+  %.sroa.057.1 = phi i64 [ %30, %306 ], [ %.sroa.057.0257, %29 ]
+  %.sroa.10.1 = phi i8 [ %.sroa.8.0.copyload, %306 ], [ %.sroa.10.0258, %29 ]
+  %.sroa.840.1 = phi i8 [ 1, %306 ], [ %.sroa.840.0259, %29 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.5.0.copyload, %306 ], [ %.sroa.7.0260, %29 ]
+  %.sroa.627.1 = phi i64 [ %.sroa.4.0.copyload, %306 ], [ %.sroa.627.0261, %29 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.3.0.copyload, %306 ], [ %.sroa.5.0262, %29 ]
+  %.sroa.017.1 = phi i64 [ %.sroa.0.0.copyload, %306 ], [ %.sroa.017.0263, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !163
-  %305 = icmp eq ptr %.sroa.074.1265, %23
+  %305 = icmp eq ptr %.sroa.074.1264, %23
   %.sroa.074.1.idx = select i1 %305, i64 0, i64 16
-  %.sroa.074.1 = getelementptr inbounds nuw i8, ptr %.sroa.074.1265, i64 %.sroa.074.1.idx
+  %.sroa.074.1 = getelementptr inbounds nuw i8, ptr %.sroa.074.1264, i64 %.sroa.074.1.idx
   br i1 %305, label %._crit_edge, label %29
 
 306:                                              ; preds = %29
   %.sroa.0.0.copyload = load i64, ptr %28, align 8, !noalias !158
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !158
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !158
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx129, align 8, !noalias !158
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx127, align 8, !noalias !158
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1, !noalias !158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.0..sroa_idx130, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.0..sroa_idx128, i64 6, i1 false)
   br label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit
 }
 

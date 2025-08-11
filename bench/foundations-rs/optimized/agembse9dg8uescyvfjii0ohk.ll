@@ -8932,10 +8932,10 @@ define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5al
   %.sroa.012.0.i.i.i = phi i8 [ 1, %58 ], [ 0, %38 ]
   %60 = trunc nuw i8 %54 to i1
   %.sroa.59.0.i.i.i = select i1 %60, i32 %.sroa.59.0.copyload.i.i.i, i32 undef
-  %.not24.i.i.i = icmp eq i32 %50, 1000000000
-  %.sroa.04.0.i.i.i = select i1 %.not24.i.i.i, i64 undef, i64 %52
-  %.not23.i.i.i = icmp eq i32 %46, 1000000000
-  %.sroa.01.0.i.i.i = select i1 %.not23.i.i.i, i64 undef, i64 %48
+  %.not21.i.i.i = icmp eq i32 %50, 1000000000
+  %.sroa.04.0.i.i.i = select i1 %.not21.i.i.i, i64 undef, i64 %52
+  %.not20.i.i.i = icmp eq i32 %46, 1000000000
+  %.sroa.01.0.i.i.i = select i1 %.not20.i.i.i, i64 undef, i64 %48
   %.not.i.i.i = icmp eq i32 %40, 1000000000
   %.sroa.0.0.i.i.i = select i1 %.not.i.i.i, i64 undef, i64 %42
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 119

@@ -155,13 +155,13 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %or.cond = and i1 %4, %5
   br i1 %or.cond, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit", label %6
 
-6:                                                ; preds = %3
-  %7 = icmp eq i64 %1, -50806641264357481
-  %8 = icmp eq i64 %2, -3852133054832745978
-  %or.cond.i = and i1 %7, %8
+"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit": ; preds = %3
+  %6 = icmp eq i64 %1, -50806641264357481
+  %7 = icmp eq i64 %2, -3852133054832745978
+  %or.cond.i = and i1 %6, %7
   br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit", label %9
 
-9:                                                ; preds = %6
+10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit"
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %11 = icmp eq i64 %1, -2619928213396586868
   %12 = icmp eq i64 %2, -397120010824519751
@@ -196,15 +196,15 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %13 = icmp eq i64 %1, -3424795511029543031
   %14 = icmp eq i64 %2, 6927684179508038786
   %or.cond.i.i.i = and i1 %13, %14
-  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %15
+  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i"
 
-15:                                               ; preds = %12
-  %16 = icmp eq i64 %1, -50806641264357481
-  %17 = icmp eq i64 %2, -3852133054832745978
-  %or.cond.i.i.i.i = and i1 %16, %17
+"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i": ; preds = %12
+  %15 = icmp eq i64 %1, -50806641264357481
+  %16 = icmp eq i64 %2, -3852133054832745978
+  %or.cond.i.i.i.i = and i1 %15, %16
   br i1 %or.cond.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %18
 
-18:                                               ; preds = %15
+18:; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %20 = icmp eq i64 %1, -2619928213396586868
   %21 = icmp eq i64 %2, -397120010824519751
@@ -213,7 +213,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %22 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit": ; preds = %3, %18, %15, %12, %6
+"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit": ; preds = %3, %18, %15, %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit"
   %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %6 ], [ %22, %18 ], [ { i64 1, ptr poison }, %15 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %3 ]
   %.pn8 = phi ptr [ %10, %6 ], [ %19, %18 ], [ %0, %15 ], [ %0, %12 ], [ %0, %3 ]
   %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1

@@ -5454,8 +5454,8 @@ define hidden { ptr, ptr } @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParalle
 
 4:                                                ; preds = %5, %1
   %.sroa.01.0.i = phi i64 [ %3, %1 ], [ %9, %5 ]
-  %.not.i = icmp eq i64 %.sroa.01.0.i, 0
-  br i1 %.not.i, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17h4dda45cce8d53ccdE.exit, label %5
+  %.not.i.not = icmp eq i64 %.sroa.01.0.i, 0
+  br i1 %.not.i.not, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17h4dda45cce8d53ccdE.exit, label %5
 
 5:                                                ; preds = %4
   %6 = add i64 %.sroa.01.0.i, -1
@@ -5465,10 +5465,10 @@ define hidden { ptr, ptr } @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParalle
   br i1 %8, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17h4dda45cce8d53ccdE.exit, label %4
 
 _ZN4core4sync6atomic11AtomicUsize12fetch_update17h4dda45cce8d53ccdE.exit: ; preds = %4, %5
-  %10 = phi ptr [ %0, %5 ], [ null, %4 ]
-  %11 = insertvalue { ptr, ptr } poison, ptr %0, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %10, 1
-  ret { ptr, ptr } %12
+  %. = phi ptr [ %0, %5 ], [ null, %4 ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %0, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %., 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

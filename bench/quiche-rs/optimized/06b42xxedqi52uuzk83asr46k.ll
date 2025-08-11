@@ -1808,8 +1808,8 @@ define void @_ZN6quiche6crypto4Open22derive_next_packet_key17h6f81e46a06649b75E(
           to label %50 unwind label %47
 
 50:                                               ; preds = %49, %51
-  %.pn44 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
-  resume { ptr, i32 } %.pn44
+  %.pn42 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
+  resume { ptr, i32 } %.pn42
 
 51:                                               ; preds = %24
   %52 = landingpad { ptr, i32 }
@@ -2334,8 +2334,8 @@ define void @_ZN6quiche6crypto4Seal22derive_next_packet_key17h9ac706ae48e96580E(
           to label %50 unwind label %47
 
 50:                                               ; preds = %49, %51
-  %.pn44 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
-  resume { ptr, i32 } %.pn44
+  %.pn42 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
+  resume { ptr, i32 } %.pn42
 
 51:                                               ; preds = %24
   %52 = landingpad { ptr, i32 }

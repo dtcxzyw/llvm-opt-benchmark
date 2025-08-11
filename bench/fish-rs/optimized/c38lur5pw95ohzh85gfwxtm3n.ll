@@ -17678,22 +17678,22 @@ define internal fastcc noundef i64 @_ZN4fish8builtins6printf22builtin_printf_sta
   %.sroa.052.0.ph.ph = phi ptr [ %3, %5 ], [ %.sroa.052.6, %_ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bfE.exit ]
   %.sroa.36.0.ph.ph = phi i64 [ %2, %5 ], [ %.sroa.36.7, %_ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bfE.exit ]
   %.sroa.0.0.ph.ph = phi ptr [ %1, %5 ], [ %.sroa.0.7, %_ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bfE.exit ]
-  br label %.outer.outer2118
+  br label %.outer.outer2119
 
-.outer.outer2118:                                 ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit, %.outer.outer
-  %.sroa.089.0.ph.ph2119 = phi i64 [ %256, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.089.0.ph.ph, %.outer.outer ]
-  %.sroa.075.0.ph.ph2120 = phi i1 [ false, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.075.0.ph.ph, %.outer.outer ]
-  %.sroa.15.0.ph.ph2121 = phi i64 [ %254, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.15.0.ph.ph, %.outer.outer ]
-  %.sroa.052.0.ph.ph2122 = phi ptr [ %255, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.052.0.ph.ph, %.outer.outer ]
-  %.sroa.36.0.ph.ph2123 = phi i64 [ %202, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.36.0.ph.ph, %.outer.outer ]
-  %.sroa.0.0.ph.ph2124 = phi ptr [ %203, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.0.0.ph.ph, %.outer.outer ]
+.outer.outer2119:                                 ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit, %.outer.outer
+  %.sroa.089.0.ph.ph2120 = phi i64 [ %256, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.089.0.ph.ph, %.outer.outer ]
+  %.sroa.075.0.ph.ph2121 = phi i1 [ false, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.075.0.ph.ph, %.outer.outer ]
+  %.sroa.15.0.ph.ph2122 = phi i64 [ %254, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.15.0.ph.ph, %.outer.outer ]
+  %.sroa.052.0.ph.ph2123 = phi ptr [ %255, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.052.0.ph.ph, %.outer.outer ]
+  %.sroa.36.0.ph.ph2124 = phi i64 [ %202, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.36.0.ph.ph, %.outer.outer ]
+  %.sroa.0.0.ph.ph2125 = phi ptr [ %203, %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit ], [ %.sroa.0.0.ph.ph, %.outer.outer ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer2118, %216
-  %.sroa.089.0.ph = phi i64 [ 0, %216 ], [ %.sroa.089.0.ph.ph2119, %.outer.outer2118 ]
-  %.sroa.075.0.ph = phi i1 [ false, %216 ], [ %.sroa.075.0.ph.ph2120, %.outer.outer2118 ]
-  %.sroa.36.0.ph = phi i64 [ %202, %216 ], [ %.sroa.36.0.ph.ph2123, %.outer.outer2118 ]
-  %.sroa.0.0.ph = phi ptr [ %203, %216 ], [ %.sroa.0.0.ph.ph2124, %.outer.outer2118 ]
+.outer:                                           ; preds = %.outer.outer2119, %216
+  %.sroa.089.0.ph = phi i64 [ 0, %216 ], [ %.sroa.089.0.ph.ph2120, %.outer.outer2118 ]
+  %.sroa.075.0.ph = phi i1 [ false, %216 ], [ %.sroa.075.0.ph.ph2121, %.outer.outer2118 ]
+  %.sroa.36.0.ph = phi i64 [ %202, %216 ], [ %.sroa.36.0.ph.ph2124, %.outer.outer2118 ]
+  %.sroa.0.0.ph = phi ptr [ %203, %216 ], [ %.sroa.0.0.ph.ph2125, %.outer.outer2118 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
@@ -17746,7 +17746,7 @@ define internal fastcc noundef i64 @_ZN4fish8builtins6printf22builtin_printf_sta
   br i1 %192, label %.backedge.sink.split.sink.split, label %.backedge.sink.split
 
 .backedge.sink.split.sink.split:                  ; preds = %189, %209
-  %.sink1696.ph = phi i64 [ %210, %209 ], [ %190, %189 ]
+  %.sink1697.ph = phi i64 [ %210, %209 ], [ %190, %189 ]
   %.sink.ph = phi i32 [ 37, %209 ], [ %184, %189 ]
   %.sroa.36.0.be.ph.ph = phi i64 [ %202, %209 ], [ %.sroa.36.1, %189 ]
   %.sroa.0.0.be.ph.ph = phi ptr [ %203, %209 ], [ %.sroa.0.1, %189 ]
@@ -17754,14 +17754,14 @@ define internal fastcc noundef i64 @_ZN4fish8builtins6printf22builtin_printf_sta
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %.backedge.sink.split.sink.split, %189, %209
-  %.sink1696 = phi i64 [ %210, %209 ], [ %190, %189 ], [ %.sink1696.ph, %.backedge.sink.split.sink.split ]
+  %.sink1697 = phi i64 [ %210, %209 ], [ %190, %189 ], [ %.sink1697.ph, %.backedge.sink.split.sink.split ]
   %.sink = phi i32 [ 37, %209 ], [ %184, %189 ], [ %.sink.ph, %.backedge.sink.split.sink.split ]
   %.sroa.36.0.be.ph = phi i64 [ %202, %209 ], [ %.sroa.36.1, %189 ], [ %.sroa.36.0.be.ph.ph, %.backedge.sink.split.sink.split ]
   %.sroa.0.0.be.ph = phi ptr [ %203, %209 ], [ %.sroa.0.1, %189 ], [ %.sroa.0.0.be.ph.ph, %.backedge.sink.split.sink.split ]
   %193 = load ptr, ptr %128, align 8, !nonnull !3, !noundef !3
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %.sink1696
+  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %.sink1697
   store i32 %.sink, ptr %194, align 4
-  %195 = add i64 %.sink1696, 1
+  %195 = add i64 %.sink1697, 1
   store i64 %195, ptr %127, align 8
   br label %.backedge.backedge
 
@@ -17821,17 +17821,17 @@ define internal fastcc noundef i64 @_ZN4fish8builtins6printf22builtin_printf_sta
   br i1 %222, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader, label %218
 
 223:                                              ; preds = %216
-  %.not166 = icmp eq i64 %.sroa.15.0.ph.ph2121, 0
+  %.not166 = icmp eq i64 %.sroa.15.0.ph.ph2122, 0
   br i1 %.not166, label %257, label %224
 
 224:                                              ; preds = %223
-  %225 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2122, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2123, i64 8
   %226 = load i64, ptr %225, align 8, !noundef !3
   %227 = icmp eq i64 %226, 0
   br i1 %227, label %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %224
-  %228 = load ptr, ptr %.sroa.052.0.ph.ph2122, align 8, !nonnull !3, !align !1004, !noundef !3
+  %228 = load ptr, ptr %.sroa.052.0.ph.ph2123, align 8, !nonnull !3, !align !1004, !noundef !3
   br label %229
 
 229:                                              ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t13append_output17h16047bf6cc5b5055E.exit.thread.i, %.lr.ph.i
@@ -17892,31 +17892,31 @@ _ZN4fish8builtins6printf22builtin_printf_state_t13append_output17h16047bf6cc5b50
   br i1 %253, label %_ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit, label %229
 
 _ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e6bcc1E.exit: ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t13append_output17h16047bf6cc5b5055E.exit.thread.i, %224
-  %254 = add i64 %.sroa.15.0.ph.ph2121, -1
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2122, i64 16
+  %254 = add i64 %.sroa.15.0.ph.ph2122, -1
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2123, i64 16
   %256 = add i64 %.sroa.089.0.ph, -1
-  br label %.outer.outer2118
+  br label %.outer.outer2119
 
 257:                                              ; preds = %223
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f1824740b010706de069fecfea12834.306) #31
   unreachable
 
 258:                                              ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader
-  %259 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2859, i64 noundef %.sroa.36.2858, i64 noundef 0)
+  %259 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2860, i64 noundef %.sroa.36.2859, i64 noundef 0)
   %260 = icmp eq i32 %259, 42
   br i1 %260, label %264, label %.preheader306
 
 .preheader306:                                    ; preds = %258
-  %261 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2859, i64 noundef %.sroa.36.2858, i64 noundef 0)
+  %261 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2860, i64 noundef %.sroa.36.2859, i64 noundef 0)
   %262 = add nsw i32 %261, -48
-  %.sroa.0.0.i860 = icmp ult i32 %262, 10
-  br i1 %.sroa.0.0.i860, label %.lr.ph, label %.loopexit307
+  %.sroa.0.0.i861 = icmp ult i32 %262, 10
+  br i1 %.sroa.0.0.i861, label %.lr.ph, label %.loopexit307
 
 _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader: ; preds = %218, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit
-  %.sroa.0.2859 = phi ptr [ %1033, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit ], [ %203, %218 ]
-  %.sroa.36.2858 = phi i64 [ %1034, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit ], [ %202, %218 ]
+  %.sroa.0.2860 = phi ptr [ %1033, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit ], [ %203, %218 ]
+  %.sroa.36.2859 = phi i64 [ %1034, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit ], [ %202, %218 ]
   %.sroa.078.0857 = phi i64 [ %1035, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit ], [ 1, %218 ]
-  %263 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2859, i64 noundef %.sroa.36.2858, i64 noundef 0)
+  %263 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.2860, i64 noundef %.sroa.36.2859, i64 noundef 0)
   switch i32 %263, label %258 [
     i32 73, label %1015
     i32 39, label %1015
@@ -17928,9 +17928,9 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   ]
 
 264:                                              ; preds = %258
-  %265 = icmp eq i64 %.sroa.36.2858, 0
-  %266 = add i64 %.sroa.36.2858, -1
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.0.2859, i64 4
+  %265 = icmp eq i64 %.sroa.36.2859, 0
+  %266 = add i64 %.sroa.36.2859, -1
+  %267 = getelementptr inbounds nuw i8, ptr %.sroa.0.2860, i64 4
   br i1 %265, label %270, label %268, !prof !68
 
 268:                                              ; preds = %264
@@ -17943,12 +17943,12 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   unreachable
 
 271:                                              ; preds = %268
-  %.not147 = icmp eq i64 %.sroa.15.0.ph.ph2121, 0
+  %.not147 = icmp eq i64 %.sroa.15.0.ph.ph2122, 0
   br i1 %.not147, label %278, label %272
 
 272:                                              ; preds = %271
-  %273 = load ptr, ptr %.sroa.052.0.ph.ph2122, align 8, !nonnull !3, !align !1004, !noundef !3
-  %274 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2122, i64 8
+  %273 = load ptr, ptr %.sroa.052.0.ph.ph2123, align 8, !nonnull !3, !align !1004, !noundef !3
+  %274 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2123, i64 8
   %275 = load i64, ptr %274, align 8, !noundef !3
   %276 = call noundef i64 @_ZN4fish8builtins6printf21string_to_scalar_type17h773ebfe23078a3c7E(ptr noalias noundef nonnull readonly align 4 %273, i64 noundef %275, ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
   %277 = add i64 %276, 2147483648
@@ -17986,7 +17986,7 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
 286:                                              ; preds = %279
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
-  %287 = load ptr, ptr %.sroa.052.0.ph.ph2122, align 8, !nonnull !3, !align !1004, !noundef !3
+  %287 = load ptr, ptr %.sroa.052.0.ph.ph2123, align 8, !nonnull !3, !align !1004, !noundef !3
   %288 = load i64, ptr %274, align 8, !noundef !3
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %120, ptr noalias noundef nonnull readonly align 4 %287, i64 noundef %288)
           to label %289 unwind label %284
@@ -18067,8 +18067,8 @@ common.resume:                                    ; preds = %.body.i, %283, %340
 
 305:                                              ; preds = %281, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit"
   %.sroa.073.3 = phi i32 [ %282, %281 ], [ %.sroa.073.0.ph.ph, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit" ]
-  %306 = add i64 %.sroa.15.0.ph.ph2121, -1
-  %307 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2122, i64 16
+  %306 = add i64 %.sroa.15.0.ph.ph2122, -1
+  %307 = getelementptr inbounds nuw i8, ptr %.sroa.052.0.ph.ph2123, i64 16
   %308 = add i64 %.sroa.089.0.ph, -1
   br label %.loopexit307
 
@@ -18076,19 +18076,19 @@ common.resume:                                    ; preds = %.body.i, %283, %340
   %.sroa.089.3 = phi i64 [ %308, %305 ], [ 0, %268 ], [ %.sroa.089.0.ph, %.preheader306 ], [ %.sroa.089.0.ph, %1008 ]
   %.sroa.078.2 = phi i64 [ %269, %305 ], [ %269, %268 ], [ %.sroa.078.0857, %.preheader306 ], [ %1011, %1008 ]
   %.sroa.073.2 = phi i32 [ %.sroa.073.3, %305 ], [ 0, %268 ], [ %.sroa.073.0.ph.ph, %.preheader306 ], [ %.sroa.073.0.ph.ph, %1008 ]
-  %.sroa.15.3 = phi i64 [ %306, %305 ], [ %.sroa.15.0.ph.ph2121, %268 ], [ %.sroa.15.0.ph.ph2121, %.preheader306 ], [ %.sroa.15.0.ph.ph2121, %1008 ]
-  %.sroa.052.3 = phi ptr [ %307, %305 ], [ %.sroa.052.0.ph.ph2122, %268 ], [ %.sroa.052.0.ph.ph2122, %.preheader306 ], [ %.sroa.052.0.ph.ph2122, %1008 ]
-  %.sroa.36.4 = phi i64 [ %266, %305 ], [ %266, %268 ], [ %.sroa.36.2858, %.preheader306 ], [ %1010, %1008 ]
-  %.sroa.0.4 = phi ptr [ %267, %305 ], [ %267, %268 ], [ %.sroa.0.2859, %.preheader306 ], [ %1009, %1008 ]
+  %.sroa.15.3 = phi i64 [ %306, %305 ], [ %.sroa.15.0.ph.ph2122, %268 ], [ %.sroa.15.0.ph.ph2122, %.preheader306 ], [ %.sroa.15.0.ph.ph2122, %1008 ]
+  %.sroa.052.3 = phi ptr [ %307, %305 ], [ %.sroa.052.0.ph.ph2123, %268 ], [ %.sroa.052.0.ph.ph2123, %.preheader306 ], [ %.sroa.052.0.ph.ph2123, %1008 ]
+  %.sroa.36.4 = phi i64 [ %266, %305 ], [ %266, %268 ], [ %.sroa.36.2859, %.preheader306 ], [ %1010, %1008 ]
+  %.sroa.0.4 = phi ptr [ %267, %305 ], [ %267, %268 ], [ %.sroa.0.2860, %.preheader306 ], [ %1009, %1008 ]
   %309 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.4, i64 noundef %.sroa.36.4, i64 noundef 0)
   %310 = icmp eq i32 %309, 46
   br i1 %310, label %312, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader306, %1008
-  %.sroa.0.3863 = phi ptr [ %1009, %1008 ], [ %.sroa.0.2859, %.preheader306 ]
-  %.sroa.36.3862 = phi i64 [ %1010, %1008 ], [ %.sroa.36.2858, %.preheader306 ]
-  %.sroa.078.1861 = phi i64 [ %1011, %1008 ], [ %.sroa.078.0857, %.preheader306 ]
-  %311 = icmp eq i64 %.sroa.36.3862, 0
+  %.sroa.0.3864 = phi ptr [ %1009, %1008 ], [ %.sroa.0.2860, %.preheader306 ]
+  %.sroa.36.3863 = phi i64 [ %1010, %1008 ], [ %.sroa.36.2859, %.preheader306 ]
+  %.sroa.078.1862 = phi i64 [ %1011, %1008 ], [ %.sroa.078.0857, %.preheader306 ]
+  %311 = icmp eq i64 %.sroa.36.3863, 0
   br i1 %311, label %1014, label %1008, !prof !68
 
 312:                                              ; preds = %.loopexit307
@@ -18682,16 +18682,16 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   %487 = trunc nuw i8 %486 to i1
   %488 = load i8, ptr %168, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !1454
-  br i1 %487, label %489, label %.preheader2110
+  br i1 %487, label %489, label %.preheader2111
 
 489:                                              ; preds = %485
   invoke fastcc void @_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i8 noundef %488)
           to label %.preheader2110 unwind label %483, !noalias !1465
 
-.preheader2110:                                   ; preds = %489, %485
+.preheader2111:                                   ; preds = %489, %485
   br label %490
 
-490:                                              ; preds = %.preheader2110, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i259"
+490:                                              ; preds = %.preheader2111, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i259"
   %.sroa.0.08.i257 = phi i64 [ %492, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i259" ], [ 0, %.preheader2110 ]
   %491 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %99, i64 %.sroa.0.08.i257
   %492 = add nuw nsw i64 %.sroa.0.08.i257, 1
@@ -18778,16 +18778,16 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   %516 = trunc nuw i8 %515 to i1
   %517 = load i8, ptr %170, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !1454
-  br i1 %516, label %518, label %.preheader2109
+  br i1 %516, label %518, label %.preheader2110
 
 518:                                              ; preds = %514
   invoke fastcc void @_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i8 noundef %517)
           to label %.preheader2109 unwind label %512, !noalias !1465
 
-.preheader2109:                                   ; preds = %518, %514
+.preheader2110:                                   ; preds = %518, %514
   br label %519
 
-519:                                              ; preds = %.preheader2109, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i253"
+519:                                              ; preds = %.preheader2110, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i253"
   %.sroa.0.08.i251 = phi i64 [ %521, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i253" ], [ 0, %.preheader2109 ]
   %520 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %95, i64 %.sroa.0.08.i251
   %521 = add nuw nsw i64 %.sroa.0.08.i251, 1
@@ -18885,16 +18885,16 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   %547 = trunc nuw i8 %546 to i1
   %548 = load i8, ptr %173, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !1454
-  br i1 %547, label %549, label %.preheader2108
+  br i1 %547, label %549, label %.preheader2109
 
 549:                                              ; preds = %545
   invoke fastcc void @_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i8 noundef %548)
           to label %.preheader2108 unwind label %543, !noalias !1465
 
-.preheader2108:                                   ; preds = %549, %545
+.preheader2109:                                   ; preds = %549, %545
   br label %550
 
-550:                                              ; preds = %.preheader2108, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i248"
+550:                                              ; preds = %.preheader2109, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i248"
   %.sroa.0.08.i247 = phi i64 [ %552, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i248" ], [ 0, %.preheader2108 ]
   %551 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %91, i64 %.sroa.0.08.i247
   %552 = add nuw nsw i64 %.sroa.0.08.i247, 1
@@ -19102,7 +19102,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %605 = trunc nuw i8 %604 to i1
   %606 = load i8, ptr %159, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !1454
-  br i1 %605, label %607, label %.preheader2113
+  br i1 %605, label %607, label %.preheader2114
 
 607:                                              ; preds = %603
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -19143,12 +19143,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit241: ; preds = %.noexc238
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.preheader2113
+  br label %.preheader2114
 
-.preheader2113:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit241, %603
+.preheader2114:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit241, %603
   br label %618
 
-618:                                              ; preds = %.preheader2113, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i"
+618:                                              ; preds = %.preheader2114, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %620, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i" ], [ 0, %.preheader2113 ]
   %619 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %83, i64 %.sroa.0.08.i.i
   %620 = add nuw nsw i64 %.sroa.0.08.i.i, 1
@@ -19244,7 +19244,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %643 = trunc nuw i8 %642 to i1
   %644 = load i8, ptr %161, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !1454
-  br i1 %643, label %645, label %.preheader2112
+  br i1 %643, label %645, label %.preheader2113
 
 645:                                              ; preds = %641
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -19285,12 +19285,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit236: ; preds = %.noexc233
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.preheader2112
+  br label %.preheader2113
 
-.preheader2112:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit236, %641
+.preheader2113:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit236, %641
   br label %656
 
-656:                                              ; preds = %.preheader2112, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i98.i"
+656:                                              ; preds = %.preheader2113, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i98.i"
   %.sroa.0.08.i96.i = phi i64 [ %658, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i98.i" ], [ 0, %.preheader2112 ]
   %657 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %79, i64 %.sroa.0.08.i96.i
   %658 = add nuw nsw i64 %.sroa.0.08.i96.i, 1
@@ -19397,7 +19397,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %683 = trunc nuw i8 %682 to i1
   %684 = load i8, ptr %164, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !1454
-  br i1 %683, label %685, label %.preheader2111
+  br i1 %683, label %685, label %.preheader2112
 
 685:                                              ; preds = %681
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -19438,12 +19438,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit: ; preds = %.noexc229
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.preheader2111
+  br label %.preheader2112
 
-.preheader2111:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit, %681
+.preheader2112:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit, %681
   br label %696
 
-696:                                              ; preds = %.preheader2111, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i103.i"
+696:                                              ; preds = %.preheader2112, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i103.i"
   %.sroa.0.08.i102.i = phi i64 [ %698, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i103.i" ], [ 0, %.preheader2111 ]
   %697 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %75, i64 %.sroa.0.08.i102.i
   %698 = add nuw nsw i64 %.sroa.0.08.i102.i, 1
@@ -19651,7 +19651,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %751 = trunc nuw i8 %750 to i1
   %752 = load i8, ptr %150, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !1454
-  br i1 %751, label %753, label %.preheader2116
+  br i1 %751, label %753, label %.preheader2117
 
 753:                                              ; preds = %749
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1454
@@ -19692,12 +19692,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit118.i: ; preds = %.noexc115.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1454
-  br label %.preheader2116
+  br label %.preheader2117
 
-.preheader2116:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit118.i, %749
+.preheader2117:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit118.i, %749
   br label %764
 
-764:                                              ; preds = %.preheader2116, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i121.i"
+764:                                              ; preds = %.preheader2117, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i121.i"
   %.sroa.0.08.i119.i = phi i64 [ %766, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i121.i" ], [ 0, %.preheader2116 ]
   %765 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %67, i64 %.sroa.0.08.i119.i
   %766 = add nuw nsw i64 %.sroa.0.08.i119.i, 1
@@ -19793,7 +19793,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %789 = trunc nuw i8 %788 to i1
   %790 = load i8, ptr %152, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !1454
-  br i1 %789, label %791, label %.preheader2115
+  br i1 %789, label %791, label %.preheader2116
 
 791:                                              ; preds = %787
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1454
@@ -19834,12 +19834,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit129.i: ; preds = %.noexc126.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !1454
-  br label %.preheader2115
+  br label %.preheader2116
 
-.preheader2115:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit129.i, %787
+.preheader2116:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit129.i, %787
   br label %802
 
-802:                                              ; preds = %.preheader2115, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i132.i"
+802:                                              ; preds = %.preheader2116, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i132.i"
   %.sroa.0.08.i130.i = phi i64 [ %804, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i132.i" ], [ 0, %.preheader2115 ]
   %803 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %63, i64 %.sroa.0.08.i130.i
   %804 = add nuw nsw i64 %.sroa.0.08.i130.i, 1
@@ -19946,7 +19946,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %829 = trunc nuw i8 %828 to i1
   %830 = load i8, ptr %155, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !1454
-  br i1 %829, label %831, label %.preheader2114
+  br i1 %829, label %831, label %.preheader2115
 
 831:                                              ; preds = %827
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1454
@@ -19987,12 +19987,12 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
 
 _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit140.i: ; preds = %.noexc137.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !1454
-  br label %.preheader2114
+  br label %.preheader2115
 
-.preheader2114:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit140.i, %827
+.preheader2115:                                   ; preds = %_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E.exit140.i, %827
   br label %842
 
-842:                                              ; preds = %.preheader2114, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i143.i"
+842:                                              ; preds = %.preheader2115, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i143.i"
   %.sroa.0.08.i141.i = phi i64 [ %844, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i143.i" ], [ 0, %.preheader2114 ]
   %843 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %59, i64 %.sroa.0.08.i141.i
   %844 = add nuw nsw i64 %.sroa.0.08.i141.i, 1
@@ -20142,16 +20142,16 @@ _ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3e
   %888 = trunc nuw i8 %887 to i1
   %889 = load i8, ptr %146, align 1, !range !127, !noalias !1454
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !1454
-  br i1 %888, label %890, label %.preheader2117
+  br i1 %888, label %890, label %.preheader2118
 
 890:                                              ; preds = %886
   invoke fastcc void @_ZN4fish8builtins6printf22builtin_printf_state_t20handle_sprintf_error17hdabfa3ef9891edd4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i8 noundef %889)
           to label %.preheader2117 unwind label %884, !noalias !1465
 
-.preheader2117:                                   ; preds = %890, %886
+.preheader2118:                                   ; preds = %890, %886
   br label %891
 
-891:                                              ; preds = %.preheader2117, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i221"
+891:                                              ; preds = %.preheader2118, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i221"
   %.sroa.0.08.i219 = phi i64 [ %893, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i221" ], [ 0, %.preheader2117 ]
   %892 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %51, i64 %.sroa.0.08.i219
   %893 = add nuw nsw i64 %.sroa.0.08.i219, 1
@@ -20553,9 +20553,9 @@ _ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bf
   br label %185
 
 1008:                                             ; preds = %.lr.ph
-  %1009 = getelementptr inbounds nuw i8, ptr %.sroa.0.3863, i64 4
-  %1010 = add i64 %.sroa.36.3862, -1
-  %1011 = add i64 %.sroa.078.1861, 1
+  %1009 = getelementptr inbounds nuw i8, ptr %.sroa.0.3864, i64 4
+  %1010 = add i64 %.sroa.36.3863, -1
+  %1011 = add i64 %.sroa.078.1862, 1
   %1012 = call noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %1009, i64 noundef %1010, i64 noundef 0)
   %1013 = add nsw i32 %1012, -48
   %.sroa.0.0.i = icmp ult i32 %1013, 10
@@ -20614,13 +20614,13 @@ _ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bf
   br i1 %1032, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198, label %1028
 
 _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit: ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198
-  %1033 = getelementptr inbounds nuw i8, ptr %.sroa.0.2859, i64 4
-  %1034 = add i64 %.sroa.36.2858, -1
+  %1033 = getelementptr inbounds nuw i8, ptr %.sroa.0.2860, i64 4
+  %1034 = add i64 %.sroa.36.2859, -1
   %1035 = add i64 %.sroa.078.0857, 1
   br label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader
 
 _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198: ; preds = %1028, %1022, %1016, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader
-  %1036 = icmp eq i64 %.sroa.36.2858, 0
+  %1036 = icmp eq i64 %.sroa.36.2859, 0
   br i1 %1036, label %1037, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit, !prof !68
 
 1037:                                             ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198

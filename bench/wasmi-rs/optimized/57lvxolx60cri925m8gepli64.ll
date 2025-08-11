@@ -914,8 +914,8 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
   %176 = load i64, ptr %175, align 8, !noalias !89
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !89
   %177 = trunc nuw i64 %174 to i1
-  %.sroa.0.0.sroa.speculated.i11.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.5.sroa.4.0.copyload.i, i64 %176)
-  %.sroa.7.0.i.i.i.i = select i1 %177, i64 %.sroa.0.0.sroa.speculated.i11.i.i.i.i, i64 %.sroa.5.sroa.4.0.copyload.i
+  %.sroa.0.0.sroa.speculated.i10.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.5.sroa.4.0.copyload.i, i64 %176)
+  %.sroa.7.0.i.i.i.i = select i1 %177, i64 %.sroa.0.0.sroa.speculated.i10.i.i.i.i, i64 %.sroa.5.sroa.4.0.copyload.i
   %.not.i6.i.i = icmp eq i64 %.sroa.7.0.i.i.i.i, 0
   br i1 %.not.i6.i.i, label %.loopexit98.i, label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7504d8d4a1b640cdE.exit.i.i.i"
 

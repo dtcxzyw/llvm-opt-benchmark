@@ -846,14 +846,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %41 = load i64, ptr %40, align 8, !range !59, !noalias !116, !noundef !14
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br i1 %39, label %43, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit26", !prof !21
+  br i1 %39, label %43, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit22", !prof !21
 
 43:                                               ; preds = %33
   %44 = load i64, ptr %42, align 8, !noalias !116
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %41, i64 %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17, !noalias !122
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit26": ; preds = %33
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit22": ; preds = %33
   %45 = load ptr, ptr %42, align 8, !noalias !116, !nonnull !14, !noundef !14
   %46 = icmp ule i64 %37, %41
   tail call void @llvm.assume(i1 %46)
@@ -861,10 +861,10 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !123
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %41, ptr %47, align 8
-  %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %45, ptr %.sroa.447.0..sroa_idx, align 8
-  %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %37, ptr %.sroa.548.0..sroa_idx, align 8
+  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %45, ptr %.sroa.443.0..sroa_idx, align 8
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %37, ptr %.sroa.544.0..sroa_idx, align 8
   store i64 3, ptr %0, align 8
   br label %156
 
@@ -932,14 +932,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %92 = load i64, ptr %91, align 8, !range !59, !noalias !129, !noundef !14
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br i1 %90, label %94, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit29", !prof !21
+  br i1 %90, label %94, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit25", !prof !21
 
 94:                                               ; preds = %82
   %95 = load i64, ptr %93, align 8, !noalias !129
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %92, i64 %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17, !noalias !135
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit29": ; preds = %82
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit25": ; preds = %82
   %96 = load ptr, ptr %93, align 8, !noalias !129, !nonnull !14, !noundef !14
   %97 = icmp ule i64 %88, %92
   tail call void @llvm.assume(i1 %97)
@@ -949,10 +949,10 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   store i64 %84, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %92, ptr %99, align 8
-  %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %96, ptr %.sroa.450.0..sroa_idx, align 8
-  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %88, ptr %.sroa.551.0..sroa_idx, align 8
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %96, ptr %.sroa.446.0..sroa_idx, align 8
+  %.sroa.547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %88, ptr %.sroa.547.0..sroa_idx, align 8
   store i64 6, ptr %0, align 8
   br label %156
 
@@ -979,14 +979,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %112 = load i64, ptr %111, align 8, !range !59, !noalias !142, !noundef !14
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br i1 %110, label %114, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit32", !prof !21
+  br i1 %110, label %114, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit28", !prof !21
 
 114:                                              ; preds = %102
   %115 = load i64, ptr %113, align 8, !noalias !142
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %112, i64 %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17, !noalias !148
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit32": ; preds = %102
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit28": ; preds = %102
   %116 = load ptr, ptr %113, align 8, !noalias !142, !nonnull !14, !noundef !14
   %117 = icmp ule i64 %108, %112
   tail call void @llvm.assume(i1 %117)
@@ -996,10 +996,10 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   store i64 %104, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %112, ptr %119, align 8
-  %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %116, ptr %.sroa.453.0..sroa_idx, align 8
-  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %108, ptr %.sroa.554.0..sroa_idx, align 8
+  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %116, ptr %.sroa.449.0..sroa_idx, align 8
+  %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %108, ptr %.sroa.550.0..sroa_idx, align 8
   store i64 9, ptr %0, align 8
   br label %156
 
@@ -1018,14 +1018,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %130 = load i64, ptr %129, align 8, !range !59, !noalias !155, !noundef !14
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %128, label %132, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit35", !prof !21
+  br i1 %128, label %132, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit31", !prof !21
 
 132:                                              ; preds = %120
   %133 = load i64, ptr %131, align 8, !noalias !155
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %130, i64 %133, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17, !noalias !161
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit35": ; preds = %120
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit31": ; preds = %120
   %134 = load ptr, ptr %131, align 8, !noalias !155, !nonnull !14, !noundef !14
   %135 = icmp ule i64 %126, %130
   tail call void @llvm.assume(i1 %135)
@@ -1035,10 +1035,10 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   store i64 %122, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %130, ptr %137, align 8
-  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %134, ptr %.sroa.456.0..sroa_idx, align 8
-  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %126, ptr %.sroa.557.0..sroa_idx, align 8
+  %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %134, ptr %.sroa.452.0..sroa_idx, align 8
+  %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %126, ptr %.sroa.553.0..sroa_idx, align 8
   store i64 10, ptr %0, align 8
   br label %156
 
@@ -1057,14 +1057,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %147 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %148 = load i64, ptr %147, align 8, !range !59, !noalias !168, !noundef !14
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %146, label %150, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit38", !prof !21
+  br i1 %146, label %150, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit34", !prof !21
 
 150:                                              ; preds = %138
   %151 = load i64, ptr %149, align 8, !noalias !168
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %148, i64 %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17, !noalias !174
   unreachable
 
-"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit38": ; preds = %138
+"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit34": ; preds = %138
   %152 = load ptr, ptr %149, align 8, !noalias !168, !nonnull !14, !noundef !14
   %153 = icmp ule i64 %144, %148
   tail call void @llvm.assume(i1 %153)
@@ -1074,14 +1074,14 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   store i64 %140, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %148, ptr %155, align 8
-  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %152, ptr %.sroa.459.0..sroa_idx, align 8
-  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %144, ptr %.sroa.560.0..sroa_idx, align 8
+  %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %152, ptr %.sroa.455.0..sroa_idx, align 8
+  %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %144, ptr %.sroa.556.0..sroa_idx, align 8
   store i64 11, ptr %0, align 8
   br label %156
 
-156:                                              ; preds = %190, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit38", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit35", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit32", %101, %100, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit29", %48, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit26", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit"
+156:                                              ; preds = %190, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit34", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit31", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit28", %101, %100, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit25", %48, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit22", %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha72e06d55262963fE.exit"
   ret void
 
 157:                                              ; preds = %49
@@ -1112,10 +1112,10 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %171 = shl i64 %161, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %169, ptr nonnull readonly align 8 %160, i64 %171, i1 false), !noalias !188
   store i64 %165, ptr %11, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %169, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %161, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %169, ptr %.sroa.458.0..sroa_idx, align 8
+  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 %161, ptr %.sroa.559.0..sroa_idx, align 8
   %172 = icmp eq i64 %165, -9223372036854775808
   br label %174
 
@@ -1127,8 +1127,8 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   %175 = phi i1 [ true, %173 ], [ %172, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5a3da59a371e4487E.exit" ]
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %177 = load i64, ptr %176, align 8, !range !59, !noundef !14
-  %.not23 = icmp eq i64 %177, -9223372036854775808
-  br i1 %.not23, label %190, label %178
+  %.not19 = icmp eq i64 %177, -9223372036854775808
+  br i1 %.not19, label %190, label %178
 
 178:                                              ; preds = %174
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
@@ -1153,7 +1153,7 @@ define internal fastcc void @"_ZN63_$LT$quiche..h3..frame..Frame$u20$as$u20$core
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %186, i64 %189, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4fbbd50edab37f8553ad45c541e32edf.37) #17
           to label %.noexc43 unwind label %203
 
-.noexc43:                                         ; preds = %188
+.noexc39:                                         ; preds = %188
   unreachable
 
 190:                                              ; preds = %174, %206

@@ -6816,27 +6816,27 @@ define noundef ptr @_ZN5wasmi6engine10EngineWeak7upgrade17h80d52119d5e56322E(ptr
   %4 = load atomic i64, ptr %.val monotonic, align 8
   br label %5
 
-5:                                                ; preds = %10, %3
-  %.sroa.01.0.i.i = phi i64 [ %4, %3 ], [ %14, %10 ]
-  %6 = icmp eq i64 %.sroa.01.0.i.i, 0
-  br i1 %6, label %"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit", label %7
+5:                                                ; preds = %9, %3
+  %.sroa.01.0.i.i = phi i64 [ %4, %3 ], [ %13, %10 ]
+  %.not.i = icmp eq i64 %.sroa.01.0.i.i, 0
+  br i1 %.not.i, label %"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit", label %6
 
-7:                                                ; preds = %5
-  %8 = icmp sgt i64 %.sroa.01.0.i.i, -1
-  br i1 %8, label %10, label %9, !prof !3
+6:                                                ; preds = %5
+  %7 = icmp sgt i64 %.sroa.01.0.i.i, -1
+  br i1 %7, label %9, label %8, !prof !3
 
-9:                                                ; preds = %7
+8:                                                ; preds = %6
   tail call void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17h10c4da941db07afbE"(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.f2b77ba7329ff695b90d979c73fe8795.63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f2b77ba7329ff695b90d979c73fe8795.67) #32
   unreachable
 
-10:                                               ; preds = %7
-  %11 = add nuw i64 %.sroa.01.0.i.i, 1
-  %12 = cmpxchg weak ptr %.val, i64 %.sroa.01.0.i.i, i64 %11 acquire monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit", label %5
+9:                                                ; preds = %6
+  %10 = add nuw i64 %.sroa.01.0.i.i, 1
+  %11 = cmpxchg weak ptr %.val, i64 %.sroa.01.0.i.i, i64 %10 acquire monotonic, align 8
+  %12 = extractvalue { i64, i1 } %11, 1
+  %13 = extractvalue { i64, i1 } %11, 0
+  br i1 %12, label %"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit", label %5
 
-"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit": ; preds = %5, %10, %1
+"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17ha6466e9e0a779c59E.exit": ; preds = %5, %9, %1
   %.sroa.0.0.i = phi ptr [ null, %1 ], [ %.val, %10 ], [ null, %5 ]
   ret ptr %.sroa.0.0.i
 }

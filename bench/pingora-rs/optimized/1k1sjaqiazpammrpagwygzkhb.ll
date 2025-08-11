@@ -997,10 +997,10 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 84:                                               ; preds = %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h88d4fc61349fc06dE.exit.i"
   %85 = load i64, ptr %14, align 8, !range !67, !noalias !95, !noundef !4
-  %.not78.i = icmp ne i64 %85, 0
+  %.not74.i = icmp ne i64 %85, 0
   %86 = load i64, ptr %15, align 8
   %87 = icmp eq i64 %86, %39
-  %or.cond = select i1 %.not78.i, i1 %87, i1 false
+  %or.cond = select i1 %.not74.i, i1 %87, i1 false
   br i1 %or.cond, label %90, label %89
 
 88:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h88d4fc61349fc06dE.exit.i"
@@ -1009,8 +1009,8 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   br label %84
 
 89:                                               ; preds = %90, %84
-  %.not79.i = icmp eq i64 %.sroa.0.062, %39
-  br i1 %.not79.i, label %_ZN4http6header3map18remove_extra_value17ha50e2b648cf5fe69E.exit, label %91
+  %.not75.i = icmp eq i64 %.sroa.0.062, %39
+  br i1 %.not75.i, label %_ZN4http6header3map18remove_extra_value17ha50e2b648cf5fe69E.exit, label %91
 
 90:                                               ; preds = %84
   store i64 1, ptr %14, align 8, !noalias !95
@@ -1029,7 +1029,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %98 = trunc nuw i64 %96 to i1
   br i1 %98, label %101, label %103
 
-99:                                               ; preds = %.invoke.i, %.invoke82.i
+99:                                               ; preds = %.invoke.i, %.invoke78.i
   %100 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr90drop_in_place$LT$http..header..map..ExtraValue$LT$http..header..value..HeaderValue$GT$$GT$17h5a0100ec60e4c86cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3) #17
@@ -1047,11 +1047,11 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %106 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %97
   %107 = load i64, ptr %106, align 8, !range !67, !noalias !95, !noundef !4
   %108 = trunc nuw i64 %107 to i1
-  br i1 %108, label %109, label %.invoke82.i, !prof !104
+  br i1 %108, label %109, label %.invoke78.i, !prof !104
 
 109:                                              ; preds = %112, %105
-  %.sink84.i = phi ptr [ %113, %112 ], [ %106, %105 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sink84.i, i64 8
+  %.sink80.i = phi ptr [ %113, %112 ], [ %106, %105 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink80.i, i64 8
   store i64 %.sroa.0.062, ptr %110, align 8, !noalias !95
   %111 = trunc nuw i64 %94 to i1
   br i1 %111, label %114, label %116
@@ -1073,19 +1073,19 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %119 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %95
   %120 = load i64, ptr %119, align 8, !range !67, !noalias !95, !noundef !4
   %121 = trunc nuw i64 %120 to i1
-  br i1 %121, label %122, label %.invoke82.i, !prof !104
+  br i1 %121, label %122, label %.invoke78.i, !prof !104
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 %.sroa.0.062, ptr %123, align 8, !noalias !95
   br label %_ZN4http6header3map18remove_extra_value17ha50e2b648cf5fe69E.exit
 
-.invoke82.i:                                      ; preds = %118, %105
+.invoke78.i:                                      ; preds = %118, %105
   %124 = phi ptr [ @anon.3b8271f6acef2235159a933f45f8034a.39, %105 ], [ @anon.3b8271f6acef2235159a933f45f8034a.42, %118 ]
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #16
           to label %.cont83.i unwind label %99, !noalias !95
 
-.cont83.i:                                        ; preds = %.invoke82.i
+.cont79.i:                                        ; preds = %.invoke78.i
   unreachable
 
 125:                                              ; preds = %114
@@ -1315,10 +1315,10 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 84:                                               ; preds = %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h233cc8c205f59b4eE.exit.i"
   %85 = load i64, ptr %14, align 8, !range !67, !noalias !110, !noundef !4
-  %.not78.i = icmp ne i64 %85, 0
+  %.not74.i = icmp ne i64 %85, 0
   %86 = load i64, ptr %15, align 8
   %87 = icmp eq i64 %86, %39
-  %or.cond = select i1 %.not78.i, i1 %87, i1 false
+  %or.cond = select i1 %.not74.i, i1 %87, i1 false
   br i1 %or.cond, label %90, label %89
 
 88:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h233cc8c205f59b4eE.exit.i"
@@ -1327,8 +1327,8 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   br label %84
 
 89:                                               ; preds = %90, %84
-  %.not79.i = icmp eq i64 %.sroa.0.062, %39
-  br i1 %.not79.i, label %_ZN4http6header3map18remove_extra_value17hceab2df635303960E.exit, label %91
+  %.not75.i = icmp eq i64 %.sroa.0.062, %39
+  br i1 %.not75.i, label %_ZN4http6header3map18remove_extra_value17hceab2df635303960E.exit, label %91
 
 90:                                               ; preds = %84
   store i64 1, ptr %14, align 8, !noalias !110
@@ -1347,7 +1347,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %98 = trunc nuw i64 %96 to i1
   br i1 %98, label %101, label %103
 
-99:                                               ; preds = %.invoke.i, %.invoke82.i
+99:                                               ; preds = %.invoke.i, %.invoke78.i
   %100 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$http..header..map..ExtraValue$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$17hef8ced37cb2fa9a1E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3) #17
@@ -1365,11 +1365,11 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %106 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %97
   %107 = load i64, ptr %106, align 8, !range !67, !noalias !110, !noundef !4
   %108 = trunc nuw i64 %107 to i1
-  br i1 %108, label %109, label %.invoke82.i, !prof !104
+  br i1 %108, label %109, label %.invoke78.i, !prof !104
 
 109:                                              ; preds = %112, %105
-  %.sink84.i = phi ptr [ %113, %112 ], [ %106, %105 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sink84.i, i64 8
+  %.sink80.i = phi ptr [ %113, %112 ], [ %106, %105 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink80.i, i64 8
   store i64 %.sroa.0.062, ptr %110, align 8, !noalias !110
   %111 = trunc nuw i64 %94 to i1
   br i1 %111, label %114, label %116
@@ -1391,19 +1391,19 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
   %119 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %95
   %120 = load i64, ptr %119, align 8, !range !67, !noalias !110, !noundef !4
   %121 = trunc nuw i64 %120 to i1
-  br i1 %121, label %122, label %.invoke82.i, !prof !104
+  br i1 %121, label %122, label %.invoke78.i, !prof !104
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 %.sroa.0.062, ptr %123, align 8, !noalias !110
   br label %_ZN4http6header3map18remove_extra_value17hceab2df635303960E.exit
 
-.invoke82.i:                                      ; preds = %118, %105
+.invoke78.i:                                      ; preds = %118, %105
   %124 = phi ptr [ @anon.3b8271f6acef2235159a933f45f8034a.39, %105 ], [ @anon.3b8271f6acef2235159a933f45f8034a.42, %118 ]
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #16
           to label %.cont83.i unwind label %99, !noalias !110
 
-.cont83.i:                                        ; preds = %.invoke82.i
+.cont79.i:                                        ; preds = %.invoke78.i
   unreachable
 
 125:                                              ; preds = %114

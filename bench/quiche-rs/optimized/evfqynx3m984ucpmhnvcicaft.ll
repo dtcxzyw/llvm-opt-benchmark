@@ -5335,8 +5335,8 @@ default.unreachable:                              ; preds = %68
 79:                                               ; preds = %68
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %81 = load i64, ptr %80, align 8, !range !107, !alias.scope !584, !noalias !585, !noundef !4
-  %.not35.i.i = icmp eq i64 %81, 2
-  br i1 %.not35.i.i, label %128, label %117
+  %.not31.i.i = icmp eq i64 %81, 2
+  br i1 %.not31.i.i, label %128, label %117
 
 82:                                               ; preds = %68
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -5435,8 +5435,8 @@ default.unreachable:                              ; preds = %68
   %.sroa.513.0.i.i = select i1 %123, i64 %125, i64 undef
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %127 = load i64, ptr %126, align 8, !range !97, !alias.scope !584, !noalias !585, !noundef !4
-  %.not36.i.i = icmp eq i64 %127, -9223372036854775808
-  br i1 %.not36.i.i, label %128, label %130
+  %.not32.i.i = icmp eq i64 %127, -9223372036854775808
+  br i1 %.not32.i.i, label %128, label %130
 
 128:                                              ; preds = %.noexc12, %117, %79
   %.sroa.5.sroa.6.sroa.0.0.i.i = phi i64 [ undef, %79 ], [ %.sroa.014.0.copyload.i.i, %.noexc12 ], [ -9223372036854775808, %117 ]
@@ -5484,8 +5484,8 @@ default.unreachable:                              ; preds = %68
   %.sroa.524.0.i.i = select i1 %137, i64 %139, i64 undef
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %141 = load i64, ptr %140, align 8, !range !97, !alias.scope !584, !noalias !585, !noundef !4
-  %.not34.i.i = icmp eq i64 %141, -9223372036854775808
-  br i1 %.not34.i.i, label %142, label %144
+  %.not30.i.i = icmp eq i64 %141, -9223372036854775808
+  br i1 %.not30.i.i, label %142, label %144
 
 142:                                              ; preds = %.noexc13, %131, %114
   %.sroa.58.sroa.0.0.i.i = phi i64 [ undef, %114 ], [ %.sroa.522.0.i.i, %131 ], [ %.sroa.522.0.i.i, %.noexc13 ]
@@ -5541,8 +5541,8 @@ default.unreachable:                              ; preds = %68
   %.sroa.59.0.i = select i1 %153, i64 %155, i64 undef
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %157 = load i64, ptr %156, align 8, !range !97, !alias.scope !576, !noalias !573, !noundef !4
-  %.not18.i = icmp eq i64 %157, -9223372036854775808
-  br i1 %.not18.i, label %181, label %158
+  %.not16.i = icmp eq i64 %157, -9223372036854775808
+  br i1 %.not16.i, label %181, label %158
 
 158:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !578
