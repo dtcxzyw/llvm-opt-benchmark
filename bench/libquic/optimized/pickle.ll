@@ -1044,38 +1044,32 @@ define void @_ZN4base6PickleC2EPKci(ptr noundef nonnull writeonly align 8 captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %7, align 8, !tbaa !8
   %8 = icmp sgt i32 %2, 3
-  br i1 %8, label %9, label %.thread6
+  br i1 %8, label %9, label %.thread9
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 4, !tbaa !15
   %11 = sub i32 %2, %10
   %12 = zext i32 %11 to i64
-  %13 = icmp ugt i32 %10, %2
-  %spec.store.select = select i1 %13, i64 0, i64 %12
-  store i64 %spec.store.select, ptr %5, align 8
-  %spec.select = select i1 %13, i64 0, i64 %12
-  br label %.thread6
+  store i64 %12, ptr %5, align 8, !tbaa !14
+  %13 = icmp ule i32 %10, %2
+  %14 = and i64 %12, 3
+  %.not = icmp eq i64 %14, 0
+  %or.cond = and i1 %13, %.not
+  br i1 %or.cond, label %15, label %.thread9.sink.split
 
-.thread6:                                         ; preds = %9, %3
-  %14 = phi i64 [ 0, %3 ], [ %spec.select, %9 ]
-  %15 = add nuw nsw i64 %14, 3
-  %16 = and i64 %15, -4
-  %.not = icmp eq i64 %14, %16
-  br i1 %.not, label %17, label %.thread
+15:                                               ; preds = %9
+  %.not4 = icmp eq i32 %2, %10
+  br i1 %.not4, label %.thread9, label %16
 
-.thread:                                          ; preds = %.thread6
+.thread9.sink.split:                              ; preds = %9
   store i64 0, ptr %5, align 8, !tbaa !14
-  br label %18
+  br label %.thread9
 
-17:                                               ; preds = %.thread6
-  %.not4 = icmp eq i64 %14, 0
-  br i1 %.not4, label %18, label %19
-
-18:                                               ; preds = %.thread, %17
+.thread9:                                         ; preds = %.thread9.sink.split, %3, %15
   store ptr null, ptr %4, align 8, !tbaa !13
-  br label %19
+  br label %16
 
-19:                                               ; preds = %18, %17
+16:                                               ; preds = %.thread9, %15
   ret void
 }
 

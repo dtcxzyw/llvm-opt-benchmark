@@ -539,43 +539,42 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
 282:                                              ; preds = %._crit_edge
   %283 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %284 = load i64, ptr %283, align 8, !tbaa !32
-  %285 = add i64 %284, 7
-  %286 = and i64 %285, -8
-  %.not234 = icmp eq i64 %284, %286
-  br i1 %.not234, label %291, label %287
+  %285 = and i64 %284, 7
+  %.not234 = icmp eq i64 %285, 0
+  br i1 %.not234, label %290, label %286
 
-287:                                              ; preds = %282
-  %288 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
-  %289 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %290 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 373, i64 noundef %288, i64 noundef %289, ptr noundef nonnull @.str.14) #10
+286:                                              ; preds = %282
+  %287 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
+  %288 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %289 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 373, i64 noundef %287, i64 noundef %288, ptr noundef nonnull @.str.14) #10
   br label %.thread247
 
-291:                                              ; preds = %282
-  %292 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  store i64 %.0212.lcssa, ptr %292, align 8, !tbaa !34
-  %293 = tail call i32 @H5F_cwfs_add(ptr noundef %2, ptr noundef nonnull %12) #10
-  %294 = icmp slt i32 %293, 0
-  br i1 %294, label %295, label %.thread252
+290:                                              ; preds = %282
+  %291 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  store i64 %.0212.lcssa, ptr %291, align 8, !tbaa !34
+  %292 = tail call i32 @H5F_cwfs_add(ptr noundef %2, ptr noundef nonnull %12) #10
+  %293 = icmp slt i32 %292, 0
+  br i1 %293, label %294, label %.thread252
 
-295:                                              ; preds = %291
-  %296 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
-  %297 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
-  %298 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 386, i64 noundef %296, i64 noundef %297, ptr noundef nonnull @.str.16) #10
+294:                                              ; preds = %290
+  %295 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
+  %296 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
+  %297 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 386, i64 noundef %295, i64 noundef %296, ptr noundef nonnull @.str.16) #10
   br label %.thread247
 
-.thread247:                                       ; preds = %24, %47, %54, %77, %106, %278, %287, %295, %122, %163, %182, %199, %266, %144, %154
-  %299 = tail call i32 @H5HG__free(ptr noundef nonnull %12) #10
-  %300 = icmp slt i32 %299, 0
-  br i1 %300, label %301, label %.thread252
+.thread247:                                       ; preds = %24, %47, %54, %77, %106, %278, %286, %294, %122, %163, %182, %199, %266, %144, %154
+  %298 = tail call i32 @H5HG__free(ptr noundef nonnull %12) #10
+  %299 = icmp slt i32 %298, 0
+  br i1 %299, label %300, label %.thread252
 
-301:                                              ; preds = %.thread247
-  %302 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
-  %303 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
-  %304 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 393, i64 noundef %302, i64 noundef %303, ptr noundef nonnull @.str.17) #10
+300:                                              ; preds = %.thread247
+  %301 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
+  %302 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
+  %303 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5HG__cache_heap_deserialize, i32 noundef 393, i64 noundef %301, i64 noundef %302, ptr noundef nonnull @.str.17) #10
   br label %.thread252
 
-.thread252:                                       ; preds = %14, %291, %4, %.thread247, %301
-  %.0203 = phi ptr [ null, %301 ], [ null, %.thread247 ], [ null, %4 ], [ %12, %291 ], [ null, %14 ]
+.thread252:                                       ; preds = %14, %290, %4, %.thread247, %300
+  %.0203 = phi ptr [ null, %300 ], [ null, %.thread247 ], [ null, %4 ], [ %12, %290 ], [ null, %14 ]
   ret ptr %.0203
 }
 
