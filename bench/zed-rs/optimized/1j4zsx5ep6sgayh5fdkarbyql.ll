@@ -157931,35 +157931,55 @@ define hidden void @"_ZN82_$LT$gpui..geometry..SizeRefinement$LT$T$GT$$u20$as$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN116_$LT$gpui..geometry..Size$LT$T$GT$$u20$as$u20$core..convert..From$LT$gpui..geometry..SizeRefinement$LT$T$GT$$GT$$GT$4from17ha0b1ce0f5d06364bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %.sroa.05.0.copyload = load i64, ptr %1, align 4
-  %3 = and i64 %.sroa.05.0.copyload, 4294967295
-  %4 = icmp eq i64 %3, 3
-  %.sroa.0.0 = select i1 %4, i64 0, i64 %.sroa.05.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.011.0.copyload = load i64, ptr %5, align 4
-  %6 = and i64 %.sroa.011.0.copyload, 4294967295
-  %7 = icmp eq i64 %6, 3
-  %.sroa.021.0 = select i1 %7, i64 0, i64 %.sroa.011.0.copyload
+  %.sroa.05.0.copyload = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %.sroa.05.0.copyload, 3
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.2.0.insert.ext = zext i32 %.sroa.6.0.copyload to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.017.0.insert.ext = zext i32 %.sroa.05.0.copyload to i64
+  %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.017.0.insert.ext
+  %.sroa.0.0 = select i1 %3, i64 0, i64 %.sroa.017.0.insert.insert
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.011.0.copyload = load i32, ptr %4, align 4
+  %5 = icmp eq i32 %.sroa.011.0.copyload, 3
+  %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.613.0.copyload = load i32, ptr %.sroa.613.0..sroa_idx, align 4
+  %.sroa.220.0.insert.ext = zext i32 %.sroa.613.0.copyload to i64
+  %.sroa.220.0.insert.shift = shl nuw i64 %.sroa.220.0.insert.ext, 32
+  %.sroa.019.0.insert.ext = zext i32 %.sroa.011.0.copyload to i64
+  %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.220.0.insert.shift, %.sroa.019.0.insert.ext
+  %.sroa.021.0 = select i1 %5, i64 0, i64 %.sroa.019.0.insert.insert
   store i64 %.sroa.0.0, ptr %0, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.021.0, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.021.0, ptr %6, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN116_$LT$gpui..geometry..Size$LT$T$GT$$u20$as$u20$core..convert..From$LT$gpui..geometry..SizeRefinement$LT$T$GT$$GT$$GT$4from17hfd5312584c7de3ceE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %.sroa.05.0.copyload = load i64, ptr %1, align 4
-  %3 = and i64 %.sroa.05.0.copyload, 4294967295
-  %4 = icmp eq i64 %3, 4
-  %.sroa.0.0 = select i1 %4, i64 0, i64 %.sroa.05.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.011.0.copyload = load i64, ptr %5, align 4
-  %6 = and i64 %.sroa.011.0.copyload, 4294967295
-  %7 = icmp eq i64 %6, 4
-  %.sroa.021.0 = select i1 %7, i64 0, i64 %.sroa.011.0.copyload
+  %.sroa.05.0.copyload = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %.sroa.05.0.copyload, 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.2.0.insert.ext = zext i32 %.sroa.6.0.copyload to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.017.0.insert.ext = zext i32 %.sroa.05.0.copyload to i64
+  %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.017.0.insert.ext
+  %.sroa.0.0 = select i1 %3, i64 0, i64 %.sroa.017.0.insert.insert
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.011.0.copyload = load i32, ptr %4, align 4
+  %5 = icmp eq i32 %.sroa.011.0.copyload, 4
+  %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.613.0.copyload = load i32, ptr %.sroa.613.0..sroa_idx, align 4
+  %.sroa.220.0.insert.ext = zext i32 %.sroa.613.0.copyload to i64
+  %.sroa.220.0.insert.shift = shl nuw i64 %.sroa.220.0.insert.ext, 32
+  %.sroa.019.0.insert.ext = zext i32 %.sroa.011.0.copyload to i64
+  %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.220.0.insert.shift, %.sroa.019.0.insert.ext
+  %.sroa.021.0 = select i1 %5, i64 0, i64 %.sroa.019.0.insert.insert
   store i64 %.sroa.0.0, ptr %0, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.021.0, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.021.0, ptr %6, align 4
   ret void
 }
 
@@ -158762,63 +158782,103 @@ define hidden void @"_ZN83_$LT$gpui..geometry..EdgesRefinement$LT$T$GT$$u20$as$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN118_$LT$gpui..geometry..Edges$LT$T$GT$$u20$as$u20$core..convert..From$LT$gpui..geometry..EdgesRefinement$LT$T$GT$$GT$$GT$4from17h28cbdd0a38fca041E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 4 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %.sroa.05.0.copyload = load i64, ptr %1, align 4
-  %3 = and i64 %.sroa.05.0.copyload, 4294967295
-  %4 = icmp eq i64 %3, 3
-  %.sroa.0.0 = select i1 %4, i64 0, i64 %.sroa.05.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.014.0.copyload = load i64, ptr %5, align 4
-  %6 = and i64 %.sroa.014.0.copyload, 4294967295
-  %7 = icmp eq i64 %6, 3
-  %.sroa.09.0 = select i1 %7, i64 0, i64 %.sroa.014.0.copyload
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.024.0.copyload = load i64, ptr %8, align 4
-  %9 = and i64 %.sroa.024.0.copyload, 4294967295
-  %10 = icmp eq i64 %9, 3
-  %.sroa.019.0 = select i1 %10, i64 0, i64 %.sroa.024.0.copyload
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.031.0.copyload = load i64, ptr %11, align 4
-  %12 = and i64 %.sroa.031.0.copyload, 4294967295
-  %13 = icmp eq i64 %12, 3
-  %.sroa.049.0 = select i1 %13, i64 0, i64 %.sroa.031.0.copyload
+  %.sroa.05.0.copyload = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %.sroa.05.0.copyload, 3
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.2.0.insert.ext = zext i32 %.sroa.6.0.copyload to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.039.0.insert.ext = zext i32 %.sroa.05.0.copyload to i64
+  %.sroa.039.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.039.0.insert.ext
+  %.sroa.0.0 = select i1 %3, i64 0, i64 %.sroa.039.0.insert.insert
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.014.0.copyload = load i32, ptr %4, align 4
+  %5 = icmp eq i32 %.sroa.014.0.copyload, 3
+  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.616.0.copyload = load i32, ptr %.sroa.616.0..sroa_idx, align 4
+  %.sroa.242.0.insert.ext = zext i32 %.sroa.616.0.copyload to i64
+  %.sroa.242.0.insert.shift = shl nuw i64 %.sroa.242.0.insert.ext, 32
+  %.sroa.041.0.insert.ext = zext i32 %.sroa.014.0.copyload to i64
+  %.sroa.041.0.insert.insert = or disjoint i64 %.sroa.242.0.insert.shift, %.sroa.041.0.insert.ext
+  %.sroa.09.0 = select i1 %5, i64 0, i64 %.sroa.041.0.insert.insert
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.024.0.copyload = load i32, ptr %6, align 4
+  %7 = icmp eq i32 %.sroa.024.0.copyload, 3
+  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.626.0.copyload = load i32, ptr %.sroa.626.0..sroa_idx, align 4
+  %.sroa.245.0.insert.ext = zext i32 %.sroa.626.0.copyload to i64
+  %.sroa.245.0.insert.shift = shl nuw i64 %.sroa.245.0.insert.ext, 32
+  %.sroa.044.0.insert.ext = zext i32 %.sroa.024.0.copyload to i64
+  %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.245.0.insert.shift, %.sroa.044.0.insert.ext
+  %.sroa.019.0 = select i1 %7, i64 0, i64 %.sroa.044.0.insert.insert
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.031.0.copyload = load i32, ptr %8, align 4
+  %9 = icmp eq i32 %.sroa.031.0.copyload, 3
+  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.633.0.copyload = load i32, ptr %.sroa.633.0..sroa_idx, align 4
+  %.sroa.248.0.insert.ext = zext i32 %.sroa.633.0.copyload to i64
+  %.sroa.248.0.insert.shift = shl nuw i64 %.sroa.248.0.insert.ext, 32
+  %.sroa.047.0.insert.ext = zext i32 %.sroa.031.0.copyload to i64
+  %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.248.0.insert.shift, %.sroa.047.0.insert.ext
+  %.sroa.049.0 = select i1 %9, i64 0, i64 %.sroa.047.0.insert.insert
   store i64 %.sroa.0.0, ptr %0, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.09.0, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.019.0, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.049.0, ptr %16, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.09.0, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.019.0, ptr %11, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.049.0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN118_$LT$gpui..geometry..Edges$LT$T$GT$$u20$as$u20$core..convert..From$LT$gpui..geometry..EdgesRefinement$LT$T$GT$$GT$$GT$4from17h3df0639e76491693E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 4 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %1) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %.sroa.05.0.copyload = load i64, ptr %1, align 4
-  %3 = and i64 %.sroa.05.0.copyload, 4294967295
-  %4 = icmp eq i64 %3, 4
-  %.sroa.0.0 = select i1 %4, i64 0, i64 %.sroa.05.0.copyload
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.014.0.copyload = load i64, ptr %5, align 4
-  %6 = and i64 %.sroa.014.0.copyload, 4294967295
-  %7 = icmp eq i64 %6, 4
-  %.sroa.09.0 = select i1 %7, i64 0, i64 %.sroa.014.0.copyload
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.024.0.copyload = load i64, ptr %8, align 4
-  %9 = and i64 %.sroa.024.0.copyload, 4294967295
-  %10 = icmp eq i64 %9, 4
-  %.sroa.019.0 = select i1 %10, i64 0, i64 %.sroa.024.0.copyload
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.031.0.copyload = load i64, ptr %11, align 4
-  %12 = and i64 %.sroa.031.0.copyload, 4294967295
-  %13 = icmp eq i64 %12, 4
-  %.sroa.049.0 = select i1 %13, i64 0, i64 %.sroa.031.0.copyload
+  %.sroa.05.0.copyload = load i32, ptr %1, align 4
+  %3 = icmp eq i32 %.sroa.05.0.copyload, 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.2.0.insert.ext = zext i32 %.sroa.6.0.copyload to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.039.0.insert.ext = zext i32 %.sroa.05.0.copyload to i64
+  %.sroa.039.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.039.0.insert.ext
+  %.sroa.0.0 = select i1 %3, i64 0, i64 %.sroa.039.0.insert.insert
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.014.0.copyload = load i32, ptr %4, align 4
+  %5 = icmp eq i32 %.sroa.014.0.copyload, 4
+  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.616.0.copyload = load i32, ptr %.sroa.616.0..sroa_idx, align 4
+  %.sroa.242.0.insert.ext = zext i32 %.sroa.616.0.copyload to i64
+  %.sroa.242.0.insert.shift = shl nuw i64 %.sroa.242.0.insert.ext, 32
+  %.sroa.041.0.insert.ext = zext i32 %.sroa.014.0.copyload to i64
+  %.sroa.041.0.insert.insert = or disjoint i64 %.sroa.242.0.insert.shift, %.sroa.041.0.insert.ext
+  %.sroa.09.0 = select i1 %5, i64 0, i64 %.sroa.041.0.insert.insert
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.024.0.copyload = load i32, ptr %6, align 4
+  %7 = icmp eq i32 %.sroa.024.0.copyload, 4
+  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.626.0.copyload = load i32, ptr %.sroa.626.0..sroa_idx, align 4
+  %.sroa.245.0.insert.ext = zext i32 %.sroa.626.0.copyload to i64
+  %.sroa.245.0.insert.shift = shl nuw i64 %.sroa.245.0.insert.ext, 32
+  %.sroa.044.0.insert.ext = zext i32 %.sroa.024.0.copyload to i64
+  %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.245.0.insert.shift, %.sroa.044.0.insert.ext
+  %.sroa.019.0 = select i1 %7, i64 0, i64 %.sroa.044.0.insert.insert
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.031.0.copyload = load i32, ptr %8, align 4
+  %9 = icmp eq i32 %.sroa.031.0.copyload, 4
+  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.633.0.copyload = load i32, ptr %.sroa.633.0..sroa_idx, align 4
+  %.sroa.248.0.insert.ext = zext i32 %.sroa.633.0.copyload to i64
+  %.sroa.248.0.insert.shift = shl nuw i64 %.sroa.248.0.insert.ext, 32
+  %.sroa.047.0.insert.ext = zext i32 %.sroa.031.0.copyload to i64
+  %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.248.0.insert.shift, %.sroa.047.0.insert.ext
+  %.sroa.049.0 = select i1 %9, i64 0, i64 %.sroa.047.0.insert.insert
   store i64 %.sroa.0.0, ptr %0, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.09.0, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.019.0, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.049.0, ptr %16, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.09.0, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.019.0, ptr %11, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.049.0, ptr %12, align 4
   ret void
 }
 

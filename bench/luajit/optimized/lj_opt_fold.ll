@@ -5806,129 +5806,134 @@ define internal i32 @fold_cse_urefo(ptr noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 522
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %8 = load i32, ptr %7, align 8
-  %9 = trunc i32 %8 to i16
+  %8 = load i16, ptr %7, align 8, !tbaa !28
+  %9 = zext i16 %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  %11 = load i16, ptr %10, align 2, !tbaa !28
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw i32 %12, 16
+  %14 = or disjoint i32 %13, %9
   %.020.in29 = load i16, ptr %6, align 2, !tbaa !28
-  %10 = icmp ugt i16 %.020.in29, %9
-  br i1 %10, label %.lr.ph, label %.thread
+  %15 = icmp ugt i16 %.020.in29, %8
+  br i1 %15, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
-  br label %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  br label %18
 
-13:                                               ; preds = %.lr.ph, %merge_uref.exit
+18:                                               ; preds = %.lr.ph, %merge_uref.exit
   %.020.in30 = phi i16 [ %.020.in29, %.lr.ph ], [ %.020.in, %merge_uref.exit ]
-  %14 = zext i16 %.020.in30 to i64
-  %15 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %14
-  %16 = load i32, ptr %15, align 8, !tbaa !28
-  %.not22 = icmp eq i32 %16, %8
-  br i1 %.not22, label %17, label %merge_uref.exit
+  %19 = zext i16 %.020.in30 to i64
+  %20 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %19
+  %21 = load i32, ptr %20, align 8, !tbaa !28
+  %.not22 = icmp eq i32 %21, %14
+  br i1 %.not22, label %22, label %merge_uref.exit
 
-17:                                               ; preds = %13
+22:                                               ; preds = %18
   %.020.le = zext i16 %.020.in30 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  %19 = load i8, ptr %18, align 1, !tbaa !28
-  %20 = icmp eq i8 %19, 60
-  br i1 %20, label %21, label %69
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 5
+  %24 = load i8, ptr %23, align 1, !tbaa !28
+  %25 = icmp eq i8 %24, 60
+  br i1 %25, label %26, label %74
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !28
-  %.not.i = icmp sgt i8 %23, -1
-  br i1 %.not.i, label %69, label %24
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %28 = load i8, ptr %27, align 4, !tbaa !28
+  %.not.i = icmp sgt i8 %28, -1
+  br i1 %.not.i, label %74, label %29
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %26 = load i16, ptr %25, align 2, !tbaa !38
-  %27 = icmp ult i16 %.020.in30, %26
-  br i1 %27, label %28, label %57
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 436
+  %31 = load i16, ptr %30, align 2, !tbaa !38
+  %32 = icmp ult i16 %.020.in30, %31
+  br i1 %32, label %33, label %62
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %30 = load i16, ptr %29, align 2, !tbaa !38
-  %.not18.i = icmp eq i16 %30, 0
-  br i1 %.not18.i, label %31, label %55
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %35 = load i16, ptr %34, align 2, !tbaa !38
+  %.not18.i = icmp eq i16 %35, 0
+  br i1 %.not18.i, label %36, label %60
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 562
-  %33 = load i16, ptr %32, align 2, !tbaa !38
-  %.not19.i = icmp eq i16 %33, 0
-  br i1 %.not19.i, label %34, label %55
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 562
+  %38 = load i16, ptr %37, align 2, !tbaa !38
+  %.not19.i = icmp eq i16 %38, 0
+  br i1 %.not19.i, label %39, label %60
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %36 = load i16, ptr %35, align 2, !tbaa !38
-  %.not20.i = icmp eq i16 %36, 0
-  br i1 %.not20.i, label %37, label %55
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 564
+  %41 = load i16, ptr %40, align 2, !tbaa !38
+  %.not20.i = icmp eq i16 %41, 0
+  br i1 %.not20.i, label %42, label %60
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 566
-  %39 = load i16, ptr %38, align 2, !tbaa !38
-  %.not21.i = icmp eq i16 %39, 0
-  br i1 %.not21.i, label %40, label %55
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 566
+  %44 = load i16, ptr %43, align 2, !tbaa !38
+  %.not21.i = icmp eq i16 %44, 0
+  br i1 %.not21.i, label %45, label %60
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %42 = load i16, ptr %41, align 2, !tbaa !38
-  %.not22.i = icmp eq i16 %42, 0
-  br i1 %.not22.i, label %43, label %55
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %47 = load i16, ptr %46, align 2, !tbaa !38
+  %.not22.i = icmp eq i16 %47, 0
+  br i1 %.not22.i, label %48, label %60
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 570
-  %45 = load i16, ptr %44, align 2, !tbaa !38
-  %.not23.i = icmp eq i16 %45, 0
-  br i1 %.not23.i, label %46, label %55
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 570
+  %50 = load i16, ptr %49, align 2, !tbaa !38
+  %.not23.i = icmp eq i16 %50, 0
+  br i1 %.not23.i, label %51, label %60
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %48 = load i16, ptr %47, align 2, !tbaa !38
-  %.not24.i = icmp eq i16 %48, 0
-  br i1 %.not24.i, label %49, label %55
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %53 = load i16, ptr %52, align 2, !tbaa !38
+  %.not24.i = icmp eq i16 %53, 0
+  br i1 %.not24.i, label %54, label %60
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %51 = load i16, ptr %50, align 2, !tbaa !38
-  %.not25.i = icmp eq i16 %51, 0
-  br i1 %.not25.i, label %52, label %55
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %56 = load i16, ptr %55, align 2, !tbaa !38
+  %.not25.i = icmp eq i16 %56, 0
+  br i1 %.not25.i, label %57, label %60
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 594
-  %54 = load i16, ptr %53, align 2, !tbaa !38
-  %.not26.i = icmp eq i16 %54, 0
-  br i1 %.not26.i, label %57, label %55
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 594
+  %59 = load i16, ptr %58, align 2, !tbaa !38
+  %.not26.i = icmp eq i16 %59, 0
+  br i1 %.not26.i, label %62, label %60
 
-55:                                               ; preds = %52, %49, %46, %43, %40, %37, %34, %31, %28
-  %56 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
-  br label %69
+60:                                               ; preds = %57, %54, %51, %48, %45, %42, %39, %36, %33
+  %61 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  br label %74
 
-57:                                               ; preds = %52, %24
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %59 = load i8, ptr %58, align 4, !tbaa !28
-  %60 = and i8 %59, -97
-  %61 = icmp eq i8 %60, -119
-  %62 = and i8 %23, 31
-  %63 = icmp eq i8 %62, 21
-  %or.cond.i = and i1 %63, %61
-  br i1 %or.cond.i, label %64, label %69
+62:                                               ; preds = %57, %29
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %64 = load i8, ptr %63, align 4, !tbaa !28
+  %65 = and i8 %64, -97
+  %66 = icmp eq i8 %65, -119
+  %67 = and i8 %28, 31
+  %68 = icmp eq i8 %67, 21
+  %or.cond.i = and i1 %68, %66
+  br i1 %or.cond.i, label %69, label %74
 
-64:                                               ; preds = %57
-  %65 = add nsw i8 %23, -12
-  store i8 %65, ptr %22, align 4, !tbaa !28
-  br label %69
+69:                                               ; preds = %62
+  %70 = add nsw i8 %28, -12
+  store i8 %70, ptr %27, align 4, !tbaa !28
+  br label %74
 
-merge_uref.exit:                                  ; preds = %13
-  %66 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %.020.in = load i16, ptr %66, align 2, !tbaa !28
-  %67 = icmp ugt i16 %.020.in, %9
-  br i1 %67, label %13, label %.thread
+merge_uref.exit:                                  ; preds = %18
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 6
+  %.020.in = load i16, ptr %71, align 2, !tbaa !28
+  %72 = icmp ugt i16 %.020.in, %8
+  br i1 %72, label %18, label %.thread
 
 .thread:                                          ; preds = %merge_uref.exit, %5, %1
-  %68 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
-  br label %69
+  %73 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  br label %74
 
-69:                                               ; preds = %17, %21, %55, %57, %64, %.thread
-  %.3 = phi i32 [ %68, %.thread ], [ %.020.le, %17 ], [ %.020.le, %21 ], [ %.020.le, %64 ], [ %.020.le, %57 ], [ %56, %55 ]
+74:                                               ; preds = %22, %26, %60, %62, %69, %.thread
+  %.3 = phi i32 [ %73, %.thread ], [ %.020.le, %22 ], [ %.020.le, %26 ], [ %.020.le, %69 ], [ %.020.le, %62 ], [ %61, %60 ]
   ret i32 %.3
 }
 

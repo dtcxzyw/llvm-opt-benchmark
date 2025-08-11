@@ -490,129 +490,147 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jT0_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 comdat {
   %3 = lshr i32 %1, 1
-  %.not25 = icmp ult i32 %1, 2
-  br i1 %.not25, label %._crit_edge, label %.lr.ph.i.preheader
+  %.not29 = icmp ult i32 %1, 2
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.i.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread.loopexit.i
-  %4 = zext i32 %1 to i64
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %.thread.loopexit.i
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = zext i32 %1 to i64
+  br label %35
 
 .lr.ph.i.preheader:                               ; preds = %2, %.thread.loopexit.i
-  %.01226 = phi i32 [ %5, %.thread.loopexit.i ], [ %3, %2 ]
-  %5 = add nsw i32 %.01226, -1
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %6
-  %8 = load i64, ptr %7, align 4
-  %9 = trunc i64 %8 to i32
+  %.01230 = phi i32 [ %6, %.thread.loopexit.i ], [ %3, %2 ]
+  %6 = add nsw i32 %.01230, -1
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %7
+  %9 = load i32, ptr %8, align 4, !tbaa !23
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !25
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
-  %.02230.i = phi i32 [ %.021.i, %27 ], [ %.01226, %.lr.ph.i.preheader ]
-  %10 = shl nuw i32 %.02230.i, 1
-  %11 = icmp slt i32 %10, %1
-  br i1 %11, label %12, label %20
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %29
+  %.02230.i = phi i32 [ %.021.i, %29 ], [ %.01230, %.lr.ph.i.preheader ]
+  %12 = shl nuw i32 %.02230.i, 1
+  %13 = icmp slt i32 %12, %1
+  br i1 %13, label %14, label %22
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = sext i32 %10 to i64
-  %14 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load i32, ptr %15, align 4, !tbaa !23
-  %17 = load i32, ptr %14, align 4, !tbaa !23
-  %18 = sub i32 %16, %17
-  %19 = lshr i32 %18, 31
-  %spec.select.i = or disjoint i32 %19, %10
-  br label %20
+14:                                               ; preds = %.lr.ph.i
+  %15 = sext i32 %12 to i64
+  %16 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 -8
+  %18 = load i32, ptr %17, align 4, !tbaa !23
+  %19 = load i32, ptr %16, align 4, !tbaa !23
+  %20 = sub i32 %18, %19
+  %21 = lshr i32 %20, 31
+  %spec.select.i = or disjoint i32 %21, %12
+  br label %22
 
-20:                                               ; preds = %12, %.lr.ph.i
-  %.021.i = phi i32 [ %10, %.lr.ph.i ], [ %spec.select.i, %12 ]
-  %21 = sext i32 %.021.i to i64
-  %22 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 -8
-  %24 = load i32, ptr %23, align 4, !tbaa !23
-  %25 = sub i32 %9, %24
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %.thread.loopexit.i
+22:                                               ; preds = %14, %.lr.ph.i
+  %.021.i = phi i32 [ %12, %.lr.ph.i ], [ %spec.select.i, %14 ]
+  %23 = sext i32 %.021.i to i64
+  %24 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load i32, ptr %25, align 4, !tbaa !23
+  %27 = sub i32 %9, %26
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %.thread.loopexit.i
 
-27:                                               ; preds = %20
-  %28 = add nsw i32 %.02230.i, -1
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %29
-  %31 = load i64, ptr %23, align 4
-  store i64 %31, ptr %30, align 4
+29:                                               ; preds = %22
+  %30 = add nsw i32 %.02230.i, -1
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %31
+  %33 = load i64, ptr %25, align 4
+  store i64 %33, ptr %32, align 4
   %.not.i = icmp ugt i32 %.021.i, %3
   br i1 %.not.i, label %.thread.loopexit.i, label %.lr.ph.i
 
-.thread.loopexit.i:                               ; preds = %27, %20
-  %.022.lcssa.ph.i = phi i32 [ %.021.i, %27 ], [ %.02230.i, %20 ]
+.thread.loopexit.i:                               ; preds = %29, %22
+  %.022.lcssa.ph.i = phi i32 [ %.021.i, %29 ], [ %.02230.i, %22 ]
   %.pre.i = add i32 %.022.lcssa.ph.i, -1
   %.pre33.i = zext i32 %.pre.i to i64
-  %32 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i
-  store i64 %8, ptr %32, align 4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.lr.ph.preheader, label %.lr.ph.i.preheader, !llvm.loop !35
+  %34 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i
+  %.sroa.5.0.insert.ext.i = zext i32 %11 to i64
+  %.sroa.5.0.insert.shift.i = shl nuw i64 %.sroa.5.0.insert.ext.i, 32
+  %.sroa.0.0.insert.ext.i = zext i32 %9 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  store i64 %.sroa.0.0.insert.insert.i, ptr %34, align 4
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.lr.ph, label %.lr.ph.i.preheader, !llvm.loop !35
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24
-  %indvars.iv = phi i64 [ %4, %.lr.ph.preheader ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24 ]
+35:                                               ; preds = %.lr.ph, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28
+  %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %33 = and i64 %indvars.iv.next, 4294967295
-  %34 = load i64, ptr %0, align 4
-  %35 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %33
-  %36 = load i64, ptr %35, align 4
-  store i64 %36, ptr %0, align 4
-  store i64 %34, ptr %35, align 4
+  %36 = and i64 %indvars.iv.next, 4294967295
   %37 = load i64, ptr %0, align 4
-  %38 = trunc i64 %37 to i32
-  %39 = lshr i32 %indvars, 1
+  %38 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %36
+  %39 = load i64, ptr %38, align 4
+  store i64 %39, ptr %0, align 4
+  store i64 %37, ptr %38, align 4
+  %40 = load i32, ptr %0, align 4, !tbaa !23
+  %41 = load i32, ptr %4, align 4, !tbaa !25
+  %42 = lshr i32 %indvars, 1
   %.not29.i13 = icmp eq i64 %indvars.iv, 2
-  br i1 %.not29.i13, label %._crit_edge, label %.lr.ph.i14
+  br i1 %.not29.i13, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28.thread, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %.lr.ph, %57
-  %.02230.i15 = phi i32 [ %.021.i16, %57 ], [ 1, %.lr.ph ]
-  %40 = shl nuw i32 %.02230.i15, 1
-  %41 = icmp slt i32 %40, %indvars
-  br i1 %41, label %42, label %50
+_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28.thread: ; preds = %35
+  %.sroa.5.0.insert.ext.i2234 = zext i32 %41 to i64
+  %.sroa.5.0.insert.shift.i2335 = shl nuw i64 %.sroa.5.0.insert.ext.i2234, 32
+  %.sroa.0.0.insert.ext.i2436 = zext i32 %40 to i64
+  %.sroa.0.0.insert.insert.i2537 = or disjoint i64 %.sroa.5.0.insert.shift.i2335, %.sroa.0.0.insert.ext.i2436
+  store i64 %.sroa.0.0.insert.insert.i2537, ptr %0, align 4
+  br label %._crit_edge
 
-42:                                               ; preds = %.lr.ph.i14
-  %43 = sext i32 %40 to i64
-  %44 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -8
-  %46 = load i32, ptr %45, align 4, !tbaa !23
-  %47 = load i32, ptr %44, align 4, !tbaa !23
-  %48 = sub i32 %46, %47
-  %49 = lshr i32 %48, 31
-  %spec.select.i23 = or disjoint i32 %49, %40
-  br label %50
+.lr.ph.i14:                                       ; preds = %35, %60
+  %.02230.i15 = phi i32 [ %.021.i16, %60 ], [ 1, %35 ]
+  %43 = shl nuw i32 %.02230.i15, 1
+  %44 = icmp slt i32 %43, %indvars
+  br i1 %44, label %45, label %53
 
-50:                                               ; preds = %42, %.lr.ph.i14
-  %.021.i16 = phi i32 [ %40, %.lr.ph.i14 ], [ %spec.select.i23, %42 ]
-  %51 = sext i32 %.021.i16 to i64
-  %52 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 -8
-  %54 = load i32, ptr %53, align 4, !tbaa !23
-  %55 = sub i32 %38, %54
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24
+45:                                               ; preds = %.lr.ph.i14
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 -8
+  %49 = load i32, ptr %48, align 4, !tbaa !23
+  %50 = load i32, ptr %47, align 4, !tbaa !23
+  %51 = sub i32 %49, %50
+  %52 = lshr i32 %51, 31
+  %spec.select.i27 = or disjoint i32 %52, %43
+  br label %53
 
-57:                                               ; preds = %50
-  %58 = add nsw i32 %.02230.i15, -1
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %59
-  %61 = load i64, ptr %53, align 4
-  store i64 %61, ptr %60, align 4
-  %.not.i22 = icmp ugt i32 %.021.i16, %39
-  br i1 %.not.i22, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24, label %.lr.ph.i14
+53:                                               ; preds = %45, %.lr.ph.i14
+  %.021.i16 = phi i32 [ %43, %.lr.ph.i14 ], [ %spec.select.i27, %45 ]
+  %54 = sext i32 %.021.i16 to i64
+  %55 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %0, i64 %54
+  %56 = getelementptr i8, ptr %55, i64 -8
+  %57 = load i32, ptr %56, align 4, !tbaa !23
+  %58 = sub i32 %40, %57
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %60, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28
 
-_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24: ; preds = %50, %57
-  %.022.lcssa.ph.i18 = phi i32 [ %.021.i16, %57 ], [ %.02230.i15, %50 ]
+60:                                               ; preds = %53
+  %61 = add nsw i32 %.02230.i15, -1
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %62
+  %64 = load i64, ptr %56, align 4
+  store i64 %64, ptr %63, align 4
+  %.not.i26 = icmp ugt i32 %.021.i16, %42
+  br i1 %.not.i26, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28, label %.lr.ph.i14
+
+_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28: ; preds = %53, %60
+  %.022.lcssa.ph.i18 = phi i32 [ %.021.i16, %60 ], [ %.02230.i15, %53 ]
   %.pre.i19 = add i32 %.022.lcssa.ph.i18, -1
   %.pre33.i20 = zext i32 %.pre.i19 to i64
-  %62 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i20
-  store i64 %37, ptr %62, align 4
-  %63 = icmp ugt i32 %indvars, 1
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  %65 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i20
+  %.sroa.5.0.insert.ext.i22 = zext i32 %41 to i64
+  %.sroa.5.0.insert.shift.i23 = shl nuw i64 %.sroa.5.0.insert.ext.i22, 32
+  %.sroa.0.0.insert.ext.i24 = zext i32 %40 to i64
+  %.sroa.0.0.insert.insert.i25 = or disjoint i64 %.sroa.5.0.insert.shift.i23, %.sroa.0.0.insert.ext.i24
+  store i64 %.sroa.0.0.insert.insert.i25, ptr %65, align 4
+  %66 = icmp ugt i32 %indvars, 1
+  br i1 %66, label %35, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24, %.lr.ph, %2
+._crit_edge:                                      ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28, %2, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit28.thread
   ret void
 }
 
