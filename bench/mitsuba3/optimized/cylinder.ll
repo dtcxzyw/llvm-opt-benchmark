@@ -5496,46 +5496,42 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   %189 = fpext <4 x float> %.sroa.4.32.copyload to <4 x double>
   %190 = fpext <4 x float> %.sroa.014.0.copyload to <4 x double>
   %191 = fcmp contract une <4 x double> %159, zeroinitializer
-  %192 = shufflevector <4 x i1> %191, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %193 = select <8 x i1> %165, <8 x i1> %192, <8 x i1> %173
-  %194 = fcmp contract ole <4 x double> %.sroa.01099.0, %190
-  %195 = fcmp contract oge <4 x double> %.sroa.01098.0, zeroinitializer
-  %196 = and <4 x i1> %195, %194
-  %197 = shufflevector <4 x i1> %196, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %198 = fmul contract <4 x double> %.sroa.01099.0, %188
-  %199 = fadd contract <4 x double> %198, %189
-  %200 = fmul contract <4 x double> %.sroa.01098.0, %188
-  %201 = fadd contract <4 x double> %200, %189
-  %202 = fcmp contract uge <4 x double> %.sroa.01099.0, zeroinitializer
-  %203 = fcmp contract ule <4 x double> %.sroa.01098.0, %190
-  %.not1156 = or <4 x i1> %203, %202
-  %204 = and <8 x i1> %193, %197
-  %205 = shufflevector <4 x i1> %.not1156, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %206 = and <8 x i1> %205, %204
-  %207 = fcmp contract oge <4 x double> %199, zeroinitializer
-  %208 = fcmp contract ole <4 x double> %199, splat (double 1.000000e+00)
-  %209 = and <4 x i1> %207, %208
-  %210 = fcmp contract oge <4 x double> %.sroa.01099.0, zeroinitializer
-  %211 = and <4 x i1> %210, %209
-  %212 = fcmp contract oge <4 x double> %201, zeroinitializer
-  %213 = fcmp contract ole <4 x double> %201, splat (double 1.000000e+00)
-  %214 = and <4 x i1> %212, %213
-  %215 = fcmp contract ole <4 x double> %.sroa.01098.0, %190
-  %216 = and <4 x i1> %215, %214
-  %217 = or <4 x i1> %216, %211
-  %218 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01099.0)
-  %219 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01098.0)
-  %220 = select contract <4 x i1> %211, <4 x float> %218, <4 x float> %219
-  %221 = shufflevector <8 x i1> %206, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %222 = and <4 x i1> %221, %217
-  %223 = select contract <4 x i1> %222, <4 x float> %220, <4 x float> splat (float 0x7FF0000000000000)
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %224, i8 0, i64 32, i1 false)
-  store <4 x float> %223, ptr %0, align 16
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store <4 x i32> splat (i32 -1), ptr %225, align 16
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store <4 x i32> zeroinitializer, ptr %226, align 16
+  %192 = fcmp contract ole <4 x double> %.sroa.01099.0, %190
+  %193 = fcmp contract oge <4 x double> %.sroa.01098.0, zeroinitializer
+  %194 = and <4 x i1> %193, %192
+  %195 = fmul contract <4 x double> %.sroa.01099.0, %188
+  %196 = fadd contract <4 x double> %195, %189
+  %197 = fmul contract <4 x double> %.sroa.01098.0, %188
+  %198 = fadd contract <4 x double> %197, %189
+  %199 = fcmp contract uge <4 x double> %.sroa.01099.0, zeroinitializer
+  %200 = fcmp contract ule <4 x double> %.sroa.01098.0, %190
+  %.not1156 = or <4 x i1> %200, %199
+  %201 = fcmp contract oge <4 x double> %196, zeroinitializer
+  %202 = fcmp contract ole <4 x double> %196, splat (double 1.000000e+00)
+  %203 = and <4 x i1> %201, %202
+  %204 = fcmp contract oge <4 x double> %.sroa.01099.0, zeroinitializer
+  %205 = and <4 x i1> %204, %203
+  %206 = fcmp contract oge <4 x double> %198, zeroinitializer
+  %207 = fcmp contract ole <4 x double> %198, splat (double 1.000000e+00)
+  %208 = and <4 x i1> %206, %207
+  %209 = fcmp contract ole <4 x double> %.sroa.01098.0, %190
+  %210 = and <4 x i1> %209, %208
+  %211 = or <4 x i1> %210, %205
+  %212 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01099.0)
+  %213 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.01098.0)
+  %214 = select contract <4 x i1> %205, <4 x float> %212, <4 x float> %213
+  %215 = select <4 x i1> %164, <4 x i1> %191, <4 x i1> %172
+  %216 = and <4 x i1> %215, %194
+  %217 = and <4 x i1> %.not1156, %216
+  %218 = and <4 x i1> %217, %211
+  %219 = select contract <4 x i1> %218, <4 x float> %214, <4 x float> splat (float 0x7FF0000000000000)
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %220, i8 0, i64 32, i1 false)
+  store <4 x float> %219, ptr %0, align 16
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store <4 x i32> splat (i32 -1), ptr %221, align 16
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store <4 x i32> zeroinitializer, ptr %222, align 16
   ret void
 }
 
