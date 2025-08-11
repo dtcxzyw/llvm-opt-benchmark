@@ -1835,8 +1835,8 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine8executor14EngineExe
   %148 = load i64, ptr %147, align 8, !noalias !199
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !199
   %149 = trunc nuw i64 %146 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.5.sroa.4.0.copyload, i64 %148)
-  %.sroa.7.0.i.i.i = select i1 %149, i64 %.sroa.0.0.sroa.speculated.i10.i.i.i, i64 %.sroa.5.sroa.4.0.copyload
+  %.sroa.0.0.sroa.speculated.i11.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.5.sroa.4.0.copyload, i64 %148)
+  %.sroa.7.0.i.i.i = select i1 %149, i64 %.sroa.0.0.sroa.speculated.i11.i.i.i, i64 %.sroa.5.sroa.4.0.copyload
   %.not.i6.i = icmp eq i64 %.sroa.7.0.i.i.i, 0
   br i1 %.not.i6.i, label %.loopexit98, label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4a9efdff697f66E.exit.i.i"
 

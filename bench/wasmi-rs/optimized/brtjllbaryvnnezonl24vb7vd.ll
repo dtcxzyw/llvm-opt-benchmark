@@ -1777,8 +1777,8 @@ define hidden void @_ZN5wasmi6engine8executor5stack6values10ValueStack16alloc_ca
   %51 = load i64, ptr %50, align 8, !noalias !102
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !102
   %52 = trunc nuw i64 %49 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
-  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i10.i.i, i64 %14
+  %.sroa.0.0.sroa.speculated.i11.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
+  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %14
   %.not.i6 = icmp eq i64 %.sroa.7.0.i.i, 0
   br i1 %.not.i6, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h844ea1ad523ca4efE.exit", label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ef498dff57f9a84E.exit.i"
 
@@ -1917,8 +1917,8 @@ define hidden void @_ZN5wasmi6engine8executor5stack6values10ValueStack16alloc_ca
   %51 = load i64, ptr %50, align 8, !noalias !147
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !147
   %52 = trunc nuw i64 %49 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
-  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i10.i.i, i64 %14
+  %.sroa.0.0.sroa.speculated.i11.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
+  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %14
   %.not.i6 = icmp eq i64 %.sroa.7.0.i.i, 0
   br i1 %.not.i6, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h7a23814f62076603E.exit", label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ef498dff57f9a84E.exit.i"
 
@@ -2057,8 +2057,8 @@ define hidden void @_ZN5wasmi6engine8executor5stack6values10ValueStack16alloc_ca
   %51 = load i64, ptr %50, align 8, !noalias !191
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !191
   %52 = trunc nuw i64 %49 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
-  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i10.i.i, i64 %14
+  %.sroa.0.0.sroa.speculated.i11.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
+  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %14
   %.not.i6 = icmp eq i64 %.sroa.7.0.i.i, 0
   br i1 %.not.i6, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17ha3426f1fb3cdd1aeE.exit", label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ef498dff57f9a84E.exit.i"
 
@@ -2197,8 +2197,8 @@ define hidden void @_ZN5wasmi6engine8executor5stack6values10ValueStack16alloc_ca
   %51 = load i64, ptr %50, align 8, !noalias !235
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !235
   %52 = trunc nuw i64 %49 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
-  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i10.i.i, i64 %14
+  %.sroa.0.0.sroa.speculated.i11.i.i = call i64 @llvm.umin.i64(i64 %14, i64 %51)
+  %.sroa.7.0.i.i = select i1 %52, i64 %.sroa.0.0.sroa.speculated.i11.i.i, i64 %14
   %.not.i6 = icmp eq i64 %.sroa.7.0.i.i, 0
   br i1 %.not.i6, label %"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..SpecFold$GT$9spec_fold17h58c192d048209429E.exit", label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8ef498dff57f9a84E.exit.i"
 
@@ -7950,8 +7950,8 @@ define void @"_ZN91_$LT$wasmi..module..InternalFuncsIter$u20$as$u20$core..iter..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
   %.val.i = load ptr, ptr %1, align 8, !alias.scope !763, !noalias !760, !nonnull !3, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val9.i = load ptr, ptr %3, align 8, !alias.scope !763, !noalias !760, !nonnull !3, !noundef !3
-  %4 = ptrtoint ptr %.val9.i to i64
+  %.val10.i = load ptr, ptr %3, align 8, !alias.scope !763, !noalias !760, !nonnull !3, !noundef !3
+  %4 = ptrtoint ptr %.val10.i to i64
   %5 = ptrtoint ptr %.val.i to i64
   %6 = sub nuw i64 %4, %5
   %7 = lshr exact i64 %6, 3
@@ -7971,8 +7971,8 @@ define void @"_ZN91_$LT$wasmi..module..InternalFuncsIter$u20$as$u20$core..iter..
 define noundef range(i64 0, 4294967296) i64 @"_ZN102_$LT$wasmi..module..InternalFuncsIter$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h111eaf3ee119808cE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val.i.i.i = load ptr, ptr %0, align 8, !alias.scope !768, !noalias !775, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val9.i.i.i = load ptr, ptr %2, align 8, !alias.scope !768, !noalias !775, !nonnull !3, !noundef !3
-  %3 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %2, align 8, !alias.scope !768, !noalias !775, !nonnull !3, !noundef !3
+  %3 = ptrtoint ptr %.val10.i.i.i to i64
   %4 = ptrtoint ptr %.val.i.i.i to i64
   %5 = sub nuw i64 %3, %4
   %6 = lshr exact i64 %5, 3

@@ -2066,11 +2066,11 @@ define hidden void @_ZN7inquire5utils8paginate17hf3ce1d03ad40a313E(ptr dead_on_u
 
 .thread:                                          ; preds = %9, %7, %23
   %26 = phi i1 [ %24, %23 ], [ true, %7 ], [ true, %9 ]
-  %.sroa.0.023 = phi i64 [ %.sroa.0.0, %23 ], [ %1, %7 ], [ %1, %9 ]
-  %.sroa.06.022 = phi i64 [ 1, %23 ], [ 0, %7 ], [ 1, %9 ]
-  %.sroa.5.021 = phi i64 [ %.sroa.5.0, %23 ], [ %5, %7 ], [ %5, %9 ]
-  %.sroa.09.020 = phi i64 [ %.sroa.09.0, %23 ], [ 0, %7 ], [ 0, %9 ]
-  %27 = icmp ugt i64 %.sroa.0.023, %3
+  %.sroa.0.025 = phi i64 [ %.sroa.0.0, %23 ], [ %1, %7 ], [ %1, %9 ]
+  %.sroa.06.024 = phi i64 [ 1, %23 ], [ 0, %7 ], [ 1, %9 ]
+  %.sroa.5.023 = phi i64 [ %.sroa.5.0, %23 ], [ %5, %7 ], [ %5, %9 ]
+  %.sroa.09.022 = phi i64 [ %.sroa.09.0, %23 ], [ 0, %7 ], [ 0, %9 ]
+  %27 = icmp ugt i64 %.sroa.0.025, %3
   br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h264567bd34f5b34aE.exit", !prof !121
 
 28:                                               ; preds = %23
@@ -2078,18 +2078,18 @@ define hidden void @_ZN7inquire5utils8paginate17hf3ce1d03ad40a313E(ptr dead_on_u
   unreachable
 
 29:                                               ; preds = %.thread
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.023, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a0fa386c971f9f1141779aebafad2c9c.104) #23, !noalias !122
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.sroa.0.025, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a0fa386c971f9f1141779aebafad2c9c.104) #23, !noalias !122
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h264567bd34f5b34aE.exit": ; preds = %6, %.thread
-  %.sroa.09.02031 = phi i64 [ %.sroa.09.020, %.thread ], [ 0, %6 ]
-  %.sroa.5.02130 = phi i64 [ %.sroa.5.021, %.thread ], [ %5, %6 ]
-  %.sroa.06.02229 = phi i64 [ %.sroa.06.022, %.thread ], [ %4, %6 ]
-  %.sroa.0.02328 = phi i64 [ %.sroa.0.023, %.thread ], [ %3, %6 ]
+  %.sroa.09.02233 = phi i64 [ %.sroa.09.022, %.thread ], [ 0, %6 ]
+  %.sroa.5.02332 = phi i64 [ %.sroa.5.023, %.thread ], [ %5, %6 ]
+  %.sroa.06.02431 = phi i64 [ %.sroa.06.024, %.thread ], [ %4, %6 ]
+  %.sroa.0.02530 = phi i64 [ %.sroa.0.025, %.thread ], [ %3, %6 ]
   %30 = phi i1 [ %26, %.thread ], [ true, %6 ]
-  %31 = icmp eq i64 %.sroa.0.02328, %3
-  %32 = sub nuw i64 %.sroa.0.02328, %.sroa.09.02031
-  %33 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %.sroa.09.02031
+  %31 = icmp eq i64 %.sroa.0.02530, %3
+  %32 = sub nuw i64 %.sroa.0.02530, %.sroa.09.02233
+  %33 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %.sroa.09.02233
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = zext i1 %30 to i8
   store i8 %35, ptr %34, align 8
@@ -2100,9 +2100,9 @@ define hidden void @_ZN7inquire5utils8paginate17hf3ce1d03ad40a313E(ptr dead_on_u
   store ptr %33, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %32, ptr %39, align 8
-  store i64 %.sroa.06.02229, ptr %0, align 8
+  store i64 %.sroa.06.02431, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.02130, ptr %40, align 8
+  store i64 %.sroa.5.02332, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %3, ptr %41, align 8
   ret void

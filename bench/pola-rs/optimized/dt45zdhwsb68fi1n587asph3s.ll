@@ -67020,8 +67020,8 @@ define hidden void @_ZN14polars_parquet7parquet8encoding9bitpacked6encode6encode
   %62 = add nuw nsw i64 %61, 1
   %63 = udiv i64 %4, %19
   %64 = urem i64 %4, %19
-  %.not.i10.i.i.i = icmp ne i64 %64, 0
-  %65 = zext i1 %.not.i10.i.i.i to i64
+  %.not.i11.i.i.i = icmp ne i64 %64, 0
+  %65 = zext i1 %.not.i11.i.i.i to i64
   %.sroa.0.0.i.i.i.i = add i64 %63, %65
   %66 = tail call i64 @llvm.umin.i64(i64 %.sroa.0.0.i.i.i.i, i64 %62)
   %.not.i.i = icmp eq i64 %.sroa.0.0.i.i.i.i, 0

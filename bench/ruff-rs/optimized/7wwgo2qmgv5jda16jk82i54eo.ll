@@ -153,25 +153,26 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %4 = icmp eq i64 %1, -3424795511029543031
   %5 = icmp eq i64 %2, 6927684179508038786
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %10, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit"
+  br i1 %or.cond, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit", label %6
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit": ; preds = %3
-  %6 = icmp eq i64 %1, -50806641264357481
-  %7 = icmp eq i64 %2, -3852133054832745978
-  %or.cond.i = and i1 %6, %7
-  %8 = icmp eq i64 %1, -2619928213396586868
-  %9 = icmp eq i64 %2, -397120010824519751
-  %or.cond.i.i.i = and i1 %8, %9
-  %narrow = or i1 %or.cond.i, %or.cond.i.i.i
-  %.pn5.i = zext i1 %narrow to i64
-  %.pn3.i.idx = select i1 %or.cond.i, i64 0, i64 1768
-  %.pn3.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn3.i.idx
-  %.pn.i = insertvalue { i64, ptr } poison, i64 %.pn5.i, 0
-  br label %10
+6:                                                ; preds = %3
+  %7 = icmp eq i64 %1, -50806641264357481
+  %8 = icmp eq i64 %2, -3852133054832745978
+  %or.cond.i = and i1 %7, %8
+  br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit", label %9
 
-10:                                               ; preds = %3, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit"
-  %.pn = phi { i64, ptr } [ %.pn.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit" ], [ { i64 1, ptr poison }, %3 ]
-  %.pn8 = phi ptr [ %.pn3.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit" ], [ %0, %3 ]
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %11 = icmp eq i64 %1, -2619928213396586868
+  %12 = icmp eq i64 %2, -397120010824519751
+  %or.cond.i.i.i = and i1 %11, %12
+  %..i.i.i = zext i1 %or.cond.i.i.i to i64
+  %13 = insertvalue { i64, ptr } poison, i64 %..i.i.i, 0
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit": ; preds = %3, %9, %6
+  %.pn = phi { i64, ptr } [ %13, %9 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %3 ]
+  %.pn8 = phi ptr [ %10, %9 ], [ %0, %6 ], [ %0, %3 ]
   %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1
   ret { i64, ptr } %.merged
 }
@@ -195,25 +196,26 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %13 = icmp eq i64 %1, -3424795511029543031
   %14 = icmp eq i64 %2, 6927684179508038786
   %or.cond.i.i.i = and i1 %13, %14
-  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i"
+  br i1 %or.cond.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %15
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i": ; preds = %12
-  %15 = icmp eq i64 %1, -50806641264357481
-  %16 = icmp eq i64 %2, -3852133054832745978
-  %or.cond.i.i.i.i = and i1 %15, %16
-  %17 = icmp eq i64 %1, -2619928213396586868
-  %18 = icmp eq i64 %2, -397120010824519751
-  %or.cond.i.i.i.i.i.i = and i1 %17, %18
-  %narrow.i.i.i = or i1 %or.cond.i.i.i.i, %or.cond.i.i.i.i.i.i
-  %.pn5.i.i.i.i = zext i1 %narrow.i.i.i to i64
-  %.pn3.i.idx.i.i.i = select i1 %or.cond.i.i.i.i, i64 0, i64 1768
-  %.pn3.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn3.i.idx.i.i.i
-  %.pn.i.i.i.i = insertvalue { i64, ptr } poison, i64 %.pn5.i.i.i.i, 0
+15:                                               ; preds = %12
+  %16 = icmp eq i64 %1, -50806641264357481
+  %17 = icmp eq i64 %2, -3852133054832745978
+  %or.cond.i.i.i.i = and i1 %16, %17
+  br i1 %or.cond.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit", label %18
+
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %20 = icmp eq i64 %1, -2619928213396586868
+  %21 = icmp eq i64 %2, -397120010824519751
+  %or.cond.i.i.i.i.i.i = and i1 %20, %21
+  %..i.i.i.i.i.i = zext i1 %or.cond.i.i.i.i.i.i to i64
+  %22 = insertvalue { i64, ptr } poison, i64 %..i.i.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit": ; preds = %3, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i", %12, %6
-  %.pn = phi { i64, ptr } [ %.pn.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i" ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %3 ]
-  %.pn8 = phi ptr [ %.pn3.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i" ], [ %0, %12 ], [ %10, %6 ], [ %0, %3 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit": ; preds = %3, %18, %15, %12, %6
+  %.pn = phi { i64, ptr } [ { i64 1, ptr poison }, %6 ], [ %22, %18 ], [ { i64 1, ptr poison }, %15 ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %3 ]
+  %.pn8 = phi ptr [ %10, %6 ], [ %19, %18 ], [ %0, %15 ], [ %0, %12 ], [ %0, %3 ]
   %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1
   ret { i64, ptr } %.merged
 }

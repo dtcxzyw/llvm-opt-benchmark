@@ -8788,8 +8788,8 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val.i = load i64, ptr %7, align 8, !alias.scope !1294, !noalias !1291, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val5.i = load i64, ptr %8, align 8, !alias.scope !1294, !noalias !1291, !noundef !3
-  %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i, i64 %.val5.i)
+  %.val6.i = load i64, ptr %8, align 8, !alias.scope !1294, !noalias !1291, !noundef !3
+  %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i, i64 %.val6.i)
   %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %9)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc1c4a96dbf0e6a59E.exit"
 

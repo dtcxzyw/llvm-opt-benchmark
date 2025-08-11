@@ -5027,10 +5027,10 @@ define hidden void @_ZN11quinn_proto10connection7streams4recv6Chunks3new17h0154c
   %22 = getelementptr inbounds i8, ptr %15, i64 -8
   %23 = load ptr, ptr %22, align 8, !alias.scope !264
   %.not.i = icmp eq i64 %21, 2
-  %.sroa.6.0.i = select i1 %.not.i, ptr undef, ptr %23
-  %.sroa.0.0.i = select i1 %.not.i, i64 2, i64 1
-  store i64 %.sroa.0.0.i, ptr %20, align 8, !alias.scope !264
-  store ptr %.sroa.6.0.i, ptr %22, align 8, !alias.scope !264
+  %spec.select.i = select i1 %.not.i, ptr undef, ptr %23
+  %spec.select12.i = select i1 %.not.i, i64 2, i64 1
+  store i64 %spec.select12.i, ptr %20, align 8, !alias.scope !264
+  store ptr %spec.select.i, ptr %22, align 8, !alias.scope !264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   br i1 %.not.i, label %24, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
 

@@ -34426,8 +34426,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h663e7eb038d95deeE.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -34494,12 +34494,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h663e7eb038d95deeE.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h663e7eb038d95deeE.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h663e7eb038d95deeE.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17h663e7eb038d95deeE.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9af2d41481ca48ffE.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -34570,8 +34570,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h5623c54060f6faa7E.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -34638,12 +34638,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5623c54060f6faa7E.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5623c54060f6faa7E.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5623c54060f6faa7E.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5623c54060f6faa7E.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17hd2a6e4f481656a7bE.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -34714,8 +34714,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17ha5b59535e9842dacE.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -34782,12 +34782,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17ha5b59535e9842dacE.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17ha5b59535e9842dacE.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17ha5b59535e9842dacE.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17ha5b59535e9842dacE.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17h4f7de911a53f3296E.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -39034,8 +39034,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h9fdb68fa8dce9205E.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -39102,12 +39102,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9fdb68fa8dce9205E.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9fdb68fa8dce9205E.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9fdb68fa8dce9205E.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17h9fdb68fa8dce9205E.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8b5c8a8fb4c1a939E.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -39178,8 +39178,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h7ee32c03eb3a893cE.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -39246,12 +39246,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7ee32c03eb3a893cE.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7ee32c03eb3a893cE.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7ee32c03eb3a893cE.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17h7ee32c03eb3a893cE.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17h57869a56cefd140aE.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -39322,8 +39322,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h62a8a64923621026E.exit: ; preds 
   %31 = load i64, ptr %30, align 8, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !noundef !3
-  %.not5 = icmp eq ptr %33, null
-  br i1 %.not5, label %38, label %34
+  %.not6 = icmp eq ptr %33, null
+  br i1 %.not6, label %38, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -39390,12 +39390,12 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %53
-  %.sroa.3.0.i11 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
+  %.sroa.3.0.i12 = phi i64 [ %60, %53 ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h62a8a64923621026E.exit
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h62a8a64923621026E.exit ], [ %.sroa.3.0.i11, %_ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h62a8a64923621026E.exit ], [ %.sroa.3.0.i12, %_ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit ]
   %.sroa.0.0.in = phi i64 [ %20, %_ZN4core4iter6traits8iterator8Iterator6reduce17h62a8a64923621026E.exit ], [ %51, %_ZN4core4iter6traits8iterator8Iterator6reduce17he0f036a51352b017E.exit ]
   %.sroa.0.0 = and i64 %.sroa.0.0.in, 1
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

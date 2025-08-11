@@ -62177,8 +62177,8 @@ _ZN12polars_arrow5array5Array10null_count17h5df6b414b464f103E.exit.thread: ; pre
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8, !noundef !6
   %15 = icmp sgt i64 %1, -1
-  %.sroa.0.0.i19.i.i.i.i.i = sub i64 0, %1
-  %16 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i.i = sub i64 0, %1
+  %16 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i.i, -1
   %.not17.not.i30 = icmp ugt i64 %14, 1
   br i1 %.not17.not.i30, label %"_ZN12polars_arrow6offset22OffsetsBuffer$LT$O$GT$7lengths28_$u7b$$u7b$closure$u7d$$u7d$17h86d4d331fcce5343E.exit.i.us.i.preheader", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3272470b92664a2dE.exit
 
@@ -62203,7 +62203,7 @@ _ZN12polars_arrow5array5Array10null_count17h5df6b414b464f103E.exit.thread: ; pre
   br i1 %16, label %27, label %.split16.us.i, !prof !1674
 
 27:                                               ; preds = %26
-  %.not18.i = icmp ult i64 %25, %.sroa.0.0.i19.i.i.i.i.i
+  %.not18.i = icmp ult i64 %25, %.sroa.0.0.i20.i.i.i.i.i
   br i1 %.not18.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3272470b92664a2dE.exit, label %.split.us.backedge.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3aa10e29a81ab765E.exit.us.i": ; preds = %"_ZN12polars_arrow6offset22OffsetsBuffer$LT$O$GT$7lengths28_$u7b$$u7b$closure$u7d$$u7d$17h86d4d331fcce5343E.exit.i.us.i"
@@ -62255,8 +62255,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3272470b92664a2dE.exit: ; pred
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %43 = icmp sgt i64 %1, -1
-  %.sroa.0.0.i19.i.i.i.i = sub i64 0, %1
-  %44 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i = sub i64 0, %1
+  %44 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i, -1
   %.promoted27.i = load i64, ptr %42, align 8, !alias.scope !8943, !noalias !8946
   %.promoted26.i = load ptr, ptr %37, align 8, !alias.scope !8943, !noalias !8946
   %.promoted25.i = load i64, ptr %41, align 8, !alias.scope !8943, !noalias !8946
@@ -62311,7 +62311,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3272470b92664a2dE.exit: ; pred
   br i1 %44, label %72, label %.split.us.i10, !prof !1674
 
 72:                                               ; preds = %71
-  %.not.i11 = icmp ult i64 %55, %.sroa.0.0.i19.i.i.i.i
+  %.not.i11 = icmp ult i64 %55, %.sroa.0.0.i20.i.i.i.i
   br i1 %.not.i11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed752ce3cf1c1a54E.exit, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h8d969820fbc47f8fE.exit.backedge.us.i"
 
 "_ZN63_$LT$I$u20$as$u20$polars_arrow..legacy..index..IndexToUsize$GT$17negative_to_usize17h10ecef8592828e0cE.exit.i.i.us.i": ; preds = %70

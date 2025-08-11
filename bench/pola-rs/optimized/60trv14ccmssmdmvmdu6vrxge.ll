@@ -1348,26 +1348,26 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.i.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !122, !noalias !121, !nonnull !6, !noundef !6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val9.i.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !122, !noalias !121, !nonnull !6, !noundef !6
-  %14 = ptrtoint ptr %.val9.i.i.i.i.i to i64
+  %.val10.i.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !122, !noalias !121, !nonnull !6, !noundef !6
+  %14 = ptrtoint ptr %.val10.i.i.i.i.i to i64
   %15 = ptrtoint ptr %.val.i.i.i.i.i to i64
   %16 = sub nuw i64 %14, %15
   %17 = udiv exact i64 %16, 368
   %18 = trunc nuw i64 %9 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %11)
-  %.sroa.7.0.i.i.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i10.i.i.i.i.i, i64 %17
+  %.sroa.0.0.sroa.speculated.i11.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %11)
+  %.sroa.7.0.i.i.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i11.i.i.i.i.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val.i.i.i = load ptr, ptr %19, align 8, !alias.scope !123, !noalias !124, !nonnull !6, !noundef !6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.val9.i.i.i = load ptr, ptr %20, align 8, !alias.scope !123, !noalias !124, !nonnull !6, !noundef !6
-  %21 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %20, align 8, !alias.scope !123, !noalias !124, !nonnull !6, !noundef !6
+  %21 = ptrtoint ptr %.val10.i.i.i to i64
   %22 = ptrtoint ptr %.val.i.i.i to i64
   %23 = sub nuw i64 %21, %22
-  %.sroa.0.0.sroa.speculated.i10.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 %.sroa.7.0.i.i.i.i.i)
+  %.sroa.0.0.sroa.speculated.i11.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 %.sroa.7.0.i.i.i.i.i)
   br label %24
 
 24:                                               ; preds = %2, %7
-  %.sink = phi i64 [ %.sroa.0.0.sroa.speculated.i10.i.i.i, %7 ], [ 0, %2 ]
+  %.sink = phi i64 [ %.sroa.0.0.sroa.speculated.i11.i.i.i, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %25, align 8

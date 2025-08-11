@@ -2201,14 +2201,14 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val.i.i.i = load ptr, ptr %12, align 8, !alias.scope !424, !noalias !422, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val9.i.i.i = load ptr, ptr %13, align 8, !alias.scope !424, !noalias !422, !nonnull !3, !noundef !3
-  %14 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %13, align 8, !alias.scope !424, !noalias !422, !nonnull !3, !noundef !3
+  %14 = ptrtoint ptr %.val10.i.i.i to i64
   %15 = ptrtoint ptr %.val.i.i.i to i64
   %16 = sub nuw i64 %14, %15
   %17 = udiv exact i64 %16, 48
   %18 = trunc nuw i64 %9 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %11)
-  %.sroa.7.0.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i10.i.i.i, i64 %17
+  %.sroa.0.0.sroa.speculated.i11.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %11)
+  %.sroa.7.0.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i11.i.i.i, i64 %17
   br label %19
 
 19:                                               ; preds = %2, %7
@@ -2281,17 +2281,17 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i.i.i.i = load ptr, ptr %7, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val9.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
-  %9 = ptrtoint ptr %.val9.i.i.i.i to i64
+  %.val10.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
+  %9 = ptrtoint ptr %.val10.i.i.i.i to i64
   %10 = ptrtoint ptr %.val.i.i.i.i to i64
   %11 = sub nuw i64 %9, %10
   %12 = udiv exact i64 %11, 544
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val10.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
+  %.val11.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val11.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
-  %15 = ptrtoint ptr %.val11.i.i.i.i to i64
-  %16 = ptrtoint ptr %.val10.i.i.i.i to i64
+  %.val12.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !426, !noalias !435, !nonnull !3, !noundef !3
+  %15 = ptrtoint ptr %.val12.i.i.i.i to i64
+  %16 = ptrtoint ptr %.val11.i.i.i.i to i64
   %17 = sub nuw i64 %15, %16
   %18 = udiv exact i64 %17, 240
   %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 %12)
@@ -8002,8 +8002,8 @@ define internal fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..
 13:                                               ; preds = %3
   %.val.i.i = load ptr, ptr %1, align 8, !alias.scope !1300, !noalias !1305, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val5.i.i = load ptr, ptr %14, align 8, !alias.scope !1300, !noalias !1305, !nonnull !3, !noundef !3
-  %15 = ptrtoint ptr %.val5.i.i to i64
+  %.val6.i.i = load ptr, ptr %14, align 8, !alias.scope !1300, !noalias !1305, !nonnull !3, !noundef !3
+  %15 = ptrtoint ptr %.val6.i.i to i64
   %16 = ptrtoint ptr %.val.i.i to i64
   %17 = sub nuw i64 %15, %16
   %18 = lshr exact i64 %17, 2
@@ -8067,8 +8067,8 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
 .lr.ph:                                           ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit"
   %.promoted = load ptr, ptr %1, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val5.i.i.i.i.i.i.i = load ptr, ptr %39, align 8, !nonnull !3
-  %40 = ptrtoint ptr %.val5.i.i.i.i.i.i.i to i64
+  %.val6.i.i.i.i.i.i.i = load ptr, ptr %39, align 8, !nonnull !3
+  %40 = ptrtoint ptr %.val6.i.i.i.i.i.i.i to i64
   %41 = icmp samesign ugt i64 %2, 32
   br i1 %41, label %.lr.ph.split.us, label %.lr.ph.split, !prof !290
 
@@ -8081,7 +8081,7 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
   %45 = lshr i64 %44, 2
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.us = call i64 @llvm.umin.i64(i64 %11, i64 %45)
   %46 = call i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.us, i64 32)
-  %.not.i.i.us = icmp eq ptr %.val5.i.i.i.i.i.i.i, %.promoted
+  %.not.i.i.us = icmp eq ptr %.val6.i.i.i.i.i.i.i, %.promoted
   br i1 %.not.i.i.us, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17headeacdc0025a8cbE.exit.us", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.i.i.us.preheader"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.i.i.us.preheader": ; preds = %42
@@ -8103,7 +8103,7 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
   %54 = icmp ne i64 %49, 0
   call void @llvm.assume(i1 %54)
   %55 = add i64 %49, -1
-  %56 = icmp ne ptr %48, %.val5.i.i.i.i.i.i.i
+  %56 = icmp ne ptr %48, %.val6.i.i.i.i.i.i.i
   call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %58 = icmp ne i64 %.idx53.us, 128
@@ -8141,7 +8141,7 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
   %65 = lshr exact i64 %64, 2
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.lcssa586367, i64 %65)
   %66 = call i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i, i64 32)
-  %.not.i.i = icmp eq ptr %.val5.i.i.i.i.i.i.i, %.lcssa606566
+  %.not.i.i = icmp eq ptr %.val6.i.i.i.i.i.i.i, %.lcssa606566
   br i1 %.not.i.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17headeacdc0025a8cbE.exit", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.i.i": ; preds = %62, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.i.i"
@@ -8159,7 +8159,7 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
   %73 = icmp ne i64 %68, 0
   call void @llvm.assume(i1 %73)
   %74 = add i64 %68, -1
-  %75 = icmp ne ptr %67, %.val5.i.i.i.i.i.i.i
+  %75 = icmp ne ptr %67, %.val6.i.i.i.i.i.i.i
   call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %77 = load i32, ptr %67, align 4, !noalias !1342, !noundef !3
@@ -8211,14 +8211,14 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
 88:                                               ; preds = %83
   %.val.i.i.i.i.i.i.i31 = load ptr, ptr %1, align 8, !alias.scope !1348, !noalias !1353, !nonnull !3, !noundef !3
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val5.i.i.i.i.i.i.i32 = load ptr, ptr %89, align 8, !alias.scope !1348, !noalias !1353, !nonnull !3, !noundef !3
-  %90 = ptrtoint ptr %.val5.i.i.i.i.i.i.i32 to i64
+  %.val6.i.i.i.i.i.i.i32 = load ptr, ptr %89, align 8, !alias.scope !1348, !noalias !1353, !nonnull !3, !noundef !3
+  %90 = ptrtoint ptr %.val6.i.i.i.i.i.i.i32 to i64
   %91 = ptrtoint ptr %.val.i.i.i.i.i.i.i31 to i64
   %92 = sub nuw i64 %90, %91
   %93 = lshr exact i64 %92, 2
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i33 = call i64 @llvm.umin.i64(i64 %.promoted68, i64 %93)
   %94 = call i64 @llvm.umin.i64(i64 %37, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i33)
-  %.not.i.i38 = icmp eq ptr %.val5.i.i.i.i.i.i.i32, %.val.i.i.i.i.i.i.i31
+  %.not.i.i38 = icmp eq ptr %.val6.i.i.i.i.i.i.i32, %.val.i.i.i.i.i.i.i31
   br i1 %.not.i.i38, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hb9f69e842a23b862E.exit", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.lr.ph.i.i39"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69631331549c8c5eE.exit.lr.ph.i.i39": ; preds = %88
@@ -8346,8 +8346,8 @@ define internal fastcc noalias noundef ptr @"_ZN100_$LT$bool$u20$as$u20$polars_p
 9:                                                ; preds = %2
   %.val.i.i = load ptr, ptr %1, align 8, !alias.scope !1397, !noalias !1402, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val5.i.i = load ptr, ptr %10, align 8, !alias.scope !1397, !noalias !1402, !nonnull !3, !noundef !3
-  %11 = ptrtoint ptr %.val5.i.i to i64
+  %.val6.i.i = load ptr, ptr %10, align 8, !alias.scope !1397, !noalias !1402, !nonnull !3, !noundef !3
+  %11 = ptrtoint ptr %.val6.i.i to i64
   %12 = ptrtoint ptr %.val.i.i to i64
   %13 = sub nuw i64 %11, %12
   %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %13)

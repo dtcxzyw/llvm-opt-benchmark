@@ -3147,16 +3147,16 @@ define hidden { i64, i64 } @_ZN9rand_core5impls15fill_via_chunks17h361ad28957547
   br i1 %38, label %41, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5dd538f35781b393E.exit.i"
 
 40:                                               ; preds = %4
-  %.8.i.i.i = select i1 %38, i64 %36, i64 undef
+  %.9.i.i.i = select i1 %38, i64 %36, i64 undef
   br label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5dd538f35781b393E.exit.i"
 
 41:                                               ; preds = %39
-  %.sroa.0.0.sroa.speculated.i9.i.i.i = call noundef i64 @llvm.umin.i64(i64 %36, i64 %31)
+  %.sroa.0.0.sroa.speculated.i10.i.i.i = call noundef i64 @llvm.umin.i64(i64 %36, i64 %31)
   br label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5dd538f35781b393E.exit.i"
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5dd538f35781b393E.exit.i": ; preds = %41, %40, %39
   %.sroa.07.0.i.i.i = phi i64 [ 1, %41 ], [ %34, %40 ], [ 1, %39 ]
-  %.sroa.7.0.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i9.i.i.i, %41 ], [ %.8.i.i.i, %40 ], [ %31, %39 ]
+  %.sroa.7.0.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i10.i.i.i, %41 ], [ %.9.i.i.i, %40 ], [ %31, %39 ]
   %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %32, i64 %27)
   store i64 %.sroa.07.0.i.i.i, ptr %11, align 8, !noalias !324
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3208,14 +3208,14 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2d567d06a327ed79E.exit
   br i1 %58, label %60, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i"
 
 60:                                               ; preds = %59
-  %.sroa.0.0.sroa.speculated.i9.i.i.i6 = call noundef i64 @llvm.umin.i64(i64 %56, i64 %54)
+  %.sroa.0.0.sroa.speculated.i10.i.i.i6 = call noundef i64 @llvm.umin.i64(i64 %56, i64 %54)
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i": ; preds = %52
   br i1 %58, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i", label %.lr.ph.preheader.i.i
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.thread.i.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i", %60, %59
-  %.sroa.08.0.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i9.i.i.i6, %60 ], [ %54, %59 ], [ %56, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i" ]
+  %.sroa.08.0.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i10.i.i.i6, %60 ], [ %54, %59 ], [ %56, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$9size_hint17h400e0ce75db89d08E.exit.i.i" ]
   %.not.i.i = icmp eq i64 %.sroa.08.0.i.i, 0
   br i1 %.not.i.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h0ed5e85839899b0fE.exit", label %.lr.ph.preheader.i.i
 

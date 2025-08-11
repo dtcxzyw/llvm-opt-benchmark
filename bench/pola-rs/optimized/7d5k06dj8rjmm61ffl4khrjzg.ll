@@ -889,12 +889,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %44, label %"_ZN63_$LT$I$u20$as$u20$polars_arrow..legacy..index..IndexToUsize$GT$17negative_to_usize17h10ecef8592828e0cE.exit.i.i.i.i.i.i", label %45
 
 45:                                               ; preds = %43
-  %.sroa.0.0.i19.i.i.i.i.i.i.i = sub i64 0, %42
-  %46 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i.i.i.i = sub i64 0, %42
+  %46 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i.i.i.i, -1
   br i1 %46, label %47, label %49, !prof !182
 
 47:                                               ; preds = %45
-  %.not3.i.i.i.i.i.i = icmp ult i64 %22, %.sroa.0.0.i19.i.i.i.i.i.i.i
+  %.not3.i.i.i.i.i.i = icmp ult i64 %22, %.sroa.0.0.i20.i.i.i.i.i.i.i
   %48 = add i64 %42, %22
   br i1 %.not3.i.i.i.i.i.i, label %74, label %51
 
@@ -1675,12 +1675,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %25, label %"_ZN63_$LT$I$u20$as$u20$polars_arrow..legacy..index..IndexToUsize$GT$17negative_to_usize17h10ecef8592828e0cE.exit.i.i.i.i", label %26
 
 26:                                               ; preds = %24
-  %.sroa.0.0.i19.i.i.i.i.i = sub i64 0, %23
-  %27 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i.i = sub i64 0, %23
+  %27 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i.i, -1
   br i1 %27, label %28, label %30, !prof !182
 
 28:                                               ; preds = %26
-  %.not3.i.i.i.i = icmp ult i64 %20, %.sroa.0.0.i19.i.i.i.i.i
+  %.not3.i.i.i.i = icmp ult i64 %20, %.sroa.0.0.i20.i.i.i.i.i
   %29 = add i64 %23, %20
   br i1 %.not3.i.i.i.i, label %"_ZN14polars_compute6gather7sublist4list19sublist_get_indexes28_$u7b$$u7b$closure$u7d$$u7d$17ha8cf33446f1e0354E.exit.thread4.i.i.i", label %34
 
@@ -7889,12 +7889,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %16, label %"_ZN63_$LT$I$u20$as$u20$polars_arrow..legacy..index..IndexToUsize$GT$17negative_to_usize17h10ecef8592828e0cE.exit.i.i.i.i", label %17
 
 17:                                               ; preds = %15
-  %.sroa.0.0.i19.i.i.i.i.i = sub i64 0, %13
-  %18 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i.i = sub i64 0, %13
+  %18 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i.i, -1
   br i1 %18, label %19, label %21, !prof !182
 
 19:                                               ; preds = %17
-  %.not3.i.i.i.i = icmp ult i64 %14, %.sroa.0.0.i19.i.i.i.i.i
+  %.not3.i.i.i.i = icmp ult i64 %14, %.sroa.0.0.i20.i.i.i.i.i
   %20 = add i64 %14, %13
   br i1 %.not3.i.i.i.i, label %45, label %23
 

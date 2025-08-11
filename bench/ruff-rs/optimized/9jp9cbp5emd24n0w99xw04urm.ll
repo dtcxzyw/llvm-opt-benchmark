@@ -32450,10 +32450,10 @@ define hidden void @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType28
 define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types11subclass_of14SubclassOfType13is_subtype_of17hadad049431566aa4E(i64 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2, i64 %3) unnamed_addr #1 {
   %.sroa.07.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.09.0.extract.trunc = trunc i64 %3 to i32
-  %5 = icmp ne i32 %.sroa.07.0.extract.trunc, 2
-  %6 = icmp ne i32 %.sroa.09.0.extract.trunc, 2
-  %or.cond.not = select i1 %5, i1 %6, i1 false
-  br i1 %or.cond.not, label %7, label %9
+  %5 = icmp eq i32 %.sroa.07.0.extract.trunc, 2
+  %6 = icmp eq i32 %.sroa.09.0.extract.trunc, 2
+  %or.cond = select i1 %5, i1 true, i1 %6
+  br i1 %or.cond, label %9, label %7
 
 7:                                                ; preds = %4
   %.sroa.311.0.extract.shift = lshr i64 %3, 32

@@ -3625,8 +3625,8 @@ define internal fastcc void @_ZN3h3i6client21handle_response_frame17hdc21683eb4b
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.513.i)
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %102 = load i64, ptr %101, align 8, !range !28, !alias.scope !377, !noalias !374, !noundef !12
-  %.not19.i = icmp eq i64 %102, -9223372036854775808
-  br i1 %.not19.i, label %104, label %103
+  %.not23.i = icmp eq i64 %102, -9223372036854775808
+  br i1 %.not23.i, label %104, label %103
 
 103:                                              ; preds = %.noexc32
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !379

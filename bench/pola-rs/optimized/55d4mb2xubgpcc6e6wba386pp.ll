@@ -1606,8 +1606,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %.val.i.i.i = load ptr, ptr %1, align 8, !alias.scope !223, !noalias !224, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val9.i.i.i = load ptr, ptr %8, align 8, !alias.scope !223, !noalias !224, !nonnull !3, !noundef !3
-  %9 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %8, align 8, !alias.scope !223, !noalias !224, !nonnull !3, !noundef !3
+  %9 = ptrtoint ptr %.val10.i.i.i to i64
   %10 = ptrtoint ptr %.val.i.i.i to i64
   %11 = sub nuw i64 %9, %10
   %12 = udiv exact i64 %11, 240
@@ -1620,8 +1620,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %17 = load i64, ptr %16, align 8, !noalias !228
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !228
   %18 = trunc nuw i64 %15 to i1
-  %.sroa.0.0.sroa.speculated.i10.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %12)
-  %.sroa.7.0.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i10.i.i.i, i64 %12
+  %.sroa.0.0.sroa.speculated.i11.i.i.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %12)
+  %.sroa.7.0.i.i.i = select i1 %18, i64 %.sroa.0.0.sroa.speculated.i11.i.i.i, i64 %12
   br label %19
 
 19:                                               ; preds = %2, %7

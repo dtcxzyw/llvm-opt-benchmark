@@ -354,14 +354,14 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %38 = add i64 %.sroa.06.0.lcssa.i.i, 42
   %39 = icmp uge i64 %38, %22
   %40 = trunc nuw i8 %.sroa.014.0.lcssa.i.i to i1
-  %or.cond350.i.i = select i1 %39, i1 true, i1 %40
-  br i1 %or.cond350.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  %or.cond349.i.i = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond349.i.i, label %._crit_edge.i.i, label %.lr.ph51.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i", %50
-  %.sroa.06.048.i.i = phi i64 [ %51, %50 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i" ]
+  %.sroa.06.047.i.i = phi i64 [ %51, %50 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !44
   store i64 0, ptr %5, align 8, !noalias !44
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.06.048.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.06.047.i.i
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.i.i
@@ -381,9 +381,9 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   br i1 %exitcond.not.i.i, label %.preheader42.i.i, label %42
 
 50:                                               ; preds = %59
-  %51 = add i64 %.sroa.06.048.i.i, 64
+  %51 = add i64 %.sroa.06.047.i.i, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !44
-  %52 = add i64 %.sroa.06.048.i.i, 154
+  %52 = add i64 %.sroa.06.047.i.i, 154
   %53 = icmp uge i64 %52, %22
   %54 = trunc nuw i8 %.sroa.014.3.i.i to i1
   %or.cond.i.i = select i1 %53, i1 true, i1 %54
@@ -401,12 +401,12 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
 59:                                               ; preds = %61, %.preheader42.i.i
   %.sroa.014.3.i.i = phi i8 [ %.sroa.014.245.i.i, %.preheader42.i.i ], [ %67, %61 ]
   %60 = add nuw nsw i64 %55, 1
-  %exitcond58.not.i.i = icmp eq i64 %60, 5
-  br i1 %exitcond58.not.i.i, label %50, label %.preheader42.i.i
+  %exitcond57.not.i.i = icmp eq i64 %60, 5
+  br i1 %exitcond57.not.i.i, label %50, label %.preheader42.i.i
 
 61:                                               ; preds = %.preheader42.i.i
   %62 = shl nuw nsw i64 %.sroa.028.046.i.i, 4
-  %63 = add nuw nsw i64 %62, %.sroa.06.048.i.i
+  %63 = add nuw nsw i64 %62, %.sroa.06.047.i.i
   %64 = trunc nuw i8 %.sroa.014.245.i.i to i1
   %65 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %63, i16 noundef %57, i1 noundef zeroext %64)
   %66 = or i1 %65, %64
@@ -428,9 +428,9 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %74 = icmp eq i16 %73, 0
   br i1 %74, label %88, label %90
 
-.lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %81
-  %.sroa.06.151.i.i = phi i64 [ %82, %81 ], [ %.sroa.06.0.lcssa.i.i, %.preheader41.i.i ]
-  %75 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.06.151.i.i
+.lr.ph51.i.i:                                     ; preds = %.preheader41.i.i, %81
+  %.sroa.06.150.i.i = phi i64 [ %82, %81 ], [ %.sroa.06.0.lcssa.i.i, %.preheader41.i.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.06.150.i.i
   %.val3.i63.i.i = load <16 x i8>, ptr %75, align 1, !alias.scope !44, !noalias !51
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 26
   %.val.i64.i.i = load <16 x i8>, ptr %76, align 1, !alias.scope !44, !noalias !51
@@ -441,17 +441,17 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %80 = icmp eq i16 %79, 0
   br i1 %80, label %81, label %85
 
-81:                                               ; preds = %85, %.lr.ph52.i.i
-  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph52.i.i ], [ %87, %85 ]
-  %82 = add i64 %.sroa.06.151.i.i, 16
-  %.reass.i.i = add i64 %.sroa.06.151.i.i, 58
+81:                                               ; preds = %85, %.lr.ph51.i.i
+  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph51.i.i ], [ %87, %85 ]
+  %82 = add i64 %.sroa.06.150.i.i, 16
+  %.reass.i.i = add i64 %.sroa.06.150.i.i, 58
   %83 = icmp uge i64 %.reass.i.i, %22
   %84 = trunc nuw i8 %.sroa.014.5.i.i to i1
   %or.cond3.i.i = select i1 %83, i1 true, i1 %84
-  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph51.i.i
 
-85:                                               ; preds = %.lr.ph52.i.i
-  %86 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.sroa.06.151.i.i, i16 noundef %79, i1 noundef zeroext false)
+85:                                               ; preds = %.lr.ph51.i.i
+  %86 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.sroa.06.150.i.i, i16 noundef %79, i1 noundef zeroext false)
   %87 = zext i1 %86 to i8
   br label %81
 
@@ -515,14 +515,14 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %114 = add i64 %.sroa.06.0.lcssa.i.i22, 42
   %115 = icmp uge i64 %114, %98
   %116 = trunc nuw i8 %.sroa.014.0.lcssa.i.i21 to i1
-  %or.cond350.i.i23 = select i1 %115, i1 true, i1 %116
-  br i1 %or.cond350.i.i23, label %._crit_edge.i.i32, label %.lr.ph52.i.i24
+  %or.cond349.i.i23 = select i1 %115, i1 true, i1 %116
+  br i1 %or.cond349.i.i23, label %._crit_edge.i.i32, label %.lr.ph51.i.i24
 
 .lr.ph.i.i7:                                      ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i6", %126
-  %.sroa.06.048.i.i8 = phi i64 [ %127, %126 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i6" ]
+  %.sroa.06.047.i.i8 = phi i64 [ %127, %126 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3724b85b04232c6E.exit.i.i6" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !64
   store i64 0, ptr %3, align 8, !noalias !64
-  %117 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.06.048.i.i8
+  %117 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.06.047.i.i8
   br label %118
 
 118:                                              ; preds = %118, %.lr.ph.i.i7
@@ -542,9 +542,9 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   br i1 %exitcond.not.i.i13, label %.preheader42.i.i14, label %118
 
 126:                                              ; preds = %135
-  %127 = add i64 %.sroa.06.048.i.i8, 64
+  %127 = add i64 %.sroa.06.047.i.i8, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !64
-  %128 = add i64 %.sroa.06.048.i.i8, 154
+  %128 = add i64 %.sroa.06.047.i.i8, 154
   %129 = icmp uge i64 %128, %98
   %130 = trunc nuw i8 %.sroa.014.3.i.i17 to i1
   %or.cond.i.i19 = select i1 %129, i1 true, i1 %130
@@ -562,12 +562,12 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
 135:                                              ; preds = %137, %.preheader42.i.i14
   %.sroa.014.3.i.i17 = phi i8 [ %.sroa.014.245.i.i16, %.preheader42.i.i14 ], [ %143, %137 ]
   %136 = add nuw nsw i64 %131, 1
-  %exitcond58.not.i.i18 = icmp eq i64 %136, 5
-  br i1 %exitcond58.not.i.i18, label %126, label %.preheader42.i.i14
+  %exitcond57.not.i.i18 = icmp eq i64 %136, 5
+  br i1 %exitcond57.not.i.i18, label %126, label %.preheader42.i.i14
 
 137:                                              ; preds = %.preheader42.i.i14
   %138 = shl nuw nsw i64 %.sroa.028.046.i.i15, 4
-  %139 = add nuw nsw i64 %138, %.sroa.06.048.i.i8
+  %139 = add nuw nsw i64 %138, %.sroa.06.047.i.i8
   %140 = trunc nuw i8 %.sroa.014.245.i.i16 to i1
   %141 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %4, i64 noundef %139, i16 noundef %133, i1 noundef zeroext %140)
   %142 = or i1 %141, %140
@@ -589,9 +589,9 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %150 = icmp eq i16 %149, 0
   br i1 %150, label %164, label %166
 
-.lr.ph52.i.i24:                                   ; preds = %.preheader41.i.i20, %157
-  %.sroa.06.151.i.i25 = phi i64 [ %158, %157 ], [ %.sroa.06.0.lcssa.i.i22, %.preheader41.i.i20 ]
-  %151 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.06.151.i.i25
+.lr.ph51.i.i24:                                   ; preds = %.preheader41.i.i20, %157
+  %.sroa.06.150.i.i25 = phi i64 [ %158, %157 ], [ %.sroa.06.0.lcssa.i.i22, %.preheader41.i.i20 ]
+  %151 = getelementptr inbounds nuw i8, ptr %96, i64 %.sroa.06.150.i.i25
   %.val3.i63.i.i26 = load <16 x i8>, ptr %151, align 1, !alias.scope !64, !noalias !71
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 26
   %.val.i64.i.i27 = load <16 x i8>, ptr %152, align 1, !alias.scope !64, !noalias !71
@@ -602,17 +602,17 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %156 = icmp eq i16 %155, 0
   br i1 %156, label %157, label %161
 
-157:                                              ; preds = %161, %.lr.ph52.i.i24
-  %.sroa.014.5.i.i29 = phi i8 [ 0, %.lr.ph52.i.i24 ], [ %163, %161 ]
-  %158 = add i64 %.sroa.06.151.i.i25, 16
-  %.reass.i.i30 = add i64 %.sroa.06.151.i.i25, 58
+157:                                              ; preds = %161, %.lr.ph51.i.i24
+  %.sroa.014.5.i.i29 = phi i8 [ 0, %.lr.ph51.i.i24 ], [ %163, %161 ]
+  %158 = add i64 %.sroa.06.150.i.i25, 16
+  %.reass.i.i30 = add i64 %.sroa.06.150.i.i25, 58
   %159 = icmp uge i64 %.reass.i.i30, %98
   %160 = trunc nuw i8 %.sroa.014.5.i.i29 to i1
   %or.cond3.i.i31 = select i1 %159, i1 true, i1 %160
-  br i1 %or.cond3.i.i31, label %._crit_edge.i.i32, label %.lr.ph52.i.i24
+  br i1 %or.cond3.i.i31, label %._crit_edge.i.i32, label %.lr.ph51.i.i24
 
-161:                                              ; preds = %.lr.ph52.i.i24
-  %162 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %4, i64 noundef %.sroa.06.151.i.i25, i16 noundef %155, i1 noundef zeroext false)
+161:                                              ; preds = %.lr.ph51.i.i24
+  %162 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1d160954d3d76500E"(ptr noalias noundef readonly align 8 dereferenceable(32) %4, i64 noundef %.sroa.06.150.i.i25, i16 noundef %155, i1 noundef zeroext false)
   %163 = zext i1 %162 to i8
   br label %157
 

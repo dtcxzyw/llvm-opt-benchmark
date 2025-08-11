@@ -32,19 +32,19 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %.val.i.i.i.i = load ptr, ptr %4, align 8, !alias.scope !14, !noalias !17, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val9.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !14, !noalias !17, !nonnull !3, !noundef !3
-  %10 = ptrtoint ptr %.val9.i.i.i.i to i64
+  %.val10.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !14, !noalias !17, !nonnull !3, !noundef !3
+  %10 = ptrtoint ptr %.val10.i.i.i.i to i64
   %11 = ptrtoint ptr %.val.i.i.i.i to i64
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.val.i.i.i.i.i.i = load i64, ptr %15, align 8, !alias.scope !22, !noalias !27, !noundef !3
-  %.val9.i.i.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !22, !noalias !27, !nonnull !3, !noundef !3
+  %.val10.i.i.i.i.i.i = load ptr, ptr %14, align 8, !alias.scope !22, !noalias !27, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val10.i.i.i.i.i.i = load ptr, ptr %16, align 8, !alias.scope !22, !noalias !27, !nonnull !3, !noundef !3
-  %17 = ptrtoint ptr %.val10.i.i.i.i.i.i to i64
-  %18 = ptrtoint ptr %.val9.i.i.i.i.i.i to i64
+  %.val11.i.i.i.i.i.i = load ptr, ptr %16, align 8, !alias.scope !22, !noalias !27, !nonnull !3, !noundef !3
+  %17 = ptrtoint ptr %.val11.i.i.i.i.i.i to i64
+  %18 = ptrtoint ptr %.val10.i.i.i.i.i.i to i64
   %19 = sub nuw i64 %17, %18
   %20 = lshr exact i64 %19, 5
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %.val.i.i.i.i.i.i)
@@ -70,12 +70,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %44 unwind label %42, !noalias !45
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.i.i.i": ; preds = %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i"
-  %26 = phi ptr [ %.val9.i.i.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %33, %38 ]
+  %26 = phi ptr [ %.val10.i.i.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %33, %38 ]
   %27 = phi i64 [ %.val.i.i.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %31, %38 ]
   %28 = phi ptr [ %.val.i.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %30, %38 ]
   %.val12.i.i.i = phi i64 [ %.sroa.5.0.copyload, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %41, %38 ]
   %.sroa.0.024.i.i.i = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbcb2329998f9c842E.exit.lr.ph.i.i.i" ], [ %39, %38 ]
-  %29 = icmp ne ptr %28, %.val9.i.i.i.i
+  %29 = icmp ne ptr %28, %.val10.i.i.i.i
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -84,7 +84,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.assume(i1 %.not.i.not.i.i.i.i.i)
   %31 = add i64 %27, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %32 = icmp ne ptr %26, %.val10.i.i.i.i.i.i
+  %32 = icmp ne ptr %26, %.val11.i.i.i.i.i.i
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %34 = load i64, ptr %26, align 8, !range !55, !alias.scope !56, !noalias !59, !noundef !3
@@ -8806,16 +8806,16 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h076b88d146edb415E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %.val.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2430, !noalias !2437, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val9.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2430, !noalias !2437, !nonnull !3, !noundef !3
-  %3 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2430, !noalias !2437, !nonnull !3, !noundef !3
+  %3 = ptrtoint ptr %.val10.i.i.i to i64
   %4 = ptrtoint ptr %.val.i.i.i to i64
   %5 = sub nuw i64 %3, %4
   %6 = lshr exact i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val10.i.i.i = load i64, ptr %7, align 8, !alias.scope !2430, !noalias !2437, !noundef !3
+  %.val11.i.i.i = load i64, ptr %7, align 8, !alias.scope !2430, !noalias !2437, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val11.i.i.i = load i64, ptr %8, align 8, !alias.scope !2430, !noalias !2437, !noundef !3
-  %9 = add i64 %.val11.i.i.i, %.val10.i.i.i
+  %.val12.i.i.i = load i64, ptr %8, align 8, !alias.scope !2430, !noalias !2437, !noundef !3
+  %9 = add i64 %.val12.i.i.i, %.val11.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 0, 1152921504606846976) i64 @llvm.umin.i64(i64 %9, i64 %6)
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
 }
@@ -8849,16 +8849,16 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..i
 define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h2835a6ea57ae024aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %.val.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2443, !noalias !2450, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val9.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2443, !noalias !2450, !nonnull !3, !noundef !3
-  %3 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2443, !noalias !2450, !nonnull !3, !noundef !3
+  %3 = ptrtoint ptr %.val10.i.i.i to i64
   %4 = ptrtoint ptr %.val.i.i.i to i64
   %5 = sub nuw i64 %3, %4
   %6 = lshr exact i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val10.i.i.i = load i64, ptr %7, align 8, !alias.scope !2443, !noalias !2450, !noundef !3
+  %.val11.i.i.i = load i64, ptr %7, align 8, !alias.scope !2443, !noalias !2450, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val11.i.i.i = load i64, ptr %8, align 8, !alias.scope !2443, !noalias !2450, !noundef !3
-  %9 = add i64 %.val11.i.i.i, %.val10.i.i.i
+  %.val12.i.i.i = load i64, ptr %8, align 8, !alias.scope !2443, !noalias !2450, !noundef !3
+  %9 = add i64 %.val12.i.i.i, %.val11.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 0, 1152921504606846976) i64 @llvm.umin.i64(i64 %9, i64 %6)
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
 }
@@ -8892,17 +8892,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h39c6a9534f82fffcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2453, !noalias !2460, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2453, !noalias !2460, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2453, !noalias !2460, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2453, !noalias !2460, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2453, !noalias !2460, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2453, !noalias !2460, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2453, !noalias !2460, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -8911,17 +8911,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h3a826ae80be6f12dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2463, !noalias !2470, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2463, !noalias !2470, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2463, !noalias !2470, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2463, !noalias !2470, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2463, !noalias !2470, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2463, !noalias !2470, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2463, !noalias !2470, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -8930,17 +8930,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h56c56bd9658f9e2cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2473, !noalias !2480, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2473, !noalias !2480, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2473, !noalias !2480, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2473, !noalias !2480, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2473, !noalias !2480, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2473, !noalias !2480, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2473, !noalias !2480, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -8999,17 +8999,17 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h8f5e5f6271e46ecfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2486, !noalias !2493, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2486, !noalias !2493, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2486, !noalias !2493, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2486, !noalias !2493, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2486, !noalias !2493, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2486, !noalias !2493, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2486, !noalias !2493, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9030,17 +9030,17 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17ha1ed6e86e5708175E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2496, !noalias !2503, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2496, !noalias !2503, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2496, !noalias !2503, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2496, !noalias !2503, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2496, !noalias !2503, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2496, !noalias !2503, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2496, !noalias !2503, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9049,17 +9049,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17ha35e3ff0fa802182E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2506, !noalias !2513, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2506, !noalias !2513, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2506, !noalias !2513, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2506, !noalias !2513, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2506, !noalias !2513, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2506, !noalias !2513, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2506, !noalias !2513, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9107,17 +9107,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haee103d924665e8fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2516, !noalias !2523, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2516, !noalias !2523, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2516, !noalias !2523, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2516, !noalias !2523, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2516, !noalias !2523, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2516, !noalias !2523, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2516, !noalias !2523, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9139,17 +9139,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hcdbc912576bfff8dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2526, !noalias !2533, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2526, !noalias !2533, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2526, !noalias !2533, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2526, !noalias !2533, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2526, !noalias !2533, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2526, !noalias !2533, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2526, !noalias !2533, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9158,17 +9158,17 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hd8ae8e88a5d81f58E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2536, !noalias !2543, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2536, !noalias !2543, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2536, !noalias !2543, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2536, !noalias !2543, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2536, !noalias !2543, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2536, !noalias !2543, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2536, !noalias !2543, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9176,18 +9176,18 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hddeece139f4d75d9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.val10.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2546, !noalias !2553, !nonnull !3, !noundef !3
+  %.val11.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2546, !noalias !2553, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val11.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2546, !noalias !2553, !nonnull !3, !noundef !3
-  %3 = ptrtoint ptr %.val11.i.i.i to i64
-  %4 = ptrtoint ptr %.val10.i.i.i to i64
+  %.val12.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2546, !noalias !2553, !nonnull !3, !noundef !3
+  %3 = ptrtoint ptr %.val12.i.i.i to i64
+  %4 = ptrtoint ptr %.val11.i.i.i to i64
   %5 = sub nuw i64 %3, %4
   %6 = lshr exact i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2546, !noalias !2553, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2546, !noalias !2553, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2546, !noalias !2553, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 0, 1152921504606846976) i64 @llvm.umin.i64(i64 %9, i64 %6)
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
 }
@@ -9195,17 +9195,17 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hf08328df98178065E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val10.i.i.i = load i64, ptr %2, align 8, !alias.scope !2556, !noalias !2563, !noundef !3
+  %.val11.i.i.i = load i64, ptr %2, align 8, !alias.scope !2556, !noalias !2563, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val11.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2556, !noalias !2563, !noundef !3
-  %4 = icmp ugt i64 %.val11.i.i.i, %.val10.i.i.i
-  %5 = add i64 %.val10.i.i.i, 1
-  %6 = sub i64 %5, %.val11.i.i.i
+  %.val12.i.i.i = load i64, ptr %3, align 8, !range !1385, !alias.scope !2556, !noalias !2563, !noundef !3
+  %4 = icmp ugt i64 %.val12.i.i.i, %.val11.i.i.i
+  %5 = add i64 %.val11.i.i.i, 1
+  %6 = sub i64 %5, %.val12.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2556, !noalias !2563, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2556, !noalias !2563, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2556, !noalias !2563, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %6)
   %.sroa.0.0.sroa.speculated.i.i.i.i = select i1 %4, i64 0, i64 %10
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
@@ -9213,18 +9213,18 @@ define hidden noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i64 0, 1152921504606846976) i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17hf721d9766c6dee83E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.val10.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2566, !noalias !2573, !nonnull !3, !noundef !3
+  %.val11.i.i.i = load ptr, ptr %0, align 8, !alias.scope !2566, !noalias !2573, !nonnull !3, !noundef !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val11.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2566, !noalias !2573, !nonnull !3, !noundef !3
-  %3 = ptrtoint ptr %.val11.i.i.i to i64
-  %4 = ptrtoint ptr %.val10.i.i.i to i64
+  %.val12.i.i.i = load ptr, ptr %2, align 8, !alias.scope !2566, !noalias !2573, !nonnull !3, !noundef !3
+  %3 = ptrtoint ptr %.val12.i.i.i to i64
+  %4 = ptrtoint ptr %.val11.i.i.i to i64
   %5 = sub nuw i64 %3, %4
   %6 = lshr exact i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !2566, !noalias !2573, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val9.i.i.i = load i64, ptr %8, align 8, !alias.scope !2566, !noalias !2573, !noundef !3
-  %9 = add i64 %.val9.i.i.i, %.val.i.i.i
+  %.val10.i.i.i = load i64, ptr %8, align 8, !alias.scope !2566, !noalias !2573, !noundef !3
+  %9 = add i64 %.val10.i.i.i, %.val.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 0, 1152921504606846976) i64 @llvm.umin.i64(i64 %9, i64 %6)
   ret i64 %.sroa.0.0.sroa.speculated.i.i.i.i
 }

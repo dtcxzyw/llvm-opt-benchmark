@@ -22906,17 +22906,17 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
 6:                                                ; preds = %2
   %.val.i.i.i = load ptr, ptr %1, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val9.i.i.i = load ptr, ptr %7, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
-  %8 = ptrtoint ptr %.val9.i.i.i to i64
+  %.val10.i.i.i = load ptr, ptr %7, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
+  %8 = ptrtoint ptr %.val10.i.i.i to i64
   %9 = ptrtoint ptr %.val.i.i.i to i64
   %10 = sub nuw i64 %8, %9
   %11 = lshr exact i64 %10, 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val10.i.i.i = load ptr, ptr %12, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
+  %.val11.i.i.i = load ptr, ptr %12, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val11.i.i.i = load ptr, ptr %13, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
-  %14 = ptrtoint ptr %.val11.i.i.i to i64
-  %15 = ptrtoint ptr %.val10.i.i.i to i64
+  %.val12.i.i.i = load ptr, ptr %13, align 8, !alias.scope !2252, !noalias !2259, !nonnull !6, !noundef !6
+  %14 = ptrtoint ptr %.val12.i.i.i to i64
+  %15 = ptrtoint ptr %.val11.i.i.i to i64
   %16 = sub nuw i64 %14, %15
   %17 = lshr exact i64 %16, 4
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %11)
@@ -83572,9 +83572,9 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter26from_iter_bool
   %.val.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.6.0.copyload43, i64 %.sroa.539.0.copyload41
   %.val1.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.8.0.copyload45, i64 %.sroa.6.0.copyload43
   %24 = add i64 %.val1.i.i.i.i.sroa.speculated, %.val.i.i.i.i.sroa.speculated
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.947.0.copyload49, null
-  %.val3.sink.i.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.11.0.copyload53, ptr %.sroa.10.0.copyload51
-  %.val2.sink.i.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.10.0.copyload51, ptr %.sroa.947.0.copyload49
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.947.0.copyload49, null
+  %.val3.sink.i.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.11.0.copyload53, ptr %.sroa.10.0.copyload51
+  %.val2.sink.i.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.10.0.copyload51, ptr %.sroa.947.0.copyload49
   %25 = ptrtoint ptr %.val3.sink.i.i.i.i to i64
   %26 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %27 = sub nuw i64 %25, %26
@@ -83993,9 +83993,9 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter29from_iter_binv
   %.val.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.6.0.copyload46, i64 %.sroa.5.0.copyload44
   %.val1.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.8.0.copyload48, i64 %.sroa.6.0.copyload46
   %32 = sub i64 %.val1.i.i.i.i.sroa.speculated, %.val.i.i.i.i.sroa.speculated
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.950.0.copyload52, null
-  %.val3.sink.i.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.11.0.copyload56, ptr %.sroa.10.0.copyload54
-  %.val2.sink.i.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.10.0.copyload54, ptr %.sroa.950.0.copyload52
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.950.0.copyload52, null
+  %.val3.sink.i.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.11.0.copyload56, ptr %.sroa.10.0.copyload54
+  %.val2.sink.i.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.10.0.copyload54, ptr %.sroa.950.0.copyload52
   %33 = ptrtoint ptr %.val3.sink.i.i.i.i to i64
   %34 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %35 = sub nuw i64 %33, %34
@@ -85009,11 +85009,11 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %27 = ptrtoint ptr %.val3.sink.i.i.i.i to i64
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
   %.sink4.i.i.i.i = lshr exact i64 %32, 2
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i.i.i.i, i64 %29)
@@ -85503,14 +85503,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 1
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -85996,11 +85996,11 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %27 = ptrtoint ptr %.val3.sink.i.i.i.i to i64
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
   %.sink4.i.i.i.i = lshr exact i64 %32, 2
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i.i.i.i, i64 %29)
@@ -86490,14 +86490,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -86984,14 +86984,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 2
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -87478,14 +87478,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -87972,14 +87972,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -88466,14 +88466,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 1
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -88960,14 +88960,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 4
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -89454,14 +89454,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 2
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34
@@ -89948,14 +89948,14 @@ define hidden void @_ZN12polars_arrow6legacy5array12ListFromIter31from_iter_prim
   %28 = ptrtoint ptr %.val2.sink.i.i.i.i to i64
   %29 = sub nuw i64 %27, %28
   %.sink4.i.i.i.i = lshr exact i64 %29, 2
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
-  %.val3.sink.i12.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
-  %.val2.sink.i13.i.i.i = select i1 %.not.i9.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
-  %30 = ptrtoint ptr %.val3.sink.i12.i.i.i to i64
-  %31 = ptrtoint ptr %.val2.sink.i13.i.i.i to i64
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.744.0.copyload46, null
+  %.val3.sink.i13.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.9.0.copyload50, ptr %.sroa.8.0.copyload48
+  %.val2.sink.i14.i.i.i = select i1 %.not.i10.i.i.i, ptr %.sroa.8.0.copyload48, ptr %.sroa.744.0.copyload46
+  %30 = ptrtoint ptr %.val3.sink.i13.i.i.i to i64
+  %31 = ptrtoint ptr %.val2.sink.i14.i.i.i to i64
   %32 = sub nuw i64 %30, %31
-  %.sink4.i14.i.i.i = lshr exact i64 %32, 2
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i14.i.i.i, i64 %.sink4.i.i.i.i)
+  %.sink4.i15.i.i.i = lshr exact i64 %32, 2
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink4.i15.i.i.i, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %26, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
           to label %36 unwind label %34

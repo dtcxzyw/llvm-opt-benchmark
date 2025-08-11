@@ -29839,10 +29839,10 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %17 = ptrtoint ptr %.val.sink.i.i.i.i to i64
   %18 = sub nuw i64 %16, %17
   %.sink4.i.i.i.i = lshr exact i64 %18, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
-  %.val.i10.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
-  %.val1.i11.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
-  %19 = sub i64 %.val1.i11.i.i.i.sroa.speculated, %.val.i10.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
+  %.val.i11.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
+  %.val1.i12.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
+  %19 = sub i64 %.val1.i12.i.i.i.sroa.speculated, %.val.i11.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2327
@@ -31793,10 +31793,10 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %19 = ptrtoint ptr %.val.sink.i.i.i.i to i64
   %20 = sub nuw i64 %18, %19
   %.sink4.i.i.i.i = lshr exact i64 %20, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.565.0.copyload67, null
-  %.val.i10.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.770.0.copyload72, i64 %.sroa.6.0.copyload69
-  %.val1.i11.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.9.0.copyload74, i64 %.sroa.770.0.copyload72
-  %21 = sub i64 %.val1.i11.i.i.i.sroa.speculated, %.val.i10.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.565.0.copyload67, null
+  %.val.i11.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.770.0.copyload72, i64 %.sroa.6.0.copyload69
+  %.val1.i12.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.9.0.copyload74, i64 %.sroa.770.0.copyload72
+  %21 = sub i64 %.val1.i12.i.i.i.sroa.speculated, %.val.i11.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2541
@@ -34904,10 +34904,10 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %17 = ptrtoint ptr %.val.sink.i.i.i.i to i64
   %18 = sub nuw i64 %16, %17
   %.sink4.i.i.i.i = lshr exact i64 %18, 2
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
-  %.val.i10.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
-  %.val1.i11.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
-  %19 = sub i64 %.val1.i11.i.i.i.sroa.speculated, %.val.i10.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
+  %.val.i11.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
+  %.val1.i12.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
+  %19 = sub i64 %.val1.i12.i.i.i.sroa.speculated, %.val.i11.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2930
@@ -37213,10 +37213,10 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %17 = ptrtoint ptr %.val.sink.i.i.i.i to i64
   %18 = sub nuw i64 %16, %17
   %.sink4.i.i.i.i = lshr exact i64 %18, 2
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
-  %.val.i10.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
-  %.val1.i11.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
-  %19 = sub i64 %.val1.i11.i.i.i.sroa.speculated, %.val.i10.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
+  %.val.i11.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
+  %.val1.i12.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
+  %19 = sub i64 %.val1.i12.i.i.i.sroa.speculated, %.val.i11.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3220
@@ -41137,10 +41137,10 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %17 = ptrtoint ptr %.val.sink.i.i.i.i to i64
   %18 = sub nuw i64 %16, %17
   %.sink4.i.i.i.i = lshr exact i64 %18, 3
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
-  %.val.i10.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
-  %.val1.i11.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
-  %19 = sub i64 %.val1.i11.i.i.i.sroa.speculated, %.val.i10.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.564.0.copyload66, null
+  %.val.i11.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.769.0.copyload71, i64 %.sroa.6.0.copyload68
+  %.val1.i12.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.9.0.copyload73, i64 %.sroa.769.0.copyload71
+  %19 = sub i64 %.val1.i12.i.i.i.sroa.speculated, %.val.i11.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %19, i64 %.sink4.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3668

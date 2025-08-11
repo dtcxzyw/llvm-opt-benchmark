@@ -2774,14 +2774,14 @@ _ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit: ; preds = 
 .noexc101:                                        ; preds = %342
   %344 = extractvalue { i64, i32 } %343, 0
   %345 = extractvalue { i64, i32 } %343, 1
-  %.not16.i = icmp eq i32 %345, 1000000000
-  br i1 %.not16.i, label %349, label %346
+  %.not.i99 = icmp eq i32 %345, 1000000000
+  br i1 %.not.i99, label %349, label %346
 
 346:                                              ; preds = %.noexc101
   %347 = getelementptr inbounds nuw i8, ptr %74, i64 6304
   %348 = load ptr, ptr %347, align 16, !alias.scope !178, !noalias !181, !align !10, !noundef !7
-  %.not.i99 = icmp eq ptr %348, null
-  br i1 %.not.i99, label %357, label %351
+  %.not14.i = icmp eq ptr %348, null
+  br i1 %.not14.i, label %357, label %351
 
 349:                                              ; preds = %.noexc101
   %350 = getelementptr inbounds nuw i8, ptr %74, i64 6136
@@ -2791,11 +2791,11 @@ _ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit: ; preds = 
 351:                                              ; preds = %346
   %352 = getelementptr inbounds nuw i8, ptr %74, i64 6136
   %353 = load i32, ptr %352, align 8, !range !183, !alias.scope !178, !noalias !181, !noundef !7
-  %.not14.i = icmp ne i32 %353, 1000000000
+  %.not15.i = icmp ne i32 %353, 1000000000
   %354 = getelementptr inbounds nuw i8, ptr %74, i64 6128
   %355 = load i64, ptr %354, align 16, !alias.scope !178, !noalias !181
   %356 = icmp eq i64 %355, %344
-  %or.cond.i = select i1 %.not14.i, i1 %356, i1 false
+  %or.cond.i = select i1 %.not15.i, i1 %356, i1 false
   br i1 %or.cond.i, label %379, label %374
 
 357:                                              ; preds = %346
@@ -2838,8 +2838,8 @@ _ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit: ; preds = 
 379:                                              ; preds = %351
   %380 = icmp ult i32 %345, 1000000000
   call void @llvm.assume(i1 %380)
-  %.not15.i = icmp eq i32 %353, %345
-  br i1 %.not15.i, label %thread-pre-split.thread.i, label %374
+  %.not16.i = icmp eq i32 %353, %345
+  br i1 %.not16.i, label %thread-pre-split.thread.i, label %374
 
 thread-pre-split.thread.i:                        ; preds = %379
   store i64 %344, ptr %354, align 16, !alias.scope !178, !noalias !181

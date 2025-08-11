@@ -986,7 +986,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h03
   %15 = icmp eq i64 %3, 0
   br label %16
 
-16:                                               ; preds = %45, %4
+16:                                               ; preds = %46, %4
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %17 = load i64, ptr %6, align 8, !alias.scope !105, !noundef !4
   %18 = icmp sgt i64 %17, -1
@@ -1015,7 +1015,7 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h03
   unreachable
 
 30:                                               ; preds = %22
-  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread22", label %31
+  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21", label %31
 
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !105
@@ -1046,41 +1046,41 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h03
   br i1 %43, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread", label %.lr.ph.i
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit": ; preds = %22
-  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread22"
+  br i1 %.not, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread", label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21"
 
-"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread22": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit", %30
-  %.sroa.0.0.i25 = phi ptr [ inttoptr (i64 98784247811 to ptr), %30 ], [ %26, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
-  store ptr %.sroa.0.0.i25, ptr %0, align 8
-  br label %51
+"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21": ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit", %30
+  %.sroa.0.0.i24 = phi ptr [ inttoptr (i64 98784247811 to ptr), %30 ], [ %26, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit" ]
+  store ptr %.sroa.0.0.i24, ptr %0, align 8
+  br label %52
 
 "_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread": ; preds = %31, %16, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit"
-  %.val19 = load i64, ptr %14, align 8, !noundef !4
+  %.val18 = load i64, ptr %14, align 8, !noundef !4
   %44 = call noundef i8 @"_ZN58_$LT$flate2..mem..Compress$u20$as$u20$flate2..zio..Ops$GT$7run_vec17h9f7075bd481a1e65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 0)
-  %.not17 = icmp eq i8 %44, 3
-  br i1 %.not17, label %.critedge, label %45
+  %45 = icmp eq i8 %44, 3
+  br i1 %45, label %.critedge, label %46
 
-45:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread"
+46:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread"
   %.val = load i64, ptr %14, align 8, !noundef !4
-  %46 = icmp eq i8 %44, 2
-  %47 = icmp ne i64 %.val, %.val19
-  %or.cond.not28 = or i1 %15, %47
-  %brmerge = or i1 %46, %or.cond.not28
-  br i1 %brmerge, label %49, label %16
+  %47 = icmp eq i8 %44, 2
+  %48 = icmp ne i64 %.val, %.val18
+  %or.cond.not27 = or i1 %15, %48
+  %brmerge = or i1 %47, %or.cond.not27
+  br i1 %brmerge, label %50, label %16
 
 .critedge:                                        ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread"
-  %48 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h2cc752aa3fe44512E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.1f05d277c88a7f19f4152a5a23010038.27, i64 noundef 22)
-  store ptr %48, ptr %0, align 8
-  br label %51
+  %49 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h2cc752aa3fe44512E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.1f05d277c88a7f19f4152a5a23010038.27, i64 noundef 22)
+  store ptr %49, ptr %0, align 8
+  br label %52
 
-49:                                               ; preds = %45
-  %50 = sub i64 %.val, %.val19
-  store i64 %50, ptr %0, align 8
-  br label %51
+50:                                               ; preds = %46
+  %51 = sub i64 %.val, %.val18
+  store i64 %51, ptr %0, align 8
+  br label %52
 
-51:                                               ; preds = %49, %.critedge, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread22"
-  %.lcssa46.sink = phi i8 [ %44, %49 ], [ 3, %.critedge ], [ 3, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread22" ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.lcssa46.sink, ptr %52, align 8
+52:                                               ; preds = %50, %.critedge, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21"
+  %.lcssa45.sink = phi i8 [ %44, %50 ], [ 3, %.critedge ], [ 3, %"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h2f97b549be1d958aE.exit.thread21" ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.lcssa45.sink, ptr %53, align 8
   ret void
 }
 

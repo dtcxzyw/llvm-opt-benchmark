@@ -39025,8 +39025,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics13reduce_binary
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.55.i)
   %81 = getelementptr inbounds nuw i8, ptr %.val.i, i64 168
   %82 = load i64, ptr %81, align 8, !range !3201, !alias.scope !9624, !noalias !9637, !noundef !3
-  %.not8.i = icmp eq i64 %82, -9223372036854775808
-  br i1 %.not8.i, label %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit", label %90
+  %.not9.i = icmp eq i64 %82, -9223372036854775808
+  br i1 %.not9.i, label %"_ZN100_$LT$polars_parquet..parquet..statistics..binary..BinaryStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h571d7d1a51ae574bE.exit", label %90
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit.i": ; preds = %95, %91, %87
   %.pn.i = phi { ptr, i32 } [ %88, %87 ], [ %92, %95 ], [ %92, %91 ]
@@ -39380,11 +39380,11 @@ _ZN14polars_parquet7parquet5write10statistics11reduce_vec817hba457e066f6f0054E.e
   %175 = load i64, ptr %174, align 8, !alias.scope !9673, !noalias !9686
   %176 = trunc nuw i64 %.sroa.020.0 to i1
   %177 = trunc nuw i64 %173 to i1
-  %.10.i.i.i.i.i = select i1 %177, i64 %175, i64 undef
+  %.11.i.i.i.i.i = select i1 %177, i64 %175, i64 undef
   %178 = select i1 %177, i64 %175, i64 0
   %spec.select.i.i.i.i.i = add i64 %178, %.sroa.724.0
   %.sroa.07.0.i.i.i.i.i = select i1 %176, i64 1, i64 %173
-  %.sroa.5.0.i.i.i.i.i = select i1 %176, i64 %spec.select.i.i.i.i.i, i64 %.10.i.i.i.i.i
+  %.sroa.5.0.i.i.i.i.i = select i1 %176, i64 %spec.select.i.i.i.i.i, i64 %.11.i.i.i.i.i
   store i64 %.sroa.07.0.i.i.i.i.i, ptr %14, align 8, !alias.scope !9670, !noalias !9705
   store i64 %.sroa.5.0.i.i.i.i.i, ptr %110, align 8, !alias.scope !9670, !noalias !9705
   store i64 0, ptr %111, align 8, !alias.scope !9670, !noalias !9705
@@ -39605,8 +39605,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics21reduce_fix_le
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.55.i)
   %81 = getelementptr inbounds nuw i8, ptr %.val.i, i64 168
   %82 = load i64, ptr %81, align 8, !range !3201, !alias.scope !9731, !noalias !9744, !noundef !3
-  %.not8.i = icmp eq i64 %82, -9223372036854775808
-  br i1 %.not8.i, label %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit", label %90
+  %.not9.i = icmp eq i64 %82, -9223372036854775808
+  br i1 %.not9.i, label %"_ZN112_$LT$polars_parquet..parquet..statistics..fixed_len_binary..FixedLenStatistics$u20$as$u20$core..clone..Clone$GT$5clone17h13c14c0ec98d2824E.exit", label %90
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit.i": ; preds = %95, %91, %87
   %.pn.i = phi { ptr, i32 } [ %88, %87 ], [ %92, %95 ], [ %92, %91 ]
@@ -39960,11 +39960,11 @@ _ZN14polars_parquet7parquet5write10statistics11reduce_vec817hba457e066f6f0054E.e
   %175 = load i64, ptr %174, align 8, !alias.scope !9780, !noalias !9793
   %176 = trunc nuw i64 %.sroa.020.0 to i1
   %177 = trunc nuw i64 %173 to i1
-  %.10.i.i.i.i.i = select i1 %177, i64 %175, i64 undef
+  %.11.i.i.i.i.i = select i1 %177, i64 %175, i64 undef
   %178 = select i1 %177, i64 %175, i64 0
   %spec.select.i.i.i.i.i = add i64 %178, %.sroa.724.0
   %.sroa.07.0.i.i.i.i.i = select i1 %176, i64 1, i64 %173
-  %.sroa.5.0.i.i.i.i.i = select i1 %176, i64 %spec.select.i.i.i.i.i, i64 %.10.i.i.i.i.i
+  %.sroa.5.0.i.i.i.i.i = select i1 %176, i64 %spec.select.i.i.i.i.i, i64 %.11.i.i.i.i.i
   store i64 %.sroa.07.0.i.i.i.i.i, ptr %14, align 8, !alias.scope !9777, !noalias !9812
   store i64 %.sroa.5.0.i.i.i.i.i, ptr %110, align 8, !alias.scope !9777, !noalias !9812
   store i64 0, ptr %111, align 8, !alias.scope !9777, !noalias !9812
@@ -40165,11 +40165,11 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics14reduce_boolea
   %73 = load i64, ptr %72, align 8, !alias.scope !9857, !noalias !9860
   %74 = trunc nuw i64 %.sroa.016.0.i.i to i1
   %75 = trunc nuw i64 %71 to i1
-  %.10.i.i.i.i.i = select i1 %75, i64 %73, i64 undef
+  %.11.i.i.i.i.i = select i1 %75, i64 %73, i64 undef
   %76 = select i1 %75, i64 %73, i64 0
   %spec.select.i5.i.i.i.i = add i64 %76, %.sroa.619.0.i.i
   %.sroa.07.0.i6.i.i.i.i = select i1 %74, i64 1, i64 %71
-  %.sroa.5.0.i.i.i.i.i = select i1 %74, i64 %spec.select.i5.i.i.i.i, i64 %.10.i.i.i.i.i
+  %.sroa.5.0.i.i.i.i.i = select i1 %74, i64 %spec.select.i5.i.i.i.i, i64 %.11.i.i.i.i.i
   %77 = add nuw i64 %.sroa.06.0.i.i, 1
   %78 = icmp eq i64 %77, %50
   br i1 %78, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2bcca2319af03bd9E.exit", label %51
@@ -40178,7 +40178,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics14reduce_boolea
   %.sroa.03.0.sink = phi i64 [ %.sroa.03.0, %40 ], [ %.sroa.07.0.i6.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %40 ], [ %.sroa.5.0.i.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sroa.04.0.sink = phi i64 [ %.sroa.04.0, %40 ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
-  %.sink20 = phi i8 [ %42, %40 ], [ %.sroa.07.0.i4.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
+  %.sink21 = phi i8 [ %42, %40 ], [ %.sroa.07.0.i4.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   %.sink = phi i8 [ %44, %40 ], [ %.sroa.07.0.i.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h437a7dc928f0243bE.exit.i.i" ]
   store i64 %.sroa.03.0.sink, ptr %0, align 8, !alias.scope !9848
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40188,7 +40188,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics14reduce_boolea
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.55.0, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !9848
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink20, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !9848
+  store i8 %.sink21, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !9848
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 %.sink, ptr %.sroa.10.0..sroa_idx, align 1, !alias.scope !9848
   ret void
@@ -40355,8 +40355,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %.sroa.11.0.copyload.i.i.i = phi i32 [ %.sroa.54.0.i, %74 ], [ %.sroa.5.0.i.i.i.i.i, %120 ]
   %.sroa.97.0.copyload.i.i.i = phi i32 [ %62, %74 ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
   %.sroa.7.0.i.i = phi i64 [ %58, %74 ], [ 0, %120 ]
-  %.sroa.6.0.copyload.i.i.i = phi i64 [ %.sroa.5.0.i, %74 ], [ %.sroa.5.0.i7.i.i.i.i, %120 ]
-  %.sroa.0.0.copyload.i.i.i = phi i64 [ %54, %74 ], [ %.sroa.07.0.i6.i.i.i.i, %120 ]
+  %.sroa.6.0.copyload.i.i.i = phi i64 [ %.sroa.5.0.i, %74 ], [ %.sroa.5.0.i6.i.i.i.i, %120 ]
+  %.sroa.0.0.copyload.i.i.i = phi i64 [ %54, %74 ], [ %.sroa.07.0.i5.i.i.i.i, %120 ]
   %.sroa.06.0.i.i = phi i64 [ 0, %74 ], [ %128, %120 ]
   %80 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.06.0.i.i
   %.val.i.i = load ptr, ptr %80, align 8, !noalias !9890, !nonnull !3, !align !174, !noundef !3
@@ -40484,11 +40484,11 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %124 = load i64, ptr %123, align 8, !alias.scope !9901, !noalias !9904
   %125 = trunc nuw i64 %.sroa.0.0.copyload.i.i.i to i1
   %126 = trunc nuw i64 %122 to i1
-  %.10.i5.i.i.i.i = select i1 %126, i64 %124, i64 undef
+  %.11.i.i.i.i.i = select i1 %126, i64 %124, i64 undef
   %127 = select i1 %126, i64 %124, i64 0
   %spec.select.i.i.i.i.i = add i64 %127, %.sroa.6.0.copyload.i.i.i
-  %.sroa.07.0.i6.i.i.i.i = select i1 %125, i64 1, i64 %122
-  %.sroa.5.0.i7.i.i.i.i = select i1 %125, i64 %spec.select.i.i.i.i.i, i64 %.10.i5.i.i.i.i
+  %.sroa.07.0.i5.i.i.i.i = select i1 %125, i64 1, i64 %122
+  %.sroa.5.0.i6.i.i.i.i = select i1 %125, i64 %spec.select.i.i.i.i.i, i64 %.11.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !9891
   %128 = add nuw i64 %.sroa.06.0.i.i, 1
   %129 = icmp eq i64 %128, %78
@@ -40498,8 +40498,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %113
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0b54e1d4fd9a682eE.exit": ; preds = %120, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit"
-  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %120 ]
-  %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i7.i.i.i.i, %120 ]
+  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %120 ]
+  %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i6.i.i.i.i, %120 ]
   %.sink23 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ 0, %120 ]
   %.sink22 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.07.0.i.i.i.i.i, %120 ]
   %.sroa.54.0.i.sink = phi i32 [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6e58aafa0bd9373bE.exit" ], [ %.sroa.5.0.i.i.i.i.i, %120 ]
@@ -40781,7 +40781,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   br i1 %98, label %101, label %103
 
 100:                                              ; preds = %92
-  %.10.i.i.i.i.i = select i1 %98, double %96, double undef
+  %.11.i.i.i.i.i = select i1 %98, double %96, double undef
   br label %103
 
 101:                                              ; preds = %99
@@ -40791,7 +40791,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
 
 103:                                              ; preds = %101, %100, %99
   %.sroa.07.0.i.i.i.i.i = phi i64 [ 1, %101 ], [ %94, %100 ], [ 1, %99 ]
-  %.sroa.5.0.i.i.i.i.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %101 ], [ %.10.i.i.i.i.i, %100 ], [ %.sroa.11.0.copyload.i.i.i, %99 ]
+  %.sroa.5.0.i.i.i.i.i = phi double [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %101 ], [ %.11.i.i.i.i.i, %100 ], [ %.sroa.11.0.copyload.i.i.i, %99 ]
   %104 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 56
   %105 = load i64, ptr %104, align 8, !range !3200, !alias.scope !9960, !noalias !9963, !noundef !3
   %106 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 64
@@ -40804,7 +40804,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   br i1 %109, label %112, label %122
 
 111:                                              ; preds = %103
-  %.10.i1.i.i.i.i = select i1 %109, double %107, double undef
+  %.11.i1.i.i.i.i = select i1 %109, double %107, double undef
   br label %122
 
 112:                                              ; preds = %110
@@ -40832,18 +40832,18 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
 
 122:                                              ; preds = %112, %111, %110
   %.sroa.07.0.i2.i.i.i.i = phi i64 [ 1, %112 ], [ %105, %111 ], [ 1, %110 ]
-  %.sroa.5.0.i3.i.i.i.i = phi double [ %.sroa.0.0.sroa.speculated.i.i4.i.i.i.i, %112 ], [ %.10.i1.i.i.i.i, %111 ], [ %.sroa.15.0.copyload.i.i.i, %110 ]
+  %.sroa.5.0.i3.i.i.i.i = phi double [ %.sroa.0.0.sroa.speculated.i.i4.i.i.i.i, %112 ], [ %.11.i1.i.i.i.i, %111 ], [ %.sroa.15.0.copyload.i.i.i, %110 ]
   %123 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %124 = load i64, ptr %123, align 8, !range !3200, !alias.scope !9960, !noalias !9963, !noundef !3
   %125 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !9960, !noalias !9963
   %127 = trunc nuw i64 %.sroa.0.0.copyload.i.i.i to i1
   %128 = trunc nuw i64 %124 to i1
-  %.10.i5.i.i.i.i = select i1 %128, i64 %126, i64 undef
+  %.11.i5.i.i.i.i = select i1 %128, i64 %126, i64 undef
   %129 = select i1 %128, i64 %126, i64 0
   %spec.select.i.i.i.i.i = add i64 %129, %.sroa.6.0.copyload.i.i.i
   %.sroa.07.0.i6.i.i.i.i = select i1 %127, i64 1, i64 %124
-  %.sroa.5.0.i7.i.i.i.i = select i1 %127, i64 %spec.select.i.i.i.i.i, i64 %.10.i5.i.i.i.i
+  %.sroa.5.0.i7.i.i.i.i = select i1 %127, i64 %spec.select.i.i.i.i.i, i64 %.11.i5.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !9950
   %130 = add nuw i64 %.sroa.06.0.i.i, 1
   %131 = icmp eq i64 %130, %78
@@ -41136,7 +41136,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   br i1 %98, label %101, label %102
 
 100:                                              ; preds = %92
-  %.10.i.i.i.i.i = select i1 %98, i64 %96, i64 undef
+  %.11.i.i.i.i.i = select i1 %98, i64 %96, i64 undef
   br label %102
 
 101:                                              ; preds = %99
@@ -41145,7 +41145,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
 
 102:                                              ; preds = %101, %100, %99
   %.sroa.07.0.i.i.i.i.i = phi i64 [ 1, %101 ], [ %94, %100 ], [ 1, %99 ]
-  %.sroa.5.0.i.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %101 ], [ %.10.i.i.i.i.i, %100 ], [ %.sroa.11.0.copyload.i.i.i, %99 ]
+  %.sroa.5.0.i.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %101 ], [ %.11.i.i.i.i.i, %100 ], [ %.sroa.11.0.copyload.i.i.i, %99 ]
   %103 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 56
   %104 = load i64, ptr %103, align 8, !range !3200, !alias.scope !10019, !noalias !10022, !noundef !3
   %105 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 64
@@ -41158,7 +41158,7 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   br i1 %108, label %111, label %120
 
 110:                                              ; preds = %102
-  %.10.i1.i.i.i.i = select i1 %108, i64 %106, i64 undef
+  %.11.i1.i.i.i.i = select i1 %108, i64 %106, i64 undef
   br label %120
 
 111:                                              ; preds = %109
@@ -41185,18 +41185,18 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
 
 120:                                              ; preds = %111, %110, %109
   %.sroa.07.0.i2.i.i.i.i = phi i64 [ 1, %111 ], [ %104, %110 ], [ 1, %109 ]
-  %.sroa.5.0.i3.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i4.i.i.i.i, %111 ], [ %.10.i1.i.i.i.i, %110 ], [ %.sroa.15.0.copyload.i.i.i, %109 ]
+  %.sroa.5.0.i3.i.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i4.i.i.i.i, %111 ], [ %.11.i1.i.i.i.i, %110 ], [ %.sroa.15.0.copyload.i.i.i, %109 ]
   %121 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %122 = load i64, ptr %121, align 8, !range !3200, !alias.scope !10019, !noalias !10022, !noundef !3
   %123 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %124 = load i64, ptr %123, align 8, !alias.scope !10019, !noalias !10022
   %125 = trunc nuw i64 %.sroa.0.0.copyload.i.i.i to i1
   %126 = trunc nuw i64 %122 to i1
-  %.10.i5.i.i.i.i = select i1 %126, i64 %124, i64 undef
+  %.11.i5.i.i.i.i = select i1 %126, i64 %124, i64 undef
   %127 = select i1 %126, i64 %124, i64 0
   %spec.select.i.i.i.i.i = add i64 %127, %.sroa.6.0.copyload.i.i.i
   %.sroa.07.0.i6.i.i.i.i = select i1 %125, i64 1, i64 %122
-  %.sroa.5.0.i7.i.i.i.i = select i1 %125, i64 %spec.select.i.i.i.i.i, i64 %.10.i5.i.i.i.i
+  %.sroa.5.0.i7.i.i.i.i = select i1 %125, i64 %spec.select.i.i.i.i.i, i64 %.11.i5.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !10009
   %128 = add nuw i64 %.sroa.06.0.i.i, 1
   %129 = icmp eq i64 %128, %78
@@ -41416,8 +41416,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %.sroa.11.0.copyload.i.i.i = phi float [ %.sroa.54.0.i, %74 ], [ %.sroa.5.0.i.i.i.i.i, %122 ]
   %.sroa.97.0.copyload.i.i.i = phi i32 [ %62, %74 ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
   %.sroa.7.0.i.i = phi i64 [ %58, %74 ], [ 0, %122 ]
-  %.sroa.6.0.copyload.i.i.i = phi i64 [ %.sroa.5.0.i, %74 ], [ %.sroa.5.0.i7.i.i.i.i, %122 ]
-  %.sroa.0.0.copyload.i.i.i = phi i64 [ %54, %74 ], [ %.sroa.07.0.i6.i.i.i.i, %122 ]
+  %.sroa.6.0.copyload.i.i.i = phi i64 [ %.sroa.5.0.i, %74 ], [ %.sroa.5.0.i6.i.i.i.i, %122 ]
+  %.sroa.0.0.copyload.i.i.i = phi i64 [ %54, %74 ], [ %.sroa.07.0.i5.i.i.i.i, %122 ]
   %.sroa.06.0.i.i = phi i64 [ 0, %74 ], [ %130, %122 ]
   %80 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.06.0.i.i
   %.val.i.i = load ptr, ptr %80, align 8, !noalias !10067, !nonnull !3, !align !174, !noundef !3
@@ -41547,11 +41547,11 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   %126 = load i64, ptr %125, align 8, !alias.scope !10078, !noalias !10081
   %127 = trunc nuw i64 %.sroa.0.0.copyload.i.i.i to i1
   %128 = trunc nuw i64 %124 to i1
-  %.10.i5.i.i.i.i = select i1 %128, i64 %126, i64 undef
+  %.11.i.i.i.i.i = select i1 %128, i64 %126, i64 undef
   %129 = select i1 %128, i64 %126, i64 0
   %spec.select.i.i.i.i.i = add i64 %129, %.sroa.6.0.copyload.i.i.i
-  %.sroa.07.0.i6.i.i.i.i = select i1 %127, i64 1, i64 %124
-  %.sroa.5.0.i7.i.i.i.i = select i1 %127, i64 %spec.select.i.i.i.i.i, i64 %.10.i5.i.i.i.i
+  %.sroa.07.0.i5.i.i.i.i = select i1 %127, i64 1, i64 %124
+  %.sroa.5.0.i6.i.i.i.i = select i1 %127, i64 %spec.select.i.i.i.i.i, i64 %.11.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !10068
   %130 = add nuw i64 %.sroa.06.0.i.i, 1
   %131 = icmp eq i64 %130, %78
@@ -41561,8 +41561,8 @@ define hidden void @_ZN14polars_parquet7parquet5write10statistics16reduce_primit
   resume { ptr, i32 } %115
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c775bbac2d6308aE.exit": ; preds = %122, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit"
-  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i6.i.i.i.i, %122 ]
-  %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i7.i.i.i.i, %122 ]
+  %.sink24 = phi i64 [ %54, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i5.i.i.i.i, %122 ]
+  %.sroa.5.0.i.sink = phi i64 [ %.sroa.5.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i6.i.i.i.i, %122 ]
   %.sink23 = phi i64 [ %58, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ 0, %122 ]
   %.sink22 = phi i32 [ %62, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.07.0.i.i.i.i.i, %122 ]
   %.sroa.54.0.i.sink = phi float [ %.sroa.54.0.i, %"_ZN115_$LT$polars_parquet..parquet..statistics..primitive..PrimitiveStatistics$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h92c133560797a0d7E.exit" ], [ %.sroa.5.0.i.i.i.i.i, %122 ]

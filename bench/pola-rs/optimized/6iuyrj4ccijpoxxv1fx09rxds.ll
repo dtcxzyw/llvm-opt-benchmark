@@ -40203,7 +40203,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !3352, !noundef !4
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable24 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -40234,7 +40234,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %80
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -40332,8 +40332,8 @@ default.unreachable23:                            ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %43 = load i8, ptr %42, align 1, !range !787, !noundef !4
-  %.not17 = icmp eq i8 %43, -38
-  br i1 %.not17, label %84, label %82
+  %.not18 = icmp eq i8 %43, -38
+  br i1 %.not18, label %84, label %82
 
 44:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
@@ -40389,25 +40389,25 @@ common.resume:                                    ; preds = %66, %53
   %60 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3840
   %61 = tail call noalias noundef align 16 dereferenceable_or_null(48) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 897) 48, i64 noundef range(i64 1, 65) 16) #24, !noalias !3840
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit21", !prof !5
+  br i1 %62, label %63, label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit22", !prof !5
 
 63:                                               ; preds = %59
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 16, i64 noundef 48) #30, !noalias !3840
   unreachable
 
-"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit21": ; preds = %59
+"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit22": ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8, !alias.scope !3840, !nonnull !4, !align !635, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3843
   invoke fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..clone..Clone$GT$5clone17h523586209c0f94b3E"(ptr noalias noundef align 16 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %65)
-          to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit19" unwind label %66
+          to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit20" unwind label %66
 
-66:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit21"
+66:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit22"
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit19": ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit21"
+"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit20": ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hff65011fdc6f4252E.exit22"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %61, ptr noundef nonnull align 16 dereferenceable(48) %3, i64 48, i1 false), !noalias !3843
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3843
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40426,8 +40426,8 @@ common.resume:                                    ; preds = %66, %53
 71:                                               ; preds = %2
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8, !noundef !4
-  %.not16 = icmp eq ptr %73, null
-  br i1 %.not16, label %93, label %90
+  %.not17 = icmp eq ptr %73, null
+  br i1 %.not17, label %93, label %90
 
 74:                                               ; preds = %2
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -40446,7 +40446,7 @@ common.resume:                                    ; preds = %66, %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   br label %81
 
-81:                                               ; preds = %102, %93, %84, %19, %80, %77, %70, %69, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit19", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+81:                                               ; preds = %102, %93, %84, %19, %80, %77, %70, %69, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit20", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h76023542115c6f25E.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
   ret void
 
 82:                                               ; preds = %38
@@ -69502,8 +69502,8 @@ _ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit85.i: ; preds = 
   br i1 %162, label %166, label %167
 
 166:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit85.i
-  %narrow.i = or i1 %160, %165
-  br i1 %narrow.i, label %178, label %.thread.i
+  %..i = or i1 %160, %165
+  br i1 %..i, label %178, label %.thread.i
 
 167:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit85.i
   br i1 %165, label %168, label %169

@@ -1608,10 +1608,10 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState8rec
   %170 = getelementptr inbounds i8, ptr %153, i64 -8
   %171 = load ptr, ptr %170, align 8, !alias.scope !76
   %.not.i.i = icmp eq i64 %169, 2
-  %.sroa.6.0.i.i = select i1 %.not.i.i, ptr undef, ptr %171
-  %.sroa.0.0.i.i = select i1 %.not.i.i, i64 2, i64 1
-  store i64 %.sroa.0.0.i.i, ptr %166, align 8, !alias.scope !76
-  store ptr %.sroa.6.0.i.i, ptr %170, align 8, !alias.scope !76
+  %spec.select.i.i = select i1 %.not.i.i, ptr undef, ptr %171
+  %spec.select12.i.i = select i1 %.not.i.i, i64 2, i64 1
+  store i64 %spec.select12.i.i, ptr %166, align 8, !alias.scope !76
+  store ptr %spec.select.i.i, ptr %170, align 8, !alias.scope !76
   br i1 %.not.i.i, label %172, label %_ZN4core3ops8function6FnOnce9call_once17h1ba319a6f7b3dc56E.exit
 
 172:                                              ; preds = %165
@@ -2541,10 +2541,10 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState14re
   %161 = getelementptr inbounds i8, ptr %144, i64 -8
   %162 = load ptr, ptr %161, align 8, !alias.scope !121
   %.not.i.i = icmp eq i64 %160, 2
-  %.sroa.6.0.i.i = select i1 %.not.i.i, ptr undef, ptr %162
-  %.sroa.0.0.i.i = select i1 %.not.i.i, i64 2, i64 1
-  store i64 %.sroa.0.0.i.i, ptr %157, align 8, !alias.scope !121
-  store ptr %.sroa.6.0.i.i, ptr %161, align 8, !alias.scope !121
+  %spec.select.i.i = select i1 %.not.i.i, ptr undef, ptr %162
+  %spec.select12.i.i = select i1 %.not.i.i, i64 2, i64 1
+  store i64 %spec.select12.i.i, ptr %157, align 8, !alias.scope !121
+  store ptr %spec.select.i.i, ptr %161, align 8, !alias.scope !121
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   br i1 %.not.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h1ba319a6f7b3dc56E.exit.thread122, label %_ZN4core3ops8function6FnOnce9call_once17h1ba319a6f7b3dc56E.exit
 

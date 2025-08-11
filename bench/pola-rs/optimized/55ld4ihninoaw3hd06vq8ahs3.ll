@@ -42381,14 +42381,14 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   %40 = load ptr, ptr %39, align 8, !invariant.load !6, !nonnull !6
   %41 = tail call noundef align 8 ptr %40(ptr noundef nonnull align 1 %2)
   %.not = icmp eq ptr %38, null
-  %.not47 = icmp eq ptr %41, null
+  %.not48 = icmp eq ptr %41, null
   br i1 %.not, label %43, label %42
 
 42:                                               ; preds = %32
-  br i1 %.not47, label %70, label %72
+  br i1 %.not48, label %70, label %72
 
 43:                                               ; preds = %32
-  br i1 %.not47, label %44, label %70
+  br i1 %.not48, label %44, label %70
 
 44:                                               ; preds = %86, %70, %72, %78, %43
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -42405,8 +42405,8 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   %56 = icmp ult i64 %55, 2305843009213693952
   call void @llvm.assume(i1 %56)
   %57 = getelementptr i8, ptr %49, i64 24
-  %.val82 = load ptr, ptr %57, align 8
-  %58 = call { i64, i64 } %.val82(ptr noundef nonnull align 1 %48)
+  %.val83 = load ptr, ptr %57, align 8
+  %58 = call { i64, i64 } %.val83(ptr noundef nonnull align 1 %48)
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = icmp ne i64 %59, -4229490849536239523
   %61 = extractvalue { i64, i64 } %58, 1
@@ -42426,8 +42426,8 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
 70:                                               ; preds = %42, %43
   %.sroa.07.0 = phi ptr [ %41, %43 ], [ %38, %42 ]
   %71 = tail call noundef i64 @_ZN12polars_arrow6bitmap9immutable6Bitmap10unset_bits17h804d919784778695E(ptr noundef nonnull align 8 %.sroa.07.0)
-  %.not49 = icmp eq i64 %71, 0
-  br i1 %.not49, label %44, label %82
+  %.not50 = icmp eq i64 %71, 0
+  br i1 %.not50, label %44, label %82
 
 72:                                               ; preds = %42
   %73 = tail call noundef zeroext i1 @"_ZN12polars_arrow6bitmap10bitmap_ops90_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$polars_arrow..bitmap..immutable..Bitmap$GT$2eq17h59eebeb3b2442fb9E"(ptr noundef nonnull align 8 %38, ptr noundef nonnull align 8 %41)
@@ -42492,22 +42492,22 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   br label %44
 
 .loopexit:                                        ; preds = %120, %105, %44
-  %.val96 = load ptr, ptr %57, align 8
-  %87 = call { i64, i64 } %.val96(ptr noundef nonnull align 1 %48)
+  %.val97 = load ptr, ptr %57, align 8
+  %87 = call { i64, i64 } %.val97(ptr noundef nonnull align 1 %48)
   %88 = extractvalue { i64, i64 } %87, 0
   %89 = icmp ne i64 %88, 5612233841538967008
   %90 = extractvalue { i64, i64 } %87, 1
   %91 = icmp ne i64 %90, -7856419302706516822
-  %.sroa.0.0.i98.not = select i1 %89, i1 true, i1 %91
-  %.val95 = load ptr, ptr %63, align 8
-  %92 = call { i64, i64 } %.val95(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i99.not = select i1 %89, i1 true, i1 %91
+  %.val96 = load ptr, ptr %63, align 8
+  %92 = call { i64, i64 } %.val96(ptr noundef nonnull align 1 %53)
   %93 = extractvalue { i64, i64 } %92, 0
   %94 = icmp ne i64 %93, 5612233841538967008
   %95 = extractvalue { i64, i64 } %92, 1
   %96 = icmp ne i64 %95, -7856419302706516822
-  %97 = select i1 %.sroa.0.0.i98.not, i1 true, i1 %94
-  %or.cond69 = select i1 %97, i1 true, i1 %96
-  br i1 %or.cond69, label %130, label %142
+  %97 = select i1 %.sroa.0.0.i99.not, i1 true, i1 %94
+  %or.cond70 = select i1 %97, i1 true, i1 %96
+  br i1 %or.cond70, label %130, label %142
 
 98:                                               ; preds = %44
   %99 = call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6fields17h3235edec6ff1b746E(ptr noundef nonnull align 8 %48)
@@ -42548,8 +42548,8 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   %118 = load ptr, ptr %8, align 8, !noalias !2315, !nonnull !6, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2312
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2312
-  %.not170 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
-  br i1 %.not170, label %.loopexit, label %.lr.ph
+  %.not171 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
+  br i1 %.not171, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %105
   %119 = icmp ne ptr %111, null
@@ -42557,10 +42557,10 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   br label %120
 
 120:                                              ; preds = %.lr.ph, %120
-  %.sroa.8.0169 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
-  %121 = add nuw i64 %.sroa.8.0169, 1
-  %122 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %118, i64 %.sroa.8.0169
-  %123 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %111, i64 %.sroa.8.0169
+  %.sroa.8.0170 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
+  %121 = add nuw i64 %.sroa.8.0170, 1
+  %122 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %118, i64 %.sroa.8.0170
+  %123 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %111, i64 %.sroa.8.0170
   %124 = load ptr, ptr %122, align 8, !nonnull !6, !noundef !6
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %126 = load ptr, ptr %125, align 8, !nonnull !6, !align !855, !noundef !6
@@ -42572,66 +42572,66 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   br i1 %exitcond.not, label %.loopexit, label %120
 
 130:                                              ; preds = %142, %.loopexit
-  %.val92 = load ptr, ptr %57, align 8
-  %131 = call { i64, i64 } %.val92(ptr noundef nonnull align 1 %48)
+  %.val93 = load ptr, ptr %57, align 8
+  %131 = call { i64, i64 } %.val93(ptr noundef nonnull align 1 %48)
   %132 = extractvalue { i64, i64 } %131, 0
   %133 = icmp ne i64 %132, -1285076804561215877
   %134 = extractvalue { i64, i64 } %131, 1
   %135 = icmp ne i64 %134, -3530592277402597310
-  %.sroa.0.0.i101.not = select i1 %133, i1 true, i1 %135
-  %.val91 = load ptr, ptr %63, align 8
-  %136 = call { i64, i64 } %.val91(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i102.not = select i1 %133, i1 true, i1 %135
+  %.val92 = load ptr, ptr %63, align 8
+  %136 = call { i64, i64 } %.val92(ptr noundef nonnull align 1 %53)
   %137 = extractvalue { i64, i64 } %136, 0
   %138 = icmp ne i64 %137, -1285076804561215877
   %139 = extractvalue { i64, i64 } %136, 1
   %140 = icmp ne i64 %139, -3530592277402597310
-  %141 = select i1 %.sroa.0.0.i101.not, i1 true, i1 %138
-  %or.cond71 = select i1 %141, i1 true, i1 %140
-  br i1 %or.cond71, label %143, label %155
+  %141 = select i1 %.sroa.0.0.i102.not, i1 true, i1 %138
+  %or.cond72 = select i1 %141, i1 true, i1 %140
+  br i1 %or.cond72, label %143, label %155
 
 142:                                              ; preds = %.loopexit
   call void @_ZN14polars_compute22find_validity_mismatch39find_validity_mismatch_list_list_nested17h81a577581bec4b9bE(ptr noundef nonnull align 8 %48, ptr noundef nonnull align 8 %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %130
 
 143:                                              ; preds = %155, %130
-  %.val88 = load ptr, ptr %57, align 8
-  %144 = call { i64, i64 } %.val88(ptr noundef nonnull align 1 %48)
+  %.val89 = load ptr, ptr %57, align 8
+  %144 = call { i64, i64 } %.val89(ptr noundef nonnull align 1 %48)
   %145 = extractvalue { i64, i64 } %144, 0
   %146 = icmp ne i64 %145, 5209533364377202164
   %147 = extractvalue { i64, i64 } %144, 1
   %148 = icmp ne i64 %147, 7812553468775375572
-  %.sroa.0.0.i103.not = select i1 %146, i1 true, i1 %148
-  %.val87 = load ptr, ptr %63, align 8
-  %149 = call { i64, i64 } %.val87(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i104.not = select i1 %146, i1 true, i1 %148
+  %.val88 = load ptr, ptr %63, align 8
+  %149 = call { i64, i64 } %.val88(ptr noundef nonnull align 1 %53)
   %150 = extractvalue { i64, i64 } %149, 0
   %151 = icmp ne i64 %150, 5209533364377202164
   %152 = extractvalue { i64, i64 } %149, 1
   %153 = icmp ne i64 %152, 7812553468775375572
-  %154 = select i1 %.sroa.0.0.i103.not, i1 true, i1 %151
-  %or.cond73 = select i1 %154, i1 true, i1 %153
-  br i1 %or.cond73, label %156, label %168
+  %154 = select i1 %.sroa.0.0.i104.not, i1 true, i1 %151
+  %or.cond74 = select i1 %154, i1 true, i1 %153
+  br i1 %or.cond74, label %156, label %168
 
 155:                                              ; preds = %130
   call void @_ZN14polars_compute22find_validity_mismatch39find_validity_mismatch_list_list_nested17h66e0f764e4f19049E(ptr noundef nonnull align 8 %48, ptr noundef nonnull align 8 %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %143
 
 156:                                              ; preds = %173, %143
-  %.val94 = load ptr, ptr %57, align 8
-  %157 = call { i64, i64 } %.val94(ptr noundef nonnull align 1 %48)
+  %.val95 = load ptr, ptr %57, align 8
+  %157 = call { i64, i64 } %.val95(ptr noundef nonnull align 1 %48)
   %158 = extractvalue { i64, i64 } %157, 0
   %159 = icmp ne i64 %158, 5612233841538967008
   %160 = extractvalue { i64, i64 } %157, 1
   %161 = icmp ne i64 %160, -7856419302706516822
-  %.sroa.0.0.i105.not = select i1 %159, i1 true, i1 %161
-  %.val86 = load ptr, ptr %63, align 8
-  %162 = call { i64, i64 } %.val86(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i106.not = select i1 %159, i1 true, i1 %161
+  %.val87 = load ptr, ptr %63, align 8
+  %162 = call { i64, i64 } %.val87(ptr noundef nonnull align 1 %53)
   %163 = extractvalue { i64, i64 } %162, 0
   %164 = icmp ne i64 %163, 5209533364377202164
   %165 = extractvalue { i64, i64 } %162, 1
   %166 = icmp ne i64 %165, 7812553468775375572
-  %167 = select i1 %.sroa.0.0.i105.not, i1 true, i1 %164
-  %or.cond75 = select i1 %167, i1 true, i1 %166
-  br i1 %or.cond75, label %183, label %195
+  %167 = select i1 %.sroa.0.0.i106.not, i1 true, i1 %164
+  %or.cond76 = select i1 %167, i1 true, i1 %166
+  br i1 %or.cond76, label %183, label %195
 
 168:                                              ; preds = %143
   %169 = call noundef i64 @_ZN12polars_arrow5array15fixed_size_list18FixedSizeListArray4size17h2271820bf5b480e0E(ptr noundef nonnull align 8 %48)
@@ -42661,66 +42661,66 @@ define void @_ZN14polars_compute22find_validity_mismatch22find_validity_mismatch
   br label %156
 
 183:                                              ; preds = %195, %156
-  %.val90 = load ptr, ptr %57, align 8
-  %184 = call { i64, i64 } %.val90(ptr noundef nonnull align 1 %48)
+  %.val91 = load ptr, ptr %57, align 8
+  %184 = call { i64, i64 } %.val91(ptr noundef nonnull align 1 %48)
   %185 = extractvalue { i64, i64 } %184, 0
   %186 = icmp ne i64 %185, -1285076804561215877
   %187 = extractvalue { i64, i64 } %184, 1
   %188 = icmp ne i64 %187, -3530592277402597310
-  %.sroa.0.0.i107.not = select i1 %186, i1 true, i1 %188
-  %.val85 = load ptr, ptr %63, align 8
-  %189 = call { i64, i64 } %.val85(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i108.not = select i1 %186, i1 true, i1 %188
+  %.val86 = load ptr, ptr %63, align 8
+  %189 = call { i64, i64 } %.val86(ptr noundef nonnull align 1 %53)
   %190 = extractvalue { i64, i64 } %189, 0
   %191 = icmp ne i64 %190, 5209533364377202164
   %192 = extractvalue { i64, i64 } %189, 1
   %193 = icmp ne i64 %192, 7812553468775375572
-  %194 = select i1 %.sroa.0.0.i107.not, i1 true, i1 %191
-  %or.cond77 = select i1 %194, i1 true, i1 %193
-  br i1 %or.cond77, label %196, label %208
+  %194 = select i1 %.sroa.0.0.i108.not, i1 true, i1 %191
+  %or.cond78 = select i1 %194, i1 true, i1 %193
+  br i1 %or.cond78, label %196, label %208
 
 195:                                              ; preds = %156
   call void @_ZN14polars_compute22find_validity_mismatch36find_validity_mismatch_list_fsl_impl17h43ba3d7bffb099eeE(ptr noundef nonnull align 8 %48, ptr noundef nonnull align 8 %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %183
 
 196:                                              ; preds = %208, %183
-  %.val84 = load ptr, ptr %57, align 8
-  %197 = call { i64, i64 } %.val84(ptr noundef nonnull align 1 %48)
+  %.val85 = load ptr, ptr %57, align 8
+  %197 = call { i64, i64 } %.val85(ptr noundef nonnull align 1 %48)
   %198 = extractvalue { i64, i64 } %197, 0
   %199 = icmp ne i64 %198, 5209533364377202164
   %200 = extractvalue { i64, i64 } %197, 1
   %201 = icmp ne i64 %200, 7812553468775375572
-  %.sroa.0.0.i109.not = select i1 %199, i1 true, i1 %201
-  %.val93 = load ptr, ptr %63, align 8
-  %202 = call { i64, i64 } %.val93(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i110.not = select i1 %199, i1 true, i1 %201
+  %.val94 = load ptr, ptr %63, align 8
+  %202 = call { i64, i64 } %.val94(ptr noundef nonnull align 1 %53)
   %203 = extractvalue { i64, i64 } %202, 0
   %204 = icmp ne i64 %203, 5612233841538967008
   %205 = extractvalue { i64, i64 } %202, 1
   %206 = icmp ne i64 %205, -7856419302706516822
-  %207 = select i1 %.sroa.0.0.i109.not, i1 true, i1 %204
-  %or.cond79 = select i1 %207, i1 true, i1 %206
-  br i1 %or.cond79, label %209, label %221
+  %207 = select i1 %.sroa.0.0.i110.not, i1 true, i1 %204
+  %or.cond80 = select i1 %207, i1 true, i1 %206
+  br i1 %or.cond80, label %209, label %221
 
 208:                                              ; preds = %183
   call void @_ZN14polars_compute22find_validity_mismatch36find_validity_mismatch_list_fsl_impl17h88662303ff70b740E(ptr noundef nonnull align 8 %48, ptr noundef nonnull align 8 %53, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %196
 
 209:                                              ; preds = %221, %196
-  %.val83 = load ptr, ptr %57, align 8
-  %210 = call { i64, i64 } %.val83(ptr noundef nonnull align 1 %48)
+  %.val84 = load ptr, ptr %57, align 8
+  %210 = call { i64, i64 } %.val84(ptr noundef nonnull align 1 %48)
   %211 = extractvalue { i64, i64 } %210, 0
   %212 = icmp ne i64 %211, 5209533364377202164
   %213 = extractvalue { i64, i64 } %210, 1
   %214 = icmp ne i64 %213, 7812553468775375572
-  %.sroa.0.0.i111.not = select i1 %212, i1 true, i1 %214
-  %.val89 = load ptr, ptr %63, align 8
-  %215 = call { i64, i64 } %.val89(ptr noundef nonnull align 1 %53)
+  %.sroa.0.0.i112.not = select i1 %212, i1 true, i1 %214
+  %.val90 = load ptr, ptr %63, align 8
+  %215 = call { i64, i64 } %.val90(ptr noundef nonnull align 1 %53)
   %216 = extractvalue { i64, i64 } %215, 0
   %217 = icmp ne i64 %216, -1285076804561215877
   %218 = extractvalue { i64, i64 } %215, 1
   %219 = icmp ne i64 %218, -3530592277402597310
-  %220 = select i1 %.sroa.0.0.i111.not, i1 true, i1 %217
-  %or.cond81 = select i1 %220, i1 true, i1 %219
-  br i1 %or.cond81, label %222, label %226
+  %220 = select i1 %.sroa.0.0.i112.not, i1 true, i1 %217
+  %or.cond82 = select i1 %220, i1 true, i1 %219
+  br i1 %or.cond82, label %222, label %226
 
 221:                                              ; preds = %196
   call void @_ZN14polars_compute22find_validity_mismatch36find_validity_mismatch_list_fsl_impl17h43ba3d7bffb099eeE(ptr noundef nonnull align 8 %53, ptr noundef nonnull align 8 %48, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)

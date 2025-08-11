@@ -10187,14 +10187,14 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   %94 = add i64 %.sroa.06.0.lcssa.i.i, 18
   %95 = icmp uge i64 %94, %78
   %96 = trunc nuw i8 %.sroa.014.0.lcssa.i.i to i1
-  %or.cond350.i.i = select i1 %95, i1 true, i1 %96
-  br i1 %or.cond350.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  %or.cond349.i.i = select i1 %95, i1 true, i1 %96
+  br i1 %or.cond349.i.i, label %._crit_edge.i.i, label %.lr.ph51.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a2cb33ca9a5948E.exit.i.i", %106
-  %.sroa.06.048.i.i = phi i64 [ %107, %106 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a2cb33ca9a5948E.exit.i.i" ]
+  %.sroa.06.047.i.i = phi i64 [ %107, %106 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h04a2cb33ca9a5948E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !904
   store i64 0, ptr %8, align 8, !noalias !904
-  %97 = getelementptr inbounds nuw i8, ptr %76, i64 %.sroa.06.048.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %76, i64 %.sroa.06.047.i.i
   br label %98
 
 98:                                               ; preds = %98, %.lr.ph.i.i
@@ -10214,9 +10214,9 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   br i1 %exitcond.not.i.i, label %.preheader42.i.i, label %98
 
 106:                                              ; preds = %115
-  %107 = add i64 %.sroa.06.048.i.i, 64
+  %107 = add i64 %.sroa.06.047.i.i, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !904
-  %108 = add i64 %.sroa.06.048.i.i, 130
+  %108 = add i64 %.sroa.06.047.i.i, 130
   %109 = icmp uge i64 %108, %78
   %110 = trunc nuw i8 %.sroa.014.3.i.i to i1
   %or.cond.i.i = select i1 %109, i1 true, i1 %110
@@ -10234,12 +10234,12 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
 115:                                              ; preds = %117, %.preheader42.i.i
   %.sroa.014.3.i.i = phi i8 [ %.sroa.014.245.i.i, %.preheader42.i.i ], [ %123, %117 ]
   %116 = add nuw nsw i64 %111, 1
-  %exitcond58.not.i.i = icmp eq i64 %116, 5
-  br i1 %exitcond58.not.i.i, label %106, label %.preheader42.i.i
+  %exitcond57.not.i.i = icmp eq i64 %116, 5
+  br i1 %exitcond57.not.i.i, label %106, label %.preheader42.i.i
 
 117:                                              ; preds = %.preheader42.i.i
   %118 = shl nuw nsw i64 %.sroa.028.046.i.i, 4
-  %119 = add nuw nsw i64 %118, %.sroa.06.048.i.i
+  %119 = add nuw nsw i64 %118, %.sroa.06.047.i.i
   %120 = trunc nuw i8 %.sroa.014.245.i.i to i1
   %121 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h4c67aa8326b678c3E"(ptr noalias noundef readonly align 8 dereferenceable(32) %9, i64 noundef %119, i16 noundef %113, i1 noundef zeroext %120)
   %122 = or i1 %121, %120
@@ -10261,9 +10261,9 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   %130 = icmp eq i16 %129, 0
   br i1 %130, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h0aea45a4c814e1c1E.exit", label %144
 
-.lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %137
-  %.sroa.06.151.i.i = phi i64 [ %138, %137 ], [ %.sroa.06.0.lcssa.i.i, %.preheader41.i.i ]
-  %131 = getelementptr inbounds nuw i8, ptr %76, i64 %.sroa.06.151.i.i
+.lr.ph51.i.i:                                     ; preds = %.preheader41.i.i, %137
+  %.sroa.06.150.i.i = phi i64 [ %138, %137 ], [ %.sroa.06.0.lcssa.i.i, %.preheader41.i.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %76, i64 %.sroa.06.150.i.i
   %.val3.i63.i.i = load <16 x i8>, ptr %131, align 1, !alias.scope !904, !noalias !911
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
   %.val.i64.i.i = load <16 x i8>, ptr %132, align 1, !alias.scope !904, !noalias !911
@@ -10274,17 +10274,17 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %137, label %141
 
-137:                                              ; preds = %141, %.lr.ph52.i.i
-  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph52.i.i ], [ %143, %141 ]
-  %138 = add i64 %.sroa.06.151.i.i, 16
-  %.reass.i.i = add i64 %.sroa.06.151.i.i, 34
+137:                                              ; preds = %141, %.lr.ph51.i.i
+  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph51.i.i ], [ %143, %141 ]
+  %138 = add i64 %.sroa.06.150.i.i, 16
+  %.reass.i.i = add i64 %.sroa.06.150.i.i, 34
   %139 = icmp uge i64 %.reass.i.i, %78
   %140 = trunc nuw i8 %.sroa.014.5.i.i to i1
   %or.cond3.i.i = select i1 %139, i1 true, i1 %140
-  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph52.i.i
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph51.i.i
 
-141:                                              ; preds = %.lr.ph52.i.i
-  %142 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h4c67aa8326b678c3E"(ptr noalias noundef readonly align 8 dereferenceable(32) %9, i64 noundef %.sroa.06.151.i.i, i16 noundef %135, i1 noundef zeroext false)
+141:                                              ; preds = %.lr.ph51.i.i
+  %142 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h4c67aa8326b678c3E"(ptr noalias noundef readonly align 8 dereferenceable(32) %9, i64 noundef %.sroa.06.150.i.i, i16 noundef %135, i1 noundef zeroext false)
   %143 = zext i1 %142 to i8
   br label %137
 

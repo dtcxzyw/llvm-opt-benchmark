@@ -4145,10 +4145,10 @@ define noundef zeroext i1 @_ZN11quinn_proto10connection7streams10RecvStream4stop
   %20 = getelementptr inbounds i8, ptr %13, i64 -8
   %21 = load ptr, ptr %20, align 8, !alias.scope !223
   %.not.i = icmp eq i64 %19, 2
-  %.sroa.6.0.i = select i1 %.not.i, ptr undef, ptr %21
-  %.sroa.0.0.i = select i1 %.not.i, i64 2, i64 1
-  store i64 %.sroa.0.0.i, ptr %18, align 8, !alias.scope !223
-  store ptr %.sroa.6.0.i, ptr %20, align 8, !alias.scope !223
+  %spec.select.i = select i1 %.not.i, ptr undef, ptr %21
+  %spec.select12.i = select i1 %.not.i, i64 2, i64 1
+  store i64 %spec.select12.i, ptr %18, align 8, !alias.scope !223
+  store ptr %spec.select.i, ptr %20, align 8, !alias.scope !223
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   br i1 %.not.i, label %22, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
 

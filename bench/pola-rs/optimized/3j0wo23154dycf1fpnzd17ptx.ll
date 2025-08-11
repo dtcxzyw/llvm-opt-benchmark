@@ -60489,11 +60489,11 @@ define hidden { i64, i64 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   ret { i64, i64 } %.merged
 
 28:                                               ; preds = %.lr.ph, %43
-  %.sroa.04.08 = phi ptr [ %21, %.lr.ph ], [ %44, %43 ]
+  %.sroa.04.09 = phi ptr [ %21, %.lr.ph ], [ %44, %43 ]
   store i16 0, ptr %26, align 8
   %29 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
-  %30 = load ptr, ptr %.sroa.04.08, align 8, !nonnull !4, !align !82, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
+  %30 = load ptr, ptr %.sroa.04.09, align 8, !nonnull !4, !align !82, !noundef !4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !4
   %33 = tail call { i64, i64 } %29(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %32)
   %34 = extractvalue { i64, i64 } %33, 0
@@ -60510,15 +60510,15 @@ define hidden { i64, i64 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   br label %27
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
-  %41 = load ptr, ptr %.sroa.04.08, align 8, !nonnull !4, !align !82, !noundef !4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 8
+  %41 = load ptr, ptr %.sroa.04.09, align 8, !nonnull !4, !align !82, !noundef !4
   %42 = load i64, ptr %40, align 8, !noundef !4
   store ptr %41, ptr %6, align 16
   store i64 %42, ptr %8, align 8
   br label %27
 
 43:                                               ; preds = %28
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
   %45 = icmp eq ptr %44, %24
   br i1 %45, label %._crit_edge, label %28
 }

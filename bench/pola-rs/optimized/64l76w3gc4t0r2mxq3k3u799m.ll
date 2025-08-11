@@ -8414,9 +8414,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hf11f61714
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !1263, !noalias !1264, !noundef !3
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %.thread, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit"
+  br i1 %9, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit"
 
-.thread:                                          ; preds = %3
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit.thread": ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE.exit"
 
@@ -8442,8 +8442,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hf11f61714
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h767aee6399b08f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %18, i64 noundef %.sroa.5.0.i.i.i, i64 noundef 4, i64 noundef 16)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE.exit": ; preds = %.thread, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit", %22
-  %23 = phi ptr [ %10, %.thread ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit" ], [ %17, %22 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit.thread", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit", %22
+  %23 = phi ptr [ %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit.thread" ], [ %17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4cec1bf60f19123aE.exit" ], [ %17, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
   %26 = load i64, ptr %23, align 8, !noundef !3
@@ -49804,12 +49804,12 @@ select.unfold.i.i.i:                              ; preds = %"_ZN130_$LT$polars_
   br i1 %69, label %"_ZN63_$LT$I$u20$as$u20$polars_arrow..legacy..index..IndexToUsize$GT$17negative_to_usize17h10ecef8592828e0cE.exit.i.i.i.i", label %70
 
 70:                                               ; preds = %68
-  %.sroa.0.0.i19.i.i.i.i.i = sub i64 0, %66
-  %71 = icmp sgt i64 %.sroa.0.0.i19.i.i.i.i.i, -1
+  %.sroa.0.0.i20.i.i.i.i.i = sub i64 0, %66
+  %71 = icmp sgt i64 %.sroa.0.0.i20.i.i.i.i.i, -1
   br i1 %71, label %72, label %74, !prof !1284
 
 72:                                               ; preds = %70
-  %.not3.i.i.i.i = icmp ult i64 %67, %.sroa.0.0.i19.i.i.i.i.i
+  %.not3.i.i.i.i = icmp ult i64 %67, %.sroa.0.0.i20.i.i.i.i.i
   %73 = add i64 %67, %66
   br i1 %.not3.i.i.i.i, label %98, label %76
 
@@ -75644,7 +75644,7 @@ attributes #22 = { nounwind }
 !1269 = !{!1270}
 !1270 = distinct !{!1270, !1271, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE: argument 0"}
 !1271 = distinct !{!1271, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe2d7e96e1cd3deeE"}
-!1272 = !{!"branch_weights", !"expected", i32 1717643, i32 2145766005}
+!1272 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
 !1273 = !{!1274, !1276}
 !1274 = distinct !{!1274, !1275, !"_ZN4core4iter6traits8iterator8Iterator8for_each17h9bf6d64855121266E: argument 0"}
 !1275 = distinct !{!1275, !"_ZN4core4iter6traits8iterator8Iterator8for_each17h9bf6d64855121266E"}

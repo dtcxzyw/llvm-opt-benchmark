@@ -29654,7 +29654,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2ebe305101658440E.exit.i.i.i.i.i.i.i.i:
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.i.i.i.i.i.i.i: ; preds = %.noexc
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit76.i", label %84
+  br i1 %109, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit75.i", label %84
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread.i.i.i.i.i.i.i: ; preds = %.noexc, %84, %104
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3973
@@ -29681,13 +29681,13 @@ _ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3973
   br label %.split.preheader.i.i.i.i.i.i.preheader.i
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit76.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.i.i.i.i.i.i.i
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit75.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.i.i.i.i.i.i.i
   %113 = extractvalue { i8, i64 } %107, 1
   br label %.split.preheader.i.i.i.i.i.i.preheader.i
 
-.split.preheader.i.i.i.i.i.i.preheader.i:         ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit76.i", %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i
-  %.sroa.3.0.i = phi i64 [ undef, %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i ], [ %106, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i ], [ %113, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit76.i" ]
-  %.sroa.0.0.i = phi i1 [ false, %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i ], [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i ], [ true, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit76.i" ]
+.split.preheader.i.i.i.i.i.i.preheader.i:         ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit75.i", %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i
+  %.sroa.3.0.i = phi i64 [ undef, %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i ], [ %106, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i ], [ %113, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit75.i" ]
+  %.sroa.0.0.i = phi i1 [ false, %_ZN4core3ops8function6FnOnce9call_once17h90be25ae2b2e35a5E.exit.thread11.i.i.i ], [ true, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he13fcf6886f736acE.exit.thread28.i.i.i.i.i.i.i ], [ true, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6f49b62797c9f3f2E.exit.thread.loopexit.loopexit.split.loop.exit75.i" ]
   %114 = load ptr, ptr %77, align 8, !nonnull !3, !noundef !3
   %115 = load i64, ptr %79, align 8, !noundef !3
   %116 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %114, i64 %115

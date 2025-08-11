@@ -26573,11 +26573,11 @@ define hidden void @"_ZN169_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %15 = load i64, ptr %14, align 8
   %16 = trunc nuw i64 %10 to i1
   %17 = trunc nuw i64 %13 to i1
-  %.8 = select i1 %17, i64 %15, i64 %12
+  %.9 = select i1 %17, i64 %15, i64 %12
   %18 = select i1 %17, i64 %15, i64 0
   %spec.select = add i64 %18, %12
   %.sroa.05.0 = select i1 %16, i64 1, i64 %13
-  %.sroa.6.0 = select i1 %16, i64 %spec.select, i64 %.8
+  %.sroa.6.0 = select i1 %16, i64 %spec.select, i64 %.9
   store i64 %.sroa.05.0, ptr %0, align 8
   store i64 %.sroa.6.0, ptr %11, align 8
   ret void
@@ -26677,12 +26677,12 @@ define hidden void @"_ZN169_$LT$polars_pipe..executors..sinks..group_by..aggrega
   br i1 %17, label %21, label %20
 
 19:                                               ; preds = %3
-  %.8 = select i1 %17, double %15, double %12
+  %.9 = select i1 %17, double %15, double %12
   br label %20
 
 20:                                               ; preds = %19, %18, %21
   %.sroa.05.0 = phi i64 [ 1, %21 ], [ 1, %18 ], [ %13, %19 ]
-  %.sroa.6.0 = phi double [ %22, %21 ], [ %12, %18 ], [ %.8, %19 ]
+  %.sroa.6.0 = phi double [ %22, %21 ], [ %12, %18 ], [ %.9, %19 ]
   store i64 %.sroa.05.0, ptr %0, align 8
   store double %.sroa.6.0, ptr %11, align 8
   ret void
@@ -26711,11 +26711,11 @@ define hidden void @"_ZN169_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %15 = load i64, ptr %14, align 8
   %16 = trunc nuw i64 %10 to i1
   %17 = trunc nuw i64 %13 to i1
-  %.8 = select i1 %17, i64 %15, i64 %12
+  %.9 = select i1 %17, i64 %15, i64 %12
   %18 = select i1 %17, i64 %15, i64 0
   %spec.select = add i64 %18, %12
   %.sroa.05.0 = select i1 %16, i64 1, i64 %13
-  %.sroa.6.0 = select i1 %16, i64 %spec.select, i64 %.8
+  %.sroa.6.0 = select i1 %16, i64 %spec.select, i64 %.9
   store i64 %.sroa.05.0, ptr %0, align 8
   store i64 %.sroa.6.0, ptr %11, align 8
   ret void

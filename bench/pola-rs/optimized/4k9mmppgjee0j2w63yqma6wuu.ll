@@ -2607,18 +2607,18 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
   %76 = add i64 %75, %.sroa.06.0.lcssa.i.i
   %77 = icmp uge i64 %76, %1
   %78 = trunc nuw i8 %.sroa.014.0.lcssa.i.i to i1
-  %or.cond3120.i.i = select i1 %77, i1 true, i1 %78
-  br i1 %or.cond3120.i.i, label %._crit_edge.i.i, label %.lr.ph122.i.i
+  %or.cond3119.i.i = select i1 %77, i1 true, i1 %78
+  br i1 %or.cond3119.i.i, label %._crit_edge.i.i, label %.lr.ph121.i.i
 
-.lr.ph122.i.i:                                    ; preds = %.preheader.i22.i
+.lr.ph121.i.i:                                    ; preds = %.preheader.i22.i
   %invariant.op.i.i = add nuw nsw i64 %3, 31
   br label %114
 
 .lr.ph.i23.i:                                     ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9963a3e987077760E.exit.i.i", %88
-  %.sroa.06.0118.i.i = phi i64 [ %89, %88 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9963a3e987077760E.exit.i.i" ]
+  %.sroa.06.0117.i.i = phi i64 [ %89, %88 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9963a3e987077760E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !171
   store i64 0, ptr %5, align 8, !noalias !171
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.06.0118.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.06.0117.i.i
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.i23.i
@@ -2638,7 +2638,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
   br i1 %exitcond.not.i24.i, label %.preheader111.i.i, label %80
 
 88:                                               ; preds = %97
-  %89 = add i64 %.sroa.06.0118.i.i, 64
+  %89 = add i64 %.sroa.06.0117.i.i, 64
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !171
   %90 = add i64 %89, %74
   %91 = icmp uge i64 %90, %1
@@ -2658,12 +2658,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
 97:                                               ; preds = %99, %.preheader111.i.i
   %.sroa.014.3.i.i = phi i8 [ %.sroa.014.2115.i.i, %.preheader111.i.i ], [ %105, %99 ]
   %98 = add nuw nsw i64 %93, 1
-  %exitcond129.not.i.i = icmp eq i64 %98, 5
-  br i1 %exitcond129.not.i.i, label %88, label %.preheader111.i.i
+  %exitcond128.not.i.i = icmp eq i64 %98, 5
+  br i1 %exitcond128.not.i.i, label %88, label %.preheader111.i.i
 
 99:                                               ; preds = %.preheader111.i.i
   %100 = shl nuw nsw i64 %.sroa.028.0116.i.i, 4
-  %101 = add nuw nsw i64 %100, %.sroa.06.0118.i.i
+  %101 = add nuw nsw i64 %100, %.sroa.06.0117.i.i
   %102 = trunc nuw i8 %.sroa.014.2115.i.i to i1
   %103 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h9f56980eaa86839cE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %101, i16 noundef %95, i1 noundef zeroext %102)
   %104 = or i1 %103, %102
@@ -2686,9 +2686,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
   %113 = icmp eq i16 %112, 0
   br i1 %113, label %128, label %129
 
-114:                                              ; preds = %121, %.lr.ph122.i.i
-  %.sroa.06.1121.i.i = phi i64 [ %.sroa.06.0.lcssa.i.i, %.lr.ph122.i.i ], [ %122, %121 ]
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.06.1121.i.i
+114:                                              ; preds = %121, %.lr.ph121.i.i
+  %.sroa.06.1120.i.i = phi i64 [ %.sroa.06.0.lcssa.i.i, %.lr.ph121.i.i ], [ %122, %121 ]
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.06.1120.i.i
   %.val3.i63.i.i = load <16 x i8>, ptr %115, align 1, !alias.scope !157, !noalias !178
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %storemerge107110.i.i
   %.val.i64.i.i = load <16 x i8>, ptr %116, align 1, !alias.scope !157, !noalias !178
@@ -2701,15 +2701,15 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h85f7a963d6a59955E.exit.i.i: ; 
 
 121:                                              ; preds = %125, %114
   %.sroa.014.5.i.i = phi i8 [ 0, %114 ], [ %127, %125 ]
-  %122 = add i64 %.sroa.06.1121.i.i, 16
-  %.reass.i.i = add i64 %invariant.op.i.i, %.sroa.06.1121.i.i
+  %122 = add i64 %.sroa.06.1120.i.i, 16
+  %.reass.i.i = add i64 %invariant.op.i.i, %.sroa.06.1120.i.i
   %123 = icmp uge i64 %.reass.i.i, %1
   %124 = trunc nuw i8 %.sroa.014.5.i.i to i1
   %or.cond3.i.i = select i1 %123, i1 true, i1 %124
   br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %114
 
 125:                                              ; preds = %114
-  %126 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h9f56980eaa86839cE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.sroa.06.1121.i.i, i16 noundef %119, i1 noundef zeroext false)
+  %126 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h9f56980eaa86839cE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.sroa.06.1120.i.i, i16 noundef %119, i1 noundef zeroext false)
   %127 = zext i1 %126 to i8
   br label %121
 
@@ -13190,19 +13190,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader4:                                      ; preds = %12, %32
   %.sroa.07.0.val.lcssa23.i = phi float [ %.sroa.07.0.val.i, %32 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %34, %32 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %33, %32 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader4
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %30, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %29, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %29, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi float [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load float, ptr %.sroa.07.019.i, align 4, !alias.scope !906, !noalias !911, !noundef !3
   %26 = fcmp uno float %.sroa.07.0.val.i, 0.000000e+00
@@ -13214,26 +13214,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %31, label %32, label %.lr.ph.i
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds nuw float, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %33 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %34 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %30, label %.preheader4, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22"
 
 .preheader:                                       ; preds = %12, %43
   %.sroa.07.0.val.lcssa23.i11 = phi float [ %.sroa.07.0.val.i21, %43 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %45, %43 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %44, %43 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %44, %43 ], [ %14, %12 ]
   %35 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %35, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 2
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %41, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %40, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %40, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi float [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load float, ptr %.sroa.07.019.i19, align 4, !alias.scope !914, !noalias !919, !noundef !3
   %37 = fcmp uno float %.val1718.i20, 0.000000e+00
@@ -13245,7 +13245,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %42, label %43, label %.lr.ph.i17
 
 43:                                               ; preds = %.lr.ph.i17
-  %44 = getelementptr inbounds nuw float, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %44 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %45 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %41, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17h912da29f60c36670E.exit22"
 
@@ -13296,19 +13296,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread: ; 
 62:                                               ; preds = %71, %.lr.ph.split.us
   %.sroa.01.3.us = phi float [ %.sroa.01.015.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %71 ]
   %.sroa.6.0.i37.us = phi i64 [ %61, %.lr.ph.split.us ], [ %73, %71 ]
-  %.sroa.0.010.i38.us = phi ptr [ %59, %.lr.ph.split.us ], [ %72, %71 ]
+  %.sroa.0.0.i38.us = phi ptr [ %59, %.lr.ph.split.us ], [ %72, %71 ]
   %63 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %62
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 2
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %69, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %68, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %68, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi float [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.01.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load float, ptr %.sroa.07.019.i44.us, align 4, !alias.scope !922, !noalias !927, !noundef !3
   %65 = fcmp uno float %.val1718.i45.us, 0.000000e+00
@@ -13320,7 +13320,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread: ; 
   br i1 %70, label %71, label %.lr.ph.i42.us
 
 71:                                               ; preds = %.lr.ph.i42.us
-  %72 = getelementptr inbounds nuw float, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %72 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %73 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %69, label %62, label %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread
 
@@ -13347,19 +13347,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.u
 84:                                               ; preds = %93, %.lr.ph.split
   %.sroa.01.1 = phi float [ %.sroa.01.015, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %93 ]
   %.sroa.6.0.i25 = phi i64 [ %83, %.lr.ph.split ], [ %95, %93 ]
-  %.sroa.0.010.i26 = phi ptr [ %81, %.lr.ph.split ], [ %94, %93 ]
+  %.sroa.0.0.i26 = phi ptr [ %81, %.lr.ph.split ], [ %94, %93 ]
   %85 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %84
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 2
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %91, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %90, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %90, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi float [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.01.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load float, ptr %.sroa.07.019.i32, align 4, !alias.scope !931, !noalias !936, !noundef !3
   %87 = fcmp uno float %.sroa.07.0.val.i34, 0.000000e+00
@@ -13371,7 +13371,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit.u
   br i1 %92, label %93, label %.lr.ph.i30
 
 93:                                               ; preds = %.lr.ph.i30
-  %94 = getelementptr inbounds nuw float, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %94 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %95 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %91, label %84, label %_ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.thread
 
@@ -13471,19 +13471,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader4:                                      ; preds = %12, %32
   %.sroa.07.0.val.lcssa23.i = phi double [ %.sroa.07.0.val.i, %32 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %34, %32 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %33, %32 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader4
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 3
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %30, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %29, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %29, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi double [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load double, ptr %.sroa.07.019.i, align 8, !alias.scope !942, !noalias !947, !noundef !3
   %26 = fcmp uno double %.sroa.07.0.val.i, 0.000000e+00
@@ -13495,26 +13495,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %31, label %32, label %.lr.ph.i
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds nuw double, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %33 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %34 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %30, label %.preheader4, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22"
 
 .preheader:                                       ; preds = %12, %43
   %.sroa.07.0.val.lcssa23.i11 = phi double [ %.sroa.07.0.val.i21, %43 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %45, %43 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %44, %43 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %44, %43 ], [ %14, %12 ]
   %35 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %35, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 3
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %41, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %40, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %40, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi double [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load double, ptr %.sroa.07.019.i19, align 8, !alias.scope !950, !noalias !955, !noundef !3
   %37 = fcmp uno double %.val1718.i20, 0.000000e+00
@@ -13526,7 +13526,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %42, label %43, label %.lr.ph.i17
 
 43:                                               ; preds = %.lr.ph.i17
-  %44 = getelementptr inbounds nuw double, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %44 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %45 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %41, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17h28a38a94d0b163d6E.exit22"
 
@@ -13577,19 +13577,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread: ; 
 62:                                               ; preds = %71, %.lr.ph.split.us
   %.sroa.01.3.us = phi double [ %.sroa.01.015.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %71 ]
   %.sroa.6.0.i37.us = phi i64 [ %61, %.lr.ph.split.us ], [ %73, %71 ]
-  %.sroa.0.010.i38.us = phi ptr [ %59, %.lr.ph.split.us ], [ %72, %71 ]
+  %.sroa.0.0.i38.us = phi ptr [ %59, %.lr.ph.split.us ], [ %72, %71 ]
   %63 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %62
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 3
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %69, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %68, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %68, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi double [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.01.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load double, ptr %.sroa.07.019.i44.us, align 8, !alias.scope !958, !noalias !963, !noundef !3
   %65 = fcmp uno double %.val1718.i45.us, 0.000000e+00
@@ -13601,7 +13601,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread: ; 
   br i1 %70, label %71, label %.lr.ph.i42.us
 
 71:                                               ; preds = %.lr.ph.i42.us
-  %72 = getelementptr inbounds nuw double, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %72 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %73 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %69, label %62, label %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread
 
@@ -13628,19 +13628,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.u
 84:                                               ; preds = %93, %.lr.ph.split
   %.sroa.01.1 = phi double [ %.sroa.01.015, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %93 ]
   %.sroa.6.0.i25 = phi i64 [ %83, %.lr.ph.split ], [ %95, %93 ]
-  %.sroa.0.010.i26 = phi ptr [ %81, %.lr.ph.split ], [ %94, %93 ]
+  %.sroa.0.0.i26 = phi ptr [ %81, %.lr.ph.split ], [ %94, %93 ]
   %85 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %84
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 3
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %91, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %90, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %90, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi double [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.01.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load double, ptr %.sroa.07.019.i32, align 8, !alias.scope !967, !noalias !972, !noundef !3
   %87 = fcmp uno double %.sroa.07.0.val.i34, 0.000000e+00
@@ -13652,7 +13652,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit.u
   br i1 %92, label %93, label %.lr.ph.i30
 
 93:                                               ; preds = %.lr.ph.i30
-  %94 = getelementptr inbounds nuw double, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %94 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %95 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %91, label %84, label %_ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.thread
 
@@ -13752,19 +13752,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i64 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 3
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i64 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i64, ptr %.sroa.07.019.i, align 8, !alias.scope !978, !noalias !983, !noundef !3
   %26 = icmp sle i64 %.val1718.i, %.sroa.07.0.val.i
@@ -13774,26 +13774,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i64 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 3
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i64 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i64, ptr %.sroa.07.019.i19, align 8, !alias.scope !986, !noalias !991, !noundef !3
   %35 = icmp sge i64 %.val1718.i20, %.sroa.07.0.val.i21
@@ -13803,7 +13803,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h3d935ce4fe5dc245E.exit22"
 
@@ -13854,19 +13854,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i64 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 3
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i64 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i64, ptr %.sroa.07.019.i44.us, align 8, !alias.scope !994, !noalias !999, !noundef !3
   %61 = icmp sge i64 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -13876,7 +13876,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread
 
@@ -13903,19 +13903,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i64 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 3
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i64 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i64, ptr %.sroa.07.019.i32, align 8, !alias.scope !1003, !noalias !1008, !noundef !3
   %81 = icmp sle i64 %.val1718.i33, %.sroa.07.0.val.i34
@@ -13925,7 +13925,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.thread
 
@@ -14025,18 +14025,18 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i8 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %31, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %25, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %25, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17hfebc428fff08d2a5E.exit21", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i8 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i8, ptr %.sroa.07.019.i, align 1, !alias.scope !1015, !noalias !1020, !noundef !3
   %26 = icmp ule i8 %.val1718.i, %.sroa.07.0.val.i
@@ -14052,18 +14052,18 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader:                                       ; preds = %12, %38
   %.sroa.07.0.val.lcssa23.i11 = phi i8 [ %.sroa.07.0.val.i20, %38 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %39, %38 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %33, %38 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %33, %38 ], [ %14, %12 ]
   %32 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %32, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17hfebc428fff08d2a5E.exit21", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i14
   %.sroa.0.220.i17 = phi i1 [ %36, %.lr.ph.i16 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i18 = phi ptr [ %35, %.lr.ph.i16 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i18 = phi ptr [ %35, %.lr.ph.i16 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i19 = phi i8 [ %.sroa.07.0.val.i20, %.lr.ph.i16 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i20 = load i8, ptr %.sroa.07.019.i18, align 1, !alias.scope !1023, !noalias !1028, !noundef !3
   %34 = icmp uge i8 %.val1718.i19, %.sroa.07.0.val.i20
@@ -14125,18 +14125,18 @@ _ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.thread: ; 
 57:                                               ; preds = %64, %.lr.ph.split.us
   %.sroa.02.3.us = phi i8 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i43.us, %64 ]
   %.sroa.6.0.i35.us = phi i64 [ %56, %.lr.ph.split.us ], [ %65, %64 ]
-  %.sroa.0.010.i36.us = phi ptr [ %54, %.lr.ph.split.us ], [ %59, %64 ]
+  %.sroa.0.0.i36.us = phi ptr [ %54, %.lr.ph.split.us ], [ %59, %64 ]
   %58 = icmp eq i64 %.sroa.6.0.i35.us, 0
   br i1 %58, label %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit.us, label %.lr.ph.preheader.i37.us
 
 .lr.ph.preheader.i37.us:                          ; preds = %57
   %.sroa.0.0.sroa.speculated.i.i.i38.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i35.us, i64 1024)
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i36.us, i64 %.sroa.0.0.sroa.speculated.i.i.i38.us
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i36.us, i64 %.sroa.0.0.sroa.speculated.i.i.i38.us
   br label %.lr.ph.i39.us
 
 .lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us, %.lr.ph.preheader.i37.us
   %.sroa.0.220.i40.us = phi i1 [ %62, %.lr.ph.i39.us ], [ true, %.lr.ph.preheader.i37.us ]
-  %.sroa.07.019.i41.us = phi ptr [ %61, %.lr.ph.i39.us ], [ %.sroa.0.010.i36.us, %.lr.ph.preheader.i37.us ]
+  %.sroa.07.019.i41.us = phi ptr [ %61, %.lr.ph.i39.us ], [ %.sroa.0.0.i36.us, %.lr.ph.preheader.i37.us ]
   %.val1718.i42.us = phi i8 [ %.sroa.07.0.val.i43.us, %.lr.ph.i39.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i37.us ]
   %.sroa.07.0.val.i43.us = load i8, ptr %.sroa.07.019.i41.us, align 1, !alias.scope !1031, !noalias !1036, !noundef !3
   %60 = icmp uge i8 %.val1718.i42.us, %.sroa.07.0.val.i43.us
@@ -14172,18 +14172,18 @@ _ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit.u
 76:                                               ; preds = %83, %.lr.ph.split
   %.sroa.02.1 = phi i8 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i32, %83 ]
   %.sroa.6.0.i24 = phi i64 [ %75, %.lr.ph.split ], [ %84, %83 ]
-  %.sroa.0.010.i25 = phi ptr [ %73, %.lr.ph.split ], [ %78, %83 ]
+  %.sroa.0.0.i25 = phi ptr [ %73, %.lr.ph.split ], [ %78, %83 ]
   %77 = icmp eq i64 %.sroa.6.0.i24, 0
   br i1 %77, label %_ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9, label %.lr.ph.preheader.i26
 
 .lr.ph.preheader.i26:                             ; preds = %76
   %.sroa.0.0.sroa.speculated.i.i.i27 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i24, i64 1024)
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i25, i64 %.sroa.0.0.sroa.speculated.i.i.i27
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i25, i64 %.sroa.0.0.sroa.speculated.i.i.i27
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i26
   %.sroa.0.220.i29 = phi i1 [ %81, %.lr.ph.i28 ], [ true, %.lr.ph.preheader.i26 ]
-  %.sroa.07.019.i30 = phi ptr [ %80, %.lr.ph.i28 ], [ %.sroa.0.010.i25, %.lr.ph.preheader.i26 ]
+  %.sroa.07.019.i30 = phi ptr [ %80, %.lr.ph.i28 ], [ %.sroa.0.0.i25, %.lr.ph.preheader.i26 ]
   %.val1718.i31 = phi i8 [ %.sroa.07.0.val.i32, %.lr.ph.i28 ], [ %.sroa.02.1, %.lr.ph.preheader.i26 ]
   %.sroa.07.0.val.i32 = load i8, ptr %.sroa.07.019.i30, align 1, !alias.scope !1040, !noalias !1045, !noundef !3
   %79 = icmp ule i8 %.val1718.i31, %.sroa.07.0.val.i32
@@ -14292,19 +14292,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i128 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 4
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i128 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i128, ptr %.sroa.07.019.i, align 16, !alias.scope !1052, !noalias !1057, !noundef !3
   %26 = icmp sle i128 %.val1718.i, %.sroa.07.0.val.i
@@ -14314,26 +14314,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i128, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i128 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 4
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i128 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i128, ptr %.sroa.07.019.i19, align 16, !alias.scope !1060, !noalias !1065, !noundef !3
   %35 = icmp sge i128 %.val1718.i20, %.sroa.07.0.val.i21
@@ -14343,7 +14343,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i128, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17h9947449413c7f132E.exit22"
 
@@ -14394,19 +14394,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i128 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 4
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i128 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i128, ptr %.sroa.07.019.i44.us, align 16, !alias.scope !1068, !noalias !1073, !noundef !3
   %61 = icmp sge i128 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -14416,7 +14416,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i128, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread
 
@@ -14443,19 +14443,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i128 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 4
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i128 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i128, ptr %.sroa.07.019.i32, align 16, !alias.scope !1077, !noalias !1082, !noundef !3
   %81 = icmp sle i128 %.val1718.i33, %.sroa.07.0.val.i34
@@ -14465,7 +14465,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i128, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.thread
 
@@ -14565,18 +14565,18 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i8 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %31, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %25, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %25, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h3089b804aaefba4cE.exit21", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i8 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i8, ptr %.sroa.07.019.i, align 1, !alias.scope !1088, !noalias !1093, !noundef !3
   %26 = icmp sle i8 %.val1718.i, %.sroa.07.0.val.i
@@ -14592,18 +14592,18 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader:                                       ; preds = %12, %38
   %.sroa.07.0.val.lcssa23.i11 = phi i8 [ %.sroa.07.0.val.i20, %38 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %39, %38 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %33, %38 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %33, %38 ], [ %14, %12 ]
   %32 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %32, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h3089b804aaefba4cE.exit21", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i14
   %.sroa.0.220.i17 = phi i1 [ %36, %.lr.ph.i16 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i18 = phi ptr [ %35, %.lr.ph.i16 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i18 = phi ptr [ %35, %.lr.ph.i16 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i19 = phi i8 [ %.sroa.07.0.val.i20, %.lr.ph.i16 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i20 = load i8, ptr %.sroa.07.019.i18, align 1, !alias.scope !1096, !noalias !1101, !noundef !3
   %34 = icmp sge i8 %.val1718.i19, %.sroa.07.0.val.i20
@@ -14663,18 +14663,18 @@ _ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.thread: ; 
 56:                                               ; preds = %63, %.lr.ph.split.us
   %.sroa.02.3.us = phi i8 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i43.us, %63 ]
   %.sroa.6.0.i35.us = phi i64 [ %55, %.lr.ph.split.us ], [ %64, %63 ]
-  %.sroa.0.010.i36.us = phi ptr [ %53, %.lr.ph.split.us ], [ %58, %63 ]
+  %.sroa.0.0.i36.us = phi ptr [ %53, %.lr.ph.split.us ], [ %58, %63 ]
   %57 = icmp eq i64 %.sroa.6.0.i35.us, 0
   br i1 %57, label %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit.us, label %.lr.ph.preheader.i37.us
 
 .lr.ph.preheader.i37.us:                          ; preds = %56
   %.sroa.0.0.sroa.speculated.i.i.i38.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i35.us, i64 1024)
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i36.us, i64 %.sroa.0.0.sroa.speculated.i.i.i38.us
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i36.us, i64 %.sroa.0.0.sroa.speculated.i.i.i38.us
   br label %.lr.ph.i39.us
 
 .lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us, %.lr.ph.preheader.i37.us
   %.sroa.0.220.i40.us = phi i1 [ %61, %.lr.ph.i39.us ], [ true, %.lr.ph.preheader.i37.us ]
-  %.sroa.07.019.i41.us = phi ptr [ %60, %.lr.ph.i39.us ], [ %.sroa.0.010.i36.us, %.lr.ph.preheader.i37.us ]
+  %.sroa.07.019.i41.us = phi ptr [ %60, %.lr.ph.i39.us ], [ %.sroa.0.0.i36.us, %.lr.ph.preheader.i37.us ]
   %.val1718.i42.us = phi i8 [ %.sroa.07.0.val.i43.us, %.lr.ph.i39.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i37.us ]
   %.sroa.07.0.val.i43.us = load i8, ptr %.sroa.07.019.i41.us, align 1, !alias.scope !1104, !noalias !1109, !noundef !3
   %59 = icmp sge i8 %.val1718.i42.us, %.sroa.07.0.val.i43.us
@@ -14710,18 +14710,18 @@ _ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit.u
 75:                                               ; preds = %82, %.lr.ph.split
   %.sroa.02.1 = phi i8 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i32, %82 ]
   %.sroa.6.0.i24 = phi i64 [ %74, %.lr.ph.split ], [ %83, %82 ]
-  %.sroa.0.010.i25 = phi ptr [ %72, %.lr.ph.split ], [ %77, %82 ]
+  %.sroa.0.0.i25 = phi ptr [ %72, %.lr.ph.split ], [ %77, %82 ]
   %76 = icmp eq i64 %.sroa.6.0.i24, 0
   br i1 %76, label %_ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9, label %.lr.ph.preheader.i26
 
 .lr.ph.preheader.i26:                             ; preds = %75
   %.sroa.0.0.sroa.speculated.i.i.i27 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i24, i64 1024)
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i25, i64 %.sroa.0.0.sroa.speculated.i.i.i27
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i25, i64 %.sroa.0.0.sroa.speculated.i.i.i27
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i26
   %.sroa.0.220.i29 = phi i1 [ %80, %.lr.ph.i28 ], [ true, %.lr.ph.preheader.i26 ]
-  %.sroa.07.019.i30 = phi ptr [ %79, %.lr.ph.i28 ], [ %.sroa.0.010.i25, %.lr.ph.preheader.i26 ]
+  %.sroa.07.019.i30 = phi ptr [ %79, %.lr.ph.i28 ], [ %.sroa.0.0.i25, %.lr.ph.preheader.i26 ]
   %.val1718.i31 = phi i8 [ %.sroa.07.0.val.i32, %.lr.ph.i28 ], [ %.sroa.02.1, %.lr.ph.preheader.i26 ]
   %.sroa.07.0.val.i32 = load i8, ptr %.sroa.07.019.i30, align 1, !alias.scope !1113, !noalias !1118, !noundef !3
   %78 = icmp sle i8 %.val1718.i31, %.sroa.07.0.val.i32
@@ -14830,19 +14830,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i32 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i32 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i32, ptr %.sroa.07.019.i, align 4, !alias.scope !1124, !noalias !1129, !noundef !3
   %26 = icmp ule i32 %.val1718.i, %.sroa.07.0.val.i
@@ -14852,26 +14852,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i32 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 2
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i32 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i32, ptr %.sroa.07.019.i19, align 4, !alias.scope !1132, !noalias !1137, !noundef !3
   %35 = icmp uge i32 %.val1718.i20, %.sroa.07.0.val.i21
@@ -14881,7 +14881,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h38d037f0b1cfc62dE.exit22"
 
@@ -14932,19 +14932,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i32 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 2
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i32 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i32, ptr %.sroa.07.019.i44.us, align 4, !alias.scope !1140, !noalias !1145, !noundef !3
   %61 = icmp uge i32 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -14954,7 +14954,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread
 
@@ -14981,19 +14981,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i32 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 2
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i32 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i32, ptr %.sroa.07.019.i32, align 4, !alias.scope !1149, !noalias !1154, !noundef !3
   %81 = icmp ule i32 %.val1718.i33, %.sroa.07.0.val.i34
@@ -15003,7 +15003,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.thread
 
@@ -15103,19 +15103,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i64 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 3
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i64 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i64, ptr %.sroa.07.019.i, align 8, !alias.scope !1160, !noalias !1165, !noundef !3
   %26 = icmp ule i64 %.val1718.i, %.sroa.07.0.val.i
@@ -15125,26 +15125,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i64 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 3
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i64 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i64, ptr %.sroa.07.019.i19, align 8, !alias.scope !1168, !noalias !1173, !noundef !3
   %35 = icmp uge i64 %.val1718.i20, %.sroa.07.0.val.i21
@@ -15154,7 +15154,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17ha006d412c57bff62E.exit22"
 
@@ -15205,19 +15205,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i64 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 3
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i64 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i64, ptr %.sroa.07.019.i44.us, align 8, !alias.scope !1176, !noalias !1181, !noundef !3
   %61 = icmp uge i64 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -15227,7 +15227,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread
 
@@ -15254,19 +15254,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i64 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 3
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i64 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i64, ptr %.sroa.07.019.i32, align 8, !alias.scope !1185, !noalias !1190, !noundef !3
   %81 = icmp ule i64 %.val1718.i33, %.sroa.07.0.val.i34
@@ -15276,7 +15276,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i64, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.thread
 
@@ -15376,19 +15376,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i32 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i32 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i32, ptr %.sroa.07.019.i, align 4, !alias.scope !1196, !noalias !1201, !noundef !3
   %26 = icmp sle i32 %.val1718.i, %.sroa.07.0.val.i
@@ -15398,26 +15398,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i32 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 2
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i32 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i32, ptr %.sroa.07.019.i19, align 4, !alias.scope !1204, !noalias !1209, !noundef !3
   %35 = icmp sge i32 %.val1718.i20, %.sroa.07.0.val.i21
@@ -15427,7 +15427,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17hf2d9114bfb3fd266E.exit22"
 
@@ -15478,19 +15478,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i32 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 2
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i32 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i32, ptr %.sroa.07.019.i44.us, align 4, !alias.scope !1212, !noalias !1217, !noundef !3
   %61 = icmp sge i32 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -15500,7 +15500,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread
 
@@ -15527,19 +15527,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i32 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 2
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i32 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i32, ptr %.sroa.07.019.i32, align 4, !alias.scope !1221, !noalias !1226, !noundef !3
   %81 = icmp sle i32 %.val1718.i33, %.sroa.07.0.val.i34
@@ -15549,7 +15549,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i32, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.thread
 
@@ -15649,19 +15649,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i16 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i16 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i16, ptr %.sroa.07.019.i, align 2, !alias.scope !1233, !noalias !1238, !noundef !3
   %26 = icmp sle i16 %.val1718.i, %.sroa.07.0.val.i
@@ -15671,26 +15671,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i16 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 1
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i16 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i16, ptr %.sroa.07.019.i19, align 2, !alias.scope !1241, !noalias !1246, !noundef !3
   %35 = icmp sge i16 %.val1718.i20, %.sroa.07.0.val.i21
@@ -15700,7 +15700,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17h11f5c13b3d25f15dE.exit22"
 
@@ -15751,19 +15751,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i16 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i16 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i16, ptr %.sroa.07.019.i44.us, align 2, !alias.scope !1249, !noalias !1254, !noundef !3
   %61 = icmp sge i16 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -15773,7 +15773,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread
 
@@ -15800,19 +15800,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i16 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 1
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i16 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i16, ptr %.sroa.07.019.i32, align 2, !alias.scope !1258, !noalias !1263, !noundef !3
   %81 = icmp sle i16 %.val1718.i33, %.sroa.07.0.val.i34
@@ -15822,7 +15822,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.thread
 
@@ -15922,19 +15922,19 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
 .preheader6:                                      ; preds = %12, %30
   %.sroa.07.0.val.lcssa23.i = phi i16 [ %.sroa.07.0.val.i, %30 ], [ %15, %12 ]
   %.sroa.6.0.i = phi i64 [ %32, %30 ], [ %11, %12 ]
-  %.sroa.0.010.i = phi ptr [ %31, %30 ], [ %14, %12 ]
+  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ %14, %12 ]
   %24 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %24, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader6
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i, i64 1024)
   %.idx.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 %.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.0.220.i = phi i1 [ %28, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
-  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.010.i, %.lr.ph.preheader.i ]
+  %.sroa.07.019.i = phi ptr [ %27, %.lr.ph.i ], [ %.sroa.0.0.i, %.lr.ph.preheader.i ]
   %.val1718.i = phi i16 [ %.sroa.07.0.val.i, %.lr.ph.i ], [ %.sroa.07.0.val.lcssa23.i, %.lr.ph.preheader.i ]
   %.sroa.07.0.val.i = load i16, ptr %.sroa.07.019.i, align 2, !alias.scope !1269, !noalias !1274, !noundef !3
   %26 = icmp ule i16 %.val1718.i, %.sroa.07.0.val.i
@@ -15944,26 +15944,26 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %29, label %30, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %31 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %32 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %28, label %.preheader6, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22"
 
 .preheader:                                       ; preds = %12, %39
   %.sroa.07.0.val.lcssa23.i11 = phi i16 [ %.sroa.07.0.val.i21, %39 ], [ %15, %12 ]
   %.sroa.6.0.i12 = phi i64 [ %41, %39 ], [ %11, %12 ]
-  %.sroa.0.010.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
+  %.sroa.0.0.i13 = phi ptr [ %40, %39 ], [ %14, %12 ]
   %33 = icmp eq i64 %.sroa.6.0.i12, 0
   br i1 %33, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22", label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader
   %.sroa.0.0.sroa.speculated.i.i.i15 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i12, i64 1024)
   %.idx.i16 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i15, 1
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i13, i64 %.idx.i16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i13, i64 %.idx.i16
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i14
   %.sroa.0.220.i18 = phi i1 [ %37, %.lr.ph.i17 ], [ true, %.lr.ph.preheader.i14 ]
-  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.010.i13, %.lr.ph.preheader.i14 ]
+  %.sroa.07.019.i19 = phi ptr [ %36, %.lr.ph.i17 ], [ %.sroa.0.0.i13, %.lr.ph.preheader.i14 ]
   %.val1718.i20 = phi i16 [ %.sroa.07.0.val.i21, %.lr.ph.i17 ], [ %.sroa.07.0.val.lcssa23.i11, %.lr.ph.preheader.i14 ]
   %.sroa.07.0.val.i21 = load i16, ptr %.sroa.07.019.i19, align 2, !alias.scope !1277, !noalias !1282, !noundef !3
   %35 = icmp uge i16 %.val1718.i20, %.sroa.07.0.val.i21
@@ -15973,7 +15973,7 @@ define internal fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16i
   br i1 %38, label %39, label %.lr.ph.i17
 
 39:                                               ; preds = %.lr.ph.i17
-  %40 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %40 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %41 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %37, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17hcbac3ef77a2c6950E.exit22"
 
@@ -16024,19 +16024,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread: ; 
 58:                                               ; preds = %65, %.lr.ph.split.us
   %.sroa.02.3.us = phi i16 [ %.sroa.02.017.us, %.lr.ph.split.us ], [ %.sroa.07.0.val.i46.us, %65 ]
   %.sroa.6.0.i37.us = phi i64 [ %57, %.lr.ph.split.us ], [ %67, %65 ]
-  %.sroa.0.010.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
+  %.sroa.0.0.i38.us = phi ptr [ %55, %.lr.ph.split.us ], [ %66, %65 ]
   %59 = icmp eq i64 %.sroa.6.0.i37.us, 0
   br i1 %59, label %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.us, label %.lr.ph.preheader.i39.us
 
 .lr.ph.preheader.i39.us:                          ; preds = %58
   %.sroa.0.0.sroa.speculated.i.i.i40.us = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i37.us, i64 1024)
   %.idx.i41.us = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i40.us, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i38.us, i64 %.idx.i41.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i38.us, i64 %.idx.i41.us
   br label %.lr.ph.i42.us
 
 .lr.ph.i42.us:                                    ; preds = %.lr.ph.i42.us, %.lr.ph.preheader.i39.us
   %.sroa.0.220.i43.us = phi i1 [ %63, %.lr.ph.i42.us ], [ true, %.lr.ph.preheader.i39.us ]
-  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.010.i38.us, %.lr.ph.preheader.i39.us ]
+  %.sroa.07.019.i44.us = phi ptr [ %62, %.lr.ph.i42.us ], [ %.sroa.0.0.i38.us, %.lr.ph.preheader.i39.us ]
   %.val1718.i45.us = phi i16 [ %.sroa.07.0.val.i46.us, %.lr.ph.i42.us ], [ %.sroa.02.3.us, %.lr.ph.preheader.i39.us ]
   %.sroa.07.0.val.i46.us = load i16, ptr %.sroa.07.019.i44.us, align 2, !alias.scope !1285, !noalias !1290, !noundef !3
   %61 = icmp uge i16 %.val1718.i45.us, %.sroa.07.0.val.i46.us
@@ -16046,7 +16046,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread: ; 
   br i1 %64, label %65, label %.lr.ph.i42.us
 
 65:                                               ; preds = %.lr.ph.i42.us
-  %66 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %66 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %67 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %63, label %58, label %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread
 
@@ -16073,19 +16073,19 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.u
 78:                                               ; preds = %85, %.lr.ph.split
   %.sroa.02.1 = phi i16 [ %.sroa.02.017, %.lr.ph.split ], [ %.sroa.07.0.val.i34, %85 ]
   %.sroa.6.0.i25 = phi i64 [ %77, %.lr.ph.split ], [ %87, %85 ]
-  %.sroa.0.010.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
+  %.sroa.0.0.i26 = phi ptr [ %75, %.lr.ph.split ], [ %86, %85 ]
   %79 = icmp eq i64 %.sroa.6.0.i25, 0
   br i1 %79, label %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %78
   %.sroa.0.0.sroa.speculated.i.i.i28 = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i25, i64 1024)
   %.idx.i29 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i28, 1
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i26, i64 %.idx.i29
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 %.idx.i29
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i27
   %.sroa.0.220.i31 = phi i1 [ %83, %.lr.ph.i30 ], [ true, %.lr.ph.preheader.i27 ]
-  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.010.i26, %.lr.ph.preheader.i27 ]
+  %.sroa.07.019.i32 = phi ptr [ %82, %.lr.ph.i30 ], [ %.sroa.0.0.i26, %.lr.ph.preheader.i27 ]
   %.val1718.i33 = phi i16 [ %.sroa.07.0.val.i34, %.lr.ph.i30 ], [ %.sroa.02.1, %.lr.ph.preheader.i27 ]
   %.sroa.07.0.val.i34 = load i16, ptr %.sroa.07.019.i32, align 2, !alias.scope !1294, !noalias !1299, !noundef !3
   %81 = icmp ule i16 %.val1718.i33, %.sroa.07.0.val.i34
@@ -16095,7 +16095,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit.u
   br i1 %84, label %85, label %.lr.ph.i30
 
 85:                                               ; preds = %.lr.ph.i30
-  %86 = getelementptr inbounds nuw i16, ptr %.sroa.0.010.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %86 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %87 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %83, label %78, label %_ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.thread
 
@@ -99094,10 +99094,10 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
   %.val.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.6.0.copyload65, i64 %.sroa.5.0.copyload63
   %.val1.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.8.0.copyload67, i64 %.sroa.6.0.copyload65
   %15 = sub i64 %.val1.i.i.i.i.sroa.speculated, %.val.i.i.i.i.sroa.speculated
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.969.0.copyload71, null
-  %.val.i12.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.11.0.copyload75, i64 %.sroa.10.0.copyload73
-  %.val1.i13.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.13.0.copyload77, i64 %.sroa.11.0.copyload75
-  %16 = sub i64 %.val1.i13.i.i.i.sroa.speculated, %.val.i12.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.969.0.copyload71, null
+  %.val.i13.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.11.0.copyload75, i64 %.sroa.10.0.copyload73
+  %.val1.i14.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.13.0.copyload77, i64 %.sroa.11.0.copyload75
+  %16 = sub i64 %.val1.i14.i.i.i.sroa.speculated, %.val.i13.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %14, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
@@ -99323,7 +99323,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.14103.3156 = phi i64 [ %.sroa.14103.0, %.noexc.thread143 ], [ %.sroa.14103.2, %.noexc.thread163 ]
   %.sroa.10101.2155 = phi i64 [ %91, %.noexc.thread143 ], [ %.sroa.10101.0, %.noexc.thread163 ]
   %.sroa.6100.2154 = phi i64 [ %.sroa.6100.0, %.noexc.thread143 ], [ %.sroa.6100.1, %.noexc.thread163 ]
-  br i1 %.not.i9.i.i.i, label %161, label %118
+  br i1 %.not.i10.i.i.i, label %161, label %118
 
 118:                                              ; preds = %117
   %119 = icmp eq i64 %.sroa.29.0, %.sroa.33.0
@@ -103045,10 +103045,10 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
   %.val.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.7.0.copyload86, i64 %.sroa.6.0.copyload84
   %.val1.i.i.i.i.sroa.speculated = select i1 %.not.i.i.i.i, i64 %.sroa.9.0.copyload88, i64 %.sroa.7.0.copyload86
   %17 = sub i64 %.val1.i.i.i.i.sroa.speculated, %.val.i.i.i.i.sroa.speculated
-  %.not.i9.i.i.i = icmp eq ptr %.sroa.1090.0.copyload92, null
-  %.val.i12.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.12.0.copyload96, i64 %.sroa.11.0.copyload94
-  %.val1.i13.i.i.i.sroa.speculated = select i1 %.not.i9.i.i.i, i64 %.sroa.14.0.copyload98, i64 %.sroa.12.0.copyload96
-  %18 = sub i64 %.val1.i13.i.i.i.sroa.speculated, %.val.i12.i.i.i.sroa.speculated
+  %.not.i10.i.i.i = icmp eq ptr %.sroa.1090.0.copyload92, null
+  %.val.i13.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.12.0.copyload96, i64 %.sroa.11.0.copyload94
+  %.val1.i14.i.i.i.sroa.speculated = select i1 %.not.i10.i.i.i, i64 %.sroa.14.0.copyload98, i64 %.sroa.12.0.copyload96
+  %18 = sub i64 %.val1.i14.i.i.i.sroa.speculated, %.val.i13.i.i.i.sroa.speculated
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder13with_capacity17hf75942328e26870bE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %16, i64 noundef %.sroa.0.0.sroa.speculated.i.i.i.i)
@@ -103279,7 +103279,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.15127.3191 = phi i64 [ %.sroa.15127.0, %.noexc.thread178 ], [ %.sroa.15127.2, %.noexc.thread198 ]
   %.sroa.11125.2190 = phi i64 [ %93, %.noexc.thread178 ], [ %.sroa.11125.0, %.noexc.thread198 ]
   %.sroa.7124.2189 = phi i64 [ %.sroa.7124.0, %.noexc.thread178 ], [ %.sroa.7124.1, %.noexc.thread198 ]
-  br i1 %.not.i9.i.i.i, label %163, label %120
+  br i1 %.not.i10.i.i.i, label %163, label %120
 
 120:                                              ; preds = %119
   %121 = icmp eq i64 %.sroa.30.0, %.sroa.34.0
@@ -123040,7 +123040,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !228, !noundef !3
-  switch i8 %6, label %default.unreachable22 [
+  switch i8 %6, label %default.unreachable23 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -123071,7 +123071,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable23:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -123169,8 +123169,8 @@ default.unreachable22:                            ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %43 = load i8, ptr %42, align 1, !range !5257, !noundef !3
-  %.not17 = icmp eq i8 %43, -38
-  br i1 %.not17, label %78, label %76
+  %.not18 = icmp eq i8 %43, -38
+  br i1 %.not18, label %78, label %76
 
 44:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
@@ -123219,14 +123219,14 @@ common.resume:                                    ; preds = %60, %50
   %59 = load ptr, ptr %57, align 8, !alias.scope !10762, !nonnull !3, !align !1048, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10765
   invoke fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$u20$as$u20$core..clone..Clone$GT$5clone17h523586209c0f94b3E"(ptr noalias noundef align 16 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %59)
-          to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit19" unwind label %60
+          to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit20" unwind label %60
 
 60:                                               ; preds = %56
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit19": ; preds = %56
+"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit20": ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %58, ptr noundef nonnull align 16 dereferenceable(48) %3, i64 48, i1 false), !noalias !10765
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10765
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -123245,8 +123245,8 @@ common.resume:                                    ; preds = %60, %50
 65:                                               ; preds = %2
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !noundef !3
-  %.not16 = icmp eq ptr %67, null
-  br i1 %.not16, label %87, label %84
+  %.not17 = icmp eq ptr %67, null
+  br i1 %.not17, label %87, label %84
 
 68:                                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -123265,7 +123265,7 @@ common.resume:                                    ; preds = %60, %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   br label %75
 
-75:                                               ; preds = %96, %87, %78, %19, %74, %71, %64, %63, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit19", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+75:                                               ; preds = %96, %87, %78, %19, %74, %71, %64, %63, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit20", %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h362868d70fbb320fE.exit", %45, %44, %37, %36, %35, %34, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
   ret void
 
 76:                                               ; preds = %38

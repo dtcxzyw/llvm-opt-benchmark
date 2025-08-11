@@ -394,12 +394,12 @@ define hidden void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module.
 
 .noexc21:                                         ; preds = %76
   %79 = load i8, ptr %46, align 8, !range !62, !noalias !58, !noundef !7
-  %.not.i186.i = icmp eq i8 %79, 4
-  br i1 %.not.i186.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not.i187.i = icmp eq i8 %79, 4
+  br i1 %.not.i187.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc21
-  %.sroa.6133.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %.sroa.7134.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sroa.6134.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %.sroa.7135.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %81 = getelementptr inbounds nuw i8, ptr %53, i64 3
   %82 = getelementptr inbounds nuw i8, ptr %53, i64 1
@@ -466,8 +466,8 @@ define hidden void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module.
   unreachable
 
 100:                                              ; preds = %95
-  %.sroa.6133.48.copyload.i = load i32, ptr %.sroa.6133.48..sroa_idx.i, align 4, !noalias !58
-  %.sroa.7134.48.copyload.i = load i32, ptr %.sroa.7134.48..sroa_idx.i, align 4, !noalias !58
+  %.sroa.6134.48.copyload.i = load i32, ptr %.sroa.6134.48..sroa_idx.i, align 4, !noalias !58
+  %.sroa.7135.48.copyload.i = load i32, ptr %.sroa.7135.48..sroa_idx.i, align 4, !noalias !58
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !58
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %47, i64 48, i1 false), !noalias !52
@@ -488,8 +488,8 @@ define hidden void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module.
 105:                                              ; preds = %100
   %106 = load i8, ptr %101, align 8, !range !66, !noalias !65, !noundef !7
   %107 = zext nneg i8 %106 to i32
-  %.not78.i = icmp eq i32 %96, %107
-  br i1 %.not78.i, label %108, label %109
+  %.not79.i = icmp eq i32 %96, %107
+  br i1 %.not79.i, label %108, label %109
 
 108:                                              ; preds = %105
   switch i8 %106, label %.unreachabledefault [
@@ -510,54 +510,54 @@ define hidden void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module.
   ]
 
 110:                                              ; preds = %109
-  %.sroa.7.0..sroa_idx91.i = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %.sroa.7.i.sroa.0.0.copyload330 = load i56, ptr %.sroa.7.0..sroa_idx91.i, align 1, !noalias !65
-  %.sroa.792.0..sroa_idx96.i = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.sroa.792.0.copyload97.i = load i8, ptr %.sroa.792.0..sroa_idx96.i, align 8, !alias.scope !72, !noalias !65
-  %.sroa.8.0..sroa_idx101.i = getelementptr inbounds nuw i8, ptr %101, i64 9
-  %.sroa.8.0.copyload102.i = load i8, ptr %.sroa.8.0..sroa_idx101.i, align 1, !alias.scope !72, !noalias !65
-  %.sroa.9.0..sroa_idx106.i = getelementptr inbounds nuw i8, ptr %101, i64 10
-  %.sroa.9.0.copyload107.i = load i16, ptr %.sroa.9.0..sroa_idx106.i, align 2, !alias.scope !72, !noalias !65
-  %.sroa.10108.0..sroa_idx112.i = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %.sroa.10108.0.copyload113.i = load i32, ptr %.sroa.10108.0..sroa_idx112.i, align 4, !alias.scope !72, !noalias !65
-  %.sroa.11114.0..sroa_idx118.i = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %.sroa.11114.0.copyload119.i = load ptr, ptr %.sroa.11114.0..sroa_idx118.i, align 8, !alias.scope !72, !noalias !65
-  %.sroa.13.0..sroa_idx129.i = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %.sroa.13.0.copyload130.i = load i64, ptr %.sroa.13.0..sroa_idx129.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.7.0..sroa_idx92.i = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %.sroa.7.i.sroa.0.0.copyload330 = load i56, ptr %.sroa.7.0..sroa_idx92.i, align 1, !noalias !65
+  %.sroa.793.0..sroa_idx97.i = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %.sroa.793.0.copyload98.i = load i8, ptr %.sroa.793.0..sroa_idx97.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.8.0..sroa_idx102.i = getelementptr inbounds nuw i8, ptr %101, i64 9
+  %.sroa.8.0.copyload103.i = load i8, ptr %.sroa.8.0..sroa_idx102.i, align 1, !alias.scope !72, !noalias !65
+  %.sroa.9.0..sroa_idx107.i = getelementptr inbounds nuw i8, ptr %101, i64 10
+  %.sroa.9.0.copyload108.i = load i16, ptr %.sroa.9.0..sroa_idx107.i, align 2, !alias.scope !72, !noalias !65
+  %.sroa.10109.0..sroa_idx113.i = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %.sroa.10109.0.copyload114.i = load i32, ptr %.sroa.10109.0..sroa_idx113.i, align 4, !alias.scope !72, !noalias !65
+  %.sroa.11115.0..sroa_idx119.i = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %.sroa.11115.0.copyload120.i = load ptr, ptr %.sroa.11115.0..sroa_idx119.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.13.0..sroa_idx130.i = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %.sroa.13.0.copyload131.i = load i64, ptr %.sroa.13.0..sroa_idx130.i, align 8, !alias.scope !72, !noalias !65
   br label %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i"
 
 111:                                              ; preds = %109
-  %.sroa.7.0..sroa_idx90.i = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %.sroa.7.i.sroa.0.0.copyload329 = load i56, ptr %.sroa.7.0..sroa_idx90.i, align 1, !noalias !65
-  %.sroa.792.0..sroa_idx94.i = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.sroa.792.0.copyload95.i = load i8, ptr %.sroa.792.0..sroa_idx94.i, align 8, !alias.scope !72, !noalias !65
-  %.sroa.8.0..sroa_idx99.i = getelementptr inbounds nuw i8, ptr %101, i64 9
-  %.sroa.8.0.copyload100.i = load i8, ptr %.sroa.8.0..sroa_idx99.i, align 1, !alias.scope !72, !noalias !65
-  %.sroa.9.0..sroa_idx104.i = getelementptr inbounds nuw i8, ptr %101, i64 10
-  %.sroa.9.0.copyload105.i = load i16, ptr %.sroa.9.0..sroa_idx104.i, align 2, !alias.scope !72, !noalias !65
-  %.sroa.10108.0..sroa_idx110.i = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %.sroa.10108.0.copyload111.i = load i32, ptr %.sroa.10108.0..sroa_idx110.i, align 4, !alias.scope !72, !noalias !65
-  %.sroa.11114.0..sroa_idx116.i = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %.sroa.11114.0.copyload117.i = load ptr, ptr %.sroa.11114.0..sroa_idx116.i, align 8, !alias.scope !72, !noalias !65
-  %.sroa.13.0..sroa_idx127.i = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %.sroa.13.0.copyload128.i = load i64, ptr %.sroa.13.0..sroa_idx127.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.7.0..sroa_idx91.i = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %.sroa.7.i.sroa.0.0.copyload329 = load i56, ptr %.sroa.7.0..sroa_idx91.i, align 1, !noalias !65
+  %.sroa.793.0..sroa_idx95.i = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %.sroa.793.0.copyload96.i = load i8, ptr %.sroa.793.0..sroa_idx95.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.8.0..sroa_idx100.i = getelementptr inbounds nuw i8, ptr %101, i64 9
+  %.sroa.8.0.copyload101.i = load i8, ptr %.sroa.8.0..sroa_idx100.i, align 1, !alias.scope !72, !noalias !65
+  %.sroa.9.0..sroa_idx105.i = getelementptr inbounds nuw i8, ptr %101, i64 10
+  %.sroa.9.0.copyload106.i = load i16, ptr %.sroa.9.0..sroa_idx105.i, align 2, !alias.scope !72, !noalias !65
+  %.sroa.10109.0..sroa_idx111.i = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %.sroa.10109.0.copyload112.i = load i32, ptr %.sroa.10109.0..sroa_idx111.i, align 4, !alias.scope !72, !noalias !65
+  %.sroa.11115.0..sroa_idx117.i = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %.sroa.11115.0.copyload118.i = load ptr, ptr %.sroa.11115.0..sroa_idx117.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.13.0..sroa_idx128.i = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %.sroa.13.0.copyload129.i = load i64, ptr %.sroa.13.0..sroa_idx128.i, align 8, !alias.scope !72, !noalias !65
   br label %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i"
 
 112:                                              ; preds = %109
-  %.sroa.7.0..sroa_idx89.i = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %.sroa.7.i.sroa.0.0.copyload = load i56, ptr %.sroa.7.0..sroa_idx89.i, align 1, !noalias !65
-  %.sroa.792.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.sroa.792.0.copyload93.i = load i8, ptr %.sroa.792.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.7.0..sroa_idx90.i = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %.sroa.7.i.sroa.0.0.copyload = load i56, ptr %.sroa.7.0..sroa_idx90.i, align 1, !noalias !65
+  %.sroa.793.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %.sroa.793.0.copyload94.i = load i8, ptr %.sroa.793.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 9
-  %.sroa.8.0.copyload98.i = load i8, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !72, !noalias !65
+  %.sroa.8.0.copyload99.i = load i8, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !72, !noalias !65
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 10
-  %.sroa.9.0.copyload103.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !72, !noalias !65
-  %.sroa.10108.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %.sroa.10108.0.copyload109.i = load i32, ptr %.sroa.10108.0..sroa_idx.i, align 4, !alias.scope !72, !noalias !65
-  %.sroa.11114.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %.sroa.11114.0.copyload115.i = load ptr, ptr %.sroa.11114.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.9.0.copyload104.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !72, !noalias !65
+  %.sroa.10109.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %.sroa.10109.0.copyload110.i = load i32, ptr %.sroa.10109.0..sroa_idx.i, align 4, !alias.scope !72, !noalias !65
+  %.sroa.11115.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %.sroa.11115.0.copyload116.i = load ptr, ptr %.sroa.11115.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %.sroa.13.0.copyload126.i = load i64, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.13.0.copyload127.i = load i64, ptr %.sroa.13.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !65
   br label %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i"
 
 113:                                              ; preds = %109
@@ -597,28 +597,28 @@ default.unreachable:                              ; preds = %.noexc44, %109
   unreachable
 
 126:                                              ; preds = %108
-  store i32 %.sroa.6133.48.copyload.i, ptr %48, align 4, !noalias !52
-  store i32 %.sroa.7134.48.copyload.i, ptr %88, align 4, !noalias !52
+  store i32 %.sroa.6134.48.copyload.i, ptr %48, align 4, !noalias !52
+  store i32 %.sroa.7135.48.copyload.i, ptr %88, align 4, !noalias !52
   %127 = invoke { i1, i8 } @_ZN5wasmi6global6Global2ty17h1087fa8c56f27fc3E(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59)
           to label %133 unwind label %103, !noalias !65
 
 128:                                              ; preds = %108
   %129 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.6133.48.copyload.i, ptr %52, align 4, !noalias !52
-  store i32 %.sroa.7134.48.copyload.i, ptr %87, align 4, !noalias !52
+  store i32 %.sroa.6134.48.copyload.i, ptr %52, align 4, !noalias !52
+  store i32 %.sroa.7135.48.copyload.i, ptr %87, align 4, !noalias !52
   invoke void @_ZN5wasmi5table5Table10dynamic_ty17haf921e13d457ddd2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %51, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59)
           to label %158 unwind label %103, !noalias !65
 
 130:                                              ; preds = %108
   %131 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %.sroa.6133.48.copyload.i, ptr %50, align 4, !noalias !52
-  store i32 %.sroa.7134.48.copyload.i, ptr %86, align 4, !noalias !52
+  store i32 %.sroa.6134.48.copyload.i, ptr %50, align 4, !noalias !52
+  store i32 %.sroa.7135.48.copyload.i, ptr %86, align 4, !noalias !52
   invoke void @_ZN5wasmi6memory6Memory10dynamic_ty17h8fc3de3473167d46E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %49, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59)
           to label %165 unwind label %103, !noalias !65
 
 132:                                              ; preds = %108
-  store i32 %.sroa.6133.48.copyload.i, ptr %54, align 4, !noalias !52
-  store i32 %.sroa.7134.48.copyload.i, ptr %80, align 4, !noalias !52
+  store i32 %.sroa.6134.48.copyload.i, ptr %54, align 4, !noalias !52
+  store i32 %.sroa.7135.48.copyload.i, ptr %80, align 4, !noalias !52
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !52
   invoke void @_ZN5wasmi4func4Func2ty17h74c96ba00002d19eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59)
           to label %172 unwind label %103, !noalias !65
@@ -632,8 +632,8 @@ default.unreachable:                              ; preds = %.noexc44, %109
   %139 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %140 = load i8, ptr %139, align 2, !range !3, !noalias !65, !noundef !7
   %141 = icmp eq i8 %135, %140
-  %.not79.i = icmp eq i8 %138, %136
-  %or.cond.i = select i1 %141, i1 %.not79.i, i1 false
+  %.not80.i = icmp eq i8 %138, %136
+  %or.cond.i = select i1 %141, i1 %.not80.i, i1 false
   br i1 %or.cond.i, label %142, label %.loopexit422
 
 142:                                              ; preds = %133
@@ -662,17 +662,17 @@ default.unreachable:                              ; preds = %.noexc44, %109
   %.sroa.17.sroa.0.0 = phi i8 [ undef, %161 ], [ undef, %168 ], [ undef, %227 ], [ %.sroa.17.sroa.0.0.extract.trunc195, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %135, %133 ]
   %.sroa.19.sroa.0.sroa.10.0 = phi i16 [ %.sroa.19.sroa.0.sroa.10.0.extract.trunc191, %161 ], [ %.sroa.19.sroa.0.sroa.10.0.extract.trunc189, %168 ], [ %.sroa.551.0.i, %227 ], [ %.sroa.19.sroa.0.sroa.10.0.extract.trunc, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.19.sroa.0.sroa.9.0 = phi i8 [ %.sroa.19.sroa.0.sroa.9.0.extract.trunc185, %161 ], [ %.sroa.19.sroa.0.sroa.9.0.extract.trunc183, %168 ], [ %.sroa.548.0.i, %227 ], [ %.sroa.19.sroa.0.sroa.9.0.extract.trunc, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
-  %.sroa.19.sroa.0.sroa.0.0 = phi i32 [ %.sroa.19.sroa.0.sroa.0.0.extract.trunc180, %161 ], [ %.sroa.19.sroa.0.sroa.0.0.extract.trunc179, %168 ], [ %.sroa.046.0.i, %227 ], [ %.sroa.6133.48.copyload.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 0, %133 ]
-  %.sroa.19.sroa.11.0 = phi i32 [ %.sroa.19.sroa.11.0.extract.trunc176, %161 ], [ %.sroa.19.sroa.11.0.extract.trunc, %168 ], [ %.sroa.654.0.i, %227 ], [ %.sroa.7134.48.copyload.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
+  %.sroa.19.sroa.0.sroa.0.0 = phi i32 [ %.sroa.19.sroa.0.sroa.0.0.extract.trunc180, %161 ], [ %.sroa.19.sroa.0.sroa.0.0.extract.trunc179, %168 ], [ %.sroa.046.0.i, %227 ], [ %.sroa.6134.48.copyload.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ 0, %133 ]
+  %.sroa.19.sroa.11.0 = phi i32 [ %.sroa.19.sroa.11.0.extract.trunc176, %161 ], [ %.sroa.19.sroa.11.0.extract.trunc, %168 ], [ %.sroa.654.0.i, %227 ], [ %.sroa.7135.48.copyload.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.26.sroa.9.sroa.0.0 = phi i56 [ %.sroa.26.sroa.9.0.extract.trunc168, %161 ], [ %.sroa.26.sroa.9.0.extract.trunc, %168 ], [ %.sroa.26.sroa.9.0.extract.trunc170, %227 ], [ %.sroa.7.i.sroa.0.0, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.26.sroa.0.0 = phi i8 [ %.sroa.26.sroa.0.0.extract.trunc164, %161 ], [ %.sroa.26.sroa.0.0.extract.trunc, %168 ], [ %.sroa.26.sroa.0.0.extract.trunc165, %227 ], [ %106, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
-  %.sroa.30.sroa.10.0 = phi i32 [ %.sroa.30.sroa.10.0.extract.trunc161, %161 ], [ %.sroa.30.sroa.10.0.extract.trunc, %168 ], [ %.sroa.30.sroa.10.0.extract.trunc163, %227 ], [ %.sroa.10108.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
+  %.sroa.30.sroa.10.0 = phi i32 [ %.sroa.30.sroa.10.0.extract.trunc161, %161 ], [ %.sroa.30.sroa.10.0.extract.trunc, %168 ], [ %.sroa.30.sroa.10.0.extract.trunc163, %227 ], [ %.sroa.10109.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.30.sroa.9.0 = phi i16 [ %.sroa.30.sroa.9.0.extract.trunc157, %161 ], [ %.sroa.30.sroa.9.0.extract.trunc, %168 ], [ %.sroa.30.sroa.9.0.extract.trunc159, %227 ], [ %.sroa.9.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.30.sroa.8.0 = phi i8 [ %.sroa.30.sroa.8.0.extract.trunc153, %161 ], [ %.sroa.30.sroa.8.0.extract.trunc, %168 ], [ %.sroa.30.sroa.8.0.extract.trunc155, %227 ], [ %.sroa.8.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
-  %.sroa.30.sroa.0.0 = phi i8 [ %.sroa.30.sroa.0.0.extract.trunc150, %161 ], [ %.sroa.30.sroa.0.0.extract.trunc, %168 ], [ %.sroa.30.sroa.0.0.extract.trunc151, %227 ], [ %.sroa.792.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
+  %.sroa.30.sroa.0.0 = phi i8 [ %.sroa.30.sroa.0.0.extract.trunc150, %161 ], [ %.sroa.30.sroa.0.0.extract.trunc, %168 ], [ %.sroa.30.sroa.0.0.extract.trunc151, %227 ], [ %.sroa.793.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.40.0 = phi i64 [ %.sroa.40.40.copyload148, %161 ], [ %.sroa.40.40.copyload, %168 ], [ %.sroa.7326.0, %227 ], [ %.sroa.13.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
-  %.sroa.37.0 = phi i64 [ %.sroa.37.40.copyload146, %161 ], [ %.sroa.37.40.copyload, %168 ], [ %.sroa.6323.0, %227 ], [ %.sroa.12120.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
-  %.sroa.35.0 = phi ptr [ %.sroa.47.i.sroa.10.7.copyload, %161 ], [ %.sroa.410.i.sroa.10.7.copyload, %168 ], [ %.sroa.0321.0, %227 ], [ %.sroa.11114.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
+  %.sroa.37.0 = phi i64 [ %.sroa.37.40.copyload146, %161 ], [ %.sroa.37.40.copyload, %168 ], [ %.sroa.6323.0, %227 ], [ %.sroa.12121.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
+  %.sroa.35.0 = phi ptr [ %.sroa.47.i.sroa.10.7.copyload, %161 ], [ %.sroa.410.i.sroa.10.7.copyload, %168 ], [ %.sroa.0321.0, %227 ], [ %.sroa.11115.0.i, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ undef, %133 ]
   %.sroa.16.0 = phi i8 [ undef, %161 ], [ undef, %168 ], [ undef, %227 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %136, %133 ]
   %.sroa.15.0 = phi i8 [ undef, %161 ], [ undef, %168 ], [ undef, %227 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %140, %133 ]
   %.sroa.12.0 = phi i8 [ undef, %161 ], [ undef, %168 ], [ undef, %227 ], [ undef, %"_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i" ], [ %138, %133 ]
@@ -957,18 +957,18 @@ default.unreachable:                              ; preds = %.noexc44, %109
 
 "_ZN75_$LT$wasmi..instance..exports..ExternType$u20$as$u20$core..clone..Clone$GT$5clone17h988cbc2159fc9086E.exit.i": ; preds = %124, %117, %112, %111, %110
   %.sroa.7.i.sroa.0.0 = phi i56 [ %.sroa.7.i.sroa.0.0.copyload330, %110 ], [ %.sroa.7.i.sroa.0.0.copyload329, %111 ], [ %.sroa.7.i.sroa.0.0.copyload, %112 ], [ undef, %117 ], [ undef, %124 ]
-  %.sroa.10108.0.i = phi i32 [ %.sroa.10108.0.copyload113.i, %110 ], [ %.sroa.10108.0.copyload111.i, %111 ], [ %.sroa.10108.0.copyload109.i, %112 ], [ undef, %117 ], [ %.sroa.6.0.copyload.i.i, %124 ]
-  %.sroa.9.0.i = phi i16 [ %.sroa.9.0.copyload107.i, %110 ], [ %.sroa.9.0.copyload105.i, %111 ], [ %.sroa.9.0.copyload103.i, %112 ], [ %119, %117 ], [ %.sroa.54.0.copyload.i.i, %124 ]
-  %.sroa.8.0.i = phi i8 [ %.sroa.8.0.copyload102.i, %110 ], [ %.sroa.8.0.copyload100.i, %111 ], [ %.sroa.8.0.copyload98.i, %112 ], [ undef, %117 ], [ %.sroa.5.0.copyload.i.i, %124 ]
-  %.sroa.792.0.i = phi i8 [ %.sroa.792.0.copyload97.i, %110 ], [ %.sroa.792.0.copyload95.i, %111 ], [ %.sroa.792.0.copyload93.i, %112 ], [ 1, %117 ], [ 0, %124 ]
-  %.sroa.11114.0.i = phi ptr [ %.sroa.11114.0.copyload119.i, %110 ], [ %.sroa.11114.0.copyload117.i, %111 ], [ %.sroa.11114.0.copyload115.i, %112 ], [ %121, %117 ], [ %.sroa.69.0.pre.i.i, %124 ]
-  %.sroa.13.0.i = phi i64 [ %.sroa.13.0.copyload130.i, %110 ], [ %.sroa.13.0.copyload128.i, %111 ], [ %.sroa.13.0.copyload126.i, %112 ], [ undef, %117 ], [ undef, %124 ]
-  %.sroa.12120.0.in.i = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %.sroa.12120.0.i = load i64, ptr %.sroa.12120.0.in.i, align 8, !alias.scope !72, !noalias !65
+  %.sroa.10109.0.i = phi i32 [ %.sroa.10109.0.copyload114.i, %110 ], [ %.sroa.10109.0.copyload112.i, %111 ], [ %.sroa.10109.0.copyload110.i, %112 ], [ undef, %117 ], [ %.sroa.6.0.copyload.i.i, %124 ]
+  %.sroa.9.0.i = phi i16 [ %.sroa.9.0.copyload108.i, %110 ], [ %.sroa.9.0.copyload106.i, %111 ], [ %.sroa.9.0.copyload104.i, %112 ], [ %119, %117 ], [ %.sroa.54.0.copyload.i.i, %124 ]
+  %.sroa.8.0.i = phi i8 [ %.sroa.8.0.copyload103.i, %110 ], [ %.sroa.8.0.copyload101.i, %111 ], [ %.sroa.8.0.copyload99.i, %112 ], [ undef, %117 ], [ %.sroa.5.0.copyload.i.i, %124 ]
+  %.sroa.793.0.i = phi i8 [ %.sroa.793.0.copyload98.i, %110 ], [ %.sroa.793.0.copyload96.i, %111 ], [ %.sroa.793.0.copyload94.i, %112 ], [ 1, %117 ], [ 0, %124 ]
+  %.sroa.11115.0.i = phi ptr [ %.sroa.11115.0.copyload120.i, %110 ], [ %.sroa.11115.0.copyload118.i, %111 ], [ %.sroa.11115.0.copyload116.i, %112 ], [ %121, %117 ], [ %.sroa.69.0.pre.i.i, %124 ]
+  %.sroa.13.0.i = phi i64 [ %.sroa.13.0.copyload131.i, %110 ], [ %.sroa.13.0.copyload129.i, %111 ], [ %.sroa.13.0.copyload127.i, %112 ], [ undef, %117 ], [ undef, %124 ]
+  %.sroa.12121.0.in.i = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %.sroa.12121.0.i = load i64, ptr %.sroa.12121.0.in.i, align 8, !alias.scope !72, !noalias !65
   %.sroa.17.sroa.0.0.extract.trunc195 = trunc nuw nsw i32 %96 to i8
-  %.sroa.19.sroa.0.sroa.9.0.extract.shift = lshr i32 %.sroa.6133.48.copyload.i, 8
+  %.sroa.19.sroa.0.sroa.9.0.extract.shift = lshr i32 %.sroa.6134.48.copyload.i, 8
   %.sroa.19.sroa.0.sroa.9.0.extract.trunc = trunc i32 %.sroa.19.sroa.0.sroa.9.0.extract.shift to i8
-  %.sroa.19.sroa.0.sroa.10.0.extract.shift = lshr i32 %.sroa.6133.48.copyload.i, 16
+  %.sroa.19.sroa.0.sroa.10.0.extract.shift = lshr i32 %.sroa.6134.48.copyload.i, 16
   %.sroa.19.sroa.0.sroa.10.0.extract.trunc = trunc nuw i32 %.sroa.19.sroa.0.sroa.10.0.extract.shift to i16
   br label %.loopexit422
 
