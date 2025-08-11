@@ -27207,7 +27207,7 @@ define void @"_ZN100_$LT$terminal..terminal_settings..TerminalSettings$u20$as$u2
 
 22:                                               ; preds = %21
   %23 = icmp eq i64 %.sroa.13.0.us.i, 2
-  br i1 %23, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, label %24
+  br i1 %23, label %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i, label %24
 
 24:                                               ; preds = %22
   %trunc.i.i.i.i.i.i.i.i.i.i.i.us.i = trunc nuw i64 %.sroa.13.0.us.i to i1
@@ -27220,9 +27220,9 @@ define void @"_ZN100_$LT$terminal..terminal_settings..TerminalSettings$u20$as$u2
 _ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i: ; preds = %25, %24
   %.sroa.16.1.us.i = phi ptr [ %.sroa.16.0.us.i, %24 ], [ null, %25 ]
   %27 = icmp eq ptr %.sroa.19.0.us.i, null
-  br i1 %27, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, label %34
+  br i1 %27, label %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i, label %34
 
-_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i: ; preds = %22, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i
+_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i: ; preds = %22, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i
   %.sroa.16.2.us.i = phi ptr [ %.sroa.16.0.us.i, %22 ], [ %.sroa.16.1.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i ]
   %.sroa.19.2.us.i = phi ptr [ %.sroa.19.0.us.i, %22 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i ]
   %28 = icmp eq ptr %.sroa.11.0.us.i, null

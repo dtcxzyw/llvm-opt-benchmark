@@ -7739,7 +7739,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %.not67 = icmp eq i32 %.sroa.054.086, 0
   br i1 %.not67, label %._crit_edge.i52, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %69, %78
+.lr.ph.i:                                         ; preds = %69, %79
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %69 ]
   %71 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.079, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %67, i64 %indvars.iv.i
@@ -7748,36 +7748,36 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %74 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %73, i8 noundef zeroext 9) #31
   store ptr %74, ptr %72, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread, label %78
+  br i1 %75, label %76, label %79
 
-_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread: ; preds = %.lr.ph.i
-  %76 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %76, ptr %77, align 4
+76:                                               ; preds = %.lr.ph.i
+  %77 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %77, ptr %78, align 4
   br label %.loopexit.thread.i.i.i
 
-78:                                               ; preds = %.lr.ph.i
+79:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next.i, %65
   br i1 %exitcond128.not, label %._crit_edge.i52, label %.lr.ph.i, !llvm.loop !34
 
-._crit_edge.i52:                                  ; preds = %78, %69
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sroa.054.086, ptr %79, align 4
-  %80 = load i8, ptr @IgnoreUnrecognizedVMOptions, align 1
-  %81 = and i8 %80, 1
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 %81, ptr %82, align 8
+._crit_edge.i52:                                  ; preds = %79, %69
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sroa.054.086, ptr %80, align 4
+  %81 = load i8, ptr @IgnoreUnrecognizedVMOptions, align 1
+  %82 = and i8 %81, 1
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 %82, ptr %83, align 8
   br label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
 
 _ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit: ; preds = %._crit_edge.i52, %.critedge.thread, %.critedge51
-  %.sroa.17.078 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %.critedge.thread ]
-  %.0 = phi i32 [ -1, %.critedge51 ], [ 0, %._crit_edge.i52 ], [ -4, %.critedge.thread ]
+  %.sroa.10.082 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %.critedge.thread ]
+  %.sroa.17.078 = phi i32 [ -1, %.critedge51 ], [ 0, %._crit_edge.i52 ], [ -4, %.critedge.thread ]
   %.not.i.i.i53 = icmp eq ptr %.sroa.17.078, null
   br i1 %.not.i.i.i53, label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i.i.i:                           ; preds = %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
-  %.0133 = phi i32 [ -4, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread ], [ %.0, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
+.loopexit.thread.i.i.i:                           ; preds = %76, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
+  %.0133 = phi i32 [ -4, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread ], [ %.sroa.17.078, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
   %.sroa.17.078132 = phi ptr [ %.sroa.17.079, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread ], [ %.sroa.17.078, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.17.078132) #31
   br label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit
