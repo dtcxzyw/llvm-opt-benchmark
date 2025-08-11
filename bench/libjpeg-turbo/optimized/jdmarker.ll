@@ -2322,7 +2322,7 @@ define internal range(i32 0, 2) i32 @get_interesting_appn(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %wide.trip.count = zext i32 %.060 to i64
+  %wide.trip.count = zext nneg i32 %.060 to i64
   br label %37
 
 37:                                               ; preds = %.lr.ph, %45
@@ -2446,8 +2446,8 @@ define internal range(i32 0, 2) i32 @get_interesting_appn(ptr noundef %0) #0 {
   %107 = load ptr, ptr %0, align 8, !tbaa !30
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store i32 78, ptr %108, align 8, !tbaa !31
-  %109 = trunc i64 %48 to i32
-  %110 = add i32 %.060, %109
+  %109 = trunc nsw i64 %48 to i32
+  %110 = add nsw i32 %.060, %109
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 44
   store i32 %110, ptr %111, align 4, !tbaa !34
   %112 = load ptr, ptr %0, align 8, !tbaa !30

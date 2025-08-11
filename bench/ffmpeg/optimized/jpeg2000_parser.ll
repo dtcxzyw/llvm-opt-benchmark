@@ -51,8 +51,8 @@ define internal i32 @jpeg2000_parse(ptr noundef readonly captures(none) %0, ptr 
   %.098155.i = phi i64 [ %18, %.lr.ph.i ], [ %.3101.i, %info_marker.exit.thread.i ]
   %.0102154.i = phi i64 [ %19, %.lr.ph.i ], [ %36, %info_marker.exit.thread.i ]
   %31 = shl i64 %.0102154.i, 8
-  %32 = sext i32 %.097156.i to i64
-  %33 = getelementptr inbounds i8, ptr %4, i64 %32
+  %32 = zext nneg i32 %.097156.i to i64
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = zext i8 %34 to i64
   %36 = or disjoint i64 %31, %35
@@ -83,7 +83,7 @@ define internal i32 @jpeg2000_parse(ptr noundef readonly captures(none) %0, ptr 
 .thread.i:                                        ; preds = %48, %40
   %50 = phi i32 [ %spec.select.i, %48 ], [ 2147483647, %40 ]
   %51 = sub i32 %30, %50
-  %52 = add nsw i32 %50, %.097156.i
+  %52 = add nuw nsw i32 %50, %.097156.i
   %53 = zext nneg i32 %50 to i64
   %54 = add i64 %37, %53
   br label %55
@@ -224,7 +224,7 @@ define internal i32 @jpeg2000_parse(ptr noundef readonly captures(none) %0, ptr 
   store i8 0, ptr %28, align 4, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, i8 0, i64 9, i1 false)
-  %101 = add nsw i32 %.097156.i, 1
+  %101 = add nuw nsw i32 %.097156.i, 1
   br label %find_frame_end.exit
 
 .thread129.i:                                     ; preds = %99, %97, %95
@@ -268,7 +268,7 @@ info_marker.exit.i:                               ; preds = %107
   %116 = trunc nuw nsw i64 %84 to i32
   %117 = add nsw i32 %116, -1
   store i32 %117, ptr %21, align 8, !tbaa !20
-  %118 = add i32 %.097156.i, %116
+  %118 = add nuw i32 %.097156.i, %116
   %119 = icmp ult i32 %118, %5
   br i1 %119, label %120, label %info_marker.exit.thread.i
 
@@ -299,7 +299,7 @@ info_marker.exit.thread.i:                        ; preds = %131, %info_marker.e
   %133 = phi i32 [ %57, %55 ], [ %64, %63 ], [ 0, %82 ], [ 0, %91 ], [ 0, %88 ], [ 0, %87 ], [ 0, %.thread129.i ], [ 0, %106 ], [ %117, %115 ], [ 0, %113 ], [ 0, %info_marker.exit.i ], [ 0, %102 ], [ %132, %131 ], [ %117, %info_marker.exit128.i ], [ 0, %107 ], [ %117, %120 ]
   %.3101.i = phi i64 [ %.199.i, %55 ], [ %37, %63 ], [ %37, %82 ], [ %37, %91 ], [ %37, %88 ], [ %37, %87 ], [ %37, %.thread129.i ], [ %37, %106 ], [ %37, %115 ], [ %37, %113 ], [ %37, %info_marker.exit.i ], [ %37, %102 ], [ %37, %131 ], [ %37, %info_marker.exit128.i ], [ %37, %107 ], [ %37, %120 ]
   %.3.i = phi i32 [ %.1.i, %55 ], [ %.097156.i, %63 ], [ %.097156.i, %82 ], [ %.097156.i, %91 ], [ %.097156.i, %88 ], [ %.097156.i, %87 ], [ %.097156.i, %.thread129.i ], [ %.097156.i, %106 ], [ %.097156.i, %115 ], [ %.097156.i, %113 ], [ %.097156.i, %info_marker.exit.i ], [ %.097156.i, %102 ], [ %.097156.i, %131 ], [ %.097156.i, %info_marker.exit128.i ], [ %.097156.i, %107 ], [ %.097156.i, %120 ]
-  %134 = add nsw i32 %.3.i, 1
+  %134 = add nuw nsw i32 %.3.i, 1
   %135 = icmp slt i32 %134, %5
   br i1 %135, label %29, label %._crit_edge.i, !llvm.loop !28
 
