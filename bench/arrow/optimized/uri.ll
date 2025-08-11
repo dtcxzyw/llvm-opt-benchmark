@@ -347,7 +347,7 @@ define void @_ZN5arrow4util13UriEncodeHostB5cxx11ESt17basic_string_viewIcSt11cha
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %10, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %13, %10 ]
   %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %11, %10 ]
-  %8 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 58, i64 noundef %.033.i.i) #25
+  %8 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 58, i64 noundef %.033.i.i) #25
   %.not26.i.i = icmp eq ptr %8, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -472,10 +472,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = 
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %47
   %51 = phi ptr [ %49, %.noexc.i.i.i ], [ %45, %47 ]
-  switch i64 %1, label %54 [
-    i64 1, label %52
-    i64 0, label %55
-  ]
+  %cond = icmp eq i64 %1, 1
+  br i1 %cond, label %52, label %54
 
 52:                                               ; preds = %._crit_edge.i.i.i.i
   %53 = load i8, ptr %2, align 1, !tbaa !12
@@ -486,7 +484,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %2, i64 %1, i1 false)
   br label %55
 
-55:                                               ; preds = %._crit_edge.i.i.i.i.thread, %54, %52, %._crit_edge.i.i.i.i
+55:                                               ; preds = %._crit_edge.i.i.i.i.thread, %54, %52
   %56 = load i64, ptr %4, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %56, ptr %57, align 8, !tbaa !9
@@ -631,7 +629,7 @@ switch.early.test.i.i35.i.i.i.i:                  ; preds = %20
   br i1 %or.cond14.i.i38.i.i.i.i, label %32, label %switch.early.test.i.i39.i.i.i.i
 
 switch.early.test.i.i39.i.i.i.i:                  ; preds = %26
-  switch i8 %.val30.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18" [
+  switch i8 %.val30.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20" [
     i8 45, label %32
     i8 43, label %32
     i8 46, label %32
@@ -649,7 +647,7 @@ switch.early.test.i.i39.i.i.i.i:                  ; preds = %26
   br i1 %or.cond14.i.i42.i.i.i.i, label %38, label %switch.early.test.i.i43.i.i.i.i
 
 switch.early.test.i.i43.i.i.i.i:                  ; preds = %32
-  switch i8 %.val31.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20" [
+  switch i8 %.val31.i.i.i.i, label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22" [
     i8 45, label %38
     i8 43, label %38
     i8 46, label %38
@@ -739,16 +737,16 @@ switch.early.test.i.i55.i.i.i.i:                  ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 1
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18": ; preds = %switch.early.test.i.i39.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20": ; preds = %switch.early.test.i.i39.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 2
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20": ; preds = %switch.early.test.i.i43.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22": ; preds = %switch.early.test.i.i43.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 3
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i51.i.i.i.i, %switch.early.test.i.i55.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i"
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %.1.i.i.i.i, %switch.early.test.i.i51.i.i.i.i ], [ %.2.i.i.i.i, %switch.early.test.i.i55.i.i.i.i ], [ %11, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i" ], [ %11, %._crit_edge.i.i.i.i ], [ %62, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" ], [ %63, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18" ], [ %64, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20" ], [ %.02967.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22", %._crit_edge.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i51.i.i.i.i, %switch.early.test.i.i55.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i"
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %.1.i.i.i.i, %switch.early.test.i.i51.i.i.i.i ], [ %.2.i.i.i.i, %switch.early.test.i.i55.i.i.i.i ], [ %11, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i" ], [ %11, %._crit_edge.i.i.i.i ], [ %62, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" ], [ %63, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20" ], [ %64, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22" ], [ %.02967.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
   %65 = icmp eq ptr %11, %.028.i.i.i.i
   br label %66
 
@@ -2590,11 +2588,11 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
   br label %200
 
 200:                                              ; preds = %.sink.split, %193, %195
-  %.not63 = phi i1 [ true, %193 ], [ true, %195 ], [ false, %.sink.split ]
+  %.not94 = phi i1 [ true, %193 ], [ true, %195 ], [ false, %.sink.split ]
   %201 = getelementptr inbounds nuw i8, ptr %188, i64 248
   %202 = load i8, ptr %201, align 8, !tbaa !44, !range !45, !noundef !46
   %203 = trunc nuw i8 %202 to i1
-  %brmerge.not = and i1 %.not63, %203
+  %brmerge.not = and i1 %.not94, %203
   br i1 %brmerge.not, label %204, label %224
 
 204:                                              ; preds = %200

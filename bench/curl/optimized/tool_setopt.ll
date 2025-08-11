@@ -164,22 +164,22 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !19
   %15 = icmp eq i64 %14, %5
-  br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph44
+  br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph48
 
-.lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0243943 = phi ptr [ %16, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0243943, i64 16
+.lr.ph48:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0243947 = phi ptr [ %16, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0243947, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-.lr.ph:                                           ; preds = %.lr.ph44
-  %18 = getelementptr inbounds nuw i8, ptr %.0243943, i64 24
+.lr.ph:                                           ; preds = %.lr.ph48
+  %18 = getelementptr inbounds nuw i8, ptr %.0243947, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !19
   %20 = icmp eq i64 %19, %5
-  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph44, !llvm.loop !20
+  br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph48, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %.lr.ph44, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph48, %.preheader
   %21 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.58, ptr noundef %2, i64 noundef %5) #8
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %23, label %24
@@ -216,58 +216,58 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
 
 .preheader:                                       ; preds = %5
   %11 = and i64 %4, 65535
-  %.not4748 = icmp eq i64 %11, 0
-  br i1 %.not4748, label %._crit_edge, label %.lr.ph
+  %.not4752 = icmp eq i64 %11, 0
+  br i1 %.not4752, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.0294449 = phi ptr [ %12, %14 ], [ @setopt_nv_CURL_SSLVERSION, %.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %.0294449, i64 16
+  %.0294453 = phi ptr [ %12, %14 ], [ @setopt_nv_CURL_SSLVERSION, %.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %.0294453, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not38 = icmp eq ptr %13, null
-  br i1 %.not38, label %._crit_edge52, label %14, !llvm.loop !22
+  br i1 %.not38, label %._crit_edge56, label %14, !llvm.loop !22
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.0294449, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0294453, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !19
   %.not47 = icmp eq i64 %16, %11
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-._crit_edge52:                                    ; preds = %.lr.ph
+._crit_edge56:                                    ; preds = %.lr.ph
   br label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %14, %._crit_edge52, %.preheader
-  %.not47.lcssa = phi i1 [ false, %._crit_edge52 ], [ true, %.preheader ], [ true, %14 ]
-  %.lcssa43 = phi ptr [ null, %._crit_edge52 ], [ @.str.24, %.preheader ], [ %13, %14 ]
+._crit_edge:                                      ; preds = %14, %._crit_edge56, %.preheader
+  %.not47.lcssa = phi i1 [ false, %._crit_edge56 ], [ true, %.preheader ], [ true, %14 ]
+  %.lcssa43 = phi ptr [ null, %._crit_edge56 ], [ @.str.24, %.preheader ], [ %13, %14 ]
   %17 = and i64 %4, -65536
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge58, label %.lr.ph57
+  br i1 %18, label %._crit_edge62, label %.lr.ph61
 
-.lr.ph57:                                         ; preds = %._crit_edge, %21
-  %.0284655 = phi ptr [ %19, %21 ], [ @setopt_nv_CURL_SSLVERSION_MAX, %._crit_edge ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0284655, i64 16
+.lr.ph61:                                         ; preds = %._crit_edge, %21
+  %.0284659 = phi ptr [ %19, %21 ], [ @setopt_nv_CURL_SSLVERSION_MAX, %._crit_edge ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0284659, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %.not39 = icmp eq ptr %20, null
-  br i1 %.not39, label %._crit_edge60, label %21, !llvm.loop !23
+  br i1 %.not39, label %._crit_edge64, label %21, !llvm.loop !23
 
-21:                                               ; preds = %.lr.ph57
-  %22 = getelementptr inbounds nuw i8, ptr %.0284655, i64 24
+21:                                               ; preds = %.lr.ph61
+  %22 = getelementptr inbounds nuw i8, ptr %.0284659, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = icmp eq i64 %23, %17
-  br i1 %24, label %._crit_edge58, label %.lr.ph57, !llvm.loop !23
+  br i1 %24, label %._crit_edge62, label %.lr.ph61, !llvm.loop !23
 
-._crit_edge60:                                    ; preds = %.lr.ph57
-  br label %._crit_edge58, !llvm.loop !23
+._crit_edge64:                                    ; preds = %.lr.ph61
+  br label %._crit_edge62, !llvm.loop !23
 
-._crit_edge58:                                    ; preds = %21, %._crit_edge60, %._crit_edge
-  %.lcssa = phi ptr [ null, %._crit_edge60 ], [ @.str.32, %._crit_edge ], [ %20, %21 ]
+._crit_edge62:                                    ; preds = %21, %._crit_edge64, %._crit_edge
+  %.lcssa = phi ptr [ null, %._crit_edge64 ], [ @.str.32, %._crit_edge ], [ %20, %21 ]
   br i1 %.not47.lcssa, label %27, label %25
 
-25:                                               ; preds = %._crit_edge58
+25:                                               ; preds = %._crit_edge62
   %26 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.58, ptr noundef %2, i64 noundef %4) #8
   %.not41 = icmp eq i32 %26, 0
   br i1 %.not41, label %29, label %30
 
-27:                                               ; preds = %._crit_edge58
+27:                                               ; preds = %._crit_edge62
   %28 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.60, ptr noundef %2, ptr noundef nonnull %.lcssa43, ptr noundef %.lcssa) #8
   %.not42 = icmp eq i32 %28, 0
   br i1 %.not42, label %29, label %30
@@ -298,7 +298,7 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   %14 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull @.str.61, ptr noundef %2) #8
   %15 = load ptr, ptr %4, align 8, !tbaa !24
   %.not4353 = icmp eq ptr %15, null
-  br i1 %.not4353, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not4353, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %32
   %16 = phi ptr [ %34, %32 ], [ %15, %13 ]
@@ -336,21 +336,17 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   %.not43 = icmp eq ptr %34, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %32
-  %.not46 = icmp eq i64 %.2, 0
-  br i1 %.not46, label %.thread, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %13, %._crit_edge
-  %.029.lcssa59 = phi i64 [ %.2, %._crit_edge ], [ %5, %13 ]
-  %35 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.67, ptr noundef nonnull %7, i64 noundef %.029.lcssa59) #8
+._crit_edge:                                      ; preds = %32, %13
+  %.029.lcssa = phi i64 [ %5, %13 ], [ %.2, %32 ]
+  %35 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.67, ptr noundef nonnull %7, i64 noundef %.029.lcssa) #8
   %.not47 = icmp eq i32 %35, 0
   br i1 %.not47, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %27, %._crit_edge.thread, %._crit_edge
+.thread:                                          ; preds = %27, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %._crit_edge.thread, %.thread
-  %.233 = phi i32 [ 0, %.thread ], [ %35, %._crit_edge.thread ], [ %26, %22 ]
+.loopexit:                                        ; preds = %22, %._crit_edge, %.thread
+  %.233 = phi i32 [ 0, %.thread ], [ %35, %._crit_edge ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 

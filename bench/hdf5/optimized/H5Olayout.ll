@@ -345,13 +345,13 @@ define internal ptr @H5O__layout_decode(ptr noundef %0, ptr readnone captures(no
   store i32 0, ptr %124, align 8, !tbaa !20
   br label %127
 
-default.unreachable:                              ; preds = %87
+default.unreachable:                              ; preds = %620, %87
   unreachable
 
 127:                                              ; preds = %87, %123, %105
-  %.sink942 = phi i64 [ 1936, %123 ], [ 8, %105 ], [ 8, %87 ]
+  %.sink1003 = phi i64 [ 1936, %123 ], [ 8, %105 ], [ 8, %87 ]
   %H5D_COPS_BTREE.sink = phi ptr [ @H5D_COPS_BTREE, %123 ], [ @H5D_LOPS_CONTIG, %105 ], [ @H5D_LOPS_COMPACT, %87 ]
-  %128 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink942
+  %128 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink1003
   store ptr %H5D_COPS_BTREE.sink, ptr %128, align 8, !tbaa !20
   %129 = load i32, ptr %19, align 8, !tbaa !22
   %.not729 = icmp eq i32 %129, 2
@@ -491,8 +491,8 @@ default.unreachable:                              ; preds = %87
   %206 = ptrtoint ptr %202 to i64
   %207 = sub i64 %80, %206
   %208 = icmp ult i64 %207, 4
-  %or.cond945 = select i1 %205, i1 true, i1 %208
-  br i1 %or.cond945, label %209, label %213
+  %or.cond1006 = select i1 %205, i1 true, i1 %208
+  br i1 %or.cond1006, label %209, label %213
 
 209:                                              ; preds = %204
   %210 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
@@ -536,8 +536,8 @@ default.unreachable:                              ; preds = %87
   %235 = ptrtoint ptr %232 to i64
   %236 = sub i64 %80, %235
   %237 = icmp ugt i64 %231, %236
-  %or.cond948 = select i1 %234, i1 true, i1 %237
-  br i1 %or.cond948, label %238, label %242
+  %or.cond1009 = select i1 %234, i1 true, i1 %237
+  br i1 %or.cond1009, label %238, label %242
 
 238:                                              ; preds = %233
   %239 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
@@ -624,8 +624,8 @@ default.unreachable:                              ; preds = %87
   %284 = ptrtoint ptr %281 to i64
   %285 = sub i64 %265, %284
   %286 = icmp ugt i64 %280, %285
-  %or.cond951 = select i1 %283, i1 true, i1 %286
-  br i1 %or.cond951, label %287, label %291
+  %or.cond1012 = select i1 %283, i1 true, i1 %286
+  br i1 %or.cond1012, label %287, label %291
 
 287:                                              ; preds = %282
   %288 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
@@ -794,8 +794,8 @@ default.unreachable:                              ; preds = %87
   br label %.sink.split
 
 .sink.split:                                      ; preds = %342, %376, %378
-  %.sink952 = phi ptr [ %388, %378 ], [ %377, %376 ], [ %362, %342 ]
-  store ptr %.sink952, ptr %7, align 8, !tbaa !3
+  %.sink1013 = phi ptr [ %388, %378 ], [ %377, %376 ], [ %362, %342 ]
+  store ptr %.sink1013, ptr %7, align 8, !tbaa !3
   br label %389
 
 389:                                              ; preds = %.sink.split, %340
@@ -1127,7 +1127,7 @@ default.unreachable:                              ; preds = %87
 ._crit_edge845.thread:                            ; preds = %.lr.ph853
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 %570
   store ptr %572, ptr %7, align 8, !tbaa !3
-  br label %.loopexit919
+  br label %.loopexit980
 
 .lr.ph844:                                        ; preds = %.lr.ph853, %.lr.ph844
   %573 = phi i32 [ %579, %.lr.ph844 ], [ 0, %.lr.ph853 ]
@@ -1150,14 +1150,14 @@ default.unreachable:                              ; preds = %87
   %584 = icmp eq i32 %579, 0
   %585 = getelementptr inbounds nuw i8, ptr %576, i64 %582
   store ptr %585, ptr %7, align 8, !tbaa !3
-  br i1 %584, label %.loopexit919, label %586
+  br i1 %584, label %.loopexit980, label %586
 
 586:                                              ; preds = %._crit_edge845
   %587 = add nuw i32 %.0635851, 1
   %588 = icmp ult i32 %587, %525
   br i1 %588, label %.lr.ph853, label %._crit_edge854, !llvm.loop !31
 
-.loopexit919:                                     ; preds = %._crit_edge845, %._crit_edge845.thread
+.loopexit980:                                     ; preds = %._crit_edge845, %._crit_edge845.thread
   %589 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %590 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
   %591 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 365, i64 noundef %589, i64 noundef %590, ptr noundef nonnull @.str.10, i32 noundef %.0635851, i32 noundef 0) #12
@@ -1168,8 +1168,8 @@ default.unreachable:                              ; preds = %87
   %593 = load i32, ptr %592, align 4, !tbaa !20
   %594 = getelementptr inbounds nuw i8, ptr %19, i64 164
   store i32 %593, ptr %594, align 4, !tbaa !20
-  %.not959 = icmp eq i8 %524, 1
-  br i1 %.not959, label %._crit_edge858, label %.lr.ph857
+  %.not1020 = icmp eq i8 %524, 1
+  br i1 %.not1020, label %._crit_edge858, label %.lr.ph857
 
 .lr.ph857:                                        ; preds = %._crit_edge854
   %595 = zext nneg i8 %524 to i64
@@ -1219,7 +1219,7 @@ default.unreachable:                              ; preds = %87
 620:                                              ; preds = %611
   %621 = getelementptr inbounds nuw i8, ptr %19, i64 1920
   store i32 %614, ptr %621, align 8, !tbaa !20
-  switch i8 %613, label %default.unreachable918 [
+  switch i8 %613, label %default.unreachable [
     i8 0, label %622
     i8 2, label %883
     i8 1, label %626
@@ -1322,13 +1322,13 @@ default.unreachable:                              ; preds = %87
   br label %.thread791.sink.split
 
 .thread791.sink.split:                            ; preds = %642, %671, %673
-  %.sink953 = phi ptr [ %681, %673 ], [ %672, %671 ], [ %660, %642 ]
+  %.sink1014 = phi ptr [ %681, %673 ], [ %672, %671 ], [ %660, %642 ]
   %.1632.ph = phi i32 [ %680, %673 ], [ %669, %671 ], [ %659, %642 ]
-  store ptr %.sink953, ptr %7, align 8, !tbaa !3
+  store ptr %.sink1014, ptr %7, align 8, !tbaa !3
   br label %.thread791
 
 .thread791:                                       ; preds = %.thread791.sink.split, %640
-  %682 = phi ptr [ %612, %640 ], [ %.sink953, %.thread791.sink.split ]
+  %682 = phi ptr [ %612, %640 ], [ %.sink1014, %.thread791.sink.split ]
   %.1632 = phi i32 [ 0, %640 ], [ %.1632.ph, %.thread791.sink.split ]
   %683 = getelementptr inbounds nuw i8, ptr %19, i64 1944
   store i32 %.1632, ptr %683, align 8, !tbaa !20
@@ -1647,9 +1647,6 @@ default.unreachable:                              ; preds = %87
   %882 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 506, i64 noundef %879, i64 noundef %880, ptr noundef nonnull @.str.20, i32 noundef %881) #12
   br label %.thread785
 
-default.unreachable918:                           ; preds = %620
-  unreachable
-
 883:                                              ; preds = %873, %806, %716, %626, %.thread791, %620
   %H5D_COPS_BT2.sink = phi ptr [ @H5D_COPS_NONE, %620 ], [ @H5D_COPS_SINGLE, %.thread791 ], [ @H5D_COPS_SINGLE, %626 ], [ @H5D_COPS_FARRAY, %716 ], [ @H5D_COPS_EARRAY, %806 ], [ @H5D_COPS_BT2, %873 ]
   %884 = phi ptr [ %612, %620 ], [ %702, %.thread791 ], [ %612, %626 ], [ %717, %716 ], [ %807, %806 ], [ %874, %873 ]
@@ -1862,7 +1859,7 @@ default.unreachable918:                           ; preds = %620
 
 1014:                                             ; preds = %995, %1000
   %1015 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #12
-  switch i8 %1015, label %.thread915 [
+  switch i8 %1015, label %.thread977 [
     i8 4, label %1016
     i8 8, label %1036
     i8 2, label %1049
@@ -1930,11 +1927,11 @@ default.unreachable918:                           ; preds = %620
   br label %1059
 
 1059:                                             ; preds = %1049, %1047, %1016
-  %.sink955 = phi ptr [ %1058, %1049 ], [ %1048, %1047 ], [ %1035, %1016 ]
+  %.sink1016 = phi ptr [ %1058, %1049 ], [ %1048, %1047 ], [ %1035, %1016 ]
   %.1 = phi i64 [ %1057, %1049 ], [ %1045, %1047 ], [ %1034, %1016 ]
-  store ptr %.sink955, ptr %8, align 8, !tbaa !3
+  store ptr %.sink1016, ptr %8, align 8, !tbaa !3
   %.not710 = icmp eq i64 %.1, 0
-  br i1 %.not710, label %.thread915, label %1060
+  br i1 %.not710, label %.thread977, label %1060
 
 1060:                                             ; preds = %1059
   %1061 = mul i64 %.1, 224
@@ -1949,7 +1946,7 @@ default.unreachable918:                           ; preds = %620
   %1067 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 593, i64 noundef %1065, i64 noundef %1066, ptr noundef nonnull @.str.25) #12
   br label %.thread806
 
-.thread915:                                       ; preds = %1059, %1014
+.thread977:                                       ; preds = %1059, %1014
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %962, i8 0, i64 24, i1 false)
   br label %._crit_edge
 
@@ -2161,9 +2158,9 @@ default.unreachable918:                           ; preds = %620
   %1208 = getelementptr inbounds nuw i8, ptr %1203, i64 168
   %1209 = load i64, ptr %1208, align 8, !tbaa !45
   %1210 = icmp eq i64 %1209, 0
-  br i1 %1210, label %.sink.split956, label %1221
+  br i1 %1210, label %.sink.split1017, label %1221
 
-.sink.split956:                                   ; preds = %1207
+.sink.split1017:                                  ; preds = %1207
   %1211 = getelementptr inbounds nuw i8, ptr %1203, i64 128
   %1212 = load ptr, ptr %1211, align 8, !tbaa !46
   %.not711 = icmp eq ptr %1212, null
@@ -2178,13 +2175,13 @@ default.unreachable918:                           ; preds = %620
   %1218 = load ptr, ptr %1217, align 8, !tbaa !48
   %.not712 = icmp eq ptr %1218, null
   %1219 = getelementptr inbounds nuw i8, ptr %1216, i64 72
-  %.sink957.in = select i1 %.not712, ptr %1219, ptr %1218
-  %.sink957 = load ptr, ptr %.sink957.in, align 8, !tbaa !3
+  %.sink1018.in = select i1 %.not712, ptr %1219, ptr %1218
+  %.sink1018 = load ptr, ptr %.sink1018.in, align 8, !tbaa !3
   %1220 = getelementptr inbounds nuw i8, ptr %1216, i64 16
-  store ptr %.sink957, ptr %1220, align 8, !tbaa !49
+  store ptr %.sink1018, ptr %1220, align 8, !tbaa !49
   br label %1221
 
-1221:                                             ; preds = %.sink.split956, %1207, %1201
+1221:                                             ; preds = %.sink.split1017, %1207, %1201
   %1222 = load ptr, ptr %963, align 8, !tbaa !20
   %1223 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1222, i64 %.0840, i32 3
   %1224 = load ptr, ptr %1223, align 8, !tbaa !50
@@ -2271,7 +2268,7 @@ default.unreachable918:                           ; preds = %620
   %1282 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 738, i64 noundef %1280, i64 noundef %1281, ptr noundef nonnull @.str.37) #12
   br label %.thread806
 
-._crit_edge:                                      ; preds = %1068, %.thread915
+._crit_edge:                                      ; preds = %1068, %.thread977
   %1283 = load ptr, ptr %8, align 8, !tbaa !3
   %1284 = icmp ugt ptr %1283, %979
   br i1 %1284, label %1290, label %1285
@@ -2360,8 +2357,8 @@ default.unreachable918:                           ; preds = %620
   %1335 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 768, i64 noundef %1333, i64 noundef %1334, ptr noundef nonnull @.str.40) #12
   br label %.thread785
 
-.thread785:                                       ; preds = %28, %39, %253, %268, %287, %295, %316, %336, %397, %407, %413, %430, %448, %502, %511, %518, %528, %535, %545, %559, %607, %616, %622, %712, %721, %730, %739, %748, %757, %766, %775, %784, %793, %802, %811, %822, %850, %859, %869, %878, %898, %908, %925, %938, %1332, %482, %.loopexit919, %703, %.thread806, %48, %57, %64, %72, %83, %101, %139, %209, %238, %246, %149, %164, %119, %.thread
-  %.0625 = phi ptr [ null, %28 ], [ null, %39 ], [ null, %253 ], [ null, %1332 ], [ null, %268 ], [ null, %287 ], [ null, %295 ], [ null, %316 ], [ null, %336 ], [ null, %397 ], [ null, %407 ], [ null, %413 ], [ null, %430 ], [ null, %448 ], [ null, %482 ], [ null, %502 ], [ null, %511 ], [ null, %518 ], [ null, %528 ], [ null, %535 ], [ null, %545 ], [ null, %559 ], [ null, %607 ], [ null, %616 ], [ null, %622 ], [ null, %898 ], [ null, %703 ], [ null, %712 ], [ null, %721 ], [ null, %730 ], [ null, %739 ], [ null, %748 ], [ null, %757 ], [ null, %766 ], [ null, %775 ], [ null, %784 ], [ null, %793 ], [ null, %802 ], [ null, %811 ], [ null, %822 ], [ null, %850 ], [ null, %859 ], [ null, %869 ], [ null, %878 ], [ null, %.loopexit919 ], [ null, %908 ], [ null, %925 ], [ null, %938 ], [ %970, %.thread806 ], [ null, %48 ], [ null, %57 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %209 ], [ null, %238 ], [ null, %246 ], [ null, %149 ], [ null, %164 ], [ null, %119 ], [ null, %.thread ]
+.thread785:                                       ; preds = %28, %39, %253, %268, %287, %295, %316, %336, %397, %407, %413, %430, %448, %502, %511, %518, %528, %535, %545, %559, %607, %616, %622, %712, %721, %730, %739, %748, %757, %766, %775, %784, %793, %802, %811, %822, %850, %859, %869, %878, %898, %908, %925, %938, %1332, %482, %.loopexit980, %703, %.thread806, %48, %57, %64, %72, %83, %101, %139, %209, %238, %246, %149, %164, %119, %.thread
+  %.0625 = phi ptr [ null, %28 ], [ null, %39 ], [ null, %253 ], [ null, %1332 ], [ null, %268 ], [ null, %287 ], [ null, %295 ], [ null, %316 ], [ null, %336 ], [ null, %397 ], [ null, %407 ], [ null, %413 ], [ null, %430 ], [ null, %448 ], [ null, %482 ], [ null, %502 ], [ null, %511 ], [ null, %518 ], [ null, %528 ], [ null, %535 ], [ null, %545 ], [ null, %559 ], [ null, %607 ], [ null, %616 ], [ null, %622 ], [ null, %898 ], [ null, %703 ], [ null, %712 ], [ null, %721 ], [ null, %730 ], [ null, %739 ], [ null, %748 ], [ null, %757 ], [ null, %766 ], [ null, %775 ], [ null, %784 ], [ null, %793 ], [ null, %802 ], [ null, %811 ], [ null, %822 ], [ null, %850 ], [ null, %859 ], [ null, %869 ], [ null, %878 ], [ null, %.loopexit980 ], [ null, %908 ], [ null, %925 ], [ null, %938 ], [ %970, %.thread806 ], [ null, %48 ], [ null, %57 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %209 ], [ null, %238 ], [ null, %246 ], [ null, %149 ], [ null, %164 ], [ null, %119 ], [ null, %.thread ]
   %1336 = load i32, ptr %19, align 8, !tbaa !22
   %1337 = icmp eq i32 %1336, 3
   br i1 %1337, label %1338, label %1345
@@ -2955,9 +2952,9 @@ define internal noundef ptr @H5O__layout_copy(ptr noundef readonly captures(none
 10:                                               ; preds = %9
   %11 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_layout_t_reg_free_list) #12
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread35, label %16
+  br i1 %12, label %.thread38, label %16
 
-.thread35:                                        ; preds = %10
+.thread38:                                        ; preds = %10
   %13 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %14 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !13
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_copy, i32 noundef 971, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.42) #12
@@ -3032,9 +3029,9 @@ define internal noundef ptr @H5O__layout_copy(ptr noundef readonly captures(none
 51:                                               ; preds = %47, %43, %27
   br i1 %.not, label %52, label %.thread
 
-52:                                               ; preds = %.thread35, %51
-  %.12537 = phi ptr [ null, %.thread35 ], [ %.024, %51 ]
-  %53 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_t_reg_free_list, ptr noundef %.12537) #12
+52:                                               ; preds = %.thread38, %51
+  %.12540 = phi ptr [ null, %.thread38 ], [ %.024, %51 ]
+  %53 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_layout_t_reg_free_list, ptr noundef %.12540) #12
   br label %.thread
 
 .thread:                                          ; preds = %16, %18, %31, %37, %34, %40, %51, %52, %2

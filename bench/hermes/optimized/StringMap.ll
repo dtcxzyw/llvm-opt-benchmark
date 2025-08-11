@@ -91,7 +91,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr readonly captures(address) %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumBuckets, align 8
@@ -362,7 +362,7 @@ if.else.i.us:                                     ; preds = %while.body.i.us
 if.then13.i.us:                                   ; preds = %if.else.i.us
   %7 = load i64, ptr %5, align 8
   %cmp.i.i.us = icmp eq i64 %7, 0
-  br i1 %cmp.i.i.us, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i.us
+  br i1 %cmp.i.i.us, label %if.end, label %if.end23.i.us
 
 if.end23.i.us:                                    ; preds = %if.then13.i.us, %if.else.i.us, %while.body.i.us
   %add.i.us = add i32 %BucketNo.0.i.us, %ProbeAmt.0.i.us
@@ -397,20 +397,16 @@ land.rhs.i.i:                                     ; preds = %if.then13.i
   %add.ptr15.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext14.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
   %11 = icmp eq i32 %bcmp.i, 0
-  br i1 %11, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
+  br i1 %11, label %if.end, label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.rhs.i.i, %if.then13.i, %if.else.i, %while.body.i
   %add.i = add i32 %BucketNo.0.i, %ProbeAmt.0.i
   %inc.i = add i32 %ProbeAmt.0.i, 1
   br label %while.body.i, !llvm.loop !6
 
-_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %land.rhs.i.i, %if.then13.i.us
+if.end:                                           ; preds = %land.rhs.i.i, %if.then13.i.us
   %12 = phi ptr [ %4, %if.then13.i.us ], [ %2, %land.rhs.i.i ]
   %.us-phi = phi i32 [ %BucketNo.0.i.us, %if.then13.i.us ], [ %BucketNo.0.i, %land.rhs.i.i ]
-  %cmp = icmp eq i32 %.us-phi, -1
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit
   %idxprom = sext i32 %.us-phi to i64
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8
@@ -425,8 +421,8 @@ if.end:                                           ; preds = %_ZNK4llvh13StringMa
   store i32 %inc, ptr %NumTombstones, align 8
   br label %return
 
-return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, %if.end
-  %retval.0 = phi ptr [ %13, %if.end ], [ null, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
+return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %if.end
+  %retval.0 = phi ptr [ %13, %if.end ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
   ret ptr %retval.0
 }
 

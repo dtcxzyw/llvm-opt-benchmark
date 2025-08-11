@@ -6815,7 +6815,8 @@ __itt_fsplit.exit.i:                              ; preds = %103, %98, %.loopexi
   br label %__itt_get_groups.exit
 
 __itt_get_env_var.exit.i:                         ; preds = %__itt_get_env_var.exit.i.preheader, %148
-  %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %148 ], [ 0, %__itt_get_env_var.exit.i.preheader ]
+  %exitcond97.i = phi i1 [ true, %148 ], [ false, %__itt_get_env_var.exit.i.preheader ]
+  %indvars.iv94.i = phi i64 [ 2, %148 ], [ 1, %__itt_get_env_var.exit.i.preheader ]
   %128 = phi ptr [ %150, %148 ], [ @.str.177, %__itt_get_env_var.exit.i.preheader ]
   %129 = phi ptr [ %149, %148 ], [ @group_alias, %__itt_get_env_var.exit.i.preheader ]
   %130 = call ptr @getenv(ptr noundef nonnull %128) #14
@@ -6855,10 +6856,8 @@ __itt_get_env_var.exit.i:                         ; preds = %__itt_get_env_var.e
   br label %__itt_get_groups.exit
 
 148:                                              ; preds = %136, %__itt_get_env_var.exit.i
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %149 = getelementptr inbounds nuw [4 x %struct.___itt_group_alias], ptr @group_alias, i64 0, i64 %indvars.iv.next95.i
+  %149 = getelementptr inbounds nuw [4 x %struct.___itt_group_alias], ptr @group_alias, i64 0, i64 %indvars.iv94.i
   %150 = load ptr, ptr %149, align 16, !tbaa !123
-  %exitcond97.i = icmp eq i64 %indvars.iv.next95.i, 2
   br i1 %exitcond97.i, label %__itt_get_groups.exit, label %__itt_get_env_var.exit.i, !llvm.loop !124
 
 __itt_get_groups.exit:                            ; preds = %148, %127, %138
@@ -6887,7 +6886,7 @@ __itt_get_groups.exit:                            ; preds = %148, %127, %138
 161:                                              ; preds = %157
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !125
   %162 = call fastcc i32 @__itt_lib_version(ptr noundef nonnull %160)
-  switch i32 %162, label %default.unreachable156 [
+  switch i32 %162, label %default.unreachable177 [
     i32 0, label %163
     i32 1, label %164
     i32 2, label %206
@@ -6987,7 +6986,7 @@ __itt_get_groups.exit:                            ; preds = %148, %127, %138
   call void %208(ptr noundef nonnull @__itt__ittapi_global, i32 noundef %1) #14
   br label %__itt_nullify_all_pointers.exit94
 
-default.unreachable156:                           ; preds = %161
+default.unreachable177:                           ; preds = %161
   unreachable
 
 210:                                              ; preds = %157

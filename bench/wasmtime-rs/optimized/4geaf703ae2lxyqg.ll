@@ -1130,14 +1130,14 @@ define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14se
   br i1 %22, label %23, label %49
 
 23:                                               ; preds = %19
-  switch i8 %.sroa.03.0.copyload, label %default.unreachable.i [
+  switch i8 %.sroa.03.0.copyload, label %default.unreachable [
     i8 0, label %24
     i8 1, label %36
     i8 2, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i"
     i8 3, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread
   ]
 
-default.unreachable.i:                            ; preds = %23
+default.unreachable:                              ; preds = %52, %23
   unreachable
 
 24:                                               ; preds = %23
@@ -1237,9 +1237,6 @@ _ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.th
     i8 2, label %60
     i8 3, label %63
   ]
-
-default.unreachable:                              ; preds = %52
-  unreachable
 
 54:                                               ; preds = %52
   %55 = load i64, ptr %.sroa.8.0..sroa_idx, align 16, !noundef !3
@@ -2125,14 +2122,14 @@ default.unreachable3:                             ; preds = %6
 define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5fde06ec686167f1E"(ptr readonly align 16 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #5 {
   %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
   %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
-  switch i8 %3, label %default.unreachable48 [
+  switch i8 %3, label %default.unreachable54 [
     i8 0, label %6
     i8 1, label %8
     i8 2, label %10
     i8 3, label %5
   ]
 
-default.unreachable48:                            ; preds = %2
+default.unreachable54:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2, %10, %8, %6

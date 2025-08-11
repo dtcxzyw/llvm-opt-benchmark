@@ -536,7 +536,7 @@ bytestream2_peek_le16.exit.i:                     ; preds = %143, %129
   %.sroa.0.4172.i = phi i16 [ %.sroa.0.4.be.i, %.backedge.i ], [ %.sroa.0.0176.i, %47 ]
   %.sroa.14.2171.i = phi i16 [ %.sroa.14.0.extract.trunc63.i, %.backedge.i ], [ %.sroa.14.0175.i, %47 ]
   %.3170.i = phi i32 [ %.3.be.i, %.backedge.i ], [ %.0115174.i, %47 ]
-  %.2119169.i = phi i32 [ %.2119.be.i, %.backedge.i ], [ 2, %47 ]
+  %.not125.i = phi i1 [ true, %.backedge.i ], [ false, %47 ]
   %.sroa.14.0.insert.ext58.i = zext i16 %.sroa.14.2171.i to i32
   %.sroa.0.0.insert.ext28.i = zext i16 %.sroa.0.4172.i to i32
   %157 = shl i32 %.sroa.14.0.insert.ext58.i, 20
@@ -552,8 +552,6 @@ bytestream2_peek_le16.exit.i:                     ; preds = %143, %129
 .backedge.i:                                      ; preds = %bytestream2_peek_le16.exit140.i, %169, %.preheader.i
   %.3.be.i = phi i32 [ 4, %bytestream2_peek_le16.exit140.i ], [ %160, %.preheader.i ], [ 4, %169 ]
   %.sroa.0.4.be.i = phi i16 [ %.0.i139.i, %bytestream2_peek_le16.exit140.i ], [ %.sroa.0.0.extract.trunc31.i, %.preheader.i ], [ %.sroa.0.0.extract.trunc31.i, %169 ]
-  %.2119.be.i = add nsw i32 %.2119169.i, -1
-  %.not125.i = icmp eq i32 %.2119.be.i, 0
   br i1 %.not125.i, label %190, label %.preheader.i, !llvm.loop !60
 
 161:                                              ; preds = %.preheader.i

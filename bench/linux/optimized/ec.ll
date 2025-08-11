@@ -284,7 +284,8 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   br label %94
 
 94:                                               ; preds = %145, %.loopexit7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.loopexit7 ]
+  %exitcond = phi i1 [ true, %145 ], [ false, %.loopexit7 ]
+  %indvars.iv = phi i64 [ 2, %145 ], [ 1, %.loopexit7 ]
   %95 = phi ptr [ %147, %145 ], [ @.str.16, %.loopexit7 ]
   %96 = phi ptr [ %146, %145 ], [ @field_table, %.loopexit7 ]
   %97 = tail call ptr @mpi_scanval(ptr noundef nonnull %95) #9
@@ -356,10 +357,8 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
 
 145:                                              ; preds = %99
   tail call void @mpi_free(ptr noundef nonnull %97) #9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %146 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv.next
+  %146 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv
   %147 = load ptr, ptr %146, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.critedge, label %94, !llvm.loop !11
 
 .critedge:                                        ; preds = %94, %145, %133, %138

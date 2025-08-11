@@ -291,12 +291,12 @@ type_flatten.exit:                                ; preds = %17, %31
     i32 5, label %.loopexit.loopexit
     i32 6, label %.loopexit.loopexit
     i32 7, label %.loopexit.loopexit
-    i32 2, label %.loopexit.loopexit55
-    i32 8, label %.loopexit.loopexit55
-    i32 9, label %.loopexit.loopexit55
-    i32 10, label %.loopexit.loopexit55
-    i32 11, label %.loopexit.loopexit55
-    i32 12, label %.loopexit.loopexit55
+    i32 2, label %.loopexit.loopexit56
+    i32 8, label %.loopexit.loopexit56
+    i32 9, label %.loopexit.loopexit56
+    i32 10, label %.loopexit.loopexit56
+    i32 11, label %.loopexit.loopexit56
+    i32 12, label %.loopexit.loopexit56
     i32 14, label %.loopexit
     i32 13, label %.loopexit
     i32 15, label %.loopexit
@@ -318,11 +318,11 @@ type_flatten.exit:                                ; preds = %17, %31
 .loopexit.loopexit:                               ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit
   br label %.loopexit
 
-.loopexit.loopexit55:                             ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit
+.loopexit.loopexit56:                             ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit
   br label %.loopexit
 
-.loopexit:                                        ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %.loopexit.loopexit55, %.loopexit.loopexit
-  %.0 = phi i32 [ %3, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit55 ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ]
+.loopexit:                                        ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %.loopexit.loopexit56, %.loopexit.loopexit
+  %.0 = phi i32 [ %3, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit56 ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ], [ %5, %type_flatten.exit ]
   %.not42 = icmp ne i32 %.035, 0
   tail call void @llvm.assume(i1 %.not42)
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -537,7 +537,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %17, %7, %13
-  %.050 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %15, %17 ]
+  %.054 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %15, %17 ]
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %24, label %22
 
@@ -574,7 +574,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
 
 36:                                               ; preds = %31, %30
   %.2 = phi i32 [ %33, %31 ], [ %.1, %30 ]
-  %37 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %10, i32 noundef %.2, ptr noundef nonnull %9, i32 noundef %.050) #8
+  %37 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %10, i32 noundef %.2, ptr noundef nonnull %9, i32 noundef %.054) #8
   %38 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %37, ptr noundef %38) #8
   ret void
@@ -2544,7 +2544,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %13, %.thread, %7
-  %.not310 = phi i1 [ true, %.thread ], [ true, %7 ], [ false, %13 ]
+  %.not39 = phi i1 [ true, %.thread ], [ true, %7 ], [ false, %13 ]
   %19 = phi ptr [ %6, %.thread ], [ %11, %7 ], [ %11, %13 ]
   %.08 = phi i32 [ 0, %.thread ], [ 0, %7 ], [ %9, %13 ]
   %20 = call ptr @LLVMFunctionType(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %.08, i32 noundef 0) #8
@@ -2564,7 +2564,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  br i1 %.not310, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.preheader.i
+  br i1 %.not39, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %25
   %wide.trip.count.i = zext i32 %.08 to i64
@@ -2582,7 +2582,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not.i, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.i, !llvm.loop !24
 
 28:                                               ; preds = %22
-  br i1 %.not310, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.preheader.i46
+  br i1 %.not39, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.preheader.i46
 
 .lr.ph.preheader.i46:                             ; preds = %28
   %wide.trip.count.i47 = zext i32 %.08 to i64
@@ -2608,7 +2608,7 @@ llvm_syscall_write_regs_to_scratch.exit:          ; preds = %.lr.ph.i48, %.lr.ph
 
 35:                                               ; preds = %._crit_edge
   call void @scratch_buffer_append(ptr noundef nonnull @.str.27) #8
-  br i1 %.not310, label %45, label %.lr.ph.preheader.i54
+  br i1 %.not39, label %45, label %.lr.ph.preheader.i54
 
 .lr.ph.preheader.i54:                             ; preds = %35
   %36 = call i32 @llvm.umin.i32(i32 %.08, i32 6)
@@ -2647,7 +2647,7 @@ llvm_syscall_write_regs_to_scratch.exit60:        ; preds = %.lr.ph.i56
 
 50:                                               ; preds = %._crit_edge
   call void @scratch_buffer_append(ptr noundef nonnull @.str.38) #8
-  br i1 %.not310, label %llvm_syscall_write_regs_to_scratch.exit68, label %.lr.ph.preheader.i62
+  br i1 %.not39, label %llvm_syscall_write_regs_to_scratch.exit68, label %.lr.ph.preheader.i62
 
 .lr.ph.preheader.i62:                             ; preds = %50
   %wide.trip.count.i63 = zext i32 %.08 to i64
@@ -2677,11 +2677,10 @@ llvm_syscall_write_regs_to_scratch.exit68:        ; preds = %.lr.ph.i64, %50
   unreachable
 
 58:                                               ; preds = %llvm_syscall_write_regs_to_scratch.exit68, %45, %40, %llvm_syscall_write_regs_to_scratch.exit
-  %.09 = phi i32 [ %.08, %llvm_syscall_write_regs_to_scratch.exit ], [ 7, %40 ], [ %.08, %45 ], [ %.08, %llvm_syscall_write_regs_to_scratch.exit68 ]
   %.043 = phi ptr [ %34, %llvm_syscall_write_regs_to_scratch.exit ], [ %44, %40 ], [ %49, %45 ], [ %56, %llvm_syscall_write_regs_to_scratch.exit68 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @LLVMBuildCall2(ptr noundef %60, ptr noundef %20, ptr noundef %.043, ptr noundef nonnull %3, i32 noundef %.09, ptr noundef nonnull @.str.48) #8
+  %61 = call ptr @LLVMBuildCall2(ptr noundef %60, ptr noundef %20, ptr noundef %.043, ptr noundef nonnull %3, i32 noundef %.08, ptr noundef nonnull @.str.48) #8
   %62 = load ptr, ptr @type_uptr, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %61, ptr noundef %62) #8
   ret void

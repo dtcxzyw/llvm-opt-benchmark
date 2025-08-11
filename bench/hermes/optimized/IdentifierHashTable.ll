@@ -66,7 +66,7 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit.us:      ; preds = %sw.bb.i.i.us, %sw.b
   br i1 %cmp.i.us, label %if.then, label %if.else.us
 
 if.else.us:                                       ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us
-  switch i32 %1, label %sw.epilog.i.i28 [
+  switch i32 %1, label %default.unreachable [
     i32 0, label %sw.bb.i.i25.us
     i32 1, label %sw.bb2.i.i22.us
     i32 2, label %sw.bb5.i.i18.us
@@ -169,7 +169,10 @@ sw.bb5.i.i18:                                     ; preds = %if.else
   %16 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
-sw.epilog.i.i28:                                  ; preds = %if.else, %if.else.us
+default.unreachable:                              ; preds = %if.else.us
+  unreachable
+
+sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
@@ -448,7 +451,7 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit.us:      ; preds = %sw.bb.i.i.us, %sw.b
   br i1 %cmp.i.us, label %if.then, label %if.else.us
 
 if.else.us:                                       ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us
-  switch i32 %1, label %sw.epilog.i.i28 [
+  switch i32 %1, label %default.unreachable [
     i32 0, label %sw.bb.i.i25.us
     i32 1, label %sw.bb2.i.i22.us
     i32 2, label %sw.bb5.i.i18.us
@@ -551,7 +554,10 @@ sw.bb5.i.i18:                                     ; preds = %if.else
   %16 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
-sw.epilog.i.i28:                                  ; preds = %if.else, %if.else.us
+default.unreachable:                              ; preds = %if.else.us
+  unreachable
+
+sw.epilog.i.i28:                                  ; preds = %if.else
   unreachable
 
 _ZNK6hermes12CompactTable9isDeletedEj.exit:       ; preds = %sw.bb.i.i25, %sw.bb2.i.i22, %sw.bb5.i.i18
@@ -1255,7 +1261,7 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit.us.i:    ; preds = %sw.bb.i.i.us.i, %sw
   br i1 %cmp.i.us.i, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us.i
-  switch i32 %18, label %sw.epilog.i.i28.i [
+  switch i32 %18, label %default.unreachable [
     i32 0, label %sw.bb.i.i25.us.i
     i32 1, label %sw.bb2.i.i22.us.i
     i32 2, label %sw.bb5.i.i18.us.i
@@ -1287,7 +1293,7 @@ _ZNK6hermes12CompactTable9isDeletedEj.exit.us.i:  ; preds = %sw.bb.i.i25.us.i, %
   %inc.us.i = add i32 %base.0.us.i, 1
   br label %while.body.us.i, !llvm.loop !4
 
-sw.epilog.i.i28.i:                                ; preds = %if.else.us.i
+default.unreachable:                              ; preds = %if.else.us.i, %if.else.us.i66
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit: ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us.i
@@ -1342,7 +1348,7 @@ _ZNK6hermes12CompactTable7isEmptyEj.exit.us.i63:  ; preds = %sw.bb.i.i.us.i84, %
   br i1 %cmp.i.us.i65, label %_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit, label %if.else.us.i66
 
 if.else.us.i66:                                   ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us.i63
-  switch i32 %28, label %sw.epilog.i.i28.i82 [
+  switch i32 %28, label %default.unreachable [
     i32 0, label %sw.bb.i.i25.us.i79
     i32 1, label %sw.bb2.i.i22.us.i76
     i32 2, label %sw.bb5.i.i18.us.i67
@@ -1373,9 +1379,6 @@ _ZNK6hermes12CompactTable9isDeletedEj.exit.us.i69: ; preds = %sw.bb.i.i25.us.i79
   %add.us.i74 = add i32 %idx.0.us.i58, %base.0.us.i57
   %inc.us.i75 = add i32 %base.0.us.i57, 1
   br label %while.body.us.i53, !llvm.loop !9
-
-sw.epilog.i.i28.i82:                              ; preds = %if.else.us.i66
-  unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb.exit: ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us.i63
   %spec.select.i83 = select i1 %deletedIndex.sroa.3.0.us.i54, i32 %deletedIndex.sroa.0.0.us.i55, i32 %idx.0.us.i58

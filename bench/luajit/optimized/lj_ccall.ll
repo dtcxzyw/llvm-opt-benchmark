@@ -387,9 +387,9 @@ ctype_raw.exit.i:                                 ; preds = %127
 148:                                              ; preds = %146
   %149 = trunc i32 %.0169255.i to i8
   store i8 %149, ptr %104, align 4, !tbaa !55
-  %150 = trunc i32 %.3166256.i to i8
+  %150 = trunc nuw i32 %.3166256.i to i8
   store i8 %150, ptr %105, align 2, !tbaa !56
-  %151 = trunc i32 %.0179249.i to i8
+  %151 = trunc nuw i32 %.0179249.i to i8
   store i8 %151, ptr %106, align 1, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %152 = shl i32 %.0178250.i, 8
@@ -452,8 +452,6 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   %179 = trunc nuw i32 %.1.i.i.i to i8
   store i8 %179, ptr %106, align 1, !tbaa !57
   %.pre266.i = load i8, ptr %104, align 4, !tbaa !55
-  %.pre267.i = and i32 %.124.i.i.i, 255
-  %.pre268.i = and i32 %.1.i.i.i, 255
   br label %.thread223.i
 
 180:                                              ; preds = %170, %161
@@ -476,8 +474,8 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   br label %.thread223.i
 
 .thread223.i:                                     ; preds = %187, %ccall_struct_reg.exit.i.i
-  %.pre-phi269.i = phi i32 [ %.pre268.i, %ccall_struct_reg.exit.i.i ], [ %156, %187 ]
-  %.pre-phi.i = phi i32 [ %.pre267.i, %ccall_struct_reg.exit.i.i ], [ %154, %187 ]
+  %.pre-phi269.i = phi i32 [ %.1.i.i.i, %ccall_struct_reg.exit.i.i ], [ %156, %187 ]
+  %.pre-phi.i = phi i32 [ %.124.i.i.i, %ccall_struct_reg.exit.i.i ], [ %154, %187 ]
   %192 = phi i8 [ %.pre266.i, %ccall_struct_reg.exit.i.i ], [ %188, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %193 = zext i8 %192 to i32
@@ -506,9 +504,9 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   %202 = phi i32 [ %196, %.thread231.i ], [ %201, %197 ], [ %139, %136 ]
   %203 = phi i32 [ %195, %.thread231.i ], [ %200, %197 ], [ %138, %136 ]
   %204 = phi i1 [ false, %.thread231.i ], [ true, %197 ], [ false, %136 ]
-  %205 = add i32 %.pre-phi272.i, %.0179249.i
+  %205 = add nuw nsw i32 %.pre-phi272.i, %.0179249.i
   %206 = icmp ult i32 %205, 9
-  %207 = zext i32 %.0179249.i to i64
+  %207 = zext nneg i32 %.0179249.i to i64
   %208 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %207
   br i1 %206, label %236, label %220
 
@@ -522,12 +520,12 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
 .thread234.i:                                     ; preds = %197, %209, %136
   %213 = phi i32 [ %210, %209 ], [ %138, %136 ], [ 15, %197 ]
   %214 = phi i32 [ %211, %209 ], [ %139, %136 ], [ 1, %197 ]
-  %215 = add i32 %214, %.3166256.i
+  %215 = add nuw nsw i32 %214, %.3166256.i
   %216 = icmp ult i32 %215, 7
   br i1 %216, label %217, label %220
 
 217:                                              ; preds = %.thread234.i
-  %218 = zext i32 %.3166256.i to i64
+  %218 = zext nneg i32 %.3166256.i to i64
   %219 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %218
   br label %236
 
@@ -540,7 +538,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   %226 = and i32 %225, 15
   %notmask.i = shl nsw i32 -1, %226
   %227 = xor i32 %notmask.i, -1
-  %228 = add i32 %.0169255.i, %227
+  %228 = add nsw i32 %.0169255.i, %227
   %229 = and i32 %228, %notmask.i
   %230 = and i32 %222, -8
   %231 = add i32 %229, %230
@@ -608,8 +606,8 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %260, %257, %253, %250
-  %.sink277.i = phi i32 [ %252, %250 ], [ %255, %253 ], [ %259, %257 ], [ %262, %260 ]
-  store i32 %.sink277.i, ptr %.3160.i, align 4, !tbaa !45
+  %.sink287.i = phi i32 [ %252, %250 ], [ %255, %253 ], [ %259, %257 ], [ %262, %260 ]
+  store i32 %.sink287.i, ptr %.3160.i, align 4, !tbaa !45
   br label %263
 
 263:                                              ; preds = %.sink.split.i, %243, %236
@@ -618,7 +616,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   br i1 %or.cond3.i, label %265, label %276
 
 265:                                              ; preds = %263
-  %266 = add i32 %.5184.i, -2
+  %266 = add nsw i32 %.5184.i, -2
   %267 = zext i32 %266 to i64
   %268 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %267
   %269 = icmp eq ptr %.3160.i, %268
@@ -627,7 +625,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
 270:                                              ; preds = %265
   %271 = getelementptr inbounds nuw i8, ptr %.3160.i, i64 8
   %272 = load double, ptr %271, align 8, !tbaa !4
-  %273 = add i32 %.5184.i, -1
+  %273 = add nsw i32 %.5184.i, -1
   %274 = zext i32 %273 to i64
   %275 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %274
   store double %272, ptr %275, align 16, !tbaa !4
@@ -644,7 +642,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   br i1 %278, label %109, label %._crit_edge.loopexit.i, !llvm.loop !60
 
 ._crit_edge.loopexit.i:                           ; preds = %276
-  %279 = trunc i32 %.3182.i to i8
+  %279 = trunc nuw i32 %.3182.i to i8
   %280 = trunc i32 %.3172.i to i8
   %281 = add i8 %280, 7
   br label %._crit_edge.i
@@ -862,12 +860,12 @@ ccall_get_results.exit:                           ; preds = %361, %364
   br i1 %379, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %378, %ctype_rawchild.exit.i37, %ccall_get_results.exit
-  %.04170 = phi i32 [ 1, %ccall_get_results.exit ], [ 0, %ctype_rawchild.exit.i37 ], [ 1, %378 ]
+  %.04182 = phi i32 [ 1, %ccall_get_results.exit ], [ 0, %ctype_rawchild.exit.i37 ], [ 1, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %380
 
 380:                                              ; preds = %ctype_raw.exit, %ctype_rawchild.exit, %._crit_edge
-  %.031 = phi i32 [ %.04170, %._crit_edge ], [ -1, %ctype_rawchild.exit ], [ -1, %ctype_raw.exit ]
+  %.031 = phi i32 [ %.04182, %._crit_edge ], [ -1, %ctype_rawchild.exit ], [ -1, %ctype_raw.exit ]
   ret i32 %.031
 }
 

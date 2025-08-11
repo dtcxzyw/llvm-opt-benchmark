@@ -6852,11 +6852,11 @@ if.end7:                                          ; preds = %if.end20.i, %while.
 if.then.i:                                        ; preds = %if.end7
   %add.i37 = add nuw nsw i64 %shr.i.i.i, 1
   %shr.i.i = lshr i64 %mul.i6.i, 2
-  %add2.i.i = add i64 %shr.i.i, %mul.i6.i
+  %add2.i.i = add nuw nsw i64 %shr.i.i, %mul.i6.i
   %shr3.i.i = lshr i64 %mul.i6.i, 3
-  %add4.i.i = add i64 %add2.i.i, %shr3.i.i
+  %add4.i.i = add nuw nsw i64 %add2.i.i, %shr3.i.i
   %shr5.i.i = lshr i64 %mul.i6.i, 5
-  %add6.i.i = add i64 %add4.i.i, %shr5.i.i
+  %add6.i.i = add nuw nsw i64 %add4.i.i, %shr5.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %add.i37, i64 %add6.i.i)
   %cmp.i4.i.i = icmp ult i64 %.sroa.speculated.i.i, 15
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.else11.i.i.i
@@ -6871,12 +6871,8 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE20reserveForInsertImplEmmmm.exit.i
 
 if.else11.i.i.i:                                  ; preds = %if.then.i
-  %sub.i.i.i = add i64 %.sroa.speculated.i.i, -1
-  %div.i.i.i = udiv i64 %sub.i.i.i, 12
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 true)
-  %add.i.i.i.i = sub nuw nsw i64 64, %10
-  %mul.i11.i.i.i = shl i64 12, %add.i.i.i.i
-  %cmp32.i.i.i = icmp ugt i64 %mul.i11.i.i.i, 72057594037927935
+  %sub.i.i.i = add nsw i64 %.sroa.speculated.i.i, -1
+  %cmp32.i.i.i = icmp ugt i64 %sub.i.i.i, 54043195528445951
   br i1 %cmp32.i.i.i, label %if.then33.i.i.i, label %if.end34.i.i.i
 
 if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i
@@ -6884,6 +6880,9 @@ if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i
   unreachable
 
 if.end34.i.i.i:                                   ; preds = %if.else11.i.i.i
+  %div.i.i.i = udiv i64 %sub.i.i.i, 12
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 true)
+  %add.i.i.i.i = sub nuw nsw i64 64, %10
   %shl.i.i.i = shl nuw nsw i64 1, %add.i.i.i.i
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE20reserveForInsertImplEmmmm.exit.i
 
@@ -8242,11 +8241,11 @@ if.end.i.i.i:                                     ; preds = %while.body, %while.
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i36.lcssa, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i36.lcssa, -1
-  %div.i78.i.i.i = lshr i64 %sub.i.i.i.i, 1
+  %div.i7.i.i.i = lshr i64 %sub.i.i.i.i, 1
   %1 = and i64 %sub.ptr.sub.i35.lcssa, 16
   %cmp17.i.i.i.i = icmp eq i64 %1, 0
   %sub25.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %sub25.i.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %sub25.i.i.i.i
   %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %div56.i.i.i
   %second.i22.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i20.i.i.i.i, i64 8
   %second3.i23.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i21.i.i.i.i, i64 8
@@ -8258,7 +8257,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %phi.call.i.i.i, align 8
   %__value.sroa.2.0.call5.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i.i = load double, ptr %__value.sroa.2.0.call5.sroa_idx.i.i.i, align 8
-  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i78.i.i.i
+  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i7.i.i.i
   br i1 %cmp29.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
@@ -8280,7 +8279,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %5 = load double, ptr %second.i.i.i.i.i, align 8
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i.i.i.i, i64 8
   store double %5, ptr %second3.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i78.i.i.i
+  %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i7.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !59
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i.i
@@ -8305,14 +8304,14 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end35.i.i.i.i, %
   %__holeIndex.addr.07.i.i.i.i.i = phi i64 [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ]
   %__parent.08.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i.i, -1
   %__parent.08.i.i.i.i.i = sdiv i64 %__parent.08.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__parent.08.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %__parent.08.i.i.i.i.i
   %8 = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %call.val.i.i.i.i.i.i = load double, ptr %8, align 8
   %cmp.i.i.i.i.i.i.i = fcmp ogt double %call.val.i.i.i.i.i.i, %__value.sroa.2.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i.i.i
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   store ptr %9, ptr %add.ptr.i8.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i.i.i, i64 8
@@ -8322,7 +8321,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_T0_SJ_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end35.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ], [ %__holeIndex.addr.07.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.08.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i9.i.i.i.i.i, align 8
   %second3.i11.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i.i.i, i64 8
   store double %__value.sroa.2.0.copyload.i.i.i, ptr %second3.i11.i.i.i.i.i, align 8

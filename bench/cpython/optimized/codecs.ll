@@ -2836,11 +2836,11 @@ PyUnicode_READ_CHAR.exit.us:                      ; preds = %_PyUnicode_DATA.exi
 
 51:                                               ; preds = %49
   %52 = icmp ult i32 %.0.i.us, 1000000
-  %.112 = select i1 %52, i64 9, i64 10
+  %.123 = select i1 %52, i64 9, i64 10
   br label %53
 
 53:                                               ; preds = %PyUnicode_READ_CHAR.exit.us, %43, %45, %47, %49, %51
-  %.sink = phi i64 [ %.112, %51 ], [ 8, %49 ], [ 7, %47 ], [ 6, %45 ], [ 5, %43 ], [ 4, %PyUnicode_READ_CHAR.exit.us ]
+  %.sink = phi i64 [ %.123, %51 ], [ 8, %49 ], [ 7, %47 ], [ 6, %45 ], [ 5, %43 ], [ 4, %PyUnicode_READ_CHAR.exit.us ]
   %54 = add i64 %.05190.us, %.sink
   %55 = add nsw i64 %.05389.us, 1
   %exitcond104.not = icmp eq i64 %55, %25
@@ -2900,12 +2900,12 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 75:                                               ; preds = %73
   %76 = icmp ult i32 %.0.i, 1000000
-  %.113 = select i1 %76, i64 9, i64 10
+  %.124 = select i1 %76, i64 9, i64 10
   br label %77
 
 77:                                               ; preds = %75, %73, %71, %69, %67, %PyUnicode_READ_CHAR.exit
-  %.sink110 = phi i64 [ 4, %PyUnicode_READ_CHAR.exit ], [ 5, %67 ], [ 6, %69 ], [ 7, %71 ], [ 8, %73 ], [ %.113, %75 ]
-  %78 = add i64 %.05190, %.sink110
+  %.sink121 = phi i64 [ 4, %PyUnicode_READ_CHAR.exit ], [ 5, %67 ], [ 6, %69 ], [ 7, %71 ], [ 8, %73 ], [ %.124, %75 ]
+  %78 = add i64 %.05190, %.sink121
   %79 = add nsw i64 %.05389, 1
   %exitcond.not = icmp eq i64 %79, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !119
@@ -3102,9 +3102,9 @@ PyUnicode_READ_CHAR.exit86:                       ; preds = %_PyUnicode_DATA.exi
   br i1 %157, label %.lr.ph97, label %._crit_edge98, !llvm.loop !121
 
 Py_DECREF.exit60.sink.split:                      ; preds = %99, %83
-  %.sink111 = phi ptr [ %81, %83 ], [ %97, %99 ]
+  %.sink122 = phi ptr [ %81, %83 ], [ %97, %99 ]
   %.1.ph = phi ptr [ null, %83 ], [ %96, %99 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink111) #10
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink122) #10
   br label %Py_DECREF.exit60
 
 Py_DECREF.exit60:                                 ; preds = %Py_DECREF.exit60.sink.split, %99, %._crit_edge98, %83, %80, %PyObject_TypeCheck.exit.thread
@@ -3387,9 +3387,9 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %.lr.ph.split, %PyUn
   %110 = load i32, ptr %109, align 4, !tbaa !116
   %111 = icmp ugt i32 %110, 65535
   %112 = icmp samesign ugt i32 %110, 255
-  %.176 = select i1 %112, i64 6, i64 4
-  %.sink175 = select i1 %111, i64 10, i64 %.176
-  %113 = add i64 %.066135, %.sink175
+  %.195 = select i1 %112, i64 6, i64 4
+  %.sink194 = select i1 %111, i64 10, i64 %.195
+  %113 = add i64 %.066135, %.sink194
   %114 = add nsw i64 %.065136, 1
   %exitcond168.not = icmp eq i64 %114, %85
   br i1 %exitcond168.not, label %._crit_edge, label %PyUnicode_READ_CHAR.exit, !llvm.loop !125
@@ -4564,7 +4564,7 @@ Py_DECREF.exit158.i:                              ; preds = %105, %102, %100
   br label %PyCodec_SurrogatePassErrors.exit
 
 111:                                              ; preds = %PyUnicode_READ_CHAR.exit.i
-  switch i32 %36, label %default.unreachable.i [
+  switch i32 %36, label %default.unreachable [
     i32 0, label %112
     i32 2, label %123
     i32 1, label %126
@@ -4628,7 +4628,7 @@ Py_DECREF.exit158.i:                              ; preds = %105, %102, %100
   store i8 %143, ptr %142, align 1, !tbaa !99
   br label %145
 
-default.unreachable.i:                            ; preds = %111
+default.unreachable:                              ; preds = %111, %211
   unreachable
 
 145:                                              ; preds = %137, %132, %126, %123, %112
@@ -4801,7 +4801,7 @@ Py_DECREF.exit144.i:                              ; preds = %196, %193, %190
   br i1 %.not132.i, label %268, label %211
 
 211:                                              ; preds = %204
-  switch i32 %191, label %default.unreachable199.i [
+  switch i32 %191, label %default.unreachable [
     i32 0, label %212
     i32 2, label %237
     i32 1, label %240
@@ -4880,9 +4880,6 @@ Py_DECREF.exit144.i:                              ; preds = %196, %193, %190
   %266 = zext i8 %265 to i32
   %267 = or disjoint i32 %263, %266
   br label %268
-
-default.unreachable199.i:                         ; preds = %211
-  unreachable
 
 268:                                              ; preds = %250, %248, %240, %237, %229, %223, %217, %212, %204
   %.0.i = phi i32 [ %236, %229 ], [ 0, %223 ], [ 0, %217 ], [ 0, %212 ], [ %239, %237 ], [ %247, %240 ], [ %249, %248 ], [ %267, %250 ], [ 0, %204 ]
@@ -5201,7 +5198,7 @@ PyObject_TypeCheck.exit89.thread.i:               ; preds = %PyObject_TypeCheck.
   %102 = getelementptr i8, ptr %98, i64 %indvars.iv.i
   %103 = load i8, ptr %102, align 1, !tbaa !99
   %104 = icmp sgt i8 %103, -1
-  br i1 %104, label %.critedge.split.loop.exit102.i, label %105
+  br i1 %104, label %.critedge.split.loop.exit118.i, label %105
 
 105:                                              ; preds = %101
   %106 = zext i8 %103 to i16
@@ -5212,12 +5209,12 @@ PyObject_TypeCheck.exit89.thread.i:               ; preds = %PyObject_TypeCheck.
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond100.not.i, label %.critedge.i, label %100, !llvm.loop !137
 
-.critedge.split.loop.exit102.i:                   ; preds = %101
+.critedge.split.loop.exit118.i:                   ; preds = %101
   %109 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %105, %100, %.critedge.split.loop.exit102.i
-  %.0.lcssa.i = phi i32 [ %109, %.critedge.split.loop.exit102.i ], [ %99, %100 ], [ 4, %105 ]
+.critedge.i:                                      ; preds = %105, %100, %.critedge.split.loop.exit118.i
+  %.0.lcssa.i = phi i32 [ %109, %.critedge.split.loop.exit118.i ], [ %99, %100 ], [ 4, %105 ]
   %110 = load i32, ptr %92, align 8, !tbaa !99
   %.not.i.i = icmp sgt i32 %110, -1
   br i1 %.not.i.i, label %111, label %Py_DECREF.exit.i

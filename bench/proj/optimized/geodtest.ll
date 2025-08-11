@@ -4892,7 +4892,8 @@ Planimeter19.exit:                                ; preds = %checkEquals.exit.i5
   br label %2330
 
 2330:                                             ; preds = %checkEquals.exit84.i, %2329
-  %.086.i = phi i32 [ 3, %2329 ], [ %2433, %checkEquals.exit84.i ]
+  %exitcond.not.i521 = phi i1 [ false, %2329 ], [ true, %checkEquals.exit84.i ]
+  %.086.i = phi i32 [ 3, %2329 ], [ 4, %checkEquals.exit84.i ]
   %.06285.i = phi i32 [ 0, %2329 ], [ %2432, %checkEquals.exit84.i ]
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 6.000000e+01) #7
   call void @geod_polygon_addpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef 1.800000e+02) #7
@@ -4903,15 +4904,15 @@ Planimeter19.exit:                                ; preds = %checkEquals.exit.i5
   %2335 = fsub double %2332, %2334
   %2336 = call double @llvm.fabs.f64(double %2335)
   %2337 = fcmp ugt double %2336, 5.000000e-01
-  br i1 %2337, label %2338, label %checkEquals.exit.i521
+  br i1 %2337, label %2338, label %checkEquals.exit.i522
 
 2338:                                             ; preds = %2330
   %2339 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2332, double noundef %2334, double noundef 5.000000e-01)
-  br label %checkEquals.exit.i521
+  br label %checkEquals.exit.i522
 
-checkEquals.exit.i521:                            ; preds = %2338, %2330
-  %.0.i.i522 = phi i32 [ 1, %2338 ], [ 0, %2330 ]
-  %2340 = add nsw i32 %.0.i.i522, %.06285.i
+checkEquals.exit.i522:                            ; preds = %2338, %2330
+  %.0.i.i523 = phi i32 [ 1, %2338 ], [ 0, %2330 ]
+  %2340 = add nsw i32 %.0.i.i523, %.06285.i
   %2341 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
   %2342 = load double, ptr %6, align 8, !tbaa !4
   %2343 = fsub double %2342, %2334
@@ -4919,12 +4920,12 @@ checkEquals.exit.i521:                            ; preds = %2338, %2330
   %2345 = fcmp ugt double %2344, 5.000000e-01
   br i1 %2345, label %2346, label %checkEquals.exit64.i
 
-2346:                                             ; preds = %checkEquals.exit.i521
+2346:                                             ; preds = %checkEquals.exit.i522
   %2347 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2342, double noundef %2334, double noundef 5.000000e-01)
   br label %checkEquals.exit64.i
 
-checkEquals.exit64.i:                             ; preds = %2346, %checkEquals.exit.i521
-  %.0.i63.i = phi i32 [ 1, %2346 ], [ 0, %checkEquals.exit.i521 ]
+checkEquals.exit64.i:                             ; preds = %2346, %checkEquals.exit.i522
+  %.0.i63.i = phi i32 [ 1, %2346 ], [ 0, %checkEquals.exit.i522 ]
   %2348 = add nsw i32 %2340, %.0.i63.i
   %2349 = call i32 @geod_polygon_testpoint(ptr noundef nonnull %4, ptr noundef nonnull %5, double noundef 4.500000e+01, double noundef -6.000000e+01, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #7
   %2350 = load double, ptr %6, align 8, !tbaa !4
@@ -5071,24 +5072,22 @@ checkEquals.exit82.i:                             ; preds = %2422, %checkEquals.
 checkEquals.exit84.i:                             ; preds = %2430, %checkEquals.exit82.i
   %.0.i83.i = phi i32 [ 1, %2430 ], [ 0, %checkEquals.exit82.i ]
   %2432 = add nsw i32 %2424, %.0.i83.i
-  %2433 = add nuw nsw i32 %.086.i, 1
-  %exitcond.not.i523 = icmp eq i32 %2433, 5
-  br i1 %exitcond.not.i523, label %Planimeter21.exit, label %2330
+  br i1 %exitcond.not.i521, label %Planimeter21.exit, label %2330
 
 Planimeter21.exit:                                ; preds = %checkEquals.exit84.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not174 = icmp eq i32 %2432, 0
-  br i1 %.not174, label %2437, label %2434
+  br i1 %.not174, label %2436, label %2433
 
-2434:                                             ; preds = %Planimeter21.exit
-  %2435 = add nsw i32 %.41, 1
-  %2436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %2432)
-  br label %2437
+2433:                                             ; preds = %Planimeter21.exit
+  %2434 = add nsw i32 %.41, 1
+  %2435 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %2432)
+  br label %2436
 
-2437:                                             ; preds = %2434, %Planimeter21.exit
-  %.42 = phi i32 [ %2435, %2434 ], [ %.41, %Planimeter21.exit ]
+2436:                                             ; preds = %2433, %Planimeter21.exit
+  %.42 = phi i32 [ %2434, %2433 ], [ %.41, %Planimeter21.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5098,30 +5097,30 @@ Planimeter21.exit:                                ; preds = %checkEquals.exit84.
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef 9.000000e+01, double noundef 1.000000e+03) #7
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef 0.000000e+00, double noundef 1.000000e+03) #7
   call void @geod_polygon_addedge(ptr noundef nonnull %1, ptr noundef nonnull %2, double noundef -9.000000e+01, double noundef 1.000000e+03) #7
-  %2438 = call i32 @geod_polygon_compute(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #7
-  %2439 = load double, ptr %3, align 8, !tbaa !4
-  %2440 = fadd double %2439, -1.000000e+06
-  %2441 = call double @llvm.fabs.f64(double %2440)
-  %2442 = fcmp ugt double %2441, 1.000000e-02
-  br i1 %2442, label %2443, label %Planimeter29.exit.thread
+  %2437 = call i32 @geod_polygon_compute(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #7
+  %2438 = load double, ptr %3, align 8, !tbaa !4
+  %2439 = fadd double %2438, -1.000000e+06
+  %2440 = call double @llvm.fabs.f64(double %2439)
+  %2441 = fcmp ugt double %2440, 1.000000e-02
+  br i1 %2441, label %2442, label %Planimeter29.exit.thread
 
-Planimeter29.exit.thread:                         ; preds = %2437
+Planimeter29.exit.thread:                         ; preds = %2436
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %2447
+  br label %2446
 
-2443:                                             ; preds = %2437
-  %2444 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2439, double noundef 1.000000e+06, double noundef 1.000000e-02)
+2442:                                             ; preds = %2436
+  %2443 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, double noundef %2438, double noundef 1.000000e+06, double noundef 1.000000e-02)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %2445 = add nsw i32 %.42, 1
-  %2446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef 1)
-  br label %2447
+  %2444 = add nsw i32 %.42, 1
+  %2445 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef 1)
+  br label %2446
 
-2447:                                             ; preds = %Planimeter29.exit.thread, %2443
-  %.43 = phi i32 [ %2445, %2443 ], [ %.42, %Planimeter29.exit.thread ]
+2446:                                             ; preds = %Planimeter29.exit.thread, %2442
+  %.43 = phi i32 [ %2444, %2442 ], [ %.42, %Planimeter29.exit.thread ]
   ret i32 %.43
 }
 

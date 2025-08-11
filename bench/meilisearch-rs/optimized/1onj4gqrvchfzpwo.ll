@@ -1648,7 +1648,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %25, label %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h2e59593960e130bfE.exit.thread.i.i"
 
 26:                                               ; preds = %24
-  switch i8 %8, label %default.unreachable24.i.i.i.i.i.i [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %27
     i8 1, label %32
     i8 2, label %36
@@ -1657,7 +1657,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable24.i.i.i.i.i.i:                ; preds = %26
+default.unreachable:                              ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -2803,13 +2803,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 138:                                              ; preds = %96
   %.sroa.2.0.copyload = load i64, ptr %100, align 8
-  switch i64 %98, label %default.unreachable1.i [
+  switch i64 %98, label %default.unreachable [
     i64 0, label %139
     i64 1, label %142
     i64 2, label %145
   ]
 
-default.unreachable1.i:                           ; preds = %138
+default.unreachable:                              ; preds = %227, %138
   unreachable
 
 139:                                              ; preds = %138
@@ -3060,14 +3060,11 @@ default.unreachable1.i:                           ; preds = %138
 
 227:                                              ; preds = %223
   %.sroa.2127.0.copyload = load i64, ptr %226, align 8
-  switch i64 %224, label %default.unreachable1.i121 [
+  switch i64 %224, label %default.unreachable [
     i64 0, label %228
     i64 1, label %231
     i64 2, label %234
   ]
-
-default.unreachable1.i121:                        ; preds = %227
-  unreachable
 
 228:                                              ; preds = %227
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !369
