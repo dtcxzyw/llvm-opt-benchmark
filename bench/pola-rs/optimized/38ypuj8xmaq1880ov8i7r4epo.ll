@@ -66388,8 +66388,8 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h4c4033f
   %24 = extractvalue { i64, i64 } %21, 1
   %25 = load i64, ptr %4, align 8, !alias.scope !5082
   %26 = icmp ule i64 %24, %25
-  %or.cond.not.i9 = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond.not.i9, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
+  %or.cond.not.i8 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond.not.i8, label %.lr.ph, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
 
 .lr.ph.i3:                                        ; preds = %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h6f79acdca79d369eE.exit.i"
   %27 = call { i64, i64 } @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h238067d257b31698E"(ptr noundef nonnull align 8 %48), !noalias !5082
@@ -66455,20 +66455,22 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h4c4033f
   %53 = extractvalue { i64, ptr } %52, 0
   %54 = extractvalue { i64, ptr } %52, 1
   %55 = trunc nuw i64 %53 to i1
-  %56 = icmp ne ptr %54, null
-  %or.cond.not = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond.not, label %59, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit"
+  br i1 %55, label %58, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit"
 
-"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit": ; preds = %.lr.ph.i, %59, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
-  %.sroa.4.0 = phi ptr [ %54, %59 ], [ %54, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit" ], [ undef, %.lr.ph.i ]
-  %.sroa.0.0 = phi i64 [ 1, %59 ], [ %53, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit" ], [ 0, %.lr.ph.i ]
-  %57 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %58 = insertvalue { i64, ptr } %57, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %58
+"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit": ; preds = %.lr.ph.i, %60, %58, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
+  %.sroa.4.0 = phi ptr [ null, %58 ], [ %54, %60 ], [ %54, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit" ], [ undef, %.lr.ph.i ]
+  %.sroa.0.0 = phi i64 [ 1, %58 ], [ 1, %60 ], [ 0, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit" ], [ 0, %.lr.ph.i ]
+  %56 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %57 = insertvalue { i64, ptr } %56, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %57
 
-59:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
-  %60 = add i64 %51, 1
-  store i64 %60, ptr %4, align 8
+58:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hade9678c258cd672E.exit"
+  %59 = icmp eq ptr %54, null
+  br i1 %59, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit", label %60
+
+60:                                               ; preds = %58
+  %61 = add i64 %51, 1
+  store i64 %61, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17haacca15c28bf9acfE.exit"
 }
 

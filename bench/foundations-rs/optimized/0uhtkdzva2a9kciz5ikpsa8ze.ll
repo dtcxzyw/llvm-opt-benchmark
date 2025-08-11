@@ -9789,28 +9789,28 @@ define hidden noundef ptr @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17h0c95179e
   %5 = load atomic i64, ptr %2 monotonic, align 8
   br label %6
 
-6:                                                ; preds = %10, %4
-  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %14, %10 ]
-  %.not = icmp eq i64 %.sroa.01.0.i, 0
-  br i1 %.not, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %7
+6:                                                ; preds = %11, %4
+  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %15, %11 ]
+  %7 = icmp eq i64 %.sroa.01.0.i, 0
+  br i1 %7, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %8
 
-7:                                                ; preds = %6
-  %8 = icmp sgt i64 %.sroa.01.0.i, -1
-  br i1 %8, label %10, label %9, !prof !24
+8:                                                ; preds = %6
+  %9 = icmp sgt i64 %.sroa.01.0.i, -1
+  br i1 %9, label %11, label %10, !prof !24
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   tail call void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17h8cb2617ce4f44fbaE"(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.e3c4a32cb40e81290172dc273f35c01b.123, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3c4a32cb40e81290172dc273f35c01b.126) #28
   unreachable
 
-10:                                               ; preds = %7
-  %11 = add nuw i64 %.sroa.01.0.i, 1
-  %12 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %11 acquire monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
+11:                                               ; preds = %8
+  %12 = add nuw i64 %.sroa.01.0.i, 1
+  %13 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %12 acquire monotonic, align 8
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  br i1 %14, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
 
-_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %10, %6, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %10 ]
+_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %6, %11, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %11 ]
   ret ptr %.sroa.0.0
 }
 
@@ -9824,28 +9824,28 @@ define hidden noundef ptr @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17h43f78aa5
   %5 = load atomic i64, ptr %2 monotonic, align 8
   br label %6
 
-6:                                                ; preds = %10, %4
-  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %14, %10 ]
-  %.not = icmp eq i64 %.sroa.01.0.i, 0
-  br i1 %.not, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %7
+6:                                                ; preds = %11, %4
+  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %15, %11 ]
+  %7 = icmp eq i64 %.sroa.01.0.i, 0
+  br i1 %7, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %8
 
-7:                                                ; preds = %6
-  %8 = icmp sgt i64 %.sroa.01.0.i, -1
-  br i1 %8, label %10, label %9, !prof !24
+8:                                                ; preds = %6
+  %9 = icmp sgt i64 %.sroa.01.0.i, -1
+  br i1 %9, label %11, label %10, !prof !24
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   tail call void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17h8cb2617ce4f44fbaE"(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.e3c4a32cb40e81290172dc273f35c01b.123, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3c4a32cb40e81290172dc273f35c01b.126) #28
   unreachable
 
-10:                                               ; preds = %7
-  %11 = add nuw i64 %.sroa.01.0.i, 1
-  %12 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %11 acquire monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
+11:                                               ; preds = %8
+  %12 = add nuw i64 %.sroa.01.0.i, 1
+  %13 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %12 acquire monotonic, align 8
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  br i1 %14, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
 
-_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %10, %6, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %10 ]
+_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %6, %11, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %11 ]
   ret ptr %.sroa.0.0
 }
 
@@ -9859,28 +9859,28 @@ define hidden noundef ptr @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17h4740e7e7
   %5 = load atomic i64, ptr %2 monotonic, align 8
   br label %6
 
-6:                                                ; preds = %10, %4
-  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %14, %10 ]
-  %.not = icmp eq i64 %.sroa.01.0.i, 0
-  br i1 %.not, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %7
+6:                                                ; preds = %11, %4
+  %.sroa.01.0.i = phi i64 [ %5, %4 ], [ %15, %11 ]
+  %7 = icmp eq i64 %.sroa.01.0.i, 0
+  br i1 %7, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %8
 
-7:                                                ; preds = %6
-  %8 = icmp sgt i64 %.sroa.01.0.i, -1
-  br i1 %8, label %10, label %9, !prof !24
+8:                                                ; preds = %6
+  %9 = icmp sgt i64 %.sroa.01.0.i, -1
+  br i1 %9, label %11, label %10, !prof !24
 
-9:                                                ; preds = %7
+10:                                               ; preds = %8
   tail call void @"_ZN5alloc4sync17Weak$LT$T$C$A$GT$7upgrade17checked_increment18panic_cold_display17h8cb2617ce4f44fbaE"(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.e3c4a32cb40e81290172dc273f35c01b.123, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3c4a32cb40e81290172dc273f35c01b.126) #28
   unreachable
 
-10:                                               ; preds = %7
-  %11 = add nuw i64 %.sroa.01.0.i, 1
-  %12 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %11 acquire monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
+11:                                               ; preds = %8
+  %12 = add nuw i64 %.sroa.01.0.i, 1
+  %13 = cmpxchg weak ptr %2, i64 %.sroa.01.0.i, i64 %12 acquire monotonic, align 8
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  br i1 %14, label %_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit, label %6
 
-_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %10, %6, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %10 ]
+_ZN4core4sync6atomic11AtomicUsize12fetch_update17hf9ab48e14f0c8731E.exit: ; preds = %6, %11, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %11 ]
   ret ptr %.sroa.0.0
 }
 

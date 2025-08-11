@@ -1669,8 +1669,6 @@ define void @_ZN6quiche6crypto4Open22derive_next_packet_key17h6f81e46a06649b75E(
   %.sroa.6 = alloca [216 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %.sroa.023.sroa.0 = alloca [664 x i8], align 8
-  %.sroa.023.sroa.6 = alloca [28 x i8], align 4
-  %.sroa.023.sroa.7 = alloca [216 x i8], align 8
   %5 = alloca [640 x i8], align 8
   %6 = alloca [640 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -1744,12 +1742,8 @@ define void @_ZN6quiche6crypto4Open22derive_next_packet_key17h6f81e46a06649b75E(
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %31, ptr %.sroa.521.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %37 = load i32, ptr %36, align 8, !range !62, !noundef !3
   %38 = trunc nuw i32 %37 to i1
@@ -1762,35 +1756,28 @@ define void @_ZN6quiche6crypto4Open22derive_next_packet_key17h6f81e46a06649b75E(
           to label %45 unwind label %43
 
 41:                                               ; preds = %35
-  %.sroa.0.0.copyload44 = load i32, ptr %36, align 8
-  %.sroa.5.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 668
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx45, i64 28, i1 false)
+  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %1, i64 668
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx41, i64 28, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx, i64 216, i1 false)
   br label %42
 
 42:                                               ; preds = %45, %41
-  %.sroa.0.0 = phi i32 [ 1, %45 ], [ %.sroa.0.0.copyload44, %41 ]
+  %.sroa.0.0 = phi i32 [ 1, %45 ], [ 0, %41 ]
   %.sroa.023.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.sroa.023.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(640) %6, i64 640, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.023.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, i64 216, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %0, ptr noundef nonnull align 8 dereferenceable(664) %.sroa.023.sroa.0, i64 664, i1 false)
   %.sroa.023.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i32 %.sroa.0.0, ptr %.sroa.023.sroa.5.0..sroa_idx, align 8
   %.sroa.023.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 668
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
   %.sroa.023.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 696
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7, i64 216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, i64 216, i1 false)
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 912
   store i8 %10, ptr %.sroa.624.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
@@ -1821,8 +1808,8 @@ define void @_ZN6quiche6crypto4Open22derive_next_packet_key17h6f81e46a06649b75E(
           to label %50 unwind label %47
 
 50:                                               ; preds = %49, %51
-  %.pn42 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
-  resume { ptr, i32 } %.pn42
+  %.pn44 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
+  resume { ptr, i32 } %.pn44
 
 51:                                               ; preds = %24
   %52 = landingpad { ptr, i32 }
@@ -2208,8 +2195,6 @@ define void @_ZN6quiche6crypto4Seal22derive_next_packet_key17h9ac706ae48e96580E(
   %.sroa.6 = alloca [216 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %.sroa.023.sroa.0 = alloca [664 x i8], align 8
-  %.sroa.023.sroa.6 = alloca [28 x i8], align 4
-  %.sroa.023.sroa.7 = alloca [216 x i8], align 8
   %5 = alloca [640 x i8], align 8
   %6 = alloca [640 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -2283,12 +2268,8 @@ define void @_ZN6quiche6crypto4Seal22derive_next_packet_key17h9ac706ae48e96580E(
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %31, ptr %.sroa.521.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.023.sroa.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %37 = load i32, ptr %36, align 8, !range !62, !noundef !3
   %38 = trunc nuw i32 %37 to i1
@@ -2301,35 +2282,28 @@ define void @_ZN6quiche6crypto4Seal22derive_next_packet_key17h9ac706ae48e96580E(
           to label %45 unwind label %43
 
 41:                                               ; preds = %35
-  %.sroa.0.0.copyload44 = load i32, ptr %36, align 8
-  %.sroa.5.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 668
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx45, i64 28, i1 false)
+  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %1, i64 668
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx41, i64 28, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx, i64 216, i1 false)
   br label %42
 
 42:                                               ; preds = %45, %41
-  %.sroa.0.0 = phi i32 [ 1, %45 ], [ %.sroa.0.0.copyload44, %41 ]
+  %.sroa.0.0 = phi i32 [ 1, %45 ], [ 0, %41 ]
   %.sroa.023.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.sroa.023.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(640) %6, i64 640, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.023.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, i64 216, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %0, ptr noundef nonnull align 8 dereferenceable(664) %.sroa.023.sroa.0, i64 664, i1 false)
   %.sroa.023.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i32 %.sroa.0.0, ptr %.sroa.023.sroa.5.0..sroa_idx, align 8
   %.sroa.023.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 668
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.023.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
   %.sroa.023.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 696
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7, i64 216, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6, i64 216, i1 false)
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 912
   store i8 %10, ptr %.sroa.624.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.023.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
@@ -2360,8 +2334,8 @@ define void @_ZN6quiche6crypto4Seal22derive_next_packet_key17h9ac706ae48e96580E(
           to label %50 unwind label %47
 
 50:                                               ; preds = %49, %51
-  %.pn42 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
-  resume { ptr, i32 } %.pn42
+  %.pn44 = phi { ptr, i32 } [ %52, %51 ], [ %44, %49 ]
+  resume { ptr, i32 } %.pn44
 
 51:                                               ; preds = %24
   %52 = landingpad { ptr, i32 }
