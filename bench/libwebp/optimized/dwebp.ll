@@ -148,7 +148,7 @@ sub_1:                                            ; preds = %sub_0
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %44, label %.thread496
+  br i1 %40, label %44, label %.thread492
 
 .tail.thread:                                     ; preds = %sub_1
   %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
@@ -157,19 +157,19 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread.thread:                              ; preds = %sub_0
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not223509 = icmp eq i32 %42, 0
-  br i1 %.not223509, label %44, label %.tail354.thread
+  %.not223507 = icmp eq i32 %42, 0
+  br i1 %.not223507, label %44, label %.tail354.thread
 
-.thread496:                                       ; preds = %.tail
+.thread492:                                       ; preds = %.tail
   %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not223497 = icmp eq i32 %43, 0
-  br i1 %.not223497, label %44, label %sub_1356
+  %.not223493 = icmp eq i32 %43, 0
+  br i1 %.not223493, label %44, label %sub_1356
 
-44:                                               ; preds = %.tail.thread.thread, %.thread496, %.tail.thread, %.tail
+44:                                               ; preds = %.tail.thread.thread, %.thread492, %.tail.thread, %.tail
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread312
 
-sub_1356:                                         ; preds = %.tail.thread, %.thread496
+sub_1356:                                         ; preds = %.tail.thread, %.thread492
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %46 = load i8, ptr %45, align 1
   %.not436 = icmp eq i8 %46, 111
@@ -529,13 +529,13 @@ sub_1366:                                         ; preds = %sub_0365
   %204 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %205 = load i8, ptr %204, align 1
   %.not440 = icmp eq i8 %205, 45
-  br i1 %.not440, label %.tail364, label %.thread503
+  br i1 %.not440, label %.tail364, label %.thread499
 
 .tail364:                                         ; preds = %sub_1366
   %206 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %207 = load i8, ptr %206, align 1
   %208 = icmp eq i8 %207, 0
-  br i1 %208, label %209, label %.thread503
+  br i1 %208, label %209, label %.thread499
 
 209:                                              ; preds = %.tail364
   br i1 %58, label %210, label %216
@@ -545,7 +545,7 @@ sub_1366:                                         ; preds = %sub_0365
   %212 = load ptr, ptr %211, align 8, !tbaa !4
   br label %216
 
-.thread503:                                       ; preds = %.tail364, %sub_1366
+.thread499:                                       ; preds = %.tail364, %sub_1366
   %213 = load ptr, ptr @stderr, align 8, !tbaa !9
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.45, ptr noundef nonnull %34) #10
   %puts.i287 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -566,7 +566,7 @@ sub_1366:                                         ; preds = %sub_0365
   %puts.i288 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread312
 
-.thread312:                                       ; preds = %.thread503, %.loopexit369, %79, %44
+.thread312:                                       ; preds = %.thread499, %.loopexit369, %79, %44
   %.3.ph = phi i32 [ 0, %44 ], [ 0, %79 ], [ 1, %.loopexit369 ], [ 1, %.thread503 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %427
@@ -727,7 +727,7 @@ sub_1366:                                         ; preds = %sub_0365
 257:                                              ; preds = %226
   br label %258
 
-default.unreachable494:                           ; preds = %226
+default.unreachable490:                           ; preds = %226
   unreachable
 
 258:                                              ; preds = %226, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246

@@ -169,7 +169,7 @@ sw.bb5.i.i18:                                     ; preds = %if.else
   %16 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
-default.unreachable:                              ; preds = %if.else.us
+sw.epilog.i.i28:                                  ; preds = %if.else.us
   unreachable
 
 sw.epilog.i.i28:                                  ; preds = %if.else
@@ -554,7 +554,7 @@ sw.bb5.i.i18:                                     ; preds = %if.else
   %16 = load i32, ptr %arrayidx.i7.i.i19, align 4
   br label %_ZNK6hermes12CompactTable9isDeletedEj.exit
 
-default.unreachable:                              ; preds = %if.else.us
+sw.epilog.i.i28:                                  ; preds = %if.else.us
   unreachable
 
 sw.epilog.i.i28:                                  ; preds = %if.else
@@ -1293,7 +1293,7 @@ _ZNK6hermes12CompactTable9isDeletedEj.exit.us.i:  ; preds = %sw.bb.i.i25.us.i, %
   %inc.us.i = add i32 %base.0.us.i, 1
   br label %while.body.us.i, !llvm.loop !4
 
-default.unreachable:                              ; preds = %if.else.us.i, %if.else.us.i66
+sw.epilog.i.i28.i:                                ; preds = %if.else.us.i, %if.else.us.i66
   unreachable
 
 _ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb.exit: ; preds = %_ZNK6hermes12CompactTable7isEmptyEj.exit.us.i

@@ -6815,7 +6815,7 @@ __itt_fsplit.exit.i:                              ; preds = %103, %98, %.loopexi
   br label %__itt_get_groups.exit
 
 __itt_get_env_var.exit.i:                         ; preds = %__itt_get_env_var.exit.i.preheader, %148
-  %exitcond97.i = phi i1 [ true, %148 ], [ false, %__itt_get_env_var.exit.i.preheader ]
+  %indvars.iv94.i = phi i1 [ true, %148 ], [ false, %__itt_get_env_var.exit.i.preheader ]
   %indvars.iv94.i = phi i64 [ 2, %148 ], [ 1, %__itt_get_env_var.exit.i.preheader ]
   %128 = phi ptr [ %150, %148 ], [ @.str.177, %__itt_get_env_var.exit.i.preheader ]
   %129 = phi ptr [ %149, %148 ], [ @group_alias, %__itt_get_env_var.exit.i.preheader ]
@@ -6986,7 +6986,7 @@ __itt_get_groups.exit:                            ; preds = %148, %127, %138
   call void %208(ptr noundef nonnull @__itt__ittapi_global, i32 noundef %1) #14
   br label %__itt_nullify_all_pointers.exit94
 
-default.unreachable177:                           ; preds = %161
+default.unreachable156:                           ; preds = %161
   unreachable
 
 210:                                              ; preds = %157

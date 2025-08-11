@@ -3422,7 +3422,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17h677
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ced7cb14528d243819e0f1d745e7b7af.63) #29
   unreachable
 
-default.unreachable60:                            ; preds = %122, %56, %51
+default.unreachable50:                            ; preds = %122, %56, %51
   unreachable
 
 ._crit_edge:                                      ; preds = %166, %24
@@ -3740,7 +3740,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17hb3f
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ced7cb14528d243819e0f1d745e7b7af.63) #29
   unreachable
 
-default.unreachable65:                            ; preds = %131, %76, %40
+default.unreachable51:                            ; preds = %131, %76, %40
   unreachable
 
 ._crit_edge:                                      ; preds = %170, %15

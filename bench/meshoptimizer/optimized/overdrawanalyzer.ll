@@ -127,7 +127,7 @@ _ZN17meshopt_Allocator8allocateIN7meshopt14OverdrawBufferEEEPT_m.exit: ; preds =
     i32 2, label %.lr.ph147.split.us151.us
   ]
 
-default.unreachable:                              ; preds = %.lr.ph147.us
+.preheader138.us.preheader:                       ; preds = %.lr.ph147.us
   unreachable
 
 48:                                               ; preds = %50

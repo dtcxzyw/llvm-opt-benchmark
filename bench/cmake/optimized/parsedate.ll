@@ -138,17 +138,17 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 
 32:                                               ; preds = %30
   %33 = icmp samesign ugt i64 %.0142, 3
-  br i1 %33, label %.preheader427, label %34
+  br i1 %33, label %.preheader417, label %34
 
 34:                                               ; preds = %32
   %35 = icmp eq i64 %.0142, 3
-  br i1 %35, label %.preheader427, label %.loopexit346
+  br i1 %35, label %.preheader417, label %.loopexit346
 
-.preheader427:                                    ; preds = %34, %32
+.preheader417:                                    ; preds = %34, %32
   %.11526.i.ph = phi ptr [ @Curl_wkday, %34 ], [ @weekday, %32 ]
   br label %36
 
-36:                                               ; preds = %.preheader427, %42
+36:                                               ; preds = %.preheader417, %42
   %.11526.i = phi ptr [ %43, %42 ], [ %.11526.i.ph, %.preheader427 ]
   %.01725.i = phi i32 [ %44, %42 ], [ 0, %.preheader427 ]
   %37 = load ptr, ptr %.11526.i, align 8, !tbaa !12
@@ -510,12 +510,12 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %187 = icmp sgt i32 %.0129.lcssa, 11
   %or.cond35 = select i1 %186, i1 true, i1 %187
   %188 = icmp sgt i32 %.4265, 59
-  %or.cond39 = select i1 %or.cond35, i1 true, i1 %188
+  %or.cond37 = select i1 %or.cond35, i1 true, i1 %188
   %189 = icmp sgt i32 %.4, 60
-  %or.cond41 = select i1 %or.cond39, i1 true, i1 %189
+  %or.cond39 = select i1 %or.cond37, i1 true, i1 %189
   br i1 %or.cond41, label %.critedge229, label %190
 
-190:                                              ; preds = %185
+190:  ; preds = %185
   %191 = icmp slt i32 %.0129.lcssa, 2
   %.neg.i = sext i1 %191 to i32
   %192 = add nsw i32 %.0178.lcssa, %.neg.i
@@ -525,10 +525,10 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %reass.sub = sub nsw i32 %193, %194
   %196 = add nsw i32 %reass.sub, -477
   %197 = add nsw i32 %196, %195
-  %198 = add nsw i32 %.0178.lcssa, -1970
-  %199 = sext i32 %198 to i64
+  %197 = add nsw i32 %.0178.lcssa, -1970
+  %199 = sext i32 %197 to i64
   %200 = mul nsw i64 %199, 365
-  %201 = sext i32 %197 to i64
+  %200 = sext i32 %197 to i64
   %202 = sext i32 %.0129.lcssa to i64
   %203 = getelementptr inbounds [12 x i32], ptr @time2epoch.month_days_cumulative, i64 0, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !21
@@ -536,8 +536,8 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %206 = sext i32 %.0153.lcssa to i64
   %207 = add nsw i64 %200, %206
   %208 = add nsw i64 %207, %201
-  %209 = add nsw i64 %208, %205
-  %210 = mul nsw i64 %209, 24
+  %208 = add nsw i64 %208, %205
+  %210 = mul nsw i64 %208, 24
   %211 = sext i32 %.4271 to i64
   %212 = add nsw i64 %211, -24
   %213 = add nsw i64 %212, %210

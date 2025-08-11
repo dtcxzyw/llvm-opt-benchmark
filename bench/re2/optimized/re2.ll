@@ -3515,16 +3515,16 @@ while.end:                                        ; preds = %while.cond.backedge
   br i1 %cmp81, label %cleanup, label %if.end83
 
 if.end83:                                         ; preds = %invoke.cont74, %while.end
-  %p.0.lcssa89 = phi ptr [ %p.0.lcssa, %while.end ], [ %add.ptr80, %invoke.cont74 ]
-  %count.0.ph.lcssa88 = phi i32 [ %count.0.ph68, %while.end ], [ %inc, %invoke.cont74 ]
-  %cmp84 = icmp ult ptr %p.0.lcssa89, %add.ptr
+  %p.0.lcssa87 = phi ptr [ %p.0.lcssa, %while.end ], [ %add.ptr80, %invoke.cont74 ]
+  %count.0.ph.lcssa86 = phi i32 [ %count.0.ph68, %while.end ], [ %inc, %invoke.cont74 ]
+  %cmp84 = icmp ult ptr %p.0.lcssa87, %add.ptr
   br i1 %cmp84, label %if.then85, label %if.end91
 
 if.then85:                                        ; preds = %if.end83
   %sub.ptr.lhs.cast86 = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast87 = ptrtoint ptr %p.0.lcssa89 to i64
+  %sub.ptr.rhs.cast87 = ptrtoint ptr %p.0.lcssa87 to i64
   %sub.ptr.sub88 = sub i64 %sub.ptr.lhs.cast86, %sub.ptr.rhs.cast87
-  %call90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %p.0.lcssa89, i64 noundef %sub.ptr.sub88)
+  %call90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %p.0.lcssa87, i64 noundef %sub.ptr.sub88)
           to label %if.end91 unwind label %lpad.loopexit.split-lp
 
 if.end91:                                         ; preds = %if.then85, %if.end83
@@ -3532,12 +3532,12 @@ if.end91:                                         ; preds = %if.then85, %if.end8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end5, %while.end, %if.end91
-  %count.0.ph.lcssa83 = phi i32 [ 0, %while.end ], [ %count.0.ph.lcssa88, %if.end91 ], [ 0, %if.end5 ]
+  %count.0.ph.lcssa81 = phi i32 [ 0, %while.end ], [ %count.0.ph.lcssa86, %if.end91 ], [ 0, %if.end5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #30
   br label %return
 
 return:                                           ; preds = %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit, %cleanup
-  %retval.0 = phi i32 [ %count.0.ph.lcssa83, %cleanup ], [ 0, %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit ]
+  %retval.0 = phi i32 [ %count.0.ph.lcssa81, %cleanup ], [ 0, %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit ]
   ret i32 %retval.0
 }
 

@@ -1638,11 +1638,11 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %27, %.lr.ph.pr
   invoke void %41(ptr noundef %42)
           to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %43, !llvm.loop !50
 
-43:                                               ; preds = %._crit_edge.thread
+43:; preds = %._crit_edge.thread
   %44 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #18
+  %49 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %49) #18
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge.thread

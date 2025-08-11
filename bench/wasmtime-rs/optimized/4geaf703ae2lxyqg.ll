@@ -1137,7 +1137,7 @@ define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14se
     i8 3, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread
   ]
 
-default.unreachable:                              ; preds = %52, %23
+default.unreachable.i:                            ; preds = %52, %23
   unreachable
 
 24:                                               ; preds = %23
@@ -2129,7 +2129,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constra
     i8 3, label %5
   ]
 
-default.unreachable54:                            ; preds = %2
+default.unreachable48:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2, %10, %8, %6

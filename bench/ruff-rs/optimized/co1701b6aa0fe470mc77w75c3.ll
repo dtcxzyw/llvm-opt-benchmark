@@ -4508,7 +4508,7 @@ define internal fastcc void @"_ZN63_$LT$schemars..schema..Schema$u20$as$u20$core
     i8 5, label %94
   ]
 
-default.unreachable:                              ; preds = %176, %80
+default.unreachable1.i.i.i.i:                     ; preds = %176, %80
   unreachable
 
 81:                                               ; preds = %80
@@ -7653,9 +7653,9 @@ define hidden void @"_ZN7ruff_db6system4path36DeduplicatedNestedPathsIter$LT$P$G
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i": ; preds = %21, %15, %14, %11
-  %.sink19.i.i.i.i.i = phi i64 [ %27, %21 ], [ %20, %15 ], [ %13, %11 ], [ 0, %14 ]
+  %.sink18.i.i.i.i.i = phi i64 [ %27, %21 ], [ %20, %15 ], [ %13, %11 ], [ 0, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !887
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h2c6cbeb076300075E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sink19.i.i.i.i.i, i1 noundef zeroext false, i64 noundef 8, i64 noundef 16), !noalias !887
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h2c6cbeb076300075E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sink18.i.i.i.i.i, i1 noundef zeroext false, i64 noundef 8, i64 noundef 16), !noalias !887
   %28 = load i64, ptr %7, align 8, !range !37, !noalias !887, !noundef !3
   %29 = trunc nuw i64 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7670,7 +7670,7 @@ define hidden void @"_ZN7ruff_db6system4path36DeduplicatedNestedPathsIter$LT$P$G
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h77c92f0731f42d37E.exit.i.i.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i"
   %35 = load ptr, ptr %32, align 8, !noalias !887, !nonnull !3, !noundef !3
-  %36 = icmp ule i64 %.sink19.i.i.i.i.i, %31
+  %36 = icmp ule i64 %.sink18.i.i.i.i.i, %31
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !887
   store i64 %31, ptr %8, align 8, !noalias !874
@@ -7710,12 +7710,12 @@ define hidden void @"_ZN7ruff_db6system4path36DeduplicatedNestedPathsIter$LT$P$G
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i.i.i": ; preds = %49, %43, %39
-  %.sink19.i.i.i.i.i.i.i = phi i64 [ %55, %49 ], [ %48, %43 ], [ %41, %39 ]
-  %56 = icmp ugt i64 %.sink19.i.i.i.i.i.i.i, %31
+  %.sink18.i.i.i.i.i.i.i = phi i64 [ %55, %49 ], [ %48, %43 ], [ %41, %39 ]
+  %56 = icmp ugt i64 %.sink18.i.i.i.i.i.i.i, %31
   br i1 %56, label %57, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h08d4cd0b4a46faceE.exit.i.i.i.i.i", !prof !896
 
 57:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h782a49a2fe071a0dE.exit.i.i.i.i.i.i"
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h31dcf84666afdcf3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0, i64 noundef %.sink19.i.i.i.i.i.i.i, i64 noundef 8, i64 noundef 16)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h31dcf84666afdcf3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0, i64 noundef %.sink18.i.i.i.i.i.i.i, i64 noundef 8, i64 noundef 16)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h08d4cd0b4a46faceE.exit.i_crit_edge.i.i.i.i" unwind label %60, !noalias !874
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h08d4cd0b4a46faceE.exit.i_crit_edge.i.i.i.i": ; preds = %57

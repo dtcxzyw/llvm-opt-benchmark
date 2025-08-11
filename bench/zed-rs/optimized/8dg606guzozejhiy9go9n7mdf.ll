@@ -2793,7 +2793,7 @@ define internal fastcc void @"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$clo
     i8 3, label %10
   ]
 
-default.unreachable87:                            ; preds = %3
+default.unreachable86:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3

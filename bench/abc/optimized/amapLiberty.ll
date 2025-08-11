@@ -2627,7 +2627,7 @@ Vec_StrPush.exit.i268:                            ; preds = %493, %Vec_StrGrow.e
   br label %.lr.ph.i275
 
 .lr.ph.i275:                                      ; preds = %.lr.ph.i275.preheader, %Vec_StrPush.exit.i281
-  %exitcond.not.i283 = phi i1 [ true, %Vec_StrPush.exit.i281 ], [ false, %.lr.ph.i275.preheader ]
+  %indvars.iv.i278 = phi i1 [ true, %Vec_StrPush.exit.i281 ], [ false, %.lr.ph.i275.preheader ]
   %indvars.iv.i278 = phi i64 [ 1, %Vec_StrPush.exit.i281 ], [ 0, %.lr.ph.i275.preheader ]
   %500 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %indvars.iv.i278
   %501 = load i8, ptr %500, align 1, !tbaa !16

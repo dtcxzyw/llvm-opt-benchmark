@@ -1208,8 +1208,8 @@ define dso_local void @dasm_put(ptr noundef readonly captures(none) %0, i32 noun
   %144 = load i8, ptr %57, align 1, !tbaa !44
   %.mask = and i8 %144, -32
   %.not239 = icmp eq i8 %.mask, 64
-  %or.cond405 = select i1 %.not238, i1 %.not239, i1 false
-  br i1 %or.cond405, label %145, label %thread-pre-split
+  %or.cond396 = select i1 %.not238, i1 %.not239, i1 false
+  br i1 %or.cond396, label %145, label %thread-pre-split
 
 145:                                              ; preds = %143, %141
   %146 = load ptr, ptr %5, align 8, !tbaa !33
@@ -1283,7 +1283,7 @@ thread-pre-split:                                 ; preds = %143
   %179 = add nsw i32 %.4209, -1
   br label %.thread243.backedge
 
-default.unreachable364:                           ; preds = %180, %159, %75
+default.unreachable352:                           ; preds = %180, %159, %75
   unreachable
 
 180:                                              ; preds = %62
@@ -1381,9 +1381,9 @@ default.unreachable364:                           ; preds = %180, %159, %75
   %230 = load i32, ptr %229, align 4, !tbaa !43
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i32, ptr %217, i64 %231
-  %.idx366 = shl nsw i64 %231, 2
+  %.idx354 = shl nsw i64 %231, 2
   %233 = load i64, ptr %53, align 8, !tbaa !31
-  %.not236 = icmp ult i64 %.idx366, %233
+  %.not236 = icmp ult i64 %.idx354, %233
   br i1 %.not236, label %243, label %234
 
 234:                                              ; preds = %228
@@ -1489,9 +1489,9 @@ default.unreachable364:                           ; preds = %180, %159, %75
   %293 = load i32, ptr %292, align 4, !tbaa !43
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds i32, ptr %280, i64 %294
-  %.idx365 = shl nsw i64 %294, 2
+  %.idx353 = shl nsw i64 %294, 2
   %296 = load i64, ptr %53, align 8, !tbaa !31
-  %.not234 = icmp ult i64 %.idx365, %296
+  %.not234 = icmp ult i64 %.idx353, %296
   br i1 %.not234, label %306, label %297
 
 297:                                              ; preds = %291
@@ -2635,9 +2635,9 @@ define dso_local i32 @dasm_checkstep(ptr noundef readonly captures(none) %0, i32
 
 .loopexit.thread.sink.split:                      ; preds = %9, %22
   %indvars.iv.lcssa.sink = phi i64 [ %26, %22 ], [ %indvars.iv, %9 ]
-  %.sink30 = phi i32 [ 50331648, %22 ], [ 553648128, %9 ]
+  %.sink28 = phi i32 [ 50331648, %22 ], [ 553648128, %9 ]
   %27 = trunc i64 %indvars.iv.lcssa.sink to i32
-  %28 = or i32 %.sink30, %27
+  %28 = or i32 %.sink28, %27
   store i32 %28, ptr %4, align 4, !tbaa !34
   br label %.loopexit.thread
 
@@ -2803,9 +2803,9 @@ parsemode.exit.i:                                 ; preds = %.preheader.i
 parseargs.exit:                                   ; preds = %.loopexit.i
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 158, ptr %57, align 4, !tbaa !75
-  %calloc127.i = tail call dereferenceable_or_null(1264) ptr @calloc(i64 1, i64 1264)
+  %calloc115.i = tail call dereferenceable_or_null(1264) ptr @calloc(i64 1, i64 1264)
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr %calloc127.i, ptr %58, align 8, !tbaa !76
+  store ptr %calloc115.i, ptr %58, align 8, !tbaa !76
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 0, ptr %59, align 4, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -2840,7 +2840,7 @@ parseargs.exit:                                   ; preds = %.loopexit.i
   %72 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %72, i8 0, i64 80, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 48
-  store ptr %calloc127.i, ptr %73, align 8, !tbaa !28
+  store ptr %calloc115.i, ptr %73, align 8, !tbaa !28
   %74 = getelementptr inbounds nuw i8, ptr %malloc.i.i, i64 16
   %calloc.i = tail call dereferenceable_or_null(1024) ptr @calloc(i64 1, i64 1024)
   store ptr %calloc.i, ptr %74, align 8, !tbaa !27
@@ -4316,7 +4316,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 15127)
   br label %124
 
-124:                                              ; preds = %123, %.thread250.i
+default.unreachable264.i:                         ; preds = %123, %.thread250.i
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 15137)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 15148, i32 noundef 32, i32 noundef -72)
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 15220, i32 noundef -1)

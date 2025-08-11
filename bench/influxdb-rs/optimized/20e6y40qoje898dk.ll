@@ -268,9 +268,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h50263d2e15235608E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i"
-  %.sink44.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
+  %.sink41.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
   %98 = load i64, ptr %5, align 8, !noalias !28, !noundef !9
-  %99 = add i64 %98, %.sink44.i
+  %99 = add i64 %98, %.sink41.i
   store i64 %99, ptr %5, align 8, !noalias !28
   br label %.outer.i
 
@@ -535,7 +535,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
     i8 5, label %266
   ]
 
-default.unreachable104:                           ; preds = %44, %2
+default.unreachable84:                            ; preds = %44, %2
   unreachable
 
 9:                                                ; preds = %2
@@ -854,8 +854,8 @@ default.unreachable104:                           ; preds = %44, %2
 169:                                              ; preds = %44
   %170 = load double, ptr %47, align 8, !alias.scope !263, !noundef !9
   %171 = tail call double @llvm.fabs.f64(double %170)
-  %or.cond4.i.i = fcmp ueq double %171, 0x7FF0000000000000
-  br i1 %or.cond4.i.i, label %select.unfold.i.i, label %172
+  %or.cond3.i.i = fcmp ueq double %171, 0x7FF0000000000000
+  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %172
 
 172:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !263
@@ -973,12 +973,12 @@ _ZN10serde_json3ser9Formatter10write_null17h7659524ff21d466eE.llvm.7682522193326
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader": ; preds = %227, %216
-  %.ph120 = xor i1 %222, true
+  %.ph100 = xor i1 %222, true
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i
   %233 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %222, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
-  %234 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.ph120, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
+  %234 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.ph100, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
   %.sroa.044.0 = phi ptr [ %237, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.val.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
   %235 = icmp eq ptr %.sroa.044.0, %209
   br i1 %235, label %253, label %236

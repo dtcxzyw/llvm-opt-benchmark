@@ -4926,7 +4926,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 %94, ptr %5, align 8, !tbaa !31
   %.0..0..0..0. = load volatile i64, ptr %5, align 8, !tbaa !31
-  %strncpy186 = call ptr @strncpy(ptr %96, ptr nonnull %1, i64 %.0..0..0..0.)
+  %strncpy173 = call ptr @strncpy(ptr %96, ptr nonnull %1, i64 %.0..0..0..0.)
   %.0..0..0..0.34 = load volatile i64, ptr %5, align 8, !tbaa !31
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 %.0..0..0..0.34
   store i8 0, ptr %98, align 1, !tbaa !32
@@ -5219,7 +5219,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 %95, ptr %6, align 8, !tbaa !31
   %.0..0..0..0. = load volatile i64, ptr %6, align 8, !tbaa !31
-  %strncpy187 = call ptr @strncpy(ptr %97, ptr nonnull %1, i64 %.0..0..0..0.)
+  %strncpy174 = call ptr @strncpy(ptr %97, ptr nonnull %1, i64 %.0..0..0..0.)
   %.0..0..0..0.34 = load volatile i64, ptr %6, align 8, !tbaa !31
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 %.0..0..0..0.34
   store i8 0, ptr %99, align 1, !tbaa !32
@@ -5944,7 +5944,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i64 %90, ptr %6, align 8, !tbaa !31
   %.0..0..0..0. = load volatile i64, ptr %6, align 8, !tbaa !31
-  %strncpy168 = call ptr @strncpy(ptr %92, ptr nonnull %88, i64 %.0..0..0..0.)
+  %strncpy154 = call ptr @strncpy(ptr %92, ptr nonnull %88, i64 %.0..0..0..0.)
   %.0..0..0..0.32 = load volatile i64, ptr %6, align 8, !tbaa !31
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %.0..0..0..0.32
   store i8 0, ptr %94, align 1, !tbaa !32
@@ -6817,7 +6817,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
   br label %_ZL16__itt_get_groupsv.exit
 
 _ZL17__itt_get_env_varPKc.exit.i:                 ; preds = %_ZL17__itt_get_env_varPKc.exit.i.preheader, %148
-  %exitcond97.i = phi i1 [ true, %148 ], [ false, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
+  %indvars.iv94.i = phi i1 [ true, %148 ], [ false, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
   %indvars.iv94.i = phi i64 [ 2, %148 ], [ 1, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
   %128 = phi ptr [ %150, %148 ], [ @.str.175, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
   %129 = phi ptr [ %149, %148 ], [ @_ZL11group_alias, %_ZL17__itt_get_env_varPKc.exit.i.preheader ]
@@ -6845,7 +6845,7 @@ _ZL17__itt_get_env_varPKc.exit.i:                 ; preds = %_ZL17__itt_get_env_
   %141 = call i64 @llvm.umin.i64(i64 %139, i64 %140)
   store volatile i64 %141, ptr %3, align 8, !tbaa !31
   %.0..0..0..0..0..0..0..0..i47.i = load volatile i64, ptr %3, align 8, !tbaa !31
-  %strncpy210 = call ptr @strncpy(ptr %133, ptr nonnull %130, i64 %.0..0..0..0..0..0..0..0..i47.i)
+  %strncpy189 = call ptr @strncpy(ptr %133, ptr nonnull %130, i64 %.0..0..0..0..0..0..0..0..i47.i)
   %142 = load ptr, ptr @_ZZL17__itt_get_env_varPKcE9env_value, align 8, !tbaa !113
   %.0..0..0..0..0..0..0..0.2.i48.i = load volatile i64, ptr %3, align 8, !tbaa !31
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 %.0..0..0..0..0..0..0..0.2.i48.i
@@ -6989,7 +6989,7 @@ _ZL16__itt_get_groupsv.exit:                      ; preds = %148, %127, %138
   call void %208(ptr noundef nonnull @__itt__ittapi_global, i32 noundef %1)
   br label %_ZL26__itt_nullify_all_pointersv.exit94
 
-default.unreachable177:                           ; preds = %161
+default.unreachable156:                           ; preds = %161
   unreachable
 
 210:                                              ; preds = %157

@@ -794,9 +794,9 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 50331648
-  br i1 %40, label %.thread29, label %45
+  br i1 %40, label %.thread20, label %45
 
-.thread29:                                        ; preds = %35
+.thread20:                                        ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -848,7 +848,7 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %72 = select i1 %71, i32 4, i32 8
   br label %73
 
-73:                                               ; preds = %.thread29, %64, %58
+73:                                               ; preds = %.thread20, %64, %58
   %74 = phi i32 [ %62, %58 ], [ %65, %64 ], [ %44, %.thread29 ]
   %75 = phi ptr [ %.pre, %58 ], [ %66, %64 ], [ %37, %.thread29 ]
   %76 = phi i32 [ 50331648, %58 ], [ %67, %64 ], [ 50331648, %.thread29 ]

@@ -1088,7 +1088,7 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
   br label %54
 
 54:                                               ; preds = %35, %60
-  %exitcond.not = phi i1 [ false, %35 ], [ true, %60 ]
+  %indvars.iv = phi i1 [ false, %35 ], [ true, %60 ]
   %indvars.iv = phi i64 [ 1, %35 ], [ 2, %60 ]
   %55 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
@@ -2232,8 +2232,8 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
   %.sroa.0.0.insert.ext.i58 = zext i32 %spec.select.i56 to i64
   %.sroa.0.0.insert.insert.i59 = or disjoint i64 %spec.select3.i57, %.sroa.0.0.insert.ext.i58
   %47 = or i32 %10, %14
-  %or.cond.not80 = icmp sgt i32 %47, -1
-  br i1 %or.cond.not80, label %49, label %48
+  %or.cond.not72 = icmp sgt i32 %47, -1
+  br i1 %or.cond.not72, label %49, label %48
 
 48:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.50, i32 noundef %10, i32 noundef %14) #14

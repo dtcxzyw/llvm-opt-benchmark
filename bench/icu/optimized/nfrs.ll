@@ -1267,7 +1267,7 @@ define void @_ZNK6icu_779NFRuleSet6formatElRNS_13UnicodeStringEiiR10UErrorCode(p
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load i32, ptr %24, align 8, !tbaa !20
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.preheader.i, label %52
+  br i1 %26, label %.preheader.i, label %53
 
 .preheader.i:                                     ; preds = %22
   %27 = load ptr, ptr %23, align 8, !tbaa !19, !nonnull !40, !noundef !40
@@ -1321,20 +1321,20 @@ _ZNK6icu_7710NFRuleListixEj.exit45.i:             ; preds = %37
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit
 
-52:                                               ; preds = %22
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
+53:                                               ; preds = %22
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit
 
-_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit:     ; preds = %12, %48, %52
-  %.025.i = phi ptr [ %14, %12 ], [ %54, %52 ], [ %51, %48 ]
+_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit:     ; preds = %12, %48, %53
+  %.025.i = phi ptr [ %14, %12 ], [ %55, %52 ], [ %51, %48 ]
   %.not = icmp eq ptr %.025.i, null
   br i1 %.not, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread, label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14
 
 _ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14: ; preds = %_ZNK6icu_7710NFRuleListixEj.exit.thread.i, %_ZNK6icu_7710NFRuleListixEj.exit45.i, %17, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit
   %.025.i17 = phi ptr [ %.025.i, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit ], [ %42, %_ZNK6icu_7710NFRuleListixEj.exit45.i ], [ %19, %17 ], [ %32, %_ZNK6icu_7710NFRuleListixEj.exit.thread.i ]
-  %55 = add nsw i32 %4, 1
-  tail call void @_ZNK6icu_776NFRule8doFormatElRNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.025.i17, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, i32 noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %56 = add nsw i32 %4, 1
+  tail call void @_ZNK6icu_776NFRule8doFormatElRNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %.025.i17, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, i32 noundef %56, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread
 
 _ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread: ; preds = %46, %44, %37, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit, %_ZNK6icu_779NFRuleSet14findNormalRuleEl.exit.thread14, %8
@@ -1765,7 +1765,7 @@ _ZNK6icu_7710NFRuleListixEj.exit55.thread:        ; preds = %._crit_edge70
   %89 = load ptr, ptr %88, align 8, !tbaa !25
   %90 = load i64, ptr %89, align 8, !tbaa !41
   %91 = icmp eq i64 %86, %90
-  br i1 %91, label %.thread, label %.thread96
+  br i1 %91, label %.thread, label %.thread86
 
 .thread:                                          ; preds = %_ZNK6icu_7710NFRuleListixEj.exit55.thread
   %92 = sitofp i64 %86 to double
@@ -1774,20 +1774,20 @@ _ZNK6icu_7710NFRuleListixEj.exit55.thread:        ; preds = %._crit_edge70
   %95 = fcmp oge double %93, 2.000000e+00
   %or.cond = or i1 %94, %95
   %spec.select40 = select i1 %or.cond, i32 %81, i32 %.1
-  br label %.thread96
+  br label %.thread86
 
 96:                                               ; preds = %._crit_edge70
   %.not.i58 = icmp eq ptr %.pre.pre, null
-  br i1 %.not.i58, label %_ZNK6icu_7710NFRuleListixEj.exit59, label %.thread96
+  br i1 %.not.i58, label %_ZNK6icu_7710NFRuleListixEj.exit59, label %.thread86
 
-.thread96:                                        ; preds = %.thread, %_ZNK6icu_7710NFRuleListixEj.exit55.thread, %96
-  %.399 = phi i32 [ %.1, %96 ], [ %.1, %_ZNK6icu_7710NFRuleListixEj.exit55.thread ], [ %spec.select40, %.thread ]
-  %97 = zext i32 %.399 to i64
+.thread86:                                        ; preds = %.thread, %_ZNK6icu_7710NFRuleListixEj.exit55.thread, %96
+  %.389 = phi i32 [ %.1, %96 ], [ %.1, %_ZNK6icu_7710NFRuleListixEj.exit55.thread ], [ %spec.select40, %.thread ]
+  %97 = zext i32 %.389 to i64
   %98 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !25
   br label %_ZNK6icu_7710NFRuleListixEj.exit59
 
-_ZNK6icu_7710NFRuleListixEj.exit59:               ; preds = %96, %.thread96
+_ZNK6icu_7710NFRuleListixEj.exit59:               ; preds = %96, %.thread86
   %100 = phi ptr [ %99, %.thread96 ], [ null, %96 ]
   ret ptr %100
 }
@@ -2370,8 +2370,8 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   %.15762 = phi ptr [ %38, %.lr.ph.split ], [ %.056, %.lr.ph ]
   %35 = sdiv i64 %.164, %6
   %36 = mul nsw i64 %35, %6
-  %.recomposed103 = srem i64 %.164, %6
-  %37 = trunc i64 %.recomposed103 to i16
+  %.recomposed100 = srem i64 %.164, %6
+  %37 = trunc i64 %.recomposed100 to i16
   %38 = getelementptr inbounds nuw i8, ptr %.15762, i64 2
   store i16 %37, ptr %.15762, align 2, !tbaa !29
   %39 = add i32 %.15463, -1
@@ -2386,17 +2386,17 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   br i1 %.lcssa, label %43, label %44
 
 43:                                               ; preds = %.thread, %._crit_edge
-  %.157.lcssa83 = phi ptr [ %19, %.thread ], [ %.157.lcssa, %._crit_edge ]
-  store i16 0, ptr %.157.lcssa83, align 2, !tbaa !29
+  %.157.lcssa80 = phi ptr [ %19, %.thread ], [ %.157.lcssa, %._crit_edge ]
+  store i16 0, ptr %.157.lcssa80, align 2, !tbaa !29
   br label %44
 
 44:                                               ; preds = %.thread, %43, %._crit_edge
-  %.157.lcssa82 = phi ptr [ %19, %.thread ], [ %.157.lcssa83, %43 ], [ %.157.lcssa, %._crit_edge ]
+  %.157.lcssa79 = phi ptr [ %19, %.thread ], [ %.157.lcssa80, %43 ], [ %.157.lcssa, %._crit_edge ]
   %45 = load i16, ptr %1, align 2, !tbaa !29
   %46 = icmp eq i16 %45, 45
   %spec.select.idx = select i1 %46, i64 2, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
-  %47 = getelementptr inbounds i8, ptr %.157.lcssa82, i64 -2
+  %47 = getelementptr inbounds i8, ptr %.157.lcssa79, i64 -2
   %48 = icmp ugt ptr %47, %spec.select
   br i1 %48, label %.lr.ph69, label %._crit_edge70
 
@@ -2413,7 +2413,7 @@ define noundef i32 @_ZN6icu_7710util64_touElPDsjja(i64 noundef %0, ptr noundef %
   br i1 %54, label %.lr.ph69, label %._crit_edge70, !llvm.loop !73
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %44
-  %55 = ptrtoint ptr %.157.lcssa82 to i64
+  %55 = ptrtoint ptr %.157.lcssa79 to i64
   %56 = ptrtoint ptr %1 to i64
   %57 = sub i64 %55, %56
   %58 = lshr exact i64 %57, 1

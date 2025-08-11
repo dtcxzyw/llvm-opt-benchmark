@@ -606,8 +606,8 @@ ccall_struct_reg.exit.i.i:                        ; preds = %177
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %260, %257, %253, %250
-  %.sink287.i = phi i32 [ %252, %250 ], [ %255, %253 ], [ %259, %257 ], [ %262, %260 ]
-  store i32 %.sink287.i, ptr %.3160.i, align 4, !tbaa !45
+  %.sink277.i = phi i32 [ %252, %250 ], [ %255, %253 ], [ %259, %257 ], [ %262, %260 ]
+  store i32 %.sink277.i, ptr %.3160.i, align 4, !tbaa !45
   br label %263
 
 263:                                              ; preds = %.sink.split.i, %243, %236
@@ -860,12 +860,12 @@ ccall_get_results.exit:                           ; preds = %361, %364
   br i1 %379, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %378, %ctype_rawchild.exit.i37, %ccall_get_results.exit
-  %.04182 = phi i32 [ 1, %ccall_get_results.exit ], [ 0, %ctype_rawchild.exit.i37 ], [ 1, %378 ]
+  %.04170 = phi i32 [ 1, %ccall_get_results.exit ], [ 0, %ctype_rawchild.exit.i37 ], [ 1, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %380
 
 380:                                              ; preds = %ctype_raw.exit, %ctype_rawchild.exit, %._crit_edge
-  %.031 = phi i32 [ %.04182, %._crit_edge ], [ -1, %ctype_rawchild.exit ], [ -1, %ctype_raw.exit ]
+  %.031 = phi i32 [ %.04170, %._crit_edge ], [ -1, %ctype_rawchild.exit ], [ -1, %ctype_raw.exit ]
   ret i32 %.031
 }
 

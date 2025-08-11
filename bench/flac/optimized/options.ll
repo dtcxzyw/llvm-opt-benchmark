@@ -1890,20 +1890,20 @@ define dso_local void @free_options(ptr noundef readonly captures(none) %0) loca
   %47 = getelementptr inbounds nuw i8, ptr %.079, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !38
   %.not66 = icmp eq ptr %48, null
-  br i1 %.not66, label %52, label %.sink.split108
+  br i1 %.not66, label %52, label %.sink.split91
 
 49:                                               ; preds = %.lr.ph81, %.lr.ph81
   %50 = getelementptr inbounds nuw i8, ptr %.079, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !38
   %.not65 = icmp eq ptr %51, null
-  br i1 %.not65, label %52, label %.sink.split108
+  br i1 %.not65, label %52, label %.sink.split91
 
-.sink.split108:                                   ; preds = %49, %46
-  %.sink109 = phi ptr [ %48, %46 ], [ %51, %49 ]
-  tail call void @free(ptr noundef nonnull %.sink109) #18
+.sink.split91:                                    ; preds = %49, %46
+  %.sink92 = phi ptr [ %48, %46 ], [ %51, %49 ]
+  tail call void @free(ptr noundef nonnull %.sink92) #18
   br label %52
 
-52:                                               ; preds = %.sink.split108, %46, %49, %.lr.ph81
+52:                                               ; preds = %.sink.split91, %46, %49, %.lr.ph81
   %53 = add nuw i32 %.178, 1
   %54 = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %55 = load i32, ptr %42, align 8, !tbaa !44

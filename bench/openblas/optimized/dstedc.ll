@@ -219,12 +219,12 @@ pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_i
   br i1 %.not275, label %107, label %.thread318
 
 .thread318.sink.split:                            ; preds = %101, %97, %40, %35, %33
-  %.sink384 = phi i32 [ -1, %33 ], [ -2, %35 ], [ -6, %40 ], [ -8, %97 ], [ -10, %101 ]
-  store i32 %.sink384, ptr %10, align 4, !tbaa !3
+  %.sink372 = phi i32 [ -1, %33 ], [ -2, %35 ], [ -6, %40 ], [ -8, %97 ], [ -10, %101 ]
+  store i32 %.sink372, ptr %10, align 4, !tbaa !3
   br label %.thread318
 
 .thread318:                                       ; preds = %.thread318.sink.split, %44, %.thread300
-  %104 = phi i32 [ %.pr312.pr, %.thread300 ], [ %.pr, %44 ], [ %.sink384, %.thread318.sink.split ]
+  %104 = phi i32 [ %.pr312.pr, %.thread300 ], [ %.pr, %44 ], [ %.sink372, %.thread318.sink.split ]
   %105 = sub nsw i32 0, %104
   store i32 %105, ptr %12, align 4, !tbaa !3
   %106 = call i32 @xerbla_(ptr noundef nonnull @.str.3, ptr noundef nonnull %12, i32 noundef 6) #5

@@ -8241,7 +8241,7 @@ if.end.i.i.i:                                     ; preds = %while.body, %while.
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i36.lcssa, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i36.lcssa, -1
-  %div.i7.i.i.i = lshr i64 %sub.i.i.i.i, 1
+  %div.i78.i.i.i = lshr i64 %sub.i.i.i.i, 1
   %1 = and i64 %sub.ptr.sub.i35.lcssa, 16
   %cmp17.i.i.i.i = icmp eq i64 %1, 0
   %sub25.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
@@ -8257,7 +8257,7 @@ while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heap
   %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %phi.call.i.i.i, align 8
   %__value.sroa.2.0.call5.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i.i = load double, ptr %__value.sroa.2.0.call5.sroa_idx.i.i.i, align 8
-  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i7.i.i.i
+  %cmp29.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i78.i.i.i
   br i1 %cmp29.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i.i
@@ -8279,7 +8279,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %5 = load double, ptr %second.i.i.i.i.i, align 8
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i.i.i.i, i64 8
   store double %5, ptr %second3.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i7.i.i.i
+  %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i78.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !59
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i.i

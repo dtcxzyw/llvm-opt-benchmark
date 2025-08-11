@@ -203,7 +203,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %22, %.preheader.preheader.i
-  %exitcond24.not.i = phi i1 [ true, %22 ], [ false, %.preheader.preheader.i ]
+  %.01823.i = phi i1 [ true, %22 ], [ false, %.preheader.preheader.i ]
   %.01823.i = phi i64 [ 1, %22 ], [ 0, %.preheader.preheader.i ]
   %14 = mul nuw nsw i64 %.01823.i, 48
   %15 = add nuw nsw i64 %14, 47
@@ -225,52 +225,52 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string_ro(ptr no
   %23 = shl nuw nsw i64 %.01823.i, 5
   %24 = getelementptr i8, ptr %11, i64 %23
   call void @_sodium_ge25519_from_hash(ptr noundef %24, ptr noundef nonnull %9) #6
-  br i1 %exitcond24.not.i, label %25, label %.preheader.i, !llvm.loop !6
+  br i1 %.01823.i, label %25, label %.preheader.i, !llvm.loop !6
 
 _string_to_points.exit:                           ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %37
+  br label %38
 
-25:                                               ; preds = %22
+26:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %27 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %6, ptr noundef nonnull %11) #6
-  %.not.i5 = icmp eq i32 %27, 0
-  br i1 %.not.i5, label %28, label %crypto_core_ed25519_add.exit
+  %28 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %6, ptr noundef nonnull %11) #6
+  %.not.i5 = icmp eq i32 %28, 0
+  br i1 %.not.i5, label %29, label %crypto_core_ed25519_add.exit
 
-28:                                               ; preds = %25
-  %29 = call i32 @_sodium_ge25519_is_on_curve(ptr noundef nonnull %6) #6
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %crypto_core_ed25519_add.exit, label %31
+29:                                               ; preds = %26
+  %30 = call i32 @_sodium_ge25519_is_on_curve(ptr noundef nonnull %6) #6
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %crypto_core_ed25519_add.exit, label %32
 
-31:                                               ; preds = %28
-  %32 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %7, ptr noundef nonnull %26) #6
-  %.not3.i = icmp eq i32 %32, 0
-  br i1 %.not3.i, label %33, label %crypto_core_ed25519_add.exit
+32:                                               ; preds = %29
+  %33 = call i32 @_sodium_ge25519_frombytes(ptr noundef nonnull %7, ptr noundef nonnull %27) #6
+  %.not3.i = icmp eq i32 %33, 0
+  br i1 %.not3.i, label %34, label %crypto_core_ed25519_add.exit
 
-33:                                               ; preds = %31
-  %34 = call i32 @_sodium_ge25519_is_on_curve(ptr noundef nonnull %7) #6
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %crypto_core_ed25519_add.exit, label %36
+34:                                               ; preds = %32
+  %35 = call i32 @_sodium_ge25519_is_on_curve(ptr noundef nonnull %7) #6
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %crypto_core_ed25519_add.exit, label %37
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   call void @_sodium_ge25519_p3_tobytes(ptr noundef nonnull %0, ptr noundef nonnull %8) #6
   br label %crypto_core_ed25519_add.exit
 
-crypto_core_ed25519_add.exit:                     ; preds = %25, %28, %31, %33, %36
+crypto_core_ed25519_add.exit:                     ; preds = %26, %29, %32, %34, %37
   %.0.i = phi i32 [ 0, %36 ], [ -1, %33 ], [ -1, %31 ], [ -1, %28 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %_string_to_points.exit, %crypto_core_ed25519_add.exit
+38:                                               ; preds = %_string_to_points.exit, %crypto_core_ed25519_add.exit
   %.0 = phi i32 [ %.0.i, %crypto_core_ed25519_add.exit ], [ -1, %_string_to_points.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

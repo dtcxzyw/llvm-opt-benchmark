@@ -882,8 +882,8 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
 
 17:                                               ; preds = %12, %7
   %.sroa.07.0 = phi i64 [ %9, %7 ], [ %15, %12 ]
-  %.sroa.12.0 = phi i64 [ %10, %7 ], [ %16, %12 ]
-  %18 = tail call { i64, i64 } @js_std_await(ptr noundef nonnull %0, i64 %.sroa.07.0, i64 %.sroa.12.0) #17
+  %.sroa.07.0 = phi i64 [ %10, %7 ], [ %16, %12 ]
+  %18 = tail call { i64, i64 } @js_std_await(ptr noundef nonnull %0, i64 %.sroa.07.0, i64 %.sroa.07.0) #17
   br label %21
 
 19:                                               ; preds = %5
@@ -894,33 +894,33 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
   %.pn = phi { i64, i64 } [ %18, %17 ], [ %20, %19 ]
   %.sroa.12.1 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.07.1 = extractvalue { i64, i64 } %.pn, 0
-  %22 = and i64 %.sroa.12.1, 4294967295
-  %.not37 = icmp eq i64 %22, 6
-  br i1 %.not37, label %23, label %24
+  %23 = and i64 %.sroa.12.1, 4294967295
+  %.not37 = icmp eq i64 %23, 6
+  br i1 %.not37, label %24, label %25
 
-23:                                               ; preds = %21
+24:                                               ; preds = %21
   tail call void @js_std_dump_error(ptr noundef nonnull %0) #17
-  br label %24
+  br label %25
 
-24:                                               ; preds = %21, %23
+25:                                               ; preds = %21, %24
   %.0 = phi i32 [ -1, %23 ], [ 0, %21 ]
-  %25 = trunc i64 %.sroa.12.1 to i32
-  %26 = icmp ugt i32 %25, -12
-  br i1 %26, label %27, label %JS_FreeValue.exit
+  %26 = trunc i64 %.sroa.12.1 to i32
+  %27 = icmp ugt i32 %26, -12
+  br i1 %27, label %28, label %JS_FreeValue.exit
 
-27:                                               ; preds = %24
-  %28 = inttoptr i64 %.sroa.07.1 to ptr
-  %29 = load i32, ptr %28, align 4, !tbaa !21
-  %30 = add i32 %29, -1
-  store i32 %30, ptr %28, align 4, !tbaa !21
-  %31 = icmp slt i32 %30, 1
-  br i1 %31, label %32, label %JS_FreeValue.exit
+28:                                               ; preds = %25
+  %29 = inttoptr i64 %.sroa.07.1 to ptr
+  %30 = load i32, ptr %29, align 4, !tbaa !21
+  %31 = add i32 %30, -1
+  store i32 %31, ptr %29, align 4, !tbaa !21
+  %32 = icmp slt i32 %31, 1
+  br i1 %32, label %33, label %JS_FreeValue.exit
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   tail call void @__JS_FreeValue(ptr noundef nonnull %0, i64 %.sroa.07.1, i64 %.sroa.12.1) #17
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %24, %27, %32
+JS_FreeValue.exit:                                ; preds = %25, %28, %33
   ret i32 %.0
 }
 

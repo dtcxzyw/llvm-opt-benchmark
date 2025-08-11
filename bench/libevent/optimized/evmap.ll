@@ -818,7 +818,7 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
 
 evmap_io_foreach_fd.exit:                         ; preds = %.thread.i
   %39 = icmp slt i32 %.1, 0
-  br i1 %39, label %evmap_signal_foreach_signal.exit, label %evmap_io_foreach_fd.exit.thread
+  br i1 %39, label %62, label %evmap_io_foreach_fd.exit.thread
 
 evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreach_fd.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -865,13 +865,13 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i10, %60
-  br i1 %61, label %.lr.ph.i3, label %evmap_signal_foreach_signal.exit.loopexit, !llvm.loop !11
+  br i1 %61, label %.lr.ph.i3, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
 
-evmap_signal_foreach_signal.exit.loopexit:        ; preds = %.thread.i9
+evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i9
   %62 = ashr i32 %.4, 31
-  br label %evmap_signal_foreach_signal.exit
+  br label %62
 
-evmap_signal_foreach_signal.exit:                 ; preds = %evmap_io_foreach_fd.exit.thread, %evmap_signal_foreach_signal.exit.loopexit, %evmap_io_foreach_fd.exit
+62:                                               ; preds = %evmap_io_foreach_fd.exit.thread, %62, %evmap_io_foreach_fd.exit
   %.0 = phi i32 [ -1, %evmap_io_foreach_fd.exit ], [ 0, %evmap_io_foreach_fd.exit.thread ], [ %62, %evmap_signal_foreach_signal.exit.loopexit ]
   ret i32 %.0
 }
@@ -1189,19 +1189,19 @@ event_changelist_get_or_construct.exit:           ; preds = %5
 41:                                               ; preds = %.sink.split, %35
   %42 = and i16 %3, 4
   %.not26 = icmp eq i16 %42, 0
-  br i1 %.not26, label %47, label %.sink.split40
+  br i1 %.not26, label %47, label %.sink.split36
 
-.sink.split40:                                    ; preds = %41
+.sink.split36:                                    ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = and i16 %44, 4
   %.not27 = icmp eq i16 %45, 0
   %46 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 7
-  %.43 = select i1 %.not27, i8 0, i8 %9
-  store i8 %.43, ptr %46, align 1
+  %.39 = select i1 %.not27, i8 0, i8 %9
+  store i8 %.39, ptr %46, align 1
   br label %47
 
-47:                                               ; preds = %.sink.split40, %41
+47:                                               ; preds = %.sink.split36, %41
   %48 = and i16 %3, 128
   %.not28 = icmp eq i16 %48, 0
   br i1 %.not28, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_get_or_construct.exit.thread.sink.split
@@ -1212,8 +1212,8 @@ event_changelist_get_or_construct.exit.thread.sink.split: ; preds = %47
   %51 = and i16 %50, 128
   %.not29 = icmp eq i16 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 8
-  %.44 = select i1 %.not29, i8 0, i8 %9
-  store i8 %.44, ptr %52, align 4
+  %.40 = select i1 %.not29, i8 0, i8 %9
+  store i8 %.40, ptr %52, align 4
   br label %event_changelist_get_or_construct.exit.thread
 
 event_changelist_get_or_construct.exit.thread:    ; preds = %event_changelist_get_or_construct.exit.thread.sink.split, %18, %47, %event_changelist_get_or_construct.exit

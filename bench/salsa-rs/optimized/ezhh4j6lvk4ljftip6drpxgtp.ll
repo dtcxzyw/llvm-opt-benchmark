@@ -621,8 +621,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %26 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.e48134694fe1a4dc81b6c761c8143c86.18)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = load atomic i64, ptr %4 acquire, align 8, !noalias !38
-  %.not = icmp eq i64 %25, %27
-  br i1 %.not, label %.loopexit, label %.lr.ph.i.i.i.i
+  %28 = icmp eq i64 %25, %27
+  br i1 %28, label %.loopexit, label %.lr.ph.i.i.i.i
 
 .loopexit:                                        ; preds = %24, %.loopexit.i.i.i.i, %2
   ret ptr %0

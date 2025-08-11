@@ -350,7 +350,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %.022.i.i = select i1 %16, i64 %17, i64 %.01927.i.i
   %18 = sub nsw i64 %.021.i.i, %.022.i.i
   %19 = icmp samesign ult i64 %.022.i.i, %.021.i.i
-  br i1 %19, label %3, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
+  br i1 %19, label %3, label %24
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i": ; preds = %3
   %20 = getelementptr inbounds nuw [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 0, i64 %5, i32 1
@@ -359,7 +359,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %23 = load i64, ptr %22, align 8, !noalias !82, !noundef !5
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit": ; preds = %14, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i"
+24:                                               ; preds = %14, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i"
   %.sroa.01.0 = phi ptr [ %21, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ null, %14 ]
   %.sroa.5.0 = phi i64 [ %23, %"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i" ], [ %.022.i.i, %14 ]
   %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0, 0

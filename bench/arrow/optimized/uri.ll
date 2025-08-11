@@ -737,15 +737,15 @@ switch.early.test.i.i55.i.i.i.i:                  ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 1
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20": ; preds = %switch.early.test.i.i39.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18": ; preds = %switch.early.test.i.i39.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 2
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22": ; preds = %switch.early.test.i.i43.i.i.i.i
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20": ; preds = %switch.early.test.i.i43.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.02967.i.i.i.i, i64 3
   br label %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit"
 
-"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22", %._crit_edge.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i51.i.i.i.i, %switch.early.test.i.i55.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i"
+"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit": ; preds = %switch.early.test.i.i.i.i.i.i, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit18", %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i.i, %switch.early.test.i.i47.i.i.i.i, %switch.early.test.i.i51.i.i.i.i, %switch.early.test.i.i55.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i"
   %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %switch.early.test.i.i47.i.i.i.i ], [ %.1.i.i.i.i, %switch.early.test.i.i51.i.i.i.i ], [ %.2.i.i.i.i, %switch.early.test.i.i55.i.i.i.i ], [ %11, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKcEEbT_.exit56.thread.i.i.i.i" ], [ %11, %._crit_edge.i.i.i.i ], [ %62, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit" ], [ %63, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit20" ], [ %64, %"_ZSt6all_ofIPKcZN5arrow4util16IsValidUriSchemeESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EbT_S9_T0_.exit.loopexit.split.loop.exit22" ], [ %.02967.i.i.i.i, %switch.early.test.i.i.i.i.i.i ]
   %65 = icmp eq ptr %11, %.028.i.i.i.i
   br label %66
@@ -2588,11 +2588,11 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
   br label %200
 
 200:                                              ; preds = %.sink.split, %193, %195
-  %.not94 = phi i1 [ true, %193 ], [ true, %195 ], [ false, %.sink.split ]
+  %.not63 = phi i1 [ true, %193 ], [ true, %195 ], [ false, %.sink.split ]
   %201 = getelementptr inbounds nuw i8, ptr %188, i64 248
   %202 = load i8, ptr %201, align 8, !tbaa !44, !range !45, !noundef !46
   %203 = trunc nuw i8 %202 to i1
-  %brmerge.not = and i1 %.not94, %203
+  %brmerge.not = and i1 %.not63, %203
   br i1 %brmerge.not, label %204, label %224
 
 204:                                              ; preds = %200

@@ -728,11 +728,11 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit31.i.i.i, %
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %401, %396
-  %.sink134.i.i = phi ptr [ %398, %396 ], [ %405, %401 ]
-  %.sink132.i.i = phi double [ %392, %396 ], [ %409, %401 ]
-  %410 = getelementptr inbounds nuw i8, ptr %.sink134.i.i, i64 8
+  %.sink123.i.i = phi ptr [ %398, %396 ], [ %405, %401 ]
+  %.sink121.i.i = phi double [ %392, %396 ], [ %409, %401 ]
+  %410 = getelementptr inbounds nuw i8, ptr %.sink123.i.i, i64 8
   %411 = load double, ptr %410, align 8, !tbaa !10
-  %412 = fadd double %.sink132.i.i, %411
+  %412 = fadd double %.sink121.i.i, %411
   store double %412, ptr %410, align 8, !tbaa !10
   br label %413
 

@@ -7842,7 +7842,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17h80546eec68aecbd9E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable415:                           ; preds = %212, %.critedge
+default.unreachable374:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -10416,7 +10416,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc6be8af3b4d2d04cE
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable415:                           ; preds = %212, %.critedge
+default.unreachable374:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -12990,7 +12990,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc7e1942e7ac33650E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable415:                           ; preds = %212, %.critedge
+default.unreachable374:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4

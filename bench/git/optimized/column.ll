@@ -184,7 +184,7 @@ layout.exit.i.loopexit:                           ; preds = %.lr.ph.i.i
   br label %layout.exit.i
 
 layout.exit.i:                                    ; preds = %layout.exit.i.loopexit, %._crit_edge.i, %st_mult.exit.i
-  %.lcssa101203.i = phi i64 [ -1, %._crit_edge.i ], [ -1, %st_mult.exit.i ], [ %67, %layout.exit.i.loopexit ]
+  %.lcssa101188.i = phi i64 [ -1, %._crit_edge.i ], [ -1, %st_mult.exit.i ], [ %67, %layout.exit.i.loopexit ]
   %68 = phi i32 [ 0, %._crit_edge.i ], [ 0, %st_mult.exit.i ], [ %spec.select.i, %layout.exit.i.loopexit ]
   %69 = add nuw nsw i32 %68, %.sroa.5.1
   %70 = sext i32 %29 to i64
@@ -195,7 +195,7 @@ layout.exit.i:                                    ; preds = %layout.exit.i.loope
   %75 = trunc i64 %74 to i32
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %75, i32 1)
   %76 = sext i32 %spec.select.i.i to i64
-  %77 = add i64 %.lcssa101203.i, %76
+  %77 = add i64 %.lcssa101188.i, %76
   %78 = udiv i64 %77, %76
   %79 = trunc i64 %78 to i32
   %80 = and i32 %1, 128
@@ -214,8 +214,8 @@ st_mult.exit.i.i:                                 ; preds = %81
   %84 = shl nuw nsw i64 %76, 2
   %85 = tail call ptr @xrealloc(ptr noundef null, i64 noundef %84) #10
   %86 = icmp eq i32 %40, 0
-  %sext195.i = shl i64 %78, 32
-  %87 = ashr exact i64 %sext195.i, 32
+  %sext179.i = shl i64 %78, 32
+  %87 = ashr exact i64 %sext179.i, 32
   br label %88
 
 88:                                               ; preds = %._crit_edge.i.i, %st_mult.exit.i.i
@@ -276,8 +276,8 @@ st_mult.exit38.i.i:                               ; preds = %99
   %spec.select95.us.i = mul nsw i32 %112, %115
   %116 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i.i.us.i
   store i32 %spec.select95.us.i, ptr %116, align 4, !tbaa !23
-  %sext198.i = shl i64 %indvars.iv.i.i.us.i, 32
-  %117 = ashr exact i64 %sext198.i, 32
+  %sext182.i = shl i64 %indvars.iv.i.i.us.i, 32
+  %117 = ashr exact i64 %sext182.i, 32
   %118 = mul nsw i64 %117, %indvars.iv.next150.i
   br label %119
 
@@ -324,8 +324,8 @@ compute_column_width.exit.thread.i.i:             ; preds = %105
   %spec.select95.i = mul nsw i32 %112, %138
   %139 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i.i.i
   store i32 %spec.select95.i, ptr %139, align 4, !tbaa !23
-  %sext197.i = shl i64 %indvars.iv.i.i.i, 32
-  %140 = ashr exact i64 %sext197.i, 32
+  %sext181.i = shl i64 %indvars.iv.i.i.i, 32
+  %140 = ashr exact i64 %sext181.i, 32
   br label %141
 
 141:                                              ; preds = %155, %.lr.ph35.i.i.i
@@ -407,7 +407,7 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
 
 .lr.ph35.i39.i.preheader.split.us.i:              ; preds = %.lr.ph35.i39.i.preheader.i
   %179 = load i64, ptr %27, align 8, !tbaa !11
-  %180 = shl nuw nsw i64 %indvars.iv149.i, 32
+  %sext183.i = shl nuw nsw i64 %indvars.iv149.i, 32
   br label %.lr.ph35.i39.i.us.i
 
 .lr.ph35.i39.i.us.i:                              ; preds = %._crit_edge.i41.i.loopexit.us.i, %.lr.ph35.i39.i.preheader.split.us.i
@@ -419,13 +419,13 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
   br i1 %86, label %.lr.ph.i43.i.split.us.us.preheader.i, label %.lr.ph.i43.i.split.us105.preheader.i
 
 .lr.ph.i43.i.split.us105.preheader.i:             ; preds = %.lr.ph35.i39.i.us.i
-  %sext199.i = shl i64 %indvars.iv.i40.i.us.i, 32
-  %184 = ashr exact i64 %sext199.i, 32
+  %sext184.i = shl i64 %indvars.iv.i40.i.us.i, 32
+  %184 = ashr exact i64 %sext184.i, 32
   br label %.lr.ph.i43.i.split.us105.i
 
 .lr.ph.i43.i.split.us.us.preheader.i:             ; preds = %.lr.ph35.i39.i.us.i
-  %sext200.i = mul i64 %180, %indvars.iv.i40.i.us.i
-  %185 = ashr exact i64 %sext200.i, 32
+  %sext185.i = mul i64 %sext183.i, %indvars.iv.i40.i.us.i
+  %185 = ashr exact i64 %sext185.i, 32
   br label %.lr.ph.i43.i.split.us.us.i
 
 .lr.ph.i43.i.split.us105.i:                       ; preds = %199, %.lr.ph.i43.i.split.us105.preheader.i
@@ -936,15 +936,15 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
   br i1 %.not41.i, label %.split48.i, label %.critedge.i
 
 .split48.i.sink.split:                            ; preds = %23, %16
-  %.lcssa79.sink = phi ptr [ %12, %16 ], [ %19, %23 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.lcssa79.sink, i64 12
+  %.lcssa77.sink = phi ptr [ %12, %16 ], [ %19, %23 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.lcssa77.sink, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !46
   %41 = icmp eq i32 %40, 0
   br label %.split48.i
 
 .split48.i:                                       ; preds = %36, %.split48.i.sink.split
   %.us-phi.i = phi i1 [ false, %.split48.i.sink.split ], [ %.not43.i, %36 ]
-  %.us-phi49.i = phi ptr [ %.lcssa79.sink, %.split48.i.sink.split ], [ %26, %36 ]
+  %.us-phi49.i = phi ptr [ %.lcssa77.sink, %.split48.i.sink.split ], [ %26, %36 ]
   %.us-phi50.i = phi i32 [ %40, %.split48.i.sink.split ], [ %28, %36 ]
   %.us-phi51.i = phi i1 [ %41, %.split48.i.sink.split ], [ %29, %36 ]
   switch i32 %.us-phi50.i, label %43 [

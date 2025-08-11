@@ -2390,25 +2390,25 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   %79 = getelementptr inbounds i8, ptr %76, i64 %.idx
   %80 = icmp eq i64 %78, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sink.sroa.gep741 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sink.sroa.gep742 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.sink.sroa.gep743 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.sink.sroa.gep744 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.sink.sroa.gep746 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %.sink.sroa.gep747 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %.sink.sroa.gep748 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %.sink.sroa.gep749 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %.sink.sroa.gep750 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.sink.sroa.gep752 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %.sink.sroa.gep753 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.sink.sroa.gep754 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %.sink.sroa.gep755 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %.sink.sroa.gep756 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.sink.sroa.gep758 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %.sink.sroa.gep759 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %.sink.sroa.gep760 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %.sink.sroa.gep761 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sink.sroa.gep762 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.sink.sroa.gep694 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sink.sroa.gep695 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink.sroa.gep696 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sink.sroa.gep697 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sink.sroa.gep699 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %.sink.sroa.gep700 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %.sink.sroa.gep701 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %.sink.sroa.gep702 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %.sink.sroa.gep703 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %.sink.sroa.gep705 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %.sink.sroa.gep706 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %.sink.sroa.gep707 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sink.sroa.gep708 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %.sink.sroa.gep709 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.sink.sroa.gep711 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %.sink.sroa.gep712 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %.sink.sroa.gep713 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sink.sroa.gep714 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %.sink.sroa.gep715 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br i1 %80, label %._crit_edge658, label %.lr.ph657
 
 .lr.ph657:                                        ; preds = %1
@@ -2575,16 +2575,16 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   br label %.invoke
 
 .invoke:                                          ; preds = %169, %166, %163, %160, %157
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %169 ], [ %.sink.sroa.gep741, %166 ], [ %.sink.sroa.gep742, %163 ], [ %.sink.sroa.gep743, %160 ], [ %.sink.sroa.gep744, %157 ]
-  %.sink.sroa.phi745 = phi ptr [ %.sink.sroa.gep746, %169 ], [ %.sink.sroa.gep747, %166 ], [ %.sink.sroa.gep748, %163 ], [ %.sink.sroa.gep749, %160 ], [ %.sink.sroa.gep750, %157 ]
-  %.sink.sroa.phi751 = phi ptr [ %.sink.sroa.gep752, %169 ], [ %.sink.sroa.gep753, %166 ], [ %.sink.sroa.gep754, %163 ], [ %.sink.sroa.gep755, %160 ], [ %.sink.sroa.gep756, %157 ]
-  %.sink.sroa.phi757 = phi ptr [ %.sink.sroa.gep758, %169 ], [ %.sink.sroa.gep759, %166 ], [ %.sink.sroa.gep760, %163 ], [ %.sink.sroa.gep761, %160 ], [ %.sink.sroa.gep762, %157 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %169 ], [ %.sink.sroa.gep694, %166 ], [ %.sink.sroa.gep695, %163 ], [ %.sink.sroa.gep696, %160 ], [ %.sink.sroa.gep697, %157 ]
+  %.sink.sroa.phi698 = phi ptr [ %.sink.sroa.gep699, %169 ], [ %.sink.sroa.gep700, %166 ], [ %.sink.sroa.gep701, %163 ], [ %.sink.sroa.gep702, %160 ], [ %.sink.sroa.gep703, %157 ]
+  %.sink.sroa.phi704 = phi ptr [ %.sink.sroa.gep705, %169 ], [ %.sink.sroa.gep706, %166 ], [ %.sink.sroa.gep707, %163 ], [ %.sink.sroa.gep708, %160 ], [ %.sink.sroa.gep709, %157 ]
+  %.sink.sroa.phi710 = phi ptr [ %.sink.sroa.gep711, %169 ], [ %.sink.sroa.gep712, %166 ], [ %.sink.sroa.gep713, %163 ], [ %.sink.sroa.gep714, %160 ], [ %.sink.sroa.gep715, %157 ]
   %.sink = phi ptr [ %39, %169 ], [ %40, %166 ], [ %41, %163 ], [ %42, %160 ], [ %43, %157 ]
   store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi745, align 8
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink.sroa.phi751, align 8
-  store i64 0, ptr %.sink.sroa.phi757, align 8
+  store ptr null, ptr %.sink.sroa.phi698, align 8
+  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink.sroa.phi704, align 8
+  store i64 0, ptr %.sink.sroa.phi710, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1d2698ec7d846f5132c773229768a489.105) #29
           to label %.cont unwind label %.loopexit.split-lp580
 
@@ -3086,7 +3086,7 @@ select.unfold:                                    ; preds = %.noexc223, %174
   br label %289
 
 "_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit": ; preds = %323, %955, %303, %322, %301
-  %.pn190.pn = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %302, %301 ], [ %304, %303 ], [ %.pn190712, %955 ], [ %lpad.thr_comm.split-lp714, %323 ]
+  %.pn190.pn = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %302, %301 ], [ %304, %303 ], [ %.pn190664, %955 ], [ %lpad.thr_comm.split-lp666, %323 ]
   %298 = load i8, ptr %107, align 1, !alias.scope !546, !noundef !12
   %299 = icmp sgt i8 %298, -1
   br i1 %299, label %300, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit238"
@@ -3149,12 +3149,12 @@ select.unfold:                                    ; preds = %.noexc223, %174
   br i1 %.2, label %955, label %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit"
 
 .thread:                                          ; preds = %339, %336, %334, %332, %324, %320
-  %lpad.thr_comm713 = landingpad { ptr, i32 }
+  %lpad.thr_comm665 = landingpad { ptr, i32 }
           cleanup
   br label %955
 
 323:                                              ; preds = %885
-  %lpad.thr_comm.split-lp714 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp666 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit"
 
@@ -4280,13 +4280,13 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
 .preheader:                                       ; preds = %.noexc303
   %732 = load i64, ptr %724, align 8, !alias.scope !671, !noalias !733
   %733 = icmp eq i64 %732, 0
-  br i1 %733, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %733, label %._crit_edge, label %.lr.ph.preheader.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph.preheader.preheader:                       ; preds = %.preheader
   %734 = load i64, ptr %723, align 8, !alias.scope !671, !noalias !733
-  br label %.lr.ph
+  br label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %770
+.lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.preheader, %770
   %.sroa.18431.0652 = phi i64 [ %735, %770 ], [ %732, %.lr.ph.preheader ]
   %.sroa.12.0651 = phi i64 [ %.sroa.5437.0.copyload, %770 ], [ %734, %.lr.ph.preheader ]
   %.sroa.10421.0650 = phi ptr [ %.sroa.4436.0.copyload, %770 ], [ %722, %.lr.ph.preheader ]
@@ -4295,7 +4295,7 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
   %736 = icmp eq ptr %.sroa.5418.0649, null
   br i1 %736, label %737, label %739
 
-737:                                              ; preds = %.lr.ph
+737:                                              ; preds = %.lr.ph.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i376), !noalias !738
   %738 = icmp ne ptr %.sroa.10421.0650, null
   call void @llvm.assume(i1 %738)
@@ -4309,7 +4309,7 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i376), !noalias !738
   br label %739
 
-739:                                              ; preds = %.noexc387, %.lr.ph
+739:                                              ; preds = %.noexc387, %.lr.ph.preheader
   %.sroa.5418.1 = phi ptr [ %.sroa.5418.8.copyload420, %.noexc387 ], [ %.sroa.5418.0649, %.lr.ph ]
   %.sroa.10421.1 = phi ptr [ %.sroa.10421.8.copyload424, %.noexc387 ], [ %.sroa.10421.0650, %.lr.ph ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.8.copyload427, %.noexc387 ], [ %.sroa.12.0651, %.lr.ph ]
@@ -4437,7 +4437,7 @@ _ZN10ttf_parser6tables4cmap8Subtable10is_unicode17h7be9306f3d972e5eE.exit.i: ; p
 
 770:                                              ; preds = %772, %748
   %771 = icmp eq i64 %735, 0
-  br i1 %771, label %._crit_edge, label %.lr.ph
+  br i1 %771, label %._crit_edge, label %.lr.ph.preheader
 
 772:                                              ; preds = %.thread.i.i, %.noexc62.i
   %773 = phi i16 [ %752, %.thread.i.i ], [ %769, %.noexc62.i ]
@@ -5033,7 +5033,7 @@ _ZN9typst_pdf4font9glyph_cid17ha1618bcfbc3a9fa6E.exit: ; preds = %.thread.i, %.n
           to label %189 unwind label %.loopexit.split-lp570.loopexit.split-lp
 
 955:                                              ; preds = %.thread, %322
-  %.pn190712 = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %lpad.thr_comm713, %.thread ]
+  %.pn190664 = phi { ptr, i32 } [ %.pn186.pn.pn, %322 ], [ %lpad.thr_comm665, %.thread ]
   invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %61)
           to label %"_ZN4core3ptr48drop_in_place$LT$pdf_writer..font..Type0Font$GT$17h6d4123b4f8cce5e0E.exit" unwind label %916
 

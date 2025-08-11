@@ -1657,7 +1657,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable:                              ; preds = %26
+default.unreachable24.i.i.i.i.i.i:                ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -2809,7 +2809,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
     i64 2, label %145
   ]
 
-default.unreachable:                              ; preds = %227, %138
+default.unreachable1.i:                           ; preds = %227, %138
   unreachable
 
 139:                                              ; preds = %138

@@ -6978,9 +6978,9 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit.i.bac
 
 31:                                               ; preds = %lean_dec.exit.i
   %32 = icmp ult ptr %.015.i, %28
-  br i1 %32, label %36, label %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1292
+  br i1 %32, label %36, label %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1103
 
-l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1292: ; preds = %31
+l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1103: ; preds = %31
   %33 = tail call ptr @lean_string_utf8_extract(ptr noundef %10, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.015.i) #3
   br label %lean_dec.exit544
 
@@ -7046,7 +7046,7 @@ l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spe
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.015.i) #3
   br label %lean_dec.exit544
 
-lean_dec.exit544:                                 ; preds = %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1292, %55, %54, %52, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit
+lean_dec.exit544:                                 ; preds = %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1103, %55, %54, %52, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit
   %56 = phi ptr [ %49, %55 ], [ %49, %54 ], [ %49, %52 ], [ %47, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit ], [ %33, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit.thread1292 ]
   %57 = getelementptr i8, ptr %56, i64 24
   %.val775 = load i64, ptr %57, align 8, !tbaa !13
@@ -7202,7 +7202,7 @@ lean_dec.exit540:                                 ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit539
 
 lean_dec.exit539:                                 ; preds = %lean_dec.exit540, %120, %119, %117
-  %.0.i4511296 = phi ptr [ %114, %120 ], [ %114, %119 ], [ %114, %117 ], [ %101, %lean_dec.exit540 ]
+  %.0.i4511107 = phi ptr [ %114, %120 ], [ %114, %119 ], [ %114, %117 ], [ %101, %lean_dec.exit540 ]
   br i1 %.not1010, label %121, label %lean_inc.exit567
 
 121:                                              ; preds = %lean_dec.exit539
@@ -7242,7 +7242,7 @@ lean_alloc_ctor.exit787:                          ; preds = %lean_inc.exit567
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %132, align 8, !tbaa !11
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  store ptr %.0.i4511296, ptr %133, align 8, !tbaa !11
+  store ptr %.0.i4511107, ptr %133, align 8, !tbaa !11
   %134 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__4, align 8, !tbaa !11
   %135 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %127, ptr noundef %134) #3
   %136 = icmp eq i8 %135, 0
@@ -7534,9 +7534,9 @@ lean_dec.exit.i813:                               ; preds = %lean_dec.exit.i813.
 
 243:                                              ; preds = %lean_dec.exit.i813
   %244 = icmp ult ptr %.015.i808, %240
-  br i1 %244, label %248, label %lean_dec.exit529.thread1300
+  br i1 %244, label %248, label %lean_dec.exit529.thread1111
 
-lean_dec.exit529.thread1300:                      ; preds = %243
+lean_dec.exit529.thread1111:                      ; preds = %243
   %245 = tail call ptr @lean_string_utf8_extract(ptr noundef %222, ptr noundef %.015.i808, ptr noundef nonnull %240) #3
   br label %lean_dec.exit528
 
@@ -7602,7 +7602,7 @@ lean_dec.exit529:                                 ; preds = %248
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.015.i808) #3
   br label %lean_dec.exit528
 
-lean_dec.exit528:                                 ; preds = %lean_dec.exit529.thread1300, %267, %266, %264, %lean_dec.exit529
+lean_dec.exit528:                                 ; preds = %lean_dec.exit529.thread1111, %267, %266, %264, %lean_dec.exit529
   %268 = phi ptr [ %261, %267 ], [ %261, %266 ], [ %261, %264 ], [ %259, %lean_dec.exit529 ], [ %245, %lean_dec.exit529.thread1300 ]
   %269 = ptrtoint ptr %222 to i64
   %270 = and i64 %269, 1
@@ -7727,7 +7727,7 @@ lean_dec.exit526:                                 ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit525
 
 lean_dec.exit525:                                 ; preds = %lean_dec.exit526, %317, %316, %314
-  %.0.i4481304 = phi ptr [ %311, %317 ], [ %311, %316 ], [ %311, %314 ], [ %298, %lean_dec.exit526 ]
+  %.0.i4481115 = phi ptr [ %311, %317 ], [ %311, %316 ], [ %311, %314 ], [ %298, %lean_dec.exit526 ]
   tail call void @lean_inc_heartbeat() #3
   %318 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %319 = icmp eq ptr %318, null
@@ -7746,7 +7746,7 @@ lean_alloc_ctor.exit823:                          ; preds = %lean_dec.exit525
   %323 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %323, align 8, !tbaa !11
   %324 = getelementptr inbounds nuw i8, ptr %318, i64 24
-  store ptr %.0.i4481304, ptr %324, align 8, !tbaa !11
+  store ptr %.0.i4481115, ptr %324, align 8, !tbaa !11
   %325 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__8, align 8, !tbaa !11
   %326 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %318, ptr noundef %325) #3
   %327 = icmp eq i8 %326, 0
@@ -8625,9 +8625,9 @@ lean_dec.exit.i865:                               ; preds = %lean_dec.exit.i865.
 
 642:                                              ; preds = %lean_dec.exit.i865
   %643 = icmp ult ptr %.015.i860, %639
-  br i1 %643, label %647, label %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1308
+  br i1 %643, label %647, label %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1119
 
-l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1308: ; preds = %642
+l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1119: ; preds = %642
   %644 = tail call ptr @lean_string_utf8_extract(ptr noundef %10, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.015.i860) #3
   br label %lean_dec.exit497
 
@@ -8693,7 +8693,7 @@ l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spe
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.015.i860) #3
   br label %lean_dec.exit497
 
-lean_dec.exit497:                                 ; preds = %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1308, %666, %665, %663, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868
+lean_dec.exit497:                                 ; preds = %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1119, %666, %665, %663, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868
   %667 = phi ptr [ %660, %666 ], [ %660, %665 ], [ %660, %663 ], [ %658, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868 ], [ %644, %l_Substring_takeWhileAux___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__1.exit868.thread1308 ]
   %668 = getelementptr i8, ptr %667, i64 24
   %.val773 = load i64, ptr %668, align 8, !tbaa !13
@@ -8849,7 +8849,7 @@ lean_dec.exit493:                                 ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit492
 
 lean_dec.exit492:                                 ; preds = %lean_dec.exit493, %731, %730, %728
-  %.0.i4451312 = phi ptr [ %725, %731 ], [ %725, %730 ], [ %725, %728 ], [ %712, %lean_dec.exit493 ]
+  %.0.i4451123 = phi ptr [ %725, %731 ], [ %725, %730 ], [ %725, %728 ], [ %712, %lean_dec.exit493 ]
   br i1 %.not972, label %732, label %lean_inc.exit553
 
 732:                                              ; preds = %lean_dec.exit492
@@ -8889,7 +8889,7 @@ lean_alloc_ctor.exit881:                          ; preds = %lean_inc.exit553
   %743 = getelementptr inbounds nuw i8, ptr %738, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %743, align 8, !tbaa !11
   %744 = getelementptr inbounds nuw i8, ptr %738, i64 24
-  store ptr %.0.i4451312, ptr %744, align 8, !tbaa !11
+  store ptr %.0.i4451123, ptr %744, align 8, !tbaa !11
   %745 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__4, align 8, !tbaa !11
   %746 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %738, ptr noundef %745) #3
   %747 = icmp eq i8 %746, 0
@@ -9206,9 +9206,9 @@ lean_dec.exit.i911:                               ; preds = %lean_dec.exit.i911.
 
 862:                                              ; preds = %lean_dec.exit.i911
   %863 = icmp ult ptr %.015.i906, %859
-  br i1 %863, label %867, label %lean_dec.exit482.thread1316
+  br i1 %863, label %867, label %lean_dec.exit482.thread1127
 
-lean_dec.exit482.thread1316:                      ; preds = %862
+lean_dec.exit482.thread1127:                      ; preds = %862
   %864 = tail call ptr @lean_string_utf8_extract(ptr noundef %841, ptr noundef %.015.i906, ptr noundef nonnull %859) #3
   br label %lean_dec.exit481
 
@@ -9274,7 +9274,7 @@ lean_dec.exit482:                                 ; preds = %867
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.015.i906) #3
   br label %lean_dec.exit481
 
-lean_dec.exit481:                                 ; preds = %lean_dec.exit482.thread1316, %886, %885, %883, %lean_dec.exit482
+lean_dec.exit481:                                 ; preds = %lean_dec.exit482.thread1127, %886, %885, %883, %lean_dec.exit482
   %887 = phi ptr [ %880, %886 ], [ %880, %885 ], [ %880, %883 ], [ %878, %lean_dec.exit482 ], [ %864, %lean_dec.exit482.thread1316 ]
   %888 = ptrtoint ptr %841 to i64
   %889 = and i64 %888, 1
@@ -9399,7 +9399,7 @@ lean_dec.exit479:                                 ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit478
 
 lean_dec.exit478:                                 ; preds = %lean_dec.exit479, %936, %935, %933
-  %.0.i1320 = phi ptr [ %930, %936 ], [ %930, %935 ], [ %930, %933 ], [ %917, %lean_dec.exit479 ]
+  %.0.i1131 = phi ptr [ %930, %936 ], [ %930, %935 ], [ %930, %933 ], [ %917, %lean_dec.exit479 ]
   tail call void @lean_inc_heartbeat() #3
   %937 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %938 = icmp eq ptr %937, null
@@ -9418,7 +9418,7 @@ lean_alloc_ctor.exit921:                          ; preds = %lean_dec.exit478
   %942 = getelementptr inbounds nuw i8, ptr %937, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %942, align 8, !tbaa !11
   %943 = getelementptr inbounds nuw i8, ptr %937, i64 24
-  store ptr %.0.i1320, ptr %943, align 8, !tbaa !11
+  store ptr %.0.i1131, ptr %943, align 8, !tbaa !11
   %944 = load ptr, ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewriteExamples___spec__3___closed__8, align 8, !tbaa !11
   %945 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %937, ptr noundef %944) #3
   %946 = icmp eq i8 %945, 0
@@ -10950,18 +10950,18 @@ _init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit: ; preds =
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !5
+  %.sink12 = phi ptr [ %4, %3 ], [ %75, %_init_l_Lean_Server_FileWorker_Hover_rewriteExamples___closed__1.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !5
   store i32 131096, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %79, align 8, !tbaa !11
-  %80 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %80, align 8, !tbaa !11
   br label %81
 
 81:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

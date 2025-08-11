@@ -302,7 +302,7 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
     i8 2, label %20
   ]
 
-default.unreachable:                              ; preds = %11
+default.unreachable.i:                            ; preds = %11
   unreachable
 
 13:                                               ; preds = %11
@@ -457,7 +457,7 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
     i8 2, label %18
   ]
 
-default.unreachable:                              ; preds = %19, %13
+default.unreachable.i:                            ; preds = %19, %13
   unreachable
 
 14:                                               ; preds = %13
@@ -607,7 +607,7 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
     i8 2, label %18
   ]
 
-default.unreachable:                              ; preds = %19, %13
+default.unreachable.i:                            ; preds = %19, %13
   unreachable
 
 14:                                               ; preds = %13
@@ -748,7 +748,7 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
     i8 2, label %20
   ]
 
-default.unreachable:                              ; preds = %11
+default.unreachable.i:                            ; preds = %11
   unreachable
 
 13:                                               ; preds = %11
@@ -2378,7 +2378,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
     i64 15, label %8
   ]
 
-default.unreachable43:                            ; preds = %1
+default.unreachable29:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
