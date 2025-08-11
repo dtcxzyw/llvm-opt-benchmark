@@ -6096,21 +6096,21 @@ define noalias noundef nonnull align 8 ptr @_ZN3syn3lit6LitInt3new17ha9ce4c4f7c5
 55:                                               ; preds = %51, %28
   %.pn.ph = phi { ptr, i32 } [ %29, %28 ], [ %52, %51 ]
   %56 = icmp eq i64 %27, 0
-  br i1 %56, label %58, label %57
+  br i1 %56, label %.body.thread26, label %57
 
 57:                                               ; preds = %55
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef range(i64 1, 0) %27, i64 noundef 1) #34
-  br label %58
+  br label %.body.thread26
 
-.body:                                            ; preds = %60, %58, %46
-  %.pn23 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.ph, %58 ], [ %.pn.ph, %60 ]
-  resume { ptr, i32 } %.pn23
+.body:                                            ; preds = %59, %.body.thread26, %46
+  %.pn2028 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.ph, %58 ], [ %.pn.ph, %60 ]
+  resume { ptr, i32 } %.pn2028
 
-58:                                               ; preds = %55, %57
-  %59 = icmp eq i64 %23, 0
-  br i1 %59, label %.body, label %60
+.body.thread26:                                   ; preds = %55, %57
+  %58 = icmp eq i64 %23, 0
+  br i1 %58, label %.body, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %.body.thread26
   call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef range(i64 1, 0) %23, i64 noundef 1) #34
   br label %.body
 }
@@ -6377,7 +6377,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN84_$LT$syn..lit..LitInt$u20$as$u
   br label %61
 
 60:                                               ; preds = %.body
-  br i1 %.not, label %.thread, label %71
+  br i1 %.not, label %.thread, label %.thread28
 
 61:                                               ; preds = %56, %.noexc21
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1405
@@ -6412,7 +6412,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN84_$LT$syn..lit..LitInt$u20$as$u
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-71:                                               ; preds = %.thread, %60
+.thread28:                                        ; preds = %.thread, %60
   %.pn.pn26 = phi { ptr, i32 } [ %.pn.pn27, %.thread ], [ %eh.lpad-body, %60 ]
   resume { ptr, i32 } %.pn.pn26
 
@@ -6564,21 +6564,21 @@ define noalias noundef nonnull align 8 ptr @_ZN3syn3lit8LitFloat3new17hd5a219740
 55:                                               ; preds = %51, %28
   %.pn.ph = phi { ptr, i32 } [ %29, %28 ], [ %52, %51 ]
   %56 = icmp eq i64 %27, 0
-  br i1 %56, label %58, label %57
+  br i1 %56, label %.body.thread26, label %57
 
 57:                                               ; preds = %55
   call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef range(i64 1, 0) %27, i64 noundef 1) #34
-  br label %58
+  br label %.body.thread26
 
-.body:                                            ; preds = %60, %58, %46
-  %.pn23 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.ph, %58 ], [ %.pn.ph, %60 ]
-  resume { ptr, i32 } %.pn23
+.body:                                            ; preds = %59, %.body.thread26, %46
+  %.pn2028 = phi { ptr, i32 } [ %47, %46 ], [ %.pn.ph, %58 ], [ %.pn.ph, %60 ]
+  resume { ptr, i32 } %.pn2028
 
-58:                                               ; preds = %55, %57
-  %59 = icmp eq i64 %23, 0
-  br i1 %59, label %.body, label %60
+.body.thread26:                                   ; preds = %55, %57
+  %58 = icmp eq i64 %23, 0
+  br i1 %58, label %.body, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %.body.thread26
   call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef range(i64 1, 0) %23, i64 noundef 1) #34
   br label %.body
 }
@@ -6845,7 +6845,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$syn..lit..LitFloat$u20$as
   br label %61
 
 60:                                               ; preds = %.body
-  br i1 %.not, label %.thread, label %71
+  br i1 %.not, label %.thread, label %.thread28
 
 61:                                               ; preds = %56, %.noexc21
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1459
@@ -6880,7 +6880,7 @@ define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$syn..lit..LitFloat$u20$as
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-71:                                               ; preds = %.thread, %60
+.thread28:                                        ; preds = %.thread, %60
   %.pn.pn26 = phi { ptr, i32 } [ %.pn.pn27, %.thread ], [ %eh.lpad-body, %60 ]
   resume { ptr, i32 } %.pn.pn26
 

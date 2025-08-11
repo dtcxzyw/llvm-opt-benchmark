@@ -4129,7 +4129,7 @@ define noundef zeroext i1 @_ZN11quinn_proto10connection7streams10RecvStream4stop
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %58
+  br label %61
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4144,13 +4144,13 @@ define noundef zeroext i1 @_ZN11quinn_proto10connection7streams10RecvStream4stop
   %19 = load i64, ptr %18, align 8, !range !226, !alias.scope !223, !noundef !3
   %20 = getelementptr inbounds i8, ptr %13, i64 -8
   %21 = load ptr, ptr %20, align 8, !alias.scope !223
-  %cond.i = icmp eq i64 %19, 2
-  %spec.select.i = select i1 %cond.i, ptr undef, ptr %21
-  %spec.select12.i = select i1 %cond.i, i64 2, i64 1
+  %.not.i = icmp eq i64 %19, 2
+  %spec.select.i = select i1 %.not.i, ptr undef, ptr %21
+  %spec.select12.i = select i1 %.not.i, i64 2, i64 1
   store i64 %spec.select12.i, ptr %18, align 8, !alias.scope !223
   store ptr %spec.select.i, ptr %20, align 8, !alias.scope !223
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  br i1 %cond.i, label %22, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
+  br i1 %.not.i, label %22, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
 
 22:                                               ; preds = %11
   %23 = tail call noundef nonnull align 8 ptr @_ZN11quinn_proto10connection7streams4recv4Recv3new17h4b760d8144e942f7E(i64 noundef %17), !noalias !230
@@ -4172,70 +4172,70 @@ define noundef zeroext i1 @_ZN11quinn_proto10connection7streams10RecvStream4stop
   %27 = extractvalue { i64, i8 } %26, 0
   %28 = extractvalue { i64, i8 } %26, 1
   switch i8 %28, label %31 [
-    i8 2, label %58
+    i8 2, label %61
     i8 0, label %29
   ]
 
-29:                                               ; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit"
+29:; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit"
   %30 = tail call noundef zeroext i1 @_ZN11quinn_proto10connection7streams4recv4Recv20final_offset_unknown17h87529460c2d430daE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %24)
   br i1 %30, label %52, label %45
 
-31:                                               ; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit"
+31:; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !nonnull !3, !align !4, !noundef !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %36 = load i64, ptr %35, align 8, !alias.scope !231, !noundef !3
   %37 = load i64, ptr %34, align 8, !range !75, !alias.scope !231, !noundef !3
   %38 = icmp eq i64 %36, %37
   br i1 %38, label %39, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit"
 
-39:                                               ; preds = %31
+39:; preds = %31
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he1d5ffd96a96f912E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.73)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit": ; preds = %31, %39
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %41 = load ptr, ptr %40, align 8, !alias.scope !231, !nonnull !3, !noundef !3
-  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %41, i64 %36
-  store i64 %7, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 %1, ptr %43, align 8
-  %44 = add i64 %36, 1
-  store i64 %44, ptr %35, align 8, !alias.scope !231
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %44 = load ptr, ptr %43, align 8, !alias.scope !231, !nonnull !3, !noundef !3
+  %45 = getelementptr inbounds nuw { i64, i64 }, ptr %44, i64 %36
+  store i64 %7, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %1, ptr %46, align 8
+  %47 = add i64 %36, 1
+  store i64 %47, ptr %35, align 8, !alias.scope !231
   br label %29
 
-45:                                               ; preds = %29
+48:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17ha6169f4d7429f605E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %13)
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %47 = load i64, ptr %46, align 8, !range !226, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = load ptr, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %50 = load i64, ptr %49, align 8, !range !226, !noundef !3
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %52 = load ptr, ptr %51, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not8 = icmp eq i64 %47, 2
-  br i1 %.not8, label %51, label %50, !prof !36
+  %.not8 = icmp eq i64 %50, 2
+  br i1 %.not8, label %54, label %53, !prof !36
 
-50:                                               ; preds = %45
-  tail call void @_ZN11quinn_proto10connection7streams5state12StreamsState17stream_recv_freed17ha8a44827a147297aE(ptr noalias noundef nonnull align 8 dereferenceable(456) %5, i64 noundef %7, i64 noundef %47, ptr noundef %49)
-  br label %52
+53:                                               ; preds = %48
+  tail call void @_ZN11quinn_proto10connection7streams5state12StreamsState17stream_recv_freed17ha8a44827a147297aE(ptr noalias noundef nonnull align 8 dereferenceable(456) %5, i64 noundef %7, i64 noundef %50, ptr noundef %52)
+  br label %55
 
-51:                                               ; preds = %45
+54:                                               ; preds = %48
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.6c1ca90c4085145c8ff21bb733e33876.74, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c1ca90c4085145c8ff21bb733e33876.75) #31
   unreachable
 
-52:                                               ; preds = %29, %50
-  %53 = tail call noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12StreamsState16add_read_credits17h6e884e52c5def73aE(ptr noalias noundef nonnull align 8 dereferenceable(456) %5, i64 noundef %27)
-  br i1 %53, label %54, label %58
+55:                                               ; preds = %29, %53
+  %56 = tail call noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12StreamsState16add_read_credits17h6e884e52c5def73aE(ptr noalias noundef nonnull align 8 dereferenceable(456) %5, i64 noundef %27)
+  br i1 %56, label %57, label %61
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !nonnull !3, !align !4, !noundef !3
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 186
-  store i8 1, ptr %57, align 2
-  br label %58
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !3, !align !4, !noundef !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 186
+  store i8 1, ptr %60, align 2
+  br label %61
 
-58:                                               ; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit", %54, %52, %10
+61:                                               ; preds = %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit", %54, %52, %10
   %.sroa.0.0 = phi i1 [ true, %10 ], [ true, %"_ZN11quinn_proto10connection7streams5state18get_or_insert_recv28_$u7b$$u7b$closure$u7d$$u7d$17hfe089b1324ffc44bE.exit" ], [ false, %52 ], [ false, %54 ]
   ret i1 %.sroa.0.0
 }

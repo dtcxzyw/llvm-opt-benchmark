@@ -5052,7 +5052,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..HttpCacheInne
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr51drop_in_place$LT$pingora_cache..meta..CacheMeta$GT$17h63c7f535b3131caaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
-          to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$pingora_cache..meta..CacheMeta$GT$$GT$17hf63f423921beeb49E.exit" unwind label %112
+          to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$pingora_cache..meta..CacheMeta$GT$$GT$17hf63f423921beeb49E.exit" unwind label %114
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$pingora_cache..key..CacheKey$GT$$GT$17h8ddbf5e9d6f471acE.exit": ; preds = %1, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -5071,7 +5071,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..HttpCacheInne
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %.val10 = load ptr, ptr %17, align 8
   invoke fastcc void @"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleMiss$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc2ecc29ebd7cecbdE"(ptr %.val9, ptr %.val10) #19
-          to label %.body unwind label %112
+          to label %.body unwind label %114
 
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
@@ -5136,7 +5136,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..HttpCacheInne
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %.val14 = load ptr, ptr %47, align 8
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleHit$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h8bfce975429fb747E"(ptr %.val13, ptr %.val14) #19
-          to label %.body19 unwind label %112
+          to label %.body19 unwind label %114
 
 "_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleMiss$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc2ecc29ebd7cecbdE.exit": ; preds = %35, %27, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$pingora_cache..meta..CacheMeta$GT$$GT$17hf63f423921beeb49E.exit17"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -5193,7 +5193,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..HttpCacheInne
   %.pn4 = phi { ptr, i32 } [ %.pn2, %.body ], [ %65, %73 ], [ %65, %64 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 800
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E"(ptr noalias noundef align 8 dereferenceable(16) %74) #19
-          to label %.body21 unwind label %112
+          to label %.body21 unwind label %114
 
 "_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleHit$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h8bfce975429fb747E.exit": ; preds = %63, %55, %"_ZN4core3ptr162drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleMiss$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc2ecc29ebd7cecbdE.exit"
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -5206,113 +5206,113 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..HttpCacheInne
 79:                                               ; preds = %"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleHit$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h8bfce975429fb747E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)
   switch i8 %77, label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i" [
-    i8 2, label %92
+    i8 2, label %94
     i8 0, label %80
   ]
 
 80:                                               ; preds = %79
   invoke void @_ZN13pingora_cache4lock11WritePermit6unlock17h376d7698de4adc23E(ptr noalias noundef nonnull align 8 dereferenceable(16) %75, i8 noundef 4)
-          to label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i" unwind label %81
+          to label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i" unwind label %83
 
-81:                                               ; preds = %80
-  %82 = landingpad { ptr, i32 }
+83:                                               ; preds = %80
+  %84 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !839)
-  %83 = load ptr, ptr %75, align 8, !alias.scope !842, !nonnull !9, !noundef !9
-  %84 = atomicrmw sub ptr %83, i64 1 release, align 8, !noalias !845
-  %85 = icmp eq i64 %84, 1
-  br i1 %85, label %86, label %.body21
+  %85 = load ptr, ptr %75, align 8, !alias.scope !842, !nonnull !9, !noundef !9
+  %86 = atomicrmw sub ptr %85, i64 1 release, align 8, !noalias !845
+  %87 = icmp eq i64 %86, 1
+  br i1 %87, label %88, label %.body22
 
-86:                                               ; preds = %81
+88:                                               ; preds = %83
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h41ce9019619740d5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %75)
-          to label %.body21 unwind label %90
+          to label %.body21 unwind label %92
 
 "_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i": ; preds = %80, %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
-  %87 = load ptr, ptr %75, align 8, !alias.scope !852, !nonnull !9, !noundef !9
-  %88 = atomicrmw sub ptr %87, i64 1 release, align 8, !noalias !853
-  %89 = icmp eq i64 %88, 1
-  br i1 %89, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
+  %89 = load ptr, ptr %75, align 8, !alias.scope !852, !nonnull !9, !noundef !9
+  %90 = atomicrmw sub ptr %89, i64 1 release, align 8, !noalias !853
+  %91 = icmp eq i64 %90, 1
+  br i1 %91, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
 
-90:                                               ; preds = %86
-  %91 = landingpad { ptr, i32 }
+92:                                               ; preds = %88
+  %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-92:                                               ; preds = %79
+94:                                               ; preds = %79
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !857)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %93 = load ptr, ptr %75, align 8, !alias.scope !863, !nonnull !9, !noundef !9
-  %94 = atomicrmw sub ptr %93, i64 1 release, align 8, !noalias !863
-  %95 = icmp eq i64 %94, 1
-  br i1 %95, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
+  %95 = load ptr, ptr %75, align 8, !alias.scope !863, !nonnull !9, !noundef !9
+  %96 = atomicrmw sub ptr %95, i64 1 release, align 8, !noalias !863
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i", label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
 
-"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i": ; preds = %92, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i"
+"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i": ; preds = %94, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h41ce9019619740d5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %75)
-          to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit" unwind label %97
+          to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit" unwind label %99
 
-.body21:                                          ; preds = %97, %86, %81, %.body19
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %.body19 ], [ %98, %97 ], [ %82, %86 ], [ %82, %81 ]
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E"(ptr noalias noundef align 8 dereferenceable(648) %96) #19
-          to label %common.resume unwind label %112
+.body22:                                          ; preds = %99, %88, %83, %.body19
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %.body19 ], [ %100, %97 ], [ %84, %86 ], [ %84, %81 ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E"(ptr noalias noundef align 8 dereferenceable(648) %98) #19
+          to label %common.resume unwind label %114
 
-97:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i"
-  %98 = landingpad { ptr, i32 }
+99:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i"
+  %100 = landingpad { ptr, i32 }
           cleanup
-  br label %.body21
+  br label %.body22
 
-"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit": ; preds = %92, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i", %"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleHit$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h8bfce975429fb747E.exit", %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i"
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %99)
-          to label %103 unwind label %100
+"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit": ; preds = %94, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i.i", %"_ZN4core3ptr161drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$pingora_cache..storage..HandleHit$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17h8bfce975429fb747E.exit", %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i.i"
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(648) %101)
+          to label %103 unwind label %102
 
-100:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
-  %101 = landingpad { ptr, i32 }
+102:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %102) #19
-          to label %105 unwind label %109
-
-103:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %104)
-          to label %"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E.exit" unwind label %107
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %104) #19
+          to label %105 unwind label %111
 
-105:                                              ; preds = %107, %100
-  %.pn.i = phi { ptr, i32 } [ %108, %107 ], [ %101, %100 ]
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %106) #19
-          to label %common.resume unwind label %109
+105:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h297ae9aca8fe3dc4E.exit"
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %106)
+          to label %"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E.exit" unwind label %109
 
-107:                                              ; preds = %103
-  %108 = landingpad { ptr, i32 }
-          cleanup
-  br label %105
+107:                                              ; preds = %109, %102
+  %.pn.i = phi { ptr, i32 } [ %110, %107 ], [ %103, %100 ]
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %108) #19
+          to label %common.resume unwind label %111
 
-109:                                              ; preds = %105, %100
+109:                                              ; preds = %105
   %110 = landingpad { ptr, i32 }
+          cleanup
+  br label %107
+
+111:                                              ; preds = %107, %102
+  %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-common.resume:                                    ; preds = %.body21, %105
+common.resume:                                    ; preds = %.body22, %107
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %105 ], [ %.pn6, %.body21 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E.exit": ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  tail call void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %111)
+"_ZN4core3ptr56drop_in_place$LT$pingora_cache..trace..CacheTraceCTX$GT$17haeba81a2c6640f96E.exit": ; preds = %105
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  tail call void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hf633c1ae53f57c85E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %113)
   ret void
 
-112:                                              ; preds = %11, %.body, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$pingora_cache..meta..CacheMeta$GT$$GT$17hf63f423921beeb49E.exit", %.body21, %.body19
-  %113 = landingpad { ptr, i32 }
+114:                                              ; preds = %11, %.body, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$pingora_cache..meta..CacheMeta$GT$$GT$17hf63f423921beeb49E.exit", %.body22, %.body19
+  %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
@@ -8186,62 +8186,62 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Optio
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit", label %5
 
-"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", %18, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i", %1
+"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", %20, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i", %1
   ret void
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1408)
   switch i8 %3, label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i" [
-    i8 2, label %18
+    i8 2, label %20
     i8 0, label %6
   ]
 
 6:                                                ; preds = %5
   invoke void @_ZN13pingora_cache4lock11WritePermit6unlock17h376d7698de4adc23E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i8 noundef 4)
-          to label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i" unwind label %7
+          to label %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i" unwind label %9
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1414)
-  %9 = load ptr, ptr %0, align 8, !alias.scope !1417, !nonnull !9, !noundef !9
-  %10 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !1420
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i"
+  %11 = load ptr, ptr %0, align 8, !alias.scope !1417, !nonnull !9, !noundef !9
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !1420
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i"
 
-12:                                               ; preds = %7
+14:                                               ; preds = %9
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h41ce9019619740d5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
-          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i" unwind label %16
+          to label %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i" unwind label %18
 
 "_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i": ; preds = %6, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1424)
-  %13 = load ptr, ptr %0, align 8, !alias.scope !1427, !nonnull !9, !noundef !9
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !1428
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
+  %15 = load ptr, ptr %0, align 8, !alias.scope !1427, !nonnull !9, !noundef !9
+  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !1428
+  %17 = icmp eq i64 %16, 1
+  br i1 %17, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i": ; preds = %12, %7
-  resume { ptr, i32 } %8
+"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$pingora_cache..lock..LockCore$GT$$GT$17h78d3d5f37a28a5daE.exit.i.i": ; preds = %14, %9
+  resume { ptr, i32 } %10
 
-18:                                               ; preds = %5
+20:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1429)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1432)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1435)
-  %19 = load ptr, ptr %0, align 8, !alias.scope !1438, !nonnull !9, !noundef !9
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !1438
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
+  %21 = load ptr, ptr %0, align 8, !alias.scope !1438, !nonnull !9, !noundef !9
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !1438
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i", label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
 
-"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i": ; preds = %18, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i"
+"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E.exit.sink.split.i": ; preds = %20, %"_ZN74_$LT$pingora_cache..lock..WritePermit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84ec1cc109a8e067E.exit.i.i"
   fence acquire
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h41ce9019619740d5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   br label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"

@@ -25774,10 +25774,10 @@ define void @_ZN12polars_arrow5array17fixed_size_binary7mutable27MutableFixedSiz
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9a0a163e640b234bE.exit", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %15, ptr %4, align 8
-  %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %20, ptr %.sroa.7.0..sroa_idx15, align 8
-  %.sroa.8.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %9, ptr %.sroa.8.0..sroa_idx21, align 8
+  %.sroa.7.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %20, ptr %.sroa.7.0..sroa_idx16, align 8
+  %.sroa.8.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %9, ptr %.sroa.8.0..sroa_idx22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN4core3ptr131drop_in_place$LT$polars_arrow..array..fixed_size_binary..mutable..MutableFixedSizeBinaryArray..pop..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b9b71380f983b5eE.exit"
 
@@ -25790,10 +25790,10 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit: ; 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit.thread: ; preds = %28, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %15, ptr %4, align 8
-  %.sroa.7.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %20, ptr %.sroa.7.0..sroa_idx13, align 8
-  %.sroa.8.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %9, ptr %.sroa.8.0..sroa_idx19, align 8
+  %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %20, ptr %.sroa.7.0..sroa_idx14, align 8
+  %.sroa.8.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %9, ptr %.sroa.8.0..sroa_idx20, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17he231e94591da18e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr131drop_in_place$LT$polars_arrow..array..fixed_size_binary..mutable..MutableFixedSizeBinaryArray..pop..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b9b71380f983b5eE.exit"

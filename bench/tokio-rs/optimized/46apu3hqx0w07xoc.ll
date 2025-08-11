@@ -7141,7 +7141,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
   br label %101
 
 38:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit58"
-  br i1 %cond, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit60", label %109
+  br i1 %.195, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit60", label %109
 
 .thread71:                                        ; preds = %32
   %39 = landingpad { ptr, i32 }
@@ -7208,7 +7208,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
   unreachable
 
 61:                                               ; preds = %50, %67
-  %.sroa.586.0 = phi ptr [ %.val45, %67 ], [ undef, %50 ]
+  %.sroa.588.0 = phi ptr [ %.val45, %67 ], [ undef, %50 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %63 = load ptr, ptr %62, align 8, !noundef !17
   %64 = icmp eq ptr %63, null
@@ -7241,7 +7241,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
   br label %76
 
 76:                                               ; preds = %61, %74
-  %.sroa.588.0 = phi ptr [ %.val43, %74 ], [ undef, %61 ]
+  %.sroa.590.0 = phi ptr [ %.val43, %74 ], [ undef, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %78 = load i32, ptr %77, align 8, !range !332, !noundef !17
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -7264,11 +7264,11 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %54, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.sroa.586.0, ptr %92, align 8
+  store ptr %.sroa.588.0, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %63, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %.sroa.588.0, ptr %94, align 8
+  store ptr %.sroa.590.0, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i8 %86, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -7314,7 +7314,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
 101:                                              ; preds = %98, %36
   ret void
 
-102:                                              ; preds = %110, %108, %109, %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit58"
+102:                                              ; preds = %.thread84, %108, %109, %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit58"
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
@@ -7333,21 +7333,21 @@ define hidden void @_ZN5tokio7runtime7builder7Builder28build_current_thread_runt
           to label %"_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit58" unwind label %102
 
 "_ZN4core3ptr60drop_in_place$LT$tokio..runtime..blocking..pool..Spawner$GT$17h61bd32dcab581fd2E.exit58": ; preds = %65, %104, %108
-  %cond = phi i1 [ false, %108 ], [ false, %104 ], [ true, %65 ]
+  %.1 = phi i1 [ false, %108 ], [ false, %104 ], [ true, %65 ]
   %.pn38.pn = phi { ptr, i32 } [ %105, %108 ], [ %105, %104 ], [ %66, %65 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..runtime..blocking..pool..BlockingPool$GT$17h1fd7d3e43bf61171E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #38
           to label %38 unwind label %102
 
 109:                                              ; preds = %.thread71, %38
-  %.pn38.pn.pn76 = phi { ptr, i32 } [ %39, %.thread71 ], [ %.pn38.pn, %38 ]
+  %.pn38.pn.pn75 = phi { ptr, i32 } [ %39, %.thread71 ], [ %.pn38.pn, %38 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Handle$GT$17h558090c734fe91abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %12) #38
           to label %110 unwind label %102
 
-"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit60": ; preds = %110, %38
-  %.pn38.pn.pn77 = phi { ptr, i32 } [ %.pn38.pn, %38 ], [ %.pn38.pn.pn76, %110 ]
-  resume { ptr, i32 } %.pn38.pn.pn77
+"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit60": ; preds = %.thread84, %38
+  %.pn38.pn.pn7486 = phi { ptr, i32 } [ %.pn38.pn, %38 ], [ %.pn38.pn.pn75, %110 ]
+  resume { ptr, i32 } %.pn38.pn.pn7486
 
-110:                                              ; preds = %109
+.thread84:                                        ; preds = %109
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
           to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit60" unwind label %102
 }
@@ -7579,8 +7579,8 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   br label %123
 
-51:                                               ; preds = %.thread93
-  br i1 %cond, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74", label %133
+51:                                               ; preds = %.thread91
+  br i1 %.195, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74", label %133
 
 .thread86:                                        ; preds = %44
   %52 = landingpad { ptr, i32 }
@@ -7647,7 +7647,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   unreachable
 
 74:                                               ; preds = %63, %80
-  %.sroa.5135.0 = phi ptr [ %.val54, %80 ], [ undef, %63 ]
+  %.sroa.5136.0 = phi ptr [ %.val54, %80 ], [ undef, %63 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %76 = load ptr, ptr %75, align 8, !noundef !17
   %77 = icmp eq ptr %76, null
@@ -7656,7 +7656,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 78:                                               ; preds = %89
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread93
+  br label %.thread91
 
 80:                                               ; preds = %69
   %81 = icmp ne ptr %.val54, null
@@ -7680,7 +7680,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   br label %89
 
 89:                                               ; preds = %74, %87
-  %.sroa.5137.0 = phi ptr [ %.val52, %87 ], [ undef, %74 ]
+  %.sroa.5138.0 = phi ptr [ %.val52, %87 ], [ undef, %74 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %91 = load i32, ptr %90, align 8, !range !332, !noundef !17
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -7703,11 +7703,11 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %67, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sroa.5135.0, ptr %105, align 8
+  store ptr %.sroa.5136.0, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %76, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %.sroa.5137.0, ptr %107, align 8
+  store ptr %.sroa.5138.0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i8 %99, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -7740,7 +7740,7 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !806
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc512ef4788381ad6E.llvm.9340333246167201960"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.832e62666b6255bc19293ed26de40573.48.llvm.9340333246167201960, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
-          to label %.noexc64 unwind label %.thread117
+          to label %.noexc64 unwind label %.thread115
 
 .noexc64:                                         ; preds = %111
   %115 = load i64, ptr %3, align 8, !range !12, !noalias !808, !noundef !17
@@ -7750,15 +7750,15 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 117:                                              ; preds = %.noexc64
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !806
   invoke void @_ZN5tokio7runtime6handle6Handle5enter18panic_cold_display17h573c79a262db7126E(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.8054ef8b3867bf6c530fe4538a3778b6.58.llvm.6686154611312599027, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8054ef8b3867bf6c530fe4538a3778b6.60.llvm.6686154611312599027) #37
-          to label %.noexc65 unwind label %.thread117
+          to label %.noexc65 unwind label %.thread115
 
 .noexc65:                                         ; preds = %117
   unreachable
 
-.thread117:                                       ; preds = %111, %117
+.thread115:                                       ; preds = %111, %117
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread107
+  br label %.thread105
 
 118:                                              ; preds = %.noexc64
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7803,18 +7803,18 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
 123:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..handle..EnterGuard$GT$17ha17145d6ce3ac4a6E.exit68", %49
   ret void
 
-124:                                              ; preds = %134, %132, %119, %133, %.thread93, %127, %.thread107
+124:                                              ; preds = %.thread122, %132, %119, %133, %.thread91, %127, %.thread105
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39
   unreachable
 
-126:                                              ; preds = %.thread107
-  br i1 %.131112, label %127, label %.thread93
+126:                                              ; preds = %.thread105
+  br i1 %.131110, label %127, label %.thread91
 
-.thread107:                                       ; preds = %119, %.thread117
-  %.pn46116 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread117 ], [ %120, %119 ]
-  %.131112 = phi i1 [ true, %.thread117 ], [ false, %119 ]
+.thread105:                                       ; preds = %119, %.thread115
+  %.pn46114 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread117 ], [ %120, %119 ]
+  %.131110 = phi i1 [ true, %.thread117 ], [ false, %119 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17hd3e825ab53fbf6c0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #38
           to label %126 unwind label %124
 
@@ -7827,29 +7827,29 @@ define hidden void @_ZN5tokio7runtime7builder7Builder22build_threaded_runtime17h
           cleanup
   %130 = atomicrmw sub ptr %.fca.0.extract, i64 1 release, align 8, !noalias !813
   %131 = icmp eq i64 %130, 1
-  br i1 %131, label %132, label %.thread93
+  br i1 %131, label %132, label %.thread91
 
 132:                                              ; preds = %128
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbe1f6e056c8cdec0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %.thread93 unwind label %124
 
-.thread93:                                        ; preds = %127, %126, %78, %128, %132
-  %.pn46.pn.pn98 = phi { ptr, i32 } [ %129, %132 ], [ %129, %128 ], [ %.pn46116, %127 ], [ %.pn46116, %126 ], [ %79, %78 ]
-  %cond = phi i1 [ false, %132 ], [ false, %128 ], [ true, %127 ], [ true, %126 ], [ true, %78 ]
+.thread91:                                        ; preds = %127, %126, %78, %128, %132
+  %.pn46.pn.pn96 = phi { ptr, i32 } [ %129, %132 ], [ %129, %128 ], [ %.pn46114, %127 ], [ %.pn46114, %126 ], [ %79, %78 ]
+  %.195 = phi i1 [ false, %132 ], [ false, %128 ], [ true, %127 ], [ true, %126 ], [ true, %78 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..runtime..blocking..pool..BlockingPool$GT$17h1fd7d3e43bf61171E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #38
           to label %51 unwind label %124
 
 133:                                              ; preds = %.thread86, %51
-  %.pn46.pn.pn.pn91 = phi { ptr, i32 } [ %52, %.thread86 ], [ %.pn46.pn.pn98, %51 ]
+  %.pn46.pn.pn.pn90 = phi { ptr, i32 } [ %52, %.thread86 ], [ %.pn46.pn.pn96, %51 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Handle$GT$17h558090c734fe91abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %17) #38
           to label %134 unwind label %124
 
-"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74": ; preds = %134, %51
-  %.pn46.pn.pn.pn92 = phi { ptr, i32 } [ %.pn46.pn.pn98, %51 ], [ %.pn46.pn.pn.pn91, %134 ]
-  resume { ptr, i32 } %.pn46.pn.pn.pn92
+"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74": ; preds = %.thread122, %51
+  %.pn46.pn.pn.pn89124 = phi { ptr, i32 } [ %.pn46.pn.pn96, %51 ], [ %.pn46.pn.pn.pn90, %134 ]
+  resume { ptr, i32 } %.pn46.pn.pn.pn89124
 
-134:                                              ; preds = %133
+.thread122:                                       ; preds = %133
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
           to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit74" unwind label %124
 }

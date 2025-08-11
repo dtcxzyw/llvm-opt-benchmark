@@ -5292,7 +5292,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-97:                                               ; preds = %19, %119, %116, %113, %111, %108, %105, %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..data..DataSegment$u5d$$GT$$GT$17hd5527066313421ddE.exit"
+97:                                               ; preds = %19, %118, %.thread, %113, %111, %108, %105, %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..data..DataSegment$u5d$$GT$$GT$17hd5527066313421ddE.exit"
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
@@ -5342,20 +5342,20 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
   invoke void @"_ZN4core3ptr119drop_in_place$LT$wasmi_collections..map..Map$LT$alloc..boxed..Box$LT$str$GT$$C$wasmi..instance..exports..Extern$GT$$GT$17h98ebcae4d99d8e76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %114) #27
           to label %116 unwind label %97
 
-115:                                              ; preds = %110, %116
-  br i1 %.sroa.0.0, label %119, label %118
+115:                                              ; preds = %110, %.thread
+  br i1 %.sroa.0.0, label %118, label %117
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..memory..data..DataSegment$GT$$GT$17hd8d3df6d43ee18aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117) #27
+.thread:                                          ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..memory..data..DataSegment$GT$$GT$17hd8d3df6d43ee18aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116) #27
           to label %115 unwind label %97
 
-118:                                              ; preds = %119, %115
+117:                                              ; preds = %118, %115
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmi..table..element..ElementSegment$GT$$GT$17h739331bc7617e2aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120) #27
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmi..table..element..ElementSegment$GT$$GT$17h739331bc7617e2aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %119) #27
           to label %118 unwind label %97
 }
 

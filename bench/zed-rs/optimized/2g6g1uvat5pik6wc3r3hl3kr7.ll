@@ -1208,7 +1208,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
           cleanup
   br label %8
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread": ; preds = %.noexc9, %29, %.preheader.i.i, %21
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit": ; preds = %.noexc9, %29, %.preheader.i.i, %21
   %gepdiff68 = sub nsw i64 %2, %.sroa.0.0
   %32 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !290, !noundef !4
   %33 = load i64, ptr %7, align 8, !alias.scope !290, !noundef !4

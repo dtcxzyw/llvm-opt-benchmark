@@ -39574,7 +39574,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit107: ; preds = %60, %6
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit111": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit"
   %bcmp.i110 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) @anon.99edeac83e7bf69e7d9a0be5913f3128.607, i64 8), !alias.scope !9616
   %66 = icmp eq i32 %bcmp.i110, 0
-  br i1 %66, label %75, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread331"
+  br i1 %66, label %75, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread332"
 
 67:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit103"
   %68 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8
@@ -39590,7 +39590,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit115: ; preds = %67, %7
   %72 = lshr i64 %.pn.i112, 14
   br label %142
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread331": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit111"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread332": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit111"
   %bcmp.i126 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) @anon.99edeac83e7bf69e7d9a0be5913f3128.609, i64 8), !alias.scope !9620
   %73 = icmp eq i32 %bcmp.i126, 0
   br i1 %73, label %88, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit135"
@@ -39628,12 +39628,12 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit131: ; preds = %81, %8
   %86 = lshr i64 %.pn.i128, 35
   br label %142
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit135": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread331"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit135": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread332"
   %bcmp.i134 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) @anon.99edeac83e7bf69e7d9a0be5913f3128.610, i64 8), !alias.scope !9628
   %87 = icmp eq i32 %bcmp.i134, 0
   br i1 %87, label %95, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit196
 
-88:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread331"
+88:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119.thread.thread332"
   %89 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit139
@@ -39784,8 +39784,8 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit191: ; preds = %136, %
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit196: ; preds = %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit95", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit119", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit175", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit159", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit167", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit143", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit135", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35085309ae1193c0E.exit183"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %16, ptr %9, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac465fa65f2f6d63E", ptr %143, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac465fa65f2f6d63E", ptr %142, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9656
   store ptr @anon.99edeac83e7bf69e7d9a0be5913f3128.619, ptr %7, align 8, !noalias !9667
   %.sroa.5209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -39802,7 +39802,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit196: ; preds = %28, %"_ZN73_$LT$$u5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   br label %30
 
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit201: ; preds = %142
+143:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %16, ptr %11, align 8
   %144 = getelementptr inbounds nuw i8, ptr %11, i64 8

@@ -2969,7 +2969,7 @@ define void @"_ZN6diesel2pg5types6floats16quickcheck_impls99_$LT$impl$u20$quickc
     i8 0, label %35
   ]
 
-32:                                               ; preds = %"_ZN82_$LT$core..option..Option$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hdd9b9f4bd18d4a07E.exit", %32
+41:                                               ; preds = %"_ZN82_$LT$core..option..Option$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hdd9b9f4bd18d4a07E.exit", %32
   %33 = tail call noundef i16 @"_ZN56_$LT$i16$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h12ea5a198e5e874bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %34 = icmp slt i16 %33, 0
   br i1 %34, label %32, label %26
@@ -2984,7 +2984,7 @@ define void @"_ZN6diesel2pg5types6floats16quickcheck_impls99_$LT$impl$u20$quickc
   store i16 1, ptr %0, align 8
   br label %.thread
 
-39:                                               ; preds = %26
+42:                                               ; preds = %26
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %spec.select, ptr %40, align 2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2994,7 +2994,7 @@ define void @"_ZN6diesel2pg5types6floats16quickcheck_impls99_$LT$impl$u20$quickc
   store i16 0, ptr %0, align 8
   br label %.thread
 
-.thread:                                          ; preds = %35, %39, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2a7a49b12772b21eE.exit"
+.thread:                                          ; preds = %35, %42, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2a7a49b12772b21eE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 

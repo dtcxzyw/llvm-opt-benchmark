@@ -925,7 +925,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   %22 = icmp eq i8 %lhsc, 10
   br i1 %22, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i", label %20
 
-.loopexit:                                        ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i, %20, %.preheader.i.i.i.i.i, %12
+.loopexit:; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i, %20, %.preheader.i.i.i.i.i, %12
   %23 = phi i64 [ %4, %12 ], [ %4, %.preheader.i.i.i.i.i ], [ %4, %20 ], [ %4, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %30, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i" ]
   %24 = phi i64 [ %3, %12 ], [ %3, %.preheader.i.i.i.i.i ], [ %3, %20 ], [ %3, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %29, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i" ]
   %.sroa.4.0.i.i.i.le = sub nuw i64 %1, %24

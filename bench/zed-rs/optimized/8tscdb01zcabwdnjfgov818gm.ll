@@ -48000,8 +48000,8 @@ define internal fastcc void @"_ZN74_$LT$languages..vtsls..VtslsLspAdapter$u20$as
   br i1 %.not24.i.us.i, label %.preheader66.us.i, label %107
 
 107:                                              ; preds = %101
-  %reass.sub66 = sub i64 %68, %.sroa.432.0.copyload.i
-  %108 = add i64 %reass.sub66, 1
+  %reass.sub71 = sub i64 %68, %.sroa.432.0.copyload.i
+  %108 = add i64 %reass.sub71, 1
   %109 = add i64 %108, %.sroa.04.0.i.us.i
   br label %112
 
@@ -48339,7 +48339,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
           cleanup
   br label %208
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i": ; preds = %.noexc9.i, %229, %.preheader.i.i.i, %221
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i": ; preds = %.noexc9.i, %229, %.preheader.i.i.i, %221
   %gepdiff53.i = sub nsw i64 %207, %.sroa.0.0.i
   %232 = load i64, ptr %.sroa.55.0..sroa_idx.i2, align 8, !alias.scope !15255, !noalias !15227, !noundef !4
   %233 = load i64, ptr %4, align 8, !alias.scope !15255, !noalias !15227, !noundef !4

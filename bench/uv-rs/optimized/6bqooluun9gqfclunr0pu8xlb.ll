@@ -1605,7 +1605,7 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 3) i8 @_ZN16uv_configuration4hash16HashCheckingMode9from_args17hb28af2df1925b5f7E(i8 noundef range(i8 0, 3) %0, i8 noundef range(i8 0, 3) %1) unnamed_addr #10 {
-  %.not = icmp eq i8 %0, 2
+  %.not15 = icmp eq i8 %0, 2
   %3 = trunc i8 %0 to i1
   br i1 %3, label %6, label %4
 
@@ -1615,11 +1615,11 @@ define noundef range(i8 0, 3) i8 @_ZN16uv_configuration4hash16HashCheckingMode9f
     i8 0, label %5
   ]
 
-.critedge:                                        ; preds = %4
+5:                                                ; preds = %4
   %.sroa.06.3 = select i1 %.not, i8 1, i8 2
   br label %6
 
-5:                                                ; preds = %4
+.critedge:                                        ; preds = %4
   br label %6
 
 6:                                                ; preds = %4, %5, %.critedge, %2

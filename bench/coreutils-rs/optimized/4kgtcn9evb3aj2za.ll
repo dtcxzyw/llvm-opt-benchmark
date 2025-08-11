@@ -2275,12 +2275,12 @@ thread-pre-split:                                 ; preds = %11, %28
     i128 0, label %33
   ]
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1000000000, ptr %32, align 8, !alias.scope !423, !noalias !420
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1000000000, ptr %33, align 8, !alias.scope !423, !noalias !420
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3272a1f9f44e63d3E.llvm.15580692891847984352.exit"
 
-33:                                               ; preds = %29
+34:                                               ; preds = %29
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd555b167f93cc210fe76094ee5a483.31.llvm.15580692891847984352, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd555b167f93cc210fe76094ee5a483.36.llvm.15580692891847984352) #24, !noalias !425
   unreachable
 
@@ -2289,7 +2289,7 @@ thread-pre-split:                                 ; preds = %11, %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, ptr noundef nonnull readonly align 16 dereferenceable(96) %.sroa.2.0..sroa_idx.i, i64 96, i1 false), !alias.scope !429
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3272a1f9f44e63d3E.llvm.15580692891847984352.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3272a1f9f44e63d3E.llvm.15580692891847984352.exit": ; preds = %31, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he2d5df9cbbbe35cbE.llvm.15580692891847984352.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3272a1f9f44e63d3E.llvm.15580692891847984352.exit": ; preds = %32, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he2d5df9cbbbe35cbE.llvm.15580692891847984352.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -2794,21 +2794,21 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3272a1f9f44e
     i2 0, label %6
   ]
 
-4:                                                ; preds = %2
+7:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1000000000, ptr %5, align 8
   br label %7
 
-6:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd555b167f93cc210fe76094ee5a483.31.llvm.15580692891847984352, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd555b167f93cc210fe76094ee5a483.36.llvm.15580692891847984352) #24, !noalias !524
   unreachable
 
 "_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he2d5df9cbbbe35cbE.llvm.15580692891847984352.exit": ; preds = %2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %0, ptr noundef nonnull align 16 dereferenceable(96) %.sroa.2.0..sroa_idx, i64 96, i1 false)
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he2d5df9cbbbe35cbE.llvm.15580692891847984352.exit"
+9:                                                ; preds = %4, %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17he2d5df9cbbbe35cbE.llvm.15580692891847984352.exit"
   ret void
 }
 

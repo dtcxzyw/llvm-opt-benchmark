@@ -48967,43 +48967,43 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$8try_send17h789
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %8 = invoke noundef i8 @_ZN5tokio4sync15batch_semaphore9Semaphore11try_acquire17h2738a4cdc6f40438E(ptr noundef nonnull align 8 %7, i32 noundef 1)
-          to label %9 unwind label %27, !range !643
+          to label %9 unwind label %29, !range !643
 
 9:                                                ; preds = %3
   switch i8 %8, label %26 [
-    i8 2, label %10
+    i8 2, label %11
     i8 0, label %25
   ]
 
-10:                                               ; preds = %9
+11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef nonnull align 8 dereferenceable(376) %2, i64 376, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %12 = atomicrmw add ptr %11, i64 1 acquire, align 8, !noalias !9719
-  %13 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17hbedfcc6b8b6aaedcE.llvm.8265446259410684974"(ptr noundef nonnull align 128 %6, i64 noundef %12)
-          to label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3541343693aa107dE.exit.i" unwind label %14, !noalias !9719
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %13 = atomicrmw add ptr %12, i64 1 acquire, align 8, !noalias !9719
+  %14 = invoke noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_block17hbedfcc6b8b6aaedcE.llvm.8265446259410684974"(ptr noundef nonnull align 128 %6, i64 noundef %13)
+          to label %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3541343693aa107dE.exit.i" unwind label %15, !noalias !9719
 
-14:                                               ; preds = %10
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %11
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$meilisearch..analytics..segment_analytics..AnalyticsMsg$GT$17h43a416c07d7cfebeE.llvm.8265446259410684974"(ptr noalias noundef nonnull align 8 dereferenceable(376) %4) #43
-          to label %.body.thread unwind label %16
+          to label %.body.thread unwind label %17
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %15
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #41
   unreachable
 
-"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3541343693aa107dE.exit.i": ; preds = %10
-  %18 = and i64 %12, 31
-  %19 = getelementptr inbounds nuw [0 x { { { [47 x i64] } } }], ptr %13, i64 0, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %19, ptr noundef nonnull align 8 dereferenceable(376) %4, i64 376, i1 false)
-  %20 = shl nuw nsw i64 1, %18
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 12048
-  %22 = atomicrmw or ptr %21, i64 %20 release, align 8, !noalias !9724
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h0810d34b85c74d29E(ptr noundef nonnull align 8 %23)
+"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h3541343693aa107dE.exit.i": ; preds = %11
+  %19 = and i64 %13, 31
+  %20 = getelementptr inbounds nuw [0 x { { { [47 x i64] } } }], ptr %14, i64 0, i64 %19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %20, ptr noundef nonnull align 8 dereferenceable(376) %4, i64 376, i1 false)
+  %21 = shl nuw nsw i64 1, %19
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 12048
+  %23 = atomicrmw or ptr %22, i64 %21 release, align 8, !noalias !9724
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  tail call void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h0810d34b85c74d29E(ptr noundef nonnull align 8 %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
@@ -49022,18 +49022,18 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$8try_send17h789
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(376) %2, i64 376, i1 false)
   br label %24
 
-.body.thread:                                     ; preds = %14, %27
-  %eh.lpad-body10 = phi { ptr, i32 } [ %28, %27 ], [ %15, %14 ]
+.body.thread:                                     ; preds = %15, %29
+  %eh.lpad-body10 = phi { ptr, i32 } [ %30, %27 ], [ %16, %14 ]
   resume { ptr, i32 } %eh.lpad-body10
 
-27:                                               ; preds = %3
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %3
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$meilisearch..analytics..segment_analytics..AnalyticsMsg$GT$17h43a416c07d7cfebeE.llvm.1929265744411185926"(ptr noalias noundef nonnull align 8 dereferenceable(376) %2) #43
-          to label %.body.thread unwind label %29
+          to label %.body.thread unwind label %31
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #41
   unreachable

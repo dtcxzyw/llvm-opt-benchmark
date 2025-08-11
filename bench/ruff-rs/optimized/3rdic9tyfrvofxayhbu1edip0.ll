@@ -188,7 +188,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   %.not32 = icmp eq i64 %16, 2
   br i1 %.not32, label %.thread50, label %.thread
 
-.thread50.sink.split:                             ; preds = %36, %37
+.thread50.sink.split:                             ; preds = %36, %39
   %.sink55 = phi i64 [ 8, %37 ], [ 40, %36 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
   store ptr %.sroa.7.0.copyload, ptr %28, align 8
@@ -226,7 +226,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   store i64 %.sroa.55.0.copyload, ptr %15, align 8
   br label %.thread50.sink.split
 
-37:                                               ; preds = %.thread
+39:                                               ; preds = %.thread
   store i64 %.sroa.55.0.copyload, ptr %0, align 8
   br label %.thread50.sink.split
 }

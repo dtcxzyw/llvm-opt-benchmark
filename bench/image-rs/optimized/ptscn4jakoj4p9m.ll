@@ -667,7 +667,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
 16:                                               ; preds = %19, %.lr.ph.i.i.i.i.i
   %17 = phi i8 [ %15, %.lr.ph.i.i.i.i.i ], [ %20, %19 ]
   %or.cond.i.i.not.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %or.cond.i.i.not.i.i.i.i.i, label %18, label %28
+  br i1 %or.cond.i.i.not.i.i.i.i.i, label %18, label %29
 
 18:                                               ; preds = %16
   %.sroa.211.0.copyload.i.i.i.i.i = load i8, ptr %.sroa.211.0..sroa_idx.i.i.i.i.i, align 1, !noalias !150
@@ -713,22 +713,22 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   store i8 1, ptr %6, align 8, !alias.scope !137, !noalias !160
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread16.i"
 
-24:                                               ; preds = %21
+25:                                               ; preds = %21
   %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.43.0.copyload.i.i.i.i = load ptr, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !157, !nonnull !24, !noundef !24
   store i8 1, ptr %6, align 8, !alias.scope !137, !noalias !160
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !163
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.sroa.43.0.copyload.i.i.i.i), !noalias !170
-  %25 = load i8, ptr %3, align 8, !range !171, !alias.scope !172, !noalias !163, !noundef !24
-  %switch.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %25, 3
-  br i1 %switch.not.i.i.i.i.i.i.i.i.i.i, label %26, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
+  %26 = load i8, ptr %3, align 8, !range !171, !alias.scope !172, !noalias !163, !noundef !24
+  %switch.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 3
+  br i1 %switch.not.i.i.i.i.i.i.i.i.i.i, label %27, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27), !noalias !170
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28), !noalias !170
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i": ; preds = %26, %24
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i": ; preds = %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !163
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread16.i"
 
@@ -741,7 +741,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !150
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heda06a4abb006845E.exit"
 
-28:                                               ; preds = %16
+29:                                               ; preds = %16
   store i8 1, ptr %11, align 8, !alias.scope !175, !noalias !176
   %.sroa.10.2..sroa.3.0..sroa_idx.i.sroa_idx.i38.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.10.2.copyload.i39.i.i.i = load ptr, ptr %.sroa.10.2..sroa.3.0..sroa_idx.i.sroa_idx.i38.i.i.i, align 8, !noalias !180, !nonnull !24, !noundef !24
@@ -749,16 +749,16 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   store i8 1, ptr %6, align 8, !alias.scope !137, !noalias !181
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !184
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %.sroa.10.2.copyload.i39.i.i.i), !noalias !191
-  %29 = load i8, ptr %2, align 8, !range !171, !alias.scope !192, !noalias !184, !noundef !24
-  %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 3
-  br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %30, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
+  %30 = load i8, ptr %2, align 8, !range !171, !alias.scope !192, !noalias !184, !noundef !24
+  %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 3
+  br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %31, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31), !noalias !191
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32), !noalias !191
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i": ; preds = %30, %28
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i": ; preds = %31, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !184
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heda06a4abb006845E.exit"
 
@@ -777,9 +777,9 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17heda06a4abb006845E.exit": ; preds = %1, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.thread17.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread10.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i", %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread16.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread16.i" ], [ undef, %1 ], [ undef, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.i.i" ], [ undef, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.thread17.i.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i" ], [ %.sroa.211.0.copyload.i.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread10.i" ], [ %.sroa.2.0.copyload.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.i" ]
   %.sroa.0.0.i = phi i8 [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread16.i" ], [ 0, %1 ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.i.i" ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h274789610f01d50eE.exit.thread17.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i" ], [ 1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.thread10.i" ], [ 1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he0cfd9b55138e6b6E.exit.i" ]
-  %32 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
-  %33 = insertvalue { i8, i8 } %32, i8 %.sroa.3.0.i, 1
-  ret { i8, i8 } %33
+  %33 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
+  %34 = insertvalue { i8, i8 } %33, i8 %.sroa.3.0.i, 1
+  ret { i8, i8 } %34
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -839,7 +839,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
 16:                                               ; preds = %19, %.lr.ph.i.i.i.i.i
   %17 = phi i8 [ %15, %.lr.ph.i.i.i.i.i ], [ %20, %19 ]
   %or.cond.i.i.not.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %or.cond.i.i.not.i.i.i.i.i, label %18, label %28
+  br i1 %or.cond.i.i.not.i.i.i.i.i, label %18, label %29
 
 18:                                               ; preds = %16
   %.sroa.211.0.copyload.i.i.i.i.i = load i8, ptr %.sroa.211.0..sroa_idx.i.i.i.i.i, align 1, !noalias !215
@@ -885,22 +885,22 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   store i8 1, ptr %6, align 8, !alias.scope !202, !noalias !224
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread16.i"
 
-24:                                               ; preds = %21
+25:                                               ; preds = %21
   %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.43.0.copyload.i.i.i.i = load ptr, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !221, !nonnull !24, !noundef !24
   store i8 1, ptr %6, align 8, !alias.scope !202, !noalias !224
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !227
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %.sroa.43.0.copyload.i.i.i.i), !noalias !234
-  %25 = load i8, ptr %3, align 8, !range !171, !alias.scope !235, !noalias !227, !noundef !24
-  %switch.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %25, 3
-  br i1 %switch.not.i.i.i.i.i.i.i.i.i.i, label %26, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
+  %26 = load i8, ptr %3, align 8, !range !171, !alias.scope !235, !noalias !227, !noundef !24
+  %switch.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 3
+  br i1 %switch.not.i.i.i.i.i.i.i.i.i.i, label %27, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27), !noalias !234
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28), !noalias !234
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i": ; preds = %26, %24
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i.i": ; preds = %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !227
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread16.i"
 
@@ -913,7 +913,7 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !215
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h77f61e70425864c8E.exit"
 
-28:                                               ; preds = %16
+29:                                               ; preds = %16
   store i8 1, ptr %11, align 8, !alias.scope !238, !noalias !239
   %.sroa.10.2..sroa.3.0..sroa_idx.i.sroa_idx.i38.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.10.2.copyload.i39.i.i.i = load ptr, ptr %.sroa.10.2..sroa.3.0..sroa_idx.i.sroa_idx.i38.i.i.i, align 8, !noalias !243, !nonnull !24, !noundef !24
@@ -921,16 +921,16 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
   store i8 1, ptr %6, align 8, !alias.scope !202, !noalias !244
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !247
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %.sroa.10.2.copyload.i39.i.i.i), !noalias !254
-  %29 = load i8, ptr %2, align 8, !range !171, !alias.scope !255, !noalias !247, !noundef !24
-  %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 3
-  br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %30, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
+  %30 = load i8, ptr %2, align 8, !range !171, !alias.scope !255, !noalias !247, !noundef !24
+  %switch.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 3
+  br i1 %switch.not.i.i.i.i.i.i.i.i.i, label %31, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31), !noalias !254
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9f2566cd0eaf386dE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32), !noalias !254
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i": ; preds = %30, %28
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i": ; preds = %31, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !247
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h77f61e70425864c8E.exit"
 
@@ -949,9 +949,9 @@ define internal fastcc { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShun
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h77f61e70425864c8E.exit": ; preds = %1, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.thread17.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread10.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i", %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread16.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread16.i" ], [ undef, %1 ], [ undef, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.i.i" ], [ undef, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.thread17.i.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i" ], [ %.sroa.211.0.copyload.i.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread10.i" ], [ %.sroa.2.0.copyload.i.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.i" ]
   %.sroa.0.0.i = phi i8 [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread16.i" ], [ 0, %1 ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.i.i" ], [ 0, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hce43e31aedfd659aE.exit.thread17.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit.i.i.i.i.i" ], [ 1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.thread10.i" ], [ 1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h0239c0ab6ceb45c2E.exit.i" ]
-  %32 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
-  %33 = insertvalue { i8, i8 } %32, i8 %.sroa.3.0.i, 1
-  ret { i8, i8 } %33
+  %33 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
+  %34 = insertvalue { i8, i8 } %33, i8 %.sroa.3.0.i, 1
+  ret { i8, i8 } %34
 }
 
 ; Function Attrs: nonlazybind uwtable

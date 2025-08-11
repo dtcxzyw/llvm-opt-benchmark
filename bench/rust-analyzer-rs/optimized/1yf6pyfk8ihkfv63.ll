@@ -20635,7 +20635,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   %7 = invoke noundef zeroext i1 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17hc8659f30aa2519a6E"(ptr noundef nonnull align 8 %6, i64 noundef %1)
           to label %13 unwind label %8
 
-8:                                                ; preds = %26, %21, %2
+8:                                                ; preds = %27, %21, %2
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i8, ptr %.0.sroa.gep, align 8, !range !450, !alias.scope !3770, !noundef !9
@@ -20644,7 +20644,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
 
 12:                                               ; preds = %8
   invoke void @"_ZN91_$LT$tracing_subscriber..registry..sharded..CloseGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4420a0278c2b9f5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..sharded..CloseGuard$GT$$GT$17h7f8d00a0156e2703E.exit" unwind label %28
+          to label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..sharded..CloseGuard$GT$$GT$17h7f8d00a0156e2703E.exit" unwind label %29
 
 13:                                               ; preds = %2
   br i1 %7, label %14, label %16
@@ -20694,7 +20694,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3776
   br label %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17hb1f365866db6ff19E.exit"
 
-26:                                               ; preds = %.noexc16
+27:                                               ; preds = %.noexc16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3776
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN101_$LT$rust_analyzer..tracing..hprof..SpanTree$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17h5cb0bf522ea64d4aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, i64 noundef %1, ptr noundef nonnull align 8 %6, i64 noundef %23)
@@ -20704,8 +20704,8 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
-28:                                               ; preds = %12
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %12
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable

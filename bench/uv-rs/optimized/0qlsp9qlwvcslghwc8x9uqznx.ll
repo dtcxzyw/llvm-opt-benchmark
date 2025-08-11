@@ -3053,7 +3053,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %139 = icmp eq i8 %lhsc.i, 46
   br i1 %139, label %141, label %137
 
-.thread271:                                       ; preds = %.noexc170
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i": ; preds = %.noexc170
   %140 = getelementptr inbounds i8, ptr %119, i64 undef
   store ptr %119, ptr %19, align 8
   %.sroa.3222.0..sroa_idx275 = getelementptr inbounds nuw i8, ptr %19, i64 16

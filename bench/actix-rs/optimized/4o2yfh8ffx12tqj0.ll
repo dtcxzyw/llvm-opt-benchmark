@@ -12081,11 +12081,11 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
 
 4:                                                ; preds = %2
   store i8 7, ptr %0, align 8
-  br label %12
+  br label %13
 
 5:                                                ; preds = %2
   store i8 6, ptr %0, align 8
-  br label %12
+  br label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12093,9 +12093,9 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
   store i8 5, ptr %0, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %.sroa.54.0..sroa_idx, align 8
-  br label %12
+  br label %13
 
-default.unreachable:                              ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
@@ -12104,9 +12104,9 @@ default.unreachable:                              ; preds = %2
   store i8 3, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %11, ptr %.sroa.411.0..sroa_idx, align 1
-  br label %12
+  br label %13
 
-12:                                               ; preds = %4, %5, %6, %9
+13:                                               ; preds = %4, %5, %6, %9
   ret void
 }
 

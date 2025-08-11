@@ -572,20 +572,20 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   ]
 
 .critedge.i.i:                                    ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i"
-  %18 = getelementptr inbounds nuw { double, { i64 } }, ptr %.sroa.7.0.copyload, i64 %.sroa.42.0
-  store double %.sroa.4.0.copyload, ptr %18, align 8, !noalias !47
-  %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw { double, { i64 } }, ptr %.sroa.7.0.copyload, i64 %.sroa.42.0
+  store double %.sroa.4.0.copyload, ptr %20, align 8, !noalias !47
+  %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %.sroa.43.0..sroa_idx.i.i.i, align 8, !noalias !47
-  %19 = add i64 %.sroa.42.0, 1
-  br label %20
+  %21 = add i64 %.sroa.42.0, 1
+  br label %22
 
-20:                                               ; preds = %.critedge.i.i, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i"
-  %.val4.i.i = phi i64 [ %19, %.critedge.i.i ], [ %.sroa.42.0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i" ]
-  %21 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %21)
+22:                                               ; preds = %.critedge.i.i, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i"
+  %.val4.i.i = phi i64 [ %21, %.critedge.i.i ], [ %.sroa.42.0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i" ]
+  %23 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %23)
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he6346a84b73ea41dE.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he6346a84b73ea41dE.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i", %20
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he6346a84b73ea41dE.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i", %22
   %.val14.sink.i = phi i64 [ %.val4.i.i, %20 ], [ %.sroa.42.0, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5891ecc963331efeE.exit.i" ]
   store i64 %.val14.sink.i, ptr %.sroa.01.0.copyload, align 8, !noalias !56
   ret void
@@ -1520,7 +1520,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
     i64 0, label %22
   ]
 
-.critedge.i.i:                                    ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h12d4cfe43a8a29dcE.exit.i"
+24:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h12d4cfe43a8a29dcE.exit.i"
   %19 = getelementptr inbounds nuw { double, i64 }, ptr %.sroa.7.0.copyload, i64 %.sroa.42.0
   store double %.sroa.4.0.copyload, ptr %19, align 8, !noalias !287
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8

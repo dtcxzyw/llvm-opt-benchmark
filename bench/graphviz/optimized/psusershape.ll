@@ -310,25 +310,25 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 define void @cat_libfile(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.critedge45, label %select.unfold.preheader
+  br i1 %.not, label %.critedge45, label %.preheader47
 
-select.unfold.preheader:                          ; preds = %3, %select.unfold
+.preheader47:                                     ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !61
   %.not39 = icmp eq ptr %6, null
-  br i1 %.not39, label %.critedge45, label %select.unfold
+  br i1 %.not39, label %.critedge45, label %7
 
-select.unfold:                                    ; preds = %select.unfold.preheader
-  %7 = load i8, ptr %6, align 1, !tbaa !15
-  %8 = icmp eq i8 %7, 0
+7:                                                ; preds = %.preheader47
+  %8 = load i8, ptr %6, align 1, !tbaa !15
+  %.not56 = icmp eq i8 %8, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %8, label %.preheader46, label %select.unfold.preheader
+  br i1 %.not56, label %.preheader46, label %.preheader47
 
-.critedge45:                                      ; preds = %select.unfold.preheader, %3
+.critedge45:                                      ; preds = %.preheader47, %3
   %9 = load ptr, ptr %2, align 8, !tbaa !61
   %.not4051 = icmp eq ptr %9, null
-  br i1 %.not4051, label %.loopexit47, label %.lr.ph
+  br i1 %.not4051, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge45, %.lr.ph
   %10 = phi ptr [ %14, %.lr.ph ], [ %9, %.critedge45 ]
@@ -338,18 +338,18 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %13 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !61
   %.not40 = icmp eq ptr %14, null
-  br i1 %.not40, label %.loopexit47, label %.lr.ph, !llvm.loop !62
+  br i1 %.not40, label %.critedge, label %.lr.ph, !llvm.loop !62
 
-.loopexit47:                                      ; preds = %.lr.ph, %.critedge45
+.critedge:                                        ; preds = %.lr.ph, %.critedge45
   br i1 %.not, label %.loopexit, label %.preheader46
 
-.preheader46:                                     ; preds = %select.unfold, %.loopexit47
+.preheader46:                                     ; preds = %7, %.critedge
   %15 = load ptr, ptr %1, align 8, !tbaa !61
   %.not4153 = icmp eq ptr %15, null
   br i1 %.not4153, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader46, %31
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %31 ], [ 0, %.preheader46 ]
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %31 ], [ 0, %.preheader46 ]
   %16 = phi ptr [ %33, %31 ], [ %15, %.preheader46 ]
   %17 = load i8, ptr %16, align 1, !tbaa !15
   %18 = icmp eq i8 %17, 0
@@ -388,13 +388,13 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %31
 
 31:                                               ; preds = %21, %30, %27, %.lr.ph55
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next58
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next60
   %33 = load ptr, ptr %32, align 8, !tbaa !61
   %.not41 = icmp eq ptr %33, null
   br i1 %.not41, label %.loopexit, label %.lr.ph55, !llvm.loop !63
 
-.loopexit:                                        ; preds = %31, %.preheader46, %.loopexit47
+.loopexit:                                        ; preds = %31, %.preheader46, %.critedge
   ret void
 }
 

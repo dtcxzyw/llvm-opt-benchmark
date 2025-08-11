@@ -11097,21 +11097,21 @@ define void @_ZN12pingora_core9protocols4http2v26server11HttpSession16get_retry_
     i8 0, label %7
   ]
 
-5:                                                ; preds = %2
+8:                                                ; preds = %2
   store ptr null, ptr %0, align 8
-  br label %6
+  br label %9
 
-6:                                                ; preds = %7, %9, %5
+9:                                                ; preds = %10, %11, %8
   ret void
 
-7:                                                ; preds = %2
+10:                                               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
   tail call void @_ZN12pingora_core9protocols4http11body_buffer11FixedBuffer10get_buffer17hfca16f0cdd933693E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8)
   br label %6
 
-9:                                                ; preds = %2
+11:                                               ; preds = %2
   store ptr null, ptr %0, align 8
-  br label %6
+  br label %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

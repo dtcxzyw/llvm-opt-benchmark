@@ -31,24 +31,24 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8, !range !9, !noalias !4, !noundef !7
   switch i32 %5, label %"_ZN5uu_ls15enter_directory28_$u7b$$u7b$closure$u7d$$u7d$17hbb50ec4743d39520E.llvm.4501780908441284265.exit" [
-    i32 2, label %6
+    i32 2, label %7
     i32 0, label %7
   ]
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c24eef5dd8bb38a080b1c6e2310108fa.38.llvm.4501780908441284265) #14, !noalias !4
   unreachable
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c24eef5dd8bb38a080b1c6e2310108fa.39.llvm.4501780908441284265) #14, !noalias !4
   unreachable
 
 "_ZN5uu_ls15enter_directory28_$u7b$$u7b$closure$u7d$$u7d$17hbb50ec4743d39520E.llvm.4501780908441284265.exit": ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 252
-  %9 = load i32, ptr %8, align 4, !noalias !4
-  %10 = and i32 %9, 61440
-  %11 = icmp eq i32 %10, 16384
-  ret i1 %11
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 252
+  %11 = load i32, ptr %10, align 4, !noalias !4
+  %12 = and i32 %11, 61440
+  %13 = icmp eq i32 %12, 16384
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -375,24 +375,24 @@ define hidden noundef zeroext i1 @"_ZN5uu_ls15enter_directory28_$u7b$$u7b$closur
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8, !range !9, !noundef !7
   switch i32 %5, label %8 [
-    i32 2, label %6
+    i32 2, label %7
     i32 0, label %7
   ]
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c24eef5dd8bb38a080b1c6e2310108fa.38.llvm.4501780908441284265) #14
   unreachable
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c24eef5dd8bb38a080b1c6e2310108fa.39.llvm.4501780908441284265) #14
   unreachable
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 252
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 61440
-  %12 = icmp eq i32 %11, 16384
-  ret i1 %12
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 252
+  %12 = load i32, ptr %11, align 4
+  %13 = and i32 %12, 61440
+  %14 = icmp eq i32 %13, 16384
+  ret i1 %14
 }
 
 ; Function Attrs: nonlazybind uwtable

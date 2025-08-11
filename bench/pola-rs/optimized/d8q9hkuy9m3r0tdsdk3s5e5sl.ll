@@ -6444,7 +6444,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.080.1 = getelementptr inbounds nuw i8, ptr %.sroa.080.1242, i64 %.sroa.080.1.idx
   br i1 %407, label %.loopexit232, label %314
 
-408:                                              ; preds = %559, %553, %645, %644, %643, %554, %.noexc158, %547, %544, %420, %410, %303
+408:                                              ; preds = %559, %553, %645, %644, %643, %554, %.thread211, %547, %544, %420, %410, %303
   %409 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -6805,18 +6805,18 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   %551 = atomicrmw sub ptr %148, i64 1 release, align 8, !noalias !398
   %552 = icmp eq i64 %551, 1
-  br i1 %552, label %553, label %.noexc158
+  br i1 %552, label %553, label %.thread211
 
 553:                                              ; preds = %549
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h50890755d75bdfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
           to label %.noexc158 unwind label %408
 
-.noexc158:                                        ; preds = %553, %549
+.thread211:                                       ; preds = %553, %549
   invoke void @"_ZN4core3ptr108drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$polars_arrow..array..binview..view..View$GT$$GT$17hd146db49ed09d4f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #32
           to label %554 unwind label %408
 
-554:                                              ; preds = %.noexc158, %527
+554:                                              ; preds = %.thread211, %527
   %.sroa.072.1.ph = phi i1 [ true, %527 ], [ false, %.noexc158 ]
   %.pn101.ph = phi { ptr, i32 } [ %528, %527 ], [ %550, %.noexc158 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17hcd17ccbac35ad7fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #32
@@ -7818,7 +7818,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.080.1 = getelementptr inbounds nuw i8, ptr %.sroa.080.1242, i64 %.sroa.080.1.idx
   br i1 %407, label %.loopexit232, label %314
 
-408:                                              ; preds = %559, %553, %645, %644, %643, %554, %.noexc158, %547, %544, %420, %410, %303
+408:                                              ; preds = %559, %553, %645, %644, %643, %554, %.thread211, %547, %544, %420, %410, %303
   %409 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -8179,18 +8179,18 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           cleanup
   %551 = atomicrmw sub ptr %148, i64 1 release, align 8, !noalias !473
   %552 = icmp eq i64 %551, 1
-  br i1 %552, label %553, label %.noexc158
+  br i1 %552, label %553, label %.thread211
 
 553:                                              ; preds = %549
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h50890755d75bdfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
           to label %.noexc158 unwind label %408
 
-.noexc158:                                        ; preds = %553, %549
+.thread211:                                       ; preds = %553, %549
   invoke void @"_ZN4core3ptr108drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$polars_arrow..array..binview..view..View$GT$$GT$17hd146db49ed09d4f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #32
           to label %554 unwind label %408
 
-554:                                              ; preds = %.noexc158, %527
+554:                                              ; preds = %.thread211, %527
   %.sroa.072.1.ph = phi i1 [ true, %527 ], [ false, %.noexc158 ]
   %.pn101.ph = phi { ptr, i32 } [ %528, %527 ], [ %550, %.noexc158 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17hcd17ccbac35ad7fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #32
@@ -9166,7 +9166,7 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   ret void
 
-84:                                               ; preds = %116, %110, %104, %100, %96, %93, %50, %112, %111, %105, %89, %88, %87, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit", %55
+84:                                               ; preds = %115, %109, %104, %100, %96, %93, %50, %111, %110, %105, %89, %88, %87, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit", %55
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -9243,42 +9243,42 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hdb08d4cacabdc264E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #32
           to label %106 unwind label %84
 
-"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit": ; preds = %106, %110, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hed13adcb5cdbc65bE.exit17"
-  br i1 %41, label %111, label %.critedge10
+"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit": ; preds = %.thread, %109, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hed13adcb5cdbc65bE.exit17"
+  br i1 %41, label %110, label %.critedge10
 
-106:                                              ; preds = %105
+.thread:                                          ; preds = %105
   call void @llvm.experimental.noalias.scope.decl(metadata !527)
   call void @llvm.experimental.noalias.scope.decl(metadata !530)
-  %107 = load ptr, ptr %31, align 8, !alias.scope !533, !nonnull !6, !noundef !6
-  %108 = atomicrmw sub ptr %107, i64 1 release, align 8, !noalias !533
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %110, label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+  %106 = load ptr, ptr %31, align 8, !alias.scope !533, !nonnull !6, !noundef !6
+  %107 = atomicrmw sub ptr %106, i64 1 release, align 8, !noalias !533
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %109, label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
 
-110:                                              ; preds = %106
+109:                                              ; preds = %.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6d1bdac3e88e83a3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit" unwind label %84
 
-111:                                              ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+110:                                              ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
   invoke fastcc void @"_ZN4core3ptr359drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..partitioned..PartitionedHashMap$LT$polars_pipe..executors..sinks..joins..Key$C$$LP$polars_utils..idx_vec..UnitVec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$C$polars_pipe..executors..sinks..joins..Tracker$RP$$C$core..hash..BuildHasherDefault$LT$polars_core..hashing..identity..IdHasher$GT$$GT$$GT$$GT$17h7a8b8588733a04caE"(ptr noalias noundef align 8 dereferenceable(8) %32) #32
           to label %112 unwind label %84
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #32
           to label %.critedge unwind label %84
 
-.critedge10:                                      ; preds = %.critedge, %116, %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+.critedge10:                                      ; preds = %.critedge, %115, %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
   resume { ptr, i32 } %.pn.pn
 
-.critedge:                                        ; preds = %112
+.critedge:                                        ; preds = %111
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
-  %113 = load ptr, ptr %33, align 8, !alias.scope !540, !nonnull !6, !noundef !6
-  %114 = atomicrmw sub ptr %113, i64 1 release, align 8, !noalias !540
-  %115 = icmp eq i64 %114, 1
-  br i1 %115, label %116, label %.critedge10
+  %112 = load ptr, ptr %33, align 8, !alias.scope !540, !nonnull !6, !noundef !6
+  %113 = atomicrmw sub ptr %112, i64 1 release, align 8, !noalias !540
+  %114 = icmp eq i64 %113, 1
+  br i1 %114, label %115, label %.critedge10
 
-116:                                              ; preds = %.critedge
+115:                                              ; preds = %.critedge
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc7b2d30ca6cd2d74E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33)
           to label %.critedge10 unwind label %84
@@ -9463,7 +9463,7 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   ret void
 
-84:                                               ; preds = %116, %110, %104, %100, %96, %93, %50, %112, %111, %105, %89, %88, %87, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit", %55
+84:                                               ; preds = %115, %109, %104, %100, %96, %93, %50, %111, %110, %105, %89, %88, %87, %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit", %55
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -9540,42 +9540,42 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hdb08d4cacabdc264E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #32
           to label %106 unwind label %84
 
-"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit": ; preds = %106, %110, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hed13adcb5cdbc65bE.exit17"
-  br i1 %41, label %111, label %.critedge10
+"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit": ; preds = %.thread, %109, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hed13adcb5cdbc65bE.exit17"
+  br i1 %41, label %110, label %.critedge10
 
-106:                                              ; preds = %105
+.thread:                                          ; preds = %105
   call void @llvm.experimental.noalias.scope.decl(metadata !573)
   call void @llvm.experimental.noalias.scope.decl(metadata !576)
-  %107 = load ptr, ptr %31, align 8, !alias.scope !579, !nonnull !6, !noundef !6
-  %108 = atomicrmw sub ptr %107, i64 1 release, align 8, !noalias !579
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %110, label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+  %106 = load ptr, ptr %31, align 8, !alias.scope !579, !nonnull !6, !noundef !6
+  %107 = atomicrmw sub ptr %106, i64 1 release, align 8, !noalias !579
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %109, label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
 
-110:                                              ; preds = %106
+109:                                              ; preds = %.thread
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6d1bdac3e88e83a3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31)
           to label %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit" unwind label %84
 
-111:                                              ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+110:                                              ; preds = %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
   invoke fastcc void @"_ZN4core3ptr322drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..partitioned..PartitionedHashMap$LT$polars_pipe..executors..sinks..joins..Key$C$$LP$polars_utils..idx_vec..UnitVec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$C$$LP$$RP$$RP$$C$core..hash..BuildHasherDefault$LT$polars_core..hashing..identity..IdHasher$GT$$GT$$GT$$GT$17hd29325e205bb69d5E"(ptr noalias noundef align 8 dereferenceable(8) %32) #32
           to label %112 unwind label %84
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #32
           to label %.critedge unwind label %84
 
-.critedge10:                                      ; preds = %.critedge, %116, %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
+.critedge10:                                      ; preds = %.critedge, %115, %"_ZN4core3ptr143drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$dyn$u20$polars_pipe..expressions..PhysicalPipedExpr$GT$$GT$$GT$$GT$17hcde1e895e5305352E.exit"
   resume { ptr, i32 } %.pn.pn
 
-.critedge:                                        ; preds = %112
+.critedge:                                        ; preds = %111
   call void @llvm.experimental.noalias.scope.decl(metadata !580)
   call void @llvm.experimental.noalias.scope.decl(metadata !583)
-  %113 = load ptr, ptr %33, align 8, !alias.scope !586, !nonnull !6, !noundef !6
-  %114 = atomicrmw sub ptr %113, i64 1 release, align 8, !noalias !586
-  %115 = icmp eq i64 %114, 1
-  br i1 %115, label %116, label %.critedge10
+  %112 = load ptr, ptr %33, align 8, !alias.scope !586, !nonnull !6, !noundef !6
+  %113 = atomicrmw sub ptr %112, i64 1 release, align 8, !noalias !586
+  %114 = icmp eq i64 %113, 1
+  br i1 %114, label %115, label %.critedge10
 
-116:                                              ; preds = %.critedge
+115:                                              ; preds = %.critedge
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc7b2d30ca6cd2d74E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33)
           to label %.critedge10 unwind label %84

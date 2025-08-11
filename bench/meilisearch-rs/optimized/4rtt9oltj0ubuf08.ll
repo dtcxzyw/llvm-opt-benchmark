@@ -88845,7 +88845,7 @@ default.unreachable:                              ; preds = %104
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   %.not.i12.i.i.i = icmp eq i64 %105, 2
-  br i1 %.not.i12.i.i.i, label %.noexc13.i.i.i, label %134
+  br i1 %.not.i12.i.i.i, label %.thread26.i.i.i, label %134
 
 134:                                              ; preds = %133
   invoke void @"_ZN4core3ptr85drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..fs..File$GT$$GT$17h932504fbefeabc94E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %.sroa.8.8..sroa_idx3.i)
@@ -88857,15 +88857,15 @@ default.unreachable:                              ; preds = %104
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57, !noalias !13301
   unreachable
 
-.noexc13.i.i.i:                                   ; preds = %134, %133
+.thread26.i.i.i:                                  ; preds = %134, %133
   %.not.i15.i.i.i = icmp eq i64 %90, 2
   br i1 %.not.i15.i.i.i, label %138, label %137
 
-137:                                              ; preds = %.noexc13.i.i.i
+137:                                              ; preds = %.thread26.i.i.i
   invoke void @"_ZN4core3ptr85drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..fs..File$GT$$GT$17h932504fbefeabc94E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %.sroa.5.0..sroa_idx.i)
           to label %138 unwind label %135, !noalias !13282
 
-138:                                              ; preds = %137, %.noexc13.i.i.i
+138:                                              ; preds = %137, %.thread26.i.i.i
   %139 = atomicrmw sub ptr %110, i64 1 release, align 8, !noalias !13302
   %140 = icmp eq i64 %139, 1
   br i1 %140, label %141, label %.body.i.i
@@ -103986,7 +103986,7 @@ default.unreachable:                              ; preds = %104
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   %.not.i12.i.i.i = icmp eq i64 %105, 2
-  br i1 %.not.i12.i.i.i, label %.noexc13.i.i.i, label %134
+  br i1 %.not.i12.i.i.i, label %.thread26.i.i.i, label %134
 
 134:                                              ; preds = %133
   invoke void @"_ZN4core3ptr85drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..fs..File$GT$$GT$17h932504fbefeabc94E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %.sroa.8.8..sroa_idx3.i)
@@ -103998,15 +103998,15 @@ default.unreachable:                              ; preds = %104
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #57, !noalias !16190
   unreachable
 
-.noexc13.i.i.i:                                   ; preds = %134, %133
+.thread26.i.i.i:                                  ; preds = %134, %133
   %.not.i15.i.i.i = icmp eq i64 %90, 2
   br i1 %.not.i15.i.i.i, label %138, label %137
 
-137:                                              ; preds = %.noexc13.i.i.i
+137:                                              ; preds = %.thread26.i.i.i
   invoke void @"_ZN4core3ptr85drop_in_place$LT$grenad..reader..reader_cursor..ReaderCursor$LT$std..fs..File$GT$$GT$17h932504fbefeabc94E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %.sroa.5.0..sroa_idx.i)
           to label %138 unwind label %135, !noalias !16171
 
-138:                                              ; preds = %137, %.noexc13.i.i.i
+138:                                              ; preds = %137, %.thread26.i.i.i
   %139 = atomicrmw sub ptr %110, i64 1 release, align 8, !noalias !16191
   %140 = icmp eq i64 %139, 1
   br i1 %140, label %141, label %.body.i.i

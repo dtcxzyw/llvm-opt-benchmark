@@ -1460,19 +1460,19 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
   %or.cond5.i = icmp eq i8 %36, 0
   %37 = or i8 %.sroa.715.0.copyload, %.sroa.816.0.copyload
   %or.cond8.i = icmp eq i8 %37, 0
-  %or.cond29.i.not32.not36 = select i1 %or.cond5.i, i1 %or.cond8.i, i1 false
+  %or.cond29.i.not33.not37 = select i1 %or.cond5.i, i1 %or.cond8.i, i1 false
   %38 = or i8 %.sroa.917.0.copyload, %.sroa.1018.0.copyload
   %or.cond11.i = icmp eq i8 %38, 0
-  %or.cond30.i.not31.not35 = select i1 %or.cond29.i.not32.not36, i1 %or.cond11.i, i1 false
+  %or.cond30.i.not32.not36 = select i1 %or.cond29.i.not33.not37, i1 %or.cond11.i, i1 false
   %39 = or i8 %.sroa.1119.0.copyload, %.sroa.1220.0.copyload
   %or.cond14.i = icmp eq i8 %39, 0
-  %or.cond31.i.not30.not34 = select i1 %or.cond30.i.not31.not35, i1 %or.cond14.i, i1 false
+  %or.cond31.i.not31.not35 = select i1 %or.cond30.i.not32.not36, i1 %or.cond14.i, i1 false
   %40 = and i8 %.sroa.1321.0.copyload, %.sroa.1422.0.copyload
   %or.cond17.i = icmp eq i8 %40, -1
-  %or.cond32.i.not29.not33 = select i1 %or.cond31.i.not30.not34, i1 %or.cond17.i, i1 false
-  %brmerge.not = and i1 %or.cond32.i.not29.not33, %5
-  %.mux = select i1 %or.cond32.i.not29.not33, i32 0, i32 41
-  %.mux28 = select i1 %or.cond32.i.not29.not33, i32 1, i32 67
+  %or.cond32.i.not30.not34 = select i1 %or.cond31.i.not31.not35, i1 %or.cond17.i, i1 false
+  %brmerge.not = and i1 %or.cond32.i.not30.not34, %5
+  %.mux = select i1 %or.cond32.i.not30.not34, i32 0, i32 41
+  %.mux29 = select i1 %or.cond32.i.not30.not34, i32 1, i32 67
   br i1 %brmerge.not, label %44, label %.critedge.invoke
 
 41:                                               ; preds = %6
@@ -1480,9 +1480,9 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
 
 .critedge.invoke:                                 ; preds = %35, %41, %32
   %42 = phi i32 [ 41, %32 ], [ %.mux, %35 ], [ 0, %41 ]
-  %43 = phi i32 [ 67, %32 ], [ %.mux28, %35 ], [ 1, %41 ]
+  %43 = phi i32 [ 67, %32 ], [ %.mux29, %35 ], [ 1, %41 ]
   invoke void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9900840aba8d8df4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %42, i32 noundef %43, i32 noundef %28)
-          to label %44 unwind label %64
+          to label %44 unwind label %65
 
 44:                                               ; preds = %35, %.critedge.invoke, %41
   %45 = load i64, ptr %0, align 8, !range !7, !noundef !5
@@ -1496,7 +1496,7 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
 50:                                               ; preds = %44
   %51 = trunc i64 %47 to i16
   invoke void @_ZN9quinn_udp3imp3gso16set_segment_size17hf1a9282585655ed5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i16 noundef %51)
-          to label %52 unwind label %64
+          to label %52 unwind label %65
 
 52:                                               ; preds = %50, %44
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1506,7 +1506,7 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
     i8 0, label %59
   ]
 
-55:                                               ; preds = %52, %56, %59
+58:                                               ; preds = %52, %61, %62
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @"_ZN4core3ptr95drop_in_place$LT$quinn_udp..cmsg..Encoder$LT$libc..unix..linux_like..linux..gnu..msghdr$GT$$GT$17h76d8cd69f9d7b6b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
@@ -1514,36 +1514,36 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-56:                                               ; preds = %52
+59:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %57, i64 16, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 0, ptr %60, align 4
   invoke void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9814c4b436ef4bf8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 41, i32 noundef 50, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %8)
-          to label %55 unwind label %64
+          to label %55 unwind label %65
 
-59:                                               ; preds = %52
+61:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %.sroa.04.0.copyload = load i32, ptr %60, align 1
   store i32 0, ptr %9, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sroa.04.0.copyload, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 0, ptr %62, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %.sroa.04.0.copyload, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 0, ptr %63, align 4
   invoke void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17haff126bdeddc4959E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 0, i32 noundef 8, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %9)
-          to label %55 unwind label %64
+          to label %55 unwind label %65
 
-63:                                               ; preds = %64
+64:                                               ; preds = %65
   resume { ptr, i32 } %lpad.thr_comm
 
-64:                                               ; preds = %.critedge.invoke, %50, %59, %56
+65:                                               ; preds = %.critedge.invoke, %50, %61, %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr95drop_in_place$LT$quinn_udp..cmsg..Encoder$LT$libc..unix..linux_like..linux..gnu..msghdr$GT$$GT$17h76d8cd69f9d7b6b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #18
-          to label %63 unwind label %65
+          to label %63 unwind label %66
 
-65:                                               ; preds = %64
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable

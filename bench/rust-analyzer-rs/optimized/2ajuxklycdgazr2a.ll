@@ -39443,7 +39443,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %14, %.thread,
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
   ]
 
-30:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17haf393e1beb72aa9dE.exit"
+31:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17haf393e1beb72aa9dE.exit"
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.424.0..sroa_idx, i64 39, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
@@ -39454,29 +39454,29 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %14, %.thread,
   %.sroa.028.0.copyload = load i64, ptr %1, align 4
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.530.0.copyload = load i8, ptr %.sroa.530.0..sroa_idx, align 4
-  %31 = and i64 %.sroa.028.0.copyload, 4294967295
-  %.not.i15 = icmp ne i64 %31, 3
-  %32 = trunc nuw i8 %.sroa.530.0.copyload to i1
-  %or.cond39 = select i1 %.not.i15, i1 %32, i1 false
-  br i1 %or.cond39, label %33, label %"_ZN4core6option15Option$LT$T$GT$6filter17h556a0bf2577d61d7E.exit"
+  %32 = and i64 %.sroa.028.0.copyload, 4294967295
+  %.not.i15 = icmp ne i64 %32, 3
+  %33 = trunc nuw i8 %.sroa.530.0.copyload to i1
+  %or.cond40 = select i1 %.not.i15, i1 %33, i1 false
+  br i1 %or.cond40, label %34, label %"_ZN4core6option15Option$LT$T$GT$6filter17h556a0bf2577d61d7E.exit"
 
-33:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
+34:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.627, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.631.0..sroa_idx, i64 23, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h556a0bf2577d61d7E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h556a0bf2577d61d7E.exit": ; preds = %33, %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
+"_ZN4core6option15Option$LT$T$GT$6filter17h556a0bf2577d61d7E.exit": ; preds = %34, %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit"
   %.sroa.025.sroa.0.0.insert.insert = phi i64 [ %.sroa.028.0.copyload, %33 ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17h0bc8075a6f19782bE.exit" ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 1, ptr %35, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4, i64 31, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.021.0, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sroa.021.0, ptr %36, align 4
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522, i64 39, i1 false)
   store i64 %.sroa.025.sroa.0.0.insert.insert, ptr %0, align 4
@@ -40063,7 +40063,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %14, %.thread,
     i8 0, label %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
   ]
 
-30:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h988a6268469b058cE.exit"
+31:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h988a6268469b058cE.exit"
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.424.0..sroa_idx, i64 39, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
@@ -40074,29 +40074,29 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %14, %.thread,
   %.sroa.028.0.copyload = load i64, ptr %1, align 4
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.530.0.copyload = load i8, ptr %.sroa.530.0..sroa_idx, align 4
-  %31 = and i64 %.sroa.028.0.copyload, 4294967295
-  %.not.i15 = icmp ne i64 %31, 3
-  %32 = trunc nuw i8 %.sroa.530.0.copyload to i1
-  %or.cond39 = select i1 %.not.i15, i1 %32, i1 false
-  br i1 %or.cond39, label %33, label %"_ZN4core6option15Option$LT$T$GT$6filter17h5780d35bd1502f3fE.exit"
+  %32 = and i64 %.sroa.028.0.copyload, 4294967295
+  %.not.i15 = icmp ne i64 %32, 3
+  %33 = trunc nuw i8 %.sroa.530.0.copyload to i1
+  %or.cond40 = select i1 %.not.i15, i1 %33, i1 false
+  br i1 %or.cond40, label %34, label %"_ZN4core6option15Option$LT$T$GT$6filter17h5780d35bd1502f3fE.exit"
 
-33:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
+34:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.627, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.631.0..sroa_idx, i64 23, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h5780d35bd1502f3fE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h5780d35bd1502f3fE.exit": ; preds = %33, %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
+"_ZN4core6option15Option$LT$T$GT$6filter17h5780d35bd1502f3fE.exit": ; preds = %34, %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit"
   %.sroa.025.sroa.0.0.insert.insert = phi i64 [ %.sroa.028.0.copyload, %33 ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17he1c2f0105863b609E.exit" ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 1, ptr %35, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4, i64 31, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.021.0, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sroa.021.0, ptr %36, align 4
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.522, i64 39, i1 false)
   store i64 %.sroa.025.sroa.0.0.insert.insert, ptr %0, align 4
