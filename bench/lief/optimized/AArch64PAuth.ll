@@ -1289,16 +1289,16 @@ _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT
 18:                                               ; preds = %2
   %.sroa.4.0.i = and i32 %7, -2147483648
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %8) #21
-  store i64 %19, ptr %6, align 8
+  %20 = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %8) #21
+  store i64 %20, ptr %6, align 8
   %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i to i64
   %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 9
-  %20 = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
+  %21 = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 
 _ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit: ; preds = %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i, %18
-  %.sroa.06.1.i = phi ptr [ %17, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %20, %18 ]
+  %.sroa.06.1.i = phi ptr [ %17, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.1.i
 }
@@ -14119,7 +14119,7 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   switch i8 %11, label %36 [
     i8 0, label %40
     i8 14, label %12
-    i8 13, label %40
+    i8 13, label %50
     i8 10, label %14
     i8 9, label %16
     i8 12, label %23
@@ -14144,15 +14144,15 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   %.sroa.2.1.mask = and i32 %.sroa.2.1, 524288
   %19 = select i1 %.not37, i32 %.sroa.2.1.mask, i32 524288
   %20 = and i32 %.sroa.2.1, -524290
-  %21 = or disjoint i32 %20, %19
+  %21 = or disjoint i32 %20, %20
   %22 = or disjoint i32 %21, 1
   br label %40
 
-23:                                               ; preds = %1
-  %24 = or disjoint i32 %9, 65536
+29:                                               ; preds = %1
+  %30 = or disjoint i32 %9, 65536
   br label %25
 
-25:                                               ; preds = %23, %1
+42:                                               ; preds = %23, %1
   %.sroa.2.2 = phi i32 [ %24, %23 ], [ %9, %1 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !73
@@ -14164,11 +14164,11 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   %31 = or disjoint i32 %30, 2
   br label %40
 
-32:                                               ; preds = %1
+44:                                               ; preds = %1
   %33 = or disjoint i32 %9, 65536
   br label %34
 
-34:                                               ; preds = %32, %1
+46:                                               ; preds = %32, %1
   %.sroa.2.3 = phi i32 [ %33, %32 ], [ %9, %1 ]
   %35 = or i32 %.sroa.2.3, 3
   br label %40
@@ -14177,13 +14177,13 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.10) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %2, align 8, !tbaa !11
-  %37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
-  %38 = load ptr, ptr @stderr, align 8, !tbaa !51
-  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef %37) #25
+  %47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !51
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef %47) #25
   call void @_ZSt9terminatev() #23
   unreachable
 
-40:                                               ; preds = %1, %12, %1, %34, %25, %16
+50:                                               ; preds = %1, %12, %1, %34, %25, %16
   %.sroa.2.4 = phi i32 [ %22, %16 ], [ %31, %25 ], [ %35, %34 ], [ %9, %1 ], [ %13, %12 ], [ %9, %1 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32

@@ -3714,7 +3714,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %15 = load ptr, ptr %14, align 8, !tbaa !206
   %.not72 = icmp eq ptr %15, null
-  br i1 %.not72, label %628, label %16
+  br i1 %.not72, label %629, label %16
 
 16:                                               ; preds = %13, %3
   %17 = load ptr, ptr %0, align 8, !tbaa !207
@@ -3732,7 +3732,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   store ptr %23, ptr %24, align 8, !tbaa !209
   %25 = load i32, ptr %8, align 4, !tbaa !16
   %.not74 = icmp eq i32 %25, 0
-  br i1 %.not74, label %26, label %628
+  br i1 %.not74, label %26, label %629
 
 26:                                               ; preds = %21
   store ptr %17, ptr %23, align 8, !tbaa !211
@@ -4837,9 +4837,9 @@ cf2_setGlyphWidth.exit:                           ; preds = %125, %123, %120, %6
   %.1 = phi i32 [ 3, %cf2_getGlyphOutline.exit ], [ 3, %cf2_getGlyphOutline.exit.thread ], [ 0, %619 ], [ 0, %622 ], [ 164, %125 ], [ 164, %123 ], [ 36, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %628
+  br label %629
 
-628:                                              ; preds = %21, %13, %cf2_setGlyphWidth.exit
+629:                                              ; preds = %21, %13, %cf2_setGlyphWidth.exit
   %.0 = phi i32 [ %.1, %cf2_setGlyphWidth.exit ], [ 8, %13 ], [ 64, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

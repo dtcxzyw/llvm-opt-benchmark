@@ -3493,7 +3493,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
-  br label %117
+  br label %118
 
 24:                                               ; preds = %2
   store i64 %18, ptr %7, align 8
@@ -3514,7 +3514,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #30
-  br label %117
+  br label %118
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 5
@@ -3534,7 +3534,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.sroa.0102.sroa.11.0.extract.trunc = trunc i64 %.sroa.0102.sroa.11.0.extract.shift to i8
   %.sroa.0102.sroa.14.0.extract.shift = and i64 %.sroa.0102.0.copyload, -72057594037927936
   %.sroa.14.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 8), align 4
-  br label %116
+  br label %117
 
 36:                                               ; preds = %30
   %37 = and i64 %18, 8190
@@ -3560,7 +3560,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.sroa.089.0.insert.insert = or disjoint i16 %.sroa.3.0.extract.shift, 2
   %.sroa.087.0.insert.ext = zext i8 %45 to i64
   %.sroa.087.0.insert.insert = or disjoint i64 %.sroa.087.0.insert.ext, 256
-  br label %116
+  br label %117
 
 46:                                               ; preds = %40
   %47 = load i8, ptr %38, align 2
@@ -3568,7 +3568,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.sroa.085.0.insert.insert = or disjoint i16 %.sroa.3.0.insert.shift98, 6
   %.sroa.083.0.insert.ext = zext i8 %47 to i64
   %.sroa.083.0.insert.insert = or disjoint i64 %.sroa.083.0.insert.ext, 256
-  br label %116
+  br label %117
 
 48:                                               ; preds = %40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #30
@@ -3596,7 +3596,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
 55:                                               ; preds = %53, %51
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #30
-  br label %117
+  br label %118
 
 56:                                               ; preds = %36
   %57 = load i32, ptr %1, align 8
@@ -3625,7 +3625,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #30
-  br label %117
+  br label %118
 
 65:                                               ; preds = %56
   %66 = icmp samesign ugt i64 %59, 38654705663
@@ -3678,14 +3678,14 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %95 = add nsw i32 %93, %94
   %96 = sext i32 %95 to i64
   %.idx = shl nsw i64 %96, 1
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %98 = getelementptr i8, ptr %97, i64 %.idx
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %98 = getelementptr i8, ptr %99, i64 %.idx
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 6
   %or.cond = select i1 %66, i1 %100, i1 false
   br i1 %or.cond, label %101, label %115
 
-101:                                              ; preds = %79
+101:; preds = %79
   %102 = xor i8 %86, -1
   %103 = add i8 %102, %84
   %104 = select i1 %82, i8 %103, i8 %.sroa.067.sroa.4.0.extract.trunc
@@ -3694,7 +3694,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %107 = icmp eq i32 %106, %105
   br i1 %107, label %108, label %115
 
-108:                                              ; preds = %101
+108:; preds = %101
   %109 = xor i8 %89, -1
   %110 = add i8 %109, %84
   %111 = select i1 %82, i8 %110, i8 %81
@@ -3704,7 +3704,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %spec.select = select i1 %114, i8 2, i8 %.052
   br label %115
 
-115:                                              ; preds = %108, %101, %79
+116:                                              ; preds = %108, %101, %79
   %.153 = phi i8 [ %.052, %101 ], [ %.052, %79 ], [ %spec.select, %108 ]
   %.sroa.263.0.insert.ext = zext i8 %89 to i16
   %.sroa.263.0.insert.shift = shl nuw i16 %.sroa.263.0.insert.ext, 8
@@ -3714,9 +3714,9 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 8
   %.sroa.0.0.insert.ext = zext i8 %90 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115, %46, %44, %35
+117:                                              ; preds = %116, %46, %44, %35
   %.sroa.14.0 = phi i32 [ %.sroa.14.0.copyload, %35 ], [ 0, %44 ], [ 1, %46 ], [ 2, %115 ]
   %.sroa.0102.sroa.0.0 = phi i16 [ %.sroa.0102.sroa.0.0.extract.trunc, %35 ], [ %42, %44 ], [ %42, %46 ], [ %.sroa.067.sroa.0.0.insert.insert, %115 ]
   %.sroa.0102.sroa.5.0 = phi i16 [ %.sroa.0102.sroa.5.0.extract.trunc, %35 ], [ %.sroa.089.0.insert.insert, %44 ], [ %.sroa.085.0.insert.insert, %46 ], [ %.sroa.062.0.insert.insert, %115 ]
@@ -3738,7 +3738,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.14.0, 1
   ret { i64, i32 } %.fca.1.insert
 
-117:                                              ; preds = %63, %55, %28, %22
+118:                                              ; preds = %63, %55, %28, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %55 ], [ %64, %63 ], [ %29, %28 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn.pn
 }

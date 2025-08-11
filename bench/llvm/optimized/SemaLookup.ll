@@ -18631,7 +18631,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit:     ; preds = %22, %28
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit
 
 _ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit: ; preds = %46, %49, %53
-  %.sink40.i = phi i32 [ %52, %49 ], [ %48, %46 ], [ %56, %53 ]
+  %.sink39.i = phi i32 [ %52, %49 ], [ %48, %46 ], [ %56, %53 ]
   %.sink39.i = phi i64 [ 12, %49 ], [ 32, %46 ], [ 12, %53 ]
   %.sroa.2.0.insert.ext.i18.i = zext i32 %.sink40.i to i64
   %.sroa.2.0.insert.shift.i19.i = shl nuw i64 %.sroa.2.0.insert.ext.i18.i, %.sink39.i

@@ -12985,8 +12985,8 @@ define linkonce_odr void @_ZNK10open_spiel3rbc11RbcObserver21WritePublicInfoTens
   %.sroa.4.2 = phi i32 [ %.sroa.4.1, %.preheader73.us ], [ %34, %.preheader.us ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %.preheader73.us ], [ %31, %.preheader.us ]
   %.03375.us = phi i32 [ 0, %.preheader73.us ], [ %35, %.preheader.us ]
-  %.sroa.2.0.insert.ext.us = shl i32 %.03375.us, 24
-  %23 = ashr exact i32 %.sroa.2.0.insert.ext.us, 24
+  %.sroa.2.0.extract.shift.i.i.us = shl i32 %.03375.us, 24
+  %23 = ashr exact i32 %.sroa.2.0.extract.shift.i.i.us, 24
   %24 = mul nsw i32 %21, %23
   %25 = add nsw i32 %24, %22
   %26 = sext i32 %25 to i64

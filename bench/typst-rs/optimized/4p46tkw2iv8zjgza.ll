@@ -3504,9 +3504,9 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %trunc.i.i = trunc nuw i8 %40 to i1
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 49
   %42 = load i8, ptr %41, align 1, !alias.scope !939, !noalias !940
-  %.0112.i.i = shl nuw nsw i8 %40, 4
+  %43 = shl nuw nsw i8 %40, 4
   %43 = shl nuw nsw i8 %38, 5
-  %44 = or disjoint i8 %43, %.0112.i.i
+  %45 = or disjoint i8 %43, %43
   %45 = or disjoint i8 %44, -128
   %.sroa.64.0.insert.ext.i.i = zext i16 %36 to i48
   %.sroa.64.0.insert.shift.i.i = shl nuw i48 %.sroa.64.0.insert.ext.i.i, 32

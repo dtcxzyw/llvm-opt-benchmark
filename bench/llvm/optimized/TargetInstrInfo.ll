@@ -6548,15 +6548,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo20getRegSequenceI
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %21
 
-21:                                               ; preds = %.lr.ph, %47
-  %.01922 = phi i32 [ 1, %.lr.ph ], [ %48, %47 ]
+21:                                               ; preds = %.lr.ph, %48
+  %.01922 = phi i32 [ 1, %.lr.ph ], [ %49, %47 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !179
   %23 = zext i32 %.01922 to i64
   %24 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 268435456
   %.not20 = icmp eq i32 %26, 0
-  br i1 %.not20, label %27, label %47
+  br i1 %.not20, label %27, label %48
 
 27:                                               ; preds = %21
   %28 = add i32 %.01922, 1
@@ -6571,37 +6571,37 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo20getRegSequenceI
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 24
   %.sroa.0.0.insert.ext = zext i32 %31 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %36 = load i32, ptr %18, align 8, !tbaa !26
-  %37 = load i32, ptr %19, align 4, !tbaa !27
-  %.not.i.i.not.i = icmp ult i32 %36, %37
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit, label %38, !prof !33
+  %37 = load i32, ptr %18, align 8, !tbaa !26
+  %38 = load i32, ptr %19, align 4, !tbaa !27
+  %.not.i.i.not.i = icmp ult i32 %37, %38
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit, label %39, !prof !33
 
-38:                                               ; preds = %27
-  %39 = zext i32 %36 to i64
-  %40 = add nuw nsw i64 %39, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %20, i64 noundef %40, i64 noundef 12) #27
+39:                                               ; preds = %27
+  %40 = zext i32 %37 to i64
+  %41 = add nuw nsw i64 %40, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %20, i64 noundef %41, i64 noundef 12) #27
   %.pre.i = load i32, ptr %18, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit: ; preds = %27, %38
-  %41 = phi i32 [ %36, %27 ], [ %.pre.i, %38 ]
-  %42 = load ptr, ptr %3, align 8, !tbaa !25
-  %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::TargetInstrInfo::RegSubRegPairAndIdx", ptr %42, i64 %43
-  store i64 %.sroa.0.0.insert.insert, ptr %44, align 1
-  %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %44, i64 8
+_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit: ; preds = %27, %39
+  %42 = phi i32 [ %37, %27 ], [ %.pre.i, %38 ]
+  %43 = load ptr, ptr %3, align 8, !tbaa !25
+  %44 = zext i32 %42 to i64
+  %45 = getelementptr inbounds nuw %"struct.llvm::TargetInstrInfo::RegSubRegPairAndIdx", ptr %43, i64 %44
+  store i64 %.sroa.0.0.insert.insert, ptr %45, align 1
+  %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %35, ptr %.sroa.2.0..sroa_idx2.i, align 1
-  %45 = load i32, ptr %18, align 8, !tbaa !26
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %18, align 8, !tbaa !26
-  br label %47
+  %46 = load i32, ptr %18, align 8, !tbaa !26
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %18, align 8, !tbaa !26
+  br label %48
 
-47:                                               ; preds = %21, %_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit
-  %48 = add i32 %.01922, 2
-  %.not = icmp eq i32 %48, %16
+48:                                               ; preds = %21, %_ZN4llvm23SmallVectorTemplateBaseINS_15TargetInstrInfo19RegSubRegPairAndIdxELb1EE9push_backES2_.exit
+  %49 = add i32 %.01922, 2
+  %.not = icmp eq i32 %49, %16
   br i1 %.not, label %.loopexit, label %21, !llvm.loop !512
 
-.loopexit:                                        ; preds = %47, %13, %8
+.loopexit:                                        ; preds = %48, %13, %8
   %.0 = phi i1 [ %12, %8 ], [ true, %13 ], [ true, %47 ]
   ret i1 %.0
 }

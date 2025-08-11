@@ -3694,8 +3694,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
   %.sroa.4.0.insert.ext.i = zext nneg i32 %61 to i64
   %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 9
   %65 = and i32 %.0.i.i, 16776960
-  %.sroa.0.0.insert.ext.masked.i = zext nneg i32 %65 to i64
-  %.sroa.6.0.extract.shift.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.masked.i
+  %.sroa.0.0.insert.ext.i = zext nneg i32 %65 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %66 = and i32 %.0.i.i, 255
   %67 = zext nneg i32 %66 to i64
   %.sroa.045.0.insert.insert.i = or disjoint i64 %.sroa.6.0.extract.shift.i, %67

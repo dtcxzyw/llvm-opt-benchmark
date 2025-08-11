@@ -441,55 +441,55 @@ define dso_local ptr @__bio_split_to_limits(ptr noundef %0, ptr noundef readonly
   %121 = or disjoint i64 %120, %119
   store i64 %121, ptr %110, align 8
   tail call void @bio_chain(ptr noundef nonnull %104, ptr noundef %0) #14
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %123 = load i64, ptr %122, align 8
-  %124 = trunc i64 %123 to i32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %124 = load i64, ptr %123, align 8
+  %125 = trunc i64 %124 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_block_split, i64 8), i32 2) #14
           to label %145 [label %125], !srcloc !13
 
-125:                                              ; preds = %106
-  %126 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !14
-  %127 = zext i32 %126 to i64
-  %128 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %127) #14, !srcloc !15
-  %129 = icmp ult i8 %128, 2
-  tail call void @llvm.assume(i1 %129)
-  %130 = icmp eq i8 %128, 0
-  br i1 %130, label %145, label %131
+126:                                              ; preds = %106
+  %127 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !14
+  %128 = zext i32 %127 to i64
+  %129 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %128) #14, !srcloc !15
+  %130 = icmp ult i8 %129, 2
+  tail call void @llvm.assume(i1 %130)
+  %131 = icmp eq i8 %129, 0
+  br i1 %131, label %146, label %132
 
-131:                                              ; preds = %125
+132:                                              ; preds = %126
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
-  %132 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_block_split, i64 72), align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %138, label %134
+  %133 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_block_split, i64 72), align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %139, label %135
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = tail call i32 @__SCT__tp_func_block_split(ptr noundef %136, ptr noundef nonnull %104, i32 noundef %124) #14
-  br label %138
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call i32 @__SCT__tp_func_block_split(ptr noundef %137, ptr noundef nonnull %104, i32 noundef %125) #14
+  br label %139
 
-138:                                              ; preds = %134, %131
+139:                                              ; preds = %135, %132
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
-  %139 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !19
-  %140 = icmp ult i8 %139, 2
-  tail call void @llvm.assume(i1 %140)
-  %141 = icmp eq i8 %139, 0
-  br i1 %141, label %145, label %142, !prof !20
+  %140 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !19
+  %141 = icmp ult i8 %140, 2
+  tail call void @llvm.assume(i1 %141)
+  %142 = icmp eq i8 %140, 0
+  br i1 %142, label %146, label %143, !prof !20
 
-142:                                              ; preds = %138
-  %143 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %144 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %143) #14, !srcloc !21
-  tail call void @llvm.write_register.i64(metadata !0, i64 %144)
-  br label %145
+143:                                              ; preds = %139
+  %144 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %145 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %144) #14, !srcloc !21
+  tail call void @llvm.write_register.i64(metadata !0, i64 %145)
+  br label %146
 
-145:                                              ; preds = %142, %138, %125, %106
+146:                                              ; preds = %143, %139, %126, %106
   tail call void @submit_bio_noacct(ptr noundef %0) #14
   br label %.thread
 
-.thread:                                          ; preds = %53, %49, %27, %12, %145, %103, %._crit_edge
-  %146 = phi ptr [ %104, %145 ], [ null, %._crit_edge ], [ %0, %103 ], [ %0, %12 ], [ %0, %27 ], [ %0, %49 ], [ %0, %53 ]
-  ret ptr %146
+.thread:                                          ; preds = %53, %49, %27, %12, %146, %103, %._crit_edge
+  %147 = phi ptr [ %104, %145 ], [ null, %._crit_edge ], [ %0, %103 ], [ %0, %12 ], [ %0, %27 ], [ %0, %49 ], [ %0, %53 ]
+  ret ptr %147
 }
 
 ; Function Attrs: null_pointer_is_valid

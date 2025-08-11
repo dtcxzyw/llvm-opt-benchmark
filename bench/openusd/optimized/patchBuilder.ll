@@ -4414,28 +4414,28 @@ default.unreachable:                              ; preds = %93
   %.089 = add nsw i32 %129, %152
   %.4 = add nsw i32 %.092.lcssa, %.0102.lcssa
   %.498 = add nsw i32 %.094.lcssa, %.0102.lcssa
-  %153 = zext i32 %5 to i64
-  %154 = and i32 %.089, 268435455
-  %155 = or disjoint i32 %.0, %154
-  %156 = zext i32 %155 to i64
-  %157 = shl i32 %.4, 22
-  %158 = shl i32 %.498, 12
-  %159 = and i32 %158, 4190208
-  %160 = or disjoint i32 %159, %157
-  %161 = zext i32 %160 to i64
-  %162 = shl nuw nsw i64 %153, 7
-  %163 = and i64 %162, 3968
-  %164 = select i1 %4, i64 32, i64 0
-  %165 = select i1 %.0101.in.lcssa, i64 16, i64 0
-  %166 = and i32 %1, 15
-  %167 = zext nneg i32 %166 to i64
-  %.masked.i = or disjoint i64 %164, %167
-  %168 = or disjoint i64 %.masked.i, %163
-  %169 = or disjoint i64 %168, %165
-  %170 = or disjoint i64 %169, %161
-  %171 = shl nuw i64 %170, 32
-  %172 = or disjoint i64 %171, %156
-  ret i64 %172
+  %154 = zext i32 %5 to i64
+  %155 = and i32 %.089, 268435455
+  %156 = or disjoint i32 %.0, %155
+  %157 = zext i32 %156 to i64
+  %158 = shl i32 %.4, 22
+  %159 = shl i32 %.498, 12
+  %160 = and i32 %159, 4190208
+  %161 = or disjoint i32 %160, %158
+  %162 = zext i32 %161 to i64
+  %163 = shl nuw nsw i64 %154, 7
+  %164 = and i64 %163, 3968
+  %165 = select i1 %4, i64 32, i64 0
+  %166 = select i1 %.0101.in.lcssa, i64 16, i64 0
+  %167 = and i32 %1, 15
+  %168 = zext nneg i32 %167 to i64
+  %.masked.i = or disjoint i64 %165, %168
+  %169 = or disjoint i64 %.masked.i, %164
+  %170 = or disjoint i64 %169, %166
+  %171 = or disjoint i64 %170, %162
+  %172 = shl nuw i64 %171, 32
+  %173 = or disjoint i64 %172, %157
+  ret i64 %173
 }
 
 declare noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11PtexIndices9GetFaceIdEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5

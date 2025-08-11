@@ -5233,7 +5233,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
 .loopexit:                                        ; preds = %65, %.thread9
   %72 = call i32 @bcmp(ptr noundef nonnull dereferenceable(86) %3, ptr noundef nonnull dereferenceable(86) %2, i64 86)
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %353, label %74
+  br i1 %73, label %362, label %74
 
 74:                                               ; preds = %.loopexit
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 7020
@@ -5505,10 +5505,10 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %284 = or disjoint i32 %279, %283
   br label %295
 
-285:                                              ; preds = %160
+285:; preds = %160
   call void %237(ptr noundef nonnull %102, i32 2031740, i32 noundef %236, i1 noundef zeroext true) #14
-  %286 = load i16, ptr %171, align 2
-  %287 = zext i16 %286 to i32
+  %291 = load i16, ptr %171, align 2
+  %287 = zext i16 %291 to i32
   %288 = shl nuw nsw i32 %287, 15
   %289 = and i32 %288, 50331648
   %290 = load i16, ptr %227, align 2
@@ -5518,7 +5518,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %294 = or disjoint i32 %293, %289
   br label %295
 
-295:                                              ; preds = %285, %238
+295:; preds = %285, %238
   %.sink = phi i32 [ %294, %285 ], [ %284, %238 ]
   %296 = load i16, ptr %232, align 2
   %297 = zext i16 %296 to i32
@@ -5553,18 +5553,18 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %326 = load ptr, ptr %325, align 8
   %327 = call i32 %326(ptr noundef nonnull %102, i32 %324, i1 noundef zeroext false) #14
-  %328 = load i8, ptr %92, align 1, !range !27, !noundef !28
+  %329 = load i8, ptr %92, align 1, !range !27, !noundef !28
   %329 = load i8, ptr %8, align 1, !range !27, !noundef !28
   %330 = icmp eq i8 %328, 0
   %331 = icmp ne i8 %329, 0
   %332 = and i1 %330, %331
   br i1 %332, label %333, label %335
 
-333:                                              ; preds = %295
-  %334 = call fastcc zeroext i1 @_intel_set_memory_cxsr(ptr noundef %0, i1 noundef zeroext true)
+333:; preds = %295
+  %336 = call fastcc zeroext i1 @_intel_set_memory_cxsr(ptr noundef %0, i1 noundef zeroext true)
   br label %335
 
-335:                                              ; preds = %333, %295
+335:; preds = %333, %295
   %336 = load i8, ptr %75, align 2
   %337 = load i8, ptr %7, align 2
   %338 = icmp eq i8 %336, 0
@@ -5574,31 +5574,31 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
 
 341:                                              ; preds = %335
   call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 128) #14
-  %342 = call i32 @vlv_punit_read(ptr noundef %0, i32 noundef 54) #14
-  %343 = or i32 %342, 64
-  %344 = call i32 @vlv_punit_write(ptr noundef %0, i32 noundef 54, i32 noundef %343) #14
+  %351 = call i32 @vlv_punit_read(ptr noundef %0, i32 noundef 54) #14
+  %352 = or i32 %351, 64
+  %353 = call i32 @vlv_punit_write(ptr noundef %0, i32 noundef 54, i32 noundef %352) #14
   call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 128) #14
   %.pre10 = load i8, ptr %75, align 2
   %.pre11 = load i8, ptr %7, align 2
-  br label %345
+  br label %354
 
-345:                                              ; preds = %341, %335
-  %346 = phi i8 [ %.pre11, %341 ], [ %337, %335 ]
-  %347 = phi i8 [ %.pre10, %341 ], [ %336, %335 ]
-  %348 = icmp ult i8 %347, 2
-  %349 = icmp ugt i8 %346, 1
-  %350 = and i1 %348, %349
-  br i1 %350, label %351, label %352
+354:                                              ; preds = %341, %335
+  %355 = phi i8 [ %.pre11, %341 ], [ %337, %335 ]
+  %356 = phi i8 [ %.pre10, %341 ], [ %336, %335 ]
+  %357 = icmp ult i8 %356, 2
+  %358 = icmp ugt i8 %355, 1
+  %359 = and i1 %357, %358
+  br i1 %359, label %360, label %361
 
-351:                                              ; preds = %345
+360:                                              ; preds = %354
   call fastcc void @chv_set_memory_dvfs(ptr noundef %0, i1 noundef zeroext true)
-  br label %352
+  br label %361
 
-352:                                              ; preds = %351, %345
+361:                                              ; preds = %360, %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %3, ptr noundef nonnull align 2 dereferenceable(86) %2, i64 86, i1 false)
-  br label %353
+  br label %362
 
-353:                                              ; preds = %352, %.loopexit
+362:                                              ; preds = %361, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

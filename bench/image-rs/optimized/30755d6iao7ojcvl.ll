@@ -1620,11 +1620,11 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %trunc = trunc nuw i8 %14 to i1
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 49
   %16 = load i8, ptr %15, align 1
-  %.0112 = shl nuw nsw i8 %14, 4
-  %17 = shl nuw nsw i8 %12, 5
+  %17 = shl nuw nsw i8 %14, 4
+  %18 = shl nuw nsw i8 %12, 5
   %18 = shl nuw i8 %10, 6
   %19 = or disjoint i8 %17, %18
-  %20 = or disjoint i8 %19, %.0112
+  %20 = or disjoint i8 %19, %17
   %.sroa.64.0.insert.ext = zext i16 %8 to i48
   %.sroa.64.0.insert.shift = shl nuw i48 %.sroa.64.0.insert.ext, 32
   %21 = zext i8 %16 to i48

@@ -130595,7 +130595,7 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit:
   %258 = inttoptr i64 %257 to ptr
   %.not.not8.i = icmp eq i64 %257, 0
   %.not.not.i = or i1 %256, %.not.not8.i
-  br i1 %.not.not.i, label %263, label %259
+  br i1 %.not.not.i, label %265, label %259
 
 259:                                              ; preds = %.lr.ph
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 16
@@ -130604,12 +130604,12 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit:
   %.sroa.0.0.insert.ext.i.i = and i64 %262, 32767
   br label %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
 
-263:                                              ; preds = %.lr.ph
-  %264 = getelementptr inbounds nuw i8, ptr %258, i64 28
-  %265 = load i32, ptr %264, align 4
-  %266 = and i32 %265, 127
-  %267 = icmp ne i32 %266, 65
-  %.not.not.i.i = or i1 %.not.not8.i, %267
+265:                                              ; preds = %.lr.ph
+  %266 = getelementptr inbounds nuw i8, ptr %258, i64 28
+  %267 = load i32, ptr %266, align 4
+  %268 = and i32 %267, 127
+  %269 = icmp ne i32 %268, 65
+  %.not.not.i.i = or i1 %.not.not8.i, %269
   br i1 %.not.not.i.i, label %271, label %268
 
 268:                                              ; preds = %263
@@ -130629,14 +130629,14 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit:
   %277 = and i32 %275, -1048576
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
 
-278:                                              ; preds = %271
+270:                                              ; preds = %271
   %279 = getelementptr inbounds nuw i8, ptr %258, i64 64
   %280 = load i32, ptr %279, align 8
   %281 = and i32 %280, 1048575
   %282 = and i32 %280, -1048576
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
 
-_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i: ; preds = %278, %273, %268
+_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i:; preds = %278, %273, %268
   %.sink40.i.i = phi i32 [ %277, %273 ], [ %270, %268 ], [ %282, %278 ]
   %.sink39.i.i = phi i64 [ 12, %273 ], [ 32, %268 ], [ 12, %278 ]
   %.sink.i.i = phi i32 [ %276, %273 ], [ %269, %268 ], [ %281, %278 ]

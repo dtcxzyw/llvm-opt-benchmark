@@ -142,7 +142,7 @@ decode_check_sum.exit:                            ; preds = %3
   store i32 %7, ptr %2, align 8
   %8 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %0, ptr noundef nonnull @.str.101, i64 noundef 8) #9
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %566
+  br i1 %.not, label %9, label %567
 
 9:                                                ; preds = %decode_check_sum.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1024,32 +1024,32 @@ decode_lf_string.exit.sink.split.i.i:             ; preds = %426, %419, %412
   %552 = and i32 %551, 1
   %553 = xor i32 %552, 1
   %.sink69.i.i = select i1 %.not64.i.i, i32 %552, i32 0
-  %.sink.i.i = select i1 %.not64.i.i, i32 0, i32 %553
+  %.sink69.i.i = select i1 %.not64.i.i, i32 0, i32 %553
   %554 = getelementptr inbounds nuw i8, ptr %434, i64 72
   store i32 %.sink.i.i, ptr %554, align 4
   br label %decode_detailed_timing.exit.i
 
-555:                                              ; preds = %431
-  %556 = lshr i32 %537, 3
-  %557 = and i32 %556, 1
-  %558 = lshr i32 %537, 2
-  %559 = and i32 %558, 1
-  %560 = lshr i32 %537, 1
-  %.pre = and i32 %560, 1
+556:                                              ; preds = %431
+  %557 = lshr i32 %537, 3
+  %558 = and i32 %557, 1
+  %559 = lshr i32 %537, 2
+  %560 = and i32 %559, 1
+  %561 = lshr i32 %537, 1
+  %.pre = and i32 %561, 1
   br label %decode_detailed_timing.exit.i
 
-decode_detailed_timing.exit.i:                    ; preds = %555, %548
+decode_detailed_timing.exit.i:                    ; preds = %556, %548
   %.lobit68.i.i.pre-phi = phi i32 [ %.pre, %555 ], [ %540, %548 ]
-  %.sink.i29 = phi i32 [ %557, %555 ], [ %550, %548 ]
-  %.sink69.i.sink.i = phi i32 [ %559, %555 ], [ %.sink69.i.i, %548 ]
+  %.sink.i29 = phi i32 [ %558, %555 ], [ %550, %548 ]
+  %.sink69.i.sink.i = phi i32 [ %560, %555 ], [ %.sink69.i.i, %548 ]
   %.sink72.i.i = phi i64 [ 72, %555 ], [ 76, %548 ]
-  %561 = getelementptr inbounds nuw i8, ptr %434, i64 64
-  store i32 %.sink.i29, ptr %561, align 4
-  %562 = getelementptr inbounds nuw i8, ptr %434, i64 68
-  store i32 %.sink69.i.sink.i, ptr %562, align 4
-  %563 = xor i32 %.lobit68.i.i.pre-phi, 1
-  %564 = getelementptr inbounds nuw i8, ptr %434, i64 %.sink72.i.i
-  store i32 %563, ptr %564, align 4
+  %562 = getelementptr inbounds nuw i8, ptr %434, i64 64
+  store i32 %.sink.i29, ptr %562, align 4
+  %563 = getelementptr inbounds nuw i8, ptr %434, i64 68
+  store i32 %.sink69.i.sink.i, ptr %563, align 4
+  %564 = xor i32 %.lobit68.i.i.pre-phi, 1
+  %565 = getelementptr inbounds nuw i8, ptr %434, i64 %.sink72.i.i
+  store i32 %564, ptr %565, align 4
   br label %decode_display_descriptor.exit.i
 
 decode_display_descriptor.exit.i:                 ; preds = %430, %423, %416, %decode_detailed_timing.exit.i, %decode_lf_string.exit.sink.split.i.i, %407
@@ -1059,15 +1059,15 @@ decode_display_descriptor.exit.i:                 ; preds = %430, %423, %416, %d
   br i1 %exitcond.not.i31, label %decode_descriptors.exit, label %397, !llvm.loop !10
 
 decode_descriptors.exit:                          ; preds = %decode_display_descriptor.exit.i
-  %565 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  store i32 %.1.i, ptr %565, align 8
-  br label %567
+  %566 = getelementptr inbounds nuw i8, ptr %2, i64 584
+  store i32 %.1.i, ptr %566, align 8
+  br label %568
 
-566:                                              ; preds = %decode_check_sum.exit
+567:                                              ; preds = %decode_check_sum.exit
   tail call void @SDL_free_REAL(ptr noundef nonnull %2) #9
-  br label %567
+  br label %568
 
-567:                                              ; preds = %decode_descriptors.exit, %566
+568:                                              ; preds = %decode_descriptors.exit, %567
   %.0 = phi ptr [ %2, %decode_descriptors.exit ], [ null, %566 ]
   ret ptr %.0
 }

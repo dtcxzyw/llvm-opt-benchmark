@@ -10084,7 +10084,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetTmpEC_DHE_Sz(ptr noundef writeonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @wolfSSL_set_verify(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %29, label %5
+  br i1 %4, label %34, label %5
 
 5:                                                ; preds = %3
   switch i32 %1, label %6 [
@@ -10127,7 +10127,7 @@ ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split
   store ptr %2, ptr %28, align 8, !tbaa !236
   br label %29
 
-29:                                               ; preds = %3, %ModeToVerifyOptions.exit
+34:                                               ; preds = %3, %ModeToVerifyOptions.exit
   ret void
 }
 

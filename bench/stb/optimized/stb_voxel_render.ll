@@ -702,8 +702,8 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %126 = shl nuw i32 %125, 24
   store i32 %126, ptr %10, align 16, !tbaa !14
   %127 = zext i8 %107 to i32
-  %128 = shl nuw i32 %127, 24
-  store i32 %128, ptr %108, align 4, !tbaa !14
+  %129 = shl nuw i32 %127, 24
+  store i32 %129, ptr %108, align 4, !tbaa !14
   %129 = zext i8 %115 to i32
   %130 = shl nuw i32 %129, 24
   store i32 %130, ptr %116, align 8, !tbaa !14

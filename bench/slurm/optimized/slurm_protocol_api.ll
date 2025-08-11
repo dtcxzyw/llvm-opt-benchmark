@@ -1699,7 +1699,7 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   %or.cond = select i1 %44, i1 true, i1 %46
   br i1 %or.cond, label %94, label %47
 
-47:                                               ; preds = %42
+47:; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %49 = load i16, ptr %48, align 4
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %49)

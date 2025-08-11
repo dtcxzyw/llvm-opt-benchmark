@@ -2234,91 +2234,91 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.p
   %.not.not.i.i.i61 = icmp eq i64 %136, 0
   br i1 %.not.not.i.i.i61, label %137, label %144
 
-137:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
+137: ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %139
 
-139:                                              ; preds = %140, %137
+139:   ; preds = %139, %137
   %.sroa.06.0.in.i.i.i69 = phi ptr [ %138, %137 ], [ %.sroa.06.0.i.i.i70, %140 ]
   %.sroa.06.0.i.i.i70 = load ptr, ptr %.sroa.06.0.in.i.i.i69, align 8, !tbaa !64
   %.not.i.i.i71 = icmp eq ptr %.sroa.06.0.i.i.i70, null
-  br i1 %.not.i.i.i71, label %.loopexit, label %140
+  br i1 %.not.i.i.i71, label %.loopexit, label %139
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i70, i64 8
-  %142 = load i64, ptr %141, align 8, !tbaa !81
-  %143 = icmp eq i64 %135, %142
-  br i1 %143, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %139, !llvm.loop !82
+139:                                              ; preds = %139
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i70, i64 8
+  %141 = load i64, ptr %140, align 8, !tbaa !81
+  %142 = icmp eq i64 %135, %141
+  br i1 %142, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %139, !llvm.loop !82
 
-144:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %147 = load i64, ptr %146, align 8, !tbaa !28
-  %148 = urem i64 %135, %147
-  %149 = load ptr, ptr %145, align 8, !tbaa !21
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %148
-  %151 = load ptr, ptr %150, align 8, !tbaa !83
-  %.not.i.i.i.i.i62 = icmp eq ptr %151, null
-  br i1 %.not.i.i.i.i.i62, label %.loopexit, label %152
+143:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %146 = load i64, ptr %145, align 8, !tbaa !28
+  %147 = urem i64 %135, %146
+  %148 = load ptr, ptr %144, align 8, !tbaa !21
+  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %147
+  %150 = load ptr, ptr %149, align 8, !tbaa !83
+  %.not.i.i.i.i.i62 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i.i.i62, label %.loopexit, label %151
 
-152:                                              ; preds = %144
-  %153 = load ptr, ptr %151, align 8, !tbaa !64
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load i64, ptr %154, align 8, !tbaa !81
-  %156 = icmp eq i64 %135, %155
-  br i1 %156, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63
+151:                                              ; preds = %143
+  %152 = load ptr, ptr %150, align 8, !tbaa !64
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load i64, ptr %153, align 8, !tbaa !81
+  %155 = icmp eq i64 %135, %154
+  br i1 %155, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63
 
-157:                                              ; preds = %160
-  %158 = icmp eq i64 %135, %162
-  br i1 %158, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63, !llvm.loop !84
+156:                                              ; preds = %159
+  %157 = icmp eq i64 %135, %161
+  br i1 %157, label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, label %.lr.ph.i.i.i.i.i63, !llvm.loop !84
 
-.lr.ph.i.i.i.i.i63:                               ; preds = %152, %157
-  %.020.i.i.i.i.i64 = phi ptr [ %159, %157 ], [ %153, %152 ]
-  %159 = load ptr, ptr %.020.i.i.i.i.i64, align 8, !tbaa !64
-  %.not18.i.i.i.i.i65 = icmp eq ptr %159, null
-  br i1 %.not18.i.i.i.i.i65, label %.loopexit, label %160
+.lr.ph.i.i.i.i.i63:                               ; preds = %151, %156
+  %.020.i.i.i.i.i64 = phi ptr [ %158, %157 ], [ %152, %152 ]
+  %158 = load ptr, ptr %.020.i.i.i.i.i64, align 8, !tbaa !64
+  %.not18.i.i.i.i.i65 = icmp eq ptr %158, null
+  br i1 %.not18.i.i.i.i.i65, label %.loopexit, label %159
 
-160:                                              ; preds = %.lr.ph.i.i.i.i.i63
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %162 = load i64, ptr %161, align 8, !tbaa !81
-  %163 = urem i64 %162, %147
-  %.not19.i.i.i.i.i66 = icmp eq i64 %163, %148
-  br i1 %.not19.i.i.i.i.i66, label %157, label %..loopexit_crit_edge21.i.i.i.i.i67, !llvm.loop !84
+159:                                              ; preds = %.lr.ph.i.i.i.i.i63
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %161 = load i64, ptr %160, align 8, !tbaa !81
+  %162 = urem i64 %161, %146
+  %.not19.i.i.i.i.i66 = icmp eq i64 %162, %147
+  br i1 %.not19.i.i.i.i.i66, label %156, label %..loopexit_crit_edge21.i.i.i.i.i67, !llvm.loop !84
 
-..loopexit_crit_edge21.i.i.i.i.i67:               ; preds = %160
+..loopexit_crit_edge21.i.i.i.i.i67:               ; preds = %159
   br label %.loopexit, !llvm.loop !84
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %139, %144, %..loopexit_crit_edge21.i.i.i.i.i67
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %139, %143, %..loopexit_crit_edge21.i.i.i.i.i67
   store i32 0, ptr %115, align 4, !tbaa !73
   store i32 0, ptr %118, align 4, !tbaa !75
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %165 = load i32, ptr %164, align 8, !tbaa !52
-  %166 = add nsw i32 %165, -1
-  store i32 %166, ptr %164, align 8, !tbaa !52
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %164 = load i32, ptr %163, align 8, !tbaa !52
+  %165 = add nsw i32 %164, -1
+  store i32 %165, ptr %163, align 8, !tbaa !52
   %.pre86 = load ptr, ptr %32, align 8, !tbaa !55
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
 
-_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %157, %140, %152, %.loopexit
-  %167 = phi ptr [ %114, %152 ], [ %.pre86, %.loopexit ], [ %114, %140 ], [ %114, %157 ]
-  %168 = sext i32 %.151 to i64
-  %169 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %167, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !73
-  %171 = lshr i32 %170, 4
-  %172 = tail call noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef %171, i32 noundef %117)
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %.critedge, label %174
+_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139, %151, %.loopexit
+  %166 = phi ptr [ %114, %152 ], [ %.pre86, %.loopexit ], [ %114, %140 ], [ %114, %157 ]
+  %167 = sext i32 %.151 to i64
+  %168 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %166, i64 %167
+  %169 = load i32, ptr %168, align 4, !tbaa !73
+  %170 = lshr i32 %169, 4
+  %171 = tail call noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef %170, i32 noundef %117)
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %.critedge, label %173
 
-174:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
-  %175 = load ptr, ptr %32, align 8, !tbaa !55
-  %176 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %175, i64 %168
-  %177 = shl i32 %172, 4
-  %178 = load i32, ptr %176, align 4, !tbaa !73
-  %179 = and i32 %178, 15
-  %180 = or disjoint i32 %179, %177
-  store i32 %180, ptr %176, align 4, !tbaa !73
+173:                                              ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
+  %174 = load ptr, ptr %32, align 8, !tbaa !55
+  %175 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %174, i64 %167
+  %176 = shl i32 %171, 4
+  %177 = load i32, ptr %175, align 4, !tbaa !73
+  %178 = and i32 %177, 15
+  %179 = or disjoint i32 %178, %176
+  store i32 %179, ptr %175, align 4, !tbaa !73
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %174, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %10, %7
+.critedge:                                        ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %173, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %10, %7
   %.1 = phi i32 [ %8, %10 ], [ 0, %7 ], [ %.054, %174 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ]
   ret i32 %.1
 }
