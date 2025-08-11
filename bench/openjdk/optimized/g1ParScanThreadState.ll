@@ -2374,12 +2374,12 @@ _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: 
   %.3 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
   %.sroa.05.0.i = phi i8 [ %.sroa.04.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %88 = phi i1 [ true, %82 ], [ false, %69 ], [ false, %87 ]
-  %.sroa.36.0.i = phi i8 [ 0, %82 ], [ 1, %69 ], [ 1, %87 ]
+  %.sroa.36.0.i = phi i8 [ 0, %82 ], [ -128, %69 ], [ -128, %87 ]
   %.sroa.5.0.i = phi i8 [ %.sroa.3.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %.sroa.5.0.insert.ext.i = zext i8 %.sroa.5.0.i to i24
   %.sroa.5.0.insert.shift.i = shl nuw i24 %.sroa.5.0.insert.ext.i, 16
-  %.sroa.36.0.insert.ext.i = zext nneg i8 %.sroa.36.0.i to i24
-  %.sroa.36.0.insert.shift.i = shl nuw nsw i24 %.sroa.36.0.insert.ext.i, 8
+  %.sroa.36.0.insert.ext.i = zext i8 %.sroa.36.0.i to i24
+  %.sroa.36.0.insert.shift.i = shl nuw nsw i24 %.sroa.36.0.insert.ext.i, 1
   %.sroa.05.0.insert.ext.i = zext i8 %.sroa.05.0.i to i24
   %89 = or disjoint i24 %.sroa.5.0.insert.shift.i, %.sroa.05.0.insert.ext.i
   %.sroa.05.0.insert.insert.i = or disjoint i24 %89, %.sroa.36.0.insert.shift.i
@@ -2417,7 +2417,8 @@ _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: 
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
 
 117:                                              ; preds = %_ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit
-  %118 = zext nneg i8 %.sroa.36.0.i to i64
+  %.sroa.1.0.extract.shift.i.i = lshr exact i8 %.sroa.36.0.i, 7
+  %118 = zext nneg i8 %.sroa.1.0.extract.shift.i.i to i64
   %119 = getelementptr inbounds nuw [2 x %"struct.G1PLABAllocator::PLABData"], ptr %112, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
@@ -2911,12 +2912,12 @@ _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: 
   %.3 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
   %.sroa.05.0.i = phi i8 [ %.sroa.04.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %88 = phi i1 [ true, %82 ], [ false, %69 ], [ false, %87 ]
-  %.sroa.36.0.i = phi i8 [ 0, %82 ], [ 1, %69 ], [ 1, %87 ]
+  %.sroa.36.0.i = phi i8 [ 0, %82 ], [ -128, %69 ], [ -128, %87 ]
   %.sroa.5.0.i = phi i8 [ %.sroa.3.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %.sroa.5.0.insert.ext.i = zext i8 %.sroa.5.0.i to i24
   %.sroa.5.0.insert.shift.i = shl nuw i24 %.sroa.5.0.insert.ext.i, 16
-  %.sroa.36.0.insert.ext.i = zext nneg i8 %.sroa.36.0.i to i24
-  %.sroa.36.0.insert.shift.i = shl nuw nsw i24 %.sroa.36.0.insert.ext.i, 8
+  %.sroa.36.0.insert.ext.i = zext i8 %.sroa.36.0.i to i24
+  %.sroa.36.0.insert.shift.i = shl nuw nsw i24 %.sroa.36.0.insert.ext.i, 1
   %.sroa.05.0.insert.ext.i = zext i8 %.sroa.05.0.i to i24
   %89 = or disjoint i24 %.sroa.5.0.insert.shift.i, %.sroa.05.0.insert.ext.i
   %.sroa.05.0.insert.insert.i = or disjoint i24 %89, %.sroa.36.0.insert.shift.i
@@ -2954,7 +2955,8 @@ _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: 
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
 
 117:                                              ; preds = %_ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit
-  %118 = zext nneg i8 %.sroa.36.0.i to i64
+  %.sroa.1.0.extract.shift.i.i = lshr exact i8 %.sroa.36.0.i, 7
+  %118 = zext nneg i8 %.sroa.1.0.extract.shift.i.i to i64
   %119 = getelementptr inbounds nuw [2 x %"struct.G1PLABAllocator::PLABData"], ptr %112, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i

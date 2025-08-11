@@ -19101,10 +19101,10 @@ _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i.i.i.i: ; preds = %2016, %._crit_edg
   br i1 %2017, label %2018, label %.noexc450
 
 2018:                                             ; preds = %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i.i.i.i
-  %2019 = shl nuw nsw i32 %1726, 1
-  %2020 = or disjoint i32 %2019, 1
-  %2021 = zext nneg i32 %2020 to i64
-  %2022 = shl nuw nsw i64 %2021, 2
+  %2019 = shl i32 %1726, 2
+  %2020 = or disjoint i32 %2019, 2
+  %2021 = zext i32 %2020 to i64
+  %2022 = shl nuw nsw i64 %2021, 1
   %2023 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %2022)
           to label %.noexc450 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

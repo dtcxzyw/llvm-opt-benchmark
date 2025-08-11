@@ -111,29 +111,28 @@ define hidden ptr @lj_lightud_intern(ptr noundef %0, ptr noundef %1) local_unnam
 28:                                               ; preds = %.thread
   %29 = shl nuw nsw i64 %27, 2
   %.not46 = icmp eq i32 %.037, 0
-  %30 = shl nuw nsw i32 %.037, 1
-  %31 = select i1 %.not46, i32 2, i32 %30
-  %32 = zext nneg i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 2
-  %34 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef %12, i64 noundef %29, i64 noundef %33) #4
-  %35 = ptrtoint ptr %34 to i64
-  store i64 %35, ptr %10, align 8, !tbaa !37
+  %30 = shl nsw i32 %.037, 3
+  %31 = select i1 %.not46, i32 8, i32 %30
+  %32 = zext i32 %31 to i64
+  %33 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef %12, i64 noundef %29, i64 noundef %32) #4
+  %34 = ptrtoint ptr %33 to i64
+  store i64 %34, ptr %10, align 8, !tbaa !37
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %28
-  %.038 = phi ptr [ %34, %28 ], [ %12, %.thread ]
-  %36 = trunc nuw i32 %.037 to i8
-  store i8 %36, ptr %13, align 1, !tbaa !38
-  %37 = getelementptr inbounds nuw i32, ptr %.038, i64 %27
-  store i32 %9, ptr %37, align 4, !tbaa !41
+  %.038 = phi ptr [ %33, %28 ], [ %12, %.thread ]
+  %35 = trunc nuw i32 %.037 to i8
+  store i8 %35, ptr %13, align 1, !tbaa !38
+  %36 = getelementptr inbounds nuw i32, ptr %.038, i64 %27
+  store i32 %9, ptr %36, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   %indvars.iv.lcssa.sink = phi i64 [ %27, %._crit_edge ], [ %indvars.iv, %.preheader ]
-  %38 = shl nuw nsw i64 %indvars.iv.lcssa.sink, 39
-  %39 = and i64 %6, 549755813887
-  %40 = or disjoint i64 %38, %39
-  %.140 = inttoptr i64 %40 to ptr
+  %37 = shl nuw nsw i64 %indvars.iv.lcssa.sink, 39
+  %38 = and i64 %6, 549755813887
+  %39 = or disjoint i64 %37, %38
+  %.140 = inttoptr i64 %39 to ptr
   ret ptr %.140
 }
 

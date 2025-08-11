@@ -8491,8 +8491,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %59
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 2
-  %.sroa.3.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.3.0.extract.trunc = zext nneg i32 %.sroa.3.0.extract.shift to i64
   %62 = and i32 %.sroa.0.0.copyload.i, 3
   %.not = icmp eq i32 %62, 3
   br i1 %.not, label %63, label %_ZN13Devirtualizer14do_derived_oopIN22DerivedPointersSupport17RelativizeClosureEEEvPT_P12derived_baseP15derived_pointer.exit
@@ -8542,8 +8540,9 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStr
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit: ; preds = %82, %86, %88
   %94 = phi ptr [ %93, %88 ], [ %85, %82 ], [ %87, %86 ]
-  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 48
-  %95 = ashr exact i64 %sext, 48
+  %.sroa.3.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 32
+  %95 = ashr i64 %sext, 48
   %96 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %95
   %97 = ptrtoint ptr %96 to i64
   %98 = trunc i64 %97 to i32
@@ -8725,8 +8724,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %59
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 2
-  %.sroa.3.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.3.0.extract.trunc = zext nneg i32 %.sroa.3.0.extract.shift to i64
   %62 = and i32 %.sroa.0.0.copyload.i, 3
   %.not = icmp eq i32 %62, 3
   br i1 %.not, label %63, label %_ZN13Devirtualizer14do_derived_oopIN22DerivedPointersSupport17RelativizeClosureEEEvPT_P12derived_baseP15derived_pointer.exit
@@ -8759,8 +8756,9 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %59, %_ZN12OopMapStr
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI16SmallRegisterMapEEPvP9VMRegImplPKT_.exit: ; preds = %73, %76
   %82 = phi ptr [ %75, %73 ], [ %81, %76 ]
-  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 48
-  %83 = ashr exact i64 %sext, 48
+  %.sroa.3.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 32
+  %83 = ashr i64 %sext, 48
   %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
@@ -8894,8 +8892,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %47
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %47, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 2
-  %.sroa.3.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.3.0.extract.trunc = zext nneg i32 %.sroa.3.0.extract.shift to i64
   %50 = and i32 %.sroa.0.0.copyload.i, 3
   %.not = icmp eq i32 %50, 3
   br i1 %.not, label %51, label %_ZN13Devirtualizer14do_derived_oopIN22DerivedPointersSupport17RelativizeClosureEEEvPT_P12derived_baseP15derived_pointer.exit
@@ -8945,8 +8941,9 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %47, %_ZN12OopMapStr
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit: ; preds = %70, %74, %76
   %82 = phi ptr [ %81, %76 ], [ %73, %70 ], [ %75, %74 ]
-  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 48
-  %83 = ashr exact i64 %sext, 48
+  %.sroa.3.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 32
+  %83 = ashr i64 %sext, 48
   %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
@@ -9101,11 +9098,10 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %46, %_ZN12OopMapStr
   br i1 %.not, label %50, label %_ZN13Devirtualizer14do_derived_oopIN22DerivedPointersSupport17RelativizeClosureEEEvPT_P12derived_baseP15derived_pointer.exit
 
 50:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
-  %.sroa.3.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.3.0.extract.trunc = zext nneg i32 %.sroa.3.0.extract.shift to i64
   %51 = load ptr, ptr %44, align 8
-  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 48
-  %52 = ashr exact i64 %sext, 48
+  %.sroa.3.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.3.0.extract.trunc, 32
+  %52 = ashr i64 %sext, 48
   %53 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %52
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i32
@@ -11325,8 +11321,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %18
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 2
-  %.sroa.4.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.4.0.extract.trunc = zext nneg i32 %.sroa.4.0.extract.shift to i64
   %21 = and i32 %.sroa.0.0.copyload.i, 3
   %.not31 = icmp eq i32 %21, 3
   br i1 %.not31, label %22, label %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -11439,8 +11433,9 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
   unreachable
 
 82:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
-  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
-  %83 = ashr exact i64 %sext, 48
+  %.sroa.4.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 32
+  %83 = ashr i64 %sext, 48
   %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
@@ -11763,8 +11758,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %18
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %18, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 2
-  %.sroa.4.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.4.0.extract.trunc = zext nneg i32 %.sroa.4.0.extract.shift to i64
   %21 = and i32 %.sroa.0.0.copyload.i, 3
   %.not31 = icmp eq i32 %21, 3
   br i1 %.not31, label %22, label %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -11877,8 +11870,9 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
   unreachable
 
 82:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
-  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
-  %83 = ashr exact i64 %sext, 48
+  %.sroa.4.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 32
+  %83 = ashr i64 %sext, 48
   %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
@@ -12305,8 +12299,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %14
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %14, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 2
-  %.sroa.4.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.4.0.extract.trunc = zext nneg i32 %.sroa.4.0.extract.shift to i64
   %17 = and i32 %.sroa.0.0.copyload.i, 3
   %.not31 = icmp eq i32 %17, 3
   br i1 %.not31, label %18, label %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -12354,8 +12346,9 @@ _ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit: ; 
 
 41:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit
   %.0.i68 = phi ptr [ %29, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread ], [ %34, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit ]
-  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
-  %42 = ashr exact i64 %sext, 48
+  %.sroa.4.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 32
+  %42 = ashr i64 %sext, 48
   %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i32
@@ -12525,8 +12518,6 @@ _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %14
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %14, %_ZN12OopMapStream7is_doneEv.exit
   %.sroa.0.0.copyload.i = load i32, ptr %11, align 2
-  %.sroa.4.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
-  %.sroa.4.0.extract.trunc = zext nneg i32 %.sroa.4.0.extract.shift to i64
   %17 = and i32 %.sroa.0.0.copyload.i, 3
   %.not31 = icmp eq i32 %17, 3
   br i1 %.not31, label %18, label %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -12574,8 +12565,9 @@ _ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit: ; 
 
 41:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit
   %.0.i72 = phi ptr [ %29, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread ], [ %34, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit ]
-  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
-  %42 = ashr exact i64 %sext, 48
+  %.sroa.4.0.extract.trunc = zext i32 %.sroa.0.0.copyload.i to i64
+  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 32
+  %42 = ashr i64 %sext, 48
   %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = trunc i64 %44 to i32

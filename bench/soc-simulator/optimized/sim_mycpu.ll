@@ -24351,36 +24351,35 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE5tlbwiEv(ptr noundef nonn
   %20 = and i32 %19, 16
   %21 = shl i32 %7, 5
   %22 = and i32 %21, 1792
-  %23 = lshr i32 %7, 6
-  %24 = and i32 %23, 1048575
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 32
-  %27 = and i32 %18, 4
-  %28 = or disjoint i32 %13, %11
-  %29 = or disjoint i32 %28, %15
-  %30 = or disjoint i32 %29, %17
-  %31 = or disjoint i32 %30, %9
-  %32 = or disjoint i32 %31, %27
-  %33 = or i32 %32, %20
-  %34 = or i32 %33, %22
-  %35 = zext nneg i32 %34 to i64
-  %36 = or disjoint i64 %26, %35
-  %37 = load i32, ptr %10, align 8
-  %38 = lshr i32 %37, 13
-  %39 = shl i32 %37, 19
-  %40 = and i32 %39, 133693440
-  %41 = or disjoint i32 %40, %38
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !774
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %45 = load i32, ptr %44, align 4, !tbaa !309
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = and i32 %45, 255
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %46, i64 0, i64 %48
-  store i64 %36, ptr %49, align 4, !tbaa !59
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %41, ptr %50, align 4, !tbaa !59
+  %23 = and i32 %7, 67108800
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 26
+  %26 = and i32 %18, 4
+  %27 = or disjoint i32 %13, %11
+  %28 = or disjoint i32 %27, %15
+  %29 = or disjoint i32 %28, %17
+  %30 = or disjoint i32 %29, %9
+  %31 = or disjoint i32 %30, %26
+  %32 = or i32 %31, %20
+  %33 = or i32 %32, %22
+  %34 = zext nneg i32 %33 to i64
+  %35 = or disjoint i64 %25, %34
+  %36 = load i32, ptr %10, align 8
+  %37 = lshr i32 %36, 13
+  %38 = shl i32 %36, 19
+  %39 = and i32 %38, 133693440
+  %40 = or disjoint i32 %39, %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !774
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %44 = load i32, ptr %43, align 4, !tbaa !309
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %46 = and i32 %44, 255
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %45, i64 0, i64 %47
+  store i64 %35, ptr %48, align 4, !tbaa !59
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %40, ptr %49, align 4, !tbaa !59
   ret void
 }
 
@@ -24407,36 +24406,35 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE5tlbwrEv(ptr noundef nonn
   %20 = and i32 %19, 16
   %21 = shl i32 %7, 5
   %22 = and i32 %21, 1792
-  %23 = lshr i32 %7, 6
-  %24 = and i32 %23, 1048575
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 32
-  %27 = and i32 %18, 4
-  %28 = or disjoint i32 %13, %11
-  %29 = or disjoint i32 %28, %15
-  %30 = or disjoint i32 %29, %17
-  %31 = or disjoint i32 %30, %9
-  %32 = or disjoint i32 %31, %27
-  %33 = or i32 %32, %20
-  %34 = or i32 %33, %22
-  %35 = zext nneg i32 %34 to i64
-  %36 = or disjoint i64 %26, %35
-  %37 = load i32, ptr %10, align 8
-  %38 = lshr i32 %37, 13
-  %39 = shl i32 %37, 19
-  %40 = and i32 %39, 133693440
-  %41 = or disjoint i32 %40, %38
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !774
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load i32, ptr %44, align 8, !tbaa !310
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = and i32 %45, 255
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %46, i64 0, i64 %48
-  store i64 %36, ptr %49, align 4, !tbaa !59
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %41, ptr %50, align 4, !tbaa !59
+  %23 = and i32 %7, 67108800
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 26
+  %26 = and i32 %18, 4
+  %27 = or disjoint i32 %13, %11
+  %28 = or disjoint i32 %27, %15
+  %29 = or disjoint i32 %28, %17
+  %30 = or disjoint i32 %29, %9
+  %31 = or disjoint i32 %30, %26
+  %32 = or i32 %31, %20
+  %33 = or i32 %32, %22
+  %34 = zext nneg i32 %33 to i64
+  %35 = or disjoint i64 %25, %34
+  %36 = load i32, ptr %10, align 8
+  %37 = lshr i32 %36, 13
+  %38 = shl i32 %36, 19
+  %39 = and i32 %38, 133693440
+  %40 = or disjoint i32 %39, %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !774
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load i32, ptr %43, align 8, !tbaa !310
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %46 = and i32 %44, 255
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw [32 x %struct.mips_tlb], ptr %45, i64 0, i64 %47
+  store i64 %35, ptr %48, align 4, !tbaa !59
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %40, ptr %49, align 4, !tbaa !59
   ret void
 }
 

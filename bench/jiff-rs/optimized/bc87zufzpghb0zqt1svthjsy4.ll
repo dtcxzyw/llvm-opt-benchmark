@@ -2061,8 +2061,6 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrin
   %.sroa.0.0.extract.trunc = trunc i32 %.8.val to i16
   %.sroa.5.0.extract.shift = lshr i32 %.8.val, 16
   %.sroa.5.0.extract.trunc = trunc i32 %.sroa.5.0.extract.shift to i8
-  %.sroa.6.0.extract.shift = lshr i32 %.8.val, 24
-  %.sroa.6.0.extract.trunc = zext nneg i32 %.sroa.6.0.extract.shift to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !noalias !80
   %16 = icmp sgt i16 %.sroa.0.0.extract.trunc, -1
@@ -2331,8 +2329,9 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit48.i: ; preds = %120, %.pr
 
 145:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !80
-  %sext = shl nuw i64 %.sroa.6.0.extract.trunc, 56
-  %146 = ashr exact i64 %sext, 56
+  %.sroa.6.0.extract.trunc = zext i32 %.8.val to i64
+  %sext = shl nuw i64 %.sroa.6.0.extract.trunc, 32
+  %146 = ashr i64 %sext, 56
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %147 = icmp sgt i32 %.8.val, -1
@@ -2905,8 +2904,6 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrin
   %.sroa.0.0.extract.trunc = trunc i32 %.8.val to i16
   %.sroa.5.0.extract.shift = lshr i32 %.8.val, 16
   %.sroa.5.0.extract.trunc = trunc i32 %.sroa.5.0.extract.shift to i8
-  %.sroa.6.0.extract.shift = lshr i32 %.8.val, 24
-  %.sroa.6.0.extract.trunc = zext nneg i32 %.sroa.6.0.extract.shift to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %16, ptr %15, align 8, !noalias !166
   %17 = icmp sgt i16 %.sroa.0.0.extract.trunc, -1
@@ -3175,8 +3172,9 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit48.i: ; preds = %121, %.pr
 
 146:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !166
-  %sext = shl nuw i64 %.sroa.6.0.extract.trunc, 56
-  %147 = ashr exact i64 %sext, 56
+  %.sroa.6.0.extract.trunc = zext i32 %.8.val to i64
+  %sext = shl nuw i64 %.sroa.6.0.extract.trunc, 32
+  %147 = ashr i64 %sext, 56
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
   %148 = icmp sgt i32 %.8.val, -1

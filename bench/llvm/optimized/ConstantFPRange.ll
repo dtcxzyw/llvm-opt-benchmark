@@ -3448,10 +3448,9 @@ define dso_local range(i16 0, 512) i16 @_ZNK4llvm15ConstantFPRange10getSignBitEv
   %20 = lshr i8 %11, 3
   %.lobit = and i8 %20, 1
   %spec.select = select i1 %.not, i8 %.lobit, i8 undef
-  %.lobit6 = lshr exact i8 %19, 3
-  %spec.select5 = xor i8 %.lobit6, 1
+  %spec.select5 = xor i8 %19, 8
   %21 = zext nneg i8 %spec.select5 to i16
-  %22 = shl nuw nsw i16 %21, 8
+  %22 = shl nuw nsw i16 %21, 5
   %23 = zext i8 %spec.select to i16
   %24 = or disjoint i16 %22, %23
   br label %25

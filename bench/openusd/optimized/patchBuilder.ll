@@ -1531,11 +1531,11 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder28GetIrregularPatchCornerS
 .thread110:                                       ; preds = %.thread108
   %73 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VSpan", ptr %3, i64 %indvars.iv, i32 3
   %74 = trunc i16 %.sroa.019.0.copyload to i8
-  %75 = lshr i8 %74, 3
-  %76 = and i8 %75, 2
-  %77 = load i8, ptr %73, align 2
-  %78 = and i8 %77, -3
-  %79 = or disjoint i8 %78, %76
+  %75 = load i8, ptr %73, align 2
+  %76 = lshr i8 %74, 3
+  %77 = and i8 %76, 2
+  %78 = and i8 %75, -3
+  %79 = or disjoint i8 %78, %77
   store i8 %79, ptr %73, align 2
   br label %95
 
@@ -4381,7 +4381,7 @@ default.unreachable:                              ; preds = %93
   %.092.lcssa = phi i32 [ 0, %7 ], [ %.193.us, %._crit_edge.split.us ], [ %.2, %.loopexit ]
   %.090.lcssa = phi i32 [ 0, %7 ], [ %74, %._crit_edge.split.us ], [ %.1, %.loopexit ]
   %129 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11PtexIndices9GetFaceIdEi(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %.0105.lcssa)
-  br i1 %6, label %130, label %152
+  br i1 %6, label %130, label %151
 
 130:                                              ; preds = %._crit_edge
   %131 = load ptr, ptr %10, align 8
@@ -4391,7 +4391,7 @@ default.unreachable:                              ; preds = %93
   %135 = and i16 %134, 15
   %136 = zext nneg i16 %135 to i32
   %137 = icmp slt i32 %1, %136
-  br i1 %137, label %138, label %152
+  br i1 %137, label %138, label %151
 
 138:                                              ; preds = %130
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 72
@@ -4403,40 +4403,39 @@ default.unreachable:                              ; preds = %93
   %145 = load ptr, ptr %143, align 8
   %146 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %145, i64 %144
   %147 = load i8, ptr %146, align 1
-  %148 = lshr i8 %147, 1
-  %149 = and i8 %148, 15
-  %150 = zext nneg i8 %149 to i32
-  %151 = shl nuw i32 %150, 28
-  br label %152
+  %148 = and i8 %147, 30
+  %149 = zext nneg i8 %148 to i32
+  %150 = shl nuw i32 %149, 27
+  br label %151
 
-152:                                              ; preds = %138, %130, %._crit_edge
-  %.0 = phi i32 [ %151, %138 ], [ 0, %130 ], [ 0, %._crit_edge ]
-  %153 = select i1 %.0101.in.lcssa, i32 %.090.lcssa, i32 0
-  %.089 = add nsw i32 %129, %153
+151:                                              ; preds = %138, %130, %._crit_edge
+  %.0 = phi i32 [ %150, %138 ], [ 0, %130 ], [ 0, %._crit_edge ]
+  %152 = select i1 %.0101.in.lcssa, i32 %.090.lcssa, i32 0
+  %.089 = add nsw i32 %129, %152
   %.4 = add nsw i32 %.092.lcssa, %.0102.lcssa
   %.498 = add nsw i32 %.094.lcssa, %.0102.lcssa
-  %154 = zext i32 %5 to i64
-  %155 = and i32 %.089, 268435455
-  %156 = or disjoint i32 %.0, %155
-  %157 = zext i32 %156 to i64
-  %158 = shl i32 %.4, 22
-  %159 = shl i32 %.498, 12
-  %160 = and i32 %159, 4190208
-  %161 = or disjoint i32 %160, %158
-  %162 = zext i32 %161 to i64
-  %163 = shl nuw nsw i64 %154, 7
-  %164 = and i64 %163, 3968
-  %165 = select i1 %4, i64 32, i64 0
-  %166 = select i1 %.0101.in.lcssa, i64 16, i64 0
-  %167 = and i32 %1, 15
-  %168 = zext nneg i32 %167 to i64
-  %.masked.i = or disjoint i64 %165, %168
-  %169 = or disjoint i64 %.masked.i, %164
-  %170 = or disjoint i64 %169, %166
-  %171 = or disjoint i64 %170, %162
-  %172 = shl nuw i64 %171, 32
-  %173 = or disjoint i64 %172, %157
-  ret i64 %173
+  %153 = zext i32 %5 to i64
+  %154 = and i32 %.089, 268435455
+  %155 = or disjoint i32 %.0, %154
+  %156 = zext i32 %155 to i64
+  %157 = shl i32 %.4, 22
+  %158 = shl i32 %.498, 12
+  %159 = and i32 %158, 4190208
+  %160 = or disjoint i32 %159, %157
+  %161 = zext i32 %160 to i64
+  %162 = shl nuw nsw i64 %153, 7
+  %163 = and i64 %162, 3968
+  %164 = select i1 %4, i64 32, i64 0
+  %165 = select i1 %.0101.in.lcssa, i64 16, i64 0
+  %166 = and i32 %1, 15
+  %167 = zext nneg i32 %166 to i64
+  %.masked.i = or disjoint i64 %164, %167
+  %168 = or disjoint i64 %.masked.i, %163
+  %169 = or disjoint i64 %168, %165
+  %170 = or disjoint i64 %169, %161
+  %171 = shl nuw i64 %170, 32
+  %172 = or disjoint i64 %171, %156
+  ret i64 %172
 }
 
 declare noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11PtexIndices9GetFaceIdEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #5

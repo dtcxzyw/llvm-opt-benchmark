@@ -3108,9 +3108,9 @@ _ZNK4llvm20DWARF5AccelTableData21getDieOffsetAndUnitIDEv.exit: ; preds = %.lr.ph
   %313 = load i32, ptr %312, align 4, !tbaa !115
   %314 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %315 = load i32, ptr %314, align 8
-  %.lobit.i = lshr i32 %315, 31
-  %.sroa.4.8.insert.ext.i = zext nneg i32 %.lobit.i to i64
-  %.sroa.4.8.insert.shift.i = shl nuw nsw i64 %.sroa.4.8.insert.ext.i, 32
+  %.lobit.i = and i32 %315, -2147483648
+  %.sroa.4.8.insert.ext.i = zext i32 %.lobit.i to i64
+  %.sroa.4.8.insert.shift.i = shl nuw nsw i64 %.sroa.4.8.insert.ext.i, 1
   %.sroa.2.8.insert.ext.i = zext i32 %313 to i64
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i
   %.sroa.2.0.extract.trunc = trunc nuw nsw i64 %.sroa.2.8.insert.insert.i to i40
@@ -3123,7 +3123,8 @@ _ZNK4llvm20DWARF5AccelTableData21getDieOffsetAndUnitIDEv.exit: ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i42)
   store i64 %311, ptr %.sroa.0.i42, align 8, !noalias !568
   store i32 %313, ptr %.sroa.0.i42.8.i42.8.i42.8..sroa_idx, align 8, !noalias !568
-  %.sroa.6.12.extract.trunc66 = trunc nuw nsw i32 %.lobit.i to i8
+  %.sroa.6.12.extract.shift6593 = lshr i32 %315, 31
+  %.sroa.6.12.extract.trunc66 = trunc nuw nsw i32 %.sroa.6.12.extract.shift6593 to i8
   store i8 %.sroa.6.12.extract.trunc66, ptr %.sroa.0.i42.12.i42.12.i42.12..sroa_idx, align 4, !noalias !568
   %.sroa.0.i42.5..sroa.0.i42.5..sroa.0.i42.5..sroa.0.5..sroa.0.5..0.copyload.i8.i.i.i46 = load i64, ptr %.sroa.0.i42.5.i42.5.i42.5..sroa_idx, align 1, !noalias !568
   %320 = add i64 %.sroa.0.i42.5..sroa.0.i42.5..sroa.0.i42.5..sroa.0.5..sroa.0.5..0.copyload.i8.i.i.i46, 13
@@ -3246,7 +3247,8 @@ _ZN4llvm12DenseMapInfoINS_15OffsetAndUnitIDEvE7isEqualERKS1_S4_.exit39.i54: ; pr
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store i64 %311, ptr %.sroa.0.i, align 8, !noalias !568
   store i32 %313, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !noalias !568
-  %.sroa.6.12.extract.trunc = trunc nuw nsw i32 %.lobit.i to i8
+  %.sroa.6.12.extract.shift94 = lshr i32 %315, 31
+  %.sroa.6.12.extract.trunc = trunc nuw nsw i32 %.sroa.6.12.extract.shift94 to i8
   store i8 %.sroa.6.12.extract.trunc, ptr %.sroa.0.i.12.i.12.i.12..sroa_idx, align 4, !noalias !568
   %.sroa.0.i.5..sroa.0.i.5..sroa.0.i.5..sroa.0.5..sroa.0.5..0.copyload.i8.i.i.i = load i64, ptr %.sroa.0.i.5.i.5.i.5..sroa_idx, align 1, !noalias !568
   %385 = add i64 %.sroa.0.i.5..sroa.0.i.5..sroa.0.i.5..sroa.0.5..sroa.0.5..0.copyload.i8.i.i.i, 13

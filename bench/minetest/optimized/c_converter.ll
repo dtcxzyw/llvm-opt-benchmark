@@ -688,15 +688,13 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #0
 define dso_local void @_Z10push_v2s16P9lua_StateN3irr4core8vector2dIsEE(ptr noundef %L, i32 %p.coerce) local_unnamed_addr #5 {
 entry:
   %p.sroa.0.0.extract.trunc = zext i32 %p.coerce to i64
-  %p.sroa.2.0.extract.shift = lshr i32 %p.coerce, 16
-  %p.sroa.2.0.extract.trunc = zext nneg i32 %p.sroa.2.0.extract.shift to i64
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 2)
   %sext = shl i64 %p.sroa.0.0.extract.trunc, 48
   %conv = ashr exact i64 %sext, 48
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str)
-  %sext6 = shl nuw i64 %p.sroa.2.0.extract.trunc, 48
-  %conv1 = ashr exact i64 %sext6, 48
+  %sext6 = shl nuw i64 %p.sroa.0.0.extract.trunc, 32
+  %conv1 = ashr i64 %sext6, 48
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv1)
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.1)
   ret void
@@ -4221,19 +4219,17 @@ entry:
 define dso_local void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef %L, i48 %p.coerce) local_unnamed_addr #5 {
 entry:
   %p.sroa.0.0.extract.trunc = zext i48 %p.coerce to i64
-  %p.sroa.2.0.extract.shift = lshr i48 %p.coerce, 16
-  %p.sroa.2.0.extract.trunc = zext nneg i48 %p.sroa.2.0.extract.shift to i64
-  %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc = zext nneg i48 %p.sroa.3.0.extract.shift to i64
+  %p.sroa.2.0.extract.shift = and i48 %p.coerce, 4294901760
   tail call void @lua_rawgeti(ptr noundef %L, i32 noundef -10000, i32 noundef 8)
   %sext = shl i64 %p.sroa.0.0.extract.trunc, 48
   %conv = ashr exact i64 %sext, 48
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
-  %sext7 = shl i64 %p.sroa.2.0.extract.trunc, 48
+  %p.sroa.2.0.extract.trunc = zext nneg i48 %p.sroa.2.0.extract.shift to i64
+  %sext7 = shl nuw i64 %p.sroa.2.0.extract.trunc, 32
   %conv1 = ashr exact i64 %sext7, 48
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv1)
-  %sext8 = shl nuw i64 %p.sroa.3.0.extract.trunc, 48
-  %conv2 = ashr exact i64 %sext8, 48
+  %sext8 = shl nuw i64 %p.sroa.0.0.extract.trunc, 16
+  %conv2 = ashr i64 %sext8, 48
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv2)
   tail call void @lua_call(ptr noundef %L, i32 noundef 3, i32 noundef 1)
   ret void

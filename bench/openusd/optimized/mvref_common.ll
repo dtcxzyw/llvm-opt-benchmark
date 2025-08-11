@@ -2863,16 +2863,16 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   %51 = load i8, ptr %50, align 1
   %52 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %27
   %53 = load i8, ptr %52, align 1
-  %54 = lshr i8 %51, 1
-  %.sext.i = zext nneg i8 %54 to i32
-  %55 = lshr i8 %53, 1
-  %.zext230 = zext nneg i8 %55 to i32
-  %56 = shl nuw nsw i32 %.sext.i, 3
+  %54 = and i8 %51, -2
+  %55 = and i8 %53, -2
+  %.sext.i = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %.sext.i, 2
   %57 = shl nsw i32 %37, 5
   %reass.sub = sub nsw i32 %56, %57
   %58 = add nsw i32 %reass.sub, -8
   store i32 %58, ptr %2, align 4
-  %59 = shl nuw nsw i32 %.zext230, 3
+  %.zext230 = zext i8 %55 to i32
+  %59 = shl nuw nsw i32 %.zext230, 2
   %60 = sub nuw nsw i32 -8, %59
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %60, ptr %61, align 4
@@ -2924,16 +2924,16 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   %94 = load i8, ptr %93, align 1
   %95 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %82
   %96 = load i8, ptr %95, align 1
-  %97 = lshr i8 %94, 1
-  %.sext.i180 = zext nneg i8 %97 to i32
-  %98 = lshr i8 %96, 1
-  %.zext204 = zext nneg i8 %98 to i32
+  %97 = and i8 %94, -2
+  %98 = and i8 %96, -2
   %99 = shl nsw i32 %.0160252, 5
-  %100 = shl nuw nsw i32 %.sext.i180, 3
+  %.sext.i180 = zext i8 %97 to i32
+  %100 = shl nuw nsw i32 %.sext.i180, 2
   %101 = add nsw i32 %99, -8
   %102 = add nsw i32 %101, %100
   store i32 %102, ptr %.1255, align 4
-  %103 = shl nuw nsw i32 %.zext204, 3
+  %.zext204 = zext i8 %98 to i32
+  %103 = shl nuw nsw i32 %.zext204, 2
   %104 = sub nuw nsw i32 -8, %103
   %105 = getelementptr inbounds nuw i8, ptr %.1255, i64 4
   store i32 %104, ptr %105, align 4
@@ -3023,14 +3023,14 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   %154 = load i8, ptr %153, align 1
   %155 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %133
   %156 = load i8, ptr %155, align 1
-  %157 = lshr i8 %154, 1
-  %.zext223 = zext nneg i8 %157 to i32
-  %158 = lshr i8 %156, 1
-  %.sext18.i186 = zext nneg i8 %158 to i32
-  %159 = shl nuw nsw i32 %.zext223, 3
+  %157 = and i8 %154, -2
+  %158 = and i8 %156, -2
+  %.zext223 = zext i8 %157 to i32
+  %159 = shl nuw nsw i32 %.zext223, 2
   %160 = sub nuw nsw i32 -8, %159
   store i32 %160, ptr %.0138, align 4
-  %161 = shl nuw nsw i32 %.sext18.i186, 3
+  %.sext18.i186 = zext i8 %158 to i32
+  %161 = shl nuw nsw i32 %.sext18.i186, 2
   %162 = shl nsw i32 %143, 5
   %reass.sub268 = sub nsw i32 %161, %162
   %163 = add nsw i32 %reass.sub268, -8
@@ -3087,15 +3087,15 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   %200 = load i8, ptr %199, align 1
   %201 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %188
   %202 = load i8, ptr %201, align 1
-  %203 = lshr i8 %200, 1
-  %.zext207 = zext nneg i8 %203 to i32
-  %204 = lshr i8 %202, 1
-  %.sext18.i190 = zext nneg i8 %204 to i32
-  %205 = shl nuw nsw i32 %.zext207, 3
+  %203 = and i8 %200, -2
+  %204 = and i8 %202, -2
+  %.zext207 = zext i8 %203 to i32
+  %205 = shl nuw nsw i32 %.zext207, 2
   %206 = sub nuw nsw i32 -8, %205
   store i32 %206, ptr %.4262, align 4
   %207 = shl nsw i32 %.0159259, 5
-  %208 = shl nuw nsw i32 %.sext18.i190, 3
+  %.sext18.i190 = zext i8 %204 to i32
+  %208 = shl nuw nsw i32 %.sext18.i190, 2
   %209 = add nsw i32 %207, -8
   %210 = add nsw i32 %209, %208
   %211 = getelementptr inbounds nuw i8, ptr %.4262, i64 4
@@ -3173,14 +3173,14 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   %255 = load i8, ptr %254, align 1
   %256 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %253
   %257 = load i8, ptr %256, align 1
-  %258 = lshr i8 %255, 1
-  %.zext212 = zext nneg i8 %258 to i32
-  %259 = lshr i8 %257, 1
-  %.zext215 = zext nneg i8 %259 to i32
-  %260 = shl nuw nsw i32 %.zext212, 3
+  %258 = and i8 %255, -2
+  %259 = and i8 %257, -2
+  %.zext212 = zext i8 %258 to i32
+  %260 = shl nuw nsw i32 %.zext212, 2
   %261 = sub nuw nsw i32 -8, %260
   store i32 %261, ptr %.3, align 4
-  %262 = shl nuw nsw i32 %.zext215, 3
+  %.zext215 = zext i8 %259 to i32
+  %262 = shl nuw nsw i32 %.zext215, 2
   %263 = sub nuw nsw i32 -8, %262
   %264 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %263, ptr %264, align 4
@@ -3346,16 +3346,16 @@ is_inside.exit:                                   ; preds = %337
   %358 = load i8, ptr %357, align 1
   %359 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %356
   %360 = load i8, ptr %359, align 1
-  %361 = lshr i8 %358, 1
-  %.sext.i197 = zext nneg i8 %361 to i32
-  %362 = lshr i8 %360, 1
-  %.zext220 = zext nneg i8 %362 to i32
+  %361 = and i8 %358, -2
+  %362 = and i8 %360, -2
   %363 = shl nuw nsw i32 %329, 5
-  %364 = shl nuw nsw i32 %.sext.i197, 3
+  %.sext.i197 = zext i8 %361 to i32
+  %364 = shl nuw nsw i32 %.sext.i197, 2
   %365 = add nsw i32 %363, -8
   %366 = add nsw i32 %365, %364
   store i32 %366, ptr %.6, align 4
-  %367 = shl nuw nsw i32 %.zext220, 3
+  %.zext220 = zext i8 %362 to i32
+  %367 = shl nuw nsw i32 %.zext220, 2
   %368 = sub nuw nsw i32 -8, %367
   %369 = getelementptr inbounds nuw i8, ptr %.6, i64 4
   store i32 %368, ptr %369, align 4

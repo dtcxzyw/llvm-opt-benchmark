@@ -285,22 +285,14 @@ define weak_odr noundef zeroext i1 @_ZNK5arrow18TypedChunkLocationIaEeqES1_(ptr 
   %sext = shl i32 %.sroa.0.0.extract.trunc, 24
   %5 = ashr exact i32 %sext, 24
   %6 = icmp eq i32 %5, %4
-  br i1 %6, label %7, label %13
-
-7:                                                ; preds = %2
-  %.sroa.2.0.extract.shift = lshr i16 %1, 8
-  %.sroa.2.0.extract.trunc = zext nneg i16 %.sroa.2.0.extract.shift to i32
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %9 = load i8, ptr %8, align 1, !tbaa !15
-  %10 = sext i8 %9 to i32
-  %sext1 = shl nuw i32 %.sroa.2.0.extract.trunc, 24
-  %11 = ashr exact i32 %sext1, 24
-  %12 = icmp eq i32 %11, %10
-  br label %13
-
-13:                                               ; preds = %7, %2
-  %14 = phi i1 [ false, %2 ], [ %12, %7 ]
-  ret i1 %14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = sext i8 %8 to i32
+  %sext1 = shl nuw i32 %.sroa.0.0.extract.trunc, 16
+  %10 = ashr i32 %sext1, 24
+  %11 = icmp eq i32 %10, %9
+  %12 = select i1 %6, i1 %11, i1 false
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

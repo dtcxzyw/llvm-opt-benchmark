@@ -1511,13 +1511,13 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %251, ptr elementtype(i32) %283) #11, !srcloc !53
   %284 = add i32 %100, 459168
   %285 = load i16, ptr %244, align 8
-  %286 = lshr i16 %285, 8
-  %287 = zext nneg i16 %286 to i32
-  %288 = getelementptr inbounds nuw i8, ptr %2, i64 424
-  %289 = load i32, ptr %288, align 8
-  %290 = and i32 %289, 16777215
-  %291 = shl nuw i32 %287, 24
-  %292 = or disjoint i32 %291, %290
+  %286 = and i16 %285, -256
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 424
+  %288 = load i32, ptr %287, align 8
+  %289 = and i32 %288, 16777215
+  %290 = zext i16 %286 to i32
+  %291 = shl nuw i32 %290, 16
+  %292 = or disjoint i32 %291, %289
   %293 = zext i32 %292 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
           to label %314 [label %294], !srcloc !44
@@ -4677,13 +4677,13 @@ define internal void @skl_plane_update_arm(ptr noundef %0, ptr noundef %1, ptr n
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %101, ptr elementtype(i32) %133) #11, !srcloc !53
   %134 = add i32 %56, 459168
   %135 = load i16, ptr %94, align 8
-  %136 = lshr i16 %135, 8
-  %137 = zext nneg i16 %136 to i32
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 424
-  %139 = load i32, ptr %138, align 8
-  %140 = and i32 %139, 16777215
-  %141 = shl nuw i32 %137, 24
-  %142 = or disjoint i32 %141, %140
+  %136 = and i16 %135, -256
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 424
+  %138 = load i32, ptr %137, align 8
+  %139 = and i32 %138, 16777215
+  %140 = zext i16 %136 to i32
+  %141 = shl nuw i32 %140, 16
+  %142 = or disjoint i32 %141, %139
   %143 = zext i32 %142 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
           to label %164 [label %144], !srcloc !44

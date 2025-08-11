@@ -5233,7 +5233,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
 .loopexit:                                        ; preds = %65, %.thread9
   %72 = call i32 @bcmp(ptr noundef nonnull dereferenceable(86) %3, ptr noundef nonnull dereferenceable(86) %2, i64 86)
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %362, label %74
+  br i1 %73, label %353, label %74
 
 74:                                               ; preds = %.loopexit
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 7020
@@ -5451,7 +5451,7 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %235 = zext nneg i16 %234 to i32
   %236 = or disjoint i32 %231, %235
   %237 = load ptr, ptr %104, align 8
-  br i1 %226, label %290, label %238
+  br i1 %226, label %285, label %238
 
 238:                                              ; preds = %160
   call void %237(ptr noundef nonnull %102, i32 2031796, i32 noundef %236, i1 noundef zeroext true) #14
@@ -5480,134 +5480,125 @@ define internal fastcc void @vlv_program_watermarks(ptr noundef %0) unnamed_addr
   %260 = load ptr, ptr %104, align 8
   call void %260(ptr noundef nonnull %102, i32 2031740, i32 noundef %259, i1 noundef zeroext true) #14
   %261 = load i16, ptr %171, align 2
-  %262 = lshr i16 %261, 9
-  %263 = zext nneg i16 %262 to i32
-  %264 = shl nuw nsw i32 %263, 24
-  %265 = and i32 %264, 50331648
-  %266 = load i16, ptr %240, align 2
-  %267 = lshr i16 %266, 8
-  %268 = zext nneg i16 %267 to i32
-  %269 = shl nuw nsw i32 %268, 23
-  %270 = and i32 %269, 8388608
-  %271 = or disjoint i32 %270, %265
-  %272 = load i16, ptr %245, align 2
-  %273 = lshr i16 %272, 8
-  %274 = zext nneg i16 %273 to i32
-  %275 = shl nuw nsw i32 %274, 22
-  %276 = and i32 %275, 4194304
-  %277 = or disjoint i32 %271, %276
-  %278 = load i16, ptr %239, align 2
-  %279 = lshr i16 %278, 8
-  %280 = zext nneg i16 %279 to i32
-  %281 = shl nuw nsw i32 %280, 21
-  %282 = and i32 %281, 2097152
-  %283 = or disjoint i32 %277, %282
-  %284 = load i16, ptr %227, align 2
-  %285 = lshr i16 %284, 8
-  %286 = zext nneg i16 %285 to i32
-  %287 = shl nuw nsw i32 %286, 20
-  %288 = and i32 %287, 1048576
-  %289 = or disjoint i32 %283, %288
-  br label %302
+  %262 = zext i16 %261 to i32
+  %263 = shl nuw nsw i32 %262, 15
+  %264 = and i32 %263, 50331648
+  %265 = load i16, ptr %240, align 2
+  %266 = zext i16 %265 to i32
+  %267 = shl nuw nsw i32 %266, 15
+  %268 = and i32 %267, 8388608
+  %269 = or disjoint i32 %268, %264
+  %270 = load i16, ptr %245, align 2
+  %271 = zext i16 %270 to i32
+  %272 = shl nuw nsw i32 %271, 14
+  %273 = and i32 %272, 4194304
+  %274 = or disjoint i32 %269, %273
+  %275 = load i16, ptr %239, align 2
+  %276 = zext i16 %275 to i32
+  %277 = shl nuw nsw i32 %276, 13
+  %278 = and i32 %277, 2097152
+  %279 = or disjoint i32 %274, %278
+  %280 = load i16, ptr %227, align 2
+  %281 = zext i16 %280 to i32
+  %282 = shl nuw nsw i32 %281, 12
+  %283 = and i32 %282, 1048576
+  %284 = or disjoint i32 %279, %283
+  br label %295
 
-290:                                              ; preds = %160
+285:                                              ; preds = %160
   call void %237(ptr noundef nonnull %102, i32 2031740, i32 noundef %236, i1 noundef zeroext true) #14
-  %291 = load i16, ptr %171, align 2
-  %292 = lshr i16 %291, 9
-  %293 = zext nneg i16 %292 to i32
-  %294 = shl nuw nsw i32 %293, 24
-  %295 = and i32 %294, 50331648
-  %296 = load i16, ptr %227, align 2
-  %297 = lshr i16 %296, 8
-  %298 = zext nneg i16 %297 to i32
-  %299 = shl nuw nsw i32 %298, 20
-  %300 = and i32 %299, 1048576
-  %301 = or disjoint i32 %300, %295
-  br label %302
+  %286 = load i16, ptr %171, align 2
+  %287 = zext i16 %286 to i32
+  %288 = shl nuw nsw i32 %287, 15
+  %289 = and i32 %288, 50331648
+  %290 = load i16, ptr %227, align 2
+  %291 = zext i16 %290 to i32
+  %292 = shl nuw nsw i32 %291, 12
+  %293 = and i32 %292, 1048576
+  %294 = or disjoint i32 %293, %289
+  br label %295
 
-302:                                              ; preds = %290, %238
-  %.sink = phi i32 [ %301, %290 ], [ %289, %238 ]
-  %303 = load i16, ptr %232, align 2
-  %304 = lshr i16 %303, 8
-  %305 = zext nneg i16 %304 to i32
-  %306 = shl nuw nsw i32 %305, 16
-  %307 = and i32 %306, 65536
-  %308 = or disjoint i32 %.sink, %307
-  %309 = load i16, ptr %175, align 2
-  %310 = lshr i16 %309, 8
+295:                                              ; preds = %285, %238
+  %.sink = phi i32 [ %294, %285 ], [ %284, %238 ]
+  %296 = load i16, ptr %232, align 2
+  %297 = zext i16 %296 to i32
+  %298 = shl nuw nsw i32 %297, 8
+  %299 = and i32 %298, 65536
+  %300 = or disjoint i32 %.sink, %299
+  %301 = load i16, ptr %175, align 2
+  %302 = zext i16 %301 to i32
+  %303 = shl nuw nsw i32 %302, 4
+  %304 = and i32 %303, 4096
+  %305 = load i16, ptr %196, align 2
+  %306 = and i16 %305, 256
+  %307 = zext nneg i16 %306 to i32
+  %308 = load i16, ptr %207, align 2
+  %309 = lshr i16 %308, 4
+  %310 = and i16 %309, 16
   %311 = zext nneg i16 %310 to i32
-  %312 = shl nuw nsw i32 %311, 12
-  %313 = and i32 %312, 4096
-  %314 = load i16, ptr %196, align 2
-  %315 = and i16 %314, 256
-  %316 = zext nneg i16 %315 to i32
-  %317 = load i16, ptr %207, align 2
-  %318 = lshr i16 %317, 4
-  %319 = and i16 %318, 16
-  %320 = zext nneg i16 %319 to i32
-  %321 = load i16, ptr %2, align 2
-  %322 = lshr i16 %321, 8
-  %323 = and i16 %322, 1
-  %324 = zext nneg i16 %323 to i32
-  %325 = or i32 %308, %316
-  %326 = or i32 %325, %313
-  %327 = or i32 %326, %320
-  %328 = or i32 %327, %324
-  %329 = load ptr, ptr %104, align 8
-  call void %329(ptr noundef nonnull %102, i32 2031716, i32 noundef %328, i1 noundef zeroext true) #14
-  %330 = load ptr, ptr %166, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 32
-  %332 = load i32, ptr %331, align 4
-  %333 = add i32 %332, 458804
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 7512
-  %335 = load ptr, ptr %334, align 8
-  %336 = call i32 %335(ptr noundef nonnull %102, i32 %333, i1 noundef zeroext false) #14
-  %337 = load i8, ptr %92, align 1, !range !27, !noundef !28
-  %338 = load i8, ptr %8, align 1, !range !27, !noundef !28
-  %339 = icmp eq i8 %337, 0
-  %340 = icmp ne i8 %338, 0
-  %341 = and i1 %339, %340
-  br i1 %341, label %342, label %344
+  %312 = load i16, ptr %2, align 2
+  %313 = lshr i16 %312, 8
+  %314 = and i16 %313, 1
+  %315 = zext nneg i16 %314 to i32
+  %316 = or i32 %300, %307
+  %317 = or i32 %316, %304
+  %318 = or i32 %317, %311
+  %319 = or i32 %318, %315
+  %320 = load ptr, ptr %104, align 8
+  call void %320(ptr noundef nonnull %102, i32 2031716, i32 noundef %319, i1 noundef zeroext true) #14
+  %321 = load ptr, ptr %166, align 8
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
+  %323 = load i32, ptr %322, align 4
+  %324 = add i32 %323, 458804
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %326 = load ptr, ptr %325, align 8
+  %327 = call i32 %326(ptr noundef nonnull %102, i32 %324, i1 noundef zeroext false) #14
+  %328 = load i8, ptr %92, align 1, !range !27, !noundef !28
+  %329 = load i8, ptr %8, align 1, !range !27, !noundef !28
+  %330 = icmp eq i8 %328, 0
+  %331 = icmp ne i8 %329, 0
+  %332 = and i1 %330, %331
+  br i1 %332, label %333, label %335
 
-342:                                              ; preds = %302
-  %343 = call fastcc zeroext i1 @_intel_set_memory_cxsr(ptr noundef %0, i1 noundef zeroext true)
-  br label %344
+333:                                              ; preds = %295
+  %334 = call fastcc zeroext i1 @_intel_set_memory_cxsr(ptr noundef %0, i1 noundef zeroext true)
+  br label %335
 
-344:                                              ; preds = %342, %302
-  %345 = load i8, ptr %75, align 2
-  %346 = load i8, ptr %7, align 2
-  %347 = icmp eq i8 %345, 0
-  %348 = icmp ne i8 %346, 0
-  %349 = and i1 %347, %348
-  br i1 %349, label %350, label %354
+335:                                              ; preds = %333, %295
+  %336 = load i8, ptr %75, align 2
+  %337 = load i8, ptr %7, align 2
+  %338 = icmp eq i8 %336, 0
+  %339 = icmp ne i8 %337, 0
+  %340 = and i1 %338, %339
+  br i1 %340, label %341, label %345
 
-350:                                              ; preds = %344
+341:                                              ; preds = %335
   call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 128) #14
-  %351 = call i32 @vlv_punit_read(ptr noundef %0, i32 noundef 54) #14
-  %352 = or i32 %351, 64
-  %353 = call i32 @vlv_punit_write(ptr noundef %0, i32 noundef 54, i32 noundef %352) #14
+  %342 = call i32 @vlv_punit_read(ptr noundef %0, i32 noundef 54) #14
+  %343 = or i32 %342, 64
+  %344 = call i32 @vlv_punit_write(ptr noundef %0, i32 noundef 54, i32 noundef %343) #14
   call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 128) #14
   %.pre10 = load i8, ptr %75, align 2
   %.pre11 = load i8, ptr %7, align 2
-  br label %354
+  br label %345
 
-354:                                              ; preds = %350, %344
-  %355 = phi i8 [ %.pre11, %350 ], [ %346, %344 ]
-  %356 = phi i8 [ %.pre10, %350 ], [ %345, %344 ]
-  %357 = icmp ult i8 %356, 2
-  %358 = icmp ugt i8 %355, 1
-  %359 = and i1 %357, %358
-  br i1 %359, label %360, label %361
+345:                                              ; preds = %341, %335
+  %346 = phi i8 [ %.pre11, %341 ], [ %337, %335 ]
+  %347 = phi i8 [ %.pre10, %341 ], [ %336, %335 ]
+  %348 = icmp ult i8 %347, 2
+  %349 = icmp ugt i8 %346, 1
+  %350 = and i1 %348, %349
+  br i1 %350, label %351, label %352
 
-360:                                              ; preds = %354
+351:                                              ; preds = %345
   call fastcc void @chv_set_memory_dvfs(ptr noundef %0, i1 noundef zeroext true)
-  br label %361
+  br label %352
 
-361:                                              ; preds = %360, %354
+352:                                              ; preds = %351, %345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %3, ptr noundef nonnull align 2 dereferenceable(86) %2, i64 86, i1 false)
-  br label %362
+  br label %353
 
-362:                                              ; preds = %361, %.loopexit
+353:                                              ; preds = %352, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

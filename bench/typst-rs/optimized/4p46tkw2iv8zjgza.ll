@@ -3504,17 +3504,18 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %trunc.i.i = trunc nuw i8 %40 to i1
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 49
   %42 = load i8, ptr %41, align 1, !alias.scope !939, !noalias !940
-  %43 = shl nuw nsw i8 %38, 1
-  %44 = or disjoint i8 %40, %43
-  %45 = or disjoint i8 %44, 8
+  %.0112.i.i = shl nuw nsw i8 %40, 4
+  %43 = shl nuw nsw i8 %38, 5
+  %44 = or disjoint i8 %43, %.0112.i.i
+  %45 = or disjoint i8 %44, -128
   %.sroa.64.0.insert.ext.i.i = zext i16 %36 to i48
   %.sroa.64.0.insert.shift.i.i = shl nuw i48 %.sroa.64.0.insert.ext.i.i, 32
   %46 = zext i8 %42 to i48
   %47 = shl nuw nsw i48 %46, 16
   %.sroa.5.0.insert.shift.i.i = select i1 %trunc.i.i, i48 %47, i48 0
   %.sroa.5.0.insert.insert.i.i = or disjoint i48 %.sroa.5.0.insert.shift.i.i, %.sroa.64.0.insert.shift.i.i
-  %.sroa.4.0.insert.ext.i.i = zext nneg i8 %45 to i48
-  %.sroa.4.0.insert.shift.i.i = shl nuw nsw i48 %.sroa.4.0.insert.ext.i.i, 8
+  %.sroa.4.0.insert.ext.i.i = zext i8 %45 to i48
+  %.sroa.4.0.insert.shift.i.i = shl nuw nsw i48 %.sroa.4.0.insert.ext.i.i, 4
   %.sroa.4.0.insert.insert.i.i = or disjoint i48 %.sroa.5.0.insert.insert.i.i, %.sroa.4.0.insert.shift.i.i
   invoke fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i48 %.sroa.4.0.insert.insert.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
@@ -4366,11 +4367,12 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %trunc = trunc nuw i16 %.pre to i1
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %357 = load i16, ptr %356, align 2
+  %.sroa.011.0 = shl nuw i16 %.pre, 15
   %358 = zext i16 %357 to i48
   %359 = shl nuw i48 %358, 32
   %.sroa.533.0.insert.shift = select i1 %trunc, i48 0, i48 %359
-  %.sroa.432.0.insert.ext = zext nneg i16 %.pre to i48
-  %.sroa.432.0.insert.shift = shl nuw nsw i48 %.sroa.432.0.insert.ext, 16
+  %.sroa.432.0.insert.ext = zext i16 %.sroa.011.0 to i48
+  %.sroa.432.0.insert.shift = shl nuw nsw i48 %.sroa.432.0.insert.ext, 1
   %.sroa.432.0.insert.insert = or disjoint i48 %.sroa.533.0.insert.shift, %.sroa.432.0.insert.shift
   %.sroa.030.0.insert.insert = or disjoint i48 %.sroa.432.0.insert.insert, 1
   invoke fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(40) %17, i48 %.sroa.030.0.insert.insert)

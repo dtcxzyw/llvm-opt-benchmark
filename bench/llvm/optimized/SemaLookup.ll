@@ -18621,27 +18621,31 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit:     ; preds = %22, %28
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %.tr81, i64 68
   %51 = load i32, ptr %50, align 4
-  %52 = lshr i32 %51, 20
+  %52 = and i32 %51, -1048576
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit
 
 53:                                               ; preds = %41
   %54 = getelementptr inbounds nuw i8, ptr %.tr81, i64 64
   %55 = load i32, ptr %54, align 4
-  %56 = lshr i32 %55, 20
+  %56 = and i32 %55, -1048576
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit
 
 _ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit: ; preds = %46, %49, %53
-  %.sink39.i = phi i32 [ %52, %49 ], [ %48, %46 ], [ %56, %53 ]
+  %.sink40.i = phi i32 [ %52, %49 ], [ %48, %46 ], [ %56, %53 ]
+  %.sink39.i = phi i64 [ 12, %49 ], [ 32, %46 ], [ 12, %53 ]
+  %.sroa.2.0.insert.ext.i18.i = zext i32 %.sink40.i to i64
+  %.sroa.2.0.insert.shift.i19.i = shl nuw i64 %.sroa.2.0.insert.ext.i18.i, %.sink39.i
+  %.sroa.3.0.extract.shift = lshr i64 %.sroa.2.0.insert.shift.i19.i, 32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 536870911
-  %.not40 = icmp ugt i32 %59, %.sink39.i
+  %.not40 = icmp ugt i32 %59, %.sroa.3.0.extract.trunc
   br i1 %.not40, label %60, label %.critedge
 
 60:                                               ; preds = %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit
-  %.sroa.2.0.insert.ext.i18.i = zext nneg i32 %.sink39.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.sroa.2.0.insert.ext.i18.i
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.sroa.3.0.extract.shift
   %63 = load ptr, ptr %62, align 8, !tbaa !1055
   %.not80 = icmp eq ptr %63, %.tr81
   br i1 %.not80, label %66, label %.critedge

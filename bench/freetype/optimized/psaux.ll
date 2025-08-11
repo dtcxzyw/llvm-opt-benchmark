@@ -3714,7 +3714,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %15 = load ptr, ptr %14, align 8, !tbaa !206
   %.not72 = icmp eq ptr %15, null
-  br i1 %.not72, label %629, label %16
+  br i1 %.not72, label %628, label %16
 
 16:                                               ; preds = %13, %3
   %17 = load ptr, ptr %0, align 8, !tbaa !207
@@ -3732,7 +3732,7 @@ define internal range(i32 0, 165) i32 @cf2_decoder_parse_charstrings(ptr noundef
   store ptr %23, ptr %24, align 8, !tbaa !209
   %25 = load i32, ptr %8, align 4, !tbaa !16
   %.not74 = icmp eq i32 %25, 0
-  br i1 %.not74, label %26, label %629
+  br i1 %.not74, label %26, label %628
 
 26:                                               ; preds = %21
   store ptr %17, ptr %23, align 8, !tbaa !211
@@ -4825,22 +4825,21 @@ cf2_getGlyphOutline.exit:                         ; preds = %545, %566, %599, %6
 
 622:                                              ; preds = %619
   %623 = add i32 %618, 32768
-  %624 = lshr i32 %623, 16
-  %625 = zext nneg i32 %624 to i64
-  %sext.i = shl nuw i64 %625, 48
-  %626 = ashr exact i64 %sext.i, 48
-  %627 = getelementptr inbounds nuw i8, ptr %.val84, i64 1072
-  %628 = load ptr, ptr %627, align 8, !tbaa !373
-  store i64 %626, ptr %628, align 8, !tbaa !41
+  %624 = zext i32 %623 to i64
+  %sext.i = shl nuw i64 %624, 32
+  %625 = ashr i64 %sext.i, 48
+  %626 = getelementptr inbounds nuw i8, ptr %.val84, i64 1072
+  %627 = load ptr, ptr %626, align 8, !tbaa !373
+  store i64 %625, ptr %627, align 8, !tbaa !41
   br label %cf2_setGlyphWidth.exit
 
 cf2_setGlyphWidth.exit:                           ; preds = %125, %123, %120, %622, %619, %cf2_getGlyphOutline.exit.thread, %cf2_getGlyphOutline.exit
   %.1 = phi i32 [ 3, %cf2_getGlyphOutline.exit ], [ 3, %cf2_getGlyphOutline.exit.thread ], [ 0, %619 ], [ 0, %622 ], [ 164, %125 ], [ 164, %123 ], [ 36, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %629
+  br label %628
 
-629:                                              ; preds = %21, %13, %cf2_setGlyphWidth.exit
+628:                                              ; preds = %21, %13, %cf2_setGlyphWidth.exit
   %.0 = phi i32 [ %.1, %cf2_setGlyphWidth.exit ], [ 8, %13 ], [ 64, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

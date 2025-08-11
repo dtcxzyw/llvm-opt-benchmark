@@ -10084,7 +10084,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetTmpEC_DHE_Sz(ptr noundef writeonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @wolfSSL_set_verify(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %34, label %5
+  br i1 %4, label %29, label %5
 
 5:                                                ; preds = %3
   switch i32 %1, label %6 [
@@ -10116,23 +10116,18 @@ ModeToVerifyOptions.exit:                         ; preds = %5, %6, %.fold.split
   %20 = zext nneg i8 %19 to i64
   %21 = and i8 %17, -128
   %.masked = zext i8 %21 to i64
-  %22 = or disjoint i64 %18, %.masked
-  %23 = or disjoint i64 %22, %20
-  %24 = lshr i8 %.sroa.0.0.i, 2
-  %25 = and i8 %24, 1
-  %26 = zext nneg i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 8
-  %28 = lshr i8 %.sroa.0.0.i, 3
-  %29 = zext nneg i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, 9
-  %31 = add nuw nsw i64 %23, %30
-  %32 = or disjoint i64 %31, %27
-  store i64 %32, ptr %15, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %2, ptr %33, align 8, !tbaa !236
-  br label %34
+  %22 = and i8 %.sroa.0.0.i, 12
+  %23 = zext nneg i8 %22 to i64
+  %24 = shl nuw nsw i64 %23, 6
+  %25 = or disjoint i64 %18, %.masked
+  %26 = or disjoint i64 %25, %20
+  %27 = or disjoint i64 %26, %24
+  store i64 %27, ptr %15, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %2, ptr %28, align 8, !tbaa !236
+  br label %29
 
-34:                                               ; preds = %3, %ModeToVerifyOptions.exit
+29:                                               ; preds = %3, %ModeToVerifyOptions.exit
   ret void
 }
 

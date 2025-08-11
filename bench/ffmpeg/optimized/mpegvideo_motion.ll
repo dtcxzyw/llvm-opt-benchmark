@@ -541,7 +541,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 %369
   %371 = load i64, ptr %35, align 8, !tbaa !39
   %372 = shl i64 %indvars.iv.i.i, 2
-  %373 = and i64 %372, 17179869176
+  %373 = and i64 %372, 8589934584
   %374 = mul i64 %371, %373
   %375 = getelementptr inbounds i8, ptr %370, i64 %374
   %376 = getelementptr inbounds nuw [5 x ptr], ptr %9, i64 0, i64 %indvars.iv.i.i

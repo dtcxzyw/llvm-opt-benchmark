@@ -217,10 +217,9 @@ define noundef i64 @_ZN5arrow8internal15CountAndSetBitsEPKhlS2_ll(ptr noundef %0
   %18 = call i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %sext.mask = and i32 %18, 65535
   %19 = icmp eq i32 %sext.mask, 0
-  %.sroa.4.0.extract.shift = lshr i32 %18, 16
-  %.sroa.4.0.extract.trunc = zext nneg i32 %.sroa.4.0.extract.shift to i64
-  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
-  %20 = ashr exact i64 %sext, 48
+  %.sroa.4.0.extract.trunc = zext i32 %18 to i64
+  %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 32
+  %20 = ashr i64 %sext, 48
   %21 = add nsw i64 %20, %.07
   br i1 %19, label %22, label %17
 

@@ -50199,7 +50199,7 @@ switch.lookup:
   %10 = load i8, ptr %.0.i, align 2, !range !8864, !noundef !4
   %11 = shl nuw nsw i8 %10, 3
   %switch.shiftamt = zext nneg i8 %11 to i40
-  %switch.downshift = lshr i40 17213489920, %switch.shiftamt
+  %switch.downshift = lshr i40 -548679950336, %switch.shiftamt
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2195
   %13 = load i8, ptr %12, align 1, !range !1854, !alias.scope !9105, !noundef !4
   %14 = icmp eq i8 %13, 2
@@ -50222,7 +50222,7 @@ switch.lookup:
   %27 = load i8, ptr %.0.i6, align 2, !range !1854, !noundef !4
   %28 = shl nuw nsw i8 %27, 3
   %switch.shiftamt14 = zext nneg i8 %28 to i24
-  %switch.downshift15 = lshr i24 131073, %switch.shiftamt14
+  %switch.downshift15 = lshr i24 -8388544, %switch.shiftamt14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2196
   %30 = load i8, ptr %29, align 4, !range !1854, !alias.scope !9111, !noundef !4
   %31 = icmp eq i8 %30, 2
@@ -50244,10 +50244,10 @@ switch.lookup:
   %.0.i10 = select i1 %39, ptr %spec.select.i9, ptr %37
   %44 = load i8, ptr %.0.i10, align 1, !range !2718, !noundef !4
   %45 = xor i8 %44, 1
-  %.sroa.5.0.insert.ext = shl i40 %switch.downshift, 32
-  %switch.masked16.mask = and i24 %switch.downshift15, 3
+  %.sroa.5.0.insert.ext = shl i40 %switch.downshift, 27
+  %switch.masked16.mask = and i24 %switch.downshift15, 192
   %.sroa.4.0.insert.ext = zext nneg i24 %switch.masked16.mask to i40
-  %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 24
+  %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 18
   %.sroa.4.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.shift, %.sroa.5.0.insert.ext
   %.sroa.3.0.insert.ext = zext nneg i8 %45 to i40
   %.sroa.3.0.insert.shift = shl nuw nsw i40 %.sroa.3.0.insert.ext, 16

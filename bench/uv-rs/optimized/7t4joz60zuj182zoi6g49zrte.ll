@@ -2532,13 +2532,13 @@ default.unreachable127:                           ; preds = %2
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i8, ptr %9, align 1, !alias.scope !597, !noundef !3
+  %.sroa.5.0.insert.ext.i122 = zext i8 %10 to i32
+  %.sroa.5.0.insert.shift.i123 = shl nuw i32 %.sroa.5.0.insert.ext.i122, 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %12 = load i8, ptr %11, align 1, !alias.scope !602, !noundef !3
   %.sroa.4.0.insert.ext.i124 = zext i8 %12 to i32
   %.sroa.4.0.insert.shift.i125 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i124, 16
-  %.sroa.086.2.extract.trunc = zext i8 %10 to i32
-  %.sroa.10.4.insert.shift32 = shl nuw i32 %.sroa.086.2.extract.trunc, 24
-  %.sroa.10.3.insert.insert2994 = or disjoint i32 %.sroa.10.4.insert.shift32, %8
+  %.sroa.10.3.insert.insert2994 = or disjoint i32 %.sroa.5.0.insert.shift.i123, %8
   %.sroa.10.4.insert.insert34 = or disjoint i32 %.sroa.10.3.insert.insert2994, %.sroa.4.0.insert.shift.i125
   br label %34
 
@@ -2556,6 +2556,8 @@ default.unreachable127:                           ; preds = %2
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %22 = load i8, ptr %21, align 1, !alias.scope !608, !noundef !3
+  %.sroa.5.0.insert.ext.i117 = zext i8 %22 to i32
+  %.sroa.5.0.insert.shift.i118 = shl nuw i32 %.sroa.5.0.insert.ext.i117, 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i8, ptr %23, align 1, !alias.scope !613, !noundef !3
   %.sroa.4.0.insert.ext.i119 = zext i8 %24 to i32
@@ -2567,10 +2569,8 @@ default.unreachable127:                           ; preds = %2
   %28 = load i16, ptr %27, align 1, !alias.scope !616
   %29 = zext i16 %28 to i32
   %.sroa.3.0.insert.shift.i = select i1 %trunc.i, i32 %29, i32 0
-  %.sroa.082.2.extract.trunc = zext i8 %22 to i32
   %.sroa.10.3.insert.insert2496 = or disjoint i32 %.sroa.3.0.insert.shift.i, %.sroa.4.0.insert.shift.i120
-  %.sroa.10.4.insert.shift = shl nuw i32 %.sroa.082.2.extract.trunc, 24
-  %.sroa.10.4.insert.insert = or disjoint i32 %.sroa.10.3.insert.insert2496, %.sroa.10.4.insert.shift
+  %.sroa.10.4.insert.insert = or disjoint i32 %.sroa.10.3.insert.insert2496, %.sroa.5.0.insert.shift.i118
   br label %34
 
 30:                                               ; preds = %2
@@ -4368,13 +4368,13 @@ default.unreachable:                              ; preds = %10
   %17 = zext i16 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load i8, ptr %18, align 4, !alias.scope !1049, !noalias !1044, !noundef !3
+  %.sroa.5.0.insert.ext.i122.i.i = zext i8 %19 to i32
+  %.sroa.5.0.insert.shift.i123.i.i = shl nuw i32 %.sroa.5.0.insert.ext.i122.i.i, 24
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %21 = load i8, ptr %20, align 1, !alias.scope !1054, !noalias !1044, !noundef !3
   %.sroa.4.0.insert.ext.i124.i.i = zext i8 %21 to i32
   %.sroa.4.0.insert.shift.i125.i.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i124.i.i, 16
-  %.sroa.086.2.extract.trunc.i.i = zext i8 %19 to i32
-  %.sroa.10.4.insert.shift32.i.i = shl nuw i32 %.sroa.086.2.extract.trunc.i.i, 24
-  %.sroa.10.3.insert.insert2994.i.i = or disjoint i32 %.sroa.10.4.insert.shift32.i.i, %17
+  %.sroa.10.3.insert.insert2994.i.i = or disjoint i32 %.sroa.5.0.insert.shift.i123.i.i, %17
   %.sroa.10.4.insert.insert34.i.i = or disjoint i32 %.sroa.10.3.insert.insert2994.i.i, %.sroa.4.0.insert.shift.i125.i.i
   br label %43
 
@@ -4392,6 +4392,8 @@ default.unreachable:                              ; preds = %10
 29:                                               ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %31 = load i8, ptr %30, align 1, !alias.scope !1060, !noalias !1044, !noundef !3
+  %.sroa.5.0.insert.ext.i117.i.i = zext i8 %31 to i32
+  %.sroa.5.0.insert.shift.i118.i.i = shl nuw i32 %.sroa.5.0.insert.ext.i117.i.i, 24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %33 = load i8, ptr %32, align 4, !alias.scope !1065, !noalias !1044, !noundef !3
   %.sroa.4.0.insert.ext.i119.i.i = zext i8 %33 to i32
@@ -4403,10 +4405,8 @@ default.unreachable:                              ; preds = %10
   %37 = load i16, ptr %36, align 2, !alias.scope !1068, !noalias !1044
   %38 = zext i16 %37 to i32
   %.sroa.3.0.insert.shift.i.i.i = select i1 %trunc.i.i.i, i32 %38, i32 0
-  %.sroa.082.2.extract.trunc.i.i = zext i8 %31 to i32
   %.sroa.10.3.insert.insert2496.i.i = or disjoint i32 %.sroa.3.0.insert.shift.i.i.i, %.sroa.4.0.insert.shift.i120.i.i
-  %.sroa.10.4.insert.shift.i.i = shl nuw i32 %.sroa.082.2.extract.trunc.i.i, 24
-  %.sroa.10.4.insert.insert.i.i = or disjoint i32 %.sroa.10.3.insert.insert2496.i.i, %.sroa.10.4.insert.shift.i.i
+  %.sroa.10.4.insert.insert.i.i = or disjoint i32 %.sroa.10.3.insert.insert2496.i.i, %.sroa.5.0.insert.shift.i118.i.i
   br label %43
 
 39:                                               ; preds = %10
@@ -5115,13 +5115,13 @@ default.unreachable:                              ; preds = %7
   %14 = zext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 4, !alias.scope !1242, !noundef !3
+  %.sroa.5.0.insert.ext.i122.i = zext i8 %16 to i32
+  %.sroa.5.0.insert.shift.i123.i = shl nuw i32 %.sroa.5.0.insert.ext.i122.i, 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %18 = load i8, ptr %17, align 1, !alias.scope !1247, !noundef !3
   %.sroa.4.0.insert.ext.i124.i = zext i8 %18 to i32
   %.sroa.4.0.insert.shift.i125.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i124.i, 16
-  %.sroa.086.2.extract.trunc.i = zext i8 %16 to i32
-  %.sroa.10.4.insert.shift32.i = shl nuw i32 %.sroa.086.2.extract.trunc.i, 24
-  %.sroa.10.3.insert.insert2994.i = or disjoint i32 %.sroa.10.4.insert.shift32.i, %14
+  %.sroa.10.3.insert.insert2994.i = or disjoint i32 %.sroa.5.0.insert.shift.i123.i, %14
   %.sroa.10.4.insert.insert34.i = or disjoint i32 %.sroa.10.3.insert.insert2994.i, %.sroa.4.0.insert.shift.i125.i
   br label %42
 
@@ -5139,6 +5139,8 @@ default.unreachable:                              ; preds = %7
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %28 = load i8, ptr %27, align 1, !alias.scope !1253, !noundef !3
+  %.sroa.5.0.insert.ext.i117.i = zext i8 %28 to i32
+  %.sroa.5.0.insert.shift.i118.i = shl nuw i32 %.sroa.5.0.insert.ext.i117.i, 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i8, ptr %29, align 4, !alias.scope !1258, !noundef !3
   %.sroa.4.0.insert.ext.i119.i = zext i8 %30 to i32
@@ -5150,10 +5152,8 @@ default.unreachable:                              ; preds = %7
   %34 = load i16, ptr %33, align 2, !alias.scope !1261
   %35 = zext i16 %34 to i32
   %.sroa.3.0.insert.shift.i.i = select i1 %trunc.i.i, i32 %35, i32 0
-  %.sroa.082.2.extract.trunc.i = zext i8 %28 to i32
   %.sroa.10.3.insert.insert2496.i = or disjoint i32 %.sroa.3.0.insert.shift.i.i, %.sroa.4.0.insert.shift.i120.i
-  %.sroa.10.4.insert.shift.i = shl nuw i32 %.sroa.082.2.extract.trunc.i, 24
-  %.sroa.10.4.insert.insert.i = or disjoint i32 %.sroa.10.3.insert.insert2496.i, %.sroa.10.4.insert.shift.i
+  %.sroa.10.4.insert.insert.i = or disjoint i32 %.sroa.10.3.insert.insert2496.i, %.sroa.5.0.insert.shift.i118.i
   br label %42
 
 36:                                               ; preds = %7

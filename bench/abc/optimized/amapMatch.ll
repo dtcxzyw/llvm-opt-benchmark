@@ -827,43 +827,42 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i32, ptr %268, align 8
   %270 = xor i32 %269, %266
-  %271 = lshr i32 %270, 16
-  %272 = and i32 %271, 1
-  %273 = zext nneg i32 %272 to i64
-  %274 = load i64, ptr %1, align 8
-  %275 = shl nuw i64 %273, 63
-  %276 = and i64 %274, 9223372036854775807
-  %277 = or disjoint i64 %275, %276
-  store i64 %277, ptr %1, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false), !tbaa.struct !67
-  %279 = load ptr, ptr %278, align 8, !tbaa !73
-  %280 = load i32, ptr %279, align 4
-  %281 = lshr i32 %280, 15
-  %282 = and i32 %281, 131068
-  %narrow.i = add nuw nsw i32 %282, 4
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %284 = load ptr, ptr %283, align 8, !tbaa !3
-  %285 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %284, i32 noundef %narrow.i) #19
-  %286 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %285, ptr noundef nonnull readonly align 4 dereferenceable(1) %279, i64 %286, i1 false)
-  store ptr %285, ptr %278, align 8, !tbaa !73
-  br i1 %.not, label %294, label %287
+  %271 = and i32 %270, 65536
+  %272 = load i64, ptr %1, align 8
+  %273 = zext nneg i32 %271 to i64
+  %274 = shl nuw i64 %273, 47
+  %275 = and i64 %272, 9223372036854775807
+  %276 = or disjoint i64 %274, %275
+  store i64 %276, ptr %1, align 8
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false), !tbaa.struct !67
+  %278 = load ptr, ptr %277, align 8, !tbaa !73
+  %279 = load i32, ptr %278, align 4
+  %280 = lshr i32 %279, 15
+  %281 = and i32 %280, 131068
+  %narrow.i = add nuw nsw i32 %281, 4
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %283 = load ptr, ptr %282, align 8, !tbaa !3
+  %284 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %283, i32 noundef %narrow.i) #19
+  %285 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %284, ptr noundef nonnull readonly align 4 dereferenceable(1) %278, i64 %285, i1 false)
+  store ptr %284, ptr %277, align 8, !tbaa !73
+  br i1 %.not, label %293, label %286
 
-287:                                              ; preds = %._crit_edge
-  %288 = getelementptr i8, ptr %1, i64 52
-  %.val117 = load i32, ptr %288, align 4, !tbaa !25
-  %289 = getelementptr i8, ptr %1, i64 56
-  %.val118 = load i32, ptr %289, align 4, !tbaa !25
-  %290 = add nsw i32 %.val118, %.val117
-  %291 = icmp sgt i32 %290, 0
-  br i1 %291, label %292, label %294
+286:                                              ; preds = %._crit_edge
+  %287 = getelementptr i8, ptr %1, i64 52
+  %.val117 = load i32, ptr %287, align 4, !tbaa !25
+  %288 = getelementptr i8, ptr %1, i64 56
+  %.val118 = load i32, ptr %288, align 4, !tbaa !25
+  %289 = add nsw i32 %.val118, %.val117
+  %290 = icmp sgt i32 %289, 0
+  br i1 %290, label %291, label %293
 
-292:                                              ; preds = %287
-  %293 = tail call fastcc float @Amap_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %278)
-  br label %294
+291:                                              ; preds = %286
+  %292 = tail call fastcc float @Amap_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %277)
+  br label %293
 
-294:                                              ; preds = %292, %287, %._crit_edge
+293:                                              ; preds = %291, %286, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

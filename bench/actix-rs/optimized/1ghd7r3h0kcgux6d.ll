@@ -1242,9 +1242,9 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
   %40 = and i64 %39, 7
   %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1, !noundef !12
-  %43 = lshr i8 %42, 4
-  %44 = zext nneg i8 %43 to i64
-  %45 = shl nuw nsw i64 %44, 8
+  %43 = and i8 %42, -16
+  %44 = zext i8 %43 to i64
+  %45 = shl nuw nsw i64 %44, 4
   %46 = add i64 %45, %4
   %47 = lshr i8 %5, 4
   %48 = add i64 %4, 4096

@@ -2635,13 +2635,13 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
 558:                                              ; preds = %550
   %559 = lshr i8 %556, 3
   %560 = zext nneg i8 %559 to i16
-  %561 = lshr i8 %554, 2
-  %562 = zext nneg i8 %561 to i16
-  %563 = shl nuw nsw i16 %562, 5
+  %561 = and i8 %554, -4
+  %562 = zext i8 %561 to i16
+  %563 = shl nuw nsw i16 %562, 3
   %564 = or disjoint i16 %563, %560
-  %565 = lshr i8 %553, 3
-  %566 = zext nneg i8 %565 to i16
-  %567 = shl nuw i16 %566, 11
+  %565 = and i8 %553, -8
+  %566 = zext i8 %565 to i16
+  %567 = shl nuw i16 %566, 8
   %568 = or disjoint i16 %564, %567
   store i16 %568, ptr %.0341421.i, align 2
   br label %avifStoreRGB8Pixel.exit.i
@@ -3338,13 +3338,13 @@ define hidden void @avifSetRGBAPixel(ptr noundef readonly captures(none) %0, i32
 106:                                              ; preds = %90
   %107 = lshr i8 %104, 3
   %108 = zext nneg i8 %107 to i16
-  %109 = lshr i8 %100, 2
-  %110 = zext nneg i8 %109 to i16
-  %111 = shl nuw nsw i16 %110, 5
+  %109 = and i8 %100, -4
+  %110 = zext i8 %109 to i16
+  %111 = shl nuw nsw i16 %110, 3
   %112 = or disjoint i16 %111, %108
-  %113 = lshr i8 %96, 3
-  %114 = zext nneg i8 %113 to i16
-  %115 = shl nuw i16 %114, 11
+  %113 = and i8 %96, -8
+  %114 = zext i8 %113 to i16
+  %115 = shl nuw i16 %114, 8
   %116 = or disjoint i16 %112, %115
   store i16 %116, ptr %20, align 2
   br label %avifStoreRGB8Pixel.exit
@@ -3443,15 +3443,15 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr noundef 
   %50 = zext nneg i8 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv74
   %52 = load i8, ptr %51, align 1
-  %53 = lshr i8 %52, 2
-  %54 = zext nneg i8 %53 to i16
-  %55 = shl nuw nsw i16 %54, 5
+  %53 = and i8 %52, -4
+  %54 = zext i8 %53 to i16
+  %55 = shl nuw nsw i16 %54, 3
   %56 = or disjoint i16 %55, %50
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv74
   %58 = load i8, ptr %57, align 1
-  %59 = lshr i8 %58, 3
-  %60 = zext nneg i8 %59 to i16
-  %61 = shl nuw i16 %60, 11
+  %59 = and i8 %58, -8
+  %60 = zext i8 %59 to i16
+  %61 = shl nuw i16 %60, 8
   %62 = or disjoint i16 %56, %61
   store i16 %62, ptr %.05865, align 2
   %63 = getelementptr inbounds nuw i8, ptr %.05865, i64 %20
@@ -4143,13 +4143,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
 169:                                              ; preds = %.lr.ph
   %170 = lshr i8 %167, 3
   %171 = zext nneg i8 %170 to i16
-  %172 = lshr i8 %165, 2
-  %173 = zext nneg i8 %172 to i16
-  %174 = shl nuw nsw i16 %173, 5
+  %172 = and i8 %165, -4
+  %173 = zext i8 %172 to i16
+  %174 = shl nuw nsw i16 %173, 3
   %175 = or disjoint i16 %174, %171
-  %176 = lshr i8 %163, 3
-  %177 = zext nneg i8 %176 to i16
-  %178 = shl nuw i16 %177, 11
+  %176 = and i8 %163, -8
+  %177 = zext i8 %176 to i16
+  %178 = shl nuw i16 %177, 8
   %179 = or disjoint i16 %175, %178
   store i16 %179, ptr %.0100129, align 2
   br label %avifStoreRGB8Pixel.exit
@@ -4345,13 +4345,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
 111:                                              ; preds = %.lr.ph
   %112 = lshr i8 %109, 3
   %113 = zext nneg i8 %112 to i16
-  %114 = lshr i8 %107, 2
-  %115 = zext nneg i8 %114 to i16
-  %116 = shl nuw nsw i16 %115, 5
+  %114 = and i8 %107, -4
+  %115 = zext i8 %114 to i16
+  %116 = shl nuw nsw i16 %115, 3
   %117 = or disjoint i16 %116, %113
-  %118 = lshr i8 %105, 3
-  %119 = zext nneg i8 %118 to i16
-  %120 = shl nuw i16 %119, 11
+  %118 = and i8 %105, -8
+  %119 = zext i8 %118 to i16
+  %120 = shl nuw i16 %119, 8
   %121 = or disjoint i16 %117, %120
   store i16 %121, ptr %.07288, align 2
   br label %avifStoreRGB8Pixel.exit
@@ -4994,13 +4994,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
 156:                                              ; preds = %.lr.ph
   %157 = lshr i8 %154, 3
   %158 = zext nneg i8 %157 to i16
-  %159 = lshr i8 %152, 2
-  %160 = zext nneg i8 %159 to i16
-  %161 = shl nuw nsw i16 %160, 5
+  %159 = and i8 %152, -4
+  %160 = zext i8 %159 to i16
+  %161 = shl nuw nsw i16 %160, 3
   %162 = or disjoint i16 %161, %158
-  %163 = lshr i8 %150, 3
-  %164 = zext nneg i8 %163 to i16
-  %165 = shl nuw i16 %164, 11
+  %163 = and i8 %150, -8
+  %164 = zext i8 %163 to i16
+  %165 = shl nuw i16 %164, 8
   %166 = or disjoint i16 %162, %165
   store i16 %166, ptr %.084109, align 2
   br label %avifStoreRGB8Pixel.exit
@@ -5189,13 +5189,13 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
 104:                                              ; preds = %.lr.ph
   %105 = lshr i8 %102, 3
   %106 = zext nneg i8 %105 to i16
-  %107 = lshr i8 %100, 2
-  %108 = zext nneg i8 %107 to i16
-  %109 = shl nuw nsw i16 %108, 5
+  %107 = and i8 %100, -4
+  %108 = zext i8 %107 to i16
+  %109 = shl nuw nsw i16 %108, 3
   %110 = or disjoint i16 %109, %106
-  %111 = lshr i8 %98, 3
-  %112 = zext nneg i8 %111 to i16
-  %113 = shl nuw i16 %112, 11
+  %111 = and i8 %98, -8
+  %112 = zext i8 %111 to i16
+  %113 = shl nuw i16 %112, 8
   %114 = or disjoint i16 %110, %113
   store i16 %114, ptr %.06680, align 2
   br label %avifStoreRGB8Pixel.exit

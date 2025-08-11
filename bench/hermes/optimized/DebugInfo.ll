@@ -971,10 +971,9 @@ if.end:                                           ; preds = %if.then, %entry
   %5 = load i64, ptr %flags, align 8
   %6 = trunc i64 %5 to i8
   %frombool.i = and i8 %6, 1
-  %7 = lshr i8 %6, 1
-  %frombool4.i = and i8 %7, 1
+  %frombool4.i = and i8 %6, 2
   %ref.tmp11.sroa.2.0.insert.ext = zext nneg i8 %frombool4.i to i16
-  %ref.tmp11.sroa.2.0.insert.shift = shl nuw nsw i16 %ref.tmp11.sroa.2.0.insert.ext, 8
+  %ref.tmp11.sroa.2.0.insert.shift = shl nuw nsw i16 %ref.tmp11.sroa.2.0.insert.ext, 7
   %ref.tmp11.sroa.0.0.insert.ext = zext nneg i8 %frombool.i to i16
   %ref.tmp11.sroa.0.0.insert.insert = or disjoint i16 %ref.tmp11.sroa.2.0.insert.shift, %ref.tmp11.sroa.0.0.insert.ext
   store i16 %ref.tmp11.sroa.0.0.insert.insert, ptr %flags.i, align 8
@@ -1000,25 +999,25 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %strOffset.i)
   %call.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i, i64 %conv3.i, i32 noundef %offset.addr.023, ptr noundef nonnull %strOffset.i) #16
   %add.i = add i32 %call.i, %offset.addr.023
-  %8 = load i64, ptr %strOffset.i, align 8
-  %conv.i6 = trunc i64 %8 to i32
-  %9 = load i32, ptr %stringTableOffset_.i.i, align 8
-  %conv.i.i7 = zext i32 %9 to i64
-  %10 = load i64, ptr %Length.i.i.i.i, align 8
-  %sub.i.i.i = sub i64 %10, %conv.i.i7
-  %11 = load ptr, ptr %ref_.i.i, align 8
-  %add.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i.i7
+  %7 = load i64, ptr %strOffset.i, align 8
+  %conv.i6 = trunc i64 %7 to i32
+  %8 = load i32, ptr %stringTableOffset_.i.i, align 8
+  %conv.i.i7 = zext i32 %8 to i64
+  %9 = load i64, ptr %Length.i.i.i.i, align 8
+  %sub.i.i.i = sub i64 %9, %conv.i.i7
+  %10 = load ptr, ptr %ref_.i.i, align 8
+  %add.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i.i7
   call void @llvm.lifetime.start.p0(ptr nonnull %strSize.i.i)
   %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i.i.i8, i64 %sub.i.i.i, i32 noundef %conv.i6, ptr noundef nonnull %strSize.i.i) #16
   %add.i.i = add i32 %call.i.i, %conv.i6
   %idx.ext.i.i = zext i32 %add.i.i to i64
   %add.ptr.i.i9 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i8, i64 %idx.ext.i.i
-  %12 = load i64, ptr %strSize.i.i, align 8
+  %11 = load i64, ptr %strSize.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %strSize.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %strOffset.i)
-  %13 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %14 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %13, %14
+  %12 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %13 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %12, %13
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit, label %if.then.i13
 
 if.then.i13:                                      ; preds = %for.body
@@ -1027,15 +1026,15 @@ if.then.i13:                                      ; preds = %for.body
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; preds = %for.body, %if.then.i13
-  %15 = phi i32 [ %.pre.i, %if.then.i13 ], [ %13, %for.body ]
-  %16 = load ptr, ptr %names.i, align 8
-  %conv.i3.i = zext i32 %15 to i64
-  %add.ptr.i.i15 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %16, i64 %conv.i3.i
+  %14 = phi i32 [ %.pre.i, %if.then.i13 ], [ %12, %for.body ]
+  %15 = load ptr, ptr %names.i, align 8
+  %conv.i3.i = zext i32 %14 to i64
+  %add.ptr.i.i15 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i
   store ptr %add.ptr.i.i9, ptr %add.ptr.i.i15, align 1
   %name.sroa.2.0.add.ptr.i.i15.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i15, i64 8
-  store i64 %12, ptr %name.sroa.2.0.add.ptr.i.i15.sroa_idx, align 1
-  %17 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %add.i16 = add i32 %17, 1
+  store i64 %11, ptr %name.sroa.2.0.add.ptr.i.i15.sroa_idx, align 1
+  %16 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %add.i16 = add i32 %16, 1
   store i32 %add.i16, ptr %Size.i.i.i.i.i.i, align 8
   %inc = add nuw i64 %i.024, 1
   %exitcond.not = icmp eq i64 %inc, %3

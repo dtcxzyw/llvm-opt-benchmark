@@ -4067,59 +4067,53 @@ define internal fastcc void @ioapic_configure_entry(ptr noundef %0) unnamed_addr
   %19 = and i32 %18, 2048
   %20 = zext nneg i32 %19 to i64
   %21 = or disjoint i64 %16, %20
-  %22 = lshr i32 %17, 4
-  %23 = and i32 %22, 1
-  %24 = zext nneg i32 %23 to i64
-  %25 = shl nuw nsw i64 %24, 48
-  %26 = or disjoint i64 %21, %25
-  %27 = lshr i32 %17, 5
-  %28 = and i32 %27, 32767
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl nuw i64 %29, 49
-  %31 = or disjoint i64 %26, %30
-  store i64 %31, ptr %5, align 1
+  %22 = and i32 %17, 1048560
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw i64 %23, 44
+  %25 = or disjoint i64 %21, %24
+  store i64 %25, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %32 = load ptr, ptr %4, align 8
-  %33 = icmp eq ptr %32, %4
-  br i1 %33, label %.loopexit, label %.preheader
+  %26 = load ptr, ptr %4, align 8
+  %27 = icmp eq ptr %26, %4
+  br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %34 = phi ptr [ %63, %.preheader ], [ %32, %1 ]
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  %38 = load i32, ptr %37, align 4
-  %39 = load i64, ptr %5, align 8
-  %40 = shl i32 %38, 1
-  %41 = add i32 %40, 17
-  %42 = lshr i64 %39, 32
-  %43 = trunc nuw i64 %42 to i32
-  %44 = shl i32 %36, 12
-  %45 = add i32 %44, 2113536
-  %46 = sext i32 %45 to i64
-  %47 = sub nsw i64 -8392704, %46
-  %48 = inttoptr i64 %47 to ptr
-  %49 = sext i32 %36 to i64
-  %50 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %49, i32 2, i32 4
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, 4095
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr i8, ptr %48, i64 %53
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %41, ptr elementtype(i32) %54) #25, !srcloc !9
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr nonnull elementtype(i32) %55) #25, !srcloc !9
-  %56 = add i32 %40, 16
-  %57 = trunc i64 %39 to i32
-  %58 = load i32, ptr %50, align 4
-  %59 = and i32 %58, 4095
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr i8, ptr %48, i64 %60
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %56, ptr elementtype(i32) %61) #25, !srcloc !9
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %57, ptr nonnull elementtype(i32) %62) #25, !srcloc !9
-  %63 = load ptr, ptr %34, align 8
-  %64 = icmp eq ptr %63, %4
-  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !82
+  %28 = phi ptr [ %57, %.preheader ], [ %26, %1 ]
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = load i64, ptr %5, align 8
+  %34 = shl i32 %32, 1
+  %35 = add i32 %34, 17
+  %36 = lshr i64 %33, 32
+  %37 = trunc nuw i64 %36 to i32
+  %38 = shl i32 %30, 12
+  %39 = add i32 %38, 2113536
+  %40 = sext i32 %39 to i64
+  %41 = sub nsw i64 -8392704, %40
+  %42 = inttoptr i64 %41 to ptr
+  %43 = sext i32 %30 to i64
+  %44 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %43, i32 2, i32 4
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, 4095
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr i8, ptr %42, i64 %47
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %48) #25, !srcloc !9
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr nonnull elementtype(i32) %49) #25, !srcloc !9
+  %50 = add i32 %34, 16
+  %51 = trunc i64 %33 to i32
+  %52 = load i32, ptr %44, align 4
+  %53 = and i32 %52, 4095
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr i8, ptr %42, i64 %54
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(i32) %55) #25, !srcloc !9
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %51, ptr nonnull elementtype(i32) %56) #25, !srcloc !9
+  %57 = load ptr, ptr %28, align 8
+  %58 = icmp eq ptr %57, %4
+  br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void
@@ -5107,7 +5101,7 @@ define internal fastcc void @unlock_ExtINT_logic() unnamed_addr #11 section ".in
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #25, !srcloc !89
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2082, i32 2307, i64 12) #25, !srcloc !90
   tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #25, !srcloc !91
-  br label %45
+  br label %44
 
 4:                                                ; preds = %0
   %5 = tail call fastcc i32 @find_isa_irq_apic(i32 noundef 8, i32 noundef 0) #26
@@ -5118,7 +5112,7 @@ define internal fastcc void @unlock_ExtINT_logic() unnamed_addr #11 section ".in
   tail call void asm sideeffect "469: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 469b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 469) #25, !srcloc !92
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 2087, i32 2307, i64 12) #25, !srcloc !93
   tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_end\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #25, !srcloc !94
-  br label %45
+  br label %44
 
 8:                                                ; preds = %4
   %9 = tail call fastcc i64 @ioapic_read_entry(i32 noundef %5, i32 noundef %1)
@@ -5131,52 +5125,51 @@ define internal fastcc void @unlock_ExtINT_logic() unnamed_addr #11 section ".in
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
   %17 = shl nuw i64 %16, 56
-  %18 = lshr i32 %14, 8
-  %19 = and i32 %18, 127
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw nsw i64 %20, 49
-  %22 = or disjoint i64 %21, %17
-  %23 = and i64 %9, 8192
-  %24 = or disjoint i64 %22, %23
-  %25 = or disjoint i64 %24, 3840
-  tail call fastcc void @ioapic_write_entry(i32 noundef %5, i32 noundef %1, i64 %25)
-  %26 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #25
-  %27 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 10) #25
-  %28 = and i8 %27, -16
-  %29 = or disjoint i8 %28, 6
-  tail call void @rtc_cmos_write(i8 noundef zeroext %29, i8 noundef zeroext 10) #25
-  %30 = or i8 %26, 64
-  tail call void @rtc_cmos_write(i8 noundef zeroext %30, i8 noundef zeroext 11) #25
-  br label %31
+  %18 = and i32 %14, 32512
+  %19 = zext nneg i32 %18 to i64
+  %20 = shl nuw nsw i64 %19, 41
+  %21 = or disjoint i64 %20, %17
+  %22 = and i64 %9, 8192
+  %23 = or disjoint i64 %21, %22
+  %24 = or disjoint i64 %23, 3840
+  tail call fastcc void @ioapic_write_entry(i32 noundef %5, i32 noundef %1, i64 %24)
+  %25 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #25
+  %26 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 10) #25
+  %27 = and i8 %26, -16
+  %28 = or disjoint i8 %27, 6
+  tail call void @rtc_cmos_write(i8 noundef zeroext %28, i8 noundef zeroext 10) #25
+  %29 = or i8 %25, 64
+  tail call void @rtc_cmos_write(i8 noundef zeroext %29, i8 noundef zeroext 11) #25
+  br label %30
 
-31:                                               ; preds = %37, %8
-  %32 = phi i32 [ 100, %8 ], [ %42, %37 ]
-  br label %33
+30:                                               ; preds = %36, %8
+  %31 = phi i32 [ 100, %8 ], [ %41, %36 ]
+  br label %32
 
-33:                                               ; preds = %33, %31
-  %34 = phi i64 [ 10, %31 ], [ %35, %33 ]
-  %35 = add nsw i64 %34, -1
+32:                                               ; preds = %32, %30
+  %33 = phi i64 [ 10, %30 ], [ %34, %32 ]
+  %34 = add nsw i64 %33, -1
   tail call void @__const_udelay(i64 noundef 4295000) #25
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %33, !llvm.loop !95
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %32, !llvm.loop !95
 
-37:                                               ; preds = %33
-  %38 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #25
-  %39 = and i8 %38, 64
-  %40 = icmp eq i8 %39, 0
-  %41 = select i1 %40, i32 -1, i32 -11
-  %42 = add nsw i32 %41, %32
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %31, label %44, !llvm.loop !96
+36:                                               ; preds = %32
+  %37 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #25
+  %38 = and i8 %37, 64
+  %39 = icmp eq i8 %38, 0
+  %40 = select i1 %39, i32 -1, i32 -11
+  %41 = add nsw i32 %40, %31
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %30, label %43, !llvm.loop !96
 
-44:                                               ; preds = %37
-  tail call void @rtc_cmos_write(i8 noundef zeroext %26, i8 noundef zeroext 11) #25
-  tail call void @rtc_cmos_write(i8 noundef zeroext %27, i8 noundef zeroext 10) #25
+43:                                               ; preds = %36
+  tail call void @rtc_cmos_write(i8 noundef zeroext %25, i8 noundef zeroext 11) #25
+  tail call void @rtc_cmos_write(i8 noundef zeroext %26, i8 noundef zeroext 10) #25
   tail call fastcc void @clear_IO_APIC_pin(i32 noundef %5, i32 noundef %1)
   tail call fastcc void @ioapic_write_entry(i32 noundef %5, i32 noundef %1, i64 %9)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %7, %3
+44:                                               ; preds = %43, %7, %3
   ret void
 }
 

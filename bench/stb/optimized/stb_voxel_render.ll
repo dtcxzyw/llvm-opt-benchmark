@@ -673,43 +673,43 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %82, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = lshr i8 %99, 5
-  %101 = zext nneg i8 %100 to i32
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %103 = load i32, ptr %102, align 4, !tbaa !14
-  %104 = add nsw i32 %103, %3
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i8, ptr %82, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !3
-  %108 = lshr i8 %107, 5
-  %109 = zext nneg i8 %108 to i32
-  %110 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %111 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !14
-  %113 = add nsw i32 %112, %3
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %82, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !3
-  %117 = lshr i8 %116, 5
-  %118 = zext nneg i8 %117 to i32
-  %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %120 = getelementptr inbounds nuw i8, ptr %94, i64 12
-  %121 = load i32, ptr %120, align 4, !tbaa !14
-  %122 = add nsw i32 %121, %3
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i8, ptr %82, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !3
-  %126 = lshr i8 %125, 5
-  %127 = zext nneg i8 %126 to i32
-  %128 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %129 = shl nuw i32 %101, 29
-  store i32 %129, ptr %10, align 16, !tbaa !14
-  %130 = shl nuw i32 %109, 29
-  store i32 %130, ptr %110, align 4, !tbaa !14
-  %131 = shl nuw i32 %118, 29
-  store i32 %131, ptr %119, align 8, !tbaa !14
-  %132 = shl nuw i32 %127, 29
-  store i32 %132, ptr %128, align 4, !tbaa !14
+  %100 = and i8 %99, -32
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %102 = load i32, ptr %101, align 4, !tbaa !14
+  %103 = add nsw i32 %102, %3
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %82, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !3
+  %107 = and i8 %106, -32
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %110 = load i32, ptr %109, align 8, !tbaa !14
+  %111 = add nsw i32 %110, %3
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %82, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !3
+  %115 = and i8 %114, -32
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %118 = load i32, ptr %117, align 4, !tbaa !14
+  %119 = add nsw i32 %118, %3
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr %82, i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !3
+  %123 = and i8 %122, -32
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %125 = zext i8 %100 to i32
+  %126 = shl nuw i32 %125, 24
+  store i32 %126, ptr %10, align 16, !tbaa !14
+  %127 = zext i8 %107 to i32
+  %128 = shl nuw i32 %127, 24
+  store i32 %128, ptr %108, align 4, !tbaa !14
+  %129 = zext i8 %115 to i32
+  %130 = shl nuw i32 %129, 24
+  store i32 %130, ptr %116, align 8, !tbaa !14
+  %131 = zext i8 %123 to i32
+  %132 = shl nuw i32 %131, 24
+  store i32 %132, ptr %124, align 4, !tbaa !14
   br label %263
 
 133:                                              ; preds = %83
@@ -884,9 +884,9 @@ define void @stbvox_make_mesh_for_face(ptr noundef captures(none) %0, i8 %1, i32
 
 263:                                              ; preds = %242, %250, %91, %133, %32, %259, %74, %15
   %264 = phi i32 [ %249, %242 ], [ %255, %250 ], [ %132, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
-  %265 = phi i32 [ %248, %242 ], [ %255, %250 ], [ %131, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
-  %266 = phi i32 [ %247, %242 ], [ %255, %250 ], [ %130, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
-  %267 = phi i32 [ %246, %242 ], [ %255, %250 ], [ %129, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
+  %265 = phi i32 [ %248, %242 ], [ %255, %250 ], [ %130, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
+  %266 = phi i32 [ %247, %242 ], [ %255, %250 ], [ %128, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
+  %267 = phi i32 [ %246, %242 ], [ %255, %250 ], [ %126, %91 ], [ %139, %133 ], [ %50, %32 ], [ -536870912, %259 ], [ %76, %74 ], [ %25, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %269 = zext i8 %7 to i64

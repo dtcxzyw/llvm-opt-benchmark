@@ -37019,81 +37019,78 @@ define range(i40 0, -254) i40 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT
   br i1 %.not10.i38, label %.preheader96, label %.thread
 
 43:                                               ; preds = %.preheader96
-  %44 = lshr exact i8 %35, 2
-  %45 = zext nneg i8 %44 to i32
-  %46 = shl nuw nsw i32 %45, 8
-  %47 = icmp ult i64 %16, 12
-  br i1 %47, label %48, label %49
+  %44 = zext i8 %35 to i32
+  %45 = shl nuw nsw i32 %44, 6
+  %46 = icmp ult i64 %16, 12
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %43
+47:                                               ; preds = %43
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 12, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b2a46fe930e0b5b02fc988328aadfd.319.llvm.14502953478370073462) #38, !noalias !5157
   unreachable
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %51 = load i8, ptr %50, align 1, !alias.scope !5160, !noundef !4
-  %52 = and i8 %51, 3
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %.preheader94, label %.thread
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %50 = load i8, ptr %49, align 1, !alias.scope !5160, !noundef !4
+  %51 = and i8 %50, 3
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %.preheader94, label %.thread
 
-.preheader94:                                     ; preds = %49, %55
-  %54 = phi i8 [ %56, %55 ], [ %51, %49 ]
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i45, %55 ], [ 0, %49 ]
+.preheader94:                                     ; preds = %48, %54
+  %53 = phi i8 [ %55, %54 ], [ %50, %48 ]
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i45, %54 ], [ 0, %48 ]
   %cond104 = icmp eq i64 %indvars.iv.i43, 3
-  br i1 %cond104, label %59, label %55, !prof !5129
+  br i1 %cond104, label %58, label %54, !prof !5129
 
-55:                                               ; preds = %.preheader94
+54:                                               ; preds = %.preheader94
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
-  %56 = add i8 %54, 1
-  %57 = getelementptr inbounds nuw [0 x i8], ptr %50, i64 0, i64 %indvars.iv.next.i45
-  %58 = load i8, ptr %57, align 1, !alias.scope !5160, !noundef !4
-  %.not10.i48 = icmp eq i8 %56, %58
+  %55 = add i8 %53, 1
+  %56 = getelementptr inbounds nuw [0 x i8], ptr %49, i64 0, i64 %indvars.iv.next.i45
+  %57 = load i8, ptr %56, align 1, !alias.scope !5160, !noundef !4
+  %.not10.i48 = icmp eq i8 %55, %57
   br i1 %.not10.i48, label %.preheader94, label %.thread
 
-59:                                               ; preds = %.preheader94
-  %60 = lshr exact i8 %51, 2
-  %61 = zext nneg i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 16
-  %63 = icmp ult i64 %16, 16
-  br i1 %63, label %64, label %65
+58:                                               ; preds = %.preheader94
+  %59 = zext i8 %50 to i32
+  %60 = shl nuw nsw i32 %59, 14
+  %61 = icmp ult i64 %16, 16
+  br i1 %61, label %62, label %63
 
-64:                                               ; preds = %59
+62:                                               ; preds = %58
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef 16, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.28b2a46fe930e0b5b02fc988328aadfd.319.llvm.14502953478370073462) #38, !noalias !5163
   unreachable
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %67 = load i8, ptr %66, align 1, !alias.scope !5166, !noundef !4
-  %68 = and i8 %67, 3
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.preheader, label %.thread
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %65 = load i8, ptr %64, align 1, !alias.scope !5166, !noundef !4
+  %66 = and i8 %65, 3
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %65, %71
-  %70 = phi i8 [ %72, %71 ], [ %67, %65 ]
-  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i55, %71 ], [ 0, %65 ]
+.preheader:                                       ; preds = %63, %69
+  %68 = phi i8 [ %70, %69 ], [ %65, %63 ]
+  %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i55, %69 ], [ 0, %63 ]
   %cond105 = icmp eq i64 %indvars.iv.i53, 3
-  br i1 %cond105, label %75, label %71, !prof !5129
+  br i1 %cond105, label %73, label %69, !prof !5129
 
-71:                                               ; preds = %.preheader
+69:                                               ; preds = %.preheader
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
-  %72 = add i8 %70, 1
-  %73 = getelementptr inbounds nuw [0 x i8], ptr %66, i64 0, i64 %indvars.iv.next.i55
-  %74 = load i8, ptr %73, align 1, !alias.scope !5166, !noundef !4
-  %.not10.i58 = icmp eq i8 %72, %74
+  %70 = add i8 %68, 1
+  %71 = getelementptr inbounds nuw [0 x i8], ptr %64, i64 0, i64 %indvars.iv.next.i55
+  %72 = load i8, ptr %71, align 1, !alias.scope !5166, !noundef !4
+  %.not10.i58 = icmp eq i8 %70, %72
   br i1 %.not10.i58, label %.preheader, label %.thread
 
-75:                                               ; preds = %.preheader
-  %76 = lshr exact i8 %67, 2
-  %77 = zext nneg i8 %76 to i32
-  %78 = shl nuw nsw i32 %77, 24
-  %.sroa.9.0.insert.insert = or disjoint i32 %78, %62
-  %.sroa.8.0.insert.insert = or disjoint i32 %.sroa.9.0.insert.insert, %46
-  %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %30
+73:                                               ; preds = %.preheader
+  %74 = zext i8 %65 to i32
+  %75 = shl nuw nsw i32 %74, 22
+  %.sroa.9.0.insert.insert = or disjoint i32 %45, %30
+  %.sroa.8.0.insert.insert = or disjoint i32 %.sroa.9.0.insert.insert, %60
+  %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %75
   br label %.thread
 
-.thread:                                          ; preds = %24, %39, %55, %71, %65, %49, %33, %19, %75
-  %.sroa.6.0 = phi i32 [ %.sroa.01.0.insert.insert, %75 ], [ undef, %19 ], [ undef, %33 ], [ undef, %49 ], [ undef, %65 ], [ undef, %71 ], [ undef, %55 ], [ undef, %39 ], [ undef, %24 ]
-  %.sroa.0.3 = phi i8 [ 1, %75 ], [ 0, %19 ], [ 0, %33 ], [ 0, %49 ], [ 0, %65 ], [ 0, %71 ], [ 0, %55 ], [ 0, %39 ], [ 0, %24 ]
+.thread:                                          ; preds = %24, %39, %54, %69, %63, %48, %33, %19, %73
+  %.sroa.6.0 = phi i32 [ %.sroa.01.0.insert.insert, %73 ], [ undef, %19 ], [ undef, %33 ], [ undef, %48 ], [ undef, %63 ], [ undef, %69 ], [ undef, %54 ], [ undef, %39 ], [ undef, %24 ]
+  %.sroa.0.3 = phi i8 [ 1, %73 ], [ 0, %19 ], [ 0, %33 ], [ 0, %48 ], [ 0, %63 ], [ 0, %69 ], [ 0, %54 ], [ 0, %39 ], [ 0, %24 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i40
   %.sroa.6.0.insert.shift = shl nuw i40 %.sroa.6.0.insert.ext, 8
   %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.3 to i40

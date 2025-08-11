@@ -594,10 +594,10 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %155 = icmp eq i32 %127, 0
   %156 = sub nsw i32 48, %.neg262.i
   %157 = sub nsw i32 47, %.neg262.i
-  %158 = shl i32 %.neg262.i, 20
-  %159 = add i32 %158, 1047527424
-  %.sroa.0.4.insert.ext.i.i281.i = zext nneg i32 %159 to i64
-  %.sroa.0.4.insert.shift.i.i282.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i281.i, 32
+  %158 = shl i32 %.neg262.i, 21
+  %159 = add i32 %158, 2095054848
+  %.sroa.0.4.insert.ext.i.i281.i = zext i32 %159 to i64
+  %.sroa.0.4.insert.shift.i.i282.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i281.i, 31
   %160 = bitcast i64 %.sroa.0.4.insert.shift.i.i282.i to double
   %161 = zext i16 %126 to i64
   %invariant.gep.i = getelementptr i32, ptr @_ZL11two_over_pi, i64 %161
@@ -1047,9 +1047,9 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %333, %330, %322, %3
   br i1 %360, label %361, label %364
 
 361:                                              ; preds = %359
-  %362 = shl nuw nsw i32 %357, 20
-  %.sroa.0.4.insert.ext.i.i314.i = zext nneg i32 %362 to i64
-  %.sroa.0.4.insert.shift.i.i315.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i314.i, 32
+  %362 = shl nuw i32 %357, 21
+  %.sroa.0.4.insert.ext.i.i314.i = zext i32 %362 to i64
+  %.sroa.0.4.insert.shift.i.i315.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i314.i, 31
   %363 = bitcast i64 %.sroa.0.4.insert.shift.i.i315.i to double
   br label %_ZL7scalbnAdi.exit318.i
 

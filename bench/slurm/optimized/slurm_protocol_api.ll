@@ -1692,19 +1692,17 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   br i1 %41, label %42, label %63
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 212
-  %44 = load i16, ptr %43, align 4
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %44)
-  %.sroa.4.0.extract.shift = lshr i16 %rev.i, 8
-  %.sroa.4.0.extract.trunc = zext nneg i16 %.sroa.4.0.extract.shift to i32
-  %45 = load i8, ptr @_check_hash.block_zero_hash, align 1, !range !17, !noundef !18
-  %46 = trunc nuw i8 %45 to i1
-  %47 = load i32, ptr %6, align 4
-  %48 = icmp ne i32 %47, 3
-  %or.cond = select i1 %46, i1 true, i1 %48
-  br i1 %or.cond, label %94, label %49
+  %43 = load i8, ptr @_check_hash.block_zero_hash, align 1, !range !17, !noundef !18
+  %44 = trunc nuw i8 %43 to i1
+  %45 = load i32, ptr %6, align 4
+  %46 = icmp ne i32 %45, 3
+  %or.cond = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond, label %94, label %47
 
-49:                                               ; preds = %42
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 212
+  %49 = load i16, ptr %48, align 4
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %49)
   %.sroa.0.0.extract.trunc = zext i16 %rev.i to i32
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %51 = load i8, ptr %50, align 1
@@ -1714,12 +1712,12 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   %54 = icmp eq i32 %53, %52
   br i1 %54, label %55, label %94
 
-55:                                               ; preds = %49
+55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = sext i8 %57 to i32
-  %sext26 = shl nuw i32 %.sroa.4.0.extract.trunc, 24
-  %59 = ashr exact i32 %sext26, 24
+  %sext26 = shl nuw i32 %.sroa.0.0.extract.trunc, 16
+  %59 = ashr i32 %sext26, 24
   %60 = icmp eq i32 %59, %58
   br i1 %60, label %61, label %94
 
@@ -1789,8 +1787,8 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   %spec.select = select i1 %93, i32 -1, i32 %30
   br label %94
 
-94:                                               ; preds = %91, %61, %42, %55, %49, %90
-  %.2 = phi i32 [ %.1, %90 ], [ %30, %61 ], [ -1, %42 ], [ -1, %55 ], [ -1, %49 ], [ %spec.select, %91 ]
+94:                                               ; preds = %91, %61, %42, %55, %47, %90
+  %.2 = phi i32 [ %.1, %90 ], [ %30, %61 ], [ -1, %42 ], [ -1, %55 ], [ -1, %47 ], [ %spec.select, %91 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #19
   br label %95
 

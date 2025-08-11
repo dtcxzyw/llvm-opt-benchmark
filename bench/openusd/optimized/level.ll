@@ -2803,9 +2803,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel20findVertexValueIndexEii.exit: ; 
 
 87:                                               ; preds = %83, %78
   %.sroa.0.2.i = phi i16 [ %82, %78 ], [ %86, %83 ]
-  %88 = lshr i8 %.sroa.0.0.copyload.i, 7
-  %89 = zext nneg i8 %88 to i16
-  %90 = shl nuw i16 %89, 15
+  %88 = and i8 %.sroa.0.0.copyload.i, -128
+  %89 = zext i8 %88 to i16
+  %90 = shl nuw i16 %89, 8
   %91 = and i16 %.sroa.0.2.i, 24568
   %92 = and i8 %.sroa.0.0.copyload.i, 2
   %93 = zext nneg i8 %92 to i16
@@ -3110,9 +3110,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS2_9FVarLevel8ValueTagELj64ELb
 
 67:                                               ; preds = %63, %58
   %.sroa.0.2.i = phi i16 [ %62, %58 ], [ %66, %63 ]
-  %68 = lshr i8 %52, 7
-  %69 = zext nneg i8 %68 to i16
-  %70 = shl nuw i16 %69, 15
+  %68 = and i8 %52, -128
+  %69 = zext i8 %68 to i16
+  %70 = shl nuw i16 %69, 8
   %71 = and i16 %.sroa.0.2.i, 24568
   %72 = and i8 %52, 2
   %73 = zext nneg i8 %72 to i16
@@ -3175,9 +3175,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
 
 104:                                              ; preds = %100, %95
   %.sroa.0.2.i21 = phi i16 [ %99, %95 ], [ %103, %100 ]
-  %105 = lshr i8 %89, 7
-  %106 = zext nneg i8 %105 to i16
-  %107 = shl nuw i16 %106, 15
+  %105 = and i8 %89, -128
+  %106 = zext i8 %105 to i16
+  %107 = shl nuw i16 %106, 8
   %108 = and i16 %.sroa.0.2.i21, 24568
   %109 = and i8 %89, 2
   %110 = zext nneg i8 %109 to i16
@@ -3273,9 +3273,9 @@ define i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVT
 
 _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit: ; preds = %31, %36
   %.sroa.0.2.i = phi i16 [ %35, %31 ], [ %39, %36 ]
-  %40 = lshr i8 %25, 7
-  %41 = zext nneg i8 %40 to i16
-  %42 = shl nuw i16 %41, 15
+  %40 = and i8 %25, -128
+  %41 = zext i8 %40 to i16
+  %42 = shl nuw i16 %41, 8
   %43 = and i16 %.sroa.0.2.i, 24568
   %44 = and i8 %25, 2
   %45 = zext nneg i8 %44 to i16
@@ -3328,9 +3328,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS
 
 70:                                               ; preds = %68, %64
   %.sroa.0.2.i19 = phi i16 [ %67, %64 ], [ %.reass, %68 ]
-  %71 = lshr i8 %60, 7
-  %72 = zext nneg i8 %71 to i16
-  %73 = shl nuw i16 %72, 15
+  %71 = and i8 %60, -128
+  %72 = zext i8 %71 to i16
+  %73 = shl nuw i16 %72, 8
   %74 = and i16 %.sroa.0.2.i19, 24568
   %75 = and i8 %60, 2
   %76 = zext nneg i8 %75 to i16

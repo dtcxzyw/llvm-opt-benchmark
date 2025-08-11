@@ -30732,7 +30732,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %50, %48, 
   br label %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit"
 
 "_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, %53
-  %.sroa.013.2.extract.trunc. = select i1 %38, i8 0, i8 4
+  %.sroa.013.2.extract.trunc. = select i1 %38, i8 0, i8 -128
   %..sroa.013.1.extract.trunc = zext i1 %38 to i8
   br label %143
 
@@ -30764,7 +30764,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %50, %48, 
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val31 = load ptr, ptr %66, align 8, !alias.scope !3325, !nonnull !3, !noundef !3
   %67 = tail call fastcc noundef zeroext i1 @_ZN4fish3env16environment_impl12EnvStackImpl17remove_from_chain17h930b901df4f2a470E(ptr nonnull %.val31, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2)
-  %..i = select i1 %67, i8 0, i8 4
+  %..i = select i1 %67, i8 0, i8 -128
   br label %143
 
 68:                                               ; preds = %64
@@ -30774,7 +30774,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %50, %48, 
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val32 = load ptr, ptr %70, align 8, !alias.scope !3325, !nonnull !3, !noundef !3
   %71 = tail call fastcc noundef zeroext i1 @_ZN4fish3env16environment_impl12EnvStackImpl17remove_from_chain17h930b901df4f2a470E(ptr nonnull %.val32, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2)
-  %..i34 = select i1 %71, i8 0, i8 4
+  %..i34 = select i1 %71, i8 0, i8 -128
   br label %143
 
 72:                                               ; preds = %68
@@ -30932,7 +30932,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %50, %48, 
           to label %127 unwind label %.loopexit.split-lp
 
 127:                                              ; preds = %.loopexit63
-  %..i36 = select i1 %126, i8 0, i8 4
+  %..i36 = select i1 %126, i8 0, i8 -128
   call void @"_ZN4core3ptr60drop_in_place$LT$fish..env..environment_impl..EnvNodeRef$GT$17hd99524b11c90659aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %143
@@ -30972,15 +30972,15 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i38: ; preds = %139, %1
   br label %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39"
 
 "_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i38, %142
-  %. = select i1 %63, i8 0, i8 4
+  %. = select i1 %63, i8 0, i8 -128
   br label %143
 
 143:                                              ; preds = %26, %65, %127, %69, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39", %30, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit", %24
-  %.sroa.7.0 = phi i8 [ 2, %24 ], [ %., %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39" ], [ %..i, %65 ], [ %..i34, %69 ], [ %..i36, %127 ], [ 0, %26 ], [ 0, %30 ], [ %.sroa.013.2.extract.trunc., %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit" ]
+  %.sroa.7.0 = phi i8 [ 64, %24 ], [ %., %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39" ], [ %..i, %65 ], [ %..i34, %69 ], [ %..i36, %127 ], [ 0, %26 ], [ 0, %30 ], [ %.sroa.013.2.extract.trunc., %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit" ]
   %.sroa.5.0 = phi i8 [ 0, %24 ], [ 1, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39" ], [ 0, %65 ], [ 0, %69 ], [ 0, %127 ], [ 0, %26 ], [ 0, %30 ], [ %..sroa.013.1.extract.trunc, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit" ]
   %.sroa.04.0 = phi i8 [ 0, %24 ], [ 0, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit39" ], [ 1, %65 ], [ 0, %69 ], [ 0, %127 ], [ 0, %26 ], [ 1, %30 ], [ 0, %"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E.exit" ]
-  %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
-  %.sroa.7.0.insert.shift = shl nuw nsw i24 %.sroa.7.0.insert.ext, 16
+  %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i24
+  %.sroa.7.0.insert.shift = shl nuw nsw i24 %.sroa.7.0.insert.ext, 11
   %.sroa.5.0.insert.ext = zext nneg i8 %.sroa.5.0 to i24
   %.sroa.5.0.insert.shift = shl nuw nsw i24 %.sroa.5.0.insert.ext, 8
   %.sroa.5.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.7.0.insert.shift
@@ -37347,10 +37347,9 @@ define range(i40 0, 4328521728) i40 @_ZN4fish12input_common10parse_mask17hd6c02a
   %.sroa.22.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.22.0.insert.shift
   %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.22.0.insert.insert, %.sroa.01.0.insert.ext
   %5 = trunc i32 %0 to i8
-  %6 = lshr i8 %5, 6
-  %7 = and i8 %6, 1
-  %.sroa.2.0.insert.ext = zext nneg i8 %7 to i40
-  %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 32
+  %6 = and i8 %5, 64
+  %.sroa.2.0.insert.ext = zext nneg i8 %6 to i40
+  %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 26
   %.sroa.0.0.insert.ext = zext nneg i32 %.sroa.01.0.insert.insert to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert

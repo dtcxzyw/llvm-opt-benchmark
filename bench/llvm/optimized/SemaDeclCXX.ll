@@ -130595,49 +130595,61 @@ _ZN5clang17ElaboratedTypeLoc15setQualifierLocENS_22NestedNameSpecifierLocE.exit:
   %258 = inttoptr i64 %257 to ptr
   %.not.not8.i = icmp eq i64 %257, 0
   %.not.not.i = or i1 %256, %.not.not8.i
-  br i1 %.not.not.i, label %265, label %259
+  br i1 %.not.not.i, label %263, label %259
 
 259:                                              ; preds = %.lr.ph
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %261 = load i64, ptr %260, align 16
   %262 = lshr i64 %261, 32
-  %263 = trunc nuw i64 %262 to i32
-  %264 = and i32 %263, 32767
+  %.sroa.0.0.insert.ext.i.i = and i64 %262, 32767
   br label %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
 
-265:                                              ; preds = %.lr.ph
-  %266 = getelementptr inbounds nuw i8, ptr %258, i64 28
-  %267 = load i32, ptr %266, align 4
-  %268 = and i32 %267, 127
-  %269 = icmp ne i32 %268, 65
-  %.not.not.i.i = or i1 %.not.not8.i, %269
-  br i1 %.not.not.i.i, label %273, label %270
+263:                                              ; preds = %.lr.ph
+  %264 = getelementptr inbounds nuw i8, ptr %258, i64 28
+  %265 = load i32, ptr %264, align 4
+  %266 = and i32 %265, 127
+  %267 = icmp ne i32 %266, 65
+  %.not.not.i.i = or i1 %.not.not8.i, %267
+  br i1 %.not.not.i.i, label %271, label %268
 
-270:                                              ; preds = %265
-  %271 = call noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getDepthEv(ptr noundef nonnull align 8 dereferenceable(80) %258) #28
-  %272 = call noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %258) #28
+268:                                              ; preds = %263
+  %269 = call noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getDepthEv(ptr noundef nonnull align 8 dereferenceable(80) %258) #28
+  %270 = call noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %258) #28
+  br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
+
+271:                                              ; preds = %263
+  %272 = icmp ne i32 %266, 45
+  %.not14.not.i.i = or i1 %.not.not8.i, %272
+  br i1 %.not14.not.i.i, label %278, label %273
+
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %258, i64 68
+  %275 = load i32, ptr %274, align 4
+  %276 = and i32 %275, 1048575
+  %277 = and i32 %275, -1048576
+  br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
+
+278:                                              ; preds = %271
+  %279 = getelementptr inbounds nuw i8, ptr %258, i64 64
+  %280 = load i32, ptr %279, align 8
+  %281 = and i32 %280, 1048575
+  %282 = and i32 %280, -1048576
+  br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
+
+_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i: ; preds = %278, %273, %268
+  %.sink40.i.i = phi i32 [ %277, %273 ], [ %270, %268 ], [ %282, %278 ]
+  %.sink39.i.i = phi i64 [ 12, %273 ], [ 32, %268 ], [ 12, %278 ]
+  %.sink.i.i = phi i32 [ %276, %273 ], [ %269, %268 ], [ %281, %278 ]
+  %.sroa.2.0.insert.ext.i18.i.i = zext i32 %.sink40.i.i to i64
+  %.sroa.2.0.insert.shift.i19.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i18.i.i, %.sink39.i.i
+  %.sroa.0.0.insert.ext.i20.i.i = zext i32 %.sink.i.i to i64
+  %.sroa.0.0.insert.insert.i21.i.i = add nuw nsw i64 %.sroa.2.0.insert.shift.i19.i.i, %.sroa.0.0.insert.ext.i20.i.i
   br label %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
 
-273:                                              ; preds = %265
-  %274 = icmp ne i32 %268, 45
-  %.not14.not.i.i = or i1 %.not.not8.i, %274
-  br i1 %.not14.not.i.i, label %279, label %275
-
-275:                                              ; preds = %273
-  %276 = getelementptr inbounds nuw i8, ptr %258, i64 68
-  %277 = load i32, ptr %276, align 4
-  %278 = and i32 %277, 1048575
-  br label %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
-
-279:                                              ; preds = %273
-  %280 = getelementptr inbounds nuw i8, ptr %258, i64 64
-  %281 = load i32, ptr %280, align 8
-  %282 = and i32 %281, 1048575
-  br label %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
-
-_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit: ; preds = %270, %275, %279, %259
-  %.sroa.0.1.i = phi i32 [ %264, %259 ], [ %278, %275 ], [ %271, %270 ], [ %282, %279 ]
-  %.not139 = icmp ugt i32 %250, %.sroa.0.1.i
+_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit: ; preds = %259, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.insert.insert.i21.i.i, %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit.i ], [ %.sroa.0.0.insert.ext.i.i, %259 ]
+  %.sroa.023.0.extract.trunc = trunc i64 %.sroa.0.1.i to i32
+  %.not139 = icmp ugt i32 %250, %.sroa.023.0.extract.trunc
   br i1 %.not139, label %.critedge142, label %283
 
 283:                                              ; preds = %_ZN5clang16getDepthAndIndexESt4pairIN4llvm12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEPNS_26ResolvedUnexpandedPackExprEEEENS_14SourceLocationEE.exit
