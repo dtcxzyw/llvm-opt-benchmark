@@ -1057,19 +1057,19 @@ define void @_ZN4base6PickleC2EPKci(ptr noundef nonnull writeonly align 8 captur
   %or.cond = and i1 %13, %.not
   br i1 %or.cond, label %15, label %.thread9.sink.split
 
-15:                                               ; preds = %9
+15:; preds = %9
   %.not4 = icmp eq i32 %2, %10
-  br i1 %.not4, label %.thread9, label %16
+  br i1 %.not4, label %18, label %16
 
-.thread9.sink.split:                              ; preds = %9
+.thread9.sink.split:; preds = %9
   store i64 0, ptr %5, align 8, !tbaa !14
-  br label %.thread9
+  br label %18
 
-.thread9:                                         ; preds = %.thread9.sink.split, %3, %15
+18:                                               ; preds = %.thread9.sink.split, %3, %15
   store ptr null, ptr %4, align 8, !tbaa !13
-  br label %16
+  br label %19
 
-16:                                               ; preds = %.thread9, %15
+19:                                               ; preds = %18, %15
   ret void
 }
 
