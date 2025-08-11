@@ -465,7 +465,7 @@ define hidden noundef ptr @_ZN19XMarkStackAllocator26create_magazine_from_spaceE
   br label %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit
 
 _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit: ; preds = %7, %11
-  %14 = add i64 %.08, 2048
+  %14 = add nuw i64 %.08, 2048
   %15 = icmp ult i64 %14, %2
   br i1 %15, label %7, label %._crit_edge, !llvm.loop !10
 

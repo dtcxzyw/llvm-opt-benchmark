@@ -1089,56 +1089,59 @@ entryPreparePage.exit.i:                          ; preds = %86, %76
 
 .lr.ph.i:                                         ; preds = %entryPreparePage.exit.i
   %105 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  br label %106
+  %106 = zext i16 %.val to i64
+  %107 = add nsw i16 %.0.i.i, 1
+  %umax.i = tail call i16 @llvm.umax.i16(i16 %107, i16 2)
+  %wide.trip.count.i = zext i16 %umax.i to i64
+  br label %108
 
-106:                                              ; preds = %117, %.lr.ph.i
-  %.09.i = phi i16 [ 1, %.lr.ph.i ], [ %131, %117 ]
-  %.0808.i = phi ptr [ %9, %.lr.ph.i ], [ %128, %117 ]
-  %.0857.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %117 ]
-  %107 = icmp eq i16 %.09.i, %.val
-  br i1 %107, label %108, label %117
+108:                                              ; preds = %119, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %119 ]
+  %.0808.i = phi ptr [ %9, %.lr.ph.i ], [ %129, %119 ]
+  %.0857.i = phi i64 [ 0, %.lr.ph.i ], [ %131, %119 ]
+  %109 = icmp eq i64 %indvars.iv.i, %106
+  br i1 %109, label %110, label %119
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr i8, ptr %109, i64 6
-  %.val95.i = load i16, ptr %110, align 2
-  %111 = and i16 %.val95.i, 8191
-  %narrow.i15 = add nuw nsw i16 %111, 7
-  %112 = and i16 %narrow.i15, 16376
-  %113 = zext nneg i16 %112 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0808.i, ptr align 2 %109, i64 %113, i1 false)
-  %114 = getelementptr inbounds nuw i8, ptr %.0808.i, i64 %113
-  %115 = add i64 %.0857.i, 4
-  %116 = add i64 %115, %113
-  br label %117
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr i8, ptr %111, i64 6
+  %.val95.i = load i16, ptr %112, align 2
+  %113 = and i16 %.val95.i, 8191
+  %narrow.i14 = add nuw nsw i16 %113, 7
+  %114 = and i16 %narrow.i14, 16376
+  %115 = zext nneg i16 %114 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0808.i, ptr align 2 %111, i64 %115, i1 false)
+  %116 = getelementptr inbounds nuw i8, ptr %.0808.i, i64 %115
+  %117 = add i64 %.0857.i, 4
+  %118 = add i64 %117, %115
+  br label %119
 
-117:                                              ; preds = %108, %106
-  %.186.i = phi i64 [ %116, %108 ], [ %.0857.i, %106 ]
-  %.181.i = phi ptr [ %114, %108 ], [ %.0808.i, %106 ]
-  %118 = zext i16 %.09.i to i64
-  %119 = add nsw i64 %118, -1
-  %120 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %105, i64 0, i64 %119
-  %.val97.i = load i32, ptr %120, align 4
-  %121 = and i32 %.val97.i, 32767
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %69, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 6
-  %.val94.i = load i16, ptr %124, align 2
-  %125 = and i16 %.val94.i, 8191
-  %narrow2.i = add nuw nsw i16 %125, 7
-  %126 = and i16 %narrow2.i, 16376
-  %127 = zext nneg i16 %126 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.181.i, ptr align 2 %123, i64 %127, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %.181.i, i64 %127
-  %129 = add i64 %.186.i, 4
-  %130 = add i64 %129, %127
-  %131 = add i16 %.09.i, 1
-  %.not.i13 = icmp ugt i16 %131, %.0.i.i
-  br i1 %.not.i13, label %._crit_edge.i, label %106, !llvm.loop !10
+119:                                              ; preds = %110, %108
+  %.186.i = phi i64 [ %118, %110 ], [ %.0857.i, %108 ]
+  %.181.i = phi ptr [ %116, %110 ], [ %.0808.i, %108 ]
+  %120 = add nsw i64 %indvars.iv.i, -1
+  %121 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %105, i64 0, i64 %120
+  %.val97.i = load i32, ptr %121, align 4
+  %122 = and i32 %.val97.i, 32767
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %69, i64 %123
+  %125 = getelementptr i8, ptr %124, i64 6
+  %.val94.i = load i16, ptr %125, align 2
+  %126 = and i16 %.val94.i, 8191
+  %narrow2.i = add nuw nsw i16 %126, 7
+  %127 = and i16 %narrow2.i, 16376
+  %128 = zext nneg i16 %127 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.181.i, ptr align 2 %124, i64 %128, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %.181.i, i64 %128
+  %130 = add i64 %.186.i, 4
+  %131 = add i64 %130, %128
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.i, label %._crit_edge.i, label %108, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %117, %entryPreparePage.exit.i
-  %.085.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %130, %117 ]
-  %.080.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %128, %117 ]
+._crit_edge.i:                                    ; preds = %119, %entryPreparePage.exit.i
+  %.085.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %131, %119 ]
+  %.080.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %129, %119 ]
   %132 = zext i16 %.0.i.i to i32
   %133 = zext i16 %.val to i32
   %134 = add nuw nsw i32 %132, 1
@@ -1148,8 +1151,8 @@ entryPreparePage.exit.i:                          ; preds = %86, %76
 136:                                              ; preds = %._crit_edge.i
   %137 = load ptr, ptr %3, align 8
   %138 = getelementptr i8, ptr %137, i64 6
-  %.val.i14 = load i16, ptr %138, align 2
-  %139 = and i16 %.val.i14, 8191
+  %.val.i13 = load i16, ptr %138, align 2
+  %139 = and i16 %.val.i13, 8191
   %narrow3.i = add nuw nsw i16 %139, 7
   %140 = and i16 %narrow3.i, 16376
   %141 = zext nneg i16 %140 to i64
@@ -1519,6 +1522,9 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

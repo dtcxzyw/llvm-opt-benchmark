@@ -82895,9 +82895,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
 
 150:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h1c66dfeb98559e72E.exit"
   %.sroa.3152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.3152.0.copyload = load i8, ptr %.sroa.3152.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 9
-  %.sroa.5.sroa.0.0.copyload = load i56, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.3152.0.copyload = load i64, ptr %.sroa.3152.0..sroa_idx, align 8
   %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.sroa.5.sroa.2, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx.sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -82945,7 +82943,7 @@ common.ret:                                       ; preds = %416, %401, %375, %2
   br i1 %161, label %162, label %200
 
 162:                                              ; preds = %"_ZN4core3ptr227drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h54e842bb370725e6E.exit"
-  %163 = trunc nuw i8 %.sroa.3152.0.copyload to i1
+  %163 = trunc i64 %.sroa.3152.0.copyload to i1
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %162
@@ -83094,11 +83092,7 @@ common.ret:                                       ; preds = %416, %401, %375, %2
 
 200:                                              ; preds = %"_ZN4core3ptr227drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h54e842bb370725e6E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.30, ptr noundef nonnull align 1 dereferenceable(72) %.sroa.5.sroa.2, i64 72, i1 false)
-  %.sroa.23.0.insert.ext = zext i8 %.sroa.3152.0.copyload to i64
-  %.sroa.23.1.insert.ext = zext i56 %.sroa.5.sroa.0.0.copyload to i64
-  %.sroa.23.1.insert.shift = shl nuw i64 %.sroa.23.1.insert.ext, 8
-  %.sroa.23.1.insert.insert = or disjoint i64 %.sroa.23.1.insert.shift, %.sroa.23.0.insert.ext
-  %201 = inttoptr i64 %.sroa.23.1.insert.insert to ptr
+  %201 = inttoptr i64 %.sroa.3152.0.copyload to ptr
   br label %182
 
 202:                                              ; preds = %463, %354, %235, %192, %474, %471, %469, %467, %465, %363, %146

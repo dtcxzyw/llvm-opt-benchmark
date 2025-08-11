@@ -1447,34 +1447,29 @@ define hidden i64 @"_ZN120_$LT$ruff_formatter..printer..stack..StackedStack$LT$T
   %11 = icmp ult i64 %3, 1152921504606846977
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %10, i64 %6
-  %.sroa.05.0.copyload = load i8, ptr %12, align 2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %.sroa.4.sroa.0.0.copyload = load i56, ptr %.sroa.4.0..sroa_idx, align 1
-  %13 = zext i56 %.sroa.4.sroa.0.0.copyload to i64
-  %14 = shl nuw i64 %13, 8
-  %15 = zext i8 %.sroa.05.0.copyload to i64
-  %16 = or disjoint i64 %14, %15
+  %.sroa.05.0.copyload = load i64, ptr %12, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  %.not.i = icmp eq i8 %.sroa.05.0.copyload, 2
+  %13 = and i64 %.sroa.05.0.copyload, 255
+  %.not.i = icmp eq i64 %13, 2
   br i1 %.not.i, label %.thread, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit"
 
 .thread:                                          ; preds = %1, %5
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !alias.scope !198, !nonnull !9, !noundef !9
-  %20 = load ptr, ptr %17, align 8, !alias.scope !198, !nonnull !9, !noundef !9
-  %21 = icmp eq ptr %20, %19
-  br i1 %21, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit", label %22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8, !alias.scope !198, !nonnull !9, !noundef !9
+  %17 = load ptr, ptr %14, align 8, !alias.scope !198, !nonnull !9, !noundef !9
+  %18 = icmp eq ptr %17, %16
+  br i1 %18, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit", label %19
 
-22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr %23, ptr %18, align 8, !alias.scope !198
-  %.sroa.03.0.copyload.i.i = load i64, ptr %23, align 2, !noalias !201
+19:                                               ; preds = %.thread
+  %20 = getelementptr inbounds i8, ptr %16, i64 -8
+  store ptr %20, ptr %15, align 8, !alias.scope !198
+  %.sroa.03.0.copyload.i.i = load i64, ptr %20, align 2, !noalias !201
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit": ; preds = %5, %.thread, %22
-  %.sroa.04.0.i = phi i64 [ %16, %5 ], [ %.sroa.03.0.copyload.i.i, %22 ], [ 2, %.thread ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h136a3fc19f2ae828E.exit": ; preds = %5, %.thread, %19
+  %.sroa.04.0.i = phi i64 [ %.sroa.05.0.copyload, %5 ], [ %.sroa.03.0.copyload.i.i, %19 ], [ 2, %.thread ]
   ret i64 %.sroa.04.0.i
 }
 

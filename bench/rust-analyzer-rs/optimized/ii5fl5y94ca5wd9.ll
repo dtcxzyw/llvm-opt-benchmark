@@ -26069,52 +26069,33 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %17, %.thread,
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.010.0.copyload = load i8, ptr %33, align 4
   %34 = icmp eq i8 %.sroa.010.0.copyload, 2
-  br i1 %34, label %38, label %35
+  br i1 %34, label %40, label %35
 
 35:                                               ; preds = %32
-  %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %.sroa.714.0.copyload = load i32, ptr %.sroa.714.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.482, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false)
-  %37 = icmp ne i32 %.sroa.6.0.copyload, 0
-  %.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.714.0.copyload to i64
-  %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.ext.i.i = zext i32 %.sroa.6.0.copyload to i64
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %.sroa.038.0 = zext i1 %37 to i32
-  %.sroa.539.0 = select i1 %37, i64 %.sroa.0.0.insert.insert.i.i, i64 undef
-  br label %38
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.sroa.6.0.copyload = load i64, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.482, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false)
+  %38 = and i64 %.sroa.6.0.copyload, 4294967295
+  %39 = icmp ne i64 %38, 0
+  %.sroa.038.0 = zext i1 %39 to i32
+  br label %40
 
-38:                                               ; preds = %35, %32
+40:                                               ; preds = %35, %32
   %.sroa.583.0 = phi i32 [ %.sroa.038.0, %35 ], [ 2, %32 ]
-  %.sroa.784.0 = phi i64 [ %.sroa.539.0, %35 ], [ undef, %32 ]
+  %.sroa.784.0 = phi i64 [ %.sroa.6.0.copyload, %35 ], [ undef, %32 ]
   %.sroa.015.0.copyload = load i32, ptr %1, align 4
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.517.0.copyload = load i32, ptr %.sroa.517.0..sroa_idx, align 4
   %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.719.0.copyload = load i32, ptr %.sroa.719.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %39 = icmp eq i32 %.sroa.015.0.copyload, 3
-  br i1 %39, label %43, label %40
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %.sroa.719.0.copyload, 0
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %40
-  %.sroa.2.0.insert.ext.i.i70 = zext i32 %.sroa.8.0.copyload to i64
-  %.sroa.2.0.insert.shift.i.i71 = shl nuw i64 %.sroa.2.0.insert.ext.i.i70, 32
-  %.sroa.0.0.insert.ext.i.i72 = zext i32 %.sroa.719.0.copyload to i64
-  %.sroa.0.0.insert.insert.i.i73 = or disjoint i64 %.sroa.2.0.insert.shift.i.i71, %.sroa.0.0.insert.ext.i.i72
-  br label %43
-
-43:                                               ; preds = %38, %42, %40
-  %.sroa.587.0 = phi i32 [ undef, %38 ], [ %.sroa.517.0.copyload, %42 ], [ %.sroa.517.0.copyload, %40 ]
-  %.sroa.689.0 = phi i32 [ 2, %38 ], [ 1, %42 ], [ 0, %40 ]
-  %.sroa.8.0 = phi i64 [ undef, %38 ], [ %.sroa.0.0.insert.insert.i.i73, %42 ], [ undef, %40 ]
+  %.sroa.719.0.copyload = load i64, ptr %.sroa.719.0..sroa_idx, align 4
+  %41 = icmp eq i32 %.sroa.015.0.copyload, 3
+  %42 = and i64 %.sroa.719.0.copyload, 4294967295
+  %43 = icmp ne i64 %42, 0
+  %spec.select = zext i1 %43 to i32
+  %.sroa.587.0 = select i1 %41, i32 undef, i32 %.sroa.517.0.copyload
+  %.sroa.689.0 = select i1 %41, i32 2, i32 %spec.select
+  %.sroa.8.0 = select i1 %41, i64 undef, i64 %.sroa.719.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !5999)
   call void @llvm.experimental.noalias.scope.decl(metadata !6002)
   store i32 0, ptr %0, align 4, !alias.scope !6004, !noalias !6002

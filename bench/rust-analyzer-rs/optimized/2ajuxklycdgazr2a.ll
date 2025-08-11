@@ -4260,21 +4260,15 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0.i)
   %5 = load i32, ptr %2, align 4, !range !43, !alias.scope !791, !noalias !795, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i32, ptr %6, align 4, !alias.scope !793, !noalias !796, !noundef !4
-  %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %10 = load i32, ptr %9, align 4, !alias.scope !793, !noalias !796
-  %.sroa.2.0.insert.ext.i.i.i = zext i32 %10 to i64
-  %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %7 to i64
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  %.sroa.412.0.i = select i1 %8, i64 %.sroa.0.0.insert.insert.i.i.i, i64 undef
-  %storemerge.i = zext i1 %8 to i32
+  %7 = load i64, ptr %6, align 4, !alias.scope !793, !noalias !796
+  %8 = and i64 %7, 4294967295
+  %9 = icmp ne i64 %8, 0
+  %storemerge.i = zext i1 %9 to i32
   %.sroa.5.sroa.0.39..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.i, i64 39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5.sroa.0.39..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(24) %3, i64 16, i1 false), !noalias !797
   store i8 27, ptr %0, align 8, !alias.scope !788, !noalias !802
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 3, ptr %11, align 8, !alias.scope !788, !noalias !802
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 3, ptr %10, align 8, !alias.scope !788, !noalias !802
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 2, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !788, !noalias !802
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -4286,7 +4280,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %storemerge.i, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !788, !noalias !802
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i64 %.sroa.412.0.i, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !788, !noalias !802
+  store i64 %7, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !788, !noalias !802
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0.i)
   ret void
 }
@@ -39003,21 +38997,15 @@ define hidden void @"_ZN7hir_def10item_scope9ItemScope11resolutions28_$u7b$$u7b$
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0)
   %5 = load i32, ptr %2, align 4, !range !43, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i32, ptr %6, align 4, !noundef !4
-  %8 = icmp ne i32 %7, 0
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %10 = load i32, ptr %9, align 4
-  %.sroa.2.0.insert.ext.i.i = zext i32 %10 to i64
-  %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.ext.i.i = zext i32 %7 to i64
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %.sroa.412.0 = select i1 %8, i64 %.sroa.0.0.insert.insert.i.i, i64 undef
-  %storemerge = zext i1 %8 to i32
+  %7 = load i64, ptr %6, align 4
+  %8 = and i64 %7, 4294967295
+  %9 = icmp ne i64 %8, 0
+  %storemerge = zext i1 %9 to i32
   %.sroa.5.sroa.0.39..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0, i64 39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5.sroa.0.39..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !noalias !12874
   store i8 27, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 3, ptr %11, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 3, ptr %10, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 2, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -39029,7 +39017,7 @@ define hidden void @"_ZN7hir_def10item_scope9ItemScope11resolutions28_$u7b$$u7b$
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %storemerge, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i64 %.sroa.412.0, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx, align 4
+  store i64 %7, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0)
   ret void
 }

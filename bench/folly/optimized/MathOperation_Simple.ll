@@ -54,7 +54,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
 24:                                               ; preds = %28
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %25, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
-  %26 = add i64 %.058, 64
+  %26 = add nuw i64 %.058, 64
   %27 = icmp ult i64 %26, %19
   br i1 %27, label %21, label %.loopexit, !llvm.loop !13
 
@@ -88,7 +88,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3addEmm
 47:                                               ; preds = %51
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 %.04960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
-  %49 = add i64 %.04960, 64
+  %49 = add nuw i64 %.04960, 64
   %50 = icmp ult i64 %49, %11
   br i1 %50, label %44, label %.loopexit, !llvm.loop !18
 
@@ -160,7 +160,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
 25:                                               ; preds = %29
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.063
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %26, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
-  %27 = add i64 %.063, 64
+  %27 = add nuw i64 %.063, 64
   %28 = icmp ult i64 %27, %20
   br i1 %28, label %22, label %.loopexit, !llvm.loop !20
 
@@ -195,7 +195,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE3subEmm
 49:                                               ; preds = %53
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 %.05365
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %50, ptr noundef nonnull align 64 dereferenceable(64) %8, i64 64, i1 false)
-  %51 = add i64 %.05365, 64
+  %51 = add nuw i64 %.05365, 64
   %52 = icmp ult i64 %51, %11
   br i1 %52, label %46, label %.loopexit, !llvm.loop !22
 
@@ -245,7 +245,7 @@ define void @_ZN5folly6crypto6detail13MathOperationILNS1_10MathEngineE1EE16clear
 
 11:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %10, ptr noundef nonnull align 64 dereferenceable(64) %4, i64 64, i1 false)
-  %12 = add i64 %.01015, 64
+  %12 = add nuw i64 %.01015, 64
   %13 = icmp ult i64 %12, %9
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 

@@ -19964,9 +19964,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i56.i.i: ; preds
   %2595 = phi ptr [ %1681, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit232.i" ], [ %1815, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit244.i" ]
   %.sroa.0505.0.copyload506 = load i64, ptr %104, align 8, !noalias !6328
   %.sroa.12507.0..sroa_idx508 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %.sroa.12507.sroa.0.0.copyload = load i8, ptr %.sroa.12507.0..sroa_idx508, align 8, !noalias !6328
-  %.sroa.12507.sroa.6.0..sroa.12507.0..sroa_idx508.sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 9
-  %.sroa.12507.sroa.6.sroa.0.0.copyload = load i56, ptr %.sroa.12507.sroa.6.0..sroa.12507.0..sroa_idx508.sroa_idx, align 1, !noalias !6328
+  %.sroa.12507.sroa.0.0.copyload = load i64, ptr %.sroa.12507.0..sroa_idx508, align 8
   %.sroa.12507.sroa.6.sroa.6.0..sroa.12507.sroa.6.0..sroa.12507.0..sroa_idx508.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %.sroa.12507.sroa.6.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.12507.sroa.6.sroa.6.0..sroa.12507.sroa.6.0..sroa.12507.0..sroa_idx508.sroa_idx.sroa_idx, i64 48, i1 false), !noalias !6328
   %.sroa.12507.sroa.6.sroa.7.0..sroa.12507.sroa.6.0..sroa.12507.0..sroa_idx508.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 64
@@ -20013,7 +20011,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i56.i.i: ; preds
   br i1 %2602, label %2603, label %2804
 
 2603:                                             ; preds = %2601
-  %2604 = trunc nuw i8 %.sroa.12507.sroa.0.0.copyload to i1
+  %2604 = trunc i64 %.sroa.12507.sroa.0.0.copyload to i1
   br i1 %2604, label %2616, label %2605
 
 2605:                                             ; preds = %2603
@@ -20580,11 +20578,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i56.i.i: ; preds
 2804:                                             ; preds = %2601
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.15, ptr noundef nonnull align 1 dereferenceable(48) %.sroa.6512.sroa.2, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.18, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6512.sroa.4, i64 7, i1 false)
-  %.sroa.8544.0.insert.ext = zext i8 %.sroa.12507.sroa.0.0.copyload to i64
-  %.sroa.8544.1.insert.ext = zext i56 %.sroa.12507.sroa.6.sroa.0.0.copyload to i64
-  %.sroa.8544.1.insert.shift = shl nuw i64 %.sroa.8544.1.insert.ext, 8
-  %.sroa.8544.1.insert.insert = or disjoint i64 %.sroa.8544.1.insert.shift, %.sroa.8544.0.insert.ext
-  %2805 = inttoptr i64 %.sroa.8544.1.insert.insert to ptr
+  %2805 = inttoptr i64 %.sroa.12507.sroa.0.0.copyload to ptr
   br label %2633
 
 "_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit189": ; preds = %2633, %2638
