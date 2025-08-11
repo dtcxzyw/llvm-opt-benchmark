@@ -1439,30 +1439,30 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph: ; preds = %20
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60
 
-_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph, %.critedge
-  %.sroa.883.0121 = phi i64 [ 0, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph ], [ %34, %.critedge ]
-  %.sroa.082.0120 = phi ptr [ %25, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph ], [ %33, %.critedge ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 32
-  %34 = add nuw nsw i64 %.sroa.883.0121, 1
+_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph, %64
+  %.sroa.883.0120 = phi i64 [ 0, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph ], [ %34, %64 ]
+  %.sroa.082.0119 = phi ptr [ %25, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph ], [ %33, %64 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 32
+  %34 = add nuw nsw i64 %.sroa.883.0120, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.sroa.883.0121, ptr %14, align 8
+  store i64 %.sroa.883.0120, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %35 = load i32, ptr %.sroa.082.0120, align 8, !range !70, !noundef !3
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 4
+  %35 = load i32, ptr %.sroa.082.0119, align 8, !range !70, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 4
   %37 = load i32, ptr %36, align 4, !noundef !3
   store i32 %35, ptr %13, align 4
   store i32 %37, ptr %30, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 28
   %39 = load i8, ptr %38, align 4, !range !56, !noundef !3
   store i8 %39, ptr %12, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 8
   %41 = load i64, ptr %40, align 8, !range !57, !noundef !3
   store i64 %41, ptr %11, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.082.0120, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.082.0119, i64 24
   %44 = load i32, ptr %43, align 8, !noundef !3
   store i32 %44, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1484,8 +1484,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60: ; preds = %_ZN4core
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %45, label %.loopexit, label %47
 
-.sink.split:                                      ; preds = %.critedge, %20, %.loopexit
-  %.sroa.0.0.ph = phi i1 [ true, %.loopexit ], [ false, %20 ], [ false, %.critedge ]
+.sink.split:                                      ; preds = %64, %20, %.loopexit
+  %.sroa.0.0.ph = phi i1 [ true, %.loopexit ], [ false, %20 ], [ false, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %46
 
@@ -1564,11 +1564,11 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit75: ; preds = %53
   store ptr %42, ptr %.sroa.617.0..sroa_idx, align 8
   %63 = call noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc377a1f5b5dd17a9E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.4e3ae4507d0d9b5d003813a1409fd0ef.36, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %64 = and i8 %63, 1
-  %or.cond.not119 = icmp eq i8 %64, 0
-  br i1 %or.cond.not119, label %.critedge, label %.loopexit
+  %switch.and = and i8 %63, 1
+  %switch.selectcmp.not = icmp eq i8 %switch.and, 0
+  br i1 %switch.selectcmp.not, label %64, label %.loopexit
 
-.critedge:                                        ; preds = %62
+64:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

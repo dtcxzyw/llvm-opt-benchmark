@@ -5090,7 +5090,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
   %.sroa.05.0 = phi i1 [ true, %20 ], [ false, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ false, %28 ]
   %.sroa.04.0 = phi i1 [ true, %20 ], [ %.sroa.04.1, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ %.sroa.04.1, %28 ]
   %.sroa.03.0 = phi i1 [ true, %20 ], [ %.sroa.03.1, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ %.sroa.03.1, %28 ]
-  %.sroa.01.0 = phi i1 [ true, %20 ], [ %.sroa.01.1, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ %.sroa.01.1, %28 ]
+  %.sroa.01.0 = phi i8 [ 1, %20 ], [ %.sroa.01.1, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ %.sroa.01.1, %28 ]
   %.sroa.0.0 = phi i1 [ true, %20 ], [ %.sroa.0.1, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit" ], [ %.sroa.0.1, %28 ]
   %17 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !732
   %18 = icmp eq i64 %17, 1
@@ -5120,7 +5120,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn.pn, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ %.pn.pn.pn, %39 ]
   %.sroa.04.1 = phi i1 [ true, %31 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ false, %39 ]
   %.sroa.03.1 = phi i1 [ true, %31 ], [ %.sroa.03.2, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ %.sroa.03.2, %39 ]
-  %.sroa.01.1 = phi i1 [ true, %31 ], [ %.sroa.01.2, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ %.sroa.01.2, %39 ]
+  %.sroa.01.1 = phi i8 [ 1, %31 ], [ %.sroa.01.2, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ %.sroa.01.2, %39 ]
   %.sroa.0.1 = phi i1 [ true, %31 ], [ %.sroa.0.2, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit" ], [ %.sroa.0.2, %39 ]
   %27 = icmp eq i64 %24, 0
   br i1 %27, label %"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..table..Table$u5d$$GT$$GT$17h57bc7c2a8d88cd3aE.exit", label %28
@@ -5150,7 +5150,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
 "_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit": ; preds = %50, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit", %42
   %.pn.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit" ], [ %.pn.pn, %50 ]
   %.sroa.03.2 = phi i1 [ true, %42 ], [ false, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit" ], [ false, %50 ]
-  %.sroa.01.2 = phi i1 [ true, %42 ], [ %.sroa.01.3, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit" ], [ %.sroa.01.3, %50 ]
+  %.sroa.01.2 = phi i8 [ 1, %42 ], [ %.sroa.01.3, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit" ], [ %.sroa.01.3, %50 ]
   %.sroa.0.2 = phi i1 [ true, %42 ], [ %.sroa.0.3, %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit" ], [ %.sroa.0.3, %50 ]
   %38 = icmp eq i64 %35, 0
   br i1 %38, label %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..func..Func$u5d$$GT$$GT$17h7502c8141eeee16aE.exit", label %39
@@ -5179,7 +5179,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
 
 "_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..global..Global$u5d$$GT$$GT$17hb3ac4b95485e3590E.exit": ; preds = %101, %99, %53
   %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %99 ], [ %.pn, %101 ]
-  %.sroa.01.3 = phi i1 [ true, %53 ], [ false, %99 ], [ false, %101 ]
+  %.sroa.01.3 = phi i8 [ 1, %53 ], [ 0, %99 ], [ 0, %101 ]
   %.sroa.0.3 = phi i1 [ true, %53 ], [ %.sroa.0.4, %99 ], [ %.sroa.0.4, %101 ]
   %49 = icmp eq i64 %46, 0
   br i1 %49, label %"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..Memory$u5d$$GT$$GT$17h7d3be5abbf1a33e4E.exit", label %50
@@ -5292,7 +5292,7 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-97:                                               ; preds = %19, %118, %.thread, %113, %111, %108, %105, %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..data..DataSegment$u5d$$GT$$GT$17hd5527066313421ddE.exit"
+97:                                               ; preds = %19, %119, %116, %113, %111, %108, %105, %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..memory..data..DataSegment$u5d$$GT$$GT$17hd5527066313421ddE.exit"
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26
@@ -5329,7 +5329,8 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
           to label %107 unwind label %97
 
 110:                                              ; preds = %111, %107
-  br i1 %.sroa.01.0, label %113, label %115
+  %cond = icmp eq i8 %.sroa.01.0, 0
+  br i1 %cond, label %115, label %113
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -5339,23 +5340,23 @@ define void @_ZN5wasmi8instance7builder21InstanceEntityBuilder6finish17h23c033ae
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 168
   invoke void @"_ZN4core3ptr119drop_in_place$LT$wasmi_collections..map..Map$LT$alloc..boxed..Box$LT$str$GT$$C$wasmi..instance..exports..Extern$GT$$GT$17h98ebcae4d99d8e76E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %114) #27
-          to label %.thread unwind label %97
+          to label %116 unwind label %97
 
-115:                                              ; preds = %110, %.thread
-  br i1 %.sroa.0.0, label %118, label %117
+115:                                              ; preds = %110, %116
+  br i1 %.sroa.0.0, label %119, label %118
 
-.thread:                                          ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..memory..data..DataSegment$GT$$GT$17hd8d3df6d43ee18aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116) #27
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$wasmi..memory..data..DataSegment$GT$$GT$17hd8d3df6d43ee18aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117) #27
           to label %115 unwind label %97
 
-117:                                              ; preds = %118, %115
+118:                                              ; preds = %119, %115
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmi..table..element..ElementSegment$GT$$GT$17h739331bc7617e2aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %119) #27
-          to label %117 unwind label %97
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmi..table..element..ElementSegment$GT$$GT$17h739331bc7617e2aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120) #27
+          to label %118 unwind label %97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

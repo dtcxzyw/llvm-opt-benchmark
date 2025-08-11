@@ -12070,42 +12070,43 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd74437813456ca0dE.llvm.1472373081438710728"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 1)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd74437813456ca0dE.llvm.1472373081438710728"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 8, !range !321, !noundef !4
-  switch i8 %3, label %6 [
+  switch i8 %3, label %default.unreachable [
     i8 3, label %4
     i8 2, label %5
+    i8 0, label %6
+    i8 1, label %9
   ]
 
 4:                                                ; preds = %2
   store i8 7, ptr %0, align 8
-  br label %13
+  br label %12
 
 5:                                                ; preds = %2
   store i8 6, ptr %0, align 8
-  br label %13
+  br label %12
 
 6:                                                ; preds = %2
-  %trunc = trunc nuw i8 %3 to i1
-  br i1 %trunc, label %10, label %7
-
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i64, ptr %8, align 8, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !noundef !4
   store i8 5, ptr %0, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %9, ptr %.sroa.54.0..sroa_idx, align 8
-  br label %13
+  store i64 %8, ptr %.sroa.54.0..sroa_idx, align 8
+  br label %12
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1, !range !720, !noundef !4
+default.unreachable:                              ; preds = %2
+  unreachable
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %11 = load i8, ptr %10, align 1, !range !720, !noundef !4
   store i8 3, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %12, ptr %.sroa.411.0..sroa_idx, align 1
-  br label %13
+  store i8 %11, ptr %.sroa.411.0..sroa_idx, align 1
+  br label %12
 
-13:                                               ; preds = %4, %5, %7, %10
+12:                                               ; preds = %4, %5, %6, %9
   ret void
 }
 

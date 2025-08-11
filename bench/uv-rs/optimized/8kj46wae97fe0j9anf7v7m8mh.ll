@@ -616,7 +616,7 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %.not = icmp ugt i64 %2, %switch.load
-  br i1 %.not, label %switch.lookup151, label %35
+  br i1 %.not, label %switch.lookup136, label %35
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !69
@@ -648,18 +648,18 @@ switch.lookup:                                    ; preds = %3
   store i64 -9223372036854775807, ptr %.sroa.42.0..sroa_idx, align 8
   br label %102
 
-switch.lookup151:                                 ; preds = %switch.lookup
+switch.lookup136:                                 ; preds = %switch.lookup
   %27 = zext nneg i8 %16 to i64
-  %switch.gep152 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %27
-  %switch.load153 = load i64, ptr %switch.gep152, align 8
-  %28 = add i64 %switch.load153, %2
+  %switch.gep137 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN24uv_distribution_filename11source_dist18SourceDistFilename26parsed_normalized_filename17hd93b9762b88ceb24E.7, i64 0, i64 %27
+  %switch.load138 = load i64, ptr %switch.gep137, align 8
+  %28 = add i64 %switch.load138, %2
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.lr.ph.split.i.i.preheader, label %30
 
-.lr.ph.split.i.i.preheader:                       ; preds = %31, %switch.lookup151
+.lr.ph.split.i.i.preheader:                       ; preds = %31, %switch.lookup136
   br label %.lr.ph.split.i.i
 
-30:                                               ; preds = %switch.lookup151
+30:                                               ; preds = %switch.lookup136
   %.not.i = icmp ult i64 %28, %2
   br i1 %.not.i, label %31, label %44
 
@@ -707,12 +707,12 @@ switch.lookup151:                                 ; preds = %switch.lookup
   %45 = phi i64 [ %50, %48 ], [ %28, %.lr.ph.split.i.i.preheader ]
   %46 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17ha7887b741167a530E(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %45), !noalias !82
   %47 = extractvalue { i64, i64 } %46, 0
-  %switch.i.i = icmp eq i64 %47, 1
-  br i1 %switch.i.i, label %49, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i"
+  %switch135 = icmp eq i64 %47, 1
+  br i1 %switch135, label %49, label %55
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda1f57aecafb03a3E.exit.i.i", %49
   %.not.i.i = icmp ugt i64 %50, %28
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.split.i.i
+  br i1 %.not.i.i, label %55, label %.lr.ph.split.i.i
 
 49:                                               ; preds = %.lr.ph.split.i.i
   %50 = extractvalue { i64, i64 } %46, 1
@@ -733,13 +733,7 @@ switch.lookup151:                                 ; preds = %switch.lookup
   %54 = icmp eq i64 %53, -9223372036854775808
   br i1 %54, label %64, label %70
 
-"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i": ; preds = %.lr.ph.split.i.i
-  %trunc.i = trunc nuw i64 %47 to i1
-  %55 = xor i1 %trunc.i, true
-  tail call void @llvm.assume(i1 %55)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %48, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i"
+55:                                               ; preds = %.lr.ph.split.i.i, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !91
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h50e3a03eb32b7f4bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !91
   %56 = load i64, ptr %7, align 8, !range !25, !noalias !91, !noundef !3
@@ -749,12 +743,12 @@ switch.lookup151:                                 ; preds = %switch.lookup
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %trunc.i.i81, label %60, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2c0acb657db3b276E.exit84"
 
-60:                                               ; preds = %.loopexit
+60:                                               ; preds = %55
   %61 = load i64, ptr %59, align 8, !noalias !91
   tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %58, i64 %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3ff4effd56a761dccef137c6a5fefd00.16) #15, !noalias !91
   unreachable
 
-"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2c0acb657db3b276E.exit84": ; preds = %.loopexit
+"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2c0acb657db3b276E.exit84": ; preds = %55
   %62 = load ptr, ptr %59, align 8, !noalias !91, !nonnull !3, !noundef !3
   %63 = icmp ule i64 %2, %58
   tail call void @llvm.assume(i1 %63)

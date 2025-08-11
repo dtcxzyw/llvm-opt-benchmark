@@ -9367,36 +9367,34 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1368
   call void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$..deserialize_enum..Enum$LT$R$GT$$u20$as$u20$serde..de..EnumAccess$GT$12variant_seed17h60419b9a66ec6591E.llvm.10085540174115877777"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   %3 = load i8, ptr %2, align 8, !range !14, !noalias !1368, !noundef !4
-  %4 = icmp eq i8 %3, 2
-  br i1 %4, label %6, label %5
+  switch i8 %3, label %8 [
+    i8 2, label %4
+    i8 0, label %14
+  ]
 
-5:                                                ; preds = %1
-  %trunc.i.i = trunc nuw i8 %3 to i1
-  br i1 %trunc.i.i, label %10, label %16
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !noalias !1368, !nonnull !4, !align !5, !noundef !4
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = load ptr, ptr %5, align 8, !noalias !1368, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1368
-  %9 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %8, 1
+  %7 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %6, 1
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !1368, !nonnull !4, !align !5, !noundef !4
-  %13 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
-  %14 = extractvalue { i64, ptr } %13, 1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  br label %16
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1368, !nonnull !4, !align !5, !noundef !4
+  %11 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h7bd3e3e434eff19aE.llvm.10085540174115877777"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  %12 = extractvalue { i64, ptr } %11, 1
+  %13 = icmp ne ptr %12, null
+  tail call void @llvm.assume(i1 %13)
+  br label %14
 
-16:                                               ; preds = %10, %5
-  %.pn.i.i = phi { i64, ptr } [ %13, %10 ], [ zeroinitializer, %5 ]
+14:                                               ; preds = %8, %1
+  %.pn.i.i = phi { i64, ptr } [ %11, %8 ], [ zeroinitializer, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1368
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
 
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %6, %16
-  %.merged.i.i = phi { i64, ptr } [ %9, %6 ], [ %.pn.i.i, %16 ]
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %4, %14
+  %.merged.i.i = phi { i64, ptr } [ %7, %4 ], [ %.pn.i.i, %14 ]
   ret { i64, ptr } %.merged.i.i
 }
 

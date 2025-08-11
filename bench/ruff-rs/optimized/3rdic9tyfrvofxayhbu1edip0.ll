@@ -188,8 +188,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   %.not32 = icmp eq i64 %16, 2
   br i1 %.not32, label %.thread50, label %.thread
 
-.thread50.sink.split:                             ; preds = %38, %39
-  %.sink55 = phi i64 [ 8, %39 ], [ 40, %38 ]
+.thread50.sink.split:                             ; preds = %36, %37
+  %.sink55 = phi i64 [ 8, %37 ], [ 40, %36 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
   store ptr %.sroa.7.0.copyload, ptr %28, align 8
   br label %.thread50
@@ -217,18 +217,16 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load ptr, ptr %34, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not33 = icmp eq i64 %.sroa.03.0.copyload, 2
-  br i1 %.not33, label %.thread50, label %36
+  switch i64 %.sroa.03.0.copyload, label %36 [
+    i64 2, label %.thread50
+    i64 0, label %37
+  ]
 
 36:                                               ; preds = %.thread
-  %37 = trunc nuw i64 %.sroa.03.0.copyload to i1
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
   store i64 %.sroa.55.0.copyload, ptr %15, align 8
   br label %.thread50.sink.split
 
-39:                                               ; preds = %36
+37:                                               ; preds = %.thread
   store i64 %.sroa.55.0.copyload, ptr %0, align 8
   br label %.thread50.sink.split
 }

@@ -9216,8 +9216,8 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter10expression29can_om
   %or.cond.not = select i1 %8, i1 %11, i1 false
   br i1 %or.cond.not, label %12, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14
 
-_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14: ; preds = %20, %23, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9, %36, %12, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %12 ], [ false, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread ], [ false, %36 ], [ %52, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11 ], [ false, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9 ], [ true, %23 ], [ true, %20 ]
+_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14: ; preds = %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %23, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9, %36, %12, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread, %2
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %12 ], [ false, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread ], [ false, %36 ], [ %52, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11 ], [ false, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9 ], [ true, %23 ], [ true, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 
@@ -9240,7 +9240,7 @@ _ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parent
 20:                                               ; preds = %17
   %21 = call noundef i8 @_ZN21ruff_python_formatter10expression19has_own_parentheses17hed5a0b84201bbe29E(ptr noundef nonnull align 8 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %23
+  br i1 %22, label %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, label %23
 
 23:                                               ; preds = %20
   %24 = call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..ExprRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17h07b9e5fe39a19c82E"(ptr noundef nonnull align 8 %16)
@@ -9252,15 +9252,21 @@ _ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parent
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
   %32 = call noundef zeroext i1 @_ZN21ruff_python_formatter10expression11parentheses27is_expression_parenthesized17h1473e2ab1b593624E(i64 noundef %25, ptr noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 %30, i64 noundef %31)
-  br i1 %32, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
+  br i1 %32, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i
 
-_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread: ; preds = %23, %17, %15
+_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i: ; preds = %23, %20
+  switch i8 %21, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14 [
+    i8 2, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
+    i8 0, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
+  ]
+
+_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread: ; preds = %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %17, %15
   %33 = load i64, ptr %3, align 8, !range !6, !noundef !3
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %switch.i = icmp samesign ult i64 %33, 2
-  %.not521 = icmp eq ptr %35, null
-  %.not5 = select i1 %switch.i, i1 true, i1 %.not521
+  %.not519 = icmp eq ptr %35, null
+  %.not5 = select i1 %switch.i, i1 true, i1 %.not519
   br i1 %.not5, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14, label %36
 
 36:                                               ; preds = %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread
