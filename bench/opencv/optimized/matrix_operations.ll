@@ -1531,27 +1531,27 @@ define void @_ZN2cv7hconcatERKNS_11_InputArrayES2_RKNS_12_OutputArrayE(ptr nound
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %13 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %.noexc11 unwind label %.loopexit.loopexit18
+          to label %.noexc10 unwind label %.loopexit.loopexit17
 
-.noexc11:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
+.noexc10:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %14 = icmp eq i32 %13, 65536
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %.noexc11
+15:                                               ; preds = %.noexc10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !35, !noalias !54
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit14 unwind label %.loopexit.loopexit18
+          to label %_ZNK2cv11_InputArray6getMatEi.exit13 unwind label %.loopexit.loopexit17
 
-18:                                               ; preds = %.noexc11
+18:                                               ; preds = %.noexc10
   invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit14 unwind label %.loopexit.loopexit18
+          to label %_ZNK2cv11_InputArray6getMatEi.exit13 unwind label %.loopexit.loopexit17
 
-_ZNK2cv11_InputArray6getMatEi.exit14:             ; preds = %15, %18
+_ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
   invoke void @_ZN2cv7hconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef nonnull %5, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %19 unwind label %32
 
-19:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit14
+19:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 192
   br label %21
 
@@ -1589,13 +1589,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit18:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
+.loopexit.loopexit17:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   br label %.loopexit
 
-32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit14
+32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -1608,8 +1608,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
   %38 = icmp eq ptr %37, %5
   br i1 %38, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %35, %.loopexit.loopexit18, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit18 ], [ %33, %35 ]
+.loopexit:                                        ; preds = %35, %.loopexit.loopexit17, %.thread
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit17 ], [ %33, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2000,27 +2000,27 @@ define void @_ZN2cv7vconcatERKNS_11_InputArrayES2_RKNS_12_OutputArrayE(ptr nound
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %13 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %.noexc11 unwind label %.loopexit.loopexit18
+          to label %.noexc10 unwind label %.loopexit.loopexit17
 
-.noexc11:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
+.noexc10:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %14 = icmp eq i32 %13, 65536
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %.noexc11
+15:                                               ; preds = %.noexc10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !35, !noalias !71
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit14 unwind label %.loopexit.loopexit18
+          to label %_ZNK2cv11_InputArray6getMatEi.exit13 unwind label %.loopexit.loopexit17
 
-18:                                               ; preds = %.noexc11
+18:                                               ; preds = %.noexc10
   invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
-          to label %_ZNK2cv11_InputArray6getMatEi.exit14 unwind label %.loopexit.loopexit18
+          to label %_ZNK2cv11_InputArray6getMatEi.exit13 unwind label %.loopexit.loopexit17
 
-_ZNK2cv11_InputArray6getMatEi.exit14:             ; preds = %15, %18
+_ZNK2cv11_InputArray6getMatEi.exit13:             ; preds = %15, %18
   invoke void @_ZN2cv7vconcatEPKNS_3MatEmRKNS_12_OutputArrayE(ptr noundef nonnull %5, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %19 unwind label %32
 
-19:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit14
+19:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 192
   br label %21
 
@@ -2058,13 +2058,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit18:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
+.loopexit.loopexit17:                             ; preds = %18, %15, %_ZNK2cv11_InputArray6getMatEi.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   br label %.loopexit
 
-32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit14
+32:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit13
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -2077,8 +2077,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
   %38 = icmp eq ptr %37, %5
   br i1 %38, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %35, %.loopexit.loopexit18, %.thread
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit18 ], [ %33, %35 ]
+.loopexit:                                        ; preds = %35, %.loopexit.loopexit17, %.thread
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %.loopexit.loopexit17 ], [ %33, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

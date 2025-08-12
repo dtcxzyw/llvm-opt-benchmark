@@ -617,8 +617,8 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   %13 = tail call signext i8 @utext_moveIndex32_77(ptr noundef %1, i32 noundef 4)
   %14 = tail call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %15 = sext i32 %3 to i64
-  %.not168 = icmp slt i64 %14, %15
-  br i1 %.not168, label %16, label %433
+  %.not166 = icmp slt i64 %14, %15
+  br i1 %.not166, label %16, label %433
 
 16:                                               ; preds = %11
   tail call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %12)
@@ -659,14 +659,14 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   br label %33
 
 33:                                               ; preds = %.lr.ph, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
-  %.0136301 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
+  %.0136299 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
   %34 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %35 = trunc i64 %34 to i32
   %36 = icmp sgt i32 %3, %35
   br i1 %36, label %.noexc, label %.critedge
 
 .noexc:                                           ; preds = %33
-  %37 = urem i32 %.0136301, 3
+  %37 = urem i32 %.0136299, 3
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %38
   %40 = load ptr, ptr %25, align 8, !tbaa !18
@@ -675,9 +675,9 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load i32, ptr %43, align 4, !tbaa !11
   %.not.i = icmp eq i32 %44, %42
-  br i1 %.not.i, label %.noexc191, label %.noexc190
+  br i1 %.not.i, label %.noexc189, label %.noexc188
 
-.noexc190:                                        ; preds = %.noexc
+.noexc188:                                        ; preds = %.noexc
   store i32 %42, ptr %43, align 4, !tbaa !11
   %45 = sub nsw i32 %3, %42
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 20
@@ -691,18 +691,18 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %.thread.i
 
-54:                                               ; preds = %.noexc190
+54:                                               ; preds = %.noexc188
   %sext.i = shl i64 %41, 32
   %55 = ashr exact i64 %sext.i, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %55)
-  br label %.noexc191
+  br label %.noexc189
 
-.noexc191:                                        ; preds = %54, %.noexc
+.noexc189:                                        ; preds = %54, %.noexc
   %.pr.i = load i32, ptr %39, align 4, !tbaa !14
   %56 = icmp sgt i32 %.pr.i, 0
-  br i1 %56, label %.thread.i, label %.thread252
+  br i1 %56, label %.thread.i, label %.thread250
 
-.thread252:                                       ; preds = %.noexc191
+.thread250:                                       ; preds = %.noexc189
   %57 = add nsw i32 %.pr.i, -1
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 %57, ptr %58, align 4, !tbaa !16
@@ -710,8 +710,8 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   store i32 %57, ptr %59, align 4, !tbaa !17
   br label %200
 
-.thread.i:                                        ; preds = %.noexc191, %.noexc190
-  %60 = phi i32 [ %.pr.i, %.noexc191 ], [ %52, %.noexc190 ]
+.thread.i:                                        ; preds = %.noexc189, %.noexc188
+  %60 = phi i32 [ %.pr.i, %.noexc189 ], [ %52, %.noexc188 ]
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %62 = add nsw i32 %60, -1
   %63 = zext nneg i32 %62 to i64
@@ -744,7 +744,7 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
   %83 = getelementptr inbounds nuw i8, ptr %39, i64 100
   %84 = getelementptr inbounds [20 x i32], ptr %83, i64 0, i64 %80
   %85 = load i32, ptr %84, align 4, !tbaa !15
-  %86 = add i32 %.0136301, 1
+  %86 = add i32 %.0136299, 1
   br label %200
 
 87:                                               ; preds = %.thread.i
@@ -754,11 +754,11 @@ define noundef i32 @_ZNK6icu_7715ThaiBreakEngine23divideUpDictionaryRangeEP5UTex
 89:                                               ; preds = %87
   %90 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %91 = trunc i64 %90 to i32
-  %.not172 = icmp sgt i32 %3, %91
-  br i1 %.not172, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread
+  %.not170 = icmp sgt i32 %3, %91
+  br i1 %.not170, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.preheader: ; preds = %89
-  %92 = add i32 %.0136301, 1
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.preheader: ; preds = %89
+  %92 = add i32 %.0136299, 1
   %93 = urem i32 %92, 3
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %94
@@ -768,7 +768,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.preheader: ; preds = %89
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %102 = add i32 %.0136301, 2
+  %102 = add i32 %.0136299, 2
   %103 = urem i32 %102, 3
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %104
@@ -778,17 +778,17 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.preheader: ; preds = %89
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit217:  ; preds = %177, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.preheader
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit215:  ; preds = %177, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.preheader
   %112 = load ptr, ptr %25, align 8, !tbaa !18
   %113 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %114 = trunc i64 %113 to i32
   %115 = load i32, ptr %96, align 4, !tbaa !11
-  %.not.i194 = icmp eq i32 %115, %114
-  br i1 %.not.i194, label %.noexc201, label %.noexc200
+  %.not.i192 = icmp eq i32 %115, %114
+  br i1 %.not.i192, label %.noexc199, label %.noexc198
 
-.noexc200:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217
+.noexc198:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215
   store i32 %114, ptr %96, align 4, !tbaa !11
   %116 = sub nsw i32 %3, %114
   %117 = load ptr, ptr %112, align 8, !tbaa !3
@@ -797,27 +797,27 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217:  ; preds = %177, %_ZN6icu_7712P
   %120 = call noundef i32 %119(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef %1, i32 noundef %116, i32 noundef 20, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef null, ptr noundef nonnull %99)
   store i32 %120, ptr %95, align 4, !tbaa !14
   %121 = icmp slt i32 %120, 1
-  br i1 %121, label %122, label %.thread.i195
+  br i1 %121, label %122, label %.thread.i193
 
-122:                                              ; preds = %.noexc200
-  %sext.i197 = shl i64 %113, 32
-  %123 = ashr exact i64 %sext.i197, 32
+122:                                              ; preds = %.noexc198
+  %sext.i195 = shl i64 %113, 32
+  %123 = ashr exact i64 %sext.i195, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %123)
-  br label %.noexc201
+  br label %.noexc199
 
-.noexc201:                                        ; preds = %122, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217
-  %.pr.i198 = load i32, ptr %95, align 4, !tbaa !14
-  %124 = icmp sgt i32 %.pr.i198, 0
-  br i1 %124, label %.thread.i195, label %.thread253
+.noexc199:                                        ; preds = %122, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215
+  %.pr.i196 = load i32, ptr %95, align 4, !tbaa !14
+  %124 = icmp sgt i32 %.pr.i196, 0
+  br i1 %124, label %.thread.i193, label %.thread251
 
-.thread253:                                       ; preds = %.noexc201
-  %125 = add nsw i32 %.pr.i198, -1
+.thread251:                                       ; preds = %.noexc199
+  %125 = add nsw i32 %.pr.i196, -1
   store i32 %125, ptr %100, align 4, !tbaa !16
   store i32 %125, ptr %101, align 4, !tbaa !17
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-.thread.i195:                                     ; preds = %.noexc201, %.noexc200
-  %126 = phi i32 [ %.pr.i198, %.noexc201 ], [ %120, %.noexc200 ]
+.thread.i193:                                     ; preds = %.noexc199, %.noexc198
+  %126 = phi i32 [ %.pr.i196, %.noexc199 ], [ %120, %.noexc198 ]
   %127 = add nsw i32 %126, -1
   %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds nuw [20 x i32], ptr %97, i64 0, i64 %128
@@ -825,30 +825,30 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217:  ; preds = %177, %_ZN6icu_7712P
   %131 = add nsw i32 %130, %114
   %132 = sext i32 %131 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %132)
-  %.pre.i196 = load i32, ptr %95, align 4, !tbaa !14
-  %133 = add nsw i32 %.pre.i196, -1
+  %.pre.i194 = load i32, ptr %95, align 4, !tbaa !14
+  %133 = add nsw i32 %.pre.i194, -1
   store i32 %133, ptr %100, align 4, !tbaa !16
   store i32 %133, ptr %101, align 4, !tbaa !17
-  %134 = icmp sgt i32 %.pre.i196, 0
+  %134 = icmp sgt i32 %.pre.i194, 0
   br i1 %134, label %135, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-135:                                              ; preds = %.thread.i195
+135:                                              ; preds = %.thread.i193
   %136 = load i32, ptr %69, align 4, !tbaa !16
   store i32 %136, ptr %70, align 4, !tbaa !17
   %137 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %138 = trunc i64 %137 to i32
-  %.not173 = icmp sgt i32 %3, %138
-  br i1 %.not173, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread
+  %.not171 = icmp sgt i32 %3, %138
+  br i1 %.not171, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread
 
 _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %135, %167
   %139 = load ptr, ptr %25, align 8, !tbaa !18
   %140 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %141 = trunc i64 %140 to i32
   %142 = load i32, ptr %106, align 4, !tbaa !11
-  %.not.i204 = icmp eq i32 %142, %141
-  br i1 %.not.i204, label %.noexc211, label %.noexc210
+  %.not.i202 = icmp eq i32 %142, %141
+  br i1 %.not.i202, label %.noexc209, label %.noexc208
 
-.noexc210:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+.noexc208:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
   store i32 %141, ptr %106, align 4, !tbaa !11
   %143 = sub nsw i32 %3, %141
   %144 = load ptr, ptr %139, align 8, !tbaa !3
@@ -857,21 +857,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %135, %167
   %147 = call noundef i32 %146(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef %1, i32 noundef %143, i32 noundef 20, ptr noundef nonnull %107, ptr noundef nonnull %108, ptr noundef null, ptr noundef nonnull %109)
   store i32 %147, ptr %105, align 4, !tbaa !14
   %148 = icmp slt i32 %147, 1
-  br i1 %148, label %149, label %.thread.i205
+  br i1 %148, label %149, label %.thread.i203
 
-149:                                              ; preds = %.noexc210
-  %sext.i207 = shl i64 %140, 32
-  %150 = ashr exact i64 %sext.i207, 32
+149:                                              ; preds = %.noexc208
+  %sext.i205 = shl i64 %140, 32
+  %150 = ashr exact i64 %sext.i205, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %150)
-  br label %.noexc211
+  br label %.noexc209
 
-.noexc211:                                        ; preds = %149, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
-  %.pr.i208 = load i32, ptr %105, align 4, !tbaa !14
-  %151 = icmp sgt i32 %.pr.i208, 0
-  br i1 %151, label %.thread.i205, label %159
+.noexc209:                                        ; preds = %149, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+  %.pr.i206 = load i32, ptr %105, align 4, !tbaa !14
+  %151 = icmp sgt i32 %.pr.i206, 0
+  br i1 %151, label %.thread.i203, label %159
 
-.thread.i205:                                     ; preds = %.noexc211, %.noexc210
-  %152 = phi i32 [ %.pr.i208, %.noexc211 ], [ %147, %.noexc210 ]
+.thread.i203:                                     ; preds = %.noexc209, %.noexc208
+  %152 = phi i32 [ %.pr.i206, %.noexc209 ], [ %147, %.noexc208 ]
   %153 = add nsw i32 %152, -1
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw [20 x i32], ptr %107, i64 0, i64 %154
@@ -879,21 +879,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %135, %167
   %157 = add nsw i32 %156, %141
   %158 = sext i32 %157 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %158)
-  %.pre.i206 = load i32, ptr %105, align 4, !tbaa !14
+  %.pre.i204 = load i32, ptr %105, align 4, !tbaa !14
   br label %159
 
-159:                                              ; preds = %.thread.i205, %.noexc211
-  %160 = phi i32 [ %.pre.i206, %.thread.i205 ], [ %.pr.i208, %.noexc211 ]
+159:                                              ; preds = %.thread.i203, %.noexc209
+  %160 = phi i32 [ %.pre.i204, %.thread.i203 ], [ %.pr.i206, %.noexc209 ]
   %161 = add nsw i32 %160, -1
   store i32 %161, ptr %110, align 4, !tbaa !16
   store i32 %161, ptr %111, align 4, !tbaa !17
-  %.not174 = icmp eq i32 %160, 0
-  br i1 %.not174, label %164, label %162
+  %.not172 = icmp eq i32 %160, 0
+  br i1 %.not172, label %164, label %162
 
 162:                                              ; preds = %159
   %163 = load i32, ptr %69, align 4, !tbaa !16
   store i32 %163, ptr %70, align 4, !tbaa !17
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread
 
 164:                                              ; preds = %159
   %165 = load i32, ptr %100, align 4, !tbaa !16
@@ -912,10 +912,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %135, %167
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %174), !llvm.loop !36
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %164, %.thread253, %.thread.i195
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %164, %.thread251, %.thread.i193
   %175 = load i32, ptr %69, align 4, !tbaa !16
   %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %177, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread
+  br i1 %176, label %177, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread
 
 177:                                              ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
   %178 = load i32, ptr %43, align 4, !tbaa !11
@@ -927,9 +927,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %164, %.thread253
   %183 = add nsw i32 %182, %178
   %184 = sext i32 %183 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %184), !llvm.loop !37
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %135, %89, %162
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %135, %89, %162
   %185 = load i32, ptr %43, align 4, !tbaa !11
   %186 = load i32, ptr %70, align 4, !tbaa !17
   %187 = sext i32 %186 to i64
@@ -945,21 +945,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %196 = getelementptr inbounds nuw i8, ptr %39, i64 100
   %197 = getelementptr inbounds [20 x i32], ptr %196, i64 0, i64 %193
   %198 = load i32, ptr %197, align 4, !tbaa !15
-  %199 = add i32 %.0136301, 1
+  %199 = add i32 %.0136299, 1
   br label %200
 
-200:                                              ; preds = %.thread252, %87, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread, %72
-  %.0138 = phi i32 [ %82, %72 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread ], [ 0, %87 ], [ 0, %.thread252 ]
-  %.0137 = phi i32 [ %85, %72 ], [ %198, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread ], [ 0, %87 ], [ 0, %.thread252 ]
-  %.1 = phi i32 [ %86, %72 ], [ %199, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread ], [ %.0136301, %87 ], [ %.0136301, %.thread252 ]
+200:                                              ; preds = %.thread250, %87, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread, %72
+  %.0138 = phi i32 [ %82, %72 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread ], [ 0, %87 ], [ 0, %.thread250 ]
+  %.0137 = phi i32 [ %85, %72 ], [ %198, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread ], [ 0, %87 ], [ 0, %.thread250 ]
+  %.1 = phi i32 [ %86, %72 ], [ %199, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit215.thread ], [ %.0136299, %87 ], [ %.0136299, %.thread250 ]
   %201 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %202 = trunc i64 %201 to i32
   %203 = icmp sgt i32 %3, %202
   %204 = icmp slt i32 %.0137, 3
   %or.cond = and i1 %204, %203
-  br i1 %or.cond, label %.noexc225, label %315
+  br i1 %or.cond, label %.noexc223, label %315
 
-.noexc225:                                        ; preds = %200
+.noexc223:                                        ; preds = %200
   %205 = urem i32 %.1, 3
   %206 = zext nneg i32 %205 to i64
   %207 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %206
@@ -968,10 +968,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %210 = trunc i64 %209 to i32
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %212 = load i32, ptr %211, align 4, !tbaa !11
-  %.not.i220 = icmp eq i32 %212, %210
-  br i1 %.not.i220, label %.noexc227, label %.noexc226
+  %.not.i218 = icmp eq i32 %212, %210
+  br i1 %.not.i218, label %.noexc225, label %.noexc224
 
-.noexc226:                                        ; preds = %.noexc225
+.noexc224:                                        ; preds = %.noexc223
   store i32 %210, ptr %211, align 4, !tbaa !11
   %213 = sub nsw i32 %3, %210
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 20
@@ -983,29 +983,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %220 = call noundef i32 %219(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef %1, i32 noundef %213, i32 noundef 20, ptr noundef nonnull %214, ptr noundef nonnull %215, ptr noundef null, ptr noundef nonnull %216)
   store i32 %220, ptr %207, align 4, !tbaa !14
   %221 = icmp slt i32 %220, 1
-  br i1 %221, label %222, label %.thread.i221
+  br i1 %221, label %222, label %.thread.i219
 
-222:                                              ; preds = %.noexc226
-  %sext.i223 = shl i64 %209, 32
-  %223 = ashr exact i64 %sext.i223, 32
+222:                                              ; preds = %.noexc224
+  %sext.i221 = shl i64 %209, 32
+  %223 = ashr exact i64 %sext.i221, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %223)
-  br label %.noexc227
+  br label %.noexc225
 
-.noexc227:                                        ; preds = %222, %.noexc225
-  %.pr.i224 = load i32, ptr %207, align 4, !tbaa !14
-  %224 = icmp sgt i32 %.pr.i224, 0
-  br i1 %224, label %.thread.i221, label %.thread258
+.noexc225:                                        ; preds = %222, %.noexc223
+  %.pr.i222 = load i32, ptr %207, align 4, !tbaa !14
+  %224 = icmp sgt i32 %.pr.i222, 0
+  br i1 %224, label %.thread.i219, label %.thread256
 
-.thread258:                                       ; preds = %.noexc227
-  %225 = add nsw i32 %.pr.i224, -1
+.thread256:                                       ; preds = %.noexc225
+  %225 = add nsw i32 %.pr.i222, -1
   %226 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store i32 %225, ptr %226, align 4, !tbaa !16
   %227 = getelementptr inbounds nuw i8, ptr %207, i64 12
   store i32 %225, ptr %227, align 4, !tbaa !17
   br label %240
 
-.thread.i221:                                     ; preds = %.noexc227, %.noexc226
-  %228 = phi i32 [ %.pr.i224, %.noexc227 ], [ %220, %.noexc226 ]
+.thread.i219:                                     ; preds = %.noexc225, %.noexc224
+  %228 = phi i32 [ %.pr.i222, %.noexc225 ], [ %220, %.noexc224 ]
   %229 = getelementptr inbounds nuw i8, ptr %207, i64 20
   %230 = add nsw i32 %228, -1
   %231 = zext nneg i32 %230 to i64
@@ -1014,16 +1014,16 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %234 = add nsw i32 %233, %210
   %235 = sext i32 %234 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %235)
-  %.pre.i222 = load i32, ptr %207, align 4, !tbaa !14
-  %236 = add nsw i32 %.pre.i222, -1
+  %.pre.i220 = load i32, ptr %207, align 4, !tbaa !14
+  %236 = add nsw i32 %.pre.i220, -1
   %237 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store i32 %236, ptr %237, align 4, !tbaa !16
   %238 = getelementptr inbounds nuw i8, ptr %207, i64 12
   store i32 %236, ptr %238, align 4, !tbaa !17
-  %239 = icmp slt i32 %.pre.i222, 1
+  %239 = icmp slt i32 %.pre.i220, 1
   br i1 %239, label %240, label %312
 
-240:                                              ; preds = %.thread258, %.thread.i221
+240:                                              ; preds = %.thread256, %.thread.i219
   %241 = icmp eq i32 %.0138, 0
   br i1 %241, label %246, label %242
 
@@ -1054,31 +1054,31 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %264 = add i32 %247, %263
   %265 = sub i32 %3, %264
   %266 = icmp slt i32 %265, 1
-  br i1 %266, label %.thread259, label %.lr.ph308
+  br i1 %266, label %.thread257, label %.lr.ph306
 
-.lr.ph308:                                        ; preds = %246, %.critedge272
-  %267 = phi i32 [ %307, %.critedge272 ], [ %265, %246 ]
-  %268 = phi i32 [ %306, %.critedge272 ], [ %263, %246 ]
-  %269 = phi i32 [ %302, %.critedge272 ], [ %260, %246 ]
+.lr.ph306:                                        ; preds = %246, %.critedge270
+  %267 = phi i32 [ %307, %.critedge270 ], [ %265, %246 ]
+  %268 = phi i32 [ %306, %.critedge270 ], [ %263, %246 ]
+  %269 = phi i32 [ %302, %.critedge270 ], [ %260, %246 ]
   %270 = call i32 @utext_current32_77(ptr noundef %1)
   %271 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %269)
-  %.not177 = icmp eq i8 %271, 0
-  br i1 %.not177, label %.critedge272, label %272
+  %.not175 = icmp eq i8 %271, 0
+  br i1 %.not175, label %.critedge270, label %272
 
-272:                                              ; preds = %.lr.ph308
+272:                                              ; preds = %.lr.ph306
   %273 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %270)
-  %.not178 = icmp eq i8 %273, 0
-  br i1 %.not178, label %.critedge272, label %.noexc235
+  %.not176 = icmp eq i8 %273, 0
+  br i1 %.not176, label %.critedge270, label %.noexc233
 
-.noexc235:                                        ; preds = %272
+.noexc233:                                        ; preds = %272
   %274 = load ptr, ptr %25, align 8, !tbaa !18
   %275 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %276 = trunc i64 %275 to i32
   %277 = load i32, ptr %252, align 4, !tbaa !11
-  %.not.i230 = icmp eq i32 %277, %276
-  br i1 %.not.i230, label %.noexc237, label %.noexc236
+  %.not.i228 = icmp eq i32 %277, %276
+  br i1 %.not.i228, label %.noexc235, label %.noexc234
 
-.noexc236:                                        ; preds = %.noexc235
+.noexc234:                                        ; preds = %.noexc233
   store i32 %276, ptr %252, align 4, !tbaa !11
   %278 = sub nsw i32 %3, %276
   %279 = load ptr, ptr %274, align 8, !tbaa !3
@@ -1087,21 +1087,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %282 = call noundef i32 %281(ptr noundef nonnull align 8 dereferenceable(8) %274, ptr noundef %1, i32 noundef %278, i32 noundef 20, ptr noundef nonnull %253, ptr noundef nonnull %254, ptr noundef null, ptr noundef nonnull %255)
   store i32 %282, ptr %251, align 4, !tbaa !14
   %283 = icmp slt i32 %282, 1
-  br i1 %283, label %284, label %.thread.i231
+  br i1 %283, label %284, label %.thread.i229
 
-284:                                              ; preds = %.noexc236
-  %sext.i233 = shl i64 %275, 32
-  %285 = ashr exact i64 %sext.i233, 32
+284:                                              ; preds = %.noexc234
+  %sext.i231 = shl i64 %275, 32
+  %285 = ashr exact i64 %sext.i231, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %285)
-  br label %.noexc237
+  br label %.noexc235
 
-.noexc237:                                        ; preds = %284, %.noexc235
-  %.pr.i234 = load i32, ptr %251, align 4, !tbaa !14
-  %286 = icmp sgt i32 %.pr.i234, 0
-  br i1 %286, label %.thread.i231, label %294
+.noexc235:                                        ; preds = %284, %.noexc233
+  %.pr.i232 = load i32, ptr %251, align 4, !tbaa !14
+  %286 = icmp sgt i32 %.pr.i232, 0
+  br i1 %286, label %.thread.i229, label %294
 
-.thread.i231:                                     ; preds = %.noexc237, %.noexc236
-  %287 = phi i32 [ %.pr.i234, %.noexc237 ], [ %282, %.noexc236 ]
+.thread.i229:                                     ; preds = %.noexc235, %.noexc234
+  %287 = phi i32 [ %.pr.i232, %.noexc235 ], [ %282, %.noexc234 ]
   %288 = add nsw i32 %287, -1
   %289 = zext nneg i32 %288 to i64
   %290 = getelementptr inbounds nuw [20 x i32], ptr %253, i64 0, i64 %289
@@ -1109,11 +1109,11 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %292 = add nsw i32 %291, %276
   %293 = sext i32 %292 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %293)
-  %.pre.i232 = load i32, ptr %251, align 4, !tbaa !14
+  %.pre.i230 = load i32, ptr %251, align 4, !tbaa !14
   br label %294
 
-294:                                              ; preds = %.thread.i231, %.noexc237
-  %295 = phi i32 [ %.pre.i232, %.thread.i231 ], [ %.pr.i234, %.noexc237 ]
+294:                                              ; preds = %.thread.i229, %.noexc235
+  %295 = phi i32 [ %.pre.i230, %.thread.i229 ], [ %.pr.i232, %.noexc235 ]
   %296 = add nsw i32 %295, -1
   store i32 %296, ptr %256, align 4, !tbaa !16
   store i32 %296, ptr %257, align 4, !tbaa !17
@@ -1121,9 +1121,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %298 = sext i32 %297 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %298)
   %299 = icmp slt i32 %295, 1
-  br i1 %299, label %.critedge272, label %.thread259
+  br i1 %299, label %.critedge270, label %.thread257
 
-.critedge272:                                     ; preds = %294, %272, %.lr.ph308
+.critedge270:                                     ; preds = %294, %272, %.lr.ph306
   %300 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %301 = trunc i64 %300 to i32
   %302 = call i32 @utext_next32_77(ptr noundef %1)
@@ -1133,59 +1133,59 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %306 = add nsw i32 %305, %268
   %307 = sub nsw i32 %267, %305
   %308 = icmp slt i32 %307, 1
-  br i1 %308, label %.thread259, label %.lr.ph308
+  br i1 %308, label %.thread257, label %.lr.ph306
 
-.thread259:                                       ; preds = %.critedge272, %294, %246
-  %.lcssa = phi i32 [ %263, %246 ], [ %306, %.critedge272 ], [ %268, %294 ]
+.thread257:                                       ; preds = %.critedge270, %294, %246
+  %.lcssa = phi i32 [ %263, %246 ], [ %306, %.critedge270 ], [ %268, %294 ]
   %309 = icmp slt i32 %.0138, 1
   %310 = zext i1 %309 to i32
   %spec.select = add i32 %.1, %310
   %311 = add nsw i32 %.lcssa, %.0138
   br label %315
 
-312:                                              ; preds = %242, %.thread.i221
+312:                                              ; preds = %242, %.thread.i219
   %313 = add nsw i32 %.0138, %35
   %314 = sext i32 %313 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %314)
   br label %315
 
-315:                                              ; preds = %312, %.thread259, %200
-  %.1139 = phi i32 [ %311, %.thread259 ], [ %.0138, %312 ], [ %.0138, %200 ]
-  %.2 = phi i32 [ %spec.select, %.thread259 ], [ %.1, %312 ], [ %.1, %200 ]
+315:                                              ; preds = %312, %.thread257, %200
+  %.1139 = phi i32 [ %311, %.thread257 ], [ %.0138, %312 ], [ %.0138, %200 ]
+  %.2 = phi i32 [ %spec.select, %.thread257 ], [ %.1, %312 ], [ %.1, %200 ]
   %316 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %317 = trunc i64 %316 to i32
   %318 = icmp sgt i32 %3, %317
-  br i1 %318, label %.lr.ph312, label %.critedge3
+  br i1 %318, label %.lr.ph310, label %.critedge3
 
-.lr.ph312:                                        ; preds = %315, %322
+.lr.ph310:                                        ; preds = %315, %322
   %319 = phi i32 [ %329, %322 ], [ %317, %315 ]
-  %.2140311 = phi i32 [ %327, %322 ], [ %.1139, %315 ]
+  %.2140309 = phi i32 [ %327, %322 ], [ %.1139, %315 ]
   %320 = call i32 @utext_current32_77(ptr noundef %1)
   %321 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %28, i32 noundef %320)
-  %.not181 = icmp eq i8 %321, 0
-  br i1 %.not181, label %.critedge3, label %322
+  %.not179 = icmp eq i8 %321, 0
+  br i1 %.not179, label %.critedge3, label %322
 
-322:                                              ; preds = %.lr.ph312
+322:                                              ; preds = %.lr.ph310
   %323 = call i32 @utext_next32_77(ptr noundef %1)
   %324 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %325 = trunc i64 %324 to i32
-  %326 = sub i32 %.2140311, %319
+  %326 = sub i32 %.2140309, %319
   %327 = add i32 %326, %325
   %328 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %329 = trunc i64 %328 to i32
   %330 = icmp sgt i32 %3, %329
-  br i1 %330, label %.lr.ph312, label %.critedge3, !llvm.loop !38
+  br i1 %330, label %.lr.ph310, label %.critedge3, !llvm.loop !38
 
-.critedge3:                                       ; preds = %.lr.ph312, %322, %315
-  %.2140.lcssa = phi i32 [ %.1139, %315 ], [ %.2140311, %.lr.ph312 ], [ %327, %322 ]
+.critedge3:                                       ; preds = %.lr.ph310, %322, %315
+  %.2140.lcssa = phi i32 [ %.1139, %315 ], [ %.2140309, %.lr.ph310 ], [ %327, %322 ]
   %331 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %332 = trunc i64 %331 to i32
   %333 = icmp sgt i32 %3, %332
   %334 = icmp sgt i32 %.2140.lcssa, 0
   %or.cond5 = select i1 %333, i1 %334, i1 false
-  br i1 %or.cond5, label %.noexc245, label %404
+  br i1 %or.cond5, label %.noexc243, label %404
 
-.noexc245:                                        ; preds = %.critedge3
+.noexc243:                                        ; preds = %.critedge3
   %335 = urem i32 %.2, 3
   %336 = zext nneg i32 %335 to i64
   %337 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %336
@@ -1194,10 +1194,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %340 = trunc i64 %339 to i32
   %341 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %342 = load i32, ptr %341, align 4, !tbaa !11
-  %.not.i240 = icmp eq i32 %342, %340
-  br i1 %.not.i240, label %.noexc247, label %.noexc246
+  %.not.i238 = icmp eq i32 %342, %340
+  br i1 %.not.i238, label %.noexc245, label %.noexc244
 
-.noexc246:                                        ; preds = %.noexc245
+.noexc244:                                        ; preds = %.noexc243
   store i32 %340, ptr %341, align 4, !tbaa !11
   %343 = sub nsw i32 %3, %340
   %344 = getelementptr inbounds nuw i8, ptr %337, i64 20
@@ -1209,29 +1209,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %350 = call noundef i32 %349(ptr noundef nonnull align 8 dereferenceable(8) %338, ptr noundef %1, i32 noundef %343, i32 noundef 20, ptr noundef nonnull %344, ptr noundef nonnull %345, ptr noundef null, ptr noundef nonnull %346)
   store i32 %350, ptr %337, align 4, !tbaa !14
   %351 = icmp slt i32 %350, 1
-  br i1 %351, label %352, label %.thread.i241
+  br i1 %351, label %352, label %.thread.i239
 
-352:                                              ; preds = %.noexc246
-  %sext.i243 = shl i64 %339, 32
-  %353 = ashr exact i64 %sext.i243, 32
+352:                                              ; preds = %.noexc244
+  %sext.i241 = shl i64 %339, 32
+  %353 = ashr exact i64 %sext.i241, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %353)
-  br label %.noexc247
+  br label %.noexc245
 
-.noexc247:                                        ; preds = %352, %.noexc245
-  %.pr.i244 = load i32, ptr %337, align 4, !tbaa !14
-  %354 = icmp sgt i32 %.pr.i244, 0
-  br i1 %354, label %.thread.i241, label %.thread262
+.noexc245:                                        ; preds = %352, %.noexc243
+  %.pr.i242 = load i32, ptr %337, align 4, !tbaa !14
+  %354 = icmp sgt i32 %.pr.i242, 0
+  br i1 %354, label %.thread.i239, label %.thread260
 
-.thread262:                                       ; preds = %.noexc247
-  %355 = add nsw i32 %.pr.i244, -1
+.thread260:                                       ; preds = %.noexc245
+  %355 = add nsw i32 %.pr.i242, -1
   %356 = getelementptr inbounds nuw i8, ptr %337, i64 16
   store i32 %355, ptr %356, align 4, !tbaa !16
   %357 = getelementptr inbounds nuw i8, ptr %337, i64 12
   store i32 %355, ptr %357, align 4, !tbaa !17
   br label %370
 
-.thread.i241:                                     ; preds = %.noexc247, %.noexc246
-  %358 = phi i32 [ %.pr.i244, %.noexc247 ], [ %350, %.noexc246 ]
+.thread.i239:                                     ; preds = %.noexc245, %.noexc244
+  %358 = phi i32 [ %.pr.i242, %.noexc245 ], [ %350, %.noexc244 ]
   %359 = getelementptr inbounds nuw i8, ptr %337, i64 20
   %360 = add nsw i32 %358, -1
   %361 = zext nneg i32 %360 to i64
@@ -1240,20 +1240,20 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %364 = add nsw i32 %363, %340
   %365 = sext i32 %364 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %365)
-  %.pre.i242 = load i32, ptr %337, align 4, !tbaa !14
-  %366 = add nsw i32 %.pre.i242, -1
+  %.pre.i240 = load i32, ptr %337, align 4, !tbaa !14
+  %366 = add nsw i32 %.pre.i240, -1
   %367 = getelementptr inbounds nuw i8, ptr %337, i64 16
   store i32 %366, ptr %367, align 4, !tbaa !16
   %368 = getelementptr inbounds nuw i8, ptr %337, i64 12
   store i32 %366, ptr %368, align 4, !tbaa !17
-  %369 = icmp slt i32 %.pre.i242, 1
+  %369 = icmp slt i32 %.pre.i240, 1
   br i1 %369, label %370, label %401
 
-370:                                              ; preds = %.thread262, %.thread.i241
+370:                                              ; preds = %.thread260, %.thread.i239
   %371 = call i32 @utext_current32_77(ptr noundef %1)
   %372 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %29, i32 noundef %371)
-  %.not182 = icmp eq i8 %372, 0
-  br i1 %.not182, label %401, label %373
+  %.not180 = icmp eq i8 %372, 0
+  br i1 %.not180, label %401, label %373
 
 373:                                              ; preds = %370
   %374 = icmp eq i32 %371, 3631
@@ -1262,9 +1262,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
 375:                                              ; preds = %373
   %376 = call i32 @utext_previous32_77(ptr noundef %1)
   %377 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %29, i32 noundef %376)
-  %.not183 = icmp eq i8 %377, 0
+  %.not181 = icmp eq i8 %377, 0
   %378 = call i32 @utext_next32_77(ptr noundef %1)
-  br i1 %.not183, label %379, label %.thread266
+  br i1 %.not181, label %379, label %.thread264
 
 379:                                              ; preds = %375
   %380 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
@@ -1285,9 +1285,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
 
 390:                                              ; preds = %388
   %391 = call i32 @utext_previous32_77(ptr noundef %1)
-  %.not184 = icmp eq i32 %391, 3654
+  %.not182 = icmp eq i32 %391, 3654
   %392 = call i32 @utext_next32_77(ptr noundef %1)
-  br i1 %.not184, label %404, label %393
+  br i1 %.not182, label %404, label %393
 
 393:                                              ; preds = %390
   %394 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
@@ -1299,20 +1299,20 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %400 = add i32 %399, %398
   br label %404
 
-401:                                              ; preds = %370, %.thread.i241
+401:                                              ; preds = %370, %.thread.i239
   %402 = add nsw i32 %.2140.lcssa, %35
   %403 = sext i32 %402 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %403)
-  br label %.thread266
+  br label %.thread264
 
 404:                                              ; preds = %390, %393, %388, %.critedge3
   %.3141 = phi i32 [ %400, %393 ], [ %.4142, %388 ], [ %.2140.lcssa, %.critedge3 ], [ %.4142, %390 ]
   %405 = icmp sgt i32 %.3141, 0
-  br i1 %405, label %.thread266, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
+  br i1 %405, label %.thread264, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
-.thread266:                                       ; preds = %375, %401, %404
-  %.3141268 = phi i32 [ %.3141, %404 ], [ %.2140.lcssa, %401 ], [ %.2140.lcssa, %375 ]
-  %406 = add nsw i32 %.3141268, %35
+.thread264:                                       ; preds = %375, %401, %404
+  %.3141266 = phi i32 [ %.3141, %404 ], [ %.2140.lcssa, %401 ], [ %.2140.lcssa, %375 ]
+  %406 = add nsw i32 %.3141266, %35
   %407 = load i32, ptr %30, align 8, !tbaa !39
   %408 = icmp slt i32 %407, -1
   %409 = load i32, ptr %31, align 4
@@ -1320,7 +1320,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit217.thread: ; preds = %_ZN6icu_7712P
   %or.cond.i.i.i = select i1 %408, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i.i, label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i
 
-_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %.thread266
+_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %.thread264
   %410 = add nsw i32 %407, 1
   %411 = call noundef signext i8 @_ZN6icu_779UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %410, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not.i.i = icmp eq i8 %411, 0
@@ -1330,8 +1330,8 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214e
   %.pre.i.i = load i32, ptr %30, align 8, !tbaa !39
   br label %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i
 
-_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i, %.thread266
-  %412 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %407, %.thread266 ]
+_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i, %.thread264
+  %412 = phi i32 [ %.pre.i.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i.i ], [ %407, %.thread264 ]
   %413 = load ptr, ptr %32, align 8, !tbaa !41
   %414 = sext i32 %412 to i64
   %415 = getelementptr inbounds i32, ptr %413, i64 %414
@@ -1347,7 +1347,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   br i1 %419, label %.critedge, label %33, !llvm.loop !42
 
 .critedge:                                        ; preds = %33, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit, %.preheader
-  %.0136.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0136301, %33 ]
+  %.0136.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0136299, %33 ]
   %420 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %421 = load i32, ptr %420, align 8, !tbaa !39
   %422 = icmp sgt i32 %421, 0
@@ -1360,12 +1360,12 @@ _ZNK6icu_779UVector325peekiEv.exit:               ; preds = %.critedge
   %426 = getelementptr i32, ptr %424, i64 %425
   %427 = getelementptr i8, ptr %426, i64 -4
   %428 = load i32, ptr %427, align 4, !tbaa !15
-  %.not171 = icmp slt i32 %428, %3
-  br i1 %.not171, label %432, label %429
+  %.not169 = icmp slt i32 %428, %3
+  br i1 %.not169, label %432, label %429
 
 _ZNK6icu_779UVector325peekiEv.exit.thread:        ; preds = %.critedge
-  %.not171269 = icmp sgt i32 %3, 0
-  br i1 %.not171269, label %432, label %_ZN6icu_779UVector324popiEv.exit
+  %.not169267 = icmp sgt i32 %3, 0
+  br i1 %.not169267, label %432, label %_ZN6icu_779UVector324popiEv.exit
 
 429:                                              ; preds = %_ZNK6icu_779UVector325peekiEv.exit
   %430 = add nsw i32 %421, -1
@@ -1637,8 +1637,8 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   %10 = icmp sgt i32 %9, 0
   %11 = sub nsw i32 %3, %2
   %12 = icmp slt i32 %11, 4
-  %or.cond141 = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond141, label %357, label %13
+  %or.cond139 = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond139, label %357, label %13
 
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1679,14 +1679,14 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   br label %31
 
 31:                                               ; preds = %.lr.ph, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
-  %.0100231 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
+  %.0100229 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
   %32 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %33 = trunc i64 %32 to i32
   %34 = icmp sgt i32 %3, %33
   br i1 %34, label %.noexc, label %.critedge
 
 .noexc:                                           ; preds = %31
-  %35 = urem i32 %.0100231, 3
+  %35 = urem i32 %.0100229, 3
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %36
   %38 = load ptr, ptr %23, align 8, !tbaa !43
@@ -1695,9 +1695,9 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %.not.i = icmp eq i32 %42, %40
-  br i1 %.not.i, label %.noexc143, label %.noexc142
+  br i1 %.not.i, label %.noexc141, label %.noexc140
 
-.noexc142:                                        ; preds = %.noexc
+.noexc140:                                        ; preds = %.noexc
   store i32 %40, ptr %41, align 4, !tbaa !11
   %43 = sub nsw i32 %3, %40
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 20
@@ -1711,18 +1711,18 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %52, label %.thread.i
 
-52:                                               ; preds = %.noexc142
+52:                                               ; preds = %.noexc140
   %sext.i = shl i64 %39, 32
   %53 = ashr exact i64 %sext.i, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %53)
-  br label %.noexc143
+  br label %.noexc141
 
-.noexc143:                                        ; preds = %52, %.noexc
+.noexc141:                                        ; preds = %52, %.noexc
   %.pr.i = load i32, ptr %37, align 4, !tbaa !14
   %54 = icmp sgt i32 %.pr.i, 0
-  br i1 %54, label %.thread.i, label %.thread194
+  br i1 %54, label %.thread.i, label %.thread192
 
-.thread194:                                       ; preds = %.noexc143
+.thread192:                                       ; preds = %.noexc141
   %55 = add nsw i32 %.pr.i, -1
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 %55, ptr %56, align 4, !tbaa !16
@@ -1730,8 +1730,8 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   store i32 %55, ptr %57, align 4, !tbaa !17
   br label %197
 
-.thread.i:                                        ; preds = %.noexc143, %.noexc142
-  %58 = phi i32 [ %.pr.i, %.noexc143 ], [ %50, %.noexc142 ]
+.thread.i:                                        ; preds = %.noexc141, %.noexc140
+  %58 = phi i32 [ %.pr.i, %.noexc141 ], [ %50, %.noexc140 ]
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %60 = add nsw i32 %58, -1
   %61 = zext nneg i32 %60 to i64
@@ -1764,7 +1764,7 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
   %81 = getelementptr inbounds nuw i8, ptr %37, i64 100
   %82 = getelementptr inbounds [20 x i32], ptr %81, i64 0, i64 %78
   %83 = load i32, ptr %82, align 4, !tbaa !15
-  %84 = add i32 %.0100231, 1
+  %84 = add i32 %.0100229, 1
   br label %197
 
 85:                                               ; preds = %.thread.i
@@ -1773,11 +1773,11 @@ define noundef i32 @_ZNK6icu_7714LaoBreakEngine23divideUpDictionaryRangeEP5UText
 
 87:                                               ; preds = %85
   %88 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
-  %.not127 = icmp slt i64 %88, %24
-  br i1 %.not127, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not125 = icmp slt i64 %88, %24
+  br i1 %.not125, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
-  %89 = add i32 %.0100231, 1
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader: ; preds = %87
+  %89 = add i32 %.0100229, 1
   %90 = urem i32 %89, 3
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %91
@@ -1787,7 +1787,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %99 = add i32 %.0100231, 2
+  %99 = add i32 %.0100229, 2
   %100 = urem i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %101
@@ -1797,17 +1797,17 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader
   %109 = load ptr, ptr %23, align 8, !tbaa !43
   %110 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %111 = trunc i64 %110 to i32
   %112 = load i32, ptr %93, align 4, !tbaa !11
-  %.not.i146 = icmp eq i32 %112, %111
-  br i1 %.not.i146, label %.noexc153, label %.noexc152
+  %.not.i144 = icmp eq i32 %112, %111
+  br i1 %.not.i144, label %.noexc151, label %.noexc150
 
-.noexc152:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+.noexc150:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
   store i32 %111, ptr %93, align 4, !tbaa !11
   %113 = sub nsw i32 %3, %111
   %114 = load ptr, ptr %109, align 8, !tbaa !3
@@ -1816,27 +1816,27 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %117 = call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %1, i32 noundef %113, i32 noundef 20, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef null, ptr noundef nonnull %96)
   store i32 %117, ptr %92, align 4, !tbaa !14
   %118 = icmp slt i32 %117, 1
-  br i1 %118, label %119, label %.thread.i147
+  br i1 %118, label %119, label %.thread.i145
 
-119:                                              ; preds = %.noexc152
-  %sext.i149 = shl i64 %110, 32
-  %120 = ashr exact i64 %sext.i149, 32
+119:                                              ; preds = %.noexc150
+  %sext.i147 = shl i64 %110, 32
+  %120 = ashr exact i64 %sext.i147, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %120)
-  br label %.noexc153
+  br label %.noexc151
 
-.noexc153:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
-  %.pr.i150 = load i32, ptr %92, align 4, !tbaa !14
-  %121 = icmp sgt i32 %.pr.i150, 0
-  br i1 %121, label %.thread.i147, label %.thread195
+.noexc151:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
+  %.pr.i148 = load i32, ptr %92, align 4, !tbaa !14
+  %121 = icmp sgt i32 %.pr.i148, 0
+  br i1 %121, label %.thread.i145, label %.thread193
 
-.thread195:                                       ; preds = %.noexc153
-  %122 = add nsw i32 %.pr.i150, -1
+.thread193:                                       ; preds = %.noexc151
+  %122 = add nsw i32 %.pr.i148, -1
   store i32 %122, ptr %97, align 4, !tbaa !16
   store i32 %122, ptr %98, align 4, !tbaa !17
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-.thread.i147:                                     ; preds = %.noexc153, %.noexc152
-  %123 = phi i32 [ %.pr.i150, %.noexc153 ], [ %117, %.noexc152 ]
+.thread.i145:                                     ; preds = %.noexc151, %.noexc150
+  %123 = phi i32 [ %.pr.i148, %.noexc151 ], [ %117, %.noexc150 ]
   %124 = add nsw i32 %123, -1
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw [20 x i32], ptr %94, i64 0, i64 %125
@@ -1844,30 +1844,30 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %128 = add nsw i32 %127, %111
   %129 = sext i32 %128 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %129)
-  %.pre.i148 = load i32, ptr %92, align 4, !tbaa !14
-  %130 = add nsw i32 %.pre.i148, -1
+  %.pre.i146 = load i32, ptr %92, align 4, !tbaa !14
+  %130 = add nsw i32 %.pre.i146, -1
   store i32 %130, ptr %97, align 4, !tbaa !16
   store i32 %130, ptr %98, align 4, !tbaa !17
-  %131 = icmp sgt i32 %.pre.i148, 0
+  %131 = icmp sgt i32 %.pre.i146, 0
   br i1 %131, label %132, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-132:                                              ; preds = %.thread.i147
+132:                                              ; preds = %.thread.i145
   %133 = load i32, ptr %67, align 4, !tbaa !16
   store i32 %133, ptr %68, align 4, !tbaa !17
   %134 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %135 = trunc i64 %134 to i32
-  %.not128 = icmp sgt i32 %3, %135
-  br i1 %.not128, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not126 = icmp sgt i32 %3, %135
+  br i1 %.not126, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %136 = load ptr, ptr %23, align 8, !tbaa !43
   %137 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %138 = trunc i64 %137 to i32
   %139 = load i32, ptr %103, align 4, !tbaa !11
-  %.not.i156 = icmp eq i32 %139, %138
-  br i1 %.not.i156, label %.noexc163, label %.noexc162
+  %.not.i154 = icmp eq i32 %139, %138
+  br i1 %.not.i154, label %.noexc161, label %.noexc160
 
-.noexc162:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+.noexc160:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
   store i32 %138, ptr %103, align 4, !tbaa !11
   %140 = sub nsw i32 %3, %138
   %141 = load ptr, ptr %136, align 8, !tbaa !3
@@ -1876,21 +1876,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %144 = call noundef i32 %143(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %1, i32 noundef %140, i32 noundef 20, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef null, ptr noundef nonnull %106)
   store i32 %144, ptr %102, align 4, !tbaa !14
   %145 = icmp slt i32 %144, 1
-  br i1 %145, label %146, label %.thread.i157
+  br i1 %145, label %146, label %.thread.i155
 
-146:                                              ; preds = %.noexc162
-  %sext.i159 = shl i64 %137, 32
-  %147 = ashr exact i64 %sext.i159, 32
+146:                                              ; preds = %.noexc160
+  %sext.i157 = shl i64 %137, 32
+  %147 = ashr exact i64 %sext.i157, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %147)
-  br label %.noexc163
+  br label %.noexc161
 
-.noexc163:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
-  %.pr.i160 = load i32, ptr %102, align 4, !tbaa !14
-  %148 = icmp sgt i32 %.pr.i160, 0
-  br i1 %148, label %.thread.i157, label %156
+.noexc161:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+  %.pr.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %148 = icmp sgt i32 %.pr.i158, 0
+  br i1 %148, label %.thread.i155, label %156
 
-.thread.i157:                                     ; preds = %.noexc163, %.noexc162
-  %149 = phi i32 [ %.pr.i160, %.noexc163 ], [ %144, %.noexc162 ]
+.thread.i155:                                     ; preds = %.noexc161, %.noexc160
+  %149 = phi i32 [ %.pr.i158, %.noexc161 ], [ %144, %.noexc160 ]
   %150 = add nsw i32 %149, -1
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw [20 x i32], ptr %104, i64 0, i64 %151
@@ -1898,21 +1898,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %154 = add nsw i32 %153, %138
   %155 = sext i32 %154 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %155)
-  %.pre.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %.pre.i156 = load i32, ptr %102, align 4, !tbaa !14
   br label %156
 
-156:                                              ; preds = %.thread.i157, %.noexc163
-  %157 = phi i32 [ %.pre.i158, %.thread.i157 ], [ %.pr.i160, %.noexc163 ]
+156:                                              ; preds = %.thread.i155, %.noexc161
+  %157 = phi i32 [ %.pre.i156, %.thread.i155 ], [ %.pr.i158, %.noexc161 ]
   %158 = add nsw i32 %157, -1
   store i32 %158, ptr %107, align 4, !tbaa !16
   store i32 %158, ptr %108, align 4, !tbaa !17
-  %.not129 = icmp eq i32 %157, 0
-  br i1 %.not129, label %161, label %159
+  %.not127 = icmp eq i32 %157, 0
+  br i1 %.not127, label %161, label %159
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %67, align 4, !tbaa !16
   store i32 %160, ptr %68, align 4, !tbaa !17
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 161:                                              ; preds = %156
   %162 = load i32, ptr %97, align 4, !tbaa !16
@@ -1931,10 +1931,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %171), !llvm.loop !45
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195, %.thread.i147
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread193, %.thread.i145
   %172 = load i32, ptr %67, align 4, !tbaa !16
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 174:                                              ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
   %175 = load i32, ptr %41, align 4, !tbaa !11
@@ -1946,9 +1946,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195
   %180 = add nsw i32 %179, %175
   %181 = sext i32 %180 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %181), !llvm.loop !46
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %87, %159
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %87, %159
   %182 = load i32, ptr %41, align 4, !tbaa !11
   %183 = load i32, ptr %68, align 4, !tbaa !17
   %184 = sext i32 %183 to i64
@@ -1964,21 +1964,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %193 = getelementptr inbounds nuw i8, ptr %37, i64 100
   %194 = getelementptr inbounds [20 x i32], ptr %193, i64 0, i64 %190
   %195 = load i32, ptr %194, align 4, !tbaa !15
-  %196 = add i32 %.0100231, 1
+  %196 = add i32 %.0100229, 1
   br label %197
 
-197:                                              ; preds = %.thread194, %85, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread, %70
-  %.0104 = phi i32 [ %80, %70 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %85 ], [ 0, %.thread194 ]
-  %.0103 = phi i32 [ %83, %70 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %85 ], [ 0, %.thread194 ]
-  %.1 = phi i32 [ %84, %70 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ %.0100231, %85 ], [ %.0100231, %.thread194 ]
+197:                                              ; preds = %.thread192, %85, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread, %70
+  %.0104 = phi i32 [ %80, %70 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %85 ], [ 0, %.thread192 ]
+  %.0103 = phi i32 [ %83, %70 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %85 ], [ 0, %.thread192 ]
+  %.1 = phi i32 [ %84, %70 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ %.0100229, %85 ], [ %.0100229, %.thread192 ]
   %198 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %199 = trunc i64 %198 to i32
   %200 = icmp sgt i32 %3, %199
   %201 = icmp slt i32 %.0103, 3
   %or.cond = and i1 %201, %200
-  br i1 %or.cond, label %.noexc177, label %312
+  br i1 %or.cond, label %.noexc175, label %312
 
-.noexc177:                                        ; preds = %197
+.noexc175:                                        ; preds = %197
   %202 = urem i32 %.1, 3
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %203
@@ -1987,10 +1987,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %207 = trunc i64 %206 to i32
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load i32, ptr %208, align 4, !tbaa !11
-  %.not.i172 = icmp eq i32 %209, %207
-  br i1 %.not.i172, label %.noexc179, label %.noexc178
+  %.not.i170 = icmp eq i32 %209, %207
+  br i1 %.not.i170, label %.noexc177, label %.noexc176
 
-.noexc178:                                        ; preds = %.noexc177
+.noexc176:                                        ; preds = %.noexc175
   store i32 %207, ptr %208, align 4, !tbaa !11
   %210 = sub nsw i32 %3, %207
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 20
@@ -2002,29 +2002,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %217 = call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef %1, i32 noundef %210, i32 noundef 20, ptr noundef nonnull %211, ptr noundef nonnull %212, ptr noundef null, ptr noundef nonnull %213)
   store i32 %217, ptr %204, align 4, !tbaa !14
   %218 = icmp slt i32 %217, 1
-  br i1 %218, label %219, label %.thread.i173
+  br i1 %218, label %219, label %.thread.i171
 
-219:                                              ; preds = %.noexc178
-  %sext.i175 = shl i64 %206, 32
-  %220 = ashr exact i64 %sext.i175, 32
+219:                                              ; preds = %.noexc176
+  %sext.i173 = shl i64 %206, 32
+  %220 = ashr exact i64 %sext.i173, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %220)
-  br label %.noexc179
+  br label %.noexc177
 
-.noexc179:                                        ; preds = %219, %.noexc177
-  %.pr.i176 = load i32, ptr %204, align 4, !tbaa !14
-  %221 = icmp sgt i32 %.pr.i176, 0
-  br i1 %221, label %.thread.i173, label %.thread200
+.noexc177:                                        ; preds = %219, %.noexc175
+  %.pr.i174 = load i32, ptr %204, align 4, !tbaa !14
+  %221 = icmp sgt i32 %.pr.i174, 0
+  br i1 %221, label %.thread.i171, label %.thread198
 
-.thread200:                                       ; preds = %.noexc179
-  %222 = add nsw i32 %.pr.i176, -1
+.thread198:                                       ; preds = %.noexc177
+  %222 = add nsw i32 %.pr.i174, -1
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %222, ptr %223, align 4, !tbaa !16
   %224 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %222, ptr %224, align 4, !tbaa !17
   br label %237
 
-.thread.i173:                                     ; preds = %.noexc179, %.noexc178
-  %225 = phi i32 [ %.pr.i176, %.noexc179 ], [ %217, %.noexc178 ]
+.thread.i171:                                     ; preds = %.noexc177, %.noexc176
+  %225 = phi i32 [ %.pr.i174, %.noexc177 ], [ %217, %.noexc176 ]
   %226 = getelementptr inbounds nuw i8, ptr %204, i64 20
   %227 = add nsw i32 %225, -1
   %228 = zext nneg i32 %227 to i64
@@ -2033,16 +2033,16 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %231 = add nsw i32 %230, %207
   %232 = sext i32 %231 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %232)
-  %.pre.i174 = load i32, ptr %204, align 4, !tbaa !14
-  %233 = add nsw i32 %.pre.i174, -1
+  %.pre.i172 = load i32, ptr %204, align 4, !tbaa !14
+  %233 = add nsw i32 %.pre.i172, -1
   %234 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %233, ptr %234, align 4, !tbaa !16
   %235 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %233, ptr %235, align 4, !tbaa !17
-  %236 = icmp slt i32 %.pre.i174, 1
+  %236 = icmp slt i32 %.pre.i172, 1
   br i1 %236, label %237, label %309
 
-237:                                              ; preds = %.thread200, %.thread.i173
+237:                                              ; preds = %.thread198, %.thread.i171
   %238 = icmp eq i32 %.0104, 0
   br i1 %238, label %243, label %239
 
@@ -2073,31 +2073,31 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread201, label %.lr.ph238
+  br i1 %263, label %.thread199, label %.lr.ph236
 
-.lr.ph238:                                        ; preds = %243, %.critedge207
-  %264 = phi i32 [ %304, %.critedge207 ], [ %262, %243 ]
-  %265 = phi i32 [ %303, %.critedge207 ], [ %260, %243 ]
-  %266 = phi i32 [ %299, %.critedge207 ], [ %257, %243 ]
+.lr.ph236:                                        ; preds = %243, %.critedge205
+  %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
+  %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
+  %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
   %267 = call i32 @utext_current32_77(ptr noundef %1)
   %268 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %25, i32 noundef %266)
-  %.not132 = icmp eq i8 %268, 0
-  br i1 %.not132, label %.critedge207, label %269
+  %.not130 = icmp eq i8 %268, 0
+  br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph238
+269:                                              ; preds = %.lr.ph236
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %267)
-  %.not133 = icmp eq i8 %270, 0
-  br i1 %.not133, label %.critedge207, label %.noexc187
+  %.not131 = icmp eq i8 %270, 0
+  br i1 %.not131, label %.critedge205, label %.noexc185
 
-.noexc187:                                        ; preds = %269
+.noexc185:                                        ; preds = %269
   %271 = load ptr, ptr %23, align 8, !tbaa !43
   %272 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %273 = trunc i64 %272 to i32
   %274 = load i32, ptr %249, align 4, !tbaa !11
-  %.not.i182 = icmp eq i32 %274, %273
-  br i1 %.not.i182, label %.noexc189, label %.noexc188
+  %.not.i180 = icmp eq i32 %274, %273
+  br i1 %.not.i180, label %.noexc187, label %.noexc186
 
-.noexc188:                                        ; preds = %.noexc187
+.noexc186:                                        ; preds = %.noexc185
   store i32 %273, ptr %249, align 4, !tbaa !11
   %275 = sub nsw i32 %3, %273
   %276 = load ptr, ptr %271, align 8, !tbaa !3
@@ -2106,21 +2106,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %279 = call noundef i32 %278(ptr noundef nonnull align 8 dereferenceable(8) %271, ptr noundef %1, i32 noundef %275, i32 noundef 20, ptr noundef nonnull %250, ptr noundef nonnull %251, ptr noundef null, ptr noundef nonnull %252)
   store i32 %279, ptr %248, align 4, !tbaa !14
   %280 = icmp slt i32 %279, 1
-  br i1 %280, label %281, label %.thread.i183
+  br i1 %280, label %281, label %.thread.i181
 
-281:                                              ; preds = %.noexc188
-  %sext.i185 = shl i64 %272, 32
-  %282 = ashr exact i64 %sext.i185, 32
+281:                                              ; preds = %.noexc186
+  %sext.i183 = shl i64 %272, 32
+  %282 = ashr exact i64 %sext.i183, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %282)
-  br label %.noexc189
+  br label %.noexc187
 
-.noexc189:                                        ; preds = %281, %.noexc187
-  %.pr.i186 = load i32, ptr %248, align 4, !tbaa !14
-  %283 = icmp sgt i32 %.pr.i186, 0
-  br i1 %283, label %.thread.i183, label %291
+.noexc187:                                        ; preds = %281, %.noexc185
+  %.pr.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %283 = icmp sgt i32 %.pr.i184, 0
+  br i1 %283, label %.thread.i181, label %291
 
-.thread.i183:                                     ; preds = %.noexc189, %.noexc188
-  %284 = phi i32 [ %.pr.i186, %.noexc189 ], [ %279, %.noexc188 ]
+.thread.i181:                                     ; preds = %.noexc187, %.noexc186
+  %284 = phi i32 [ %.pr.i184, %.noexc187 ], [ %279, %.noexc186 ]
   %285 = add nsw i32 %284, -1
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw [20 x i32], ptr %250, i64 0, i64 %286
@@ -2128,11 +2128,11 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %289 = add nsw i32 %288, %273
   %290 = sext i32 %289 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %290)
-  %.pre.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %.pre.i182 = load i32, ptr %248, align 4, !tbaa !14
   br label %291
 
-291:                                              ; preds = %.thread.i183, %.noexc189
-  %292 = phi i32 [ %.pre.i184, %.thread.i183 ], [ %.pr.i186, %.noexc189 ]
+291:                                              ; preds = %.thread.i181, %.noexc187
+  %292 = phi i32 [ %.pre.i182, %.thread.i181 ], [ %.pr.i184, %.noexc187 ]
   %293 = add nsw i32 %292, -1
   store i32 %293, ptr %253, align 4, !tbaa !16
   store i32 %293, ptr %254, align 4, !tbaa !17
@@ -2140,9 +2140,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %295 = sext i32 %294 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %295)
   %296 = icmp slt i32 %292, 1
-  br i1 %296, label %.critedge207, label %.thread201
+  br i1 %296, label %.critedge205, label %.thread199
 
-.critedge207:                                     ; preds = %291, %269, %.lr.ph238
+.critedge205:                                     ; preds = %291, %269, %.lr.ph236
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -2152,51 +2152,51 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread201, label %.lr.ph238
+  br i1 %305, label %.thread199, label %.lr.ph236
 
-.thread201:                                       ; preds = %.critedge207, %291, %243
-  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge207 ], [ %265, %291 ]
+.thread199:                                       ; preds = %.critedge205, %291, %243
+  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
   %306 = icmp slt i32 %.0104, 1
   %307 = zext i1 %306 to i32
   %spec.select = add i32 %.1, %307
   %308 = add nsw i32 %.lcssa, %.0104
   br label %312
 
-309:                                              ; preds = %239, %.thread.i173
+309:                                              ; preds = %239, %.thread.i171
   %310 = add nsw i32 %.0104, %33
   %311 = sext i32 %310 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %311)
   br label %312
 
-312:                                              ; preds = %309, %.thread201, %197
-  %.1105 = phi i32 [ %308, %.thread201 ], [ %.0104, %309 ], [ %.0104, %197 ]
-  %.2 = phi i32 [ %spec.select, %.thread201 ], [ %.1, %309 ], [ %.1, %197 ]
+312:                                              ; preds = %309, %.thread199, %197
+  %.1105 = phi i32 [ %308, %.thread199 ], [ %.0104, %309 ], [ %.0104, %197 ]
+  %.2 = phi i32 [ %spec.select, %.thread199 ], [ %.1, %309 ], [ %.1, %197 ]
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph242, label %.critedge3
+  br i1 %315, label %.lr.ph240, label %.critedge3
 
-.lr.ph242:                                        ; preds = %312, %319
+.lr.ph240:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106241 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %317)
-  %.not136 = icmp eq i8 %318, 0
-  br i1 %.not136, label %.critedge3, label %319
+  %.not134 = icmp eq i8 %318, 0
+  br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph242
+319:                                              ; preds = %.lr.ph240
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106241, %316
+  %323 = sub i32 %.2106239, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph242, label %.critedge3, !llvm.loop !47
+  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !47
 
-.critedge3:                                       ; preds = %.lr.ph242, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106241, %.lr.ph242 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph240, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -2236,7 +2236,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   br i1 %343, label %.critedge, label %31, !llvm.loop !48
 
 .critedge:                                        ; preds = %31, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit, %.preheader
-  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100231, %31 ]
+  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100229, %31 ]
   %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %345 = load i32, ptr %344, align 8, !tbaa !39
   %346 = icmp sgt i32 %345, 0
@@ -2249,12 +2249,12 @@ _ZNK6icu_779UVector325peekiEv.exit:               ; preds = %.critedge
   %350 = getelementptr i32, ptr %348, i64 %349
   %351 = getelementptr i8, ptr %350, i64 -4
   %352 = load i32, ptr %351, align 4, !tbaa !15
-  %.not126 = icmp slt i32 %352, %3
-  br i1 %.not126, label %356, label %353
+  %.not124 = icmp slt i32 %352, %3
+  br i1 %.not124, label %356, label %353
 
 _ZNK6icu_779UVector325peekiEv.exit.thread:        ; preds = %.critedge
-  %.not126204 = icmp sgt i32 %3, 0
-  br i1 %.not126204, label %356, label %_ZN6icu_779UVector324popiEv.exit
+  %.not124202 = icmp sgt i32 %3, 0
+  br i1 %.not124202, label %356, label %_ZN6icu_779UVector324popiEv.exit
 
 353:                                              ; preds = %_ZNK6icu_779UVector325peekiEv.exit
   %354 = add nsw i32 %345, -1
@@ -2496,8 +2496,8 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   %10 = icmp sgt i32 %9, 0
   %11 = sub nsw i32 %3, %2
   %12 = icmp slt i32 %11, 4
-  %or.cond141 = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond141, label %357, label %13
+  %or.cond139 = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond139, label %357, label %13
 
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2538,14 +2538,14 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   br label %31
 
 31:                                               ; preds = %.lr.ph, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
-  %.0100231 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
+  %.0100229 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
   %32 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %33 = trunc i64 %32 to i32
   %34 = icmp sgt i32 %3, %33
   br i1 %34, label %.noexc, label %.critedge
 
 .noexc:                                           ; preds = %31
-  %35 = urem i32 %.0100231, 3
+  %35 = urem i32 %.0100229, 3
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %36
   %38 = load ptr, ptr %23, align 8, !tbaa !49
@@ -2554,9 +2554,9 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %.not.i = icmp eq i32 %42, %40
-  br i1 %.not.i, label %.noexc143, label %.noexc142
+  br i1 %.not.i, label %.noexc141, label %.noexc140
 
-.noexc142:                                        ; preds = %.noexc
+.noexc140:                                        ; preds = %.noexc
   store i32 %40, ptr %41, align 4, !tbaa !11
   %43 = sub nsw i32 %3, %40
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 20
@@ -2570,18 +2570,18 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %52, label %.thread.i
 
-52:                                               ; preds = %.noexc142
+52:                                               ; preds = %.noexc140
   %sext.i = shl i64 %39, 32
   %53 = ashr exact i64 %sext.i, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %53)
-  br label %.noexc143
+  br label %.noexc141
 
-.noexc143:                                        ; preds = %52, %.noexc
+.noexc141:                                        ; preds = %52, %.noexc
   %.pr.i = load i32, ptr %37, align 4, !tbaa !14
   %54 = icmp sgt i32 %.pr.i, 0
-  br i1 %54, label %.thread.i, label %.thread194
+  br i1 %54, label %.thread.i, label %.thread192
 
-.thread194:                                       ; preds = %.noexc143
+.thread192:                                       ; preds = %.noexc141
   %55 = add nsw i32 %.pr.i, -1
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 %55, ptr %56, align 4, !tbaa !16
@@ -2589,8 +2589,8 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   store i32 %55, ptr %57, align 4, !tbaa !17
   br label %197
 
-.thread.i:                                        ; preds = %.noexc143, %.noexc142
-  %58 = phi i32 [ %.pr.i, %.noexc143 ], [ %50, %.noexc142 ]
+.thread.i:                                        ; preds = %.noexc141, %.noexc140
+  %58 = phi i32 [ %.pr.i, %.noexc141 ], [ %50, %.noexc140 ]
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %60 = add nsw i32 %58, -1
   %61 = zext nneg i32 %60 to i64
@@ -2623,7 +2623,7 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
   %81 = getelementptr inbounds nuw i8, ptr %37, i64 100
   %82 = getelementptr inbounds [20 x i32], ptr %81, i64 0, i64 %78
   %83 = load i32, ptr %82, align 4, !tbaa !15
-  %84 = add i32 %.0100231, 1
+  %84 = add i32 %.0100229, 1
   br label %197
 
 85:                                               ; preds = %.thread.i
@@ -2632,11 +2632,11 @@ define noundef i32 @_ZNK6icu_7718BurmeseBreakEngine23divideUpDictionaryRangeEP5U
 
 87:                                               ; preds = %85
   %88 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
-  %.not127 = icmp slt i64 %88, %24
-  br i1 %.not127, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not125 = icmp slt i64 %88, %24
+  br i1 %.not125, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
-  %89 = add i32 %.0100231, 1
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader: ; preds = %87
+  %89 = add i32 %.0100229, 1
   %90 = urem i32 %89, 3
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %91
@@ -2646,7 +2646,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %99 = add i32 %.0100231, 2
+  %99 = add i32 %.0100229, 2
   %100 = urem i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %101
@@ -2656,17 +2656,17 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %87
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader
   %109 = load ptr, ptr %23, align 8, !tbaa !49
   %110 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %111 = trunc i64 %110 to i32
   %112 = load i32, ptr %93, align 4, !tbaa !11
-  %.not.i146 = icmp eq i32 %112, %111
-  br i1 %.not.i146, label %.noexc153, label %.noexc152
+  %.not.i144 = icmp eq i32 %112, %111
+  br i1 %.not.i144, label %.noexc151, label %.noexc150
 
-.noexc152:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+.noexc150:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
   store i32 %111, ptr %93, align 4, !tbaa !11
   %113 = sub nsw i32 %3, %111
   %114 = load ptr, ptr %109, align 8, !tbaa !3
@@ -2675,27 +2675,27 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %117 = call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %1, i32 noundef %113, i32 noundef 20, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef null, ptr noundef nonnull %96)
   store i32 %117, ptr %92, align 4, !tbaa !14
   %118 = icmp slt i32 %117, 1
-  br i1 %118, label %119, label %.thread.i147
+  br i1 %118, label %119, label %.thread.i145
 
-119:                                              ; preds = %.noexc152
-  %sext.i149 = shl i64 %110, 32
-  %120 = ashr exact i64 %sext.i149, 32
+119:                                              ; preds = %.noexc150
+  %sext.i147 = shl i64 %110, 32
+  %120 = ashr exact i64 %sext.i147, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %120)
-  br label %.noexc153
+  br label %.noexc151
 
-.noexc153:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
-  %.pr.i150 = load i32, ptr %92, align 4, !tbaa !14
-  %121 = icmp sgt i32 %.pr.i150, 0
-  br i1 %121, label %.thread.i147, label %.thread195
+.noexc151:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
+  %.pr.i148 = load i32, ptr %92, align 4, !tbaa !14
+  %121 = icmp sgt i32 %.pr.i148, 0
+  br i1 %121, label %.thread.i145, label %.thread193
 
-.thread195:                                       ; preds = %.noexc153
-  %122 = add nsw i32 %.pr.i150, -1
+.thread193:                                       ; preds = %.noexc151
+  %122 = add nsw i32 %.pr.i148, -1
   store i32 %122, ptr %97, align 4, !tbaa !16
   store i32 %122, ptr %98, align 4, !tbaa !17
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-.thread.i147:                                     ; preds = %.noexc153, %.noexc152
-  %123 = phi i32 [ %.pr.i150, %.noexc153 ], [ %117, %.noexc152 ]
+.thread.i145:                                     ; preds = %.noexc151, %.noexc150
+  %123 = phi i32 [ %.pr.i148, %.noexc151 ], [ %117, %.noexc150 ]
   %124 = add nsw i32 %123, -1
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw [20 x i32], ptr %94, i64 0, i64 %125
@@ -2703,30 +2703,30 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %128 = add nsw i32 %127, %111
   %129 = sext i32 %128 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %129)
-  %.pre.i148 = load i32, ptr %92, align 4, !tbaa !14
-  %130 = add nsw i32 %.pre.i148, -1
+  %.pre.i146 = load i32, ptr %92, align 4, !tbaa !14
+  %130 = add nsw i32 %.pre.i146, -1
   store i32 %130, ptr %97, align 4, !tbaa !16
   store i32 %130, ptr %98, align 4, !tbaa !17
-  %131 = icmp sgt i32 %.pre.i148, 0
+  %131 = icmp sgt i32 %.pre.i146, 0
   br i1 %131, label %132, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-132:                                              ; preds = %.thread.i147
+132:                                              ; preds = %.thread.i145
   %133 = load i32, ptr %67, align 4, !tbaa !16
   store i32 %133, ptr %68, align 4, !tbaa !17
   %134 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %135 = trunc i64 %134 to i32
-  %.not128 = icmp sgt i32 %3, %135
-  br i1 %.not128, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not126 = icmp sgt i32 %3, %135
+  br i1 %.not126, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %136 = load ptr, ptr %23, align 8, !tbaa !49
   %137 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %138 = trunc i64 %137 to i32
   %139 = load i32, ptr %103, align 4, !tbaa !11
-  %.not.i156 = icmp eq i32 %139, %138
-  br i1 %.not.i156, label %.noexc163, label %.noexc162
+  %.not.i154 = icmp eq i32 %139, %138
+  br i1 %.not.i154, label %.noexc161, label %.noexc160
 
-.noexc162:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+.noexc160:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
   store i32 %138, ptr %103, align 4, !tbaa !11
   %140 = sub nsw i32 %3, %138
   %141 = load ptr, ptr %136, align 8, !tbaa !3
@@ -2735,21 +2735,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %144 = call noundef i32 %143(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %1, i32 noundef %140, i32 noundef 20, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef null, ptr noundef nonnull %106)
   store i32 %144, ptr %102, align 4, !tbaa !14
   %145 = icmp slt i32 %144, 1
-  br i1 %145, label %146, label %.thread.i157
+  br i1 %145, label %146, label %.thread.i155
 
-146:                                              ; preds = %.noexc162
-  %sext.i159 = shl i64 %137, 32
-  %147 = ashr exact i64 %sext.i159, 32
+146:                                              ; preds = %.noexc160
+  %sext.i157 = shl i64 %137, 32
+  %147 = ashr exact i64 %sext.i157, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %147)
-  br label %.noexc163
+  br label %.noexc161
 
-.noexc163:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
-  %.pr.i160 = load i32, ptr %102, align 4, !tbaa !14
-  %148 = icmp sgt i32 %.pr.i160, 0
-  br i1 %148, label %.thread.i157, label %156
+.noexc161:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+  %.pr.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %148 = icmp sgt i32 %.pr.i158, 0
+  br i1 %148, label %.thread.i155, label %156
 
-.thread.i157:                                     ; preds = %.noexc163, %.noexc162
-  %149 = phi i32 [ %.pr.i160, %.noexc163 ], [ %144, %.noexc162 ]
+.thread.i155:                                     ; preds = %.noexc161, %.noexc160
+  %149 = phi i32 [ %.pr.i158, %.noexc161 ], [ %144, %.noexc160 ]
   %150 = add nsw i32 %149, -1
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw [20 x i32], ptr %104, i64 0, i64 %151
@@ -2757,21 +2757,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %154 = add nsw i32 %153, %138
   %155 = sext i32 %154 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %155)
-  %.pre.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %.pre.i156 = load i32, ptr %102, align 4, !tbaa !14
   br label %156
 
-156:                                              ; preds = %.thread.i157, %.noexc163
-  %157 = phi i32 [ %.pre.i158, %.thread.i157 ], [ %.pr.i160, %.noexc163 ]
+156:                                              ; preds = %.thread.i155, %.noexc161
+  %157 = phi i32 [ %.pre.i156, %.thread.i155 ], [ %.pr.i158, %.noexc161 ]
   %158 = add nsw i32 %157, -1
   store i32 %158, ptr %107, align 4, !tbaa !16
   store i32 %158, ptr %108, align 4, !tbaa !17
-  %.not129 = icmp eq i32 %157, 0
-  br i1 %.not129, label %161, label %159
+  %.not127 = icmp eq i32 %157, 0
+  br i1 %.not127, label %161, label %159
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %67, align 4, !tbaa !16
   store i32 %160, ptr %68, align 4, !tbaa !17
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 161:                                              ; preds = %156
   %162 = load i32, ptr %97, align 4, !tbaa !16
@@ -2790,10 +2790,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %171), !llvm.loop !51
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195, %.thread.i147
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread193, %.thread.i145
   %172 = load i32, ptr %67, align 4, !tbaa !16
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 174:                                              ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
   %175 = load i32, ptr %41, align 4, !tbaa !11
@@ -2805,9 +2805,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195
   %180 = add nsw i32 %179, %175
   %181 = sext i32 %180 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %181), !llvm.loop !52
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %87, %159
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %87, %159
   %182 = load i32, ptr %41, align 4, !tbaa !11
   %183 = load i32, ptr %68, align 4, !tbaa !17
   %184 = sext i32 %183 to i64
@@ -2823,21 +2823,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %193 = getelementptr inbounds nuw i8, ptr %37, i64 100
   %194 = getelementptr inbounds [20 x i32], ptr %193, i64 0, i64 %190
   %195 = load i32, ptr %194, align 4, !tbaa !15
-  %196 = add i32 %.0100231, 1
+  %196 = add i32 %.0100229, 1
   br label %197
 
-197:                                              ; preds = %.thread194, %85, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread, %70
-  %.0104 = phi i32 [ %80, %70 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %85 ], [ 0, %.thread194 ]
-  %.0103 = phi i32 [ %83, %70 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %85 ], [ 0, %.thread194 ]
-  %.1 = phi i32 [ %84, %70 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ %.0100231, %85 ], [ %.0100231, %.thread194 ]
+197:                                              ; preds = %.thread192, %85, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread, %70
+  %.0104 = phi i32 [ %80, %70 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %85 ], [ 0, %.thread192 ]
+  %.0103 = phi i32 [ %83, %70 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %85 ], [ 0, %.thread192 ]
+  %.1 = phi i32 [ %84, %70 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ %.0100229, %85 ], [ %.0100229, %.thread192 ]
   %198 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %199 = trunc i64 %198 to i32
   %200 = icmp sgt i32 %3, %199
   %201 = icmp slt i32 %.0103, 3
   %or.cond = and i1 %201, %200
-  br i1 %or.cond, label %.noexc177, label %312
+  br i1 %or.cond, label %.noexc175, label %312
 
-.noexc177:                                        ; preds = %197
+.noexc175:                                        ; preds = %197
   %202 = urem i32 %.1, 3
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %203
@@ -2846,10 +2846,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %207 = trunc i64 %206 to i32
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load i32, ptr %208, align 4, !tbaa !11
-  %.not.i172 = icmp eq i32 %209, %207
-  br i1 %.not.i172, label %.noexc179, label %.noexc178
+  %.not.i170 = icmp eq i32 %209, %207
+  br i1 %.not.i170, label %.noexc177, label %.noexc176
 
-.noexc178:                                        ; preds = %.noexc177
+.noexc176:                                        ; preds = %.noexc175
   store i32 %207, ptr %208, align 4, !tbaa !11
   %210 = sub nsw i32 %3, %207
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 20
@@ -2861,29 +2861,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %217 = call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef %1, i32 noundef %210, i32 noundef 20, ptr noundef nonnull %211, ptr noundef nonnull %212, ptr noundef null, ptr noundef nonnull %213)
   store i32 %217, ptr %204, align 4, !tbaa !14
   %218 = icmp slt i32 %217, 1
-  br i1 %218, label %219, label %.thread.i173
+  br i1 %218, label %219, label %.thread.i171
 
-219:                                              ; preds = %.noexc178
-  %sext.i175 = shl i64 %206, 32
-  %220 = ashr exact i64 %sext.i175, 32
+219:                                              ; preds = %.noexc176
+  %sext.i173 = shl i64 %206, 32
+  %220 = ashr exact i64 %sext.i173, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %220)
-  br label %.noexc179
+  br label %.noexc177
 
-.noexc179:                                        ; preds = %219, %.noexc177
-  %.pr.i176 = load i32, ptr %204, align 4, !tbaa !14
-  %221 = icmp sgt i32 %.pr.i176, 0
-  br i1 %221, label %.thread.i173, label %.thread200
+.noexc177:                                        ; preds = %219, %.noexc175
+  %.pr.i174 = load i32, ptr %204, align 4, !tbaa !14
+  %221 = icmp sgt i32 %.pr.i174, 0
+  br i1 %221, label %.thread.i171, label %.thread198
 
-.thread200:                                       ; preds = %.noexc179
-  %222 = add nsw i32 %.pr.i176, -1
+.thread198:                                       ; preds = %.noexc177
+  %222 = add nsw i32 %.pr.i174, -1
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %222, ptr %223, align 4, !tbaa !16
   %224 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %222, ptr %224, align 4, !tbaa !17
   br label %237
 
-.thread.i173:                                     ; preds = %.noexc179, %.noexc178
-  %225 = phi i32 [ %.pr.i176, %.noexc179 ], [ %217, %.noexc178 ]
+.thread.i171:                                     ; preds = %.noexc177, %.noexc176
+  %225 = phi i32 [ %.pr.i174, %.noexc177 ], [ %217, %.noexc176 ]
   %226 = getelementptr inbounds nuw i8, ptr %204, i64 20
   %227 = add nsw i32 %225, -1
   %228 = zext nneg i32 %227 to i64
@@ -2892,16 +2892,16 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %231 = add nsw i32 %230, %207
   %232 = sext i32 %231 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %232)
-  %.pre.i174 = load i32, ptr %204, align 4, !tbaa !14
-  %233 = add nsw i32 %.pre.i174, -1
+  %.pre.i172 = load i32, ptr %204, align 4, !tbaa !14
+  %233 = add nsw i32 %.pre.i172, -1
   %234 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %233, ptr %234, align 4, !tbaa !16
   %235 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %233, ptr %235, align 4, !tbaa !17
-  %236 = icmp slt i32 %.pre.i174, 1
+  %236 = icmp slt i32 %.pre.i172, 1
   br i1 %236, label %237, label %309
 
-237:                                              ; preds = %.thread200, %.thread.i173
+237:                                              ; preds = %.thread198, %.thread.i171
   %238 = icmp eq i32 %.0104, 0
   br i1 %238, label %243, label %239
 
@@ -2932,31 +2932,31 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread201, label %.lr.ph238
+  br i1 %263, label %.thread199, label %.lr.ph236
 
-.lr.ph238:                                        ; preds = %243, %.critedge207
-  %264 = phi i32 [ %304, %.critedge207 ], [ %262, %243 ]
-  %265 = phi i32 [ %303, %.critedge207 ], [ %260, %243 ]
-  %266 = phi i32 [ %299, %.critedge207 ], [ %257, %243 ]
+.lr.ph236:                                        ; preds = %243, %.critedge205
+  %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
+  %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
+  %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
   %267 = call i32 @utext_current32_77(ptr noundef %1)
   %268 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %25, i32 noundef %266)
-  %.not132 = icmp eq i8 %268, 0
-  br i1 %.not132, label %.critedge207, label %269
+  %.not130 = icmp eq i8 %268, 0
+  br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph238
+269:                                              ; preds = %.lr.ph236
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %267)
-  %.not133 = icmp eq i8 %270, 0
-  br i1 %.not133, label %.critedge207, label %.noexc187
+  %.not131 = icmp eq i8 %270, 0
+  br i1 %.not131, label %.critedge205, label %.noexc185
 
-.noexc187:                                        ; preds = %269
+.noexc185:                                        ; preds = %269
   %271 = load ptr, ptr %23, align 8, !tbaa !49
   %272 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %273 = trunc i64 %272 to i32
   %274 = load i32, ptr %249, align 4, !tbaa !11
-  %.not.i182 = icmp eq i32 %274, %273
-  br i1 %.not.i182, label %.noexc189, label %.noexc188
+  %.not.i180 = icmp eq i32 %274, %273
+  br i1 %.not.i180, label %.noexc187, label %.noexc186
 
-.noexc188:                                        ; preds = %.noexc187
+.noexc186:                                        ; preds = %.noexc185
   store i32 %273, ptr %249, align 4, !tbaa !11
   %275 = sub nsw i32 %3, %273
   %276 = load ptr, ptr %271, align 8, !tbaa !3
@@ -2965,21 +2965,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %279 = call noundef i32 %278(ptr noundef nonnull align 8 dereferenceable(8) %271, ptr noundef %1, i32 noundef %275, i32 noundef 20, ptr noundef nonnull %250, ptr noundef nonnull %251, ptr noundef null, ptr noundef nonnull %252)
   store i32 %279, ptr %248, align 4, !tbaa !14
   %280 = icmp slt i32 %279, 1
-  br i1 %280, label %281, label %.thread.i183
+  br i1 %280, label %281, label %.thread.i181
 
-281:                                              ; preds = %.noexc188
-  %sext.i185 = shl i64 %272, 32
-  %282 = ashr exact i64 %sext.i185, 32
+281:                                              ; preds = %.noexc186
+  %sext.i183 = shl i64 %272, 32
+  %282 = ashr exact i64 %sext.i183, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %282)
-  br label %.noexc189
+  br label %.noexc187
 
-.noexc189:                                        ; preds = %281, %.noexc187
-  %.pr.i186 = load i32, ptr %248, align 4, !tbaa !14
-  %283 = icmp sgt i32 %.pr.i186, 0
-  br i1 %283, label %.thread.i183, label %291
+.noexc187:                                        ; preds = %281, %.noexc185
+  %.pr.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %283 = icmp sgt i32 %.pr.i184, 0
+  br i1 %283, label %.thread.i181, label %291
 
-.thread.i183:                                     ; preds = %.noexc189, %.noexc188
-  %284 = phi i32 [ %.pr.i186, %.noexc189 ], [ %279, %.noexc188 ]
+.thread.i181:                                     ; preds = %.noexc187, %.noexc186
+  %284 = phi i32 [ %.pr.i184, %.noexc187 ], [ %279, %.noexc186 ]
   %285 = add nsw i32 %284, -1
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw [20 x i32], ptr %250, i64 0, i64 %286
@@ -2987,11 +2987,11 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %289 = add nsw i32 %288, %273
   %290 = sext i32 %289 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %290)
-  %.pre.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %.pre.i182 = load i32, ptr %248, align 4, !tbaa !14
   br label %291
 
-291:                                              ; preds = %.thread.i183, %.noexc189
-  %292 = phi i32 [ %.pre.i184, %.thread.i183 ], [ %.pr.i186, %.noexc189 ]
+291:                                              ; preds = %.thread.i181, %.noexc187
+  %292 = phi i32 [ %.pre.i182, %.thread.i181 ], [ %.pr.i184, %.noexc187 ]
   %293 = add nsw i32 %292, -1
   store i32 %293, ptr %253, align 4, !tbaa !16
   store i32 %293, ptr %254, align 4, !tbaa !17
@@ -2999,9 +2999,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %295 = sext i32 %294 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %295)
   %296 = icmp slt i32 %292, 1
-  br i1 %296, label %.critedge207, label %.thread201
+  br i1 %296, label %.critedge205, label %.thread199
 
-.critedge207:                                     ; preds = %291, %269, %.lr.ph238
+.critedge205:                                     ; preds = %291, %269, %.lr.ph236
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -3011,51 +3011,51 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread201, label %.lr.ph238
+  br i1 %305, label %.thread199, label %.lr.ph236
 
-.thread201:                                       ; preds = %.critedge207, %291, %243
-  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge207 ], [ %265, %291 ]
+.thread199:                                       ; preds = %.critedge205, %291, %243
+  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
   %306 = icmp slt i32 %.0104, 1
   %307 = zext i1 %306 to i32
   %spec.select = add i32 %.1, %307
   %308 = add nsw i32 %.lcssa, %.0104
   br label %312
 
-309:                                              ; preds = %239, %.thread.i173
+309:                                              ; preds = %239, %.thread.i171
   %310 = add nsw i32 %.0104, %33
   %311 = sext i32 %310 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %311)
   br label %312
 
-312:                                              ; preds = %309, %.thread201, %197
-  %.1105 = phi i32 [ %308, %.thread201 ], [ %.0104, %309 ], [ %.0104, %197 ]
-  %.2 = phi i32 [ %spec.select, %.thread201 ], [ %.1, %309 ], [ %.1, %197 ]
+312:                                              ; preds = %309, %.thread199, %197
+  %.1105 = phi i32 [ %308, %.thread199 ], [ %.0104, %309 ], [ %.0104, %197 ]
+  %.2 = phi i32 [ %spec.select, %.thread199 ], [ %.1, %309 ], [ %.1, %197 ]
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph242, label %.critedge3
+  br i1 %315, label %.lr.ph240, label %.critedge3
 
-.lr.ph242:                                        ; preds = %312, %319
+.lr.ph240:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106241 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %27, i32 noundef %317)
-  %.not136 = icmp eq i8 %318, 0
-  br i1 %.not136, label %.critedge3, label %319
+  %.not134 = icmp eq i8 %318, 0
+  br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph242
+319:                                              ; preds = %.lr.ph240
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106241, %316
+  %323 = sub i32 %.2106239, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph242, label %.critedge3, !llvm.loop !53
+  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !53
 
-.critedge3:                                       ; preds = %.lr.ph242, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106241, %.lr.ph242 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph240, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -3095,7 +3095,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   br i1 %343, label %.critedge, label %31, !llvm.loop !54
 
 .critedge:                                        ; preds = %31, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit, %.preheader
-  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100231, %31 ]
+  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100229, %31 ]
   %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %345 = load i32, ptr %344, align 8, !tbaa !39
   %346 = icmp sgt i32 %345, 0
@@ -3108,12 +3108,12 @@ _ZNK6icu_779UVector325peekiEv.exit:               ; preds = %.critedge
   %350 = getelementptr i32, ptr %348, i64 %349
   %351 = getelementptr i8, ptr %350, i64 -4
   %352 = load i32, ptr %351, align 4, !tbaa !15
-  %.not126 = icmp slt i32 %352, %3
-  br i1 %.not126, label %356, label %353
+  %.not124 = icmp slt i32 %352, %3
+  br i1 %.not124, label %356, label %353
 
 _ZNK6icu_779UVector325peekiEv.exit.thread:        ; preds = %.critedge
-  %.not126204 = icmp sgt i32 %3, 0
-  br i1 %.not126204, label %356, label %_ZN6icu_779UVector324popiEv.exit
+  %.not124202 = icmp sgt i32 %3, 0
+  br i1 %.not124202, label %356, label %_ZN6icu_779UVector324popiEv.exit
 
 353:                                              ; preds = %_ZNK6icu_779UVector325peekiEv.exit
   %354 = add nsw i32 %345, -1
@@ -3373,8 +3373,8 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   %10 = icmp sgt i32 %9, 0
   %11 = sub nsw i32 %3, %2
   %12 = icmp slt i32 %11, 4
-  %or.cond141 = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond141, label %357, label %13
+  %or.cond139 = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond139, label %357, label %13
 
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3414,14 +3414,14 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
-  %.0100231 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
+  %.0100229 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ]
   %31 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %32 = trunc i64 %31 to i32
   %33 = icmp sgt i32 %3, %32
   br i1 %33, label %.noexc, label %.critedge
 
 .noexc:                                           ; preds = %30
-  %34 = urem i32 %.0100231, 3
+  %34 = urem i32 %.0100229, 3
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %35
   %37 = load ptr, ptr %23, align 8, !tbaa !55
@@ -3430,9 +3430,9 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %41 = load i32, ptr %40, align 4, !tbaa !11
   %.not.i = icmp eq i32 %41, %39
-  br i1 %.not.i, label %.noexc143, label %.noexc142
+  br i1 %.not.i, label %.noexc141, label %.noexc140
 
-.noexc142:                                        ; preds = %.noexc
+.noexc140:                                        ; preds = %.noexc
   store i32 %39, ptr %40, align 4, !tbaa !11
   %42 = sub nsw i32 %3, %39
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 20
@@ -3446,18 +3446,18 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %51, label %.thread.i
 
-51:                                               ; preds = %.noexc142
+51:                                               ; preds = %.noexc140
   %sext.i = shl i64 %38, 32
   %52 = ashr exact i64 %sext.i, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %52)
-  br label %.noexc143
+  br label %.noexc141
 
-.noexc143:                                        ; preds = %51, %.noexc
+.noexc141:                                        ; preds = %51, %.noexc
   %.pr.i = load i32, ptr %36, align 4, !tbaa !14
   %53 = icmp sgt i32 %.pr.i, 0
-  br i1 %53, label %.thread.i, label %.thread194
+  br i1 %53, label %.thread.i, label %.thread192
 
-.thread194:                                       ; preds = %.noexc143
+.thread192:                                       ; preds = %.noexc141
   %54 = add nsw i32 %.pr.i, -1
   %55 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %54, ptr %55, align 4, !tbaa !16
@@ -3465,8 +3465,8 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   store i32 %54, ptr %56, align 4, !tbaa !17
   br label %197
 
-.thread.i:                                        ; preds = %.noexc143, %.noexc142
-  %57 = phi i32 [ %.pr.i, %.noexc143 ], [ %49, %.noexc142 ]
+.thread.i:                                        ; preds = %.noexc141, %.noexc140
+  %57 = phi i32 [ %.pr.i, %.noexc141 ], [ %49, %.noexc140 ]
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %59 = add nsw i32 %57, -1
   %60 = zext nneg i32 %59 to i64
@@ -3499,7 +3499,7 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
   %80 = getelementptr inbounds nuw i8, ptr %36, i64 100
   %81 = getelementptr inbounds [20 x i32], ptr %80, i64 0, i64 %77
   %82 = load i32, ptr %81, align 4, !tbaa !15
-  %83 = add i32 %.0100231, 1
+  %83 = add i32 %.0100229, 1
   br label %197
 
 84:                                               ; preds = %.thread.i
@@ -3509,11 +3509,11 @@ define noundef i32 @_ZNK6icu_7716KhmerBreakEngine23divideUpDictionaryRangeEP5UTe
 86:                                               ; preds = %84
   %87 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %88 = trunc i64 %87 to i32
-  %.not127 = icmp sgt i32 %3, %88
-  br i1 %.not127, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not125 = icmp sgt i32 %3, %88
+  br i1 %.not125, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %86
-  %89 = add i32 %.0100231, 1
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader: ; preds = %86
+  %89 = add i32 %.0100229, 1
   %90 = urem i32 %89, 3
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %91
@@ -3523,7 +3523,7 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %86
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %99 = add i32 %.0100231, 2
+  %99 = add i32 %.0100229, 2
   %100 = urem i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %101
@@ -3533,17 +3533,17 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader: ; preds = %86
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.preheader
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167:  ; preds = %174, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.preheader
   %109 = load ptr, ptr %23, align 8, !tbaa !55
   %110 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %111 = trunc i64 %110 to i32
   %112 = load i32, ptr %93, align 4, !tbaa !11
-  %.not.i146 = icmp eq i32 %112, %111
-  br i1 %.not.i146, label %.noexc153, label %.noexc152
+  %.not.i144 = icmp eq i32 %112, %111
+  br i1 %.not.i144, label %.noexc151, label %.noexc150
 
-.noexc152:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+.noexc150:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
   store i32 %111, ptr %93, align 4, !tbaa !11
   %113 = sub nsw i32 %3, %111
   %114 = load ptr, ptr %109, align 8, !tbaa !3
@@ -3552,27 +3552,27 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %117 = call noundef i32 %116(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %1, i32 noundef %113, i32 noundef 20, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef null, ptr noundef nonnull %96)
   store i32 %117, ptr %92, align 4, !tbaa !14
   %118 = icmp slt i32 %117, 1
-  br i1 %118, label %119, label %.thread.i147
+  br i1 %118, label %119, label %.thread.i145
 
-119:                                              ; preds = %.noexc152
-  %sext.i149 = shl i64 %110, 32
-  %120 = ashr exact i64 %sext.i149, 32
+119:                                              ; preds = %.noexc150
+  %sext.i147 = shl i64 %110, 32
+  %120 = ashr exact i64 %sext.i147, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %120)
-  br label %.noexc153
+  br label %.noexc151
 
-.noexc153:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
-  %.pr.i150 = load i32, ptr %92, align 4, !tbaa !14
-  %121 = icmp sgt i32 %.pr.i150, 0
-  br i1 %121, label %.thread.i147, label %.thread195
+.noexc151:                                        ; preds = %119, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
+  %.pr.i148 = load i32, ptr %92, align 4, !tbaa !14
+  %121 = icmp sgt i32 %.pr.i148, 0
+  br i1 %121, label %.thread.i145, label %.thread193
 
-.thread195:                                       ; preds = %.noexc153
-  %122 = add nsw i32 %.pr.i150, -1
+.thread193:                                       ; preds = %.noexc151
+  %122 = add nsw i32 %.pr.i148, -1
   store i32 %122, ptr %97, align 4, !tbaa !16
   store i32 %122, ptr %98, align 4, !tbaa !17
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-.thread.i147:                                     ; preds = %.noexc153, %.noexc152
-  %123 = phi i32 [ %.pr.i150, %.noexc153 ], [ %117, %.noexc152 ]
+.thread.i145:                                     ; preds = %.noexc151, %.noexc150
+  %123 = phi i32 [ %.pr.i148, %.noexc151 ], [ %117, %.noexc150 ]
   %124 = add nsw i32 %123, -1
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw [20 x i32], ptr %94, i64 0, i64 %125
@@ -3580,30 +3580,30 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169:  ; preds = %174, %_ZN6icu_7712P
   %128 = add nsw i32 %127, %111
   %129 = sext i32 %128 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %129)
-  %.pre.i148 = load i32, ptr %92, align 4, !tbaa !14
-  %130 = add nsw i32 %.pre.i148, -1
+  %.pre.i146 = load i32, ptr %92, align 4, !tbaa !14
+  %130 = add nsw i32 %.pre.i146, -1
   store i32 %130, ptr %97, align 4, !tbaa !16
   store i32 %130, ptr %98, align 4, !tbaa !17
-  %131 = icmp sgt i32 %.pre.i148, 0
+  %131 = icmp sgt i32 %.pre.i146, 0
   br i1 %131, label %132, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
 
-132:                                              ; preds = %.thread.i147
+132:                                              ; preds = %.thread.i145
   %133 = load i32, ptr %66, align 4, !tbaa !16
   store i32 %133, ptr %67, align 4, !tbaa !17
   %134 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %135 = trunc i64 %134 to i32
-  %.not128 = icmp sgt i32 %3, %135
-  br i1 %.not128, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  %.not126 = icmp sgt i32 %3, %135
+  br i1 %.not126, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %136 = load ptr, ptr %23, align 8, !tbaa !55
   %137 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %138 = trunc i64 %137 to i32
   %139 = load i32, ptr %103, align 4, !tbaa !11
-  %.not.i156 = icmp eq i32 %139, %138
-  br i1 %.not.i156, label %.noexc163, label %.noexc162
+  %.not.i154 = icmp eq i32 %139, %138
+  br i1 %.not.i154, label %.noexc161, label %.noexc160
 
-.noexc162:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+.noexc160:                                        ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
   store i32 %138, ptr %103, align 4, !tbaa !11
   %140 = sub nsw i32 %3, %138
   %141 = load ptr, ptr %136, align 8, !tbaa !3
@@ -3612,21 +3612,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %144 = call noundef i32 %143(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %1, i32 noundef %140, i32 noundef 20, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef null, ptr noundef nonnull %106)
   store i32 %144, ptr %102, align 4, !tbaa !14
   %145 = icmp slt i32 %144, 1
-  br i1 %145, label %146, label %.thread.i157
+  br i1 %145, label %146, label %.thread.i155
 
-146:                                              ; preds = %.noexc162
-  %sext.i159 = shl i64 %137, 32
-  %147 = ashr exact i64 %sext.i159, 32
+146:                                              ; preds = %.noexc160
+  %sext.i157 = shl i64 %137, 32
+  %147 = ashr exact i64 %sext.i157, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %147)
-  br label %.noexc163
+  br label %.noexc161
 
-.noexc163:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
-  %.pr.i160 = load i32, ptr %102, align 4, !tbaa !14
-  %148 = icmp sgt i32 %.pr.i160, 0
-  br i1 %148, label %.thread.i157, label %156
+.noexc161:                                        ; preds = %146, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
+  %.pr.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %148 = icmp sgt i32 %.pr.i158, 0
+  br i1 %148, label %.thread.i155, label %156
 
-.thread.i157:                                     ; preds = %.noexc163, %.noexc162
-  %149 = phi i32 [ %.pr.i160, %.noexc163 ], [ %144, %.noexc162 ]
+.thread.i155:                                     ; preds = %.noexc161, %.noexc160
+  %149 = phi i32 [ %.pr.i158, %.noexc161 ], [ %144, %.noexc160 ]
   %150 = add nsw i32 %149, -1
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw [20 x i32], ptr %104, i64 0, i64 %151
@@ -3634,21 +3634,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   %154 = add nsw i32 %153, %138
   %155 = sext i32 %154 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %155)
-  %.pre.i158 = load i32, ptr %102, align 4, !tbaa !14
+  %.pre.i156 = load i32, ptr %102, align 4, !tbaa !14
   br label %156
 
-156:                                              ; preds = %.thread.i157, %.noexc163
-  %157 = phi i32 [ %.pre.i158, %.thread.i157 ], [ %.pr.i160, %.noexc163 ]
+156:                                              ; preds = %.thread.i155, %.noexc161
+  %157 = phi i32 [ %.pre.i156, %.thread.i155 ], [ %.pr.i158, %.noexc161 ]
   %158 = add nsw i32 %157, -1
   store i32 %158, ptr %107, align 4, !tbaa !16
   store i32 %158, ptr %108, align 4, !tbaa !17
-  %.not129 = icmp eq i32 %157, 0
-  br i1 %.not129, label %161, label %159
+  %.not127 = icmp eq i32 %157, 0
+  br i1 %.not127, label %161, label %159
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %66, align 4, !tbaa !16
   store i32 %160, ptr %67, align 4, !tbaa !17
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 161:                                              ; preds = %156
   %162 = load i32, ptr %97, align 4, !tbaa !16
@@ -3667,10 +3667,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit:     ; preds = %132, %164
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %171), !llvm.loop !57
   br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195, %.thread.i147
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread193, %.thread.i145
   %172 = load i32, ptr %66, align 4, !tbaa !16
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread
+  br i1 %173, label %174, label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread
 
 174:                                              ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread
   %175 = load i32, ptr %40, align 4, !tbaa !11
@@ -3682,9 +3682,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread: ; preds = %161, %.thread195
   %180 = add nsw i32 %179, %175
   %181 = sext i32 %180 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %181), !llvm.loop !58
-  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169
+  br label %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167
 
-_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %86, %159
+_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread: ; preds = %_ZN6icu_7712PossibleWord6backUpEP5UText.exit.thread, %132, %86, %159
   %182 = load i32, ptr %40, align 4, !tbaa !11
   %183 = load i32, ptr %67, align 4, !tbaa !17
   %184 = sext i32 %183 to i64
@@ -3700,21 +3700,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %193 = getelementptr inbounds nuw i8, ptr %36, i64 100
   %194 = getelementptr inbounds [20 x i32], ptr %193, i64 0, i64 %190
   %195 = load i32, ptr %194, align 4, !tbaa !15
-  %196 = add i32 %.0100231, 1
+  %196 = add i32 %.0100229, 1
   br label %197
 
-197:                                              ; preds = %.thread194, %84, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread, %69
-  %.0104 = phi i32 [ %79, %69 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %84 ], [ 0, %.thread194 ]
-  %.0103 = phi i32 [ %82, %69 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ 0, %84 ], [ 0, %.thread194 ]
-  %.1 = phi i32 [ %83, %69 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread ], [ %.0100231, %84 ], [ %.0100231, %.thread194 ]
+197:                                              ; preds = %.thread192, %84, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread, %69
+  %.0104 = phi i32 [ %79, %69 ], [ %192, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %84 ], [ 0, %.thread192 ]
+  %.0103 = phi i32 [ %82, %69 ], [ %195, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ 0, %84 ], [ 0, %.thread192 ]
+  %.1 = phi i32 [ %83, %69 ], [ %196, %_ZN6icu_7712PossibleWord6backUpEP5UText.exit167.thread ], [ %.0100229, %84 ], [ %.0100229, %.thread192 ]
   %198 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %199 = trunc i64 %198 to i32
   %200 = icmp sgt i32 %3, %199
   %201 = icmp slt i32 %.0103, 3
   %or.cond = and i1 %201, %200
-  br i1 %or.cond, label %.noexc177, label %312
+  br i1 %or.cond, label %.noexc175, label %312
 
-.noexc177:                                        ; preds = %197
+.noexc175:                                        ; preds = %197
   %202 = urem i32 %.1, 3
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds nuw [3 x %"class.icu_77::PossibleWord"], ptr %8, i64 0, i64 %203
@@ -3723,10 +3723,10 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %207 = trunc i64 %206 to i32
   %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load i32, ptr %208, align 4, !tbaa !11
-  %.not.i172 = icmp eq i32 %209, %207
-  br i1 %.not.i172, label %.noexc179, label %.noexc178
+  %.not.i170 = icmp eq i32 %209, %207
+  br i1 %.not.i170, label %.noexc177, label %.noexc176
 
-.noexc178:                                        ; preds = %.noexc177
+.noexc176:                                        ; preds = %.noexc175
   store i32 %207, ptr %208, align 4, !tbaa !11
   %210 = sub nsw i32 %3, %207
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 20
@@ -3738,29 +3738,29 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %217 = call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef %1, i32 noundef %210, i32 noundef 20, ptr noundef nonnull %211, ptr noundef nonnull %212, ptr noundef null, ptr noundef nonnull %213)
   store i32 %217, ptr %204, align 4, !tbaa !14
   %218 = icmp slt i32 %217, 1
-  br i1 %218, label %219, label %.thread.i173
+  br i1 %218, label %219, label %.thread.i171
 
-219:                                              ; preds = %.noexc178
-  %sext.i175 = shl i64 %206, 32
-  %220 = ashr exact i64 %sext.i175, 32
+219:                                              ; preds = %.noexc176
+  %sext.i173 = shl i64 %206, 32
+  %220 = ashr exact i64 %sext.i173, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %220)
-  br label %.noexc179
+  br label %.noexc177
 
-.noexc179:                                        ; preds = %219, %.noexc177
-  %.pr.i176 = load i32, ptr %204, align 4, !tbaa !14
-  %221 = icmp sgt i32 %.pr.i176, 0
-  br i1 %221, label %.thread.i173, label %.thread200
+.noexc177:                                        ; preds = %219, %.noexc175
+  %.pr.i174 = load i32, ptr %204, align 4, !tbaa !14
+  %221 = icmp sgt i32 %.pr.i174, 0
+  br i1 %221, label %.thread.i171, label %.thread198
 
-.thread200:                                       ; preds = %.noexc179
-  %222 = add nsw i32 %.pr.i176, -1
+.thread198:                                       ; preds = %.noexc177
+  %222 = add nsw i32 %.pr.i174, -1
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %222, ptr %223, align 4, !tbaa !16
   %224 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %222, ptr %224, align 4, !tbaa !17
   br label %237
 
-.thread.i173:                                     ; preds = %.noexc179, %.noexc178
-  %225 = phi i32 [ %.pr.i176, %.noexc179 ], [ %217, %.noexc178 ]
+.thread.i171:                                     ; preds = %.noexc177, %.noexc176
+  %225 = phi i32 [ %.pr.i174, %.noexc177 ], [ %217, %.noexc176 ]
   %226 = getelementptr inbounds nuw i8, ptr %204, i64 20
   %227 = add nsw i32 %225, -1
   %228 = zext nneg i32 %227 to i64
@@ -3769,16 +3769,16 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %231 = add nsw i32 %230, %207
   %232 = sext i32 %231 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %232)
-  %.pre.i174 = load i32, ptr %204, align 4, !tbaa !14
-  %233 = add nsw i32 %.pre.i174, -1
+  %.pre.i172 = load i32, ptr %204, align 4, !tbaa !14
+  %233 = add nsw i32 %.pre.i172, -1
   %234 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %233, ptr %234, align 4, !tbaa !16
   %235 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store i32 %233, ptr %235, align 4, !tbaa !17
-  %236 = icmp slt i32 %.pre.i174, 1
+  %236 = icmp slt i32 %.pre.i172, 1
   br i1 %236, label %237, label %309
 
-237:                                              ; preds = %.thread200, %.thread.i173
+237:                                              ; preds = %.thread198, %.thread.i171
   %238 = icmp eq i32 %.0104, 0
   br i1 %238, label %243, label %239
 
@@ -3809,31 +3809,31 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %261 = add i32 %244, %260
   %262 = sub i32 %3, %261
   %263 = icmp slt i32 %262, 1
-  br i1 %263, label %.thread201, label %.lr.ph238
+  br i1 %263, label %.thread199, label %.lr.ph236
 
-.lr.ph238:                                        ; preds = %243, %.critedge207
-  %264 = phi i32 [ %304, %.critedge207 ], [ %262, %243 ]
-  %265 = phi i32 [ %303, %.critedge207 ], [ %260, %243 ]
-  %266 = phi i32 [ %299, %.critedge207 ], [ %257, %243 ]
+.lr.ph236:                                        ; preds = %243, %.critedge205
+  %264 = phi i32 [ %304, %.critedge205 ], [ %262, %243 ]
+  %265 = phi i32 [ %303, %.critedge205 ], [ %260, %243 ]
+  %266 = phi i32 [ %299, %.critedge205 ], [ %257, %243 ]
   %267 = call i32 @utext_current32_77(ptr noundef %1)
   %268 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %24, i32 noundef %266)
-  %.not132 = icmp eq i8 %268, 0
-  br i1 %.not132, label %.critedge207, label %269
+  %.not130 = icmp eq i8 %268, 0
+  br i1 %.not130, label %.critedge205, label %269
 
-269:                                              ; preds = %.lr.ph238
+269:                                              ; preds = %.lr.ph236
   %270 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %25, i32 noundef %267)
-  %.not133 = icmp eq i8 %270, 0
-  br i1 %.not133, label %.critedge207, label %.noexc187
+  %.not131 = icmp eq i8 %270, 0
+  br i1 %.not131, label %.critedge205, label %.noexc185
 
-.noexc187:                                        ; preds = %269
+.noexc185:                                        ; preds = %269
   %271 = load ptr, ptr %23, align 8, !tbaa !55
   %272 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %273 = trunc i64 %272 to i32
   %274 = load i32, ptr %249, align 4, !tbaa !11
-  %.not.i182 = icmp eq i32 %274, %273
-  br i1 %.not.i182, label %.noexc189, label %.noexc188
+  %.not.i180 = icmp eq i32 %274, %273
+  br i1 %.not.i180, label %.noexc187, label %.noexc186
 
-.noexc188:                                        ; preds = %.noexc187
+.noexc186:                                        ; preds = %.noexc185
   store i32 %273, ptr %249, align 4, !tbaa !11
   %275 = sub nsw i32 %3, %273
   %276 = load ptr, ptr %271, align 8, !tbaa !3
@@ -3842,21 +3842,21 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %279 = call noundef i32 %278(ptr noundef nonnull align 8 dereferenceable(8) %271, ptr noundef %1, i32 noundef %275, i32 noundef 20, ptr noundef nonnull %250, ptr noundef nonnull %251, ptr noundef null, ptr noundef nonnull %252)
   store i32 %279, ptr %248, align 4, !tbaa !14
   %280 = icmp slt i32 %279, 1
-  br i1 %280, label %281, label %.thread.i183
+  br i1 %280, label %281, label %.thread.i181
 
-281:                                              ; preds = %.noexc188
-  %sext.i185 = shl i64 %272, 32
-  %282 = ashr exact i64 %sext.i185, 32
+281:                                              ; preds = %.noexc186
+  %sext.i183 = shl i64 %272, 32
+  %282 = ashr exact i64 %sext.i183, 32
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %282)
-  br label %.noexc189
+  br label %.noexc187
 
-.noexc189:                                        ; preds = %281, %.noexc187
-  %.pr.i186 = load i32, ptr %248, align 4, !tbaa !14
-  %283 = icmp sgt i32 %.pr.i186, 0
-  br i1 %283, label %.thread.i183, label %291
+.noexc187:                                        ; preds = %281, %.noexc185
+  %.pr.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %283 = icmp sgt i32 %.pr.i184, 0
+  br i1 %283, label %.thread.i181, label %291
 
-.thread.i183:                                     ; preds = %.noexc189, %.noexc188
-  %284 = phi i32 [ %.pr.i186, %.noexc189 ], [ %279, %.noexc188 ]
+.thread.i181:                                     ; preds = %.noexc187, %.noexc186
+  %284 = phi i32 [ %.pr.i184, %.noexc187 ], [ %279, %.noexc186 ]
   %285 = add nsw i32 %284, -1
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw [20 x i32], ptr %250, i64 0, i64 %286
@@ -3864,11 +3864,11 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %289 = add nsw i32 %288, %273
   %290 = sext i32 %289 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %290)
-  %.pre.i184 = load i32, ptr %248, align 4, !tbaa !14
+  %.pre.i182 = load i32, ptr %248, align 4, !tbaa !14
   br label %291
 
-291:                                              ; preds = %.thread.i183, %.noexc189
-  %292 = phi i32 [ %.pre.i184, %.thread.i183 ], [ %.pr.i186, %.noexc189 ]
+291:                                              ; preds = %.thread.i181, %.noexc187
+  %292 = phi i32 [ %.pre.i182, %.thread.i181 ], [ %.pr.i184, %.noexc187 ]
   %293 = add nsw i32 %292, -1
   store i32 %293, ptr %253, align 4, !tbaa !16
   store i32 %293, ptr %254, align 4, !tbaa !17
@@ -3876,9 +3876,9 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %295 = sext i32 %294 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %295)
   %296 = icmp slt i32 %292, 1
-  br i1 %296, label %.critedge207, label %.thread201
+  br i1 %296, label %.critedge205, label %.thread199
 
-.critedge207:                                     ; preds = %291, %269, %.lr.ph238
+.critedge205:                                     ; preds = %291, %269, %.lr.ph236
   %297 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %298 = trunc i64 %297 to i32
   %299 = call i32 @utext_next32_77(ptr noundef %1)
@@ -3888,51 +3888,51 @@ _ZN6icu_7712PossibleWord6backUpEP5UText.exit169.thread: ; preds = %_ZN6icu_7712P
   %303 = add nsw i32 %302, %265
   %304 = sub nsw i32 %264, %302
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %.thread201, label %.lr.ph238
+  br i1 %305, label %.thread199, label %.lr.ph236
 
-.thread201:                                       ; preds = %.critedge207, %291, %243
-  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge207 ], [ %265, %291 ]
+.thread199:                                       ; preds = %.critedge205, %291, %243
+  %.lcssa = phi i32 [ %260, %243 ], [ %303, %.critedge205 ], [ %265, %291 ]
   %306 = icmp slt i32 %.0104, 1
   %307 = zext i1 %306 to i32
   %spec.select = add i32 %.1, %307
   %308 = add nsw i32 %.lcssa, %.0104
   br label %312
 
-309:                                              ; preds = %239, %.thread.i173
+309:                                              ; preds = %239, %.thread.i171
   %310 = add nsw i32 %.0104, %32
   %311 = sext i32 %310 to i64
   call void @utext_setNativeIndex_77(ptr noundef %1, i64 noundef %311)
   br label %312
 
-312:                                              ; preds = %309, %.thread201, %197
-  %.1105 = phi i32 [ %308, %.thread201 ], [ %.0104, %309 ], [ %.0104, %197 ]
-  %.2 = phi i32 [ %spec.select, %.thread201 ], [ %.1, %309 ], [ %.1, %197 ]
+312:                                              ; preds = %309, %.thread199, %197
+  %.1105 = phi i32 [ %308, %.thread199 ], [ %.0104, %309 ], [ %.0104, %197 ]
+  %.2 = phi i32 [ %spec.select, %.thread199 ], [ %.1, %309 ], [ %.1, %197 ]
   %313 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %314 = trunc i64 %313 to i32
   %315 = icmp sgt i32 %3, %314
-  br i1 %315, label %.lr.ph242, label %.critedge3
+  br i1 %315, label %.lr.ph240, label %.critedge3
 
-.lr.ph242:                                        ; preds = %312, %319
+.lr.ph240:                                        ; preds = %312, %319
   %316 = phi i32 [ %326, %319 ], [ %314, %312 ]
-  %.2106241 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
+  %.2106239 = phi i32 [ %324, %319 ], [ %.1105, %312 ]
   %317 = call i32 @utext_current32_77(ptr noundef %1)
   %318 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %26, i32 noundef %317)
-  %.not136 = icmp eq i8 %318, 0
-  br i1 %.not136, label %.critedge3, label %319
+  %.not134 = icmp eq i8 %318, 0
+  br i1 %.not134, label %.critedge3, label %319
 
-319:                                              ; preds = %.lr.ph242
+319:                                              ; preds = %.lr.ph240
   %320 = call i32 @utext_next32_77(ptr noundef %1)
   %321 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %322 = trunc i64 %321 to i32
-  %323 = sub i32 %.2106241, %316
+  %323 = sub i32 %.2106239, %316
   %324 = add i32 %323, %322
   %325 = call i64 @utext_getNativeIndex_77(ptr noundef %1)
   %326 = trunc i64 %325 to i32
   %327 = icmp sgt i32 %3, %326
-  br i1 %327, label %.lr.ph242, label %.critedge3, !llvm.loop !59
+  br i1 %327, label %.lr.ph240, label %.critedge3, !llvm.loop !59
 
-.critedge3:                                       ; preds = %.lr.ph242, %319, %312
-  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106241, %.lr.ph242 ], [ %324, %319 ]
+.critedge3:                                       ; preds = %.lr.ph240, %319, %312
+  %.2106.lcssa = phi i32 [ %.1105, %312 ], [ %.2106239, %.lr.ph240 ], [ %324, %319 ]
   %328 = icmp sgt i32 %.2106.lcssa, 0
   br i1 %328, label %329, label %_ZN6icu_779UVector324pushEiR10UErrorCode.exit
 
@@ -3972,7 +3972,7 @@ _ZN6icu_779UVector324pushEiR10UErrorCode.exit:    ; preds = %_ZN6icu_779UVector3
   br i1 %343, label %.critedge, label %30, !llvm.loop !60
 
 .critedge:                                        ; preds = %30, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit, %.preheader
-  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100231, %30 ]
+  %.0100.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %_ZN6icu_779UVector324pushEiR10UErrorCode.exit ], [ %.0100229, %30 ]
   %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %345 = load i32, ptr %344, align 8, !tbaa !39
   %346 = icmp sgt i32 %345, 0
@@ -3985,12 +3985,12 @@ _ZNK6icu_779UVector325peekiEv.exit:               ; preds = %.critedge
   %350 = getelementptr i32, ptr %348, i64 %349
   %351 = getelementptr i8, ptr %350, i64 -4
   %352 = load i32, ptr %351, align 4, !tbaa !15
-  %.not126 = icmp slt i32 %352, %3
-  br i1 %.not126, label %356, label %353
+  %.not124 = icmp slt i32 %352, %3
+  br i1 %.not124, label %356, label %353
 
 _ZNK6icu_779UVector325peekiEv.exit.thread:        ; preds = %.critedge
-  %.not126204 = icmp sgt i32 %3, 0
-  br i1 %.not126204, label %356, label %_ZN6icu_779UVector324popiEv.exit
+  %.not124202 = icmp sgt i32 %3, 0
+  br i1 %.not124202, label %356, label %_ZN6icu_779UVector324popiEv.exit
 
 353:                                              ; preds = %_ZNK6icu_779UVector325peekiEv.exit
   %354 = add nsw i32 %345, -1

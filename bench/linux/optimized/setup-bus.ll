@@ -2677,26 +2677,26 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   %11 = getelementptr i8, ptr %0, i64 1496
   %12 = getelementptr i8, ptr %0, i64 1376
   %13 = getelementptr i8, ptr %0, i64 1440
-  br label %.loopexit12
+  br label %.loopexit11
 
-.loopexit12:                                      ; preds = %.loopexit12.backedge, %1
-  %14 = phi i1 [ false, %1 ], [ true, %.loopexit12.backedge ]
+.loopexit11:                                      ; preds = %.loopexit11.backedge, %1
+  %14 = phi i1 [ false, %1 ], [ true, %.loopexit11.backedge ]
   call void @__pci_bus_size_bridges(ptr noundef %5, ptr noundef nonnull %2)
   %15 = load i40, ptr %8, align 1
   %16 = and i40 %15, 16777216
   %17 = icmp eq i40 %16, 0
   br i1 %17, label %20, label %18
 
-18:                                               ; preds = %.loopexit12
+18:                                               ; preds = %.loopexit11
   %19 = load ptr, ptr %4, align 8
   %.val = load i64, ptr %9, align 8
-  %.val8 = load i64, ptr %12, align 8
-  %.val9 = load i64, ptr %10, align 8
-  %.val10 = load i64, ptr %13, align 8
-  call fastcc void @pci_bus_distribute_available_resources(ptr noundef %19, ptr noundef nonnull %2, i64 %.val, i64 %.val8, i64 %.val9, i64 %.val10, ptr noundef nonnull byval(%struct.resource) align 8 %11)
+  %.val7 = load i64, ptr %12, align 8
+  %.val8 = load i64, ptr %10, align 8
+  %.val9 = load i64, ptr %13, align 8
+  call fastcc void @pci_bus_distribute_available_resources(ptr noundef %19, ptr noundef nonnull %2, i64 %.val, i64 %.val7, i64 %.val8, i64 %.val9, ptr noundef nonnull byval(%struct.resource) align 8 %11)
   br label %20
 
-20:                                               ; preds = %18, %.loopexit12
+20:                                               ; preds = %18, %.loopexit11
   call fastcc void @__pci_bridge_assign_resources(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %21 = load volatile ptr, ptr %2, align 8
   %22 = icmp eq ptr %21, %2
@@ -2733,19 +2733,19 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   %35 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef 2) #12
   %36 = load ptr, ptr %3, align 8
   %37 = icmp eq ptr %36, %3
-  br i1 %37, label %.loopexit16, label %.preheader15
+  br i1 %37, label %.loopexit15, label %.preheader14
 
-.loopexit16.loopexit:                             ; preds = %.preheader15
+.loopexit15.loopexit:                             ; preds = %.preheader14
   %.pre = load ptr, ptr %3, align 8
-  br label %.loopexit16
+  br label %.loopexit15
 
-.loopexit16:                                      ; preds = %.loopexit16.loopexit, %34
-  %38 = phi ptr [ %.pre, %.loopexit16.loopexit ], [ %36, %34 ]
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %34
+  %38 = phi ptr [ %.pre, %.loopexit15.loopexit ], [ %36, %34 ]
   %39 = icmp eq ptr %38, %3
-  br i1 %39, label %.loopexit14, label %.preheader13
+  br i1 %39, label %.loopexit13, label %.preheader12
 
-.preheader15:                                     ; preds = %34, %.preheader15
-  %40 = phi ptr [ %48, %.preheader15 ], [ %36, %34 ]
+.preheader14:                                     ; preds = %34, %.preheader14
+  %40 = phi ptr [ %48, %.preheader14 ], [ %36, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -2756,10 +2756,10 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   call fastcc void @pci_bus_release_bridge_resources(ptr noundef %44, i64 noundef %47, i32 noundef 1)
   %48 = load ptr, ptr %40, align 8
   %49 = icmp eq ptr %48, %3
-  br i1 %49, label %.loopexit16.loopexit, label %.preheader15, !llvm.loop !48
+  br i1 %49, label %.loopexit15.loopexit, label %.preheader14, !llvm.loop !48
 
-.preheader13:                                     ; preds = %.loopexit16, %77
-  %50 = phi ptr [ %78, %77 ], [ %38, %.loopexit16 ]
+.preheader12:                                     ; preds = %.loopexit15, %77
+  %50 = phi ptr [ %78, %77 ], [ %38, %.loopexit15 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -2781,7 +2781,7 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   %66 = icmp ult i8 %65, 2
   br i1 %66, label %67, label %77
 
-67:                                               ; preds = %.preheader13
+67:                                               ; preds = %.preheader12
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 920
   %69 = ptrtoint ptr %52 to i64
   %70 = ptrtoint ptr %68 to i64
@@ -2796,25 +2796,25 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   store i64 0, ptr %60, align 8
   br label %77
 
-77:                                               ; preds = %76, %67, %.preheader13
+77:                                               ; preds = %76, %67, %.preheader12
   %78 = load ptr, ptr %50, align 8
   %79 = icmp eq ptr %78, %3
-  br i1 %79, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !49
+  br i1 %79, label %.loopexit13.loopexit, label %.preheader12, !llvm.loop !49
 
-.loopexit14.loopexit:                             ; preds = %77
-  %.pre21 = load ptr, ptr %3, align 8
-  br label %.loopexit14
+.loopexit13.loopexit:                             ; preds = %77
+  %.pre20 = load ptr, ptr %3, align 8
+  br label %.loopexit13
 
-.loopexit14:                                      ; preds = %.loopexit14.loopexit, %.loopexit16
-  %80 = phi ptr [ %.pre21, %.loopexit14.loopexit ], [ %38, %.loopexit16 ]
+.loopexit13:                                      ; preds = %.loopexit13.loopexit, %.loopexit15
+  %80 = phi ptr [ %.pre20, %.loopexit13.loopexit ], [ %38, %.loopexit15 ]
   %81 = icmp eq ptr %80, %3
-  br i1 %81, label %.loopexit12.backedge, label %.preheader11
+  br i1 %81, label %.loopexit11.backedge, label %.preheader10
 
-.loopexit12.backedge:                             ; preds = %.preheader11, %.loopexit14
-  br label %.loopexit12
+.loopexit11.backedge:                             ; preds = %.preheader10, %.loopexit13
+  br label %.loopexit11
 
-.preheader11:                                     ; preds = %.loopexit14, %.preheader11
-  %82 = phi ptr [ %83, %.preheader11 ], [ %80, %.loopexit14 ]
+.preheader10:                                     ; preds = %.loopexit13, %.preheader10
+  %82 = phi ptr [ %83, %.preheader10 ], [ %80, %.loopexit13 ]
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -2825,7 +2825,7 @@ define dso_local void @pci_assign_unassigned_bridge_resources(ptr noundef %0) #4
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %84, align 8
   call void @kfree(ptr noundef %82) #13
   %87 = icmp eq ptr %83, %3
-  br i1 %87, label %.loopexit12.backedge, label %.preheader11, !llvm.loop !35
+  br i1 %87, label %.loopexit11.backedge, label %.preheader10, !llvm.loop !35
 
 .loopexit:                                        ; preds = %24, %.preheader
   %88 = call i32 @pci_reenable_device(ptr noundef %0) #13

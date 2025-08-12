@@ -2118,11 +2118,11 @@ define linkonce_odr hidden void @_ZN2cv6detail8packArgsIJNS_4GMatEEEESt6vectorIN
 15:                                               ; preds = %9
   %16 = atomicrmw volatile add ptr %10, i32 1 acq_rel, align 4, !noalias !63
   %.pre = load ptr, ptr %4, align 8, !tbaa !29
-  %.pre10 = load ptr, ptr %6, align 8, !tbaa !15
+  %.pre9 = load ptr, ptr %6, align 8, !tbaa !15
   br label %17
 
 17:                                               ; preds = %15, %12, %2
-  %18 = phi ptr [ %.pre10, %15 ], [ %8, %12 ], [ null, %2 ]
+  %18 = phi ptr [ %.pre9, %15 ], [ %8, %12 ], [ null, %2 ]
   %19 = phi ptr [ %.pre, %15 ], [ %5, %12 ], [ %5, %2 ]
   store i64 0, ptr %3, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2173,7 +2173,7 @@ _ZN2cv4GMatD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4u
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void %36(ptr noundef nonnull %37)
-          to label %_ZN2cv4util7variantIJNS_4GMatENS_5GMatPENS_6GFrameENS_7GScalarENS_6detail7GArrayUENS6_8GOpaqueUEEED2Ev.exit9 unwind label %38
+          to label %_ZN2cv4util7variantIJNS_4GMatENS_5GMatPENS_6GFrameENS_7GScalarENS_6detail7GArrayUENS6_8GOpaqueUEEED2Ev.exit8 unwind label %38
 
 38:                                               ; preds = %.body
   %39 = landingpad { ptr, i32 }
@@ -2182,7 +2182,7 @@ _ZN2cv4GMatD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4u
   call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
-_ZN2cv4util7variantIJNS_4GMatENS_5GMatPENS_6GFrameENS_7GScalarENS_6detail7GArrayUENS6_8GOpaqueUEEED2Ev.exit9: ; preds = %.body
+_ZN2cv4util7variantIJNS_4GMatENS_5GMatPENS_6GFrameENS_7GScalarENS_6detail7GArrayUENS6_8GOpaqueUEEED2Ev.exit8: ; preds = %.body
   call void @_ZN2cv4GMatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

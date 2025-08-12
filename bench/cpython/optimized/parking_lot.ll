@@ -553,8 +553,8 @@ _PySemaphore_Wakeup.exit:                         ; preds = %31, %_PyRawMutex_Un
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, i8 0, i64 16, i1 false)
   %35 = getelementptr i8, ptr %.0, i64 -32
   %36 = call i32 @sem_post(ptr noundef %35) #10
-  %.not.i14 = icmp eq i32 %36, 0
-  br i1 %.not.i14, label %_PySemaphore_Wakeup.exit, label %37, !llvm.loop !34
+  %.not.i13 = icmp eq i32 %36, 0
+  br i1 %.not.i13, label %_PySemaphore_Wakeup.exit, label %37, !llvm.loop !34
 
 37:                                               ; preds = %31
   call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #11

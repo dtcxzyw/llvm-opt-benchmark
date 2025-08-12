@@ -10138,8 +10138,8 @@ _ZN4llvmL9partAsHexEPcmjPKc.exit:                 ; preds = %97
   %141 = load i8, ptr %140, align 1, !tbaa !24
   %142 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   store i8 %141, ptr %.07.i.i, align 1, !tbaa !24
-  %.not9.i.i = icmp eq ptr %140, %7
-  br i1 %.not9.i.i, label %_ZN4llvmL20writeUnsignedDecimalEPcj.exit.i, label %.preheader.i.i, !llvm.loop !316
+  %.not8.i.i = icmp eq ptr %140, %7
+  br i1 %.not8.i.i, label %_ZN4llvmL20writeUnsignedDecimalEPcj.exit.i, label %.preheader.i.i, !llvm.loop !316
 
 _ZN4llvmL20writeUnsignedDecimalEPcj.exit.i:       ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10168,8 +10168,8 @@ _ZN4llvmL20writeUnsignedDecimalEPcj.exit.i:       ; preds = %.preheader.i.i
   %151 = load i8, ptr %150, align 1, !tbaa !24
   %152 = getelementptr inbounds nuw i8, ptr %.07.i11.i, i64 1
   store i8 %151, ptr %.07.i11.i, align 1, !tbaa !24
-  %.not9.i13.i = icmp eq ptr %150, %6
-  br i1 %.not9.i13.i, label %_ZN4llvmL20writeUnsignedDecimalEPcj.exit14.i, label %.preheader.i10.i, !llvm.loop !316
+  %.not8.i13.i = icmp eq ptr %150, %6
+  br i1 %.not8.i13.i, label %_ZN4llvmL20writeUnsignedDecimalEPcj.exit14.i, label %.preheader.i10.i, !llvm.loop !316
 
 _ZN4llvmL20writeUnsignedDecimalEPcj.exit14.i:     ; preds = %.preheader.i10.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

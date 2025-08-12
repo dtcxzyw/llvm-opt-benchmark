@@ -17726,13 +17726,13 @@ _ZNK8seq_util5is_reEP4exprRP4sort.exit:           ; preds = %22
   br label %32
 
 32:                                               ; preds = %_ZNK8seq_util5is_reEP4exprRP4sort.exit, %31
-  %.01316 = phi ptr [ null, %31 ], [ %30, %_ZNK8seq_util5is_reEP4exprRP4sort.exit ]
+  %.01215 = phi ptr [ null, %31 ], [ %30, %_ZNK8seq_util5is_reEP4exprRP4sort.exit ]
   %33 = load ptr, ptr %0, align 8, !tbaa !258
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !222
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %37 = load i32, ptr %36, align 8, !tbaa !206
-  %38 = tail call noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %35, i32 noundef %37, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %.01316)
+  %38 = tail call noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976) %35, i32 noundef %37, i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %.01215)
   %39 = tail call noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %35, ptr noundef %38, i32 noundef 0, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %39, ptr %5, align 8, !tbaa !178

@@ -6470,8 +6470,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser15parseIdentifier
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !472
   %25 = add i64 %.sroa.2.0.copyload.i, 1
   store ptr %13, ptr %1, align 8, !tbaa !434
-  %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %25, ptr %.sroa.4.0..sroa_idx7, align 8, !tbaa !472
+  %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %25, ptr %.sroa.4.0..sroa_idx6, align 8, !tbaa !472
   %26 = load ptr, ptr %0, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8

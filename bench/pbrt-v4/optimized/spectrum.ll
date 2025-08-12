@@ -5569,9 +5569,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = invoke noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 40, i64 noundef 8)
-          to label %.noexc387 unwind label %998
+          to label %.noexc386 unwind label %998
 
-.noexc387:                                        ; preds = %48
+.noexc386:                                        ; preds = %48
   %53 = ptrtoint ptr %36 to i64
   %54 = or i64 %53, 432345564227567616
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -5579,7 +5579,7 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   invoke void @_ZN4pbrt22DenselySampledSpectrumC2ENS_8SpectrumEiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull %33, i32 noundef 360, i32 noundef 830, ptr nonnull %0)
           to label %55 unwind label %998
 
-55:                                               ; preds = %.noexc387
+55:                                               ; preds = %.noexc386
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   store ptr %52, ptr @_ZN4pbrt7Spectra1yE, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -5592,9 +5592,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = invoke noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 40, i64 noundef 8)
-          to label %.noexc391 unwind label %1002
+          to label %.noexc390 unwind label %1002
 
-.noexc391:                                        ; preds = %57
+.noexc390:                                        ; preds = %57
   %62 = ptrtoint ptr %37 to i64
   %63 = or i64 %62, 432345564227567616
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -5602,7 +5602,7 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   invoke void @_ZN4pbrt22DenselySampledSpectrumC2ENS_8SpectrumEiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull %32, i32 noundef 360, i32 noundef 830, ptr nonnull %0)
           to label %64 unwind label %1002
 
-64:                                               ; preds = %.noexc391
+64:                                               ; preds = %.noexc390
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   store ptr %61, ptr @_ZN4pbrt7Spectra1zE, align 8, !tbaa !15
   %65 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_111CIE_Illum_AE, i64 214, i1 noundef zeroext true, ptr nonnull %0)
@@ -6199,17 +6199,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %76, ptr %395, align 8, !tbaa !4
   %396 = getelementptr inbounds nuw i8, ptr %38, i64 1480
   %397 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_100d_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i534 unwind label %1078
+          to label %.noexc.i.i533 unwind label %1078
 
-.noexc.i.i534:                                    ; preds = %._crit_edge.i.i.i
+.noexc.i.i533:                                    ; preds = %._crit_edge.i.i.i
   %398 = getelementptr inbounds nuw i8, ptr %38, i64 1496
   store ptr %398, ptr %396, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 16, ptr %31, align 8, !tbaa !74
   %399 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %396, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0)
-          to label %.noexc535 unwind label %1078
+          to label %.noexc534 unwind label %1078
 
-.noexc535:                                        ; preds = %.noexc.i.i534
+.noexc534:                                        ; preds = %.noexc.i.i533
   store ptr %399, ptr %396, align 8, !tbaa !38
   %400 = load i64, ptr %31, align 8, !tbaa !74
   store i64 %400, ptr %398, align 8, !tbaa !26
@@ -6226,17 +6226,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %406, ptr %404, align 8, !tbaa !4
   %407 = getelementptr inbounds nuw i8, ptr %38, i64 1520
   %408 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_100d_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i537 unwind label %1080
+          to label %.noexc.i.i536 unwind label %1080
 
-.noexc.i.i537:                                    ; preds = %.noexc535
+.noexc.i.i536:                                    ; preds = %.noexc534
   %409 = getelementptr inbounds nuw i8, ptr %38, i64 1536
   store ptr %409, ptr %407, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 16, ptr %30, align 8, !tbaa !74
   %410 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %407, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 0)
-          to label %.noexc538 unwind label %1080
+          to label %.noexc537 unwind label %1080
 
-.noexc538:                                        ; preds = %.noexc.i.i537
+.noexc537:                                        ; preds = %.noexc.i.i536
   store ptr %410, ptr %407, align 8, !tbaa !38
   %411 = load i64, ptr %30, align 8, !tbaa !74
   store i64 %411, ptr %409, align 8, !tbaa !26
@@ -6253,17 +6253,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %417, ptr %415, align 8, !tbaa !4
   %418 = getelementptr inbounds nuw i8, ptr %38, i64 1560
   %419 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_100d_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i541 unwind label %1082
+          to label %.noexc.i.i540 unwind label %1082
 
-.noexc.i.i541:                                    ; preds = %.noexc538
+.noexc.i.i540:                                    ; preds = %.noexc537
   %420 = getelementptr inbounds nuw i8, ptr %38, i64 1576
   store ptr %420, ptr %418, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 16, ptr %29, align 8, !tbaa !74
   %421 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %418, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0)
-          to label %.noexc542 unwind label %1082
+          to label %.noexc541 unwind label %1082
 
-.noexc542:                                        ; preds = %.noexc.i.i541
+.noexc541:                                        ; preds = %.noexc.i.i540
   store ptr %421, ptr %418, align 8, !tbaa !38
   %422 = load i64, ptr %29, align 8, !tbaa !74
   store i64 %422, ptr %420, align 8, !tbaa !26
@@ -6280,17 +6280,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %428, ptr %426, align 8, !tbaa !4
   %429 = getelementptr inbounds nuw i8, ptr %38, i64 1600
   %430 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_1dx_mkii_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i545 unwind label %1084
+          to label %.noexc.i.i544 unwind label %1084
 
-.noexc.i.i545:                                    ; preds = %.noexc542
+.noexc.i.i544:                                    ; preds = %.noexc541
   %431 = getelementptr inbounds nuw i8, ptr %38, i64 1616
   store ptr %431, ptr %429, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 20, ptr %28, align 8, !tbaa !74
   %432 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %429, ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 0)
-          to label %.noexc546 unwind label %1084
+          to label %.noexc545 unwind label %1084
 
-.noexc546:                                        ; preds = %.noexc.i.i545
+.noexc545:                                        ; preds = %.noexc.i.i544
   store ptr %432, ptr %429, align 8, !tbaa !38
   %433 = load i64, ptr %28, align 8, !tbaa !74
   store i64 %433, ptr %431, align 8, !tbaa !26
@@ -6307,17 +6307,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %439, ptr %437, align 8, !tbaa !4
   %440 = getelementptr inbounds nuw i8, ptr %38, i64 1640
   %441 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_1dx_mkii_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i548 unwind label %1086
+          to label %.noexc.i.i547 unwind label %1086
 
-.noexc.i.i548:                                    ; preds = %.noexc546
+.noexc.i.i547:                                    ; preds = %.noexc545
   %442 = getelementptr inbounds nuw i8, ptr %38, i64 1656
   store ptr %442, ptr %440, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 20, ptr %27, align 8, !tbaa !74
   %443 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %440, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0)
-          to label %.noexc549 unwind label %1086
+          to label %.noexc548 unwind label %1086
 
-.noexc549:                                        ; preds = %.noexc.i.i548
+.noexc548:                                        ; preds = %.noexc.i.i547
   store ptr %443, ptr %440, align 8, !tbaa !38
   %444 = load i64, ptr %27, align 8, !tbaa !74
   store i64 %444, ptr %442, align 8, !tbaa !26
@@ -6334,17 +6334,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %450, ptr %448, align 8, !tbaa !4
   %451 = getelementptr inbounds nuw i8, ptr %38, i64 1680
   %452 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_1dx_mkii_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i552 unwind label %1088
+          to label %.noexc.i.i551 unwind label %1088
 
-.noexc.i.i552:                                    ; preds = %.noexc549
+.noexc.i.i551:                                    ; preds = %.noexc548
   %453 = getelementptr inbounds nuw i8, ptr %38, i64 1696
   store ptr %453, ptr %451, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 20, ptr %26, align 8, !tbaa !74
   %454 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %451, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0)
-          to label %.noexc553 unwind label %1088
+          to label %.noexc552 unwind label %1088
 
-.noexc553:                                        ; preds = %.noexc.i.i552
+.noexc552:                                        ; preds = %.noexc.i.i551
   store ptr %454, ptr %451, align 8, !tbaa !38
   %455 = load i64, ptr %26, align 8, !tbaa !74
   store i64 %455, ptr %453, align 8, !tbaa !26
@@ -6361,17 +6361,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %461, ptr %459, align 8, !tbaa !4
   %462 = getelementptr inbounds nuw i8, ptr %38, i64 1720
   %463 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_200d_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i556 unwind label %1090
+          to label %.noexc.i.i555 unwind label %1090
 
-.noexc.i.i556:                                    ; preds = %.noexc553
+.noexc.i.i555:                                    ; preds = %.noexc552
   %464 = getelementptr inbounds nuw i8, ptr %38, i64 1736
   store ptr %464, ptr %462, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 16, ptr %25, align 8, !tbaa !74
   %465 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %462, ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0)
-          to label %.noexc557 unwind label %1090
+          to label %.noexc556 unwind label %1090
 
-.noexc557:                                        ; preds = %.noexc.i.i556
+.noexc556:                                        ; preds = %.noexc.i.i555
   store ptr %465, ptr %462, align 8, !tbaa !38
   %466 = load i64, ptr %25, align 8, !tbaa !74
   store i64 %466, ptr %464, align 8, !tbaa !26
@@ -6388,17 +6388,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %472, ptr %470, align 8, !tbaa !4
   %473 = getelementptr inbounds nuw i8, ptr %38, i64 1760
   %474 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_200d_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i560 unwind label %1092
+          to label %.noexc.i.i559 unwind label %1092
 
-.noexc.i.i560:                                    ; preds = %.noexc557
+.noexc.i.i559:                                    ; preds = %.noexc556
   %475 = getelementptr inbounds nuw i8, ptr %38, i64 1776
   store ptr %475, ptr %473, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 16, ptr %24, align 8, !tbaa !74
   %476 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %473, ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0)
-          to label %.noexc561 unwind label %1092
+          to label %.noexc560 unwind label %1092
 
-.noexc561:                                        ; preds = %.noexc.i.i560
+.noexc560:                                        ; preds = %.noexc.i.i559
   store ptr %476, ptr %473, align 8, !tbaa !38
   %477 = load i64, ptr %24, align 8, !tbaa !74
   store i64 %477, ptr %475, align 8, !tbaa !26
@@ -6415,17 +6415,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %483, ptr %481, align 8, !tbaa !4
   %484 = getelementptr inbounds nuw i8, ptr %38, i64 1800
   %485 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116canon_eos_200d_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i564 unwind label %1094
+          to label %.noexc.i.i563 unwind label %1094
 
-.noexc.i.i564:                                    ; preds = %.noexc561
+.noexc.i.i563:                                    ; preds = %.noexc560
   %486 = getelementptr inbounds nuw i8, ptr %38, i64 1816
   store ptr %486, ptr %484, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 16, ptr %23, align 8, !tbaa !74
   %487 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %484, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0)
-          to label %.noexc565 unwind label %1094
+          to label %.noexc564 unwind label %1094
 
-.noexc565:                                        ; preds = %.noexc.i.i564
+.noexc564:                                        ; preds = %.noexc.i.i563
   store ptr %487, ptr %484, align 8, !tbaa !38
   %488 = load i64, ptr %23, align 8, !tbaa !74
   store i64 %488, ptr %486, align 8, !tbaa !26
@@ -6442,17 +6442,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %494, ptr %492, align 8, !tbaa !4
   %495 = getelementptr inbounds nuw i8, ptr %38, i64 1840
   %496 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_121canon_eos_200d_mkii_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i568 unwind label %1096
+          to label %.noexc.i.i567 unwind label %1096
 
-.noexc.i.i568:                                    ; preds = %.noexc565
+.noexc.i.i567:                                    ; preds = %.noexc564
   %497 = getelementptr inbounds nuw i8, ptr %38, i64 1856
   store ptr %497, ptr %495, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 21, ptr %22, align 8, !tbaa !74
   %498 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %495, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0)
-          to label %.noexc569 unwind label %1096
+          to label %.noexc568 unwind label %1096
 
-.noexc569:                                        ; preds = %.noexc.i.i568
+.noexc568:                                        ; preds = %.noexc.i.i567
   store ptr %498, ptr %495, align 8, !tbaa !38
   %499 = load i64, ptr %22, align 8, !tbaa !74
   store i64 %499, ptr %497, align 8, !tbaa !26
@@ -6469,17 +6469,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %505, ptr %503, align 8, !tbaa !4
   %506 = getelementptr inbounds nuw i8, ptr %38, i64 1880
   %507 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_121canon_eos_200d_mkii_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i571 unwind label %1098
+          to label %.noexc.i.i570 unwind label %1098
 
-.noexc.i.i571:                                    ; preds = %.noexc569
+.noexc.i.i570:                                    ; preds = %.noexc568
   %508 = getelementptr inbounds nuw i8, ptr %38, i64 1896
   store ptr %508, ptr %506, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 21, ptr %21, align 8, !tbaa !74
   %509 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %506, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0)
-          to label %.noexc572 unwind label %1098
+          to label %.noexc571 unwind label %1098
 
-.noexc572:                                        ; preds = %.noexc.i.i571
+.noexc571:                                        ; preds = %.noexc.i.i570
   store ptr %509, ptr %506, align 8, !tbaa !38
   %510 = load i64, ptr %21, align 8, !tbaa !74
   store i64 %510, ptr %508, align 8, !tbaa !26
@@ -6496,17 +6496,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %516, ptr %514, align 8, !tbaa !4
   %517 = getelementptr inbounds nuw i8, ptr %38, i64 1920
   %518 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_121canon_eos_200d_mkii_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i575 unwind label %1100
+          to label %.noexc.i.i574 unwind label %1100
 
-.noexc.i.i575:                                    ; preds = %.noexc572
+.noexc.i.i574:                                    ; preds = %.noexc571
   %519 = getelementptr inbounds nuw i8, ptr %38, i64 1936
   store ptr %519, ptr %517, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 21, ptr %20, align 8, !tbaa !74
   %520 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %517, ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0)
-          to label %.noexc576 unwind label %1100
+          to label %.noexc575 unwind label %1100
 
-.noexc576:                                        ; preds = %.noexc.i.i575
+.noexc575:                                        ; preds = %.noexc.i.i574
   store ptr %520, ptr %517, align 8, !tbaa !38
   %521 = load i64, ptr %20, align 8, !tbaa !74
   store i64 %521, ptr %519, align 8, !tbaa !26
@@ -6523,9 +6523,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %527, ptr %525, align 8, !tbaa !4
   %528 = getelementptr inbounds nuw i8, ptr %38, i64 1960
   %529 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_114canon_eos_5d_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i578 unwind label %1102
+          to label %._crit_edge.i.i.i577 unwind label %1102
 
-._crit_edge.i.i.i578:                             ; preds = %.noexc576
+._crit_edge.i.i.i577:                             ; preds = %.noexc575
   %530 = getelementptr inbounds nuw i8, ptr %38, i64 1976
   store ptr %530, ptr %528, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %530, ptr noundef nonnull align 1 dereferenceable(14) @.str.85, i64 14, i1 false)
@@ -6539,9 +6539,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %535, ptr %533, align 8, !tbaa !4
   %536 = getelementptr inbounds nuw i8, ptr %38, i64 2000
   %537 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_114canon_eos_5d_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i581 unwind label %1104
+          to label %._crit_edge.i.i.i580 unwind label %1104
 
-._crit_edge.i.i.i581:                             ; preds = %._crit_edge.i.i.i578
+._crit_edge.i.i.i580:                             ; preds = %._crit_edge.i.i.i577
   %538 = getelementptr inbounds nuw i8, ptr %38, i64 2016
   store ptr %538, ptr %536, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %538, ptr noundef nonnull align 1 dereferenceable(14) @.str.86, i64 14, i1 false)
@@ -6555,9 +6555,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %543, ptr %541, align 8, !tbaa !4
   %544 = getelementptr inbounds nuw i8, ptr %38, i64 2040
   %545 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_114canon_eos_5d_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i585 unwind label %1106
+          to label %._crit_edge.i.i.i584 unwind label %1106
 
-._crit_edge.i.i.i585:                             ; preds = %._crit_edge.i.i.i581
+._crit_edge.i.i.i584:                             ; preds = %._crit_edge.i.i.i580
   %546 = getelementptr inbounds nuw i8, ptr %38, i64 2056
   store ptr %546, ptr %544, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %546, ptr noundef nonnull align 1 dereferenceable(14) @.str.87, i64 14, i1 false)
@@ -6571,17 +6571,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %551, ptr %549, align 8, !tbaa !4
   %552 = getelementptr inbounds nuw i8, ptr %38, i64 2080
   %553 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkii_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i590 unwind label %1108
+          to label %.noexc.i.i589 unwind label %1108
 
-.noexc.i.i590:                                    ; preds = %._crit_edge.i.i.i585
+.noexc.i.i589:                                    ; preds = %._crit_edge.i.i.i584
   %554 = getelementptr inbounds nuw i8, ptr %38, i64 2096
   store ptr %554, ptr %552, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 19, ptr %19, align 8, !tbaa !74
   %555 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %552, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0)
-          to label %.noexc591 unwind label %1108
+          to label %.noexc590 unwind label %1108
 
-.noexc591:                                        ; preds = %.noexc.i.i590
+.noexc590:                                        ; preds = %.noexc.i.i589
   store ptr %555, ptr %552, align 8, !tbaa !38
   %556 = load i64, ptr %19, align 8, !tbaa !74
   store i64 %556, ptr %554, align 8, !tbaa !26
@@ -6598,17 +6598,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %562, ptr %560, align 8, !tbaa !4
   %563 = getelementptr inbounds nuw i8, ptr %38, i64 2120
   %564 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkii_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i593 unwind label %1110
+          to label %.noexc.i.i592 unwind label %1110
 
-.noexc.i.i593:                                    ; preds = %.noexc591
+.noexc.i.i592:                                    ; preds = %.noexc590
   %565 = getelementptr inbounds nuw i8, ptr %38, i64 2136
   store ptr %565, ptr %563, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 19, ptr %18, align 8, !tbaa !74
   %566 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %563, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0)
-          to label %.noexc594 unwind label %1110
+          to label %.noexc593 unwind label %1110
 
-.noexc594:                                        ; preds = %.noexc.i.i593
+.noexc593:                                        ; preds = %.noexc.i.i592
   store ptr %566, ptr %563, align 8, !tbaa !38
   %567 = load i64, ptr %18, align 8, !tbaa !74
   store i64 %567, ptr %565, align 8, !tbaa !26
@@ -6625,17 +6625,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %573, ptr %571, align 8, !tbaa !4
   %574 = getelementptr inbounds nuw i8, ptr %38, i64 2160
   %575 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkii_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i597 unwind label %1112
+          to label %.noexc.i.i596 unwind label %1112
 
-.noexc.i.i597:                                    ; preds = %.noexc594
+.noexc.i.i596:                                    ; preds = %.noexc593
   %576 = getelementptr inbounds nuw i8, ptr %38, i64 2176
   store ptr %576, ptr %574, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 19, ptr %17, align 8, !tbaa !74
   %577 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %574, ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0)
-          to label %.noexc598 unwind label %1112
+          to label %.noexc597 unwind label %1112
 
-.noexc598:                                        ; preds = %.noexc.i.i597
+.noexc597:                                        ; preds = %.noexc.i.i596
   store ptr %577, ptr %574, align 8, !tbaa !38
   %578 = load i64, ptr %17, align 8, !tbaa !74
   store i64 %578, ptr %576, align 8, !tbaa !26
@@ -6652,17 +6652,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %584, ptr %582, align 8, !tbaa !4
   %585 = getelementptr inbounds nuw i8, ptr %38, i64 2200
   %586 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_5d_mkiii_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i601 unwind label %1114
+          to label %.noexc.i.i600 unwind label %1114
 
-.noexc.i.i601:                                    ; preds = %.noexc598
+.noexc.i.i600:                                    ; preds = %.noexc597
   %587 = getelementptr inbounds nuw i8, ptr %38, i64 2216
   store ptr %587, ptr %585, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 20, ptr %16, align 8, !tbaa !74
   %588 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %585, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0)
-          to label %.noexc602 unwind label %1114
+          to label %.noexc601 unwind label %1114
 
-.noexc602:                                        ; preds = %.noexc.i.i601
+.noexc601:                                        ; preds = %.noexc.i.i600
   store ptr %588, ptr %585, align 8, !tbaa !38
   %589 = load i64, ptr %16, align 8, !tbaa !74
   store i64 %589, ptr %587, align 8, !tbaa !26
@@ -6679,17 +6679,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %595, ptr %593, align 8, !tbaa !4
   %596 = getelementptr inbounds nuw i8, ptr %38, i64 2240
   %597 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_5d_mkiii_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i605 unwind label %1116
+          to label %.noexc.i.i604 unwind label %1116
 
-.noexc.i.i605:                                    ; preds = %.noexc602
+.noexc.i.i604:                                    ; preds = %.noexc601
   %598 = getelementptr inbounds nuw i8, ptr %38, i64 2256
   store ptr %598, ptr %596, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 20, ptr %15, align 8, !tbaa !74
   %599 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %596, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0)
-          to label %.noexc606 unwind label %1116
+          to label %.noexc605 unwind label %1116
 
-.noexc606:                                        ; preds = %.noexc.i.i605
+.noexc605:                                        ; preds = %.noexc.i.i604
   store ptr %599, ptr %596, align 8, !tbaa !38
   %600 = load i64, ptr %15, align 8, !tbaa !74
   store i64 %600, ptr %598, align 8, !tbaa !26
@@ -6706,17 +6706,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %606, ptr %604, align 8, !tbaa !4
   %607 = getelementptr inbounds nuw i8, ptr %38, i64 2280
   %608 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120canon_eos_5d_mkiii_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i609 unwind label %1118
+          to label %.noexc.i.i608 unwind label %1118
 
-.noexc.i.i609:                                    ; preds = %.noexc606
+.noexc.i.i608:                                    ; preds = %.noexc605
   %609 = getelementptr inbounds nuw i8, ptr %38, i64 2296
   store ptr %609, ptr %607, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 20, ptr %14, align 8, !tbaa !74
   %610 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %607, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0)
-          to label %.noexc610 unwind label %1118
+          to label %.noexc609 unwind label %1118
 
-.noexc610:                                        ; preds = %.noexc.i.i609
+.noexc609:                                        ; preds = %.noexc.i.i608
   store ptr %610, ptr %607, align 8, !tbaa !38
   %611 = load i64, ptr %14, align 8, !tbaa !74
   store i64 %611, ptr %609, align 8, !tbaa !26
@@ -6733,17 +6733,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %617, ptr %615, align 8, !tbaa !4
   %618 = getelementptr inbounds nuw i8, ptr %38, i64 2320
   %619 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkiv_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i613 unwind label %1120
+          to label %.noexc.i.i612 unwind label %1120
 
-.noexc.i.i613:                                    ; preds = %.noexc610
+.noexc.i.i612:                                    ; preds = %.noexc609
   %620 = getelementptr inbounds nuw i8, ptr %38, i64 2336
   store ptr %620, ptr %618, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 19, ptr %13, align 8, !tbaa !74
   %621 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %618, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
-          to label %.noexc614 unwind label %1120
+          to label %.noexc613 unwind label %1120
 
-.noexc614:                                        ; preds = %.noexc.i.i613
+.noexc613:                                        ; preds = %.noexc.i.i612
   store ptr %621, ptr %618, align 8, !tbaa !38
   %622 = load i64, ptr %13, align 8, !tbaa !74
   store i64 %622, ptr %620, align 8, !tbaa !26
@@ -6760,17 +6760,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %628, ptr %626, align 8, !tbaa !4
   %629 = getelementptr inbounds nuw i8, ptr %38, i64 2360
   %630 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkiv_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i617 unwind label %1122
+          to label %.noexc.i.i616 unwind label %1122
 
-.noexc.i.i617:                                    ; preds = %.noexc614
+.noexc.i.i616:                                    ; preds = %.noexc613
   %631 = getelementptr inbounds nuw i8, ptr %38, i64 2376
   store ptr %631, ptr %629, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 19, ptr %12, align 8, !tbaa !74
   %632 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %629, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
-          to label %.noexc618 unwind label %1122
+          to label %.noexc617 unwind label %1122
 
-.noexc618:                                        ; preds = %.noexc.i.i617
+.noexc617:                                        ; preds = %.noexc.i.i616
   store ptr %632, ptr %629, align 8, !tbaa !38
   %633 = load i64, ptr %12, align 8, !tbaa !74
   store i64 %633, ptr %631, align 8, !tbaa !26
@@ -6787,17 +6787,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %639, ptr %637, align 8, !tbaa !4
   %640 = getelementptr inbounds nuw i8, ptr %38, i64 2400
   %641 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_119canon_eos_5d_mkiv_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i621 unwind label %1124
+          to label %.noexc.i.i620 unwind label %1124
 
-.noexc.i.i621:                                    ; preds = %.noexc618
+.noexc.i.i620:                                    ; preds = %.noexc617
   %642 = getelementptr inbounds nuw i8, ptr %38, i64 2416
   store ptr %642, ptr %640, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 19, ptr %11, align 8, !tbaa !74
   %643 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %640, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 0)
-          to label %.noexc622 unwind label %1124
+          to label %.noexc621 unwind label %1124
 
-.noexc622:                                        ; preds = %.noexc.i.i621
+.noexc621:                                        ; preds = %.noexc.i.i620
   store ptr %643, ptr %640, align 8, !tbaa !38
   %644 = load i64, ptr %11, align 8, !tbaa !74
   store i64 %644, ptr %642, align 8, !tbaa !26
@@ -6814,9 +6814,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %650, ptr %648, align 8, !tbaa !4
   %651 = getelementptr inbounds nuw i8, ptr %38, i64 2440
   %652 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115canon_eos_5ds_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i624 unwind label %1126
+          to label %._crit_edge.i.i.i623 unwind label %1126
 
-._crit_edge.i.i.i624:                             ; preds = %.noexc622
+._crit_edge.i.i.i623:                             ; preds = %.noexc621
   %653 = getelementptr inbounds nuw i8, ptr %38, i64 2456
   store ptr %653, ptr %651, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %653, ptr noundef nonnull align 1 dereferenceable(15) @.str.97, i64 15, i1 false)
@@ -6830,9 +6830,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %658, ptr %656, align 8, !tbaa !4
   %659 = getelementptr inbounds nuw i8, ptr %38, i64 2480
   %660 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115canon_eos_5ds_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i627 unwind label %1128
+          to label %._crit_edge.i.i.i626 unwind label %1128
 
-._crit_edge.i.i.i627:                             ; preds = %._crit_edge.i.i.i624
+._crit_edge.i.i.i626:                             ; preds = %._crit_edge.i.i.i623
   %661 = getelementptr inbounds nuw i8, ptr %38, i64 2496
   store ptr %661, ptr %659, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %661, ptr noundef nonnull align 1 dereferenceable(15) @.str.98, i64 15, i1 false)
@@ -6846,9 +6846,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %666, ptr %664, align 8, !tbaa !4
   %667 = getelementptr inbounds nuw i8, ptr %38, i64 2520
   %668 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115canon_eos_5ds_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i631 unwind label %1130
+          to label %._crit_edge.i.i.i630 unwind label %1130
 
-._crit_edge.i.i.i631:                             ; preds = %._crit_edge.i.i.i627
+._crit_edge.i.i.i630:                             ; preds = %._crit_edge.i.i.i626
   %669 = getelementptr inbounds nuw i8, ptr %38, i64 2536
   store ptr %669, ptr %667, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %669, ptr noundef nonnull align 1 dereferenceable(15) @.str.99, i64 15, i1 false)
@@ -6862,9 +6862,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %674, ptr %672, align 8, !tbaa !4
   %675 = getelementptr inbounds nuw i8, ptr %38, i64 2560
   %676 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113canon_eos_m_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i635 unwind label %1132
+          to label %._crit_edge.i.i.i634 unwind label %1132
 
-._crit_edge.i.i.i635:                             ; preds = %._crit_edge.i.i.i631
+._crit_edge.i.i.i634:                             ; preds = %._crit_edge.i.i.i630
   %677 = getelementptr inbounds nuw i8, ptr %38, i64 2576
   store ptr %677, ptr %675, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %677, ptr noundef nonnull align 1 dereferenceable(13) @.str.100, i64 13, i1 false)
@@ -6878,9 +6878,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %682, ptr %680, align 8, !tbaa !4
   %683 = getelementptr inbounds nuw i8, ptr %38, i64 2600
   %684 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113canon_eos_m_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i638 unwind label %1134
+          to label %._crit_edge.i.i.i637 unwind label %1134
 
-._crit_edge.i.i.i638:                             ; preds = %._crit_edge.i.i.i635
+._crit_edge.i.i.i637:                             ; preds = %._crit_edge.i.i.i634
   %685 = getelementptr inbounds nuw i8, ptr %38, i64 2616
   store ptr %685, ptr %683, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %685, ptr noundef nonnull align 1 dereferenceable(13) @.str.101, i64 13, i1 false)
@@ -6894,9 +6894,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %690, ptr %688, align 8, !tbaa !4
   %691 = getelementptr inbounds nuw i8, ptr %38, i64 2640
   %692 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113canon_eos_m_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i642 unwind label %1136
+          to label %._crit_edge.i.i.i641 unwind label %1136
 
-._crit_edge.i.i.i642:                             ; preds = %._crit_edge.i.i.i638
+._crit_edge.i.i.i641:                             ; preds = %._crit_edge.i.i.i637
   %693 = getelementptr inbounds nuw i8, ptr %38, i64 2656
   store ptr %693, ptr %691, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %693, ptr noundef nonnull align 1 dereferenceable(13) @.str.102, i64 13, i1 false)
@@ -6910,17 +6910,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %698, ptr %696, align 8, !tbaa !4
   %699 = getelementptr inbounds nuw i8, ptr %38, i64 2680
   %700 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120hasselblad_l1d_20c_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i647 unwind label %1138
+          to label %.noexc.i.i646 unwind label %1138
 
-.noexc.i.i647:                                    ; preds = %._crit_edge.i.i.i642
+.noexc.i.i646:                                    ; preds = %._crit_edge.i.i.i641
   %701 = getelementptr inbounds nuw i8, ptr %38, i64 2696
   store ptr %701, ptr %699, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 20, ptr %10, align 8, !tbaa !74
   %702 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %699, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-          to label %.noexc648 unwind label %1138
+          to label %.noexc647 unwind label %1138
 
-.noexc648:                                        ; preds = %.noexc.i.i647
+.noexc647:                                        ; preds = %.noexc.i.i646
   store ptr %702, ptr %699, align 8, !tbaa !38
   %703 = load i64, ptr %10, align 8, !tbaa !74
   store i64 %703, ptr %701, align 8, !tbaa !26
@@ -6937,17 +6937,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %709, ptr %707, align 8, !tbaa !4
   %710 = getelementptr inbounds nuw i8, ptr %38, i64 2720
   %711 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120hasselblad_l1d_20c_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i651 unwind label %1140
+          to label %.noexc.i.i650 unwind label %1140
 
-.noexc.i.i651:                                    ; preds = %.noexc648
+.noexc.i.i650:                                    ; preds = %.noexc647
   %712 = getelementptr inbounds nuw i8, ptr %38, i64 2736
   store ptr %712, ptr %710, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 20, ptr %9, align 8, !tbaa !74
   %713 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %710, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0)
-          to label %.noexc652 unwind label %1140
+          to label %.noexc651 unwind label %1140
 
-.noexc652:                                        ; preds = %.noexc.i.i651
+.noexc651:                                        ; preds = %.noexc.i.i650
   store ptr %713, ptr %710, align 8, !tbaa !38
   %714 = load i64, ptr %9, align 8, !tbaa !74
   store i64 %714, ptr %712, align 8, !tbaa !26
@@ -6964,17 +6964,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %720, ptr %718, align 8, !tbaa !4
   %721 = getelementptr inbounds nuw i8, ptr %38, i64 2760
   %722 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_120hasselblad_l1d_20c_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i655 unwind label %1142
+          to label %.noexc.i.i654 unwind label %1142
 
-.noexc.i.i655:                                    ; preds = %.noexc652
+.noexc.i.i654:                                    ; preds = %.noexc651
   %723 = getelementptr inbounds nuw i8, ptr %38, i64 2776
   store ptr %723, ptr %721, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 20, ptr %8, align 8, !tbaa !74
   %724 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %721, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-          to label %.noexc656 unwind label %1142
+          to label %.noexc655 unwind label %1142
 
-.noexc656:                                        ; preds = %.noexc.i.i655
+.noexc655:                                        ; preds = %.noexc.i.i654
   store ptr %724, ptr %721, align 8, !tbaa !38
   %725 = load i64, ptr %8, align 8, !tbaa !74
   store i64 %725, ptr %723, align 8, !tbaa !26
@@ -6991,9 +6991,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %731, ptr %729, align 8, !tbaa !4
   %732 = getelementptr inbounds nuw i8, ptr %38, i64 2800
   %733 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d810_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i658 unwind label %1144
+          to label %._crit_edge.i.i.i657 unwind label %1144
 
-._crit_edge.i.i.i658:                             ; preds = %.noexc656
+._crit_edge.i.i.i657:                             ; preds = %.noexc655
   %734 = getelementptr inbounds nuw i8, ptr %38, i64 2816
   store ptr %734, ptr %732, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %734, ptr noundef nonnull align 1 dereferenceable(12) @.str.106, i64 12, i1 false)
@@ -7007,9 +7007,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %739, ptr %737, align 8, !tbaa !4
   %740 = getelementptr inbounds nuw i8, ptr %38, i64 2840
   %741 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d810_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i661 unwind label %1146
+          to label %._crit_edge.i.i.i660 unwind label %1146
 
-._crit_edge.i.i.i661:                             ; preds = %._crit_edge.i.i.i658
+._crit_edge.i.i.i660:                             ; preds = %._crit_edge.i.i.i657
   %742 = getelementptr inbounds nuw i8, ptr %38, i64 2856
   store ptr %742, ptr %740, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %742, ptr noundef nonnull align 1 dereferenceable(12) @.str.107, i64 12, i1 false)
@@ -7023,9 +7023,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %747, ptr %745, align 8, !tbaa !4
   %748 = getelementptr inbounds nuw i8, ptr %38, i64 2880
   %749 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d810_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i665 unwind label %1148
+          to label %._crit_edge.i.i.i664 unwind label %1148
 
-._crit_edge.i.i.i665:                             ; preds = %._crit_edge.i.i.i661
+._crit_edge.i.i.i664:                             ; preds = %._crit_edge.i.i.i660
   %750 = getelementptr inbounds nuw i8, ptr %38, i64 2896
   store ptr %750, ptr %748, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %750, ptr noundef nonnull align 1 dereferenceable(12) @.str.108, i64 12, i1 false)
@@ -7039,9 +7039,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %755, ptr %753, align 8, !tbaa !4
   %756 = getelementptr inbounds nuw i8, ptr %38, i64 2920
   %757 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d850_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i669 unwind label %1150
+          to label %._crit_edge.i.i.i668 unwind label %1150
 
-._crit_edge.i.i.i669:                             ; preds = %._crit_edge.i.i.i665
+._crit_edge.i.i.i668:                             ; preds = %._crit_edge.i.i.i664
   %758 = getelementptr inbounds nuw i8, ptr %38, i64 2936
   store ptr %758, ptr %756, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %758, ptr noundef nonnull align 1 dereferenceable(12) @.str.109, i64 12, i1 false)
@@ -7055,9 +7055,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %763, ptr %761, align 8, !tbaa !4
   %764 = getelementptr inbounds nuw i8, ptr %38, i64 2960
   %765 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d850_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i673 unwind label %1152
+          to label %._crit_edge.i.i.i672 unwind label %1152
 
-._crit_edge.i.i.i673:                             ; preds = %._crit_edge.i.i.i669
+._crit_edge.i.i.i672:                             ; preds = %._crit_edge.i.i.i668
   %766 = getelementptr inbounds nuw i8, ptr %38, i64 2976
   store ptr %766, ptr %764, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %766, ptr noundef nonnull align 1 dereferenceable(12) @.str.110, i64 12, i1 false)
@@ -7071,9 +7071,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %771, ptr %769, align 8, !tbaa !4
   %772 = getelementptr inbounds nuw i8, ptr %38, i64 3000
   %773 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_112nikon_d850_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i677 unwind label %1154
+          to label %._crit_edge.i.i.i676 unwind label %1154
 
-._crit_edge.i.i.i677:                             ; preds = %._crit_edge.i.i.i673
+._crit_edge.i.i.i676:                             ; preds = %._crit_edge.i.i.i672
   %774 = getelementptr inbounds nuw i8, ptr %38, i64 3016
   store ptr %774, ptr %772, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %774, ptr noundef nonnull align 1 dereferenceable(12) @.str.111, i64 12, i1 false)
@@ -7087,17 +7087,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %779, ptr %777, align 8, !tbaa !4
   %780 = getelementptr inbounds nuw i8, ptr %38, i64 3040
   %781 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_6400_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i682 unwind label %1156
+          to label %.noexc.i.i681 unwind label %1156
 
-.noexc.i.i682:                                    ; preds = %._crit_edge.i.i.i677
+.noexc.i.i681:                                    ; preds = %._crit_edge.i.i.i676
   %782 = getelementptr inbounds nuw i8, ptr %38, i64 3056
   store ptr %782, ptr %780, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 16, ptr %7, align 8, !tbaa !74
   %783 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %780, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
-          to label %.noexc683 unwind label %1156
+          to label %.noexc682 unwind label %1156
 
-.noexc683:                                        ; preds = %.noexc.i.i682
+.noexc682:                                        ; preds = %.noexc.i.i681
   store ptr %783, ptr %780, align 8, !tbaa !38
   %784 = load i64, ptr %7, align 8, !tbaa !74
   store i64 %784, ptr %782, align 8, !tbaa !26
@@ -7114,17 +7114,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %790, ptr %788, align 8, !tbaa !4
   %791 = getelementptr inbounds nuw i8, ptr %38, i64 3080
   %792 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_6400_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i686 unwind label %1158
+          to label %.noexc.i.i685 unwind label %1158
 
-.noexc.i.i686:                                    ; preds = %.noexc683
+.noexc.i.i685:                                    ; preds = %.noexc682
   %793 = getelementptr inbounds nuw i8, ptr %38, i64 3096
   store ptr %793, ptr %791, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 16, ptr %6, align 8, !tbaa !74
   %794 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %791, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-          to label %.noexc687 unwind label %1158
+          to label %.noexc686 unwind label %1158
 
-.noexc687:                                        ; preds = %.noexc.i.i686
+.noexc686:                                        ; preds = %.noexc.i.i685
   store ptr %794, ptr %791, align 8, !tbaa !38
   %795 = load i64, ptr %6, align 8, !tbaa !74
   store i64 %795, ptr %793, align 8, !tbaa !26
@@ -7141,17 +7141,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %801, ptr %799, align 8, !tbaa !4
   %802 = getelementptr inbounds nuw i8, ptr %38, i64 3120
   %803 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_6400_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i690 unwind label %1160
+          to label %.noexc.i.i689 unwind label %1160
 
-.noexc.i.i690:                                    ; preds = %.noexc687
+.noexc.i.i689:                                    ; preds = %.noexc686
   %804 = getelementptr inbounds nuw i8, ptr %38, i64 3136
   store ptr %804, ptr %802, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 16, ptr %5, align 8, !tbaa !74
   %805 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %802, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-          to label %.noexc691 unwind label %1160
+          to label %.noexc690 unwind label %1160
 
-.noexc691:                                        ; preds = %.noexc.i.i690
+.noexc690:                                        ; preds = %.noexc.i.i689
   store ptr %805, ptr %802, align 8, !tbaa !38
   %806 = load i64, ptr %5, align 8, !tbaa !74
   store i64 %806, ptr %804, align 8, !tbaa !26
@@ -7168,9 +7168,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %812, ptr %810, align 8, !tbaa !4
   %813 = getelementptr inbounds nuw i8, ptr %38, i64 3160
   %814 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115sony_ilce_7m3_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i693 unwind label %1162
+          to label %._crit_edge.i.i.i692 unwind label %1162
 
-._crit_edge.i.i.i693:                             ; preds = %.noexc691
+._crit_edge.i.i.i692:                             ; preds = %.noexc690
   %815 = getelementptr inbounds nuw i8, ptr %38, i64 3176
   store ptr %815, ptr %813, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %815, ptr noundef nonnull align 1 dereferenceable(15) @.str.115, i64 15, i1 false)
@@ -7184,9 +7184,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %820, ptr %818, align 8, !tbaa !4
   %821 = getelementptr inbounds nuw i8, ptr %38, i64 3200
   %822 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115sony_ilce_7m3_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i697 unwind label %1164
+          to label %._crit_edge.i.i.i696 unwind label %1164
 
-._crit_edge.i.i.i697:                             ; preds = %._crit_edge.i.i.i693
+._crit_edge.i.i.i696:                             ; preds = %._crit_edge.i.i.i692
   %823 = getelementptr inbounds nuw i8, ptr %38, i64 3216
   store ptr %823, ptr %821, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %823, ptr noundef nonnull align 1 dereferenceable(15) @.str.116, i64 15, i1 false)
@@ -7200,9 +7200,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %828, ptr %826, align 8, !tbaa !4
   %829 = getelementptr inbounds nuw i8, ptr %38, i64 3240
   %830 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_115sony_ilce_7m3_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i701 unwind label %1166
+          to label %._crit_edge.i.i.i700 unwind label %1166
 
-._crit_edge.i.i.i701:                             ; preds = %._crit_edge.i.i.i697
+._crit_edge.i.i.i700:                             ; preds = %._crit_edge.i.i.i696
   %831 = getelementptr inbounds nuw i8, ptr %38, i64 3256
   store ptr %831, ptr %829, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %831, ptr noundef nonnull align 1 dereferenceable(15) @.str.117, i64 15, i1 false)
@@ -7216,17 +7216,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %836, ptr %834, align 8, !tbaa !4
   %837 = getelementptr inbounds nuw i8, ptr %38, i64 3280
   %838 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_7rm3_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i706 unwind label %1168
+          to label %.noexc.i.i705 unwind label %1168
 
-.noexc.i.i706:                                    ; preds = %._crit_edge.i.i.i701
+.noexc.i.i705:                                    ; preds = %._crit_edge.i.i.i700
   %839 = getelementptr inbounds nuw i8, ptr %38, i64 3296
   store ptr %839, ptr %837, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 16, ptr %4, align 8, !tbaa !74
   %840 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %837, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-          to label %.noexc707 unwind label %1168
+          to label %.noexc706 unwind label %1168
 
-.noexc707:                                        ; preds = %.noexc.i.i706
+.noexc706:                                        ; preds = %.noexc.i.i705
   store ptr %840, ptr %837, align 8, !tbaa !38
   %841 = load i64, ptr %4, align 8, !tbaa !74
   store i64 %841, ptr %839, align 8, !tbaa !26
@@ -7243,17 +7243,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %847, ptr %845, align 8, !tbaa !4
   %848 = getelementptr inbounds nuw i8, ptr %38, i64 3320
   %849 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_7rm3_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i710 unwind label %1170
+          to label %.noexc.i.i709 unwind label %1170
 
-.noexc.i.i710:                                    ; preds = %.noexc707
+.noexc.i.i709:                                    ; preds = %.noexc706
   %850 = getelementptr inbounds nuw i8, ptr %38, i64 3336
   store ptr %850, ptr %848, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 16, ptr %3, align 8, !tbaa !74
   %851 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %848, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-          to label %.noexc711 unwind label %1170
+          to label %.noexc710 unwind label %1170
 
-.noexc711:                                        ; preds = %.noexc.i.i710
+.noexc710:                                        ; preds = %.noexc.i.i709
   store ptr %851, ptr %848, align 8, !tbaa !38
   %852 = load i64, ptr %3, align 8, !tbaa !74
   store i64 %852, ptr %850, align 8, !tbaa !26
@@ -7270,17 +7270,17 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %858, ptr %856, align 8, !tbaa !4
   %859 = getelementptr inbounds nuw i8, ptr %38, i64 3360
   %860 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_116sony_ilce_7rm3_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %.noexc.i.i714 unwind label %1172
+          to label %.noexc.i.i713 unwind label %1172
 
-.noexc.i.i714:                                    ; preds = %.noexc711
+.noexc.i.i713:                                    ; preds = %.noexc710
   %861 = getelementptr inbounds nuw i8, ptr %38, i64 3376
   store ptr %861, ptr %859, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 16, ptr %2, align 8, !tbaa !74
   %862 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %859, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-          to label %.noexc715 unwind label %1172
+          to label %.noexc714 unwind label %1172
 
-.noexc715:                                        ; preds = %.noexc.i.i714
+.noexc714:                                        ; preds = %.noexc.i.i713
   store ptr %862, ptr %859, align 8, !tbaa !38
   %863 = load i64, ptr %2, align 8, !tbaa !74
   store i64 %863, ptr %861, align 8, !tbaa !26
@@ -7297,9 +7297,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %869, ptr %867, align 8, !tbaa !4
   %870 = getelementptr inbounds nuw i8, ptr %38, i64 3400
   %871 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113sony_ilce_9_rE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i717 unwind label %1174
+          to label %._crit_edge.i.i.i716 unwind label %1174
 
-._crit_edge.i.i.i717:                             ; preds = %.noexc715
+._crit_edge.i.i.i716:                             ; preds = %.noexc714
   %872 = getelementptr inbounds nuw i8, ptr %38, i64 3416
   store ptr %872, ptr %870, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %872, ptr noundef nonnull align 1 dereferenceable(13) @.str.121, i64 13, i1 false)
@@ -7313,9 +7313,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %877, ptr %875, align 8, !tbaa !4
   %878 = getelementptr inbounds nuw i8, ptr %38, i64 3440
   %879 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113sony_ilce_9_gE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i721 unwind label %1176
+          to label %._crit_edge.i.i.i720 unwind label %1176
 
-._crit_edge.i.i.i721:                             ; preds = %._crit_edge.i.i.i717
+._crit_edge.i.i.i720:                             ; preds = %._crit_edge.i.i.i716
   %880 = getelementptr inbounds nuw i8, ptr %38, i64 3456
   store ptr %880, ptr %878, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %880, ptr noundef nonnull align 1 dereferenceable(13) @.str.122, i64 13, i1 false)
@@ -7329,9 +7329,9 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   store i64 %885, ptr %883, align 8, !tbaa !4
   %886 = getelementptr inbounds nuw i8, ptr %38, i64 3480
   %887 = invoke noundef ptr @_ZN4pbrt23PiecewiseLinearSpectrum15FromInterleavedEN4pstd4spanIKfEEbNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull @_ZN4pbrt12_GLOBAL__N_113sony_ilce_9_bE, i64 70, i1 noundef zeroext false, ptr nonnull %0)
-          to label %._crit_edge.i.i.i725 unwind label %1178
+          to label %._crit_edge.i.i.i724 unwind label %1178
 
-._crit_edge.i.i.i725:                             ; preds = %._crit_edge.i.i.i721
+._crit_edge.i.i.i724:                             ; preds = %._crit_edge.i.i.i720
   %888 = getelementptr inbounds nuw i8, ptr %38, i64 3496
   store ptr %888, ptr %886, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %888, ptr noundef nonnull align 1 dereferenceable(13) @.str.123, i64 13, i1 false)
@@ -7347,8 +7347,8 @@ define dso_local void @_ZN4pbrt7Spectra4InitEN4pstd3pmr21polymorphic_allocatorIS
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8SpectrumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE16_M_assign_uniqueIPKSA_EEvT_SK_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4pbrt7Spectra12_GLOBAL__N_112namedSpectraB5cxx11E, ptr noundef nonnull %38, ptr noundef nonnull %894)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSESt16initializer_listISC_E.exit unwind label %1180
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSESt16initializer_listISC_E.exit: ; preds = %._crit_edge.i.i.i725, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit
-  %895 = phi ptr [ %896, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit ], [ %894, %._crit_edge.i.i.i725 ]
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSESt16initializer_listISC_E.exit: ; preds = %._crit_edge.i.i.i724, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit
+  %895 = phi ptr [ %896, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit ], [ %894, %._crit_edge.i.i.i724 ]
   %896 = getelementptr inbounds i8, ptr %895, i64 -40
   %897 = load ptr, ptr %896, align 8, !tbaa !38
   %898 = getelementptr inbounds i8, ptr %895, i64 -24
@@ -7432,8 +7432,8 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit:       ; preds = %_ZN4pstd6vectorIfNS
   store i64 0, ptr %936, align 8, !tbaa !60
   %937 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %938 = load ptr, ptr %937, align 8, !tbaa !64
-  %.not.i.i.i.i.i730 = icmp eq ptr %938, null
-  br i1 %.not.i.i.i.i.i730, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731, label %939
+  %.not.i.i.i.i.i729 = icmp eq ptr %938, null
+  br i1 %.not.i.i.i.i.i729, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i730, label %939
 
 939:                                              ; preds = %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit
   %940 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -7445,7 +7445,7 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit:       ; preds = %_ZN4pstd6vectorIfNS
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 24
   %947 = load ptr, ptr %946, align 8
   invoke void %947(ptr noundef nonnull align 8 dereferenceable(8) %944, ptr noundef nonnull %938, i64 noundef %943, i64 noundef 4)
-          to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731 unwind label %948
+          to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i730 unwind label %948
 
 948:                                              ; preds = %939
   %949 = landingpad { ptr, i32 }
@@ -7454,15 +7454,15 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit:       ; preds = %_ZN4pstd6vectorIfNS
   call void @__clang_call_terminate(ptr %950) #32
   unreachable
 
-_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731: ; preds = %939, %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit
+_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i730: ; preds = %939, %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit
   %951 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 0, ptr %951, align 8, !tbaa !60
   %952 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %953 = load ptr, ptr %952, align 8, !tbaa !64
-  %.not.i.i.i.i1.i732 = icmp eq ptr %953, null
-  br i1 %.not.i.i.i.i1.i732, label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733, label %954
+  %.not.i.i.i.i1.i731 = icmp eq ptr %953, null
+  br i1 %.not.i.i.i.i1.i731, label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit732, label %954
 
-954:                                              ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731
+954:                                              ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i730
   %955 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %956 = load i64, ptr %955, align 8, !tbaa !70
   %957 = shl i64 %956, 2
@@ -7471,7 +7471,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731: ; preds = %9
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 24
   %961 = load ptr, ptr %960, align 8
   invoke void %961(ptr noundef nonnull align 8 dereferenceable(8) %958, ptr noundef nonnull %953, i64 noundef %957, i64 noundef 4)
-          to label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733 unwind label %962
+          to label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit732 unwind label %962
 
 962:                                              ; preds = %954
   %963 = landingpad { ptr, i32 }
@@ -7480,16 +7480,16 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731: ; preds = %9
   call void @__clang_call_terminate(ptr %964) #32
   unreachable
 
-_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733:    ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i731, %954
+_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit732:    ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i730, %954
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %965 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store i64 0, ptr %965, align 8, !tbaa !60
   %966 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %967 = load ptr, ptr %966, align 8, !tbaa !64
-  %.not.i.i.i.i.i734 = icmp eq ptr %967, null
-  br i1 %.not.i.i.i.i.i734, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735, label %968
+  %.not.i.i.i.i.i733 = icmp eq ptr %967, null
+  br i1 %.not.i.i.i.i.i733, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i734, label %968
 
-968:                                              ; preds = %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733
+968:                                              ; preds = %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit732
   %969 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %970 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %971 = load i64, ptr %970, align 8, !tbaa !70
@@ -7499,7 +7499,7 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733:    ; preds = %_ZN4pstd6vectorIfNS
   %975 = getelementptr inbounds nuw i8, ptr %974, i64 24
   %976 = load ptr, ptr %975, align 8
   invoke void %976(ptr noundef nonnull align 8 dereferenceable(8) %973, ptr noundef nonnull %967, i64 noundef %972, i64 noundef 4)
-          to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735 unwind label %977
+          to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i734 unwind label %977
 
 977:                                              ; preds = %968
   %978 = landingpad { ptr, i32 }
@@ -7508,15 +7508,15 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733:    ; preds = %_ZN4pstd6vectorIfNS
   call void @__clang_call_terminate(ptr %979) #32
   unreachable
 
-_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735: ; preds = %968, %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit733
+_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i734: ; preds = %968, %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit732
   %980 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %980, align 8, !tbaa !60
   %981 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %982 = load ptr, ptr %981, align 8, !tbaa !64
-  %.not.i.i.i.i1.i736 = icmp eq ptr %982, null
-  br i1 %.not.i.i.i.i1.i736, label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737, label %983
+  %.not.i.i.i.i1.i735 = icmp eq ptr %982, null
+  br i1 %.not.i.i.i.i1.i735, label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit736, label %983
 
-983:                                              ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735
+983:                                              ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i734
   %984 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %985 = load i64, ptr %984, align 8, !tbaa !70
   %986 = shl i64 %985, 2
@@ -7525,7 +7525,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735: ; preds = %9
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 24
   %990 = load ptr, ptr %989, align 8
   invoke void %990(ptr noundef nonnull align 8 dereferenceable(8) %987, ptr noundef nonnull %982, i64 noundef %986, i64 noundef 4)
-          to label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737 unwind label %991
+          to label %_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit736 unwind label %991
 
 991:                                              ; preds = %983
   %992 = landingpad { ptr, i32 }
@@ -7534,7 +7534,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735: ; preds = %9
   call void @__clang_call_terminate(ptr %993) #32
   unreachable
 
-_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737:    ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i735, %983
+_ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit736:    ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i734, %983
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   ret void
 
@@ -7548,7 +7548,7 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737:    ; preds = %_ZN4pstd6vectorIfNS
           cleanup
   br label %1208
 
-998:                                              ; preds = %.noexc387, %48
+998:                                              ; preds = %.noexc386, %48
   %999 = landingpad { ptr, i32 }
           cleanup
   br label %1207
@@ -7558,7 +7558,7 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737:    ; preds = %_ZN4pstd6vectorIfNS
           cleanup
   br label %1206
 
-1002:                                             ; preds = %.noexc391, %57
+1002:                                             ; preds = %.noexc390, %57
   %1003 = landingpad { ptr, i32 }
           cleanup
   br label %1205
@@ -7748,288 +7748,288 @@ _ZN4pbrt23PiecewiseLinearSpectrumD2Ev.exit737:    ; preds = %_ZN4pstd6vectorIfNS
           cleanup
   br label %1205
 
-1078:                                             ; preds = %.noexc.i.i534, %._crit_edge.i.i.i
+1078:                                             ; preds = %.noexc.i.i533, %._crit_edge.i.i.i
   %1079 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1080:                                             ; preds = %.noexc.i.i537, %.noexc535
+1080:                                             ; preds = %.noexc.i.i536, %.noexc534
   %1081 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1082:                                             ; preds = %.noexc.i.i541, %.noexc538
+1082:                                             ; preds = %.noexc.i.i540, %.noexc537
   %1083 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1084:                                             ; preds = %.noexc.i.i545, %.noexc542
+1084:                                             ; preds = %.noexc.i.i544, %.noexc541
   %1085 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1086:                                             ; preds = %.noexc.i.i548, %.noexc546
+1086:                                             ; preds = %.noexc.i.i547, %.noexc545
   %1087 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1088:                                             ; preds = %.noexc.i.i552, %.noexc549
+1088:                                             ; preds = %.noexc.i.i551, %.noexc548
   %1089 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1090:                                             ; preds = %.noexc.i.i556, %.noexc553
+1090:                                             ; preds = %.noexc.i.i555, %.noexc552
   %1091 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1092:                                             ; preds = %.noexc.i.i560, %.noexc557
+1092:                                             ; preds = %.noexc.i.i559, %.noexc556
   %1093 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1094:                                             ; preds = %.noexc.i.i564, %.noexc561
+1094:                                             ; preds = %.noexc.i.i563, %.noexc560
   %1095 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1096:                                             ; preds = %.noexc.i.i568, %.noexc565
+1096:                                             ; preds = %.noexc.i.i567, %.noexc564
   %1097 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1098:                                             ; preds = %.noexc.i.i571, %.noexc569
+1098:                                             ; preds = %.noexc.i.i570, %.noexc568
   %1099 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1100:                                             ; preds = %.noexc.i.i575, %.noexc572
+1100:                                             ; preds = %.noexc.i.i574, %.noexc571
   %1101 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1102:                                             ; preds = %.noexc576
+1102:                                             ; preds = %.noexc575
   %1103 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1104:                                             ; preds = %._crit_edge.i.i.i578
+1104:                                             ; preds = %._crit_edge.i.i.i577
   %1105 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1106:                                             ; preds = %._crit_edge.i.i.i581
+1106:                                             ; preds = %._crit_edge.i.i.i580
   %1107 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1108:                                             ; preds = %.noexc.i.i590, %._crit_edge.i.i.i585
+1108:                                             ; preds = %.noexc.i.i589, %._crit_edge.i.i.i584
   %1109 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1110:                                             ; preds = %.noexc.i.i593, %.noexc591
+1110:                                             ; preds = %.noexc.i.i592, %.noexc590
   %1111 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1112:                                             ; preds = %.noexc.i.i597, %.noexc594
+1112:                                             ; preds = %.noexc.i.i596, %.noexc593
   %1113 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1114:                                             ; preds = %.noexc.i.i601, %.noexc598
+1114:                                             ; preds = %.noexc.i.i600, %.noexc597
   %1115 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1116:                                             ; preds = %.noexc.i.i605, %.noexc602
+1116:                                             ; preds = %.noexc.i.i604, %.noexc601
   %1117 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1118:                                             ; preds = %.noexc.i.i609, %.noexc606
+1118:                                             ; preds = %.noexc.i.i608, %.noexc605
   %1119 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1120:                                             ; preds = %.noexc.i.i613, %.noexc610
+1120:                                             ; preds = %.noexc.i.i612, %.noexc609
   %1121 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1122:                                             ; preds = %.noexc.i.i617, %.noexc614
+1122:                                             ; preds = %.noexc.i.i616, %.noexc613
   %1123 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1124:                                             ; preds = %.noexc.i.i621, %.noexc618
+1124:                                             ; preds = %.noexc.i.i620, %.noexc617
   %1125 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1126:                                             ; preds = %.noexc622
+1126:                                             ; preds = %.noexc621
   %1127 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1128:                                             ; preds = %._crit_edge.i.i.i624
+1128:                                             ; preds = %._crit_edge.i.i.i623
   %1129 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1130:                                             ; preds = %._crit_edge.i.i.i627
+1130:                                             ; preds = %._crit_edge.i.i.i626
   %1131 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1132:                                             ; preds = %._crit_edge.i.i.i631
+1132:                                             ; preds = %._crit_edge.i.i.i630
   %1133 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1134:                                             ; preds = %._crit_edge.i.i.i635
+1134:                                             ; preds = %._crit_edge.i.i.i634
   %1135 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1136:                                             ; preds = %._crit_edge.i.i.i638
+1136:                                             ; preds = %._crit_edge.i.i.i637
   %1137 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1138:                                             ; preds = %.noexc.i.i647, %._crit_edge.i.i.i642
+1138:                                             ; preds = %.noexc.i.i646, %._crit_edge.i.i.i641
   %1139 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1140:                                             ; preds = %.noexc.i.i651, %.noexc648
+1140:                                             ; preds = %.noexc.i.i650, %.noexc647
   %1141 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1142:                                             ; preds = %.noexc.i.i655, %.noexc652
+1142:                                             ; preds = %.noexc.i.i654, %.noexc651
   %1143 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1144:                                             ; preds = %.noexc656
+1144:                                             ; preds = %.noexc655
   %1145 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1146:                                             ; preds = %._crit_edge.i.i.i658
+1146:                                             ; preds = %._crit_edge.i.i.i657
   %1147 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1148:                                             ; preds = %._crit_edge.i.i.i661
+1148:                                             ; preds = %._crit_edge.i.i.i660
   %1149 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1150:                                             ; preds = %._crit_edge.i.i.i665
+1150:                                             ; preds = %._crit_edge.i.i.i664
   %1151 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1152:                                             ; preds = %._crit_edge.i.i.i669
+1152:                                             ; preds = %._crit_edge.i.i.i668
   %1153 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1154:                                             ; preds = %._crit_edge.i.i.i673
+1154:                                             ; preds = %._crit_edge.i.i.i672
   %1155 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1156:                                             ; preds = %.noexc.i.i682, %._crit_edge.i.i.i677
+1156:                                             ; preds = %.noexc.i.i681, %._crit_edge.i.i.i676
   %1157 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1158:                                             ; preds = %.noexc.i.i686, %.noexc683
+1158:                                             ; preds = %.noexc.i.i685, %.noexc682
   %1159 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1160:                                             ; preds = %.noexc.i.i690, %.noexc687
+1160:                                             ; preds = %.noexc.i.i689, %.noexc686
   %1161 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1162:                                             ; preds = %.noexc691
+1162:                                             ; preds = %.noexc690
   %1163 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1164:                                             ; preds = %._crit_edge.i.i.i693
+1164:                                             ; preds = %._crit_edge.i.i.i692
   %1165 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1166:                                             ; preds = %._crit_edge.i.i.i697
+1166:                                             ; preds = %._crit_edge.i.i.i696
   %1167 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1168:                                             ; preds = %.noexc.i.i706, %._crit_edge.i.i.i701
+1168:                                             ; preds = %.noexc.i.i705, %._crit_edge.i.i.i700
   %1169 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1170:                                             ; preds = %.noexc.i.i710, %.noexc707
+1170:                                             ; preds = %.noexc.i.i709, %.noexc706
   %1171 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1172:                                             ; preds = %.noexc.i.i714, %.noexc711
+1172:                                             ; preds = %.noexc.i.i713, %.noexc710
   %1173 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1174:                                             ; preds = %.noexc715
+1174:                                             ; preds = %.noexc714
   %1175 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1176:                                             ; preds = %._crit_edge.i.i.i717
+1176:                                             ; preds = %._crit_edge.i.i.i716
   %1177 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1178:                                             ; preds = %._crit_edge.i.i.i721
+1178:                                             ; preds = %._crit_edge.i.i.i720
   %1179 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-1180:                                             ; preds = %._crit_edge.i.i.i725
+1180:                                             ; preds = %._crit_edge.i.i.i724
   %1181 = landingpad { ptr, i32 }
           cleanup
   br label %1182
 
-1182:                                             ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740, %1180
-  %1183 = phi ptr [ %894, %1180 ], [ %1184, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740 ]
+1182:                                             ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739, %1180
+  %1183 = phi ptr [ %894, %1180 ], [ %1184, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739 ]
   %1184 = getelementptr inbounds i8, ptr %1183, i64 -40
   %1185 = load ptr, ptr %1184, align 8, !tbaa !38
   %1186 = getelementptr inbounds i8, ptr %1183, i64 -24
   %1187 = icmp eq ptr %1185, %1186
-  br i1 %1187, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i739, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i738
+  br i1 %1187, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i738, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i737
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i739: ; preds = %1182
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i738: ; preds = %1182
   %1188 = getelementptr inbounds i8, ptr %1183, i64 -32
   %1189 = load i64, ptr %1188, align 8, !tbaa !24
   %1190 = icmp ult i64 %1189, 16
   call void @llvm.assume(i1 %1190)
-  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740
+  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i738: ; preds = %1182
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i737: ; preds = %1182
   %1191 = load i64, ptr %1186, align 8, !tbaa !26
   %1192 = add i64 %1191, 1
   call void @_ZdlPvm(ptr noundef %1185, i64 noundef %1192) #29
-  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740
+  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739
 
-_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i739, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i738
+_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i738, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i737
   %1193 = icmp eq ptr %1184, %38
   br i1 %1193, label %.thread, label %1182
 
@@ -8038,38 +8038,38 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumE
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1079, %1078 ], [ %1081, %1080 ], [ %1083, %1082 ], [ %1085, %1084 ], [ %1087, %1086 ], [ %1089, %1088 ], [ %1091, %1090 ], [ %1093, %1092 ], [ %1095, %1094 ], [ %1097, %1096 ], [ %1099, %1098 ], [ %1101, %1100 ], [ %1103, %1102 ], [ %1105, %1104 ], [ %1107, %1106 ], [ %1109, %1108 ], [ %1111, %1110 ], [ %1113, %1112 ], [ %1115, %1114 ], [ %1117, %1116 ], [ %1119, %1118 ], [ %1121, %1120 ], [ %1123, %1122 ], [ %1125, %1124 ], [ %1127, %1126 ], [ %1129, %1128 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1135, %1134 ], [ %1137, %1136 ], [ %1139, %1138 ], [ %1141, %1140 ], [ %1143, %1142 ], [ %1145, %1144 ], [ %1147, %1146 ], [ %1149, %1148 ], [ %1151, %1150 ], [ %1153, %1152 ], [ %1155, %1154 ], [ %1157, %1156 ], [ %1159, %1158 ], [ %1161, %1160 ], [ %1163, %1162 ], [ %1165, %1164 ], [ %1167, %1166 ], [ %1169, %1168 ], [ %1171, %1170 ], [ %1173, %1172 ], [ %1175, %1174 ], [ %1177, %1176 ], [ %1179, %1178 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743
-  %1194 = phi ptr [ %1195, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743 ], [ %.1239, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742
+  %1194 = phi ptr [ %1195, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742 ], [ %.1239, %.preheader.preheader ]
   %1195 = getelementptr inbounds i8, ptr %1194, i64 -40
   %1196 = load ptr, ptr %1195, align 8, !tbaa !38
   %1197 = getelementptr inbounds i8, ptr %1194, i64 -24
   %1198 = icmp eq ptr %1196, %1197
-  br i1 %1198, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i742, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i741
+  br i1 %1198, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i741, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i740
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i742: ; preds = %.preheader
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i741: ; preds = %.preheader
   %1199 = getelementptr inbounds i8, ptr %1194, i64 -32
   %1200 = load i64, ptr %1199, align 8, !tbaa !24
   %1201 = icmp ult i64 %1200, 16
   call void @llvm.assume(i1 %1201)
-  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743
+  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i741: ; preds = %.preheader
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i740: ; preds = %.preheader
   %1202 = load i64, ptr %1197, align 8, !tbaa !26
   %1203 = add i64 %1202, 1
   call void @_ZdlPvm(ptr noundef %1196, i64 noundef %1203) #29
-  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743
+  br label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742
 
-_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i742, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i741
+_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i741, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i740
   %1204 = icmp eq ptr %1195, %38
   br i1 %1204, label %.thread, label %.preheader
 
-.thread:                                          ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1030 = phi { ptr, i32 } [ %1181, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit740 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit743 ]
+.thread:                                          ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1029 = phi { ptr, i32 } [ %1181, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit739 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumEED2Ev.exit742 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %1205
 
 1205:                                             ; preds = %1004, %1008, %1012, %1016, %1020, %1024, %1028, %1032, %1036, %1040, %1044, %1048, %1052, %1056, %1060, %1064, %1068, %1072, %1076, %.thread, %1074, %1070, %1066, %1062, %1058, %1054, %1050, %1046, %1042, %1038, %1034, %1030, %1026, %1022, %1018, %1014, %1010, %1006, %1002
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1003, %1002 ], [ %1005, %1004 ], [ %1007, %1006 ], [ %1009, %1008 ], [ %1011, %1010 ], [ %1013, %1012 ], [ %1015, %1014 ], [ %1017, %1016 ], [ %1019, %1018 ], [ %1021, %1020 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1029, %1028 ], [ %1031, %1030 ], [ %1033, %1032 ], [ %1035, %1034 ], [ %1037, %1036 ], [ %1039, %1038 ], [ %1041, %1040 ], [ %1043, %1042 ], [ %1045, %1044 ], [ %1047, %1046 ], [ %1049, %1048 ], [ %1051, %1050 ], [ %1053, %1052 ], [ %1055, %1054 ], [ %1057, %1056 ], [ %1059, %1058 ], [ %1061, %1060 ], [ %1063, %1062 ], [ %1065, %1064 ], [ %1067, %1066 ], [ %1069, %1068 ], [ %1071, %1070 ], [ %1073, %1072 ], [ %1075, %1074 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1030, %.thread ], [ %1077, %1076 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1003, %1002 ], [ %1005, %1004 ], [ %1007, %1006 ], [ %1009, %1008 ], [ %1011, %1010 ], [ %1013, %1012 ], [ %1015, %1014 ], [ %1017, %1016 ], [ %1019, %1018 ], [ %1021, %1020 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1029, %1028 ], [ %1031, %1030 ], [ %1033, %1032 ], [ %1035, %1034 ], [ %1037, %1036 ], [ %1039, %1038 ], [ %1041, %1040 ], [ %1043, %1042 ], [ %1045, %1044 ], [ %1047, %1046 ], [ %1049, %1048 ], [ %1051, %1050 ], [ %1053, %1052 ], [ %1055, %1054 ], [ %1057, %1056 ], [ %1059, %1058 ], [ %1061, %1060 ], [ %1063, %1062 ], [ %1065, %1064 ], [ %1067, %1066 ], [ %1069, %1068 ], [ %1071, %1070 ], [ %1073, %1072 ], [ %1075, %1074 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1029, %.thread ], [ %1077, %1076 ]
   call void @_ZN4pbrt23PiecewiseLinearSpectrumD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %37) #31
   br label %1206
 

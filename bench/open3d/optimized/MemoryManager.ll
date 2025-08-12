@@ -729,19 +729,19 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %25 = load i32, ptr %1, align 4, !tbaa !33
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, i64 24), align 8, !tbaa !35
   %.not.not.i.i = icmp eq i64 %26, 0
-  br i1 %.not.not.i.i, label %.preheader26, label %31
+  br i1 %.not.not.i.i, label %.preheader25, label %31
 
-.preheader26:                                     ; preds = %24, %27
+.preheader25:                                     ; preds = %24, %27
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %27 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, i64 16), %24 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %27
 
-27:                                               ; preds = %.preheader26
+27:                                               ; preds = %.preheader25
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !45
   %30 = icmp eq i32 %25, %29
-  br i1 %30, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit, label %.preheader26, !llvm.loop !46
+  br i1 %30, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit, label %.preheader25, !llvm.loop !46
 
 31:                                               ; preds = %24
   %32 = sext i32 %25 to i64
@@ -762,7 +762,7 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %44 = load i32, ptr %40, align 8
   %45 = icmp eq i32 %25, %44
   %46 = select i1 %43, i1 %45, i1 false
-  br i1 %46, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22, label %.lr.ph.i.i.i.i
+  br i1 %46, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21, label %.lr.ph.i.i.i.i
 
 47:                                               ; preds = %54
   %48 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -788,7 +788,7 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %54
   br label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader26, %31, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader25, %31, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 4 dereferenceable(8) %1)
   invoke void @_ZN6open3d7utility6Logger9LogError_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSA_SA_DpOT_(ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceE, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(32) %8) #31
@@ -845,14 +845,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %115
 
 _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit: ; preds = %47, %27
-  br i1 %.not.not.i.i, label %.preheader, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge
+  br i1 %.not.not.i.i, label %.preheader, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge
 
-_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge: ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit
+_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge: ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, i64 8), align 8, !tbaa !48
-  %.pre39 = load ptr, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, align 8, !tbaa !49
-  %.pre40 = sext i32 %25 to i64
-  %.pre41 = urem i64 %.pre40, %.pre
-  br label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22
+  %.pre38 = load ptr, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, align 8, !tbaa !49
+  %.pre39 = sext i32 %25 to i64
+  %.pre40 = urem i64 %.pre39, %.pre
+  br label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21
 
 .preheader:                                       ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit, %74
   %.sroa.06.0.in.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %74 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6open3d4core13MemoryManager22GetMemoryManagerDeviceERKNS0_6DeviceEE33map_device_type_to_memory_manager, i64 16), %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit ]
@@ -866,17 +866,17 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %77 = icmp eq i32 %25, %76
   br i1 %77, label %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE2atERSC_.exit, label %.preheader, !llvm.loop !46
 
-_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22: ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge, %38
-  %.pre-phi42 = phi i64 [ %.pre41, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge ], [ %34, %38 ]
-  %.pre-phi = phi i64 [ %.pre40, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge ], [ %32, %38 ]
-  %78 = phi ptr [ %.pre39, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge ], [ %35, %38 ]
-  %79 = phi i64 [ %.pre, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22_crit_edge ], [ %33, %38 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %.pre-phi42
+_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21: ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge, %38
+  %.pre-phi41 = phi i64 [ %.pre40, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge ], [ %34, %38 ]
+  %.pre-phi = phi i64 [ %.pre39, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge ], [ %32, %38 ]
+  %78 = phi ptr [ %.pre38, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge ], [ %35, %38 ]
+  %79 = phi i64 [ %.pre, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit._ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21_crit_edge ], [ %33, %38 ]
+  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %.pre-phi41
   %81 = load ptr, ptr %80, align 8, !tbaa !50
   %.not.i.i.i.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %82
 
-82:                                               ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22
+82:                                               ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21
   %83 = load ptr, ptr %81, align 8, !tbaa !44
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
@@ -905,13 +905,13 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %100 = load i64, ptr %99, align 8, !tbaa !51
   %101 = urem i64 %100, %79
-  %.not19.i.i.i.i.i = icmp eq i64 %101, %.pre-phi42
+  %.not19.i.i.i.i.i = icmp eq i64 %101, %.pre-phi41
   br i1 %.not19.i.i.i.i.i, label %91, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !53
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %98
   br label %.loopexit.i.i, !llvm.loop !53
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread22
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSC_.exit.thread21
   call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.51) #31
   unreachable
 
@@ -924,14 +924,14 @@ _ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19Memor
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !14
   store ptr %106, ptr %104, align 8, !tbaa !14
-  %.not.i.i.i14 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i14, label %_ZNSt10shared_ptrIN6open3d4core19MemoryManagerDeviceEEC2ERKS3_.exit, label %107
+  %.not.i.i.i13 = icmp eq ptr %106, null
+  br i1 %.not.i.i.i13, label %_ZNSt10shared_ptrIN6open3d4core19MemoryManagerDeviceEEC2ERKS3_.exit, label %107
 
 107:                                              ; preds = %_ZNSt13unordered_mapIN6open3d4core6Device10DeviceTypeESt10shared_ptrINS1_19MemoryManagerDeviceEENS0_7utility15hash_enum_classESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE2atERSC_.exit
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
-  %.not.i.i.i.i15 = icmp eq i8 %109, 0
-  br i1 %.not.i.i.i.i15, label %113, label %110
+  %.not.i.i.i.i14 = icmp eq i8 %109, 0
+  br i1 %.not.i.i.i.i14, label %113, label %110
 
 110:                                              ; preds = %107
   %111 = load i32, ptr %108, align 4, !tbaa !20
@@ -947,8 +947,8 @@ _ZNSt10shared_ptrIN6open3d4core19MemoryManagerDeviceEEC2ERKS3_.exit: ; preds = %
   ret void
 
 115:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %63
-  %.pn12 = phi { ptr, i32 } [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %63 ]
-  resume { ptr, i32 } %.pn12
+  %.pn11 = phi { ptr, i32 } [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %63 ]
+  resume { ptr, i32 } %.pn11
 }
 
 declare i32 @__gxx_personality_v0(...)

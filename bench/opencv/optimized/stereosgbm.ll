@@ -6274,9 +6274,9 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr.i) #25
   %.add.i = add nuw nsw i64 %.idx.i, 96
   %94 = icmp eq i64 %.add.i, 384
-  br i1 %94, label %.preheader39.i, label %93
+  br i1 %94, label %.preheader37.i, label %93
 
-.preheader39.i:                                   ; preds = %93
+.preheader37.i:                                   ; preds = %93
   %95 = sitofp i32 %90 to double
   %96 = fmul double %95, 2.500000e-01
   %97 = call double @llvm.ceil.f64(double %96)
@@ -6302,8 +6302,8 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   invoke void @_ZN2cv16SGBM3WayMainLoopC2ERKNS_3MatES3_PS1_RKNS_16StereoSGBMParamsEii(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull %15, ptr noundef nonnull readonly align 4 dereferenceable(44) %85, i32 noundef %98, i32 noundef %105)
           to label %117 unwind label %126
 
-111:                                              ; preds = %114, %.preheader39.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader39.i ], [ %indvars.iv.next.i, %114 ]
+111:                                              ; preds = %114, %.preheader37.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader37.i ], [ %indvars.iv.next.i, %114 ]
   %112 = getelementptr inbounds nuw [4 x %"class.cv::Mat"], ptr %15, i64 0, i64 %indvars.iv.i
   %113 = load i32, ptr %108, align 4, !tbaa !29
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %112, i32 noundef %107, i32 noundef %113, i32 noundef 3)
@@ -6362,13 +6362,13 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   br label %161
 
 132:                                              ; preds = %132, %.lr.ph.i
-  %indvars.iv43.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next44.i, %132 ]
+  %indvars.iv41.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next42.i, %132 ]
   %133 = load ptr, ptr %123, align 8, !tbaa !94
   %134 = load ptr, ptr %124, align 8, !tbaa !95
   %135 = load i64, ptr %134, align 8, !tbaa !96
-  %136 = mul i64 %135, %indvars.iv43.i
+  %136 = mul i64 %135, %indvars.iv41.i
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 %136
-  %138 = trunc nuw nsw i64 %indvars.iv43.i to i32
+  %138 = trunc nuw nsw i64 %indvars.iv41.i to i32
   %139 = sdiv i32 %138, %98
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds [4 x %"class.cv::Mat"], ptr %15, i64 0, i64 %140
@@ -6386,10 +6386,10 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   %153 = sext i32 %152 to i64
   %154 = shl nsw i64 %153, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %137, ptr align 2 %151, i64 %154, i1 false)
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %155 = load i32, ptr %120, align 8, !tbaa !38
   %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next44.i, %156
+  %157 = icmp slt i64 %indvars.iv.next42.i, %156
   br i1 %157, label %132, label %.preheader.i.preheader, !llvm.loop !207
 
 .preheader.i.preheader:                           ; preds = %132, %118
@@ -6403,7 +6403,7 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %81, %84
   br i1 %160, label %_ZN2cvL24computeDisparity3WaySGBMILh4EEEvRKNS_3MatES3_RS1_RKNS_16StereoSGBMParamsE.exit, label %.preheader.i
 
 161:                                              ; preds = %131, %115
-  %.pn37.i = phi { ptr, i32 } [ %116, %115 ], [ %.pn.i, %131 ]
+  %.pn35.i = phi { ptr, i32 } [ %116, %115 ], [ %.pn.i, %131 ]
   br label %162
 
 162:                                              ; preds = %162, %161
@@ -8015,7 +8015,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %1039, %1042
   ret void
 
 .body:                                            ; preds = %166, %171, %_ZN2cv10BufferSGBMD2Ev.exit759.i, %324, %1037, %1035
-  %.pn24.pn.pn = phi { ptr, i32 } [ %1038, %1037 ], [ %1036, %1035 ], [ %.pn37.i, %166 ], [ %.pn46.pn.i, %324 ], [ %172, %171 ], [ %.pn584.pn.pn.pn.pn.i, %_ZN2cv10BufferSGBMD2Ev.exit759.i ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %1038, %1037 ], [ %1036, %1035 ], [ %.pn35.i, %166 ], [ %.pn46.pn.i, %324 ], [ %172, %171 ], [ %.pn584.pn.pn.pn.pn.i, %_ZN2cv10BufferSGBMD2Ev.exit759.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #25
   br label %1046
 

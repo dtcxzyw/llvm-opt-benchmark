@@ -3786,7 +3786,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   %43 = getelementptr inbounds [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !15
   invoke void %44(ptr noundef nonnull %23)
-          to label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i unwind label %45
+          to label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i unwind label %45
 
 45:                                               ; preds = %.body.i
   %46 = landingpad { ptr, i32 }
@@ -3795,7 +3795,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   call void @__clang_call_terminate(ptr %47) #27
   unreachable
 
-_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i: ; preds = %.body.i
+_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i: ; preds = %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
@@ -3962,8 +3962,8 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   call void @_ZN4Luau18SubtypingReasoningD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #29
   br label %.body
 
-.body:                                            ; preds = %105, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i, %109, %107
-  %.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %30, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i ]
+.body:                                            ; preds = %105, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i, %109, %107
+  %.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %30, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i ]
   %111 = load i32, ptr %5, align 8, !tbaa !13
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %112
@@ -4301,7 +4301,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   %44 = getelementptr inbounds [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   invoke void %45(ptr noundef nonnull %24)
-          to label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i unwind label %46
+          to label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i unwind label %46
 
 46:                                               ; preds = %.body.i
   %47 = landingpad { ptr, i32 }
@@ -4310,7 +4310,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   call void @__clang_call_terminate(ptr %48) #27
   unreachable
 
-_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i: ; preds = %.body.i
+_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i: ; preds = %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
@@ -4471,9 +4471,9 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   call void @_ZN4Luau18SubtypingReasoningD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #29
   br label %.body
 
-.body:                                            ; preds = %106, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i, %108
-  %.111 = phi i1 [ false, %108 ], [ true, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i ], [ true, %106 ]
-  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %31, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit6.i ], [ %107, %106 ]
+.body:                                            ; preds = %106, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i, %108
+  %.111 = phi i1 [ false, %108 ], [ true, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i ], [ true, %106 ]
+  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %31, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit5.i ], [ %107, %106 ]
   %110 = load i32, ptr %5, align 8, !tbaa !13
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %111

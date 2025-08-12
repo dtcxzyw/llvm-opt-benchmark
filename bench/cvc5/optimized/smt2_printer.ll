@@ -15275,8 +15275,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   %72 = load ptr, ptr %5, align 8, !tbaa !17
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, 1152920405095219200
-  %.not.i.i11 = icmp eq i64 %74, 1152920405095219200
-  br i1 %.not.i.i11, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %75, !prof !20
+  %.not.i.i10 = icmp eq i64 %74, 1152920405095219200
+  br i1 %.not.i.i10, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %75, !prof !20
 
 75:                                               ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
   %76 = add i64 %73, 1152920405095219200

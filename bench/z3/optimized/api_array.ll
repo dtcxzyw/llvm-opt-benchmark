@@ -99,7 +99,7 @@ define noundef ptr @Z3_mk_array_sort(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  %.02032 = extractvalue { ptr, i32 } %8, 1
+  %.02030 = extractvalue { ptr, i32 } %8, 1
   br label %41
 
 9:                                                ; preds = %3, %7
@@ -177,23 +177,23 @@ define noundef ptr @Z3_mk_array_sort(ptr noundef %0, ptr noundef %1, ptr noundef
 40:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.020 = extractvalue { ptr, i32 } %.pn, 1
-  br i1 %6, label %41, label %_ZN10z3_log_ctxD2Ev.exit27, !prof !165
+  br i1 %6, label %41, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !165
 
 41:                                               ; preds = %.thread, %40
-  %.02036 = phi i32 [ %.02032, %.thread ], [ %.020, %40 ]
-  %.pn.pn34 = phi { ptr, i32 } [ %8, %.thread ], [ %.pn, %40 ]
+  %.02034 = phi i32 [ %.02030, %.thread ], [ %.020, %40 ]
+  %.pn.pn32 = phi { ptr, i32 } [ %8, %.thread ], [ %.pn, %40 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
-  br label %_ZN10z3_log_ctxD2Ev.exit27
+  br label %_ZN10z3_log_ctxD2Ev.exit25
 
-_ZN10z3_log_ctxD2Ev.exit27:                       ; preds = %40, %41
-  %.02035 = phi i32 [ %.020, %40 ], [ %.02036, %41 ]
-  %.pn.pn33 = phi { ptr, i32 } [ %.pn, %40 ], [ %.pn.pn34, %41 ]
+_ZN10z3_log_ctxD2Ev.exit25:                       ; preds = %40, %41
+  %.02033 = phi i32 [ %.020, %40 ], [ %.02034, %41 ]
+  %.pn.pn31 = phi { ptr, i32 } [ %.pn, %40 ], [ %.pn.pn32, %41 ]
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #18
-  %43 = icmp eq i32 %.02035, %42
+  %43 = icmp eq i32 %.02033, %42
   br i1 %43, label %44, label %49
 
-44:                                               ; preds = %_ZN10z3_log_ctxD2Ev.exit27
-  %.019 = extractvalue { ptr, i32 } %.pn.pn33, 0
+44:                                               ; preds = %_ZN10z3_log_ctxD2Ev.exit25
+  %.019 = extractvalue { ptr, i32 } %.pn.pn31, 0
   %45 = call ptr @__cxa_begin_catch(ptr %.019) #18
   invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3056) %0, ptr noundef nonnull align 8 dereferenceable(8) %45)
           to label %46 unwind label %47
@@ -212,8 +212,8 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %33, %32, %46
   %.0 = phi ptr [ null, %46 ], [ %18, %32 ], [ %18, %33 ]
   ret ptr %.0
 
-49:                                               ; preds = %47, %_ZN10z3_log_ctxD2Ev.exit27
-  %.merged = phi { ptr, i32 } [ %.pn.pn33, %_ZN10z3_log_ctxD2Ev.exit27 ], [ %48, %47 ]
+49:                                               ; preds = %47, %_ZN10z3_log_ctxD2Ev.exit25
+  %.merged = phi { ptr, i32 } [ %.pn.pn31, %_ZN10z3_log_ctxD2Ev.exit25 ], [ %48, %47 ]
   resume { ptr, i32 } %.merged
 
 50:                                               ; preds = %47
@@ -2350,7 +2350,7 @@ define noundef ptr @Z3_mk_const_array(ptr noundef %0, ptr noundef %1, ptr nounde
   %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
-  %.02949 = extractvalue { ptr, i32 } %11, 1
+  %.02947 = extractvalue { ptr, i32 } %11, 1
   br label %61
 
 12:                                               ; preds = %3, %10
@@ -2488,23 +2488,23 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.029 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
-  br i1 %9, label %61, label %_ZN10z3_log_ctxD2Ev.exit44, !prof !165
+  br i1 %9, label %61, label %_ZN10z3_log_ctxD2Ev.exit42, !prof !165
 
 61:                                               ; preds = %.thread, %60
-  %.02953 = phi i32 [ %.02949, %.thread ], [ %.029, %60 ]
-  %.pn.pn.pn.pn.pn.pn51 = phi { ptr, i32 } [ %11, %.thread ], [ %.pn.pn.pn.pn, %60 ]
+  %.02951 = phi i32 [ %.02947, %.thread ], [ %.029, %60 ]
+  %.pn.pn.pn.pn.pn.pn49 = phi { ptr, i32 } [ %11, %.thread ], [ %.pn.pn.pn.pn, %60 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
-  br label %_ZN10z3_log_ctxD2Ev.exit44
+  br label %_ZN10z3_log_ctxD2Ev.exit42
 
-_ZN10z3_log_ctxD2Ev.exit44:                       ; preds = %60, %61
-  %.02952 = phi i32 [ %.029, %60 ], [ %.02953, %61 ]
-  %.pn.pn.pn.pn.pn.pn50 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %60 ], [ %.pn.pn.pn.pn.pn.pn51, %61 ]
+_ZN10z3_log_ctxD2Ev.exit42:                       ; preds = %60, %61
+  %.02950 = phi i32 [ %.029, %60 ], [ %.02951, %61 ]
+  %.pn.pn.pn.pn.pn.pn48 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %60 ], [ %.pn.pn.pn.pn.pn.pn49, %61 ]
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #18
-  %63 = icmp eq i32 %.02952, %62
+  %63 = icmp eq i32 %.02950, %62
   br i1 %63, label %64, label %69
 
-64:                                               ; preds = %_ZN10z3_log_ctxD2Ev.exit44
-  %.028 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn50, 0
+64:                                               ; preds = %_ZN10z3_log_ctxD2Ev.exit42
+  %.028 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn48, 0
   %65 = call ptr @__cxa_begin_catch(ptr %.028) #18
   invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3056) %0, ptr noundef nonnull align 8 dereferenceable(8) %65)
           to label %66 unwind label %67
@@ -2523,8 +2523,8 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %51, %50, %66
   %.0 = phi ptr [ null, %66 ], [ %30, %50 ], [ %30, %51 ]
   ret ptr %.0
 
-69:                                               ; preds = %67, %_ZN10z3_log_ctxD2Ev.exit44
-  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn50, %_ZN10z3_log_ctxD2Ev.exit44 ], [ %68, %67 ]
+69:                                               ; preds = %67, %_ZN10z3_log_ctxD2Ev.exit42
+  %.merged = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn48, %_ZN10z3_log_ctxD2Ev.exit42 ], [ %68, %67 ]
   resume { ptr, i32 } %.merged
 
 70:                                               ; preds = %67

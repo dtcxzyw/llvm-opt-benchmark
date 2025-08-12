@@ -7201,10 +7201,10 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterISt5tupleIJ7Mova
   br label %16
 
 16:                                               ; preds = %3, %14
-  %.sroa.06.0 = phi ptr [ %13, %14 ], [ null, %3 ]
+  %.sroa.05.0 = phi ptr [ %13, %14 ], [ null, %3 ]
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.sroa.06.0
+  ret ptr %.sroa.05.0
 
 18:                                               ; preds = %12
   %19 = landingpad { ptr, i32 }
@@ -7268,10 +7268,10 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterISt5tupleIJP7Mov
   br label %17
 
 17:                                               ; preds = %3, %15
-  %.sroa.06.0 = phi ptr [ %14, %15 ], [ null, %3 ]
+  %.sroa.05.0 = phi ptr [ %14, %15 ], [ null, %3 ]
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.sroa.06.0
+  ret ptr %.sroa.05.0
 
 19:                                               ; preds = %13
   %20 = landingpad { ptr, i32 }
@@ -7948,12 +7948,12 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterISt5tupleIJfiEEi
   store ptr null, ptr %8, align 8, !tbaa !15
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not20 = icmp eq ptr %23, null
+  %.not19 = icmp eq ptr %23, null
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not20, label %36, label %31
+  br i1 %.not19, label %36, label %31
 
 31:                                               ; preds = %.critedge
   %32 = invoke ptr @PyTuple_New(i64 noundef 2) #29
@@ -7969,7 +7969,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterISt5tupleIJfiEEi
   br label %36
 
 36:                                               ; preds = %.critedge, %.critedge.thread, %33
-  %.sroa.017.0 = phi ptr [ %32, %33 ], [ null, %.critedge.thread ], [ null, %.critedge ]
+  %.sroa.016.0 = phi ptr [ %32, %33 ], [ null, %.critedge.thread ], [ null, %.critedge ]
   br label %37
 
 37:                                               ; preds = %37, %36
@@ -7981,7 +7981,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterISt5tupleIJfiEEi
 
 42:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %.sroa.017.0
+  ret ptr %.sroa.016.0
 
 43:                                               ; preds = %31
   %44 = landingpad { ptr, i32 }

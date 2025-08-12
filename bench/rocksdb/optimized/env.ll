@@ -25660,8 +25660,8 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %_ZNKSt7__cxx1112bas
   %46 = icmp eq ptr %36, @_ZN7rocksdbL22global_operation_tableE
   br i1 %46, label %common.resume, label %34
 
-common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %_ZNSt14_Function_baseD2Ev.exit16.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt14_Function_baseD2Ev.exit16.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %_ZNSt14_Function_baseD2Ev.exit15.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt14_Function_baseD2Ev.exit15.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
@@ -26163,8 +26163,8 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %180, %_ZNSt4pairIKN
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !169
-  %.not.i11.i = icmp eq ptr %186, null
-  br i1 %.not.i11.i, label %__cxx_global_var_init.53.exit, label %187
+  %.not.i10.i = icmp eq ptr %186, null
+  br i1 %.not.i10.i, label %__cxx_global_var_init.53.exit, label %187
 
 187:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
   %188 = invoke noundef zeroext i1 %186(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -26200,12 +26200,12 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %180, %_ZNSt4pairIKN
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.loopexit.i ], [ %159, %_ZNSt14_Function_baseD2Ev.exit6.i.i ]
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %196 = load ptr, ptr %195, align 8, !tbaa !169
-  %.not.i13.i = icmp eq ptr %196, null
-  br i1 %.not.i13.i, label %_ZNSt14_Function_baseD2Ev.exit14.i, label %197
+  %.not.i12.i = icmp eq ptr %196, null
+  br i1 %.not.i12.i, label %_ZNSt14_Function_baseD2Ev.exit13.i, label %197
 
 197:                                              ; preds = %.body.i
   %198 = invoke noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14.i unwind label %199
+          to label %_ZNSt14_Function_baseD2Ev.exit13.i unwind label %199
 
 199:                                              ; preds = %197
   %200 = landingpad { ptr, i32 }
@@ -26214,16 +26214,16 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %180, %_ZNSt4pairIKN
   call void @__clang_call_terminate(ptr %201) #38
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14.i:               ; preds = %197, %.body.i
+_ZNSt14_Function_baseD2Ev.exit13.i:               ; preds = %197, %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %203 = load ptr, ptr %202, align 8, !tbaa !169
-  %.not.i15.i = icmp eq ptr %203, null
-  br i1 %.not.i15.i, label %_ZNSt14_Function_baseD2Ev.exit16.i, label %204
+  %.not.i14.i = icmp eq ptr %203, null
+  br i1 %.not.i14.i, label %_ZNSt14_Function_baseD2Ev.exit15.i, label %204
 
-204:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i
+204:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i
   %205 = invoke noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit16.i unwind label %206
+          to label %_ZNSt14_Function_baseD2Ev.exit15.i unwind label %206
 
 206:                                              ; preds = %204
   %207 = landingpad { ptr, i32 }
@@ -26232,7 +26232,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i:               ; preds = %197, %.body.i
   call void @__clang_call_terminate(ptr %208) #38
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit16.i:               ; preds = %204, %_ZNSt14_Function_baseD2Ev.exit14.i
+_ZNSt14_Function_baseD2Ev.exit15.i:               ; preds = %204, %_ZNSt14_Function_baseD2Ev.exit13.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

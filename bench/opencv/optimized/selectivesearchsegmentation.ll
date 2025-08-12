@@ -10036,17 +10036,17 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.ex
   %55 = load ptr, ptr %54, align 8, !tbaa !286
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %57 = load ptr, ptr %56, align 8, !tbaa !279
-  %.not.i.i.i101 = icmp eq ptr %57, %55
-  br i1 %.not.i.i.i101, label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, label %.lr.ph.i.i.i.i.i.i102
+  %.not.i.i.i98 = icmp eq ptr %57, %55
+  br i1 %.not.i.i.i98, label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, label %.lr.ph.i.i.i.i.i.i99
 
-.lr.ph.i.i.i.i.i.i102:                            ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.exit, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i103 = phi ptr [ %81, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i ], [ %55, %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.exit ]
-  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i103, i64 8
+.lr.ph.i.i.i.i.i.i99:                             ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.exit, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i100 = phi ptr [ %81, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i ], [ %55, %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i100, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !88
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i, label %60
 
-60:                                               ; preds = %.lr.ph.i.i.i.i.i.i102
+60:                                               ; preds = %.lr.ph.i.i.i.i.i.i99
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load atomic i64, ptr %61 acquire, align 8
   %63 = icmp eq i64 %62, 4294967297
@@ -10090,10 +10090,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #29
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
-_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %65, %.lr.ph.i.i.i.i.i.i102
-  %81 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i103, i64 16
-  %.not.i.i.i.i.i.i104 = icmp eq ptr %81, %57
-  br i1 %.not.i.i.i.i.i.i104, label %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i102, !llvm.loop !287
+_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %65, %.lr.ph.i.i.i.i.i.i99
+  %81 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i100, i64 16
+  %.not.i.i.i.i.i.i101 = icmp eq ptr %81, %57
+  br i1 %.not.i.i.i.i.i.i101, label %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i99, !llvm.loop !287
 
 _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
   store ptr %55, ptr %56, align 8, !tbaa !279
@@ -10104,17 +10104,17 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmen
   %83 = load ptr, ptr %82, align 8, !tbaa !111
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %85 = load ptr, ptr %84, align 8, !tbaa !91
-  %.not.i.i.i105 = icmp eq ptr %85, %83
-  br i1 %.not.i.i.i105, label %110, label %.lr.ph.i.i.i.i.i.i106
+  %.not.i.i.i102 = icmp eq ptr %85, %83
+  br i1 %.not.i.i.i102, label %110, label %.lr.ph.i.i.i.i.i.i103
 
-.lr.ph.i.i.i.i.i.i106:                            ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i107 = phi ptr [ %109, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i ], [ %83, %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i107, i64 8
+.lr.ph.i.i.i.i.i.i103:                            ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i104 = phi ptr [ %109, %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i ], [ %83, %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i104, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !88
-  %.not.i.i.i.i.i.i.i.i.i108 = icmp eq ptr %87, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i108, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, label %88
+  %.not.i.i.i.i.i.i.i.i.i105 = icmp eq ptr %87, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i105, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, label %88
 
-88:                                               ; preds = %.lr.ph.i.i.i.i.i.i106
+88:                                               ; preds = %.lr.ph.i.i.i.i.i.i103
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load atomic i64, ptr %89 acquire, align 8
   %91 = icmp eq i64 %90, 4294967297
@@ -10137,31 +10137,31 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmen
 
 101:                                              ; preds = %88
   %102 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i.i109 = icmp eq i8 %102, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i109, label %105, label %103
+  %.not.i.i.i.i.i.i.i.i.i.i106 = icmp eq i8 %102, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i106, label %105, label %103
 
 103:                                              ; preds = %101
   %104 = add nsw i32 %92, -1
   store i32 %104, ptr %89, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i110
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107
 
 105:                                              ; preds = %101
   %106 = atomicrmw volatile add ptr %89, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i110
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i110: ; preds = %105, %103
-  %.0.i.i.i.i.i.i.i.i.i.i.i111 = phi i32 [ %92, %103 ], [ %106, %105 ]
-  %107 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i111, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107: ; preds = %105, %103
+  %.0.i.i.i.i.i.i.i.i.i.i.i108 = phi i32 [ %92, %103 ], [ %106, %105 ]
+  %107 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i108, 1
   br i1 %107, label %108, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
-108:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i110
+108:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #29
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
-_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i110, %93, %.lr.ph.i.i.i.i.i.i106
-  %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i107, i64 16
-  %.not.i.i.i.i.i.i112 = icmp eq ptr %109, %85
-  br i1 %.not.i.i.i.i.i.i112, label %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i106, !llvm.loop !112
+_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107, %93, %.lr.ph.i.i.i.i.i.i103
+  %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i104, i64 16
+  %.not.i.i.i.i.i.i109 = icmp eq ptr %109, %85
+  br i1 %.not.i.i.i.i.i.i109, label %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i103, !llvm.loop !112
 
 _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
   store ptr %83, ptr %84, align 8, !tbaa !91
@@ -10334,18 +10334,18 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 288
   %161 = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #31
-          to label %.noexc322 unwind label %.body323.thread
+          to label %.noexc319 unwind label %.body320.thread
 
-.noexc322:                                        ; preds = %159
+.noexc319:                                        ; preds = %159
   store ptr %161, ptr %19, align 8, !tbaa !58
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 288
   %163 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %162, ptr %163, align 8, !tbaa !231
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %.noexc322
-  %.016.i.i.i.i.i = phi ptr [ %164, %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %161, %.noexc322 ]
-  %.01215.i.i.i.i.i.idx = phi i64 [ %.01215.i.i.i.i.i.add, %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ 0, %.noexc322 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %.noexc319
+  %.016.i.i.i.i.i = phi ptr [ %164, %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %161, %.noexc319 ]
+  %.01215.i.i.i.i.i.idx = phi i64 [ %.01215.i.i.i.i.i.add, %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ 0, %.noexc319 ]
   %.01215.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %20, i64 %.01215.i.i.i.i.i.idx
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.01215.i.i.i.i.i.ptr)
           to label %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %165
@@ -10353,8 +10353,8 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.01215.i.i.i.i.i.add = add nuw nsw i64 %.01215.i.i.i.i.i.idx, 96
   %164 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i321 = icmp eq i64 %.01215.i.i.i.i.i.add, 288
-  br i1 %.not.i.i.i.i.i321, label %178, label %.lr.ph.i.i.i.i.i, !llvm.loop !377
+  %.not.i.i.i.i.i318 = icmp eq i64 %.01215.i.i.i.i.i.add, 288
+  br i1 %.not.i.i.i.i.i318, label %178, label %.lr.ph.i.i.i.i.i, !llvm.loop !377
 
 165:                                              ; preds = %.lr.ph.i.i.i.i.i
   %166 = landingpad { ptr, i32 }
@@ -10379,7 +10379,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %171 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body323 unwind label %172
+          to label %.body320 unwind label %172
 
 172:                                              ; preds = %170
   %173 = landingpad { ptr, i32 }
@@ -10391,17 +10391,17 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 175:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i
   unreachable
 
-.body323.thread:                                  ; preds = %159
+.body320.thread:                                  ; preds = %159
   %176 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body323:                                         ; preds = %170
+.body320:                                         ; preds = %170
   %.pr = load ptr, ptr %19, align 8, !tbaa !58
-  %.not.i.i.i113 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i113, label %.body, label %177
+  %.not.i.i.i110 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i110, label %.body, label %177
 
-177:                                              ; preds = %.body323
+177:                                              ; preds = %.body320
   call void @_ZdlPv(ptr noundef nonnull %.pr) #30
   br label %.body
 
@@ -10456,8 +10456,8 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %195 = shl nsw i32 %2, 2
   %196 = add nsw i32 %195, %1
-  %.not329 = icmp slt i32 %2, 0
-  br i1 %.not329, label %._crit_edge, label %.lr.ph
+  %.not326 = icmp slt i32 %2, 0
+  br i1 %.not326, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %194
   %197 = fpext float %3 to double
@@ -10466,7 +10466,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %236
 
-._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124, %194
+._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, %194
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !378)
   %201 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
@@ -10486,7 +10486,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   %205 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %201) #30, !noalias !381
-  br label %.body114
+  br label %.body111
 
 206:                                              ; preds = %110
   %207 = landingpad { ptr, i32 }
@@ -10551,8 +10551,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   %227 = icmp eq ptr %226, %20
   br i1 %227, label %.loopexit, label %224
 
-.body:                                            ; preds = %.body323.thread, %.body323, %177
-  %eh.lpad-body324338 = phi { ptr, i32 } [ %176, %.body323.thread ], [ %171, %.body323 ], [ %171, %177 ]
+.body:                                            ; preds = %.body320.thread, %.body320, %177
+  %eh.lpad-body321335 = phi { ptr, i32 } [ %176, %.body320.thread ], [ %171, %.body320 ], [ %171, %177 ]
   br label %228
 
 228:                                              ; preds = %228, %.body
@@ -10563,7 +10563,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   br i1 %231, label %.loopexit, label %228
 
 .loopexit:                                        ; preds = %224, %228, %.thread
-  %.pn70 = phi { ptr, i32 } [ %153, %.thread ], [ %eh.lpad-body324338, %228 ], [ %223, %224 ]
+  %.pn67 = phi { ptr, i32 } [ %153, %.thread ], [ %eh.lpad-body321335, %228 ], [ %223, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1084
 
@@ -10580,15 +10580,15 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1083
 
-236:                                              ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
-  %.0330 = phi i32 [ %1, %.lr.ph ], [ %320, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124 ]
+236:                                              ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121
+  %.0327 = phi i32 [ %1, %.lr.ph ], [ %320, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.81") align 8 %25, double noundef 5.000000e-01, float noundef 3.000000e+02, i32 noundef 100)
           to label %237 unwind label %321
 
 237:                                              ; preds = %236
   %238 = load ptr, ptr %25, align 8, !tbaa !283
-  %239 = sitofp i32 %.0330 to float
+  %239 = sitofp i32 %.0327 to float
   %240 = load ptr, ptr %238, align 8, !tbaa !53
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 88
   %242 = load ptr, ptr %241, align 8
@@ -10645,8 +10645,8 @@ _ZN2cv3PtrINS_8ximgproc12segmentation17GraphSegmentationEEC2ERKS4_.exit: ; preds
 265:                                              ; preds = %261
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %267 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i116 = icmp eq i8 %267, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i116, label %271, label %268
+  %.not.i.i.i.i.i.i.i.i.i113 = icmp eq i8 %267, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i113, label %271, label %268
 
 268:                                              ; preds = %265
   %269 = load i32, ptr %266, align 4, !tbaa !22
@@ -10671,8 +10671,8 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentati
 
 _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, %275
   %276 = load ptr, ptr %198, align 8, !tbaa !88
-  %.not.i.i118 = icmp eq ptr %276, null
-  br i1 %.not.i.i118, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %277
+  %.not.i.i115 = icmp eq ptr %276, null
+  br i1 %.not.i.i115, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %277
 
 277:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 8
@@ -10697,8 +10697,8 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmenta
 
 290:                                              ; preds = %277
   %291 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i119 = icmp eq i8 %291, 0
-  br i1 %.not.i.i.i119, label %294, label %292
+  %.not.i.i.i116 = icmp eq i8 %291, 0
+  br i1 %.not.i.i.i116, label %294, label %292
 
 292:                                              ; preds = %290
   %293 = add nsw i32 %281, -1
@@ -10720,8 +10720,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %294, %292
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit, %282, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %297
   %298 = load ptr, ptr %199, align 8, !tbaa !88
-  %.not.i.i120 = icmp eq ptr %298, null
-  br i1 %.not.i.i120, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124, label %299
+  %.not.i.i117 = icmp eq ptr %298, null
+  br i1 %.not.i.i117, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, label %299
 
 299:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 8
@@ -10742,34 +10742,34 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load ptr, ptr %310, align 8
   call void %311(ptr noundef nonnull align 8 dereferenceable(16) %298) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121
 
 312:                                              ; preds = %299
   %313 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i121 = icmp eq i8 %313, 0
-  br i1 %.not.i.i.i121, label %316, label %314
+  %.not.i.i.i118 = icmp eq i8 %313, 0
+  br i1 %.not.i.i.i118, label %316, label %314
 
 314:                                              ; preds = %312
   %315 = add nsw i32 %303, -1
   store i32 %315, ptr %300, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119
 
 316:                                              ; preds = %312
   %317 = atomicrmw volatile add ptr %300, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122: ; preds = %316, %314
-  %.0.i.i.i.i123 = phi i32 [ %303, %314 ], [ %317, %316 ]
-  %318 = icmp eq i32 %.0.i.i.i.i123, 1
-  br i1 %318, label %319, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119: ; preds = %316, %314
+  %.0.i.i.i.i120 = phi i32 [ %303, %314 ], [ %317, %316 ]
+  %318 = icmp eq i32 %.0.i.i.i.i120, 1
+  br i1 %318, label %319, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, !prof !90
 
-319:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122
+319:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122, %319
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119, %319
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %320 = add nsw i32 %.0330, %2
+  %320 = add nsw i32 %.0327, %2
   %.not = icmp sgt i32 %320, %196
   br i1 %.not, label %._crit_edge, label %236, !llvm.loop !386
 
@@ -10790,12 +10790,12 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   br label %327
 
 327:                                              ; preds = %325, %323
-  %.pn92 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
+  %.pn89 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #29
   br label %328
 
 328:                                              ; preds = %327, %321
-  %.pn92.pn = phi { ptr, i32 } [ %.pn92, %327 ], [ %322, %321 ]
+  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %327 ], [ %322, %321 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1083
 
@@ -10806,9 +10806,9 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
   %331 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
-          to label %.noexc125 unwind label %1050
+          to label %.noexc122 unwind label %1050
 
-.noexc125:                                        ; preds = %329
+.noexc122:                                        ; preds = %329
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i32 1, ptr %332, align 8, !tbaa !80, !noalias !390
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 12
@@ -10818,22 +10818,22 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   invoke void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %334)
           to label %336 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, !noalias !390
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc125
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc122
   %335 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %331) #30, !noalias !390
-  br label %.body126
+  br label %.body123
 
-336:                                              ; preds = %.noexc125
+336:                                              ; preds = %.noexc122
   store ptr %334, ptr %28, align 8, !tbaa !216, !alias.scope !387
   %337 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %331, ptr %337, align 8, !tbaa !88, !alias.scope !387
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   %338 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
-          to label %.noexc128 unwind label %1052
+          to label %.noexc125 unwind label %1052
 
-.noexc128:                                        ; preds = %336
+.noexc125:                                        ; preds = %336
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i32 1, ptr %339, align 8, !tbaa !80, !noalias !398
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 12
@@ -10843,32 +10843,32 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   invoke void @_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplC2Ev(ptr noundef nonnull align 8 dereferenceable(336) %341)
           to label %343 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, !noalias !398
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc128
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc125
   %342 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %338) #30, !noalias !398
-  br label %.body129
+  br label %.body126
 
-343:                                              ; preds = %.noexc128
+343:                                              ; preds = %.noexc125
   store ptr %341, ptr %29, align 8, !tbaa !270, !alias.scope !395
   %344 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %338, ptr %344, align 8, !tbaa !88, !alias.scope !395
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %345 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
-          to label %.noexc131 unwind label %1054
+          to label %.noexc128 unwind label %1054
 
-.noexc131:                                        ; preds = %343
+.noexc128:                                        ; preds = %343
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(160) %345)
           to label %347 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, !noalias !406
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc131
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc128
   %346 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %345) #30, !noalias !406
-  br label %.body132
+  br label %.body129
 
-347:                                              ; preds = %.noexc131
+347:                                              ; preds = %.noexc128
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store ptr %348, ptr %30, align 8, !tbaa !159, !alias.scope !403
   %349 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -10878,9 +10878,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   %350 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %201, ptr %350, align 8, !tbaa !88
   %351 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i135 = icmp eq i8 %351, 0
+  %.not.i.i.i.i.i132 = icmp eq i8 %351, 0
   %352 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  br i1 %.not.i.i.i.i.i135, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread
+  br i1 %.not.i.i.i.i.i132, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread
 
 _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread: ; preds = %347
   %353 = load i32, ptr %202, align 4, !tbaa !22
@@ -10893,18 +10893,18 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
 _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit: ; preds = %347
   %355 = atomicrmw volatile add ptr %202, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %28, align 8, !tbaa !216
-  %.pre333 = load ptr, ptr %337, align 8, !tbaa !88
+  %.pre330 = load ptr, ptr %337, align 8, !tbaa !88
   store ptr %.pre, ptr %33, align 8, !tbaa !95
-  store ptr %.pre333, ptr %352, align 8, !tbaa !88
-  %.not.i.i.i.i136 = icmp eq ptr %.pre333, null
-  br i1 %.not.i.i.i.i136, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit, label %356
+  store ptr %.pre330, ptr %352, align 8, !tbaa !88
+  %.not.i.i.i.i133 = icmp eq ptr %.pre330, null
+  br i1 %.not.i.i.i.i133, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit, label %356
 
 356:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit
-  %357 = phi ptr [ %331, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread ], [ %.pre333, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit ]
+  %357 = phi ptr [ %331, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit.thread ], [ %.pre330, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_40SelectiveSearchSegmentationStrategyColorEEERKNS0_IT_EE.exit ]
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i137 = icmp eq i8 %359, 0
-  br i1 %.not.i.i.i.i.i137, label %363, label %360
+  %.not.i.i.i.i.i134 = icmp eq i8 %359, 0
+  br i1 %.not.i.i.i.i.i134, label %363, label %360
 
 360:                                              ; preds = %356
   %361 = load i32, ptr %358, align 4, !tbaa !22
@@ -10922,14 +10922,14 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %366 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %367 = load ptr, ptr %344, align 8, !tbaa !88
   store ptr %367, ptr %366, align 8, !tbaa !88
-  %.not.i.i.i.i138 = icmp eq ptr %367, null
-  br i1 %.not.i.i.i.i138, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit, label %368
+  %.not.i.i.i.i135 = icmp eq ptr %367, null
+  br i1 %.not.i.i.i.i135, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit, label %368
 
 368:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %370 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i139 = icmp eq i8 %370, 0
-  br i1 %.not.i.i.i.i.i139, label %374, label %371
+  %.not.i.i.i.i.i136 = icmp eq i8 %370, 0
+  br i1 %.not.i.i.i.i.i136, label %374, label %371
 
 371:                                              ; preds = %368
   %372 = load i32, ptr %369, align 4, !tbaa !22
@@ -10947,14 +10947,14 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %377 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %378 = load ptr, ptr %349, align 8, !tbaa !88
   store ptr %378, ptr %377, align 8, !tbaa !88
-  %.not.i.i.i.i140 = icmp eq ptr %378, null
-  br i1 %.not.i.i.i.i140, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit, label %379
+  %.not.i.i.i.i137 = icmp eq ptr %378, null
+  br i1 %.not.i.i.i.i137, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit, label %379
 
 379:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %381 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i141 = icmp eq i8 %381, 0
-  br i1 %.not.i.i.i.i.i141, label %385, label %382
+  %.not.i.i.i.i.i138 = icmp eq i8 %381, 0
+  br i1 %.not.i.i.i.i.i138, label %385, label %382
 
 382:                                              ; preds = %379
   %383 = load i32, ptr %380, align 4, !tbaa !22
@@ -10972,8 +10972,8 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
 
 387:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit
   %388 = load ptr, ptr %377, align 8, !tbaa !88
-  %.not.i.i142 = icmp eq ptr %388, null
-  br i1 %.not.i.i142, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %389
+  %.not.i.i139 = icmp eq ptr %388, null
+  br i1 %.not.i.i139, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %389
 
 389:                                              ; preds = %387
   %390 = getelementptr inbounds nuw i8, ptr %388, i64 8
@@ -10998,31 +10998,31 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
 
 402:                                              ; preds = %389
   %403 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i143 = icmp eq i8 %403, 0
-  br i1 %.not.i.i.i143, label %406, label %404
+  %.not.i.i.i140 = icmp eq i8 %403, 0
+  br i1 %.not.i.i.i140, label %406, label %404
 
 404:                                              ; preds = %402
   %405 = add nsw i32 %393, -1
   store i32 %405, ptr %390, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i144
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141
 
 406:                                              ; preds = %402
   %407 = atomicrmw volatile add ptr %390, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i144
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i144: ; preds = %406, %404
-  %.0.i.i.i.i145 = phi i32 [ %393, %404 ], [ %407, %406 ]
-  %408 = icmp eq i32 %.0.i.i.i.i145, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141: ; preds = %406, %404
+  %.0.i.i.i.i142 = phi i32 [ %393, %404 ], [ %407, %406 ]
+  %408 = icmp eq i32 %.0.i.i.i.i142, 1
   br i1 %408, label %409, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-409:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i144
+409:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %388) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %387, %394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i144, %409
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %387, %394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141, %409
   %410 = load ptr, ptr %366, align 8, !tbaa !88
-  %.not.i.i146 = icmp eq ptr %410, null
-  br i1 %.not.i.i146, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150, label %411
+  %.not.i.i143 = icmp eq ptr %410, null
+  br i1 %.not.i.i143, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, label %411
 
 411:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 8
@@ -11043,37 +11043,37 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 24
   %423 = load ptr, ptr %422, align 8
   call void %423(ptr noundef nonnull align 8 dereferenceable(16) %410) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147
 
 424:                                              ; preds = %411
   %425 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i147 = icmp eq i8 %425, 0
-  br i1 %.not.i.i.i147, label %428, label %426
+  %.not.i.i.i144 = icmp eq i8 %425, 0
+  br i1 %.not.i.i.i144, label %428, label %426
 
 426:                                              ; preds = %424
   %427 = add nsw i32 %415, -1
   store i32 %427, ptr %412, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i148
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145
 
 428:                                              ; preds = %424
   %429 = atomicrmw volatile add ptr %412, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i148
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i148: ; preds = %428, %426
-  %.0.i.i.i.i149 = phi i32 [ %415, %426 ], [ %429, %428 ]
-  %430 = icmp eq i32 %.0.i.i.i.i149, 1
-  br i1 %430, label %431, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145: ; preds = %428, %426
+  %.0.i.i.i.i146 = phi i32 [ %415, %426 ], [ %429, %428 ]
+  %430 = icmp eq i32 %.0.i.i.i.i146, 1
+  br i1 %430, label %431, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, !prof !90
 
-431:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i148
+431:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %410) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %416, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i148, %431
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %416, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145, %431
   %432 = load ptr, ptr %352, align 8, !tbaa !88
-  %.not.i.i151 = icmp eq ptr %432, null
-  br i1 %.not.i.i151, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155, label %433
+  %.not.i.i148 = icmp eq ptr %432, null
+  br i1 %.not.i.i148, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152, label %433
 
-433:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150
+433:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147
   %434 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %435 = load atomic i64, ptr %434 acquire, align 8
   %436 = icmp eq i64 %435, 4294967297
@@ -11092,37 +11092,37 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
   call void %445(ptr noundef nonnull align 8 dereferenceable(16) %432) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152
 
 446:                                              ; preds = %433
   %447 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i152 = icmp eq i8 %447, 0
-  br i1 %.not.i.i.i152, label %450, label %448
+  %.not.i.i.i149 = icmp eq i8 %447, 0
+  br i1 %.not.i.i.i149, label %450, label %448
 
 448:                                              ; preds = %446
   %449 = add nsw i32 %437, -1
   store i32 %449, ptr %434, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i153
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150
 
 450:                                              ; preds = %446
   %451 = atomicrmw volatile add ptr %434, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i153
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i153: ; preds = %450, %448
-  %.0.i.i.i.i154 = phi i32 [ %437, %448 ], [ %451, %450 ]
-  %452 = icmp eq i32 %.0.i.i.i.i154, 1
-  br i1 %452, label %453, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150: ; preds = %450, %448
+  %.0.i.i.i.i151 = phi i32 [ %437, %448 ], [ %451, %450 ]
+  %452 = icmp eq i32 %.0.i.i.i.i151, 1
+  br i1 %452, label %453, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152, !prof !90
 
-453:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i153
+453:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %432) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit150, %438, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i153, %453
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, %438, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150, %453
   %454 = load ptr, ptr %350, align 8, !tbaa !88
-  %.not.i.i156 = icmp eq ptr %454, null
-  br i1 %.not.i.i156, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160, label %455
+  %.not.i.i153 = icmp eq ptr %454, null
+  br i1 %.not.i.i153, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157, label %455
 
-455:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155
+455:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %457 = load atomic i64, ptr %456 acquire, align 8
   %458 = icmp eq i64 %457, 4294967297
@@ -11141,46 +11141,46 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 24
   %467 = load ptr, ptr %466, align 8
   call void %467(ptr noundef nonnull align 8 dereferenceable(16) %454) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157
 
 468:                                              ; preds = %455
   %469 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i157 = icmp eq i8 %469, 0
-  br i1 %.not.i.i.i157, label %472, label %470
+  %.not.i.i.i154 = icmp eq i8 %469, 0
+  br i1 %.not.i.i.i154, label %472, label %470
 
 470:                                              ; preds = %468
   %471 = add nsw i32 %459, -1
   store i32 %471, ptr %456, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i158
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155
 
 472:                                              ; preds = %468
   %473 = atomicrmw volatile add ptr %456, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i158
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i158: ; preds = %472, %470
-  %.0.i.i.i.i159 = phi i32 [ %459, %470 ], [ %473, %472 ]
-  %474 = icmp eq i32 %.0.i.i.i.i159, 1
-  br i1 %474, label %475, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155: ; preds = %472, %470
+  %.0.i.i.i.i156 = phi i32 [ %459, %470 ], [ %473, %472 ]
+  %474 = icmp eq i32 %.0.i.i.i.i156, 1
+  br i1 %474, label %475, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157, !prof !90
 
-475:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i158
+475:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %454) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit155, %460, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i158, %475
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152, %460, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155, %475
   %476 = load ptr, ptr %31, align 8, !tbaa !121
   store ptr %476, ptr %36, align 8, !tbaa !95
   %477 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %478 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %479 = load ptr, ptr %478, align 8, !tbaa !88
   store ptr %479, ptr %477, align 8, !tbaa !88
-  %.not.i.i.i.i161 = icmp eq ptr %479, null
-  br i1 %.not.i.i.i.i161, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit, label %480
+  %.not.i.i.i.i158 = icmp eq ptr %479, null
+  br i1 %.not.i.i.i.i158, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit, label %480
 
-480:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160
+480:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %482 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i162 = icmp eq i8 %482, 0
-  br i1 %.not.i.i.i.i.i162, label %486, label %483
+  %.not.i.i.i.i.i159 = icmp eq i8 %482, 0
+  br i1 %.not.i.i.i.i.i159, label %486, label %483
 
 483:                                              ; preds = %480
   %484 = load i32, ptr %481, align 4, !tbaa !22
@@ -11192,12 +11192,12 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %487 = atomicrmw volatile add ptr %481, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit160, %483, %486
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157, %483, %486
   %488 = load ptr, ptr %84, align 8, !tbaa !91
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %490 = load ptr, ptr %489, align 8, !tbaa !94
-  %.not.i.i163 = icmp eq ptr %488, %490
-  br i1 %.not.i.i163, label %505, label %491
+  %.not.i.i160 = icmp eq ptr %488, %490
+  br i1 %.not.i.i160, label %505, label %491
 
 491:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit
   %492 = load ptr, ptr %36, align 8, !tbaa !95
@@ -11205,14 +11205,14 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %493 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %494 = load ptr, ptr %477, align 8, !tbaa !88
   store ptr %494, ptr %493, align 8, !tbaa !88
-  %.not.i.i.i.i.i.i.i.i164 = icmp eq ptr %494, null
-  br i1 %.not.i.i.i.i.i.i.i.i164, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %495
+  %.not.i.i.i.i.i.i.i.i161 = icmp eq ptr %494, null
+  br i1 %.not.i.i.i.i.i.i.i.i161, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, label %495
 
 495:                                              ; preds = %491
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %497 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i165 = icmp eq i8 %497, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i165, label %501, label %498
+  %.not.i.i.i.i.i.i.i.i.i162 = icmp eq i8 %497, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i162, label %501, label %498
 
 498:                                              ; preds = %495
   %499 = load i32, ptr %496, align 4, !tbaa !22
@@ -11222,11 +11222,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
 
 501:                                              ; preds = %495
   %502 = atomicrmw volatile add ptr %496, i32 1 acq_rel, align 4
-  %.pre.i.i166 = load ptr, ptr %84, align 8, !tbaa !91
+  %.pre.i.i163 = load ptr, ptr %84, align 8, !tbaa !91
   br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %501, %498, %491
-  %503 = phi ptr [ %488, %491 ], [ %488, %498 ], [ %.pre.i.i166, %501 ]
+  %503 = phi ptr [ %488, %491 ], [ %488, %498 ], [ %.pre.i.i163, %501 ]
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   store ptr %504, ptr %84, align 8, !tbaa !91
   br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit
@@ -11237,8 +11237,8 @@ _ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearch
 
 _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, %505
   %506 = load ptr, ptr %477, align 8, !tbaa !88
-  %.not.i.i168 = icmp eq ptr %506, null
-  br i1 %.not.i.i168, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, label %507
+  %.not.i.i165 = icmp eq ptr %506, null
+  br i1 %.not.i.i165, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169, label %507
 
 507:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 8
@@ -11259,38 +11259,38 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %519 = load ptr, ptr %518, align 8
   call void %519(ptr noundef nonnull align 8 dereferenceable(16) %506) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
 
 520:                                              ; preds = %507
   %521 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i169 = icmp eq i8 %521, 0
-  br i1 %.not.i.i.i169, label %524, label %522
+  %.not.i.i.i166 = icmp eq i8 %521, 0
+  br i1 %.not.i.i.i166, label %524, label %522
 
 522:                                              ; preds = %520
   %523 = add nsw i32 %511, -1
   store i32 %523, ptr %508, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167
 
 524:                                              ; preds = %520
   %525 = atomicrmw volatile add ptr %508, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170: ; preds = %524, %522
-  %.0.i.i.i.i171 = phi i32 [ %511, %522 ], [ %525, %524 ]
-  %526 = icmp eq i32 %.0.i.i.i.i171, 1
-  br i1 %526, label %527, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167: ; preds = %524, %522
+  %.0.i.i.i.i168 = phi i32 [ %511, %522 ], [ %525, %524 ]
+  %526 = icmp eq i32 %.0.i.i.i.i168, 1
+  br i1 %526, label %527, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169, !prof !90
 
-527:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170
+527:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %506) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit, %512, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i170, %527
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit, %512, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167, %527
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %528 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
-          to label %.noexc174 unwind label %1060
+          to label %.noexc171 unwind label %1060
 
-.noexc174:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
+.noexc171:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   store i32 1, ptr %529, align 8, !tbaa !80, !noalias !414
   %530 = getelementptr inbounds nuw i8, ptr %528, i64 12
@@ -11298,24 +11298,24 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %528, align 8, !tbaa !53, !noalias !414
   %531 = getelementptr inbounds nuw i8, ptr %528, i64 16
   invoke void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %531)
-          to label %533 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i173, !noalias !414
+          to label %533 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170, !noalias !414
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i173: ; preds = %.noexc174
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170: ; preds = %.noexc171
   %532 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %528) #30, !noalias !414
-  br label %.body175
+  br label %.body172
 
-533:                                              ; preds = %.noexc174
+533:                                              ; preds = %.noexc171
   store ptr %531, ptr %37, align 8, !tbaa !216, !alias.scope !411
   %534 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %528, ptr %534, align 8, !tbaa !88, !alias.scope !411
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %535 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
-          to label %.noexc179 unwind label %1062
+          to label %.noexc176 unwind label %1062
 
-.noexc179:                                        ; preds = %533
+.noexc176:                                        ; preds = %533
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   store i32 1, ptr %536, align 8, !tbaa !80, !noalias !422
   %537 = getelementptr inbounds nuw i8, ptr %535, i64 12
@@ -11323,34 +11323,34 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %535, align 8, !tbaa !53, !noalias !422
   %538 = getelementptr inbounds nuw i8, ptr %535, i64 16
   invoke void @_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplC2Ev(ptr noundef nonnull align 8 dereferenceable(336) %538)
-          to label %540 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i178, !noalias !422
+          to label %540 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175, !noalias !422
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i178: ; preds = %.noexc179
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175: ; preds = %.noexc176
   %539 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %535) #30, !noalias !422
-  br label %.body180
+  br label %.body177
 
-540:                                              ; preds = %.noexc179
+540:                                              ; preds = %.noexc176
   store ptr %538, ptr %38, align 8, !tbaa !270, !alias.scope !419
   %541 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %535, ptr %541, align 8, !tbaa !88, !alias.scope !419
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
   %542 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
-          to label %.noexc184 unwind label %1064
+          to label %.noexc181 unwind label %1064
 
-.noexc184:                                        ; preds = %540
+.noexc181:                                        ; preds = %540
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(160) %542)
-          to label %544 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i183, !noalias !430
+          to label %544 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180, !noalias !430
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i183: ; preds = %.noexc184
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180: ; preds = %.noexc181
   %543 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %542) #30, !noalias !430
-  br label %.body185
+  br label %.body182
 
-544:                                              ; preds = %.noexc184
+544:                                              ; preds = %.noexc181
   %545 = getelementptr inbounds nuw i8, ptr %542, i64 16
   store ptr %545, ptr %39, align 8, !tbaa !159, !alias.scope !427
   %546 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -11360,11 +11360,11 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   %547 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %528, ptr %547, align 8, !tbaa !88
   %548 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i189 = icmp eq i8 %548, 0
+  %.not.i.i.i.i.i186 = icmp eq i8 %548, 0
   %549 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  br i1 %.not.i.i.i.i.i189, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190.thread
+  br i1 %.not.i.i.i.i.i186, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187.thread
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190.thread: ; preds = %544
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187.thread: ; preds = %544
   %550 = load i32, ptr %529, align 4, !tbaa !22
   %551 = add nsw i32 %550, 1
   store i32 %551, ptr %529, align 4, !tbaa !22
@@ -11372,65 +11372,65 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   store ptr %535, ptr %549, align 8, !tbaa !88
   br label %553
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190: ; preds = %544
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187: ; preds = %544
   %552 = atomicrmw volatile add ptr %529, i32 1 acq_rel, align 4
-  %.pre334 = load ptr, ptr %38, align 8, !tbaa !270
-  %.pre335 = load ptr, ptr %541, align 8, !tbaa !88
-  store ptr %.pre334, ptr %42, align 8, !tbaa !95
-  store ptr %.pre335, ptr %549, align 8, !tbaa !88
-  %.not.i.i.i.i191 = icmp eq ptr %.pre335, null
-  br i1 %.not.i.i.i.i191, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193, label %553
+  %.pre331 = load ptr, ptr %38, align 8, !tbaa !270
+  %.pre332 = load ptr, ptr %541, align 8, !tbaa !88
+  store ptr %.pre331, ptr %42, align 8, !tbaa !95
+  store ptr %.pre332, ptr %549, align 8, !tbaa !88
+  %.not.i.i.i.i188 = icmp eq ptr %.pre332, null
+  br i1 %.not.i.i.i.i188, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190, label %553
 
-553:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190.thread, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190
-  %554 = phi ptr [ %535, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190.thread ], [ %.pre335, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190 ]
+553:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187.thread, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187
+  %554 = phi ptr [ %535, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187.thread ], [ %.pre332, %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187 ]
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %556 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i192 = icmp eq i8 %556, 0
-  br i1 %.not.i.i.i.i.i192, label %560, label %557
+  %.not.i.i.i.i.i189 = icmp eq i8 %556, 0
+  br i1 %.not.i.i.i.i.i189, label %560, label %557
 
 557:                                              ; preds = %553
   %558 = load i32, ptr %555, align 4, !tbaa !22
   %559 = add nsw i32 %558, 1
   store i32 %559, ptr %555, align 4, !tbaa !22
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190
 
 560:                                              ; preds = %553
   %561 = atomicrmw volatile add ptr %555, i32 1 acq_rel, align 4
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193: ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit190, %557, %560
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190: ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit187, %557, %560
   %562 = load ptr, ptr %39, align 8, !tbaa !159
   store ptr %562, ptr %43, align 8, !tbaa !95
   %563 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %564 = load ptr, ptr %546, align 8, !tbaa !88
   store ptr %564, ptr %563, align 8, !tbaa !88
-  %.not.i.i.i.i194 = icmp eq ptr %564, null
-  br i1 %.not.i.i.i.i194, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196, label %565
+  %.not.i.i.i.i191 = icmp eq ptr %564, null
+  br i1 %.not.i.i.i.i191, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193, label %565
 
-565:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193
+565:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190
   %566 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %567 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i195 = icmp eq i8 %567, 0
-  br i1 %.not.i.i.i.i.i195, label %571, label %568
+  %.not.i.i.i.i.i192 = icmp eq i8 %567, 0
+  br i1 %.not.i.i.i.i.i192, label %571, label %568
 
 568:                                              ; preds = %565
   %569 = load i32, ptr %566, align 4, !tbaa !22
   %570 = add nsw i32 %569, 1
   store i32 %570, ptr %566, align 4, !tbaa !22
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193
 
 571:                                              ; preds = %565
   %572 = atomicrmw volatile add ptr %566, i32 1 acq_rel, align 4
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196: ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit193, %568, %571
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193: ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_42SelectiveSearchSegmentationStrategyTextureEEERKNS0_IT_EE.exit190, %568, %571
   invoke void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStrategyMultipleENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEES4_S4_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.21") align 8 %40, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
           to label %573 unwind label %1066
 
-573:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196
+573:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193
   %574 = load ptr, ptr %563, align 8, !tbaa !88
-  %.not.i.i197 = icmp eq ptr %574, null
-  br i1 %.not.i.i197, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201, label %575
+  %.not.i.i194 = icmp eq ptr %574, null
+  br i1 %.not.i.i194, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198, label %575
 
 575:                                              ; preds = %573
   %576 = getelementptr inbounds nuw i8, ptr %574, i64 8
@@ -11451,37 +11451,37 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 24
   %587 = load ptr, ptr %586, align 8
   call void %587(ptr noundef nonnull align 8 dereferenceable(16) %574) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198
 
 588:                                              ; preds = %575
   %589 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i198 = icmp eq i8 %589, 0
-  br i1 %.not.i.i.i198, label %592, label %590
+  %.not.i.i.i195 = icmp eq i8 %589, 0
+  br i1 %.not.i.i.i195, label %592, label %590
 
 590:                                              ; preds = %588
   %591 = add nsw i32 %579, -1
   store i32 %591, ptr %576, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i199
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196
 
 592:                                              ; preds = %588
   %593 = atomicrmw volatile add ptr %576, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i199
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i199: ; preds = %592, %590
-  %.0.i.i.i.i200 = phi i32 [ %579, %590 ], [ %593, %592 ]
-  %594 = icmp eq i32 %.0.i.i.i.i200, 1
-  br i1 %594, label %595, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196: ; preds = %592, %590
+  %.0.i.i.i.i197 = phi i32 [ %579, %590 ], [ %593, %592 ]
+  %594 = icmp eq i32 %.0.i.i.i.i197, 1
+  br i1 %594, label %595, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198, !prof !90
 
-595:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i199
+595:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %574) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201: ; preds = %573, %580, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i199, %595
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198: ; preds = %573, %580, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196, %595
   %596 = load ptr, ptr %549, align 8, !tbaa !88
-  %.not.i.i202 = icmp eq ptr %596, null
-  br i1 %.not.i.i202, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, label %597
+  %.not.i.i199 = icmp eq ptr %596, null
+  br i1 %.not.i.i199, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203, label %597
 
-597:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201
+597:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198
   %598 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %599 = load atomic i64, ptr %598 acquire, align 8
   %600 = icmp eq i64 %599, 4294967297
@@ -11500,37 +11500,37 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %609 = load ptr, ptr %608, align 8
   call void %609(ptr noundef nonnull align 8 dereferenceable(16) %596) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203
 
 610:                                              ; preds = %597
   %611 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i203 = icmp eq i8 %611, 0
-  br i1 %.not.i.i.i203, label %614, label %612
+  %.not.i.i.i200 = icmp eq i8 %611, 0
+  br i1 %.not.i.i.i200, label %614, label %612
 
 612:                                              ; preds = %610
   %613 = add nsw i32 %601, -1
   store i32 %613, ptr %598, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i204
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201
 
 614:                                              ; preds = %610
   %615 = atomicrmw volatile add ptr %598, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i204
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i204: ; preds = %614, %612
-  %.0.i.i.i.i205 = phi i32 [ %601, %612 ], [ %615, %614 ]
-  %616 = icmp eq i32 %.0.i.i.i.i205, 1
-  br i1 %616, label %617, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201: ; preds = %614, %612
+  %.0.i.i.i.i202 = phi i32 [ %601, %612 ], [ %615, %614 ]
+  %616 = icmp eq i32 %.0.i.i.i.i202, 1
+  br i1 %616, label %617, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203, !prof !90
 
-617:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i204
+617:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %596) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit201, %602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i204, %617
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198, %602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201, %617
   %618 = load ptr, ptr %547, align 8, !tbaa !88
-  %.not.i.i207 = icmp eq ptr %618, null
-  br i1 %.not.i.i207, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211, label %619
+  %.not.i.i204 = icmp eq ptr %618, null
+  br i1 %.not.i.i204, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208, label %619
 
-619:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206
+619:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203
   %620 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %621 = load atomic i64, ptr %620 acquire, align 8
   %622 = icmp eq i64 %621, 4294967297
@@ -11549,105 +11549,105 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 24
   %631 = load ptr, ptr %630, align 8
   call void %631(ptr noundef nonnull align 8 dereferenceable(16) %618) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208
 
 632:                                              ; preds = %619
   %633 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i208 = icmp eq i8 %633, 0
-  br i1 %.not.i.i.i208, label %636, label %634
+  %.not.i.i.i205 = icmp eq i8 %633, 0
+  br i1 %.not.i.i.i205, label %636, label %634
 
 634:                                              ; preds = %632
   %635 = add nsw i32 %623, -1
   store i32 %635, ptr %620, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i209
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206
 
 636:                                              ; preds = %632
   %637 = atomicrmw volatile add ptr %620, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i209
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i209: ; preds = %636, %634
-  %.0.i.i.i.i210 = phi i32 [ %623, %634 ], [ %637, %636 ]
-  %638 = icmp eq i32 %.0.i.i.i.i210, 1
-  br i1 %638, label %639, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206: ; preds = %636, %634
+  %.0.i.i.i.i207 = phi i32 [ %623, %634 ], [ %637, %636 ]
+  %638 = icmp eq i32 %.0.i.i.i.i207, 1
+  br i1 %638, label %639, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208, !prof !90
 
-639:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i209
+639:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %618) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, %624, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i209, %639
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203, %624, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206, %639
   %640 = load ptr, ptr %40, align 8, !tbaa !121
   store ptr %640, ptr %44, align 8, !tbaa !95
   %641 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %642 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %643 = load ptr, ptr %642, align 8, !tbaa !88
   store ptr %643, ptr %641, align 8, !tbaa !88
-  %.not.i.i.i.i212 = icmp eq ptr %643, null
-  br i1 %.not.i.i.i.i212, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214, label %644
+  %.not.i.i.i.i209 = icmp eq ptr %643, null
+  br i1 %.not.i.i.i.i209, label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211, label %644
 
-644:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211
+644:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 8
   %646 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i213 = icmp eq i8 %646, 0
-  br i1 %.not.i.i.i.i.i213, label %650, label %647
+  %.not.i.i.i.i.i210 = icmp eq i8 %646, 0
+  br i1 %.not.i.i.i.i.i210, label %650, label %647
 
 647:                                              ; preds = %644
   %648 = load i32, ptr %645, align 4, !tbaa !22
   %649 = add nsw i32 %648, 1
   store i32 %649, ptr %645, align 4, !tbaa !22
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211
 
 650:                                              ; preds = %644
   %651 = atomicrmw volatile add ptr %645, i32 1 acq_rel, align 4
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit211, %647, %650
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208, %647, %650
   %652 = load ptr, ptr %84, align 8, !tbaa !91
   %653 = load ptr, ptr %489, align 8, !tbaa !94
-  %.not.i.i215 = icmp eq ptr %652, %653
-  br i1 %.not.i.i215, label %668, label %654
+  %.not.i.i212 = icmp eq ptr %652, %653
+  br i1 %.not.i.i212, label %668, label %654
 
-654:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214
+654:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211
   %655 = load ptr, ptr %44, align 8, !tbaa !95
   store ptr %655, ptr %652, align 8, !tbaa !95
   %656 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %657 = load ptr, ptr %641, align 8, !tbaa !88
   store ptr %657, ptr %656, align 8, !tbaa !88
-  %.not.i.i.i.i.i.i.i.i216 = icmp eq ptr %657, null
-  br i1 %.not.i.i.i.i.i.i.i.i216, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i218, label %658
+  %.not.i.i.i.i.i.i.i.i213 = icmp eq ptr %657, null
+  br i1 %.not.i.i.i.i.i.i.i.i213, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i215, label %658
 
 658:                                              ; preds = %654
   %659 = getelementptr inbounds nuw i8, ptr %657, i64 8
   %660 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i217 = icmp eq i8 %660, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i217, label %664, label %661
+  %.not.i.i.i.i.i.i.i.i.i214 = icmp eq i8 %660, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i214, label %664, label %661
 
 661:                                              ; preds = %658
   %662 = load i32, ptr %659, align 4, !tbaa !22
   %663 = add nsw i32 %662, 1
   store i32 %663, ptr %659, align 4, !tbaa !22
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i218
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i215
 
 664:                                              ; preds = %658
   %665 = atomicrmw volatile add ptr %659, i32 1 acq_rel, align 4
-  %.pre.i.i219 = load ptr, ptr %84, align 8, !tbaa !91
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i218
+  %.pre.i.i216 = load ptr, ptr %84, align 8, !tbaa !91
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i215
 
-_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i218: ; preds = %664, %661, %654
-  %666 = phi ptr [ %652, %654 ], [ %652, %661 ], [ %.pre.i.i219, %664 ]
+_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i215: ; preds = %664, %661, %654
+  %666 = phi ptr [ %652, %654 ], [ %652, %661 ], [ %.pre.i.i216, %664 ]
   %667 = getelementptr inbounds nuw i8, ptr %666, i64 16
   store ptr %667, ptr %84, align 8, !tbaa !91
-  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit221
+  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218
 
-668:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit214
+668:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_43SelectiveSearchSegmentationStrategyMultipleEEERKNS0_IT_EE.exit211
   invoke void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr %652, ptr noundef nonnull align 8 dereferenceable(16) %44)
-          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit221 unwind label %1068
+          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218 unwind label %1068
 
-_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit221: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i218, %668
+_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i215, %668
   %669 = load ptr, ptr %641, align 8, !tbaa !88
-  %.not.i.i222 = icmp eq ptr %669, null
-  br i1 %.not.i.i222, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226, label %670
+  %.not.i.i219 = icmp eq ptr %669, null
+  br i1 %.not.i.i219, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223, label %670
 
-670:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit221
+670:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218
   %671 = getelementptr inbounds nuw i8, ptr %669, i64 8
   %672 = load atomic i64, ptr %671 acquire, align 8
   %673 = icmp eq i64 %672, 4294967297
@@ -11666,38 +11666,38 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 24
   %682 = load ptr, ptr %681, align 8
   call void %682(ptr noundef nonnull align 8 dereferenceable(16) %669) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
 
 683:                                              ; preds = %670
   %684 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i223 = icmp eq i8 %684, 0
-  br i1 %.not.i.i.i223, label %687, label %685
+  %.not.i.i.i220 = icmp eq i8 %684, 0
+  br i1 %.not.i.i.i220, label %687, label %685
 
 685:                                              ; preds = %683
   %686 = add nsw i32 %674, -1
   store i32 %686, ptr %671, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i224
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221
 
 687:                                              ; preds = %683
   %688 = atomicrmw volatile add ptr %671, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i224
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i224: ; preds = %687, %685
-  %.0.i.i.i.i225 = phi i32 [ %674, %685 ], [ %688, %687 ]
-  %689 = icmp eq i32 %.0.i.i.i.i225, 1
-  br i1 %689, label %690, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221: ; preds = %687, %685
+  %.0.i.i.i.i222 = phi i32 [ %674, %685 ], [ %688, %687 ]
+  %689 = icmp eq i32 %.0.i.i.i.i222, 1
+  br i1 %689, label %690, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223, !prof !90
 
-690:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i224
+690:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %669) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit221, %675, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i224, %690
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218, %675, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221, %690
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
   %691 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
-          to label %.noexc228 unwind label %1070
+          to label %.noexc225 unwind label %1070
 
-.noexc228:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226
+.noexc225:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 8
   store i32 1, ptr %692, align 8, !tbaa !80, !noalias !438
   %693 = getelementptr inbounds nuw i8, ptr %691, i64 12
@@ -11705,15 +11705,15 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %691, align 8, !tbaa !53, !noalias !438
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 16
   invoke void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %694)
-          to label %696 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i227, !noalias !438
+          to label %696 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224, !noalias !438
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i227: ; preds = %.noexc228
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224: ; preds = %.noexc225
   %695 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %691) #30, !noalias !438
-  br label %.body229
+  br label %.body226
 
-696:                                              ; preds = %.noexc228
+696:                                              ; preds = %.noexc225
   store ptr %694, ptr %45, align 8, !tbaa !216, !alias.scope !435
   %697 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %691, ptr %697, align 8, !tbaa !88, !alias.scope !435
@@ -11721,67 +11721,67 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   %698 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %691, ptr %698, align 8, !tbaa !88
   %699 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i233 = icmp eq i8 %699, 0
-  br i1 %.not.i.i.i.i.i233, label %703, label %700
+  %.not.i.i.i.i.i230 = icmp eq i8 %699, 0
+  br i1 %.not.i.i.i.i.i230, label %703, label %700
 
 700:                                              ; preds = %696
   %701 = load i32, ptr %692, align 4, !tbaa !22
   %702 = add nsw i32 %701, 1
   store i32 %702, ptr %692, align 4, !tbaa !22
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit234
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit231
 
 703:                                              ; preds = %696
   %704 = atomicrmw volatile add ptr %692, i32 1 acq_rel, align 4
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit234
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit231
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit234: ; preds = %700, %703
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit231: ; preds = %700, %703
   %705 = load ptr, ptr %84, align 8, !tbaa !91
   %706 = load ptr, ptr %489, align 8, !tbaa !94
-  %.not.i.i235 = icmp eq ptr %705, %706
-  br i1 %.not.i.i235, label %721, label %707
+  %.not.i.i232 = icmp eq ptr %705, %706
+  br i1 %.not.i.i232, label %721, label %707
 
-707:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit234
+707:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit231
   %708 = load ptr, ptr %46, align 8, !tbaa !95
   store ptr %708, ptr %705, align 8, !tbaa !95
   %709 = getelementptr inbounds nuw i8, ptr %705, i64 8
   %710 = load ptr, ptr %698, align 8, !tbaa !88
   store ptr %710, ptr %709, align 8, !tbaa !88
-  %.not.i.i.i.i.i.i.i.i236 = icmp eq ptr %710, null
-  br i1 %.not.i.i.i.i.i.i.i.i236, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i238, label %711
+  %.not.i.i.i.i.i.i.i.i233 = icmp eq ptr %710, null
+  br i1 %.not.i.i.i.i.i.i.i.i233, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i235, label %711
 
 711:                                              ; preds = %707
   %712 = getelementptr inbounds nuw i8, ptr %710, i64 8
   %713 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i237 = icmp eq i8 %713, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i237, label %717, label %714
+  %.not.i.i.i.i.i.i.i.i.i234 = icmp eq i8 %713, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i234, label %717, label %714
 
 714:                                              ; preds = %711
   %715 = load i32, ptr %712, align 4, !tbaa !22
   %716 = add nsw i32 %715, 1
   store i32 %716, ptr %712, align 4, !tbaa !22
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i238
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i235
 
 717:                                              ; preds = %711
   %718 = atomicrmw volatile add ptr %712, i32 1 acq_rel, align 4
-  %.pre.i.i239 = load ptr, ptr %84, align 8, !tbaa !91
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i238
+  %.pre.i.i236 = load ptr, ptr %84, align 8, !tbaa !91
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i235
 
-_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i238: ; preds = %717, %714, %707
-  %719 = phi ptr [ %705, %707 ], [ %705, %714 ], [ %.pre.i.i239, %717 ]
+_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i235: ; preds = %717, %714, %707
+  %719 = phi ptr [ %705, %707 ], [ %705, %714 ], [ %.pre.i.i236, %717 ]
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 16
   store ptr %720, ptr %84, align 8, !tbaa !91
-  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit241
+  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238
 
-721:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit234
+721:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategyFillEEERKNS0_IT_EE.exit231
   invoke void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr %705, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit241 unwind label %1072
+          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238 unwind label %1072
 
-_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit241: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i238, %721
+_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i235, %721
   %722 = load ptr, ptr %698, align 8, !tbaa !88
-  %.not.i.i242 = icmp eq ptr %722, null
-  br i1 %.not.i.i242, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246, label %723
+  %.not.i.i239 = icmp eq ptr %722, null
+  br i1 %.not.i.i239, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243, label %723
 
-723:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit241
+723:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238
   %724 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %725 = load atomic i64, ptr %724 acquire, align 8
   %726 = icmp eq i64 %725, 4294967297
@@ -11800,48 +11800,48 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load ptr, ptr %734, align 8
   call void %735(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
 
 736:                                              ; preds = %723
   %737 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i243 = icmp eq i8 %737, 0
-  br i1 %.not.i.i.i243, label %740, label %738
+  %.not.i.i.i240 = icmp eq i8 %737, 0
+  br i1 %.not.i.i.i240, label %740, label %738
 
 738:                                              ; preds = %736
   %739 = add nsw i32 %727, -1
   store i32 %739, ptr %724, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241
 
 740:                                              ; preds = %736
   %741 = atomicrmw volatile add ptr %724, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244: ; preds = %740, %738
-  %.0.i.i.i.i245 = phi i32 [ %727, %738 ], [ %741, %740 ]
-  %742 = icmp eq i32 %.0.i.i.i.i245, 1
-  br i1 %742, label %743, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241: ; preds = %740, %738
+  %.0.i.i.i.i242 = phi i32 [ %727, %738 ], [ %741, %740 ]
+  %742 = icmp eq i32 %.0.i.i.i.i242, 1
+  br i1 %742, label %743, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243, !prof !90
 
-743:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244
+743:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit241, %728, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244, %743
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238, %728, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241, %743
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
   %744 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
-          to label %.noexc248 unwind label %1074
+          to label %.noexc245 unwind label %1074
 
-.noexc248:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246
+.noexc245:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(160) %744)
-          to label %746 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i247, !noalias !446
+          to label %746 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244, !noalias !446
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i247: ; preds = %.noexc248
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244: ; preds = %.noexc245
   %745 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %744) #30, !noalias !446
-  br label %.body249
+  br label %.body246
 
-746:                                              ; preds = %.noexc248
+746:                                              ; preds = %.noexc245
   %747 = getelementptr inbounds nuw i8, ptr %744, i64 16
   store ptr %747, ptr %47, align 8, !tbaa !159, !alias.scope !443
   %748 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -11851,67 +11851,67 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %744, ptr %749, align 8, !tbaa !88
   %750 = getelementptr inbounds nuw i8, ptr %744, i64 8
   %751 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i253 = icmp eq i8 %751, 0
-  br i1 %.not.i.i.i.i.i253, label %755, label %752
+  %.not.i.i.i.i.i250 = icmp eq i8 %751, 0
+  br i1 %.not.i.i.i.i.i250, label %755, label %752
 
 752:                                              ; preds = %746
   %753 = load i32, ptr %750, align 4, !tbaa !22
   %754 = add nsw i32 %753, 1
   store i32 %754, ptr %750, align 4, !tbaa !22
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit254
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit251
 
 755:                                              ; preds = %746
   %756 = atomicrmw volatile add ptr %750, i32 1 acq_rel, align 4
-  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit254
+  br label %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit251
 
-_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit254: ; preds = %752, %755
+_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit251: ; preds = %752, %755
   %757 = load ptr, ptr %84, align 8, !tbaa !91
   %758 = load ptr, ptr %489, align 8, !tbaa !94
-  %.not.i.i255 = icmp eq ptr %757, %758
-  br i1 %.not.i.i255, label %773, label %759
+  %.not.i.i252 = icmp eq ptr %757, %758
+  br i1 %.not.i.i252, label %773, label %759
 
-759:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit254
+759:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit251
   %760 = load ptr, ptr %48, align 8, !tbaa !95
   store ptr %760, ptr %757, align 8, !tbaa !95
   %761 = getelementptr inbounds nuw i8, ptr %757, i64 8
   %762 = load ptr, ptr %749, align 8, !tbaa !88
   store ptr %762, ptr %761, align 8, !tbaa !88
-  %.not.i.i.i.i.i.i.i.i256 = icmp eq ptr %762, null
-  br i1 %.not.i.i.i.i.i.i.i.i256, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i258, label %763
+  %.not.i.i.i.i.i.i.i.i253 = icmp eq ptr %762, null
+  br i1 %.not.i.i.i.i.i.i.i.i253, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i255, label %763
 
 763:                                              ; preds = %759
   %764 = getelementptr inbounds nuw i8, ptr %762, i64 8
   %765 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i.i.i257 = icmp eq i8 %765, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i257, label %769, label %766
+  %.not.i.i.i.i.i.i.i.i.i254 = icmp eq i8 %765, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i254, label %769, label %766
 
 766:                                              ; preds = %763
   %767 = load i32, ptr %764, align 4, !tbaa !22
   %768 = add nsw i32 %767, 1
   store i32 %768, ptr %764, align 4, !tbaa !22
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i258
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i255
 
 769:                                              ; preds = %763
   %770 = atomicrmw volatile add ptr %764, i32 1 acq_rel, align 4
-  %.pre.i.i259 = load ptr, ptr %84, align 8, !tbaa !91
-  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i258
+  %.pre.i.i256 = load ptr, ptr %84, align 8, !tbaa !91
+  br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i255
 
-_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i258: ; preds = %769, %766, %759
-  %771 = phi ptr [ %757, %759 ], [ %757, %766 ], [ %.pre.i.i259, %769 ]
+_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i255: ; preds = %769, %766, %759
+  %771 = phi ptr [ %757, %759 ], [ %757, %766 ], [ %.pre.i.i256, %769 ]
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 16
   store ptr %772, ptr %84, align 8, !tbaa !91
-  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit261
+  br label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258
 
-773:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit254
+773:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit251
   invoke void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr %757, ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit261 unwind label %1076
+          to label %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258 unwind label %1076
 
-_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit261: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i258, %773
+_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258: ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i255, %773
   %774 = load ptr, ptr %749, align 8, !tbaa !88
-  %.not.i.i262 = icmp eq ptr %774, null
-  br i1 %.not.i.i262, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266, label %775
+  %.not.i.i259 = icmp eq ptr %774, null
+  br i1 %.not.i.i259, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263, label %775
 
-775:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit261
+775:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258
   %776 = getelementptr inbounds nuw i8, ptr %774, i64 8
   %777 = load atomic i64, ptr %776 acquire, align 8
   %778 = icmp eq i64 %777, 4294967297
@@ -11930,37 +11930,37 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 24
   %787 = load ptr, ptr %786, align 8
   call void %787(ptr noundef nonnull align 8 dereferenceable(16) %774) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263
 
 788:                                              ; preds = %775
   %789 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i263 = icmp eq i8 %789, 0
-  br i1 %.not.i.i.i263, label %792, label %790
+  %.not.i.i.i260 = icmp eq i8 %789, 0
+  br i1 %.not.i.i.i260, label %792, label %790
 
 790:                                              ; preds = %788
   %791 = add nsw i32 %779, -1
   store i32 %791, ptr %776, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i264
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261
 
 792:                                              ; preds = %788
   %793 = atomicrmw volatile add ptr %776, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i264
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i264: ; preds = %792, %790
-  %.0.i.i.i.i265 = phi i32 [ %779, %790 ], [ %793, %792 ]
-  %794 = icmp eq i32 %.0.i.i.i.i265, 1
-  br i1 %794, label %795, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261: ; preds = %792, %790
+  %.0.i.i.i.i262 = phi i32 [ %779, %790 ], [ %793, %792 ]
+  %794 = icmp eq i32 %.0.i.i.i.i262, 1
+  br i1 %794, label %795, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263, !prof !90
 
-795:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i264
+795:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %774) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit261, %780, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i264, %795
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258, %780, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261, %795
   %796 = load ptr, ptr %748, align 8, !tbaa !88
-  %.not.i.i267 = icmp eq ptr %796, null
-  br i1 %.not.i.i267, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %797
+  %.not.i.i264 = icmp eq ptr %796, null
+  br i1 %.not.i.i264, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %797
 
-797:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266
+797:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263
   %798 = getelementptr inbounds nuw i8, ptr %796, i64 8
   %799 = load atomic i64, ptr %798 acquire, align 8
   %800 = icmp eq i64 %799, 4294967297
@@ -11983,32 +11983,32 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 
 810:                                              ; preds = %797
   %811 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i268 = icmp eq i8 %811, 0
-  br i1 %.not.i.i.i268, label %814, label %812
+  %.not.i.i.i265 = icmp eq i8 %811, 0
+  br i1 %.not.i.i.i265, label %814, label %812
 
 812:                                              ; preds = %810
   %813 = add nsw i32 %801, -1
   store i32 %813, ptr %798, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i269
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266
 
 814:                                              ; preds = %810
   %815 = atomicrmw volatile add ptr %798, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i269
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i269: ; preds = %814, %812
-  %.0.i.i.i.i270 = phi i32 [ %801, %812 ], [ %815, %814 ]
-  %816 = icmp eq i32 %.0.i.i.i.i270, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266: ; preds = %814, %812
+  %.0.i.i.i.i267 = phi i32 [ %801, %812 ], [ %815, %814 ]
+  %816 = icmp eq i32 %.0.i.i.i.i267, 1
   br i1 %816, label %817, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-817:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i269
+817:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %796) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit266, %802, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i269, %817
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263, %802, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266, %817
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %818 = load ptr, ptr %697, align 8, !tbaa !88
-  %.not.i.i271 = icmp eq ptr %818, null
-  br i1 %.not.i.i271, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %819
+  %.not.i.i268 = icmp eq ptr %818, null
+  br i1 %.not.i.i268, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %819
 
 819:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %820 = getelementptr inbounds nuw i8, ptr %818, i64 8
@@ -12033,32 +12033,32 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
 
 832:                                              ; preds = %819
   %833 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i272 = icmp eq i8 %833, 0
-  br i1 %.not.i.i.i272, label %836, label %834
+  %.not.i.i.i269 = icmp eq i8 %833, 0
+  br i1 %.not.i.i.i269, label %836, label %834
 
 834:                                              ; preds = %832
   %835 = add nsw i32 %823, -1
   store i32 %835, ptr %820, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i273
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270
 
 836:                                              ; preds = %832
   %837 = atomicrmw volatile add ptr %820, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i273
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i273: ; preds = %836, %834
-  %.0.i.i.i.i274 = phi i32 [ %823, %834 ], [ %837, %836 ]
-  %838 = icmp eq i32 %.0.i.i.i.i274, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270: ; preds = %836, %834
+  %.0.i.i.i.i271 = phi i32 [ %823, %834 ], [ %837, %836 ]
+  %838 = icmp eq i32 %.0.i.i.i.i271, 1
   br i1 %838, label %839, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-839:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i273
+839:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %818) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %824, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i273, %839
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %824, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270, %839
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %840 = load ptr, ptr %642, align 8, !tbaa !88
-  %.not.i.i275 = icmp eq ptr %840, null
-  br i1 %.not.i.i275, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %841
+  %.not.i.i272 = icmp eq ptr %840, null
+  br i1 %.not.i.i272, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %841
 
 841:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %842 = getelementptr inbounds nuw i8, ptr %840, i64 8
@@ -12083,32 +12083,32 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
 
 854:                                              ; preds = %841
   %855 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i276 = icmp eq i8 %855, 0
-  br i1 %.not.i.i.i276, label %858, label %856
+  %.not.i.i.i273 = icmp eq i8 %855, 0
+  br i1 %.not.i.i.i273, label %858, label %856
 
 856:                                              ; preds = %854
   %857 = add nsw i32 %845, -1
   store i32 %857, ptr %842, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i277
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274
 
 858:                                              ; preds = %854
   %859 = atomicrmw volatile add ptr %842, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i277
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i277: ; preds = %858, %856
-  %.0.i.i.i.i278 = phi i32 [ %845, %856 ], [ %859, %858 ]
-  %860 = icmp eq i32 %.0.i.i.i.i278, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274: ; preds = %858, %856
+  %.0.i.i.i.i275 = phi i32 [ %845, %856 ], [ %859, %858 ]
+  %860 = icmp eq i32 %.0.i.i.i.i275, 1
   br i1 %860, label %861, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-861:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i277
+861:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %840) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %846, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i277, %861
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %846, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274, %861
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %862 = load ptr, ptr %546, align 8, !tbaa !88
-  %.not.i.i279 = icmp eq ptr %862, null
-  br i1 %.not.i.i279, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283, label %863
+  %.not.i.i276 = icmp eq ptr %862, null
+  br i1 %.not.i.i276, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280, label %863
 
 863:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %864 = getelementptr inbounds nuw i8, ptr %862, i64 8
@@ -12129,38 +12129,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 24
   %875 = load ptr, ptr %874, align 8
   call void %875(ptr noundef nonnull align 8 dereferenceable(16) %862) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280
 
 876:                                              ; preds = %863
   %877 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i280 = icmp eq i8 %877, 0
-  br i1 %.not.i.i.i280, label %880, label %878
+  %.not.i.i.i277 = icmp eq i8 %877, 0
+  br i1 %.not.i.i.i277, label %880, label %878
 
 878:                                              ; preds = %876
   %879 = add nsw i32 %867, -1
   store i32 %879, ptr %864, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i281
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278
 
 880:                                              ; preds = %876
   %881 = atomicrmw volatile add ptr %864, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i281
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i281: ; preds = %880, %878
-  %.0.i.i.i.i282 = phi i32 [ %867, %878 ], [ %881, %880 ]
-  %882 = icmp eq i32 %.0.i.i.i.i282, 1
-  br i1 %882, label %883, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278: ; preds = %880, %878
+  %.0.i.i.i.i279 = phi i32 [ %867, %878 ], [ %881, %880 ]
+  %882 = icmp eq i32 %.0.i.i.i.i279, 1
+  br i1 %882, label %883, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280, !prof !90
 
-883:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i281
+883:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %862) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %868, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i281, %883
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %868, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278, %883
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %884 = load ptr, ptr %541, align 8, !tbaa !88
-  %.not.i.i284 = icmp eq ptr %884, null
-  br i1 %.not.i.i284, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %885
+  %.not.i.i281 = icmp eq ptr %884, null
+  br i1 %.not.i.i281, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %885
 
-885:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283
+885:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280
   %886 = getelementptr inbounds nuw i8, ptr %884, i64 8
   %887 = load atomic i64, ptr %886 acquire, align 8
   %888 = icmp eq i64 %887, 4294967297
@@ -12183,32 +12183,32 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
 
 898:                                              ; preds = %885
   %899 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i285 = icmp eq i8 %899, 0
-  br i1 %.not.i.i.i285, label %902, label %900
+  %.not.i.i.i282 = icmp eq i8 %899, 0
+  br i1 %.not.i.i.i282, label %902, label %900
 
 900:                                              ; preds = %898
   %901 = add nsw i32 %889, -1
   store i32 %901, ptr %886, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i286
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283
 
 902:                                              ; preds = %898
   %903 = atomicrmw volatile add ptr %886, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i286
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i286: ; preds = %902, %900
-  %.0.i.i.i.i287 = phi i32 [ %889, %900 ], [ %903, %902 ]
-  %904 = icmp eq i32 %.0.i.i.i.i287, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283: ; preds = %902, %900
+  %.0.i.i.i.i284 = phi i32 [ %889, %900 ], [ %903, %902 ]
+  %904 = icmp eq i32 %.0.i.i.i.i284, 1
   br i1 %904, label %905, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-905:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i286
+905:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %884) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit283, %890, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i286, %905
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280, %890, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283, %905
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %906 = load ptr, ptr %534, align 8, !tbaa !88
-  %.not.i.i288 = icmp eq ptr %906, null
-  br i1 %.not.i.i288, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292, label %907
+  %.not.i.i285 = icmp eq ptr %906, null
+  br i1 %.not.i.i285, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289, label %907
 
 907:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %908 = getelementptr inbounds nuw i8, ptr %906, i64 8
@@ -12229,38 +12229,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %918 = getelementptr inbounds nuw i8, ptr %917, i64 24
   %919 = load ptr, ptr %918, align 8
   call void %919(ptr noundef nonnull align 8 dereferenceable(16) %906) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289
 
 920:                                              ; preds = %907
   %921 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i289 = icmp eq i8 %921, 0
-  br i1 %.not.i.i.i289, label %924, label %922
+  %.not.i.i.i286 = icmp eq i8 %921, 0
+  br i1 %.not.i.i.i286, label %924, label %922
 
 922:                                              ; preds = %920
   %923 = add nsw i32 %911, -1
   store i32 %923, ptr %908, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i290
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287
 
 924:                                              ; preds = %920
   %925 = atomicrmw volatile add ptr %908, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i290
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i290: ; preds = %924, %922
-  %.0.i.i.i.i291 = phi i32 [ %911, %922 ], [ %925, %924 ]
-  %926 = icmp eq i32 %.0.i.i.i.i291, 1
-  br i1 %926, label %927, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287: ; preds = %924, %922
+  %.0.i.i.i.i288 = phi i32 [ %911, %922 ], [ %925, %924 ]
+  %926 = icmp eq i32 %.0.i.i.i.i288, 1
+  br i1 %926, label %927, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289, !prof !90
 
-927:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i290
+927:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %906) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %912, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i290, %927
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %912, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287, %927
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %928 = load ptr, ptr %478, align 8, !tbaa !88
-  %.not.i.i293 = icmp eq ptr %928, null
-  br i1 %.not.i.i293, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297, label %929
+  %.not.i.i290 = icmp eq ptr %928, null
+  br i1 %.not.i.i290, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294, label %929
 
-929:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292
+929:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289
   %930 = getelementptr inbounds nuw i8, ptr %928, i64 8
   %931 = load atomic i64, ptr %930 acquire, align 8
   %932 = icmp eq i64 %931, 4294967297
@@ -12279,38 +12279,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 24
   %941 = load ptr, ptr %940, align 8
   call void %941(ptr noundef nonnull align 8 dereferenceable(16) %928) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294
 
 942:                                              ; preds = %929
   %943 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i294 = icmp eq i8 %943, 0
-  br i1 %.not.i.i.i294, label %946, label %944
+  %.not.i.i.i291 = icmp eq i8 %943, 0
+  br i1 %.not.i.i.i291, label %946, label %944
 
 944:                                              ; preds = %942
   %945 = add nsw i32 %933, -1
   store i32 %945, ptr %930, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i295
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292
 
 946:                                              ; preds = %942
   %947 = atomicrmw volatile add ptr %930, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i295
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i295: ; preds = %946, %944
-  %.0.i.i.i.i296 = phi i32 [ %933, %944 ], [ %947, %946 ]
-  %948 = icmp eq i32 %.0.i.i.i.i296, 1
-  br i1 %948, label %949, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292: ; preds = %946, %944
+  %.0.i.i.i.i293 = phi i32 [ %933, %944 ], [ %947, %946 ]
+  %948 = icmp eq i32 %.0.i.i.i.i293, 1
+  br i1 %948, label %949, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294, !prof !90
 
-949:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i295
+949:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %928) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit292, %934, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i295, %949
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289, %934, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292, %949
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %950 = load ptr, ptr %349, align 8, !tbaa !88
-  %.not.i.i298 = icmp eq ptr %950, null
-  br i1 %.not.i.i298, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302, label %951
+  %.not.i.i295 = icmp eq ptr %950, null
+  br i1 %.not.i.i295, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299, label %951
 
-951:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297
+951:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294
   %952 = getelementptr inbounds nuw i8, ptr %950, i64 8
   %953 = load atomic i64, ptr %952 acquire, align 8
   %954 = icmp eq i64 %953, 4294967297
@@ -12329,38 +12329,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %962 = getelementptr inbounds nuw i8, ptr %961, i64 24
   %963 = load ptr, ptr %962, align 8
   call void %963(ptr noundef nonnull align 8 dereferenceable(16) %950) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299
 
 964:                                              ; preds = %951
   %965 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i299 = icmp eq i8 %965, 0
-  br i1 %.not.i.i.i299, label %968, label %966
+  %.not.i.i.i296 = icmp eq i8 %965, 0
+  br i1 %.not.i.i.i296, label %968, label %966
 
 966:                                              ; preds = %964
   %967 = add nsw i32 %955, -1
   store i32 %967, ptr %952, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i300
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297
 
 968:                                              ; preds = %964
   %969 = atomicrmw volatile add ptr %952, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i300
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i300: ; preds = %968, %966
-  %.0.i.i.i.i301 = phi i32 [ %955, %966 ], [ %969, %968 ]
-  %970 = icmp eq i32 %.0.i.i.i.i301, 1
-  br i1 %970, label %971, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297: ; preds = %968, %966
+  %.0.i.i.i.i298 = phi i32 [ %955, %966 ], [ %969, %968 ]
+  %970 = icmp eq i32 %.0.i.i.i.i298, 1
+  br i1 %970, label %971, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299, !prof !90
 
-971:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i300
+971:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %950) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit297, %956, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i300, %971
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294, %956, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297, %971
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %972 = load ptr, ptr %344, align 8, !tbaa !88
-  %.not.i.i303 = icmp eq ptr %972, null
-  br i1 %.not.i.i303, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307, label %973
+  %.not.i.i300 = icmp eq ptr %972, null
+  br i1 %.not.i.i300, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, label %973
 
-973:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302
+973:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299
   %974 = getelementptr inbounds nuw i8, ptr %972, i64 8
   %975 = load atomic i64, ptr %974 acquire, align 8
   %976 = icmp eq i64 %975, 4294967297
@@ -12379,38 +12379,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 24
   %985 = load ptr, ptr %984, align 8
   call void %985(ptr noundef nonnull align 8 dereferenceable(16) %972) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304
 
 986:                                              ; preds = %973
   %987 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i304 = icmp eq i8 %987, 0
-  br i1 %.not.i.i.i304, label %990, label %988
+  %.not.i.i.i301 = icmp eq i8 %987, 0
+  br i1 %.not.i.i.i301, label %990, label %988
 
 988:                                              ; preds = %986
   %989 = add nsw i32 %977, -1
   store i32 %989, ptr %974, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i305
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302
 
 990:                                              ; preds = %986
   %991 = atomicrmw volatile add ptr %974, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i305
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i305: ; preds = %990, %988
-  %.0.i.i.i.i306 = phi i32 [ %977, %988 ], [ %991, %990 ]
-  %992 = icmp eq i32 %.0.i.i.i.i306, 1
-  br i1 %992, label %993, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302: ; preds = %990, %988
+  %.0.i.i.i.i303 = phi i32 [ %977, %988 ], [ %991, %990 ]
+  %992 = icmp eq i32 %.0.i.i.i.i303, 1
+  br i1 %992, label %993, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, !prof !90
 
-993:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i305
+993:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %972) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302, %978, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i305, %993
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299, %978, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302, %993
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %994 = load ptr, ptr %337, align 8, !tbaa !88
-  %.not.i.i308 = icmp eq ptr %994, null
-  br i1 %.not.i.i308, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312, label %995
+  %.not.i.i305 = icmp eq ptr %994, null
+  br i1 %.not.i.i305, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309, label %995
 
-995:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307
+995:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304
   %996 = getelementptr inbounds nuw i8, ptr %994, i64 8
   %997 = load atomic i64, ptr %996 acquire, align 8
   %998 = icmp eq i64 %997, 4294967297
@@ -12429,38 +12429,38 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   %1007 = load ptr, ptr %1006, align 8
   call void %1007(ptr noundef nonnull align 8 dereferenceable(16) %994) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309
 
 1008:                                             ; preds = %995
   %1009 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i309 = icmp eq i8 %1009, 0
-  br i1 %.not.i.i.i309, label %1012, label %1010
+  %.not.i.i.i306 = icmp eq i8 %1009, 0
+  br i1 %.not.i.i.i306, label %1012, label %1010
 
 1010:                                             ; preds = %1008
   %1011 = add nsw i32 %999, -1
   store i32 %1011, ptr %996, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307
 
 1012:                                             ; preds = %1008
   %1013 = atomicrmw volatile add ptr %996, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310: ; preds = %1012, %1010
-  %.0.i.i.i.i311 = phi i32 [ %999, %1010 ], [ %1013, %1012 ]
-  %1014 = icmp eq i32 %.0.i.i.i.i311, 1
-  br i1 %1014, label %1015, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307: ; preds = %1012, %1010
+  %.0.i.i.i.i308 = phi i32 [ %999, %1010 ], [ %1013, %1012 ]
+  %1014 = icmp eq i32 %.0.i.i.i.i308, 1
+  br i1 %1014, label %1015, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309, !prof !90
 
-1015:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310
+1015:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %994) #29
-  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312
+  br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit307, %1000, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310, %1015
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, %1000, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307, %1015
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1016 = load ptr, ptr %330, align 8, !tbaa !88
-  %.not.i.i313 = icmp eq ptr %1016, null
-  br i1 %.not.i.i313, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1017
+  %.not.i.i310 = icmp eq ptr %1016, null
+  br i1 %.not.i.i310, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1017
 
-1017:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312
+1017:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309
   %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 8
   %1019 = load atomic i64, ptr %1018 acquire, align 8
   %1020 = icmp eq i64 %1019, 4294967297
@@ -12483,28 +12483,28 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
 
 1030:                                             ; preds = %1017
   %1031 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i314 = icmp eq i8 %1031, 0
-  br i1 %.not.i.i.i314, label %1034, label %1032
+  %.not.i.i.i311 = icmp eq i8 %1031, 0
+  br i1 %.not.i.i.i311, label %1034, label %1032
 
 1032:                                             ; preds = %1030
   %1033 = add nsw i32 %1021, -1
   store i32 %1033, ptr %1018, align 4, !tbaa !22
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i315
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312
 
 1034:                                             ; preds = %1030
   %1035 = atomicrmw volatile add ptr %1018, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i315
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i315: ; preds = %1034, %1032
-  %.0.i.i.i.i316 = phi i32 [ %1021, %1032 ], [ %1035, %1034 ]
-  %1036 = icmp eq i32 %.0.i.i.i.i316, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312: ; preds = %1034, %1032
+  %.0.i.i.i.i313 = phi i32 [ %1021, %1032 ], [ %1035, %1034 ]
+  %1036 = icmp eq i32 %.0.i.i.i.i313, 1
   br i1 %1036, label %1037, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
-1037:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i315
+1037:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1016) #29
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312, %1022, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i315, %1037
+_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309, %1022, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312, %1037
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -12517,8 +12517,8 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
   %.05.i.i.i.i = phi ptr [ %1040, %.lr.ph.i.i.i.i ], [ %1038, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #29
   %1040 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i317 = icmp eq ptr %1040, %1039
-  br i1 %.not.i.i.i.i317, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !70
+  %.not.i.i.i.i314 = icmp eq ptr %1040, %1039
+  br i1 %.not.i.i.i.i314, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !70
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %19, align 8, !tbaa !58
@@ -12526,8 +12526,8 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.l
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %1041 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %1038, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %.not.i.i.i318 = icmp eq ptr %1041, null
-  br i1 %.not.i.i.i318, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %1042
+  %.not.i.i.i315 = icmp eq ptr %1041, null
+  br i1 %.not.i.i.i315, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %1042
 
 1042:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %1041) #30
@@ -12557,22 +12557,22 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1048:                                             ; preds = %._crit_edge
   %1049 = landingpad { ptr, i32 }
           cleanup
-  br label %.body114
+  br label %.body111
 
 1050:                                             ; preds = %329
   %1051 = landingpad { ptr, i32 }
           cleanup
-  br label %.body126
+  br label %.body123
 
 1052:                                             ; preds = %336
   %1053 = landingpad { ptr, i32 }
           cleanup
-  br label %.body129
+  br label %.body126
 
 1054:                                             ; preds = %343
   %1055 = landingpad { ptr, i32 }
           cleanup
-  br label %.body132
+  br label %.body129
 
 1056:                                             ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit
   %1057 = landingpad { ptr, i32 }
@@ -12589,22 +12589,22 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #29
   br label %1081
 
-1060:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172
+1060:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
   %1061 = landingpad { ptr, i32 }
           cleanup
-  br label %.body175
+  br label %.body172
 
 1062:                                             ; preds = %533
   %1063 = landingpad { ptr, i32 }
           cleanup
-  br label %.body180
+  br label %.body177
 
 1064:                                             ; preds = %540
   %1065 = landingpad { ptr, i32 }
           cleanup
-  br label %.body185
+  br label %.body182
 
-1066:                                             ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit196
+1066:                                             ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193
   %1067 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
@@ -12618,10 +12618,10 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #29
   br label %1079
 
-1070:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit226
+1070:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
   %1071 = landingpad { ptr, i32 }
           cleanup
-  br label %.body229
+  br label %.body226
 
 1072:                                             ; preds = %721
   %1073 = landingpad { ptr, i32 }
@@ -12629,109 +12629,109 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #29
   br label %1078
 
-1074:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit246
+1074:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
   %1075 = landingpad { ptr, i32 }
           cleanup
-  br label %.body249
+  br label %.body246
 
 1076:                                             ; preds = %773
   %1077 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #29
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #29
-  br label %.body249
+  br label %.body246
 
-.body249:                                         ; preds = %1074, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i247, %1076
-  %.pn77 = phi { ptr, i32 } [ %1077, %1076 ], [ %1075, %1074 ], [ %745, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i247 ]
+.body246:                                         ; preds = %1074, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244, %1076
+  %.pn74 = phi { ptr, i32 } [ %1077, %1076 ], [ %1075, %1074 ], [ %745, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %1078
 
-1078:                                             ; preds = %.body249, %1072
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body249 ], [ %1073, %1072 ]
+1078:                                             ; preds = %.body246, %1072
+  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %.body246 ], [ %1073, %1072 ]
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
-  br label %.body229
+  br label %.body226
 
-.body229:                                         ; preds = %1070, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i227, %1078
-  %.pn77.pn.pn = phi { ptr, i32 } [ %.pn77.pn, %1078 ], [ %1071, %1070 ], [ %695, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i227 ]
+.body226:                                         ; preds = %1070, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224, %1078
+  %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %1078 ], [ %1071, %1070 ], [ %695, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %1079
 
-1079:                                             ; preds = %.body229, %1068
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn, %.body229 ], [ %1069, %1068 ]
+1079:                                             ; preds = %.body226, %1068
+  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %.body226 ], [ %1069, %1068 ]
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #29
   br label %1080
 
 1080:                                             ; preds = %1079, %1066
-  %.pn77.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn, %1079 ], [ %1067, %1066 ]
+  %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn, %1079 ], [ %1067, %1066 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #29
-  br label %.body185
+  br label %.body182
 
-.body185:                                         ; preds = %1064, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i183, %1080
-  %.pn77.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn, %1080 ], [ %1065, %1064 ], [ %543, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i183 ]
+.body182:                                         ; preds = %1064, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180, %1080
+  %.pn74.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn, %1080 ], [ %1065, %1064 ], [ %543, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #29
-  br label %.body180
+  br label %.body177
 
-.body180:                                         ; preds = %1062, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i178, %.body185
-  %.pn77.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn, %.body185 ], [ %1063, %1062 ], [ %539, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i178 ]
+.body177:                                         ; preds = %1062, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175, %.body182
+  %.pn74.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn, %.body182 ], [ %1063, %1062 ], [ %539, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #29
-  br label %.body175
+  br label %.body172
 
-.body175:                                         ; preds = %1060, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i173, %.body180
-  %.pn77.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn, %.body180 ], [ %1061, %1060 ], [ %532, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i173 ]
+.body172:                                         ; preds = %1060, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170, %.body177
+  %.pn74.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn, %.body177 ], [ %1061, %1060 ], [ %532, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %1081
 
-1081:                                             ; preds = %.body175, %1058
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn, %.body175 ], [ %1059, %1058 ]
+1081:                                             ; preds = %.body172, %1058
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn, %.body172 ], [ %1059, %1058 ]
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #29
   br label %1082
 
 1082:                                             ; preds = %1081, %1056
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn, %1081 ], [ %1057, %1056 ]
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn, %1081 ], [ %1057, %1056 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
-  br label %.body132
-
-.body132:                                         ; preds = %1054, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %1082
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1082 ], [ %1055, %1054 ], [ %346, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
   br label %.body129
 
-.body129:                                         ; preds = %1052, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body132
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body132 ], [ %1053, %1052 ], [ %342, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+.body129:                                         ; preds = %1054, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %1082
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1082 ], [ %1055, %1054 ], [ %346, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
   br label %.body126
 
-.body126:                                         ; preds = %1050, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body129
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body129 ], [ %1051, %1050 ], [ %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
+.body126:                                         ; preds = %1052, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body129
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body129 ], [ %1053, %1052 ], [ %342, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  br label %.body123
+
+.body123:                                         ; preds = %1050, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body126
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body126 ], [ %1051, %1050 ], [ %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #29
-  br label %.body114
+  br label %.body111
 
-.body114:                                         ; preds = %1048, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body126
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body126 ], [ %1049, %1048 ], [ %205, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
+.body111:                                         ; preds = %1048, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body123
+  %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body123 ], [ %1049, %1048 ], [ %205, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1083
 
-1083:                                             ; preds = %.body114, %328, %234, %232
-  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %328 ], [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body114 ], [ %235, %234 ], [ %233, %232 ]
+1083:                                             ; preds = %.body111, %328, %234, %232
+  %.pn89.pn.pn = phi { ptr, i32 } [ %.pn89.pn, %328 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body111 ], [ %235, %234 ], [ %233, %232 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #29
   br label %1084
 
 1084:                                             ; preds = %1083, %.loopexit
-  %.pn92.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn, %1083 ], [ %.pn70, %.loopexit ]
+  %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn, %1083 ], [ %.pn67, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %1085
 
 1085:                                             ; preds = %1084, %220, %218
-  %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %1084 ], [ %219, %218 ], [ %221, %220 ]
+  %.pn89.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn, %1084 ], [ %219, %218 ], [ %221, %220 ]
   br label %1086
 
 1086:                                             ; preds = %1086, %1085
@@ -12746,22 +12746,22 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %1091
 
 1091:                                             ; preds = %1090, %216, %214
-  %.pn92.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn, %1090 ], [ %217, %216 ], [ %215, %214 ]
+  %.pn89.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn, %1090 ], [ %217, %216 ], [ %215, %214 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1092
 
 1092:                                             ; preds = %1091, %212, %210
-  %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn.pn, %1091 ], [ %213, %212 ], [ %211, %210 ]
+  %.pn89.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn.pn, %1091 ], [ %213, %212 ], [ %211, %210 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1093
 
 1093:                                             ; preds = %1092, %208, %206
-  %.pn92.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn.pn.pn, %1092 ], [ %209, %208 ], [ %207, %206 ]
+  %.pn89.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn.pn.pn, %1092 ], [ %209, %208 ], [ %207, %206 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn92.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn89.pn.pn.pn.pn.pn.pn.pn
 }
 
 declare void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #0

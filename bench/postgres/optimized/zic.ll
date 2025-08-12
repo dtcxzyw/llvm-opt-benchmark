@@ -5249,8 +5249,8 @@ sub_0:
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = load i8, ptr %0, align 1
-  %.not119 = icmp eq i8 %3, 45
-  br i1 %.not119, label %.tail, label %.tail.thread
+  %.not118 = icmp eq i8 %3, 45
+  br i1 %.not118, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5285,17 +5285,17 @@ sub_0:
   store ptr null, ptr @rfilename, align 8
   store i32 -1, ptr @rlinenum, align 4
   %19 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 8192, ptr noundef %.043)
-  %.not113 = icmp eq ptr %19, %1
-  br i1 %.not113, label %.lr.ph, label %._crit_edge117.thread
+  %.not112 = icmp eq ptr %19, %1
+  br i1 %.not112, label %.lr.ph, label %._crit_edge116.thread
 
-._crit_edge117.thread:                            ; preds = %18
+._crit_edge116.thread:                            ; preds = %18
   %20 = load ptr, ptr @filename, align 8
   call fastcc void @close_file(ptr noundef %.043, ptr noundef null, ptr noundef %20)
   br label %318
 
 .lr.ph:                                           ; preds = %18, %inrule.exit
-  %.044115 = phi i32 [ %313, %inrule.exit ], [ 1, %18 ]
-  %.045114 = phi i8 [ %.1, %inrule.exit ], [ 0, %18 ]
+  %.044114 = phi i32 [ %313, %inrule.exit ], [ 1, %18 ]
+  %.045113 = phi i8 [ %.1, %inrule.exit ], [ 0, %18 ]
   %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #27
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
@@ -5422,36 +5422,36 @@ getfields.exit:                                   ; preds = %35, %35
   %57 = getelementptr inbounds ptr, ptr %29, i64 %56
   store ptr null, ptr %57, align 8
   %58 = load ptr, ptr %29, align 8
-  %.not53111 = icmp eq ptr %58, null
-  br i1 %.not53111, label %._crit_edge.thread, label %sub_070
+  %.not52110 = icmp eq ptr %58, null
+  br i1 %.not52110, label %._crit_edge.thread, label %sub_069
 
-sub_070:                                          ; preds = %getfields.exit, %.tail69.thread
-  %59 = phi ptr [ %69, %.tail69.thread ], [ %58, %getfields.exit ]
-  %60 = phi ptr [ %68, %.tail69.thread ], [ %29, %getfields.exit ]
-  %.046112 = phi i32 [ %66, %.tail69.thread ], [ 0, %getfields.exit ]
+sub_069:                                          ; preds = %getfields.exit, %.tail68.thread
+  %59 = phi ptr [ %69, %.tail68.thread ], [ %58, %getfields.exit ]
+  %60 = phi ptr [ %68, %.tail68.thread ], [ %29, %getfields.exit ]
+  %.046111 = phi i32 [ %66, %.tail68.thread ], [ 0, %getfields.exit ]
   %61 = load i8, ptr %59, align 1
-  %.not120 = icmp eq i8 %61, 45
-  br i1 %.not120, label %.tail69, label %.tail69.thread
+  %.not119 = icmp eq i8 %61, 45
+  br i1 %.not119, label %.tail68, label %.tail68.thread
 
-.tail69:                                          ; preds = %sub_070
+.tail68:                                          ; preds = %sub_069
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %.tail69.thread
+  br i1 %64, label %65, label %.tail68.thread
 
-65:                                               ; preds = %.tail69
+65:                                               ; preds = %.tail68
   store ptr @infile.nada, ptr %60, align 8
-  br label %.tail69.thread
+  br label %.tail68.thread
 
-.tail69.thread:                                   ; preds = %sub_070, %65, %.tail69
-  %66 = add i32 %.046112, 1
+.tail68.thread:                                   ; preds = %sub_069, %65, %.tail68
+  %66 = add i32 %.046111, 1
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %29, i64 %67
   %69 = load ptr, ptr %68, align 8
-  %.not53 = icmp eq ptr %69, null
-  br i1 %.not53, label %._crit_edge, label %sub_070, !llvm.loop !66
+  %.not52 = icmp eq ptr %69, null
+  br i1 %.not52, label %._crit_edge, label %sub_069, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %.tail69.thread
+._crit_edge:                                      ; preds = %.tail68.thread
   %70 = icmp eq i32 %66, 0
   br i1 %70, label %._crit_edge.thread, label %78
 
@@ -5472,11 +5472,11 @@ sub_070:                                          ; preds = %getfields.exit, %.t
   br label %inrule.exit
 
 78:                                               ; preds = %._crit_edge
-  %79 = trunc nuw i8 %.045114 to i1
+  %79 = trunc nuw i8 %.045113 to i1
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %78
-  %81 = add i32 %.046112, -7
+  %81 = add i32 %.046111, -7
   %or.cond.i = icmp ult i32 %81, -5
   br i1 %or.cond.i, label %82, label %83
 
@@ -5514,8 +5514,8 @@ sub_070:                                          ; preds = %getfields.exit, %.t
   ]
 
 97:                                               ; preds = %94
-  %.not.i55 = icmp eq i32 %66, 10
-  br i1 %.not.i55, label %99, label %98
+  %.not.i54 = icmp eq i32 %66, 10
+  br i1 %.not.i54, label %99, label %98
 
 98:                                               ; preds = %97
   call void (ptr, ...) @error(ptr noundef nonnull @.str.141)
@@ -5693,9 +5693,9 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   br label %inrule.exit
 
 178:                                              ; preds = %94
-  %179 = add i32 %.046112, -9
-  %or.cond.i56 = icmp ult i32 %179, -5
-  br i1 %or.cond.i56, label %180, label %181
+  %179 = add i32 %.046111, -9
+  %or.cond.i55 = icmp ult i32 %179, -5
+  br i1 %or.cond.i55, label %180, label %181
 
 180:                                              ; preds = %178
   call void (ptr, ...) @error(ptr noundef nonnull @.str.143)
@@ -5703,10 +5703,10 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr @lcltime, align 8
-  %.not.i57 = icmp eq ptr %182, null
+  %.not.i56 = icmp eq ptr %182, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br i1 %.not.i57, label %._crit_edge23.i, label %183
+  br i1 %.not.i56, label %._crit_edge23.i, label %183
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr @tzdefault, align 8
@@ -5724,14 +5724,14 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   %190 = load ptr, ptr @psxrules, align 8
   %191 = icmp ne ptr %190, null
   %or.cond3.i = select i1 %189, i1 %191, i1 false
-  br i1 %or.cond3.i, label %195, label %.preheader.i58
+  br i1 %or.cond3.i, label %195, label %.preheader.i57
 
-.preheader.i58:                                   ; preds = %._crit_edge23.i
+.preheader.i57:                                   ; preds = %._crit_edge23.i
   %192 = load i64, ptr @nzones, align 8
   %193 = icmp sgt i64 %192, 0
   br i1 %193, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i58
+.lr.ph.i:                                         ; preds = %.preheader.i57
   %194 = load ptr, ptr @zones, align 8
   br label %196
 
@@ -5764,14 +5764,14 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   %exitcond.not.i = icmp eq i64 %208, %192
   br i1 %exitcond.not.i, label %._crit_edge.i, label %196, !llvm.loop !67
 
-._crit_edge.i:                                    ; preds = %207, %.preheader.i58
+._crit_edge.i:                                    ; preds = %207, %.preheader.i57
   %209 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef range(i32 1, 0) %66, i1 noundef zeroext false)
   %210 = zext i1 %209 to i8
   br label %inrule.exit
 
 211:                                              ; preds = %94
-  %.not.i59 = icmp eq i32 %66, 3
-  br i1 %.not.i59, label %213, label %212
+  %.not.i58 = icmp eq i32 %66, 3
+  br i1 %.not.i58, label %213, label %212
 
 212:                                              ; preds = %211
   call void (ptr, ...) @error(ptr noundef nonnull @.str.147)
@@ -5799,7 +5799,7 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   %225 = load i32, ptr @linenum, align 4
   %226 = call noalias ptr @strdup(ptr noundef nonnull readonly %215) #26
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %ecpyalloc.exit.i60
+  br i1 %227, label %228, label %ecpyalloc.exit.i59
 
 228:                                              ; preds = %223
   %229 = tail call ptr @__errno_location() #28
@@ -5808,24 +5808,24 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   call fastcc void @memory_exhausted(ptr noundef %231) #30
   unreachable
 
-ecpyalloc.exit.i60:                               ; preds = %223
+ecpyalloc.exit.i59:                               ; preds = %223
   %232 = call noalias ptr @strdup(ptr noundef readonly %221) #26
   %233 = icmp eq ptr %232, null
   br i1 %233, label %234, label %ecpyalloc.exit5.i
 
-234:                                              ; preds = %ecpyalloc.exit.i60
+234:                                              ; preds = %ecpyalloc.exit.i59
   %235 = tail call ptr @__errno_location() #28
   %236 = load i32, ptr %235, align 4
   %237 = call ptr @pg_strerror(i32 noundef %236) #26
   call fastcc void @memory_exhausted(ptr noundef %237) #30
   unreachable
 
-ecpyalloc.exit5.i:                                ; preds = %ecpyalloc.exit.i60
+ecpyalloc.exit5.i:                                ; preds = %ecpyalloc.exit.i59
   %238 = load ptr, ptr @links, align 8
   %239 = load i64, ptr @nlinks, align 8
   %240 = load i64, ptr @nlinks_alloc, align 8
   %241 = icmp slt i64 %239, %240
-  br i1 %241, label %growalloc.exit.i63, label %242
+  br i1 %241, label %growalloc.exit.i62, label %242
 
 242:                                              ; preds = %ecpyalloc.exit5.i
   %243 = icmp sgt i64 %240, 6148914691236517202
@@ -5840,32 +5840,32 @@ ecpyalloc.exit5.i:                                ; preds = %ecpyalloc.exit.i60
   %247 = add nsw i64 %240, 1
   %248 = add i64 %247, %246
   store i64 %248, ptr @nlinks_alloc, align 8
-  %mul.ov.i.i.i61 = icmp ugt i64 %248, 576460752303423487
-  br i1 %mul.ov.i.i.i61, label %249, label %size_product.exit.i.i62
+  %mul.ov.i.i.i60 = icmp ugt i64 %248, 576460752303423487
+  br i1 %mul.ov.i.i.i60, label %249, label %size_product.exit.i.i61
 
 249:                                              ; preds = %245
   call fastcc void @memory_exhausted(ptr noundef nonnull @.str.67) #30
   unreachable
 
-size_product.exit.i.i62:                          ; preds = %245
+size_product.exit.i.i61:                          ; preds = %245
   %250 = shl nuw i64 %248, 5
   %251 = call ptr @realloc(ptr noundef %238, i64 noundef %250) #32
   %252 = icmp eq ptr %251, null
-  br i1 %252, label %253, label %growalloc.exit.i63
+  br i1 %252, label %253, label %growalloc.exit.i62
 
-253:                                              ; preds = %size_product.exit.i.i62
+253:                                              ; preds = %size_product.exit.i.i61
   %254 = tail call ptr @__errno_location() #28
   %255 = load i32, ptr %254, align 4
   %256 = call ptr @pg_strerror(i32 noundef %255) #26
   call fastcc void @memory_exhausted(ptr noundef %256) #30
   unreachable
 
-growalloc.exit.i63:                               ; preds = %size_product.exit.i.i62, %ecpyalloc.exit5.i
-  %.0.i.i64 = phi ptr [ %238, %ecpyalloc.exit5.i ], [ %251, %size_product.exit.i.i62 ]
-  store ptr %.0.i.i64, ptr @links, align 8
+growalloc.exit.i62:                               ; preds = %size_product.exit.i.i61, %ecpyalloc.exit5.i
+  %.0.i.i63 = phi ptr [ %238, %ecpyalloc.exit5.i ], [ %251, %size_product.exit.i.i61 ]
+  store ptr %.0.i.i63, ptr @links, align 8
   %257 = add i64 %239, 1
   store i64 %257, ptr @nlinks, align 8
-  %258 = getelementptr inbounds %struct.link, ptr %.0.i.i64, i64 %239
+  %258 = getelementptr inbounds %struct.link, ptr %.0.i.i63, i64 %239
   store ptr %224, ptr %258, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i32 %225, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -5876,8 +5876,8 @@ growalloc.exit.i63:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 259:                                              ; preds = %94
-  %.not.i65 = icmp eq i32 %66, 7
-  br i1 %.not.i65, label %261, label %260
+  %.not.i64 = icmp eq i32 %66, 7
+  br i1 %.not.i64, label %261, label %260
 
 260:                                              ; preds = %259
   call void (ptr, ...) @error(ptr noundef nonnull @.str.149)
@@ -5919,7 +5919,7 @@ growalloc.exit.i63:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 276:                                              ; preds = %.tail.i, %269
-  %.0.i66 = phi i64 [ -1, %269 ], [ 1, %.tail.i ]
+  %.0.i65 = phi i64 [ -1, %269 ], [ 1, %.tail.i ]
   %277 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %278 = load i32, ptr %277, align 8
   %279 = load i32, ptr @leapcnt, align 4
@@ -5943,8 +5943,8 @@ growalloc.exit.i63:                               ; preds = %size_product.exit.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %285 ]
   %283 = getelementptr inbounds nuw [50 x i64], ptr @trans, i64 0, i64 %indvars.iv.i.i
   %284 = load i64, ptr %283, align 8
-  %.not.i.i67 = icmp sgt i64 %262, %284
-  br i1 %.not.i.i67, label %285, label %._crit_edge.loopexit.split.loop.exit.i.i
+  %.not.i.i66 = icmp sgt i64 %262, %284
+  br i1 %.not.i.i66, label %285, label %._crit_edge.loopexit.split.loop.exit.i.i
 
 285:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5973,7 +5973,7 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   %298 = getelementptr inbounds nuw [50 x i8], ptr @roll, i64 0, i64 %290
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %297, ptr nonnull align 1 %298, i64 %293, i1 false)
   store i64 %262, ptr %291, align 8
-  store i64 %.0.i66, ptr %296, align 8
+  store i64 %.0.i65, ptr %296, align 8
   %299 = trunc i32 %278 to i8
   store i8 %299, ptr %298, align 1
   %300 = add i32 %279, 1
@@ -5981,8 +5981,8 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   br label %inrule.exit
 
 301:                                              ; preds = %94
-  %.not.i68 = icmp eq i32 %66, 5
-  br i1 %.not.i68, label %303, label %302
+  %.not.i67 = icmp eq i32 %66, 5
+  br i1 %.not.i67, label %303, label %302
 
 302:                                              ; preds = %301
   call void (ptr, ...) @error(ptr noundef nonnull @.str.161)
@@ -6009,29 +6009,29 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   call void @exit(i32 noundef 1) #29
   unreachable
 
-inrule.exit:                                      ; preds = %._crit_edge.i, %203, %195, %187, %180, %83, %82, %307, %306, %302, %leapadd.exit.i, %.critedge.i, %268, %261, %260, %growalloc.exit.i63, %219, %218, %212, %growalloc.exit.i, %103, %98, %93, %._crit_edge.thread, %75
-  %.1 = phi i8 [ %.045114, %75 ], [ %.045114, %._crit_edge.thread ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %growalloc.exit.i ], [ 0, %212 ], [ 0, %218 ], [ 0, %219 ], [ 0, %growalloc.exit.i63 ], [ 0, %260 ], [ 0, %261 ], [ 0, %268 ], [ 0, %.critedge.i ], [ 0, %leapadd.exit.i ], [ 0, %302 ], [ 0, %306 ], [ 0, %307 ], [ 0, %82 ], [ %85, %83 ], [ 0, %180 ], [ 0, %187 ], [ 0, %195 ], [ 0, %203 ], [ %210, %._crit_edge.i ]
+inrule.exit:                                      ; preds = %._crit_edge.i, %203, %195, %187, %180, %83, %82, %307, %306, %302, %leapadd.exit.i, %.critedge.i, %268, %261, %260, %growalloc.exit.i62, %219, %218, %212, %growalloc.exit.i, %103, %98, %93, %._crit_edge.thread, %75
+  %.1 = phi i8 [ %.045113, %75 ], [ %.045113, %._crit_edge.thread ], [ 0, %93 ], [ 0, %98 ], [ 0, %103 ], [ 0, %growalloc.exit.i ], [ 0, %212 ], [ 0, %218 ], [ 0, %219 ], [ 0, %growalloc.exit.i62 ], [ 0, %260 ], [ 0, %261 ], [ 0, %268 ], [ 0, %.critedge.i ], [ 0, %leapadd.exit.i ], [ 0, %302 ], [ 0, %306 ], [ 0, %307 ], [ 0, %82 ], [ %85, %83 ], [ 0, %180 ], [ 0, %187 ], [ 0, %195 ], [ 0, %203 ], [ %210, %._crit_edge.i ]
   call void @free(ptr noundef %29) #26
-  %313 = add i32 %.044115, 1
+  %313 = add i32 %.044114, 1
   store ptr %.0, ptr @filename, align 8
   store i32 %313, ptr @linenum, align 4
   store ptr null, ptr @rfilename, align 8
   store i32 -1, ptr @rlinenum, align 4
   %314 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 8192, ptr noundef %.043)
   %.not = icmp eq ptr %314, %1
-  br i1 %.not, label %.lr.ph, label %._crit_edge117
+  br i1 %.not, label %.lr.ph, label %._crit_edge116
 
-._crit_edge117:                                   ; preds = %inrule.exit
+._crit_edge116:                                   ; preds = %inrule.exit
   %315 = trunc nuw i8 %.1 to i1
   %316 = load ptr, ptr @filename, align 8
   call fastcc void @close_file(ptr noundef %.043, ptr noundef null, ptr noundef %316)
   br i1 %315, label %317, label %318
 
-317:                                              ; preds = %._crit_edge117
+317:                                              ; preds = %._crit_edge116
   call void (ptr, ...) @error(ptr noundef nonnull @.str.65)
   br label %318
 
-318:                                              ; preds = %._crit_edge117.thread, %317, %._crit_edge117
+318:                                              ; preds = %._crit_edge116.thread, %317, %._crit_edge116
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

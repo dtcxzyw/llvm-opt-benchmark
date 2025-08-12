@@ -581,7 +581,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %2, ptr %1, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %6 unwind label %.thread18.i
+          to label %6 unwind label %.thread17.i
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -591,7 +591,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %5, ptr %4, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %10 unwind label %.thread18.i
+          to label %10 unwind label %.thread17.i
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -601,7 +601,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %9, ptr %8, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %14 unwind label %.thread18.i
+          to label %14 unwind label %.thread17.i
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -611,7 +611,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %13, ptr %12, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %18 unwind label %.thread18.i
+          to label %18 unwind label %.thread17.i
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -621,7 +621,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %17, ptr %16, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %22 unwind label %.thread18.i
+          to label %22 unwind label %.thread17.i
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -631,7 +631,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %21, ptr %20, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %26 unwind label %.thread18.i
+          to label %26 unwind label %.thread17.i
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -641,7 +641,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #12 section ".text.startup" 
   store ptr %25, ptr %24, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-          to label %30 unwind label %.thread18.i
+          to label %30 unwind label %.thread17.i
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -713,18 +713,18 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   %56 = icmp eq ptr %45, %1
   br i1 %56, label %__cxx_global_var_init.exit, label %43
 
-.thread18.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
+.thread17.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
   %.04.ph.i = phi ptr [ %4, %0 ], [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %20, %18 ], [ %24, %22 ], [ %28, %26 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i, %.thread18.i
-  %57 = phi ptr [ %58, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i ], [ %.04.ph.i, %.thread18.i ]
+.preheader.i:                                     ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i, %.thread17.i
+  %57 = phi ptr [ %58, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i ], [ %.04.ph.i, %.thread17.i ]
   %58 = getelementptr inbounds i8, ptr %57, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !22
-  %.not.i10.i = icmp eq ptr %59, null
-  br i1 %.not.i10.i, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i, label %60
+  %.not.i9.i = icmp eq ptr %59, null
+  br i1 %.not.i9.i, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i, label %60
 
 60:                                               ; preds = %.preheader.i
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -732,7 +732,7 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   %63 = add i32 %62, -1
   store i32 %63, ptr %61, align 8, !tbaa !3
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i
+  br i1 %64, label %65, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i
 
 65:                                               ; preds = %60
   store i32 -559026175, ptr %61, align 8, !tbaa !3
@@ -740,9 +740,9 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(12) %59) #17
-  br label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i
+  br label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i
 
-_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheader.i
+_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i: ; preds = %65, %60, %.preheader.i
   %69 = icmp eq ptr %58, %1
   br i1 %69, label %.thread.i, label %.preheader.i
 
@@ -751,12 +751,12 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheade
           cleanup
   br label %72
 
-72:                                               ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i, %70
-  %73 = phi ptr [ %32, %70 ], [ %74, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i ]
+72:                                               ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i, %70
+  %73 = phi ptr [ %32, %70 ], [ %74, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -8
   %75 = load ptr, ptr %74, align 8, !tbaa !22
-  %.not.i12.i = icmp eq ptr %75, null
-  br i1 %.not.i12.i, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i, label %76
+  %.not.i11.i = icmp eq ptr %75, null
+  br i1 %.not.i11.i, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -764,7 +764,7 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheade
   %79 = add i32 %78, -1
   store i32 %79, ptr %77, align 8, !tbaa !3
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i
+  br i1 %80, label %81, label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i
 
 81:                                               ; preds = %76
   store i32 -559026175, ptr %77, align 8, !tbaa !3
@@ -772,16 +772,16 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheade
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(12) %75) #17
-  br label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i
+  br label %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i
 
-_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i: ; preds = %81, %76, %72
+_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i: ; preds = %81, %76, %72
   %85 = icmp eq ptr %74, %1
   br i1 %85, label %.thread.i, label %72
 
-.thread.i:                                        ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i
-  %.pn8.i = phi { ptr, i32 } [ %71, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i ], [ %lpad.thr_comm.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i ]
+.thread.i:                                        ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i
+  %.pn7.i = phi { ptr, i32 } [ %71, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit12.i ], [ %lpad.thr_comm.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit10.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %.pn8.i
+  resume { ptr, i32 } %.pn7.i
 
 __cxx_global_var_init.exit:                       ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

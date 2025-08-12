@@ -10365,8 +10365,8 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %40, %_ZNSt4pairIKNS
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !29
-  %.not.i11.i = icmp eq ptr %46, null
-  br i1 %.not.i11.i, label %__cxx_global_var_init.exit, label %47
+  %.not.i10.i = icmp eq ptr %46, null
+  br i1 %.not.i10.i, label %__cxx_global_var_init.exit, label %47
 
 47:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
   %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -10402,12 +10402,12 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %40, %_ZNSt4pairIKNS
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.loopexit.i ], [ %19, %_ZNSt14_Function_baseD2Ev.exit6.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !29
-  %.not.i13.i = icmp eq ptr %56, null
-  br i1 %.not.i13.i, label %_ZNSt14_Function_baseD2Ev.exit14.i, label %57
+  %.not.i12.i = icmp eq ptr %56, null
+  br i1 %.not.i12.i, label %_ZNSt14_Function_baseD2Ev.exit13.i, label %57
 
 57:                                               ; preds = %.body.i
   %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14.i unwind label %59
+          to label %_ZNSt14_Function_baseD2Ev.exit13.i unwind label %59
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -10416,16 +10416,16 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %40, %_ZNSt4pairIKNS
   call void @__clang_call_terminate(ptr %61) #28
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14.i:               ; preds = %57, %.body.i
+_ZNSt14_Function_baseD2Ev.exit13.i:               ; preds = %57, %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !29
-  %.not.i15.i = icmp eq ptr %63, null
-  br i1 %.not.i15.i, label %_ZNSt14_Function_baseD2Ev.exit16.i, label %64
+  %.not.i14.i = icmp eq ptr %63, null
+  br i1 %.not.i14.i, label %_ZNSt14_Function_baseD2Ev.exit15.i, label %64
 
-64:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i
+64:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i
   %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit16.i unwind label %66
+          to label %_ZNSt14_Function_baseD2Ev.exit15.i unwind label %66
 
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
@@ -10434,7 +10434,7 @@ _ZNSt14_Function_baseD2Ev.exit14.i:               ; preds = %57, %.body.i
   call void @__clang_call_terminate(ptr %68) #28
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit16.i:               ; preds = %64, %_ZNSt14_Function_baseD2Ev.exit14.i
+_ZNSt14_Function_baseD2Ev.exit15.i:               ; preds = %64, %_ZNSt14_Function_baseD2Ev.exit13.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

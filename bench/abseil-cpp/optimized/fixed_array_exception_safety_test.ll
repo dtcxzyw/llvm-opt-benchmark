@@ -10669,7 +10669,7 @@ define internal void @_ZN4absl12_GLOBAL__N_150FixedArrayExceptionSafety_InitList
 .thread:                                          ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit23
+  br label %.loopexit21
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10710,9 +10710,9 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %23 unwind label %.thread20
+          to label %23 unwind label %.thread18
 
-.thread20:                                        ; preds = %21
+.thread18:                                        ; preds = %21
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -10748,11 +10748,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %35
 
-35:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %33
-  %36 = phi ptr [ %34, %33 ], [ %37, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+35:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12, %33
+  %36 = phi ptr [ %34, %33 ], [ %37, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %37)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 unwind label %38
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12 unwind label %38
 
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
@@ -10761,11 +10761,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   call void @__clang_call_terminate(ptr %40) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12: ; preds = %35
   %41 = icmp eq ptr %37, %6
   br i1 %41, label %42, label %35
 
-42:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14
+42:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -10774,7 +10774,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.loopexit23 unwind label %45
+          to label %.loopexit21 unwind label %45
 
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
@@ -10789,11 +10789,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %51
 
-51:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %48
-  %52 = phi ptr [ %50, %48 ], [ %53, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
+51:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %48
+  %52 = phi ptr [ %50, %48 ], [ %53, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %53)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 unwind label %54
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 unwind label %54
 
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
@@ -10802,12 +10802,12 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   call void @__clang_call_terminate(ptr %56) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   %57 = icmp eq ptr %53, %4
-  br i1 %57, label %.loopexit23, label %51
+  br i1 %57, label %.loopexit21, label %51
 
-.loopexit23:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
+.loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
+  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -10818,11 +10818,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
           cleanup
   br label %60
 
-60:                                               ; preds = %58, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17
-  %61 = phi ptr [ %.0, %58 ], [ %62, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 ]
+60:                                               ; preds = %58, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15
+  %61 = phi ptr [ %.0, %58 ], [ %62, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %62)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 unwind label %63
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 unwind label %63
 
 63:                                               ; preds = %60
   %64 = landingpad { ptr, i32 }
@@ -10831,7 +10831,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
   call void @__clang_call_terminate(ptr %65) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15: ; preds = %60
   %66 = icmp eq ptr %62, %6
   br i1 %66, label %.loopexit, label %60
 
@@ -10841,11 +10841,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %70
 
-70:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18, %67
-  %71 = phi ptr [ %69, %67 ], [ %72, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 ]
+70:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %67
+  %71 = phi ptr [ %69, %67 ], [ %72, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %72)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 unwind label %73
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 unwind label %73
 
 73:                                               ; preds = %70
   %74 = landingpad { ptr, i32 }
@@ -10854,19 +10854,19 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
   call void @__clang_call_terminate(ptr %75) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18: ; preds = %70
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   %76 = icmp eq ptr %72, %6
   br i1 %76, label %.loopexit, label %70
 
-.loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18, %.thread20
-  %.pn11 = phi { ptr, i32 } [ %22, %.thread20 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 ]
+.loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
+  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
-77:                                               ; preds = %.loopexit, %.loopexit23
-  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.loopexit ], [ %.pn, %.loopexit23 ]
-  resume { ptr, i32 } %.pn11.pn
+77:                                               ; preds = %.loopexit, %.loopexit21
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %.loopexit ], [ %.pn, %.loopexit21 ]
+  resume { ptr, i32 } %.pn9.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11139,7 +11139,7 @@ define internal void @_ZN4absl12_GLOBAL__N_159FixedArrayExceptionSafety_InitList
 .thread:                                          ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit23
+  br label %.loopexit21
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11180,9 +11180,9 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %23 unwind label %.thread20
+          to label %23 unwind label %.thread18
 
-.thread20:                                        ; preds = %21
+.thread18:                                        ; preds = %21
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -11218,11 +11218,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %35
 
-35:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %33
-  %36 = phi ptr [ %34, %33 ], [ %37, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
+35:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12, %33
+  %36 = phi ptr [ %34, %33 ], [ %37, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %37)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 unwind label %38
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12 unwind label %38
 
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
@@ -11231,11 +11231,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit: ; preds = %14
   call void @__clang_call_terminate(ptr %40) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12: ; preds = %35
   %41 = icmp eq ptr %37, %6
   br i1 %41, label %42, label %35
 
-42:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14
+42:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -11244,7 +11244,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.loopexit23 unwind label %45
+          to label %.loopexit21 unwind label %45
 
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
@@ -11259,11 +11259,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %51
 
-51:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %48
-  %52 = phi ptr [ %50, %48 ], [ %53, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
+51:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %48
+  %52 = phi ptr [ %50, %48 ], [ %53, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %53)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 unwind label %54
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 unwind label %54
 
 54:                                               ; preds = %51
   %55 = landingpad { ptr, i32 }
@@ -11272,12 +11272,12 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %35
   call void @__clang_call_terminate(ptr %56) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14: ; preds = %51
   %57 = icmp eq ptr %53, %4
-  br i1 %57, label %.loopexit23, label %51
+  br i1 %57, label %.loopexit21, label %51
 
-.loopexit23:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %43, %.thread
-  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
+.loopexit21:                                      ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14, %43, %.thread
+  %.pn = phi { ptr, i32 } [ %7, %.thread ], [ %44, %43 ], [ %49, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
@@ -11288,11 +11288,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
           cleanup
   br label %60
 
-60:                                               ; preds = %58, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17
-  %61 = phi ptr [ %.0, %58 ], [ %62, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 ]
+60:                                               ; preds = %58, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15
+  %61 = phi ptr [ %.0, %58 ], [ %62, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %62)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 unwind label %63
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 unwind label %63
 
 63:                                               ; preds = %60
   %64 = landingpad { ptr, i32 }
@@ -11301,7 +11301,7 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %51
   call void @__clang_call_terminate(ptr %65) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15: ; preds = %60
   %66 = icmp eq ptr %62, %6
   br i1 %66, label %.loopexit, label %60
 
@@ -11311,11 +11311,11 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %70
 
-70:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18, %67
-  %71 = phi ptr [ %69, %67 ], [ %72, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 ]
+70:                                               ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %67
+  %71 = phi ptr [ %69, %67 ], [ %72, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
   invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %72)
-          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 unwind label %73
+          to label %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 unwind label %73
 
 73:                                               ; preds = %70
   %74 = landingpad { ptr, i32 }
@@ -11324,19 +11324,19 @@ _ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17: ; preds = %60
   call void @__clang_call_terminate(ptr %75) #24
   unreachable
 
-_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18: ; preds = %70
+_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16: ; preds = %70
   %76 = icmp eq ptr %72, %6
   br i1 %76, label %.loopexit, label %70
 
-.loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18, %.thread20
-  %.pn11 = phi { ptr, i32 } [ %22, %.thread20 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit18 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit17 ]
+.loopexit:                                        ; preds = %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16, %.thread18
+  %.pn9 = phi { ptr, i32 } [ %22, %.thread18 ], [ %68, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit16 ], [ %59, %_ZN7testing19exceptions_internal13TrackedObjectD2Ev.exit15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
-77:                                               ; preds = %.loopexit, %.loopexit23
-  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %.loopexit ], [ %.pn, %.loopexit23 ]
-  resume { ptr, i32 } %.pn11.pn
+77:                                               ; preds = %.loopexit, %.loopexit21
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %.loopexit ], [ %.pn, %.loopexit21 ]
+  resume { ptr, i32 } %.pn9.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13283,8 +13283,8 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %28 = load ptr, ptr %27, align 8, !tbaa !221
-  %.not.i.i.not.i8 = icmp eq ptr %28, null
-  br i1 %.not.i.i.not.i8, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEEC2ERKSA_.exit, label %29
+  %.not.i.i.not.i7 = icmp eq ptr %28, null
+  br i1 %.not.i.i.not.i7, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEEC2ERKSA_.exit, label %29
 
 29:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEESt14default_deleteIS8_EEvEEC2ERKSD_.exit
   %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
@@ -13302,8 +13302,8 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = load ptr, ptr %25, align 8, !tbaa !221
-  %.not.i.i9 = icmp eq ptr %37, null
-  br i1 %.not.i.i9, label %.body, label %38
+  %.not.i.i8 = icmp eq ptr %37, null
+  br i1 %.not.i.i8, label %.body, label %38
 
 38:                                               ; preds = %35
   %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
@@ -13347,7 +13347,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
           cleanup
   %56 = load ptr, ptr %43, align 8, !tbaa !229
   %.not.i.i5.i = icmp eq ptr %56, null
-  br i1 %.not.i.i5.i, label %.body11, label %57
+  br i1 %.not.i.i5.i, label %.body10, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -13356,7 +13356,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #25
-  br label %.body11
+  br label %.body10
 
 63:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -13381,15 +13381,15 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-.body11:                                          ; preds = %54, %57
+.body10:                                          ; preds = %54, %57
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !221
-  %.not.i13 = icmp eq ptr %73, null
-  br i1 %.not.i13, label %_ZNSt14_Function_baseD2Ev.exit14, label %74
+  %.not.i12 = icmp eq ptr %73, null
+  br i1 %.not.i12, label %_ZNSt14_Function_baseD2Ev.exit13, label %74
 
-74:                                               ; preds = %.body11
+74:                                               ; preds = %.body10
   %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14 unwind label %76
+          to label %_ZNSt14_Function_baseD2Ev.exit13 unwind label %76
 
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
@@ -13398,13 +13398,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %67
   call void @__clang_call_terminate(ptr %78) #24
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14:                 ; preds = %.body11, %74
+_ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %.body10, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr %25, align 8, !tbaa !221
-  %.not.i15 = icmp eq ptr %79, null
-  br i1 %.not.i15, label %.body, label %80
+  %.not.i14 = icmp eq ptr %79, null
+  br i1 %.not.i14, label %.body, label %80
 
-80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14
+80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13
   %81 = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %.body unwind label %82
 
@@ -13415,11 +13415,11 @@ _ZNSt14_Function_baseD2Ev.exit14:                 ; preds = %.body11, %74
   call void @__clang_call_terminate(ptr %84) #24
   unreachable
 
-.body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit14, %38, %35
-  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit14 ], [ %55, %80 ]
+.body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit13, %38, %35
+  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ], [ %55, %80 ]
   %85 = load ptr, ptr %6, align 8, !tbaa !221
-  %.not.i17 = icmp eq ptr %85, null
-  br i1 %.not.i17, label %common.resume, label %86
+  %.not.i16 = icmp eq ptr %85, null
+  br i1 %.not.i16, label %common.resume, label %86
 
 86:                                               ; preds = %.body
   %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
@@ -16078,8 +16078,8 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %28 = load ptr, ptr %27, align 8, !tbaa !221
-  %.not.i.i.not.i8 = icmp eq ptr %28, null
-  br i1 %.not.i.i.not.i8, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEEC2ERKSC_.exit, label %29
+  %.not.i.i.not.i7 = icmp eq ptr %28, null
+  br i1 %.not.i.i.not.i7, label %_ZNSt8functionIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEEC2ERKSC_.exit, label %29
 
 29:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEESt14default_deleteISA_EEvEEC2ERKSF_.exit
   %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
@@ -16097,8 +16097,8 @@ _ZNSt8functionIFSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS3_
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = load ptr, ptr %25, align 8, !tbaa !221
-  %.not.i.i9 = icmp eq ptr %37, null
-  br i1 %.not.i.i9, label %.body, label %38
+  %.not.i.i8 = icmp eq ptr %37, null
+  br i1 %.not.i.i8, label %.body, label %38
 
 38:                                               ; preds = %35
   %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
@@ -16142,7 +16142,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
           cleanup
   %56 = load ptr, ptr %43, align 8, !tbaa !294
   %.not.i.i5.i = icmp eq ptr %56, null
-  br i1 %.not.i.i5.i, label %.body11, label %57
+  br i1 %.not.i.i5.i, label %.body10, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -16151,7 +16151,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #25
-  br label %.body11
+  br label %.body10
 
 63:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -16176,15 +16176,15 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-.body11:                                          ; preds = %54, %57
+.body10:                                          ; preds = %54, %57
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !221
-  %.not.i13 = icmp eq ptr %73, null
-  br i1 %.not.i13, label %_ZNSt14_Function_baseD2Ev.exit14, label %74
+  %.not.i12 = icmp eq ptr %73, null
+  br i1 %.not.i12, label %_ZNSt14_Function_baseD2Ev.exit13, label %74
 
-74:                                               ; preds = %.body11
+74:                                               ; preds = %.body10
   %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14 unwind label %76
+          to label %_ZNSt14_Function_baseD2Ev.exit13 unwind label %76
 
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
@@ -16193,13 +16193,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %63, %67
   call void @__clang_call_terminate(ptr %78) #24
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14:                 ; preds = %.body11, %74
+_ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %.body10, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr %25, align 8, !tbaa !221
-  %.not.i15 = icmp eq ptr %79, null
-  br i1 %.not.i15, label %.body, label %80
+  %.not.i14 = icmp eq ptr %79, null
+  br i1 %.not.i14, label %.body, label %80
 
-80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14
+80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13
   %81 = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %.body unwind label %82
 
@@ -16210,11 +16210,11 @@ _ZNSt14_Function_baseD2Ev.exit14:                 ; preds = %.body11, %74
   call void @__clang_call_terminate(ptr %84) #24
   unreachable
 
-.body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit14, %38, %35
-  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit14 ], [ %55, %80 ]
+.body:                                            ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit13, %38, %35
+  %.pn = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %55, %_ZNSt14_Function_baseD2Ev.exit13 ], [ %55, %80 ]
   %85 = load ptr, ptr %6, align 8, !tbaa !221
-  %.not.i17 = icmp eq ptr %85, null
-  br i1 %.not.i17, label %common.resume, label %86
+  %.not.i16 = icmp eq ptr %85, null
+  br i1 %.not.i16, label %common.resume, label %86
 
 86:                                               ; preds = %.body
   %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)

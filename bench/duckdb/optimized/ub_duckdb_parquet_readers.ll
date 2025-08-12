@@ -852,7 +852,7 @@ define void @_ZN6duckdb16CastColumnReaderC2ENS_10unique_ptrINS_12ColumnReaderESt
 
 20:                                               ; preds = %16
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-          to label %.noexc unwind label %.body12.thread
+          to label %.noexc unwind label %.body11.thread
 
 .noexc:                                           ; preds = %20
   store ptr %21, ptr %4, align 8, !tbaa !86
@@ -886,7 +886,7 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body12 unwind label %34
+          to label %.body11 unwind label %34
 
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
@@ -898,12 +898,12 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
 37:                                               ; preds = %_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i
   unreachable
 
-.body12.thread:                                   ; preds = %20
+.body11.thread:                                   ; preds = %20
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body12:                                          ; preds = %32
+.body11:                                          ; preds = %32
   call void @_ZdlPv(ptr noundef nonnull %21) #29
   br label %.body
 
@@ -917,8 +917,8 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
   %.05.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %40, %39 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i) #26
   %42 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i11 = icmp eq ptr %42, %41
-  br i1 %.not.i.i.i.i11, label %_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !182
+  %.not.i.i.i.i10 = icmp eq ptr %42, %41
+  br i1 %.not.i.i.i.i10, label %_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !182
 
 _ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %4, align 8, !tbaa !86
@@ -947,13 +947,13 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
           cleanup
   br label %.loopexit
 
-.body:                                            ; preds = %.body12.thread, %.body12
-  %eh.lpad-body1318 = phi { ptr, i32 } [ %38, %.body12.thread ], [ %33, %.body12 ]
+.body:                                            ; preds = %.body11.thread, %.body11
+  %eh.lpad-body1217 = phi { ptr, i32 } [ %38, %.body11.thread ], [ %33, %.body11 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %47
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body1318, %.body ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body1217, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
@@ -964,14 +964,14 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br label %51
 
 51:                                               ; preds = %49, %.loopexit
-  %.pn8 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %.loopexit ]
+  %.pn7 = phi { ptr, i32 } [ %50, %49 ], [ %.pn, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrIN6duckdb19ParquetColumnSchemaESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #26
   call void @_ZN6duckdb9DataChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #26
   br label %52
 
 52:                                               ; preds = %51, %45
-  %.pn8.pn = phi { ptr, i32 } [ %.pn8, %51 ], [ %46, %45 ]
+  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %51 ], [ %46, %45 ]
   %53 = load ptr, ptr %9, align 8, !tbaa !6
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb12ColumnReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i
@@ -986,7 +986,7 @@ _ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i: ; preds = %52
 _ZNSt10unique_ptrIN6duckdb12ColumnReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %52, %_ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i
   store ptr null, ptr %9, align 8, !tbaa !6
   call void @_ZN6duckdb12ColumnReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #26
-  resume { ptr, i32 } %.pn8.pn
+  resume { ptr, i32 } %.pn7.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3865,7 +3865,7 @@ define void @_ZN6duckdb22ExpressionColumnReaderC2ERNS_13ClientContextENS_10uniqu
 
 26:                                               ; preds = %22
   %27 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-          to label %.noexc unwind label %.body16.thread
+          to label %.noexc unwind label %.body15.thread
 
 .noexc:                                           ; preds = %26
   store ptr %27, ptr %5, align 8, !tbaa !86
@@ -3899,7 +3899,7 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
   %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body16 unwind label %40
+          to label %.body15 unwind label %40
 
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
@@ -3911,12 +3911,12 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
 43:                                               ; preds = %_ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i
   unreachable
 
-.body16.thread:                                   ; preds = %26
+.body15.thread:                                   ; preds = %26
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body16:                                          ; preds = %38
+.body15:                                          ; preds = %38
   call void @_ZdlPv(ptr noundef nonnull %27) #29
   br label %.body
 
@@ -3930,8 +3930,8 @@ _ZSt8_DestroyIPN6duckdb11LogicalTypeEEvT_S3_.exit.i.i.i.i.i: ; preds = %.noexc
   %.05.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %46, %45 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i) #26
   %48 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i14 = icmp eq ptr %48, %47
-  br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !182
+  %.not.i.i.i.i13 = icmp eq ptr %48, %47
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !182
 
 _ZSt8_DestroyIPN6duckdb11LogicalTypeES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !86
@@ -3965,13 +3965,13 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
           cleanup
   br label %.loopexit
 
-.body:                                            ; preds = %.body16.thread, %.body16
-  %eh.lpad-body1722 = phi { ptr, i32 } [ %44, %.body16.thread ], [ %39, %.body16 ]
+.body:                                            ; preds = %.body15.thread, %.body15
+  %eh.lpad-body1621 = phi { ptr, i32 } [ %44, %.body15.thread ], [ %39, %.body15 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body1722, %.body ]
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body1621, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
@@ -3982,13 +3982,13 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br label %59
 
 59:                                               ; preds = %57, %.loopexit
-  %.pn10 = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %.loopexit ]
+  %.pn9 = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6duckdb18ExpressionExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #26
   br label %60
 
 60:                                               ; preds = %59, %53
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %59 ], [ %54, %53 ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %59 ], [ %54, %53 ]
   %61 = load ptr, ptr %16, align 8, !tbaa !255
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i
@@ -4006,10 +4006,10 @@ _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit: ; pred
   br label %65
 
 65:                                               ; preds = %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit, %51
-  %.pn10.pn.pn = phi { ptr, i32 } [ %.pn10.pn, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit ], [ %52, %51 ]
+  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit ], [ %52, %51 ]
   %66 = load ptr, ptr %12, align 8, !tbaa !6
-  %.not.i15 = icmp eq ptr %66, null
-  br i1 %.not.i15, label %_ZNSt10unique_ptrIN6duckdb12ColumnReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i
+  %.not.i14 = icmp eq ptr %66, null
+  br i1 %.not.i14, label %_ZNSt10unique_ptrIN6duckdb12ColumnReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i: ; preds = %65
   %67 = load ptr, ptr %66, align 8, !tbaa !3
@@ -4021,7 +4021,7 @@ _ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i: ; preds = %65
 _ZNSt10unique_ptrIN6duckdb12ColumnReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %65, %_ZNKSt14default_deleteIN6duckdb12ColumnReaderEEclEPS1_.exit.i
   store ptr null, ptr %12, align 8, !tbaa !6
   call void @_ZN6duckdb12ColumnReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) #26
-  resume { ptr, i32 } %.pn10.pn.pn
+  resume { ptr, i32 } %.pn9.pn.pn
 }
 
 declare void @_ZN6duckdb18ExpressionExecutorC1ERNS_13ClientContextEPKNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(648), ptr noundef) unnamed_addr #0

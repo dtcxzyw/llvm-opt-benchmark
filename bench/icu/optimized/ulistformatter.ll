@@ -721,8 +721,8 @@ define noundef i32 @ulistfmt_format_77(ptr noundef %0, ptr noundef readonly capt
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  %.not34 = icmp eq i32 %5, 0
-  br i1 %.not34, label %20, label %19
+  %.not33 = icmp eq i32 %5, 0
+  br i1 %.not33, label %20, label %19
 
 17:                                               ; preds = %14
   %18 = icmp slt i32 %5, 0

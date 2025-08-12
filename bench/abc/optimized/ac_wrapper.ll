@@ -1649,7 +1649,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   store i32 -1, ptr %0, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %7, align 4, !tbaa !39
-  %.sroa.speculated91 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
+  %.sroa.speculated90 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %10 = load i8, ptr %9, align 4, !tbaa !107, !range !85, !noundef !86
@@ -1661,11 +1661,11 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = sub i32 %14, %.pre
-  %.sroa.speculated87 = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated91, i32 %15)
+  %.sroa.speculated86 = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated90, i32 %15)
   br label %16
 
 16:                                               ; preds = %12, %3
-  %.0101 = phi i32 [ %.sroa.speculated87, %12 ], [ %.sroa.speculated91, %3 ]
+  %.0100 = phi i32 [ %.sroa.speculated86, %12 ], [ %.sroa.speculated90, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1704,11 +1704,11 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   store ptr @_ZNSt17_Function_handlerIFjRKN5kitty18static_truth_tableILj11ELb0EEEEZN3acd21ac_decomposition_impl18find_decompositionERjjEUlS4_E3_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %30, align 16, !tbaa !113
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %33 = add i32 %.pre, -1
-  %.not65108 = icmp ugt i32 %.0101, %33
+  %.not64107 = icmp ugt i32 %.0100, %33
   %34 = load i32, ptr %32, align 8
-  %.not66109 = icmp ugt i32 %.0101, %34
-  %or.cond74110 = select i1 %.not65108, i1 true, i1 %.not66109
-  br i1 %or.cond74110, label %.critedge.thread125, label %.lr.ph
+  %.not65108 = icmp ugt i32 %.0100, %34
+  %or.cond73109 = select i1 %.not64107, i1 true, i1 %.not65108
+  br i1 %or.cond73109, label %.critedge.thread124, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -1720,36 +1720,36 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   br label %45
 
 41:                                               ; preds = %61
-  %42 = add i32 %.056111, 1
+  %42 = add i32 %.056110, 1
   %43 = add i32 %50, -1
-  %.not65 = icmp ugt i32 %42, %43
+  %.not64 = icmp ugt i32 %42, %43
   %44 = load i32, ptr %32, align 8
-  %.not66 = icmp ugt i32 %42, %44
-  %or.cond74 = select i1 %.not65, i1 true, i1 %.not66
-  br i1 %or.cond74, label %.critedge9.thread, label %45, !llvm.loop !114
+  %.not65 = icmp ugt i32 %42, %44
+  %or.cond73 = select i1 %.not64, i1 true, i1 %.not65
+  br i1 %or.cond73, label %.critedge9.thread, label %45, !llvm.loop !114
 
 45:                                               ; preds = %.lr.ph, %41
-  %.054112 = phi i32 [ -1, %.lr.ph ], [ %58, %41 ]
-  %.056111 = phi i32 [ %.0101, %.lr.ph ], [ %42, %41 ]
+  %.054111 = phi i32 [ -1, %.lr.ph ], [ %58, %41 ]
+  %.056110 = phi i32 [ %.0100, %.lr.ph ], [ %42, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %46 = add i32 %.056111, -1
+  %46 = add i32 %.056110, -1
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw [5 x %"class.std::function"], ptr %4, i64 0, i64 %47
-  call void @_ZN3acd21ac_decomposition_impl27enumerate_iset_combinationsIRSt8functionIFjRKN5kitty18static_truth_tableILj11ELb0EEEEEEESt5tupleIJS5_St5arrayIjLm11EEjEEjjOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple") align 8 %5, ptr noundef nonnull align 8 dereferenceable(500) %0, i32 noundef %.056111, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  call void @_ZN3acd21ac_decomposition_impl27enumerate_iset_combinationsIRSt8functionIFjRKN5kitty18static_truth_tableILj11ELb0EEEEEEESt5tupleIJS5_St5arrayIjLm11EEjEEjjOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple") align 8 %5, ptr noundef nonnull align 8 dereferenceable(500) %0, i32 noundef %.056110, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %48)
   %49 = load i32, ptr %5, align 8, !tbaa !41
   %50 = load i32, ptr %8, align 4, !tbaa !48
-  %51 = sub i32 %50, %.056111
+  %51 = sub i32 %50, %.056110
   %52 = shl nuw i32 1, %51
-  %.not67 = icmp ugt i32 %49, %52
-  br i1 %.not67, label %.critedge, label %53
+  %.not66 = icmp ugt i32 %49, %52
+  br i1 %.not66, label %.critedge, label %53
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %35, align 8, !tbaa !40
-  %55 = sub i32 %54, %.056111
+  %55 = sub i32 %54, %.056110
   %56 = icmp ugt i32 %55, %50
   %57 = select i1 %56, i32 128, i32 0
   %58 = add nuw i32 %57, %49
-  %59 = icmp ult i32 %58, %.054112
+  %59 = icmp ult i32 %58, %.054111
   %60 = icmp ult i32 %49, 17
   %or.cond = and i1 %60, %59
   br i1 %or.cond, label %61, label %.critedge
@@ -1758,7 +1758,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %37, ptr noundef nonnull align 8 dereferenceable(256) %36, i64 256, i1 false), !tbaa.struct !94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %39, ptr noundef nonnull align 4 dereferenceable(44) %38, i64 44, i1 false), !tbaa.struct !115
   store i32 %49, ptr %0, align 8, !tbaa !10
-  store i32 %.056111, ptr %7, align 4, !tbaa !39
+  store i32 %.056110, ptr %7, align 4, !tbaa !39
   %62 = load i8, ptr %40, align 1, !tbaa !116, !range !85, !noundef !86
   %63 = trunc nuw i8 %62 to i1
   %64 = icmp samesign ult i32 %49, 3
@@ -1768,12 +1768,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
 
 .critedge:                                        ; preds = %45, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre122 = load i32, ptr %0, align 8, !tbaa !10
-  %65 = icmp eq i32 %.pre122, -1
-  br i1 %65, label %.critedge.thread125, label %.critedge9.thread
+  %.pre121 = load i32, ptr %0, align 8, !tbaa !10
+  %65 = icmp eq i32 %.pre121, -1
+  br i1 %65, label %.critedge.thread124, label %.critedge9.thread
 
-.critedge.thread125:                              ; preds = %16, %.critedge
-  %.1127 = phi i32 [ %.054112, %.critedge ], [ -1, %16 ]
+.critedge.thread124:                              ; preds = %16, %.critedge
+  %.1126 = phi i32 [ %.054111, %.critedge ], [ -1, %16 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 446
   %67 = load i8, ptr %66, align 2, !tbaa !117, !range !85, !noundef !86
   %68 = trunc nuw i8 %67 to i1
@@ -1781,30 +1781,30 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   %or.cond7.not = and i1 %69, %68
   br i1 %or.cond7.not, label %70, label %132
 
-70:                                               ; preds = %.critedge.thread125
+70:                                               ; preds = %.critedge.thread124
   store i32 0, ptr %1, align 4, !tbaa !41
   %71 = load i8, ptr %9, align 4, !tbaa !107, !range !85, !noundef !86
   %72 = trunc nuw i8 %71 to i1
-  %.pre123 = load i32, ptr %8, align 4, !tbaa !48
+  %.pre122 = load i32, ptr %8, align 4, !tbaa !48
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %75 = load i32, ptr %74, align 8, !tbaa !40
-  %76 = sub i32 %75, %.pre123
+  %76 = sub i32 %75, %.pre122
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %76, i32 1)
   br label %77
 
 77:                                               ; preds = %73, %70
-  %.1102 = phi i32 [ %.sroa.speculated, %73 ], [ %.0101, %70 ]
-  %78 = add i32 %.pre123, -1
-  %.not115 = icmp ugt i32 %.1102, %78
+  %.1101 = phi i32 [ %.sroa.speculated, %73 ], [ %.0100, %70 ]
+  %78 = add i32 %.pre122, -1
+  %.not114 = icmp ugt i32 %.1101, %78
   %79 = load i32, ptr %32, align 8
-  %.not69116 = icmp ugt i32 %.1102, %79
-  %or.cond76117 = select i1 %.not115, i1 true, i1 %.not69116
-  br i1 %or.cond76117, label %.critedge9, label %.lr.ph120
+  %.not68115 = icmp ugt i32 %.1101, %79
+  %or.cond75116 = select i1 %.not114, i1 true, i1 %.not68115
+  br i1 %or.cond75116, label %.critedge9, label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %77
+.lr.ph119:                                        ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1813,28 +1813,28 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 445
   br label %86
 
-86:                                               ; preds = %.lr.ph120, %106
-  %.4119 = phi i32 [ %.1127, %.lr.ph120 ], [ %99, %106 ]
-  %.055118 = phi i32 [ %.1102, %.lr.ph120 ], [ %107, %106 ]
+86:                                               ; preds = %.lr.ph119, %106
+  %.4118 = phi i32 [ %.1126, %.lr.ph119 ], [ %99, %106 ]
+  %.055117 = phi i32 [ %.1101, %.lr.ph119 ], [ %107, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %87 = add i32 %.055118, -1
+  %87 = add i32 %.055117, -1
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw [5 x %"class.std::function"], ptr %4, i64 0, i64 %88
-  call void @_ZN3acd21ac_decomposition_impl27enumerate_iset_combinationsIRSt8functionIFjRKN5kitty18static_truth_tableILj11ELb0EEEEEEESt5tupleIJS5_St5arrayIjLm11EEjEEjjOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple") align 8 %6, ptr noundef nonnull align 8 dereferenceable(500) %0, i32 noundef %.055118, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %89)
+  call void @_ZN3acd21ac_decomposition_impl27enumerate_iset_combinationsIRSt8functionIFjRKN5kitty18static_truth_tableILj11ELb0EEEEEEESt5tupleIJS5_St5arrayIjLm11EEjEEjjOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple") align 8 %6, ptr noundef nonnull align 8 dereferenceable(500) %0, i32 noundef %.055117, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %89)
   %90 = load i32, ptr %6, align 8, !tbaa !41
   %91 = load i32, ptr %8, align 4, !tbaa !48
-  %92 = sub i32 %91, %.055118
+  %92 = sub i32 %91, %.055117
   %93 = shl nuw i32 1, %92
-  %.not70 = icmp ugt i32 %90, %93
-  br i1 %.not70, label %.critedge9.critedge, label %94
+  %.not69 = icmp ugt i32 %90, %93
+  br i1 %.not69, label %.critedge9.critedge, label %94
 
 94:                                               ; preds = %86
   %95 = load i32, ptr %80, align 8, !tbaa !40
-  %96 = sub i32 %95, %.055118
+  %96 = sub i32 %95, %.055117
   %97 = icmp ugt i32 %96, %91
   %98 = select i1 %97, i32 128, i32 0
   %99 = add nuw i32 %98, %90
-  %100 = icmp ult i32 %99, %.4119
+  %100 = icmp ult i32 %99, %.4118
   %101 = icmp ult i32 %90, 17
   %or.cond11 = and i1 %101, %100
   br i1 %or.cond11, label %102, label %.critedge9.critedge
@@ -1843,7 +1843,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %82, ptr noundef nonnull align 8 dereferenceable(256) %81, i64 256, i1 false), !tbaa.struct !94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %84, ptr noundef nonnull align 4 dereferenceable(44) %83, i64 44, i1 false), !tbaa.struct !115
   store i32 %90, ptr %0, align 8, !tbaa !10
-  store i32 %.055118, ptr %7, align 4, !tbaa !39
+  store i32 %.055117, ptr %7, align 4, !tbaa !39
   %103 = load i8, ptr %85, align 1, !tbaa !116, !range !85, !noundef !86
   %104 = trunc nuw i8 %103 to i1
   %105 = icmp samesign ult i32 %90, 3
@@ -1852,13 +1852,13 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
 
 106:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %107 = add i32 %.055118, 1
+  %107 = add i32 %.055117, 1
   %108 = add i32 %91, -1
   %.not = icmp ugt i32 %107, %108
   %109 = load i32, ptr %32, align 8
-  %.not69 = icmp ugt i32 %107, %109
-  %or.cond76 = select i1 %.not, i1 true, i1 %.not69
-  br i1 %or.cond76, label %.critedge9, label %86, !llvm.loop !118
+  %.not68 = icmp ugt i32 %107, %109
+  %or.cond75 = select i1 %.not, i1 true, i1 %.not68
+  br i1 %or.cond75, label %.critedge9, label %86, !llvm.loop !118
 
 .critedge9.critedge:                              ; preds = %102, %86, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1870,11 +1870,11 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   br i1 %110, label %132, label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %41, %61, %.critedge, %.critedge9
-  %111 = phi i32 [ %.pr, %.critedge9 ], [ %.pre122, %.critedge ], [ %49, %61 ], [ %49, %41 ]
+  %111 = phi i32 [ %.pr, %.critedge9 ], [ %.pre121, %.critedge ], [ %49, %61 ], [ %49, %41 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %113 = load ptr, ptr %112, align 8, !tbaa !43
-  %.not72 = icmp eq ptr %113, null
-  br i1 %.not72, label %132, label %114
+  %.not71 = icmp eq ptr %113, null
+  br i1 %.not71, label %132, label %114
 
 114:                                              ; preds = %.critedge9.thread
   %115 = icmp ult i32 %111, 3
@@ -1904,8 +1904,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   store i32 %130, ptr %131, align 4, !tbaa !8
   br label %132
 
-132:                                              ; preds = %.critedge9.thread, %121, %.critedge9, %.critedge.thread125
-  %.0 = phi i1 [ false, %.critedge.thread125 ], [ false, %.critedge9 ], [ true, %121 ], [ true, %.critedge9.thread ]
+132:                                              ; preds = %.critedge9.thread, %121, %.critedge9, %.critedge.thread124
+  %.0 = phi i1 [ false, %.critedge.thread124 ], [ false, %.critedge9 ], [ true, %121 ], [ true, %.critedge9.thread ]
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 160
   br label %134
 

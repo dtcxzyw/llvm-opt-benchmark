@@ -1435,8 +1435,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7714Transliterat
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load i16, ptr %22, align 8, !tbaa !26
   %24 = and i16 %23, 1
-  %.not98 = icmp eq i16 %24, 0
-  br i1 %.not98, label %26, label %25
+  %.not97 = icmp eq i16 %24, 0
+  br i1 %.not97, label %26, label %25
 
 25:                                               ; preds = %3
   invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -1449,8 +1449,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7714Transliterat
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = select i1 %27, i32 %31, i32 %29
-  %.not99 = icmp eq i32 %32, 0
-  br i1 %.not99, label %35, label %33
+  %.not98 = icmp eq i32 %32, 0
+  br i1 %.not98, label %35, label %33
 
 33:                                               ; preds = %26
   %34 = and i16 %23, 30
@@ -1546,16 +1546,16 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %66
   %78 = load i32, ptr %57, align 4
   %79 = select i1 %75, i32 %78, i32 %77
   %80 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %79)
-          to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit87 unwind label %120
+          to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit86 unwind label %120
 
-_ZN6icu_7713UnicodeString6appendERKS0_.exit87:    ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
+_ZN6icu_7713UnicodeString6appendERKS0_.exit86:    ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %82 = load i16, ptr %81, align 8, !tbaa !26
   %83 = and i16 %82, 17
   %.not.i = icmp eq i16 %83, 0
   br i1 %.not.i, label %84, label %91
 
-84:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit87
+84:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit86
   %85 = and i16 %82, 2
   %.not2.i = icmp eq i16 %85, 0
   br i1 %.not2.i, label %88, label %86
@@ -1569,15 +1569,15 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit87:    ; preds = %_ZN6icu_7713Unicode
   %90 = load ptr, ptr %89, align 8, !tbaa !26
   br label %91
 
-91:                                               ; preds = %88, %86, %_ZN6icu_7713UnicodeString6appendERKS0_.exit87
-  %.0.i88 = phi ptr [ %87, %86 ], [ %90, %88 ], [ null, %_ZN6icu_7713UnicodeString6appendERKS0_.exit87 ]
+91:                                               ; preds = %88, %86, %_ZN6icu_7713UnicodeString6appendERKS0_.exit86
+  %.0.i87 = phi ptr [ %87, %86 ], [ %90, %88 ], [ null, %_ZN6icu_7713UnicodeString6appendERKS0_.exit86 ]
   %92 = icmp slt i16 %82, 0
   %93 = ashr i16 %82, 5
   %94 = sext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = select i1 %92, i32 %96, i32 %94
-  %98 = invoke signext i8 @uprv_isInvariantUString_77(ptr noundef %.0.i88, i32 noundef %97)
+  %98 = invoke signext i8 @uprv_isInvariantUString_77(ptr noundef %.0.i87, i32 noundef %97)
           to label %99 unwind label %120
 
 99:                                               ; preds = %91
@@ -1610,8 +1610,8 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit87:    ; preds = %_ZN6icu_7713Unicode
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %114 = load i32, ptr %113, align 4
   %115 = select i1 %110, i32 %114, i32 %112
-  %.not57 = icmp eq i32 %115, 0
-  br i1 %.not57, label %128, label %116
+  %.not56 = icmp eq i32 %115, 0
+  br i1 %.not56, label %128, label %116
 
 116:                                              ; preds = %107
   %117 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %14)
@@ -1665,8 +1665,8 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit87:    ; preds = %_ZN6icu_7713Unicode
   %139 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %140 = load i32, ptr %139, align 4
   %141 = select i1 %136, i32 %140, i32 %138
-  %.not59 = icmp eq i32 %141, 0
-  br i1 %.not59, label %238, label %142
+  %.not58 = icmp eq i32 %141, 0
+  br i1 %.not58, label %238, label %142
 
 142:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1769,23 +1769,23 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit87:    ; preds = %_ZN6icu_7713Unicode
 _ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit: ; preds = %176
   %181 = load i16, ptr %154, align 8, !tbaa !26
   %182 = and i16 %181, 17
-  %.not.i90 = icmp eq i16 %182, 0
+  %.not.i89 = icmp eq i16 %182, 0
   %183 = and i16 %181, 2
-  %.not2.i92 = icmp eq i16 %183, 0
+  %.not2.i91 = icmp eq i16 %183, 0
   %184 = load ptr, ptr %156, align 8
-  %spec.select = select i1 %.not2.i92, ptr %184, ptr %155
-  %.0.i91 = select i1 %.not.i90, ptr %spec.select, ptr null
+  %spec.select = select i1 %.not2.i91, ptr %184, ptr %155
+  %.0.i90 = select i1 %.not.i89, ptr %spec.select, ptr null
   %185 = icmp slt i16 %181, 0
   %186 = ashr i16 %181, 5
   %187 = sext i16 %186 to i32
   %188 = load i32, ptr %157, align 4
   %189 = select i1 %185, i32 %188, i32 %187
-  %190 = invoke signext i8 @uprv_isInvariantUString_77(ptr noundef %.0.i91, i32 noundef %189)
+  %190 = invoke signext i8 @uprv_isInvariantUString_77(ptr noundef %.0.i90, i32 noundef %189)
           to label %191 unwind label %203
 
 191:                                              ; preds = %_ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit
-  %.not62 = icmp eq i8 %190, 0
-  br i1 %.not62, label %212, label %192
+  %.not61 = icmp eq i8 %190, 0
+  br i1 %.not61, label %212, label %192
 
 192:                                              ; preds = %191
   %193 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef 0, i32 noundef 189, ptr noundef nonnull %158, i32 noundef 189, i32 noundef 0)
@@ -1853,7 +1853,7 @@ _ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit: ; preds = %176
 213:                                              ; preds = %159
   %214 = load i32, ptr %6, align 4, !tbaa !13
   %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit95, label %216
+  br i1 %215, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit94, label %216
 
 216:                                              ; preds = %213
   %217 = load i16, ptr %38, align 8, !tbaa !26
@@ -1863,7 +1863,7 @@ _ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit: ; preds = %176
   %221 = load i32, ptr %57, align 4
   %222 = select i1 %218, i32 %221, i32 %220
   %223 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %222)
-          to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit95 unwind label %224
+          to label %_ZN6icu_7713UnicodeString6appendERKS0_.exit94 unwind label %224
 
 224:                                              ; preds = %216, %159
   %225 = landingpad { ptr, i32 }
@@ -1872,15 +1872,15 @@ _ZNK6icu_7711Formattable9getStringERNS_13UnicodeStringE.exit: ; preds = %176
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %231
 
-_ZN6icu_7713UnicodeString6appendERKS0_.exit95:    ; preds = %216, %213
+_ZN6icu_7713UnicodeString6appendERKS0_.exit94:    ; preds = %216, %213
   call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %21) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %226
 
-226:                                              ; preds = %226, %_ZN6icu_7713UnicodeString6appendERKS0_.exit95
-  %227 = phi ptr [ %144, %_ZN6icu_7713UnicodeString6appendERKS0_.exit95 ], [ %228, %226 ]
+226:                                              ; preds = %226, %_ZN6icu_7713UnicodeString6appendERKS0_.exit94
+  %227 = phi ptr [ %144, %_ZN6icu_7713UnicodeString6appendERKS0_.exit94 ], [ %228, %226 ]
   %228 = getelementptr inbounds i8, ptr %227, i64 -112
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %228) #21
   %229 = icmp eq ptr %228, %17
@@ -1934,17 +1934,17 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit95:    ; preds = %216, %213
   br label %242
 
 239:                                              ; preds = %237, %164, %126
-  %.pn71 = phi { ptr, i32 } [ %127, %126 ], [ %.pn.pn.pn.pn.pn.pn.pn, %237 ], [ %165, %164 ]
+  %.pn70 = phi { ptr, i32 } [ %127, %126 ], [ %.pn.pn.pn.pn.pn.pn.pn, %237 ], [ %165, %164 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #21
   br label %240
 
 240:                                              ; preds = %239, %124
-  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %239 ], [ %125, %124 ]
+  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %239 ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %241
 
 241:                                              ; preds = %240, %122
-  %.pn71.pn.pn = phi { ptr, i32 } [ %.pn71.pn, %240 ], [ %123, %122 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn70.pn, %240 ], [ %123, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %245
 
@@ -1959,12 +1959,12 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit95:    ; preds = %216, %213
   br label %247
 
 245:                                              ; preds = %241, %120
-  %.pn75 = phi { ptr, i32 } [ %121, %120 ], [ %.pn71.pn.pn, %241 ]
+  %.pn74 = phi { ptr, i32 } [ %121, %120 ], [ %.pn70.pn.pn, %241 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #21
   br label %246
 
 246:                                              ; preds = %245, %118
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %245 ], [ %119, %118 ]
+  %.pn74.pn = phi { ptr, i32 } [ %.pn74, %245 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %248
 
@@ -1983,7 +1983,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit95:    ; preds = %216, %213
   ret ptr %.027
 
 248:                                              ; preds = %246, %50
-  %.pn75.pn.pn = phi { ptr, i32 } [ %.pn75.pn, %246 ], [ %51, %50 ]
+  %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %246 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1994,11 +1994,11 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit95:    ; preds = %216, %213
   br label %249
 
 249:                                              ; preds = %248, %48
-  %.pn75.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn75.pn.pn, %248 ], [ %49, %48 ]
+  %.pn74.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %248 ], [ %49, %48 ]
   call void @_ZN6icu_7714ResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn75.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn74.pn.pn.pn.pn.pn.pn
 }
 
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getDefaultEv() local_unnamed_addr #8

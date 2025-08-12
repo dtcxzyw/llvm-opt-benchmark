@@ -1473,7 +1473,7 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
   ret void
 
 39:                                               ; preds = %32, %30
-  %.pn19.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
+  %.pn18.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 288
   br label %41
 
@@ -1485,12 +1485,12 @@ define hidden void @_ZN2cv8colormap8ColorMap15linear_colormapERKNS_11_InputArray
   br i1 %44, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %26, %41, %.thread
-  %.pn19.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn19.pn, %41 ], [ %25, %26 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn18.pn, %41 ], [ %25, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #23
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %.pn19.pn.pn
+  resume { ptr, i32 } %.pn18.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

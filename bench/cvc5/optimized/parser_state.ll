@@ -8047,7 +8047,7 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %._crit_edge, %34, %
 
 39:                                               ; preds = %.lr.ph, %137
   %40 = phi ptr [ %10, %.lr.ph ], [ %140, %137 ]
-  %.0823 = phi i64 [ 0, %.lr.ph ], [ %138, %137 ]
+  %.0822 = phi i64 [ 0, %.lr.ph ], [ %138, %137 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %11, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8058,29 +8058,29 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %._crit_edge, %34, %
   store ptr %43, ptr %12, align 8, !tbaa !115
   %44 = load ptr, ptr %15, align 8, !tbaa !104
   store ptr %44, ptr %14, align 8, !tbaa !104
-  %.not.i.i.i.i11 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i11, label %_ZN4cvc54TermC2ERKS0_.exit13, label %45
+  %.not.i.i.i.i10 = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i10, label %_ZN4cvc54TermC2ERKS0_.exit12, label %45
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !54
-  %.not.i.i.i.i.i12 = icmp eq i8 %47, 0
-  br i1 %.not.i.i.i.i.i12, label %51, label %48
+  %.not.i.i.i.i.i11 = icmp eq i8 %47, 0
+  br i1 %.not.i.i.i.i.i11, label %51, label %48
 
 48:                                               ; preds = %45
   %49 = load i32, ptr %46, align 4, !tbaa !108
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %46, align 4, !tbaa !108
-  br label %_ZN4cvc54TermC2ERKS0_.exit13
+  br label %_ZN4cvc54TermC2ERKS0_.exit12
 
 51:                                               ; preds = %45
   %52 = atomicrmw volatile add ptr %46, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %3, align 8, !tbaa !145
-  br label %_ZN4cvc54TermC2ERKS0_.exit13
+  br label %_ZN4cvc54TermC2ERKS0_.exit12
 
-_ZN4cvc54TermC2ERKS0_.exit13:                     ; preds = %39, %48, %51
+_ZN4cvc54TermC2ERKS0_.exit12:                     ; preds = %39, %48, %51
   %53 = phi ptr [ %40, %39 ], [ %40, %48 ], [ %.pre, %51 ]
-  %54 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %53, i64 %.0823
+  %54 = getelementptr inbounds nuw %"class.cvc5::Term", ptr %53, i64 %.0822
   %55 = load ptr, ptr %54, align 8, !tbaa !110
   store ptr %55, ptr %16, align 8, !tbaa !110
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -8089,31 +8089,31 @@ _ZN4cvc54TermC2ERKS0_.exit13:                     ; preds = %39, %48, %51
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !104
   store ptr %59, ptr %18, align 8, !tbaa !104
-  %.not.i.i.i.i14 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i14, label %_ZN4cvc54TermC2ERKS0_.exit16, label %60
+  %.not.i.i.i.i13 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i.i13, label %_ZN4cvc54TermC2ERKS0_.exit15, label %60
 
-60:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit13
+60:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit12
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !54
-  %.not.i.i.i.i.i15 = icmp eq i8 %62, 0
-  br i1 %.not.i.i.i.i.i15, label %66, label %63
+  %.not.i.i.i.i.i14 = icmp eq i8 %62, 0
+  br i1 %.not.i.i.i.i.i14, label %66, label %63
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %61, align 4, !tbaa !108
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %61, align 4, !tbaa !108
-  br label %_ZN4cvc54TermC2ERKS0_.exit16
+  br label %_ZN4cvc54TermC2ERKS0_.exit15
 
 66:                                               ; preds = %60
   %67 = atomicrmw volatile add ptr %61, i32 1 acq_rel, align 4
-  br label %_ZN4cvc54TermC2ERKS0_.exit16
+  br label %_ZN4cvc54TermC2ERKS0_.exit15
 
-_ZN4cvc54TermC2ERKS0_.exit16:                     ; preds = %_ZN4cvc54TermC2ERKS0_.exit13, %63, %66
+_ZN4cvc54TermC2ERKS0_.exit15:                     ; preds = %_ZN4cvc54TermC2ERKS0_.exit12, %63, %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %68 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #34
           to label %.noexc3.i unwind label %86
 
-.noexc3.i:                                        ; preds = %_ZN4cvc54TermC2ERKS0_.exit16
+.noexc3.i:                                        ; preds = %_ZN4cvc54TermC2ERKS0_.exit15
   store ptr %68, ptr %6, align 8, !tbaa !145
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   store ptr %69, ptr %20, align 8, !tbaa !144
@@ -8158,7 +8158,7 @@ _ZSt10_ConstructIN4cvc54TermEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %83,
   %.not.i.i.i.i.i.i = icmp eq i64 %.0810.i.i.i.i.i.i.add, 48
   br i1 %.not.i.i.i.i.i.i, label %88, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !231
 
-86:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit16
+86:                                               ; preds = %_ZN4cvc54TermC2ERKS0_.exit15
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8175,8 +8175,8 @@ _ZSt10_ConstructIN4cvc54TermEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %83,
   store ptr %91, ptr %13, align 8, !tbaa !115
   %92 = load ptr, ptr %23, align 8, !tbaa !104
   %93 = load ptr, ptr %15, align 8, !tbaa !104
-  %.not.i.i.i.i17 = icmp eq ptr %92, %93
-  br i1 %.not.i.i.i.i17, label %_ZN4cvc54TermaSERKS0_.exit, label %94
+  %.not.i.i.i.i16 = icmp eq ptr %92, %93
+  br i1 %.not.i.i.i.i16, label %_ZN4cvc54TermaSERKS0_.exit, label %94
 
 94:                                               ; preds = %89
   %.not7.i.i.i.i = icmp eq ptr %92, null
@@ -8185,8 +8185,8 @@ _ZSt10_ConstructIN4cvc54TermEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %83,
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %97 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !54
-  %.not.i.i.i.i.i18 = icmp eq i8 %97, 0
-  br i1 %.not.i.i.i.i.i18, label %101, label %98
+  %.not.i.i.i.i.i17 = icmp eq i8 %97, 0
+  br i1 %.not.i.i.i.i.i17, label %101, label %98
 
 98:                                               ; preds = %95
   %99 = load i32, ptr %96, align 4, !tbaa !108
@@ -8263,8 +8263,8 @@ _ZN4cvc54TermaSERKS0_.exit:                       ; preds = %89, %_ZNSt16_Sp_cou
   %.05.i.i.i.i = phi ptr [ %127, %.lr.ph.i.i.i.i ], [ %125, %_ZN4cvc54TermaSERKS0_.exit ]
   call void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i) #30
   %127 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i19 = icmp eq ptr %127, %126
-  br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !146
+  %.not.i.i.i.i18 = icmp eq ptr %127, %126
+  br i1 %.not.i.i.i.i18, label %_ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !146
 
 _ZSt8_DestroyIPN4cvc54TermES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !145
@@ -8297,7 +8297,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN4cvc5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %138 = add nuw i64 %.0823, 1
+  %138 = add nuw i64 %.0822, 1
   %139 = load ptr, ptr %8, align 8, !tbaa !141
   %140 = load ptr, ptr %3, align 8, !tbaa !145
   %141 = ptrtoint ptr %139 to i64

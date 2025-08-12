@@ -657,7 +657,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_
 
 214:                                              ; preds = %224, %213
   %indvars.iv.i.i = phi i64 [ 0, %213 ], [ %indvars.iv.next.i.i, %224 ]
-  %.012119.i.i = phi i64 [ 0, %213 ], [ %.1.i.i, %224 ]
+  %.012118.i.i = phi i64 [ 0, %213 ], [ %.1.i.i, %224 ]
   %215 = getelementptr inbounds nuw [13 x %struct.anon], ptr %1, i64 0, i64 %indvars.iv.i.i
   %216 = load ptr, ptr %215, align 8, !tbaa !8
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
@@ -669,41 +669,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_
 220:                                              ; preds = %214
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 32
   %222 = load i64, ptr %221, align 8, !tbaa !60
-  %223 = or i64 %222, %.012119.i.i
+  %223 = or i64 %222, %.012118.i.i
   br label %224
 
 224:                                              ; preds = %220, %214
-  %.1.i.i = phi i64 [ %223, %220 ], [ %.012119.i.i, %214 ]
+  %.1.i.i = phi i64 [ %223, %220 ], [ %.012118.i.i, %214 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
   br i1 %exitcond.not.i.i, label %.preheader, label %214, !llvm.loop !62
 
-.preheader:                                       ; preds = %224, %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i"
-  %225 = phi ptr [ %226, %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i" ], [ %138, %224 ]
+.preheader:                                       ; preds = %224, %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i"
+  %225 = phi ptr [ %226, %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i" ], [ %138, %224 ]
   %226 = getelementptr inbounds i8, ptr %225, i64 -40
   %227 = load ptr, ptr %226, align 8, !tbaa !8
   %228 = getelementptr inbounds i8, ptr %225, i64 -24
   %229 = icmp eq ptr %227, %228
-  br i1 %229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i102.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101.i.i
+  br i1 %229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i100.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i102.i.i: ; preds = %.preheader
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i: ; preds = %.preheader
   %230 = getelementptr inbounds i8, ptr %225, i64 -32
   %231 = load i64, ptr %230, align 8, !tbaa !13
   %232 = icmp ult i64 %231, 16
   call void @llvm.assume(i1 %232)
-  br label %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i"
+  br label %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i"
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101.i.i: ; preds = %.preheader
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i100.i.i: ; preds = %.preheader
   %233 = load i64, ptr %228, align 8, !tbaa !14
   %234 = add i64 %233, 1
   call void @_ZdlPvm(ptr noundef %227, i64 noundef %234) #21
-  br label %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i"
+  br label %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i"
 
-"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i102.i.i
+"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i100.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i
   %235 = icmp eq ptr %226, %1
   br i1 %235, label %236, label %.preheader
 
-236:                                              ; preds = %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit103.i.i"
+236:                                              ; preds = %"_ZZN5arrow8internal12_GLOBAL__N_118LinuxParseCpuFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN3$_0D2Ev.exit102.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %237 = load i64, ptr %0, align 8, !tbaa !37
   %238 = or i64 %237, %.1.i.i

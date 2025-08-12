@@ -148,8 +148,8 @@ define hidden void @_ZN4cvc58internal15NodeDfsIteratorC2ENS0_12NodeTemplateILb0E
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = load ptr, ptr %33, align 8, !tbaa !35
-  %.not.i.i9 = icmp eq ptr %45, null
-  br i1 %.not.i.i9, label %.body, label %46
+  %.not.i.i7 = icmp eq ptr %45, null
+  br i1 %.not.i.i7, label %.body, label %46
 
 46:                                               ; preds = %43
   %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3)

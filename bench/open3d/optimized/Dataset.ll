@@ -31273,7 +31273,7 @@ define void @_ZN6open3d4data15DownloadDatasetC2ERKNSt7__cxx1112basic_stringIcSt1
   call void @_ZN6open3d4data14DataDescriptorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #33
-          to label %.noexc unwind label %.body13.thread
+          to label %.noexc unwind label %.body12.thread
 
 .noexc:                                           ; preds = %4
   store ptr %7, ptr %5, align 8, !tbaa !613
@@ -31317,7 +31317,7 @@ _ZSt8_DestroyIPN6open3d4data14DataDescriptorEEvT_S4_.exit.i.i.i.i.i: ; preds = %
 20:                                               ; preds = %_ZSt8_DestroyIPN6open3d4data14DataDescriptorEEvT_S4_.exit.i.i.i.i.i
   unreachable
 
-.body13.thread:                                   ; preds = %4
+.body12.thread:                                   ; preds = %4
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -31334,8 +31334,8 @@ _ZSt8_DestroyIPN6open3d4data14DataDescriptorEEvT_S4_.exit.i.i.i.i.i: ; preds = %
 
 _ZSt8_DestroyIPN6open3d4data14DataDescriptorES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %23
   %26 = load ptr, ptr %5, align 8, !tbaa !613
-  %.not.i.i.i11 = icmp eq ptr %26, null
-  br i1 %.not.i.i.i11, label %_ZNSt6vectorIN6open3d4data14DataDescriptorESaIS2_EED2Ev.exit, label %27
+  %.not.i.i.i10 = icmp eq ptr %26, null
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN6open3d4data14DataDescriptorESaIS2_EED2Ev.exit, label %27
 
 27:                                               ; preds = %_ZSt8_DestroyIPN6open3d4data14DataDescriptorES2_EvT_S4_RSaIT0_E.exit.i
   %28 = load ptr, ptr %9, align 8, !tbaa !616
@@ -31453,8 +31453,8 @@ _ZN6open3d4data14DataDescriptorD2Ev.exit:         ; preds = %_ZSt8_DestroyIPNSt7
   call void @_ZNSt6vectorIN6open3d4data14DataDescriptorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   br label %.body
 
-.body:                                            ; preds = %.body13.thread, %22, %72
-  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %16, %22 ], [ %21, %.body13.thread ]
+.body:                                            ; preds = %.body12.thread, %22, %72
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %16, %22 ], [ %21, %.body12.thread ]
   call void @_ZN6open3d4data14DataDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

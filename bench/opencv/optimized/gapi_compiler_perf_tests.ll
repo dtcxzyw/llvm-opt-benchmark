@@ -2325,7 +2325,7 @@ define linkonce_odr hidden void @_ZN2cv12compile_argsIJNS_14GKernelPackageEEEESt
   call void @_ZN2cv11GCompileArgC2IRNS_14GKernelPackageETnNSt9enable_ifIXntsr6detail14is_compile_argIT_EE5valueEiE4typeELi0EEEOS5_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(80) %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
-          to label %.noexc unwind label %.body8.thread
+          to label %.noexc unwind label %.body7.thread
 
 .noexc:                                           ; preds = %2
   store ptr %4, ptr %0, align 8, !tbaa !72
@@ -2340,8 +2340,8 @@ _ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   store ptr %5, ptr %7, align 8, !tbaa !75
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !76
-  %.not.i.i.i6 = icmp eq ptr %9, null
-  br i1 %.not.i.i.i6, label %_ZN2cv4util3anyD2Ev.exit.i, label %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i
+  %.not.i.i.i5 = icmp eq ptr %9, null
+  br i1 %.not.i.i.i5, label %_ZN2cv4util3anyD2Ev.exit.i, label %_ZNKSt14default_deleteIN2cv4util3any6holderEEclEPS3_.exit.i.i.i
 
 10:                                               ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
@@ -2359,7 +2359,7 @@ _ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body8 unwind label %17
+          to label %.body7 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -2371,12 +2371,12 @@ _ZSt10_ConstructIN2cv11GCompileArgEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
 20:                                               ; preds = %14
   unreachable
 
-.body8.thread:                                    ; preds = %2
+.body7.thread:                                    ; preds = %2
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body8:                                           ; preds = %15
+.body7:                                           ; preds = %15
   call void @_ZdlPv(ptr noundef nonnull %4) #30
   br label %.body
 
@@ -2427,11 +2427,11 @@ _ZN2cv11GCompileArgD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-.body:                                            ; preds = %.body8.thread, %.body8
-  %eh.lpad-body914 = phi { ptr, i32 } [ %21, %.body8.thread ], [ %16, %.body8 ]
+.body:                                            ; preds = %.body7.thread, %.body7
+  %eh.lpad-body813 = phi { ptr, i32 } [ %21, %.body7.thread ], [ %16, %.body7 ]
   call void @_ZN2cv11GCompileArgD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %eh.lpad-body914
+  resume { ptr, i32 } %eh.lpad-body813
 }
 
 declare void @_ZN2cv4gapi4core5fluid7kernelsEv(ptr dead_on_unwind writable sret(%"class.cv::GKernelPackage") align 8) local_unnamed_addr #0

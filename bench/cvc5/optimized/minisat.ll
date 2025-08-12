@@ -998,8 +998,8 @@ define hidden void @_ZN4cvc58internal4prop16MinisatSatSolver10initializeEPNS1_11
   %19 = getelementptr inbounds i8, ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 240
   %21 = load ptr, ptr %20, align 8, !tbaa !257
-  %.not.i.i.i21 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i21, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %.not.i.i.i20 = icmp eq ptr %21, null
+  br i1 %.not.i.i.i20, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 22:                                               ; preds = %12
   tail call void @_ZSt16__throw_bad_castv() #38
@@ -1118,8 +1118,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %94, ptr %96, align 8, !tbaa !36
   %97 = tail call noundef ptr @_ZN4cvc58internal7Minisat6Solver15getProofManagerEv(ptr noundef nonnull align 8 dereferenceable(850) %36)
-  %.not16 = icmp eq ptr %97, null
-  br i1 %.not16, label %153, label %98
+  %.not15 = icmp eq ptr %97, null
+  br i1 %.not15, label %153, label %98
 
 98:                                               ; preds = %59
   %99 = tail call noundef ptr @_ZNK4cvc58internal6EnvObj11nodeManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %7)

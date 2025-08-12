@@ -6589,29 +6589,29 @@ _ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i: ; preds = %2030, %2026
   br label %.critedge.i.i.i.i1269
 
 2036:                                             ; preds = %2015
-  %.sroa.0.0.copyload.i.i18.i.i.i.i = load ptr, ptr %1284, align 8, !tbaa !44
-  %.sroa.2.0.copyload.i.i20.i.i.i.i = load i64, ptr %1285, align 16, !tbaa !45
+  %.sroa.0.0.copyload.i.i17.i.i.i.i = load ptr, ptr %1284, align 8, !tbaa !44
+  %.sroa.2.0.copyload.i.i19.i.i.i.i = load i64, ptr %1285, align 16, !tbaa !45
   br label %.critedge.i.i.i.i1269
 
 2037:                                             ; preds = %2015
   %2038 = load i64, ptr %1285, align 16, !tbaa !125
   %2039 = add i64 %2038, -1
   %2040 = icmp ne i64 %2038, 0
-  %.sroa.speculated3.i.i.i11.i.i.i.i = zext i1 %2040 to i64
+  %.sroa.speculated3.i.i.i10.i.i.i.i = zext i1 %2040 to i64
   %2041 = icmp eq i64 %2038, 0
-  %.sroa.speculate.load.false.sroa.speculated.i.i.i12.i.i.i.i = call i64 @llvm.umax.i64(i64 %2039, i64 %.sroa.speculated3.i.i.i11.i.i.i.i)
-  %.sroa.speculated.i.i.i13.i.i.i.i = select i1 %2041, i64 0, i64 %.sroa.speculate.load.false.sroa.speculated.i.i.i12.i.i.i.i
+  %.sroa.speculate.load.false.sroa.speculated.i.i.i11.i.i.i.i = call i64 @llvm.umax.i64(i64 %2039, i64 %.sroa.speculated3.i.i.i10.i.i.i.i)
+  %.sroa.speculated.i.i.i12.i.i.i.i = select i1 %2041, i64 0, i64 %.sroa.speculate.load.false.sroa.speculated.i.i.i11.i.i.i.i
   %2042 = load ptr, ptr %1284, align 8, !tbaa !141
-  %2043 = getelementptr inbounds nuw i8, ptr %2042, i64 %.sroa.speculated3.i.i.i11.i.i.i.i
-  %2044 = sub i64 %.sroa.speculated.i.i.i13.i.i.i.i, %.sroa.speculated3.i.i.i11.i.i.i.i
+  %2043 = getelementptr inbounds nuw i8, ptr %2042, i64 %.sroa.speculated3.i.i.i10.i.i.i.i
+  %2044 = sub i64 %.sroa.speculated.i.i.i12.i.i.i.i, %.sroa.speculated3.i.i.i10.i.i.i.i
   br label %.critedge.i.i.i.i1269
 
 2045:                                             ; preds = %2015
   br label %.critedge.thread.i.i.i.i
 
 .critedge.i.i.i.i1269:                            ; preds = %2037, %2036, %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i
-  %.sroa.6.0.i.i.i.i = phi i64 [ %2035, %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i ], [ %.sroa.2.0.copyload.i.i20.i.i.i.i, %2036 ], [ %2044, %2037 ]
-  %.sroa.07.0.i.i.i.i = phi ptr [ %2027, %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i.i18.i.i.i.i, %2036 ], [ %2043, %2037 ]
+  %.sroa.6.0.i.i.i.i = phi i64 [ %2035, %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i ], [ %.sroa.2.0.copyload.i.i19.i.i.i.i, %2036 ], [ %2044, %2037 ]
+  %.sroa.07.0.i.i.i.i = phi ptr [ %2027, %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i.i ], [ %.sroa.0.0.copyload.i.i17.i.i.i.i, %2036 ], [ %2043, %2037 ]
   %2046 = icmp eq i64 %.sroa.6.0.i.i.i.i, 0
   br i1 %2046, label %.critedge.thread.i.i.i.i, label %2047
 

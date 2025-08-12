@@ -63,13 +63,13 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
   store ptr %3, ptr %4, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load ptr, ptr %5, align 8, !tbaa !22
-  %.not53 = icmp eq ptr %6, %5
-  br i1 %.not53, label %._crit_edge59, label %.lr.ph
+  %.not52 = icmp eq ptr %6, %5
+  br i1 %.not52, label %._crit_edge58, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %.backedge52
-  %.054 = phi ptr [ %7, %.backedge52 ], [ %6, %1 ]
-  %7 = load ptr, ptr %.054, align 8, !tbaa !22
-  %8 = getelementptr inbounds i8, ptr %.054, i64 -8
+.lr.ph:                                           ; preds = %1, %.backedge51
+  %.053 = phi ptr [ %7, %.backedge51 ], [ %6, %1 ]
+  %7 = load ptr, ptr %.053, align 8, !tbaa !22
+  %8 = getelementptr inbounds i8, ptr %.053, i64 -8
   br label %9
 
 9:                                                ; preds = %12, %.lr.ph
@@ -77,7 +77,7 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
   %11 = call i32 @waitpid(i32 noundef %10, ptr noundef nonnull %2, i32 noundef 1) #12
   switch i32 %11, label %16 [
     i32 -1, label %12
-    i32 0, label %.backedge52
+    i32 0, label %.backedge51
   ]
 
 12:                                               ; preds = %9
@@ -85,7 +85,7 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
   %14 = load i32, ptr %13, align 4, !tbaa !25
   switch i32 %14, label %15 [
     i32 4, label %9
-    i32 10, label %.backedge52
+    i32 10, label %.backedge51
   ]
 
 15:                                               ; preds = %12
@@ -94,58 +94,58 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
 
 16:                                               ; preds = %9
   %17 = load i32, ptr %2, align 4, !tbaa !25
-  %18 = getelementptr inbounds nuw i8, ptr %.054, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   store i32 %17, ptr %18, align 8, !tbaa !26
-  %19 = load ptr, ptr %.054, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw i8, ptr %.054, i64 8
+  %19 = load ptr, ptr %.053, align 8, !tbaa !22
+  %20 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !22
   store ptr %19, ptr %21, align 8, !tbaa !22
   %22 = load ptr, ptr %20, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %23, align 8, !tbaa !22
-  store ptr %3, ptr %.054, align 8, !tbaa !22
+  store ptr %3, ptr %.053, align 8, !tbaa !22
   %24 = load ptr, ptr %4, align 8, !tbaa !22
   store ptr %24, ptr %20, align 8, !tbaa !22
-  store ptr %.054, ptr %24, align 8, !tbaa !22
-  store ptr %.054, ptr %4, align 8, !tbaa !22
-  br label %.backedge52
+  store ptr %.053, ptr %24, align 8, !tbaa !22
+  store ptr %.053, ptr %4, align 8, !tbaa !22
+  br label %.backedge51
 
-.backedge52:                                      ; preds = %9, %12, %16
+.backedge51:                                      ; preds = %9, %12, %16
   %.not = icmp eq ptr %7, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.backedge52
+._crit_edge:                                      ; preds = %.backedge51
   %.pre = load ptr, ptr %3, align 16, !tbaa !22
-  %.not4955 = icmp eq ptr %.pre, %3
-  br i1 %.not4955, label %._crit_edge59, label %.lr.ph58
+  %.not4854 = icmp eq ptr %.pre, %3
+  br i1 %.not4854, label %._crit_edge58, label %.lr.ph57
 
-.lr.ph58:                                         ; preds = %._crit_edge, %.backedge
-  %.156 = phi ptr [ %26, %.backedge ], [ %.pre, %._crit_edge ]
-  %25 = getelementptr inbounds i8, ptr %.156, i64 -112
-  %26 = load ptr, ptr %.156, align 8, !tbaa !22
-  %27 = getelementptr inbounds nuw i8, ptr %.156, i64 8
+.lr.ph57:                                         ; preds = %._crit_edge, %.backedge
+  %.155 = phi ptr [ %26, %.backedge ], [ %.pre, %._crit_edge ]
+  %25 = getelementptr inbounds i8, ptr %.155, i64 -112
+  %26 = load ptr, ptr %.155, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %.155, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   store ptr %26, ptr %28, align 8, !tbaa !22
   %29 = load ptr, ptr %27, align 8, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !22
-  store ptr %.156, ptr %.156, align 8, !tbaa !22
-  store ptr %.156, ptr %27, align 8, !tbaa !22
-  %31 = getelementptr inbounds i8, ptr %.156, i64 -24
+  store ptr %.155, ptr %.155, align 8, !tbaa !22
+  store ptr %.155, ptr %27, align 8, !tbaa !22
+  %31 = getelementptr inbounds i8, ptr %.155, i64 -24
   %32 = load i32, ptr %31, align 8, !tbaa !29
   %33 = and i32 %32, 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %44, label %35
 
-35:                                               ; preds = %.lr.ph58
+35:                                               ; preds = %.lr.ph57
   %36 = and i32 %32, -5
   store i32 %36, ptr %31, align 8, !tbaa !29
   %37 = and i32 %32, 8
-  %.not50 = icmp eq i32 %37, 0
-  br i1 %.not50, label %44, label %38
+  %.not49 = icmp eq i32 %37, 0
+  br i1 %.not49, label %44, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.156, i64 -104
+  %39 = getelementptr inbounds i8, ptr %.155, i64 -104
   %40 = load ptr, ptr %39, align 8, !tbaa !30
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !21
@@ -153,14 +153,14 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
   store i32 %43, ptr %41, align 8, !tbaa !21
   br label %44
 
-44:                                               ; preds = %38, %35, %.lr.ph58
-  %45 = getelementptr inbounds i8, ptr %.156, i64 -16
+44:                                               ; preds = %38, %35, %.lr.ph57
+  %45 = getelementptr inbounds i8, ptr %.155, i64 -16
   %46 = load ptr, ptr %45, align 8, !tbaa !31
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.backedge, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %.156, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.155, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !26
   %51 = and i32 %50, 127
   %52 = icmp eq i32 %51, 0
@@ -176,10 +176,10 @@ define dso_local void @uv__wait_children(ptr noundef readonly captures(address) 
   br label %.backedge
 
 .backedge:                                        ; preds = %48, %44
-  %.not49 = icmp eq ptr %26, %3
-  br i1 %.not49, label %._crit_edge59, label %.lr.ph58, !llvm.loop !32
+  %.not48 = icmp eq ptr %26, %3
+  br i1 %.not48, label %._crit_edge58, label %.lr.ph57, !llvm.loop !32
 
-._crit_edge59:                                    ; preds = %.backedge, %1, %._crit_edge
+._crit_edge58:                                    ; preds = %.backedge, %1, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

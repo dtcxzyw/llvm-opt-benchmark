@@ -4228,8 +4228,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNameGenerator14Implementation15ge
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 127
   %11 = icmp ne i32 %10, 18
-  %.not21 = icmp eq ptr %2, null
-  %.not = or i1 %.not21, %11
+  %.not20 = icmp eq ptr %2, null
+  %.not = or i1 %.not20, %11
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %3
@@ -4238,8 +4238,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNameGenerator14Implementation15ge
 
 14:                                               ; preds = %3
   %15 = icmp ne i32 %10, 19
-  %.not14 = or i1 %.not21, %15
-  br i1 %.not14, label %.thread, label %16
+  %.not13 = or i1 %.not20, %15
+  br i1 %.not13, label %.thread, label %16
 
 16:                                               ; preds = %14
   %17 = tail call { ptr, i64 } @_ZNK5clang22ObjCImplementationDecl26getObjCRuntimeNameAsStringEv(ptr noundef nonnull align 8 dereferenceable(133) %2) #22
@@ -4256,15 +4256,15 @@ define linkonce_odr hidden void @_ZN5clang16ASTNameGenerator14Implementation15ge
   br label %59
 
 20:                                               ; preds = %18
-  %.sroa.016.0 = extractvalue { ptr, i64 } %.pn, 0
+  %.sroa.015.0 = extractvalue { ptr, i64 } %.pn, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !592
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %21, align 8, !tbaa !594
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_17ObjCContainerDeclEENKUlNS1_8ObjCKindEN4llvm9StringRefEE_clB5cxx11ES5_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0, ptr %.sroa.016.0, i64 %.sroa.7.0)
+  call void @_ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_17ObjCContainerDeclEENKUlNS1_8ObjCKindEN4llvm9StringRefEE_clB5cxx11ES5_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0, ptr %.sroa.015.0, i64 %.sroa.7.0)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @_ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_17ObjCContainerDeclEENKUlNS1_8ObjCKindEN4llvm9StringRefEE_clB5cxx11ES5_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1, ptr %.sroa.016.0, i64 %.sroa.7.0)
+  call void @_ZZN5clang16ASTNameGenerator14Implementation15getAllManglingsB5cxx11EPKNS_17ObjCContainerDeclEENKUlNS1_8ObjCKindEN4llvm9StringRefEE_clB5cxx11ES5_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1, ptr %.sroa.015.0, i64 %.sroa.7.0)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %23, align 8
   %24 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23

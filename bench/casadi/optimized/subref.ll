@@ -4570,7 +4570,7 @@ define void @_ZNK6casadi6SubRef4infoB5cxx11Ev(ptr dead_on_unwind noalias writabl
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZNK6casadi5Slice4infoB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::map") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %7)
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEC2IRA2_KcSt3mapIS5_S8_St4lessIS5_ESaIS9_EETnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISK_SL_EEEbE4typeELb1EEEOSK_OSL_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(2) @.str.11, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %8 unwind label %.thread27
+          to label %8 unwind label %.thread26
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4675,7 +4675,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !116
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %45)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit20 unwind label %46
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit19 unwind label %46
 
 46:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   %47 = landingpad { ptr, i32 }
@@ -4684,12 +4684,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   call void @__clang_call_terminate(ptr %48) #26
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit20: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit19: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.thread27:                                        ; preds = %2
+.thread26:                                        ; preds = %2
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #23
@@ -4707,16 +4707,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
 51:                                               ; preds = %10
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit36
+  br label %.loopexit35
 
 53:                                               ; preds = %53, %.body
   %54 = phi ptr [ %18, %.body ], [ %55, %53 ]
   %55 = getelementptr inbounds i8, ptr %54, i64 -40
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   %56 = icmp eq ptr %55, %4
-  br i1 %56, label %.loopexit36, label %53
+  br i1 %56, label %.loopexit35, label %53
 
-.loopexit36:                                      ; preds = %53, %51
+.loopexit35:                                      ; preds = %53, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %20, %53 ]
   %57 = phi i1 [ false, %51 ], [ true, %53 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #23
@@ -4725,15 +4725,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %57, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread, %.loopexit36
-  %.pn.pn35 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn, %.loopexit36 ]
+.preheader.preheader:                             ; preds = %.thread, %.loopexit35
+  %.pn.pn34 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn, %.loopexit35 ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %.thread27, %.loopexit36
-  %.pn.pn.pn.pn26 = phi { ptr, i32 } [ %.pn, %.loopexit36 ], [ %49, %.thread27 ], [ %.pn.pn35, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader.preheader, %.thread26, %.loopexit35
+  %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %.pn, %.loopexit35 ], [ %49, %.thread26 ], [ %.pn.pn34, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn.pn.pn.pn26
+  resume { ptr, i32 } %.pn.pn.pn.pn25
 }
 
 ; Function Attrs: mustprogress uwtable

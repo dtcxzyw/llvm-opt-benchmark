@@ -2671,10 +2671,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !96, !alias.scope !177
   store i8 0, ptr %18, align 8, !noalias !177
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 279, ptr %.sroa.521.0..sroa_idx.i, align 4, !noalias !177
-  %.sroa.6.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 279, ptr %.sroa.6.0..sroa_idx22.i, align 8, !noalias !177
+  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 279, ptr %.sroa.520.0..sroa_idx.i, align 4, !noalias !177
+  %.sroa.6.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 279, ptr %.sroa.6.0..sroa_idx21.i, align 8, !noalias !177
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %22, align 8, !tbaa !60, !noalias !177
   %23 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !177
@@ -3429,15 +3429,15 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
 
 10:                                               ; preds = %.noexc, %7
   store i8 0, ptr %2, align 8
-  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 279, ptr %.sroa.551.0..sroa_idx, align 4
-  %.sroa.652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 279, ptr %.sroa.652.0..sroa_idx, align 8
+  %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 279, ptr %.sroa.550.0..sroa_idx, align 4
+  %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 279, ptr %.sroa.651.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %11, align 8, !tbaa !60, !alias.scope !213
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %14 unwind label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread
+          to label %14 unwind label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3449,8 +3449,8 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store i32 %18, ptr %17, align 4, !tbaa !219, !noalias !216
   %19 = atomicrmw add ptr %16, i32 1 monotonic, align 4, !noalias !216
   store i8 0, ptr %12, align 8
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 279, ptr %.sroa.545.0..sroa_idx, align 4
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 279, ptr %.sroa.544.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 279, ptr %.sroa.6.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3458,7 +3458,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 279)
-          to label %22 unwind label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41
+          to label %22 unwind label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40
 
 22:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -3536,27 +3536,27 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %39, %44, 
 53:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit
   %54 = load ptr, ptr %24, align 8, !tbaa !60
   %.not.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit33, label %55
+  br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit32, label %55
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = atomicrmw sub ptr %56, i32 1 acq_rel, align 4
   %58 = icmp eq i32 %57, 1
-  br i1 %58, label %59, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit33
+  br i1 %58, label %59, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit32
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %54, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(12) %54) #23
-  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit33
+  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit32
 
-_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit33: ; preds = %53, %55, %59
+_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit32: ; preds = %53, %55, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread: ; preds = %10
+_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread: ; preds = %10
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
@@ -3566,93 +3566,93 @@ _ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.t
           cleanup
   br label %65
 
-65:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35, %.body
-  %66 = phi ptr [ %26, %.body ], [ %67, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35 ]
+65:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34, %.body
+  %66 = phi ptr [ %26, %.body ], [ %67, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34 ]
   %67 = getelementptr inbounds i8, ptr %66, i64 -24
   %68 = getelementptr inbounds i8, ptr %66, i64 -8
   %69 = load ptr, ptr %68, align 8, !tbaa !60
-  %.not.i.i.i34 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i34, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35, label %70
+  %.not.i.i.i33 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i33, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = atomicrmw sub ptr %71, i32 1 acq_rel, align 4
   %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35
+  br i1 %73, label %74, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %69, align 8, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(12) %69) #23
-  br label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35
+  br label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34
 
-_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35: ; preds = %65, %70, %74
+_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34: ; preds = %65, %70, %74
   %78 = icmp eq ptr %67, %2
   br i1 %78, label %79, label %65
 
-79:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit35
+79:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34
   %80 = load ptr, ptr %24, align 8, !tbaa !60
-  %.not.i.i.i.i36 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i36, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68, label %81
+  %.not.i.i.i.i35 = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i35, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67, label %81
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %83 = atomicrmw sub ptr %82, i32 1 acq_rel, align 4
   %84 = icmp eq i32 %83, 1
-  br i1 %84, label %85, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68
+  br i1 %84, label %85, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %80, align 8, !tbaa !13
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(12) %80) #23
-  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68
+  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
 
-_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68: ; preds = %79, %81, %85
+_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67: ; preds = %79, %81, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41: ; preds = %14
+_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40: ; preds = %14
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread
-  %.pn.pn.pn.pn66 = phi { ptr, i32 } [ %63, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread ], [ %89, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41 ]
-  %.21965 = phi ptr [ %12, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread ], [ %21, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41 ]
+.preheader.preheader:                             ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread
+  %.pn.pn.pn.pn65 = phi { ptr, i32 } [ %63, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %89, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
+  %.21964 = phi ptr [ %12, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %21, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43
-  %90 = phi ptr [ %91, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43 ], [ %.21965, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42
+  %90 = phi ptr [ %91, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ], [ %.21964, %.preheader.preheader ]
   %91 = getelementptr inbounds i8, ptr %90, i64 -24
   %92 = getelementptr inbounds i8, ptr %90, i64 -8
   %93 = load ptr, ptr %92, align 8, !tbaa !60
-  %.not.i.i.i42 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i42, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43, label %94
+  %.not.i.i.i41 = icmp eq ptr %93, null
+  br i1 %.not.i.i.i41, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42, label %94
 
 94:                                               ; preds = %.preheader
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = atomicrmw sub ptr %95, i32 1 acq_rel, align 4
   %97 = icmp eq i32 %96, 1
-  br i1 %97, label %98, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43
+  br i1 %97, label %98, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %93, align 8, !tbaa !13
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(12) %93) #23
-  br label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43
+  br label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42
 
-_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43: ; preds = %.preheader, %94, %98
+_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42: ; preds = %.preheader, %94, %98
   %102 = icmp eq ptr %91, %2
   br i1 %102, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68
-  %.pn.pn.pn.pn67 = phi { ptr, i32 } [ %64, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit41.thread68 ], [ %.pn.pn.pn.pn66, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit43 ]
+.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
+  %.pn.pn.pn.pn66 = phi { ptr, i32 } [ %64, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67 ], [ %.pn.pn.pn.pn65, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn.pn.pn.pn67
+  resume { ptr, i32 } %.pn.pn.pn.pn66
 }
 
 ; Function Attrs: mustprogress uwtable

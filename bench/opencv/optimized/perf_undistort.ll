@@ -1306,19 +1306,19 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   ret void
 
 100:                                              ; preds = %92, %90
-  %.pn35 = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ]
+  %.pn33 = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %101
 
 101:                                              ; preds = %100, %88
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %100 ], [ %89, %88 ]
+  %.pn33.pn = phi { ptr, i32 } [ %.pn33, %100 ], [ %89, %88 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %102
 
 102:                                              ; preds = %101, %86, %84, %82
-  %.pn35.pn.pn = phi { ptr, i32 } [ %.pn35.pn, %101 ], [ %87, %86 ], [ %83, %82 ], [ %85, %84 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %101 ], [ %87, %86 ], [ %83, %82 ], [ %85, %84 ]
   br label %103
 
 103:                                              ; preds = %103, %102
@@ -1332,7 +1332,7 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn35.pn.pn
+  resume { ptr, i32 } %.pn33.pn.pn
 }
 
 ; Function Attrs: nounwind

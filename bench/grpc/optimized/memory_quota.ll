@@ -2266,11 +2266,11 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit: ; preds = %.crit
 
 56:                                               ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit17.preheader unwind label %58
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit16.preheader unwind label %58
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit17.preheader: ; preds = %56
+_ZN4absl12lts_202407229MutexLockD2Ev.exit16.preheader: ; preds = %56
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit17
+  br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit16
 
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
@@ -2280,16 +2280,16 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit17.preheader: ; preds = %56
   unreachable
 
 61:                                               ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit
-  %.035 = phi i64 [ 0, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit ], [ %90, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit ]
-  %62 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.33"], ptr %54, i64 0, i64 %.035
+  %.034 = phi i64 [ 0, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit ], [ %90, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit ]
+  %62 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.33"], ptr %54, i64 0, i64 %.034
   %63 = load i64, ptr %62, align 8, !tbaa !116, !noalias !123
   %64 = inttoptr i64 %63 to ptr
   store ptr null, ptr %62, align 8, !tbaa !116, !noalias !123
-  %65 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.33"], ptr %5, i64 0, i64 %.035
+  %65 = getelementptr inbounds nuw [3 x %"class.std::unique_ptr.33"], ptr %5, i64 0, i64 %.034
   %66 = load ptr, ptr %65, align 8, !tbaa !116
   store ptr %64, ptr %65, align 8, !tbaa !116
-  %.not.i.i.i.i18 = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i18, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit, label %67
+  %.not.i.i.i.i17 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i17, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit, label %67
 
 67:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2351,82 +2351,82 @@ _ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i.i.i.i
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i.i.i.i, %61
-  %90 = add nuw nsw i64 %.035, 1
+  %90 = add nuw nsw i64 %.034, 1
   %exitcond.not = icmp eq i64 %90, 3
   br i1 %exitcond.not, label %56, label %61, !llvm.loop !128
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit17:      ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit17.preheader, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27
-  %91 = phi ptr [ %92, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27 ], [ %9, %_ZN4absl12lts_202407229MutexLockD2Ev.exit17.preheader ]
+_ZN4absl12lts_202407229MutexLockD2Ev.exit16:      ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit16.preheader, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26
+  %91 = phi ptr [ %92, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26 ], [ %9, %_ZN4absl12lts_202407229MutexLockD2Ev.exit16.preheader ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
   %93 = load ptr, ptr %92, align 8, !tbaa !116
-  %.not.i21 = icmp eq ptr %93, null
-  br i1 %.not.i21, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27, label %94
+  %.not.i20 = icmp eq ptr %93, null
+  br i1 %.not.i20, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26, label %94
 
-94:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit17
+94:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = atomicrmw xchg ptr %95, i64 0 acq_rel, align 8
-  %.not.i.i.i22 = icmp eq i64 %96, 0
-  br i1 %.not.i.i.i22, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25, label %97
+  %.not.i.i.i21 = icmp eq i64 %96, 0
+  br i1 %.not.i.i.i21, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24, label %97
 
 97:                                               ; preds = %94
-  %.0.i.i.i.i.i23 = inttoptr i64 %96 to ptr
+  %.0.i.i.i.i.i22 = inttoptr i64 %96 to ptr
   store i8 0, ptr %57, align 8, !tbaa !36
-  %98 = load ptr, ptr %.0.i.i.i.i.i23, align 8, !tbaa !23
+  %98 = load ptr, ptr %.0.i.i.i.i.i22, align 8, !tbaa !23
   %99 = load ptr, ptr %98, align 8
-  invoke void %99(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i23, ptr noundef nonnull %2)
+  invoke void %99(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i.i.i22, ptr noundef nonnull %2)
           to label %100 unwind label %104
 
 100:                                              ; preds = %97
   %101 = load i8, ptr %57, align 8, !tbaa !36, !range !39, !noundef !40
   %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %103, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25
+  br i1 %102, label %103, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24
 
 103:                                              ; preds = %100
   store i8 0, ptr %57, align 8, !tbaa !36
   call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #40
-  br label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25
+  br label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24
 
 104:                                              ; preds = %97
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = load i8, ptr %57, align 8, !tbaa !36, !range !39, !noundef !40
   %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %108, label %.body.i24
+  br i1 %107, label %108, label %.body.i23
 
 108:                                              ; preds = %104
   store i8 0, ptr %57, align 8, !tbaa !36
   call void @_ZN9grpc_core16ReclamationSweepD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #40
-  br label %.body.i24
+  br label %.body.i23
 
-_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25: ; preds = %103, %100, %94
+_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24: ; preds = %103, %100, %94
   %109 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %110 = atomicrmw sub ptr %109, i64 1 acq_rel, align 8
   %111 = icmp eq i64 %110, 1
-  br i1 %111, label %112, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i26, !prof !32
+  br i1 %111, label %112, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i25, !prof !32
 
-112:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25
+112:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24
   %113 = load ptr, ptr %93, align 8, !tbaa !23
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(24) %93) #40
-  br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i26
+  br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i25
 
-_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i26: ; preds = %112, %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i25
+_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i25: ; preds = %112, %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit.i.i.i24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27
+  br label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26
 
-.body.i24:                                        ; preds = %108, %104
+.body.i23:                                        ; preds = %108, %104
   %116 = extractvalue { ptr, i32 } %105, 0
   call void @__clang_call_terminate(ptr %116) #39
   unreachable
 
-_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27: ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit17, %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i26
+_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26: ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit16, %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i25
   store ptr null, ptr %92, align 8, !tbaa !116
   %117 = icmp eq ptr %92, %5
-  br i1 %117, label %118, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit17
+  br i1 %117, label %118, label %_ZN4absl12lts_202407229MutexLockD2Ev.exit16
 
-118:                                              ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit27
+118:                                              ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %119 = load ptr, ptr %24, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %119, null
@@ -2455,8 +2455,8 @@ _ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2E
 
 133:                                              ; preds = %120
   %134 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30
-  %.not.i.i.i28 = icmp eq i8 %134, 0
-  br i1 %.not.i.i.i28, label %137, label %135
+  %.not.i.i.i27 = icmp eq i8 %134, 0
+  br i1 %.not.i.i.i27, label %137, label %135
 
 135:                                              ; preds = %133
   %136 = add nsw i32 %124, -1

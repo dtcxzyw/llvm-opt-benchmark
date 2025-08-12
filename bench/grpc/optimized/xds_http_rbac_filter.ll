@@ -7184,7 +7184,7 @@ envoy_config_rbac_v3_Permission_Set_rules.exit:   ; preds = %3
           to label %88 unwind label %134
 
 38:                                               ; preds = %.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
-  %.02146 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit ]
+  %.02145 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load ptr, ptr %1, align 8, !tbaa !257
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -7192,7 +7192,7 @@ envoy_config_rbac_v3_Permission_Set_rules.exit:   ; preds = %3
   store i64 7, ptr %11, align 8
   store ptr @.str.50, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %40 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %.02146, ptr noundef nonnull %29)
+  %40 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %.02145, ptr noundef nonnull %29)
           to label %41 unwind label %69
 
 41:                                               ; preds = %38
@@ -7236,7 +7236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %53 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02146
+  %53 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02145
   %54 = load ptr, ptr %53, align 8, !tbaa !92
   %55 = load ptr, ptr %1, align 8, !tbaa !257
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_121ParsePermissionToJsonEPK31envoy_config_rbac_v3_PermissionPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %54, ptr noundef %55)
@@ -7281,7 +7281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %68 = add nuw i64 %.02146, 1
+  %68 = add nuw i64 %.02145, 1
   %exitcond.not = icmp eq i64 %68, %24
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !282
 
@@ -7293,34 +7293,34 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %64
 71:                                               ; preds = %41
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 73:                                               ; preds = %44
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = load ptr, ptr %10, align 8, !tbaa !42
   %76 = icmp eq ptr %75, %34
-  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
+  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34: ; preds = %73
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33: ; preds = %73
   %77 = load i64, ptr %33, align 8, !tbaa !44
   %78 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %78)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33: ; preds = %73
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %73
   %79 = load i64, ptr %34, align 8, !tbaa !45
   %80 = add i64 %79, 1
   call void @_ZdlPvm(ptr noundef %75, i64 noundef %80) #31
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, %71
-  %.pn24 = phi { ptr, i32 } [ %72, %71 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %71
+  %.pn23 = phi { ptr, i32 } [ %72, %71 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %81
 
-81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %69
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %70, %69 ]
+81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %69
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7338,13 +7338,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %86
 
 86:                                               ; preds = %84, %82
-  %.pn28 = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
+  %.pn27 = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #30
   br label %87
 
 87:                                               ; preds = %86, %81
-  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %86 ], [ %.pn24.pn, %81 ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %86 ], [ %.pn23.pn, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %137
 
@@ -7417,17 +7417,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %112 = load i8, ptr %36, align 8, !tbaa !33
-  %.not.i.i36 = icmp eq i8 %112, -1
-  br i1 %.not.i.i36, label %_ZN9grpc_core12experimental4JsonD2Ev.exit38, label %113, !prof !29
+  %.not.i.i35 = icmp eq i8 %112, -1
+  br i1 %.not.i.i35, label %_ZN9grpc_core12experimental4JsonD2Ev.exit37, label %113, !prof !29
 
 113:                                              ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(56) %17)
-          to label %.noexc.i37 unwind label %114
+          to label %.noexc.i36 unwind label %114
 
-.noexc.i37:                                       ; preds = %113
+.noexc.i36:                                       ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN9grpc_core12experimental4JsonD2Ev.exit38
+  br label %_ZN9grpc_core12experimental4JsonD2Ev.exit37
 
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
@@ -7436,7 +7436,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
   call void @__clang_call_terminate(ptr %116) #29
   unreachable
 
-_ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i37
+_ZN9grpc_core12experimental4JsonD2Ev.exit37:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -7446,19 +7446,19 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__c
   %.not.i2.i.i = icmp eq ptr %117, %119
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit38, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
-  %.0.i3.i.i = phi ptr [ %126, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit38 ]
+.lr.ph.i.i:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit37, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
+  %.0.i3.i.i = phi ptr [ %126, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit37 ]
   %120 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 48
   %121 = load i8, ptr %120, align 8, !tbaa !33
-  %.not.i.i39 = icmp eq i8 %121, -1
-  br i1 %.not.i.i39, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i, label %122, !prof !29
+  %.not.i.i38 = icmp eq i8 %121, -1
+  br i1 %.not.i.i38, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i, label %122, !prof !29
 
 122:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(56) %.0.i3.i.i)
-          to label %.noexc.i.i40 unwind label %123
+          to label %.noexc.i.i39 unwind label %123
 
-.noexc.i.i40:                                     ; preds = %122
+.noexc.i.i39:                                     ; preds = %122
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 -1, ptr %120, align 8, !tbaa !33
   br label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
@@ -7470,7 +7470,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__c
   call void @__clang_call_terminate(ptr %125) #29
   unreachable
 
-_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i: ; preds = %.noexc.i.i40, %.lr.ph.i.i
+_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i: ; preds = %.noexc.i.i39, %.lr.ph.i.i
   %126 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 56
   %.not.i.i1.i = icmp eq ptr %126, %119
   br i1 %.not.i.i1.i, label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i, !llvm.loop !105
@@ -7479,10 +7479,10 @@ _ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !56
   br label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit38
-  %127 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit38 ]
-  %.not.i.i.i41 = icmp eq ptr %127, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit, label %128
+_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit37
+  %127 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit37 ]
+  %.not.i.i.i40 = icmp eq ptr %127, null
+  br i1 %.not.i.i.i40, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit, label %128
 
 128:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -7519,10 +7519,10 @@ _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
   br label %137
 
 137:                                              ; preds = %.loopexit, %87
-  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %87 ], [ %.pn, %.loopexit ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %87 ], [ %.pn, %.loopexit ]
   call void @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  resume { ptr, i32 } %.pn28.pn.pn
+  resume { ptr, i32 } %.pn27.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8026,7 +8026,7 @@ envoy_config_route_v3_HeaderMatcher_range_match.exit: ; preds = %upb_Message_Has
 
 .noexc118:                                        ; preds = %envoy_config_route_v3_HeaderMatcher_range_match.exit
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEC2IRA6_KcS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 1 dereferenceable(6) @.str.68, ptr noundef nonnull align 8 dereferenceable(56) %16)
-          to label %182 unwind label %.thread29.i, !noalias !298
+          to label %182 unwind label %.thread28.i, !noalias !298
 
 182:                                              ; preds = %.noexc118
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !298
@@ -8143,15 +8143,15 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i117, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !298
   %223 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %224 = load i8, ptr %223, align 8, !tbaa !33, !noalias !298
-  %.not.i.i21.i = icmp eq i8 %224, -1
-  br i1 %.not.i.i21.i, label %241, label %225, !prof !29
+  %.not.i.i20.i = icmp eq i8 %224, -1
+  br i1 %.not.i.i20.i, label %241, label %225, !prof !29
 
 225:                                              ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !298
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(56) %16)
-          to label %.noexc.i22.i unwind label %226
+          to label %.noexc.i21.i unwind label %226
 
-.noexc.i22.i:                                     ; preds = %225
+.noexc.i21.i:                                     ; preds = %225
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !298
   br label %241
 
@@ -8162,7 +8162,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i117, %216
   call void @__clang_call_terminate(ptr %228) #29
   unreachable
 
-.thread29.i:                                      ; preds = %.noexc118
+.thread28.i:                                      ; preds = %.noexc118
   %229 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #30, !noalias !298
@@ -8180,7 +8180,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i117, %216
 231:                                              ; preds = %185
   %232 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit38.i
+  br label %.loopexit37.i
 
 233:                                              ; preds = %187
   %234 = landingpad { ptr, i32 }
@@ -8195,9 +8195,9 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i117, %216
   %238 = getelementptr inbounds i8, ptr %237, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %238) #30, !noalias !298
   %239 = icmp eq ptr %238, %15
-  br i1 %239, label %.loopexit38.i, label %236
+  br i1 %239, label %.loopexit37.i, label %236
 
-.loopexit38.i:                                    ; preds = %236, %231
+.loopexit37.i:                                    ; preds = %236, %231
   %.pn.i = phi { ptr, i32 } [ %232, %231 ], [ %234, %236 ]
   %240 = phi i1 [ false, %231 ], [ true, %236 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #30, !noalias !298
@@ -8206,18 +8206,18 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i117, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !298
   br i1 %240, label %.loopexit.i, label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %.loopexit38.i, %.thread.i
-  %.pn.pn37.i = phi { ptr, i32 } [ %230, %.thread.i ], [ %.pn.i, %.loopexit38.i ]
+.preheader.preheader.i:                           ; preds = %.loopexit37.i, %.thread.i
+  %.pn.pn36.i = phi { ptr, i32 } [ %230, %.thread.i ], [ %.pn.i, %.loopexit37.i ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #30, !noalias !298
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.preheader.preheader.i, %.loopexit38.i, %.thread29.i
-  %.pn.pn.pn.pn28.i = phi { ptr, i32 } [ %.pn.i, %.loopexit38.i ], [ %229, %.thread29.i ], [ %.pn.pn37.i, %.preheader.preheader.i ]
+.loopexit.i:                                      ; preds = %.preheader.preheader.i, %.loopexit37.i, %.thread28.i
+  %.pn.pn.pn.pn27.i = phi { ptr, i32 } [ %.pn.i, %.loopexit37.i ], [ %229, %.thread28.i ], [ %.pn.pn36.i, %.preheader.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !298
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !298
   br label %.body
 
-241:                                              ; preds = %.noexc.i22.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit.i
+241:                                              ; preds = %.noexc.i21.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !298
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !298
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !298
@@ -8261,7 +8261,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit123:     ; preds = %_ZNSt3mapINSt7__cxx
   br label %.body
 
 .body:                                            ; preds = %248, %.loopexit.i, %250
-  %.pn69 = phi { ptr, i32 } [ %251, %250 ], [ %249, %248 ], [ %.pn.pn.pn.pn28.i, %.loopexit.i ]
+  %.pn69 = phi { ptr, i32 } [ %251, %250 ], [ %249, %248 ], [ %.pn.pn.pn.pn27.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %399
 
@@ -8947,10 +8947,10 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %59
   ret void
 
 63:                                               ; preds = %58, %18
-  %.pn15 = phi { ptr, i32 } [ %19, %18 ], [ %.pn.pn, %58 ]
+  %.pn14 = phi { ptr, i32 } [ %19, %18 ], [ %.pn.pn, %58 ]
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn15
+  resume { ptr, i32 } %.pn14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12136,9 +12136,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(56) %40)
-          to label %.noexc.i.i12 unwind label %41
+          to label %.noexc.i.i11 unwind label %41
 
-.noexc.i.i12:                                     ; preds = %39
+.noexc.i.i11:                                     ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 -1, ptr %37, align 8, !tbaa !33
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit.i
@@ -12150,7 +12150,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   call void @__clang_call_terminate(ptr %43) #29
   unreachable
 
-_ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i12, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
+_ZN9grpc_core12experimental4JsonD2Ev.exit.i:      ; preds = %.noexc.i.i11, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
   %44 = load ptr, ptr %6, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %46 = icmp eq ptr %44, %45
@@ -12177,9 +12177,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
 53:                                               ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(56) %7)
-          to label %.noexc.i13 unwind label %54
+          to label %.noexc.i12 unwind label %54
 
-.noexc.i13:                                       ; preds = %53
+.noexc.i12:                                       ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 -1, ptr %26, align 8, !tbaa !33
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit
@@ -12191,7 +12191,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
   call void @__clang_call_terminate(ptr %56) #29
   unreachable
 
-_ZN9grpc_core12experimental4JsonD2Ev.exit:        ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i13
+_ZN9grpc_core12experimental4JsonD2Ev.exit:        ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i12
   %57 = load ptr, ptr %8, align 8, !tbaa !42
   %58 = icmp eq ptr %57, %11
   br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -12233,21 +12233,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #30
   %66 = load ptr, ptr %8, align 8, !tbaa !42
   %67 = icmp eq ptr %66, %11
-  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15: ; preds = %.loopexit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14: ; preds = %.loopexit
   %68 = load i64, ptr %23, align 8, !tbaa !44
   %69 = icmp ult i64 %68, 16
   call void @llvm.assume(i1 %69)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14: ; preds = %.loopexit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13: ; preds = %.loopexit
   %70 = load i64, ptr %11, align 8, !tbaa !45
   %71 = add i64 %70, 1
   call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #31
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -14383,7 +14383,7 @@ envoy_config_rbac_v3_Principal_Set_ids.exit:      ; preds = %3
           to label %88 unwind label %134
 
 38:                                               ; preds = %.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit
-  %.02146 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit ]
+  %.02145 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load ptr, ptr %1, align 8, !tbaa !267
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -14391,7 +14391,7 @@ envoy_config_rbac_v3_Principal_Set_ids.exit:      ; preds = %3
   store i64 5, ptr %11, align 8
   store ptr @.str.96, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %40 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %.02146, ptr noundef nonnull %29)
+  %40 = invoke noundef ptr @_ZN4absl12lts_2024072216numbers_internal15FastIntToBufferEmPc(i64 noundef %.02145, ptr noundef nonnull %29)
           to label %41 unwind label %69
 
 41:                                               ; preds = %38
@@ -14435,7 +14435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %53 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02146
+  %53 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02145
   %54 = load ptr, ptr %53, align 8, !tbaa !99
   %55 = load ptr, ptr %1, align 8, !tbaa !267
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ParsePrincipalToJsonEPK30envoy_config_rbac_v3_PrincipalPNS_16ValidationErrorsE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %54, ptr noundef %55)
@@ -14480,7 +14480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %68 = add nuw i64 %.02146, 1
+  %68 = add nuw i64 %.02145, 1
   %exitcond.not = icmp eq i64 %68, %24
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !415
 
@@ -14492,34 +14492,34 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %64
 71:                                               ; preds = %41
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 73:                                               ; preds = %44
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = load ptr, ptr %10, align 8, !tbaa !42
   %76 = icmp eq ptr %75, %34
-  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
+  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34: ; preds = %73
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33: ; preds = %73
   %77 = load i64, ptr %33, align 8, !tbaa !44
   %78 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %78)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33: ; preds = %73
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %73
   %79 = load i64, ptr %34, align 8, !tbaa !45
   %80 = add i64 %79, 1
   call void @_ZdlPvm(ptr noundef %75, i64 noundef %80) #31
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, %71
-  %.pn24 = phi { ptr, i32 } [ %72, %71 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %71
+  %.pn23 = phi { ptr, i32 } [ %72, %71 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %81
 
-81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %69
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %70, %69 ]
+81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %69
+  %.pn23.pn = phi { ptr, i32 } [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -14537,13 +14537,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %86
 
 86:                                               ; preds = %84, %82
-  %.pn28 = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
+  %.pn27 = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #30
   br label %87
 
 87:                                               ; preds = %86, %81
-  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %86 ], [ %.pn24.pn, %81 ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %86 ], [ %.pn23.pn, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %137
 
@@ -14616,17 +14616,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %112 = load i8, ptr %36, align 8, !tbaa !33
-  %.not.i.i36 = icmp eq i8 %112, -1
-  br i1 %.not.i.i36, label %_ZN9grpc_core12experimental4JsonD2Ev.exit38, label %113, !prof !29
+  %.not.i.i35 = icmp eq i8 %112, -1
+  br i1 %.not.i.i35, label %_ZN9grpc_core12experimental4JsonD2Ev.exit37, label %113, !prof !29
 
 113:                                              ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(56) %17)
-          to label %.noexc.i37 unwind label %114
+          to label %.noexc.i36 unwind label %114
 
-.noexc.i37:                                       ; preds = %113
+.noexc.i36:                                       ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN9grpc_core12experimental4JsonD2Ev.exit38
+  br label %_ZN9grpc_core12experimental4JsonD2Ev.exit37
 
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
@@ -14635,7 +14635,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exp
   call void @__clang_call_terminate(ptr %116) #29
   unreachable
 
-_ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i37
+_ZN9grpc_core12experimental4JsonD2Ev.exit37:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i36
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -14645,19 +14645,19 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__c
   %.not.i2.i.i = icmp eq ptr %117, %119
   br i1 %.not.i2.i.i, label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit38, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
-  %.0.i3.i.i = phi ptr [ %126, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit38 ]
+.lr.ph.i.i:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit37, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
+  %.0.i3.i.i = phi ptr [ %126, %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit37 ]
   %120 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 48
   %121 = load i8, ptr %120, align 8, !tbaa !33
-  %.not.i.i39 = icmp eq i8 %121, -1
-  br i1 %.not.i.i39, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i, label %122, !prof !29
+  %.not.i.i38 = icmp eq i8 %121, -1
+  br i1 %.not.i.i38, label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i, label %122, !prof !29
 
 122:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(56) %.0.i3.i.i)
-          to label %.noexc.i.i40 unwind label %123
+          to label %.noexc.i.i39 unwind label %123
 
-.noexc.i.i40:                                     ; preds = %122
+.noexc.i.i39:                                     ; preds = %122
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 -1, ptr %120, align 8, !tbaa !33
   br label %_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i
@@ -14669,7 +14669,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit38:      ; preds = %_ZNSt4pairIKNSt7__c
   call void @__clang_call_terminate(ptr %125) #29
   unreachable
 
-_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i: ; preds = %.noexc.i.i40, %.lr.ph.i.i
+_ZSt8_DestroyIN9grpc_core12experimental4JsonEEvPT_.exit.i.i: ; preds = %.noexc.i.i39, %.lr.ph.i.i
   %126 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 56
   %.not.i.i1.i = icmp eq ptr %126, %119
   br i1 %.not.i.i1.i, label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i, !llvm.loop !105
@@ -14678,10 +14678,10 @@ _ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !56
   br label %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit38
-  %127 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit38 ]
-  %.not.i.i.i41 = icmp eq ptr %127, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit, label %128
+_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit37
+  %127 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %117, %_ZN9grpc_core12experimental4JsonD2Ev.exit37 ]
+  %.not.i.i.i40 = icmp eq ptr %127, null
+  br i1 %.not.i.i.i40, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit, label %128
 
 128:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core12experimental4JsonES2_EvT_S4_RSaIT0_E.exit.i
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14718,10 +14718,10 @@ _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = %_ZSt8_
   br label %137
 
 137:                                              ; preds = %.loopexit, %87
-  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %87 ], [ %.pn, %.loopexit ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %87 ], [ %.pn, %.loopexit ]
   call void @_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  resume { ptr, i32 } %.pn28.pn.pn
+  resume { ptr, i32 } %.pn27.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

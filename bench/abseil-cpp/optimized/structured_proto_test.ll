@@ -565,10 +565,10 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_177gtest_StructuredProt
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %11, ptr %12, align 8, !tbaa !46
   store i8 -48, ptr %10, align 1
-  %.sroa.5125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 2, ptr %.sroa.5125.0..sroa_idx, align 1
-  %.sroa.6126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 23, ptr %.sroa.6126.0..sroa_idx, align 1
+  %.sroa.5124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 2, ptr %.sroa.5124.0..sroa_idx, align 1
+  %.sroa.6125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 23, ptr %.sroa.6125.0..sroa_idx, align 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %11, ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -590,21 +590,21 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_177gtest_StructuredProt
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %23 = invoke noalias noundef nonnull dereferenceable(10) ptr @_Znwm(i64 noundef 10) #31
-          to label %._crit_edge.i.i73 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95
+          to label %._crit_edge.i.i72 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i94
 
-._crit_edge.i.i73:                                ; preds = %._crit_edge.i.i
+._crit_edge.i.i72:                                ; preds = %._crit_edge.i.i
   store ptr %23, ptr %22, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %24, ptr %25, align 8, !tbaa !46
   store i8 -47, ptr %23, align 1
-  %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store i8 2, ptr %.sroa.5114.0..sroa_idx, align 1
-  %.sroa.6115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i8 23, ptr %.sroa.6115.0..sroa_idx, align 1
-  %.sroa.7116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 3
+  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store i8 2, ptr %.sroa.5113.0..sroa_idx, align 1
+  %.sroa.6114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 2
+  store i8 23, ptr %.sroa.6114.0..sroa_idx, align 1
+  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7116.0..sroa_idx, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7115.0..sroa_idx, i8 0, i64 7, i1 false)
   store ptr %24, ptr %26, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -625,24 +625,24 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_177gtest_StructuredProt
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %36 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-          to label %._crit_edge.i.i82 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92
+          to label %._crit_edge.i.i81 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91
 
-._crit_edge.i.i82:                                ; preds = %._crit_edge.i.i73
+._crit_edge.i.i81:                                ; preds = %._crit_edge.i.i72
   store ptr %36, ptr %35, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %37, ptr %38, align 8, !tbaa !46
   store i8 -46, ptr %36, align 1
-  %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store i8 2, ptr %.sroa.5104.0..sroa_idx, align 1
-  %.sroa.6105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 2
-  store i8 5, ptr %.sroa.6105.0..sroa_idx, align 1
-  %.sroa.7106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 3
-  store i8 72, ptr %.sroa.7106.0..sroa_idx, align 1
-  %.sroa.8107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i8 101, ptr %.sroa.8107.0..sroa_idx, align 1
-  %.sroa.9108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 5
-  store i8 108, ptr %.sroa.9108.0..sroa_idx, align 1
+  %.sroa.5103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 2, ptr %.sroa.5103.0..sroa_idx, align 1
+  %.sroa.6104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 2
+  store i8 5, ptr %.sroa.6104.0..sroa_idx, align 1
+  %.sroa.7105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 3
+  store i8 72, ptr %.sroa.7105.0..sroa_idx, align 1
+  %.sroa.8106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i8 101, ptr %.sroa.8106.0..sroa_idx, align 1
+  %.sroa.9107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 5
+  store i8 108, ptr %.sroa.9107.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i8 108, ptr %.sroa.10.0..sroa_idx, align 1
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 7
@@ -670,7 +670,7 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_177gtest_StructuredProt
   %49 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #31
           to label %50 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
-50:                                               ; preds = %._crit_edge.i.i82
+50:                                               ; preds = %._crit_edge.i.i81
   store ptr %49, ptr %48, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -750,26 +750,26 @@ _ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev.exit: ; preds 
   %82 = getelementptr inbounds i8, ptr %81, i64 -88
   call fastcc void @_ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %82) #30
   %83 = icmp eq ptr %82, %1
-  br i1 %83, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.thread, label %80
+  br i1 %83, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.thread, label %80
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge.i.i82
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge.i.i81
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92: ; preds = %._crit_edge.i.i73
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91: ; preds = %._crit_edge.i.i72
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95: ; preds = %._crit_edge.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i94: ; preds = %._crit_edge.i.i
   %86 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95 ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92 ], [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %.117.ph = phi ptr [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95 ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i94 ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91 ], [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.117.ph = phi ptr [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i94 ], [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91 ], [ %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -777,12 +777,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %88 = getelementptr inbounds i8, ptr %87, i64 -88
   call fastcc void @_ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %88) #30
   %89 = icmp eq ptr %88, %1
-  br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.thread, label %.preheader
+  br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.thread, label %.preheader
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.thread: ; preds = %.preheader, %80
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn151 = phi { ptr, i32 } [ %78, %80 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.thread: ; preds = %.preheader, %80
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn150 = phi { ptr, i32 } [ %78, %80 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn151
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn150
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -818,10 +818,10 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %16, ptr %17, align 8, !tbaa !46
   store i8 -48, ptr %15, align 1
-  %.sroa.5138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 2, ptr %.sroa.5138.0..sroa_idx, align 1
-  %.sroa.6139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i8 23, ptr %.sroa.6139.0..sroa_idx, align 1
+  %.sroa.5137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 2, ptr %.sroa.5137.0..sroa_idx, align 1
+  %.sroa.6138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i8 23, ptr %.sroa.6138.0..sroa_idx, align 1
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %16, ptr %18, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -843,21 +843,21 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %28 = invoke noalias noundef nonnull dereferenceable(10) ptr @_Znwm(i64 noundef 10) #31
-          to label %._crit_edge.i.i82 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106
+          to label %._crit_edge.i.i81 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105
 
-._crit_edge.i.i82:                                ; preds = %._crit_edge.i.i
+._crit_edge.i.i81:                                ; preds = %._crit_edge.i.i
   store ptr %28, ptr %27, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %29, ptr %30, align 8, !tbaa !46
   store i8 -47, ptr %28, align 1
-  %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 2, ptr %.sroa.5127.0..sroa_idx, align 1
-  %.sroa.6128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 2
-  store i8 23, ptr %.sroa.6128.0..sroa_idx, align 1
-  %.sroa.7129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 3
+  %.sroa.5126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i8 2, ptr %.sroa.5126.0..sroa_idx, align 1
+  %.sroa.6127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 2
+  store i8 23, ptr %.sroa.6127.0..sroa_idx, align 1
+  %.sroa.7128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 3
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7129.0..sroa_idx, i8 0, i64 7, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7128.0..sroa_idx, i8 0, i64 7, i1 false)
   store ptr %29, ptr %31, align 8, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 192
@@ -878,24 +878,24 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   %41 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-          to label %._crit_edge.i.i91 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103
+          to label %._crit_edge.i.i90 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102
 
-._crit_edge.i.i91:                                ; preds = %._crit_edge.i.i82
+._crit_edge.i.i90:                                ; preds = %._crit_edge.i.i81
   store ptr %41, ptr %40, align 8, !tbaa !44
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store ptr %42, ptr %43, align 8, !tbaa !46
   store i8 -46, ptr %41, align 1
-  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store i8 2, ptr %.sroa.5117.0..sroa_idx, align 1
-  %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 2
-  store i8 5, ptr %.sroa.6118.0..sroa_idx, align 1
-  %.sroa.7119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 3
-  store i8 72, ptr %.sroa.7119.0..sroa_idx, align 1
-  %.sroa.8120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i8 101, ptr %.sroa.8120.0..sroa_idx, align 1
-  %.sroa.9121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 5
-  store i8 108, ptr %.sroa.9121.0..sroa_idx, align 1
+  %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 2, ptr %.sroa.5116.0..sroa_idx, align 1
+  %.sroa.6117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 2
+  store i8 5, ptr %.sroa.6117.0..sroa_idx, align 1
+  %.sroa.7118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 3
+  store i8 72, ptr %.sroa.7118.0..sroa_idx, align 1
+  %.sroa.8119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i8 101, ptr %.sroa.8119.0..sroa_idx, align 1
+  %.sroa.9120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 5
+  store i8 108, ptr %.sroa.9120.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 6
   store i8 108, ptr %.sroa.10.0..sroa_idx, align 1
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 7
@@ -923,7 +923,7 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
   %54 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #31
           to label %55 unwind label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
-55:                                               ; preds = %._crit_edge.i.i91
+55:                                               ; preds = %._crit_edge.i.i90
   store ptr %54, ptr %53, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 344
@@ -946,12 +946,12 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val69 = load ptr, ptr %60, align 8, !tbaa !57
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val69, null
+  %.val68 = load ptr, ptr %60, align 8, !tbaa !57
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val68, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %.val69, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.val68, i64 8
   %63 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24, !noalias !60
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %63, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit", label %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit.thread"
@@ -969,8 +969,8 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
   br i1 %.not.i.i.i, label %_ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit, label %67
 
 67:                                               ; preds = %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit.thread", %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit"
-  %.val.pr179 = phi ptr [ %.val69, %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit.thread" ], [ %.val.pr.pre, %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit" ]
-  %68 = getelementptr inbounds nuw i8, ptr %.val.pr179, i64 8
+  %.val.pr178 = phi ptr [ %.val68, %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit.thread" ], [ %.val.pr.pre, %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit" ]
+  %68 = getelementptr inbounds nuw i8, ptr %.val.pr178, i64 8
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = icmp eq i64 %69, 4294967297
   %71 = trunc i64 %69 to i32
@@ -978,16 +978,16 @@ define internal void @_ZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProt
 
 72:                                               ; preds = %67
   store i32 0, ptr %68, align 8, !tbaa !64
-  %73 = getelementptr inbounds nuw i8, ptr %.val.pr179, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.val.pr178, i64 12
   store i32 0, ptr %73, align 4, !tbaa !66
-  %74 = load ptr, ptr %.val.pr179, align 8, !tbaa !18
+  %74 = load ptr, ptr %.val.pr178, align 8, !tbaa !18
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr179) #30
-  %77 = load ptr, ptr %.val.pr179, align 8, !tbaa !18
+  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr178) #30
+  %77 = load ptr, ptr %.val.pr178, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr179) #30
+  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr178) #30
   br label %_ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit
 
 80:                                               ; preds = %67
@@ -1010,7 +1010,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %84, %82
   br i1 %86, label %87, label %_ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit, !prof !67
 
 87:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr179) #30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr178) #30
   br label %_ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit
 
 _ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEED2Ev.exit: ; preds = %59, %"_ZSt10make_tupleIJN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEEZNS5_80gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKNS0_13TestParamInfoIS6_EEE3$_0EESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSG_.exit", %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %87
@@ -1022,8 +1022,8 @@ _ZN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123Structu
   %91 = getelementptr inbounds i8, ptr %90, i64 -88
   %92 = getelementptr inbounds i8, ptr %90, i64 -24
   %93 = load ptr, ptr %92, align 8, !tbaa !44
-  %.not.i.i.i.i100 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i100, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %94
+  %.not.i.i.i.i99 = icmp eq ptr %93, null
+  br i1 %.not.i.i.i.i99, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %94
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds i8, ptr %90, i64 -8
@@ -1063,7 +1063,7 @@ _ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev.exit: ; preds 
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit, label %110
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds nuw i8, ptr %.val69, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.val68, i64 8
   %112 = load atomic i64, ptr %111 acquire, align 8
   %113 = icmp eq i64 %112, 4294967297
   %114 = trunc i64 %112 to i32
@@ -1071,16 +1071,16 @@ _ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev.exit: ; preds 
 
 115:                                              ; preds = %110
   store i32 0, ptr %111, align 8, !tbaa !64
-  %116 = getelementptr inbounds nuw i8, ptr %.val69, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %.val68, i64 12
   store i32 0, ptr %116, align 4, !tbaa !66
-  %117 = load ptr, ptr %.val69, align 8, !tbaa !18
+  %117 = load ptr, ptr %.val68, align 8, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %.val69) #30
-  %120 = load ptr, ptr %.val69, align 8, !tbaa !18
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %.val68) #30
+  %120 = load ptr, ptr %.val68, align 8, !tbaa !18
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %.val69) #30
+  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %.val68) #30
   br label %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit
 
 123:                                              ; preds = %110
@@ -1103,7 +1103,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %127, %
   br i1 %129, label %130, label %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit, !prof !67
 
 130:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val69) #30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val68) #30
   br label %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit
 
 131:                                              ; preds = %55
@@ -1117,26 +1117,26 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %127, %
   %136 = getelementptr inbounds i8, ptr %135, i64 -88
   call fastcc void @_ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %136) #30
   %137 = icmp eq ptr %136, %5
-  br i1 %137, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.thread, label %134
+  br i1 %137, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.thread, label %134
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge.i.i91
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %._crit_edge.i.i90
   %138 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103: ; preds = %._crit_edge.i.i82
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102: ; preds = %._crit_edge.i.i81
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106: ; preds = %._crit_edge.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105: ; preds = %._crit_edge.i.i
   %140 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %140, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106 ], [ %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103 ], [ %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  %.118.ph = phi ptr [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106 ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %140, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105 ], [ %139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102 ], [ %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.118.ph = phi ptr [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105 ], [ %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1144,24 +1144,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %142 = getelementptr inbounds i8, ptr %141, i64 -88
   call fastcc void @_ZN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %142) #30
   %143 = icmp eq ptr %142, %5
-  br i1 %143, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.thread, label %.preheader
+  br i1 %143, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.thread, label %.preheader
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.thread: ; preds = %.preheader, %134
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn168 = phi { ptr, i32 } [ %132, %134 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.thread: ; preds = %.preheader, %134
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn167 = phi { ptr, i32 } [ %132, %134 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn168
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn167
 
 _ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit: ; preds = %130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %115, %109, %2
-  %.val71 = load ptr, ptr %1, align 8, !tbaa !20
+  %.val70 = load ptr, ptr %1, align 8, !tbaa !20
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val72 = load i64, ptr %144, align 8, !tbaa !22
+  %.val71 = load i64, ptr %144, align 8, !tbaa !22
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %145, ptr %0, align 8, !tbaa !21, !alias.scope !68
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !68
-  store i64 %.val72, ptr %3, align 8, !tbaa !23, !noalias !68
-  %146 = icmp ugt i64 %.val72, 15
+  store i64 %.val71, ptr %3, align 8, !tbaa !23, !noalias !68
+  %146 = icmp ugt i64 %.val71, 15
   br i1 %146, label %.noexc.i.i, label %._crit_edge.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit
@@ -1173,18 +1173,18 @@ _ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit
   %149 = phi ptr [ %147, %.noexc.i.i ], [ %145, %_ZNSt10_Head_baseILm0EN7testing8internal14ParamGeneratorIN4absl12log_internal12_GLOBAL__N_123StructuredProtoTestCaseEEELb0EED2Ev.exit ]
-  switch i64 %.val72, label %152 [
+  switch i64 %.val71, label %152 [
     i64 1, label %150
     i64 0, label %"_ZZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoINS1_23StructuredProtoTestCaseEEEENK3$_2clB5cxx11ES7_.exit"
   ]
 
 150:                                              ; preds = %._crit_edge.i.i.i
-  %151 = load i8, ptr %.val71, align 1, !tbaa !24, !noalias !68
+  %151 = load i8, ptr %.val70, align 1, !tbaa !24, !noalias !68
   store i8 %151, ptr %149, align 1, !tbaa !24
   br label %"_ZZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoINS1_23StructuredProtoTestCaseEEEENK3$_2clB5cxx11ES7_.exit"
 
 152:                                              ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr readonly align 1 %.val71, i64 %.val72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr readonly align 1 %.val70, i64 %.val71, i1 false)
   br label %"_ZZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoINS1_23StructuredProtoTestCaseEEEENK3$_2clB5cxx11ES7_.exit"
 
 "_ZZN4absl12log_internal12_GLOBAL__N_180gtest_StructuredProtoTestSuiteInstantiationStructuredProtoTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoINS1_23StructuredProtoTestCaseEEEENK3$_2clB5cxx11ES7_.exit": ; preds = %._crit_edge.i.i.i, %150, %152

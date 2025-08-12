@@ -260,19 +260,19 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %_ZNK4llvm12MachineI
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr nonnull %6, i64 1)
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !33
-  %.not.i.i11 = icmp eq ptr %39, null
-  br i1 %.not.i.i11, label %_ZN4llvm9PrintableD2Ev.exit12, label %40
+  %.not.i.i10 = icmp eq ptr %39, null
+  br i1 %.not.i.i10, label %_ZN4llvm9PrintableD2Ev.exit11, label %40
 
 40:                                               ; preds = %35
   %41 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit12
+  br label %_ZN4llvm9PrintableD2Ev.exit11
 
-_ZN4llvm9PrintableD2Ev.exit12:                    ; preds = %35, %40
+_ZN4llvm9PrintableD2Ev.exit11:                    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
-42:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit12, %.loopexit, %_ZN4llvm9PrintableD2Ev.exit
+42:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit11, %.loopexit, %_ZN4llvm9PrintableD2Ev.exit
   ret void
 }
 
@@ -392,8 +392,8 @@ define dso_local noundef ptr @_ZN4llvm26GenericConvergenceVerifierINS_17GenericS
   %16 = zext i24 %15 to i64
   %.idx = shl nuw nsw i64 %16, 5
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %.not74 = icmp eq i24 %15, 0
-  br i1 %.not74, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, label %.lr.ph
+  %.not72 = icmp eq i24 %15, 0
+  br i1 %.not72, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -402,23 +402,23 @@ define dso_local noundef ptr @_ZN4llvm26GenericConvergenceVerifierINS_17GenericS
   br label %21
 
 21:                                               ; preds = %.lr.ph, %82
-  %.03276 = phi ptr [ null, %.lr.ph ], [ %.234.ph, %82 ]
-  %.03775 = phi ptr [ %13, %.lr.ph ], [ %83, %82 ]
-  %22 = load i32, ptr %.03775, align 8
+  %.03274 = phi ptr [ null, %.lr.ph ], [ %.234.ph, %82 ]
+  %.03773 = phi ptr [ %13, %.lr.ph ], [ %83, %82 ]
+  %22 = load i32, ptr %.03773, align 8
   %23 = and i32 %22, 16777471
   %or.cond = icmp eq i32 %23, 0
   br i1 %or.cond, label %24, label %82
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.03775, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.03773, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !31
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %82
 
 28:                                               ; preds = %24
   %29 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %11, i32 %26) #14
-  %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %82, label %30
+  %.not43 = icmp eq ptr %29, null
+  br i1 %.not43, label %82, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 68
@@ -444,8 +444,8 @@ define dso_local noundef ptr @_ZN4llvm26GenericConvergenceVerifierINS_17GenericS
 41:                                               ; preds = %36, %33
   %42 = load i32, ptr %19, align 4
   %43 = and i32 %42, 131072
-  %.not.i48 = icmp eq i32 %43, 0
-  br i1 %.not.i48, label %44, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60
+  %.not.i46 = icmp eq i32 %43, 0
+  br i1 %.not.i46, label %44, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58
 
 44:                                               ; preds = %41
   %45 = and i32 %42, 12
@@ -460,14 +460,14 @@ define dso_local noundef ptr @_ZN4llvm26GenericConvergenceVerifierINS_17GenericS
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !181
   %53 = and i64 %52, 68719476736
-  %.not70 = icmp eq i64 %53, 0
-  br i1 %.not70, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
+  %.not68 = icmp eq i64 %53, 0
+  br i1 %.not68, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit: ; preds = %44
   %54 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #14
-  br i1 %54, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60
+  br i1 %54, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread, label %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58
 
-_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60: ; preds = %41, %49, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
+_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58: ; preds = %41, %49, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 33
@@ -482,8 +482,8 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60: ; preds = %
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %59
 
-59:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60
-  %60 = phi ptr [ %58, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread60 ], [ %61, %_ZN4llvm9PrintableD2Ev.exit ]
+59:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58
+  %60 = phi ptr [ %58, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread58 ], [ %61, %_ZN4llvm9PrintableD2Ev.exit ]
   %61 = getelementptr inbounds i8, ptr %60, i64 -32
   %62 = getelementptr inbounds i8, ptr %60, i64 -16
   %63 = load ptr, ptr %62, align 8, !tbaa !33
@@ -504,8 +504,8 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %59, %64
   br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
 
 _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread: ; preds = %36, %49, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit
-  %.not46 = icmp eq ptr %.03276, null
-  br i1 %.not46, label %82, label %68
+  %.not44 = icmp eq ptr %.03274, null
+  br i1 %.not44, label %82, label %68
 
 68:                                               ; preds = %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -522,38 +522,38 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread: ; preds = %36
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %73
 
-73:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit50, %68
-  %74 = phi ptr [ %72, %68 ], [ %75, %_ZN4llvm9PrintableD2Ev.exit50 ]
+73:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit48, %68
+  %74 = phi ptr [ %72, %68 ], [ %75, %_ZN4llvm9PrintableD2Ev.exit48 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -32
   %76 = getelementptr inbounds i8, ptr %74, i64 -16
   %77 = load ptr, ptr %76, align 8, !tbaa !33
-  %.not.i.i49 = icmp eq ptr %77, null
-  br i1 %.not.i.i49, label %_ZN4llvm9PrintableD2Ev.exit50, label %78
+  %.not.i.i47 = icmp eq ptr %77, null
+  br i1 %.not.i.i47, label %_ZN4llvm9PrintableD2Ev.exit48, label %78
 
 78:                                               ; preds = %73
   %79 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %75, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit50
+  br label %_ZN4llvm9PrintableD2Ev.exit48
 
-_ZN4llvm9PrintableD2Ev.exit50:                    ; preds = %73, %78
+_ZN4llvm9PrintableD2Ev.exit48:                    ; preds = %73, %78
   %80 = icmp eq ptr %75, %6
   br i1 %80, label %81, label %73
 
-81:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit50
+81:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
 
 82:                                               ; preds = %30, %21, %24, %28, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread
-  %.234.ph = phi ptr [ %.03276, %30 ], [ %29, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread ], [ %.03276, %28 ], [ %.03276, %24 ], [ %.03276, %21 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.03775, i64 32
+  %.234.ph = phi ptr [ %.03274, %30 ], [ %29, %_ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread ], [ %.03274, %28 ], [ %.03274, %24 ], [ %.03274, %21 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.03773, i64 32
   %.not = icmp eq ptr %83, %17
-  br i1 %.not, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread67, label %21
+  br i1 %.not, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread65, label %21
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread67: ; preds = %82
-  %.not47 = icmp eq ptr %.234.ph, null
-  br i1 %.not47, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, label %84
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread65: ; preds = %82
+  %.not45 = icmp eq ptr %.234.ph, null
+  br i1 %.not45, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, label %84
 
-84:                                               ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread67
+84:                                               ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread65
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !183
@@ -562,8 +562,8 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit: ; preds = %2, %81, %67, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread67, %84
-  %.5 = phi ptr [ %.234.ph, %84 ], [ null, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread67 ], [ null, %67 ], [ null, %81 ], [ null, %2 ]
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit: ; preds = %2, %81, %67, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread65, %84
+  %.5 = phi ptr [ %.234.ph, %84 ], [ null, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread65 ], [ null, %67 ], [ null, %81 ], [ null, %2 ]
   ret ptr %.5
 }
 
@@ -911,7 +911,7 @@ define weak_odr void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContex
   %21 = tail call noundef ptr @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE32findAndCheckConvergenceTokenUsedERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   switch i16 %20, label %76 [
     i16 46, label %22
-    i16 47, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96
+    i16 47, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88
     i16 48, label %54
   ]
 
@@ -944,13 +944,13 @@ define weak_odr void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContex
 _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %26, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
 34:                                               ; preds = %22
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load i8, ptr %35, align 8, !tbaa !200, !range !202, !noundef !203
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96
+  br i1 %37, label %38, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88
 
 38:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -965,23 +965,23 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %26, %32
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr nonnull %6, i64 1)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !33
-  %.not.i.i51 = icmp eq ptr %43, null
-  br i1 %.not.i.i51, label %_ZN4llvm9PrintableD2Ev.exit52, label %44
+  %.not.i.i43 = icmp eq ptr %43, null
+  br i1 %.not.i.i43, label %_ZN4llvm9PrintableD2Ev.exit44, label %44
 
 44:                                               ; preds = %38
   %45 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit52
+  br label %_ZN4llvm9PrintableD2Ev.exit44
 
-_ZN4llvm9PrintableD2Ev.exit52:                    ; preds = %38, %44
+_ZN4llvm9PrintableD2Ev.exit44:                    ; preds = %38, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96: ; preds = %2, %34
-  %.not48 = icmp eq ptr %21, null
-  br i1 %.not48, label %75, label %46
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88: ; preds = %2, %34
+  %.not40 = icmp eq ptr %21, null
+  br i1 %.not40, label %75, label %46
 
-46:                                               ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96
+46:                                               ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 33
@@ -994,17 +994,17 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr nonnull %8, i64 1)
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !33
-  %.not.i.i53 = icmp eq ptr %51, null
-  br i1 %.not.i.i53, label %_ZN4llvm9PrintableD2Ev.exit54, label %52
+  %.not.i.i45 = icmp eq ptr %51, null
+  br i1 %.not.i.i45, label %_ZN4llvm9PrintableD2Ev.exit46, label %52
 
 52:                                               ; preds = %46
   %53 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit54
+  br label %_ZN4llvm9PrintableD2Ev.exit46
 
-_ZN4llvm9PrintableD2Ev.exit54:                    ; preds = %46, %52
+_ZN4llvm9PrintableD2Ev.exit46:                    ; preds = %46, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
 54:                                               ; preds = %2
   %.not = icmp eq ptr %21, null
@@ -1023,17 +1023,17 @@ _ZN4llvm9PrintableD2Ev.exit54:                    ; preds = %46, %52
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr nonnull %10, i64 1)
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !33
-  %.not.i.i55 = icmp eq ptr %60, null
-  br i1 %.not.i.i55, label %_ZN4llvm9PrintableD2Ev.exit56, label %61
+  %.not.i.i47 = icmp eq ptr %60, null
+  br i1 %.not.i.i47, label %_ZN4llvm9PrintableD2Ev.exit48, label %61
 
 61:                                               ; preds = %55
   %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit56
+  br label %_ZN4llvm9PrintableD2Ev.exit48
 
-_ZN4llvm9PrintableD2Ev.exit56:                    ; preds = %55, %61
+_ZN4llvm9PrintableD2Ev.exit48:                    ; preds = %55, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1054,20 +1054,20 @@ _ZN4llvm9PrintableD2Ev.exit56:                    ; preds = %55, %61
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr nonnull %12, i64 1)
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !33
-  %.not.i.i57 = icmp eq ptr %72, null
-  br i1 %.not.i.i57, label %_ZN4llvm9PrintableD2Ev.exit58, label %73
+  %.not.i.i49 = icmp eq ptr %72, null
+  br i1 %.not.i.i49, label %_ZN4llvm9PrintableD2Ev.exit50, label %73
 
 73:                                               ; preds = %67
   %74 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit58
+  br label %_ZN4llvm9PrintableD2Ev.exit50
 
-_ZN4llvm9PrintableD2Ev.exit58:                    ; preds = %67, %73
+_ZN4llvm9PrintableD2Ev.exit50:                    ; preds = %67, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-75:                                               ; preds = %63, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96
-  %.ph = phi ptr [ null, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread96 ], [ %21, %63 ]
+75:                                               ; preds = %63, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88
+  %.ph = phi ptr [ null, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.thread88 ], [ %21, %63 ]
   tail call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE29checkConvergenceTokenProducedERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br label %76
 
@@ -1092,8 +1092,8 @@ _ZN4llvm9PrintableD2Ev.exit58:                    ; preds = %67, %73
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 131072
-  %.not.i.i59 = icmp eq i32 %90, 0
-  br i1 %.not.i.i59, label %91, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103
+  %.not.i.i51 = icmp eq i32 %90, 0
+  br i1 %.not.i.i51, label %91, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95
 
 91:                                               ; preds = %87
   %92 = and i32 %89, 12
@@ -1109,28 +1109,28 @@ _ZN4llvm9PrintableD2Ev.exit58:                    ; preds = %67, %73
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !181
   %101 = and i64 %100, 68719476736
-  %.not111 = icmp eq i64 %101, 0
-  br i1 %.not111, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread
+  %.not103 = icmp eq i64 %101, 0
+  br i1 %.not103, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread
 
 _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit: ; preds = %91
   %102 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #14
-  br i1 %102, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103
+  br i1 %102, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95
 
 _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread: ; preds = %81, %96, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 1, ptr %103, align 8, !tbaa !200
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103: ; preds = %87, %96, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95: ; preds = %87, %96, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit
   %104 = icmp ne ptr %78, null
   %or.cond = or i1 %77, %104
   %105 = load i16, ptr %19, align 4, !tbaa !3
   %106 = add i16 %105, -1
-  %spec.select.i.i.i60 = icmp ult i16 %106, 2
+  %spec.select.i.i.i52 = icmp ult i16 %106, 2
   br i1 %or.cond, label %107, label %148
 
-107:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103
-  br i1 %spec.select.i.i.i60, label %108, label %114
+107:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95
+  br i1 %spec.select.i.i.i52, label %108, label %114
 
 108:                                              ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1138,23 +1138,23 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %112 = load i64, ptr %111, align 8, !tbaa !31
   %113 = and i64 %112, 32
-  %.not.not.i.i64 = icmp eq i64 %113, 0
-  br i1 %.not.not.i.i64, label %114, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread
+  %.not.not.i.i56 = icmp eq i64 %113, 0
+  br i1 %.not.not.i.i56, label %114, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread
 
 114:                                              ; preds = %108, %107
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 131072
-  %.not.i.i61 = icmp eq i32 %117, 0
-  br i1 %.not.i.i61, label %118, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106
+  %.not.i.i53 = icmp eq i32 %117, 0
+  br i1 %.not.i.i53, label %118, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98
 
 118:                                              ; preds = %114
   %119 = and i32 %116, 12
   %120 = icmp eq i32 %119, 0
   %121 = and i32 %116, 4
   %122 = icmp ne i32 %121, 0
-  %or.cond.i.i.i63 = or i1 %120, %122
-  br i1 %or.cond.i.i.i63, label %123, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65
+  %or.cond.i.i.i55 = or i1 %120, %122
+  br i1 %or.cond.i.i.i55, label %123, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1162,14 +1162,14 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load i64, ptr %126, align 8, !tbaa !181
   %128 = and i64 %127, 68719476736
-  %.not113 = icmp eq i64 %128, 0
-  br i1 %.not113, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread
+  %.not105 = icmp eq i64 %128, 0
+  br i1 %.not105, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65: ; preds = %118
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57: ; preds = %118
   %129 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #14
-  br i1 %129, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106
+  br i1 %129, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106: ; preds = %114, %123, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98: ; preds = %114, %123, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 33
@@ -1182,25 +1182,25 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr nonnull %14, i64 1)
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !33
-  %.not.i.i66 = icmp eq ptr %134, null
-  br i1 %.not.i.i66, label %_ZN4llvm9PrintableD2Ev.exit67, label %135
+  %.not.i.i58 = icmp eq ptr %134, null
+  br i1 %.not.i.i58, label %_ZN4llvm9PrintableD2Ev.exit59, label %135
 
-135:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106
+135:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98
   %136 = call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit67
+  br label %_ZN4llvm9PrintableD2Ev.exit59
 
-_ZN4llvm9PrintableD2Ev.exit67:                    ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread106, %135
+_ZN4llvm9PrintableD2Ev.exit59:                    ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread98, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread: ; preds = %108, %123, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread: ; preds = %108, %123, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %138 = load i32, ptr %137, align 8, !tbaa !196
-  %.not50 = icmp eq i32 %138, 1
-  br i1 %.not50, label %139, label %147
+  %.not42 = icmp eq i32 %138, 1
+  br i1 %.not42, label %139, label %147
 
-139:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread
+139:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %140 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -1213,24 +1213,24 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr nonnull %16, i64 1)
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !33
-  %.not.i.i68 = icmp eq ptr %144, null
-  br i1 %.not.i.i68, label %_ZN4llvm9PrintableD2Ev.exit69, label %145
+  %.not.i.i60 = icmp eq ptr %144, null
+  br i1 %.not.i.i60, label %_ZN4llvm9PrintableD2Ev.exit61, label %145
 
 145:                                              ; preds = %139
   %146 = call noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit69
+  br label %_ZN4llvm9PrintableD2Ev.exit61
 
-_ZN4llvm9PrintableD2Ev.exit69:                    ; preds = %139, %145
+_ZN4llvm9PrintableD2Ev.exit61:                    ; preds = %139, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-147:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit65.thread
+147:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit57.thread
   store i32 0, ptr %137, align 8, !tbaa !196
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-148:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread103
-  br i1 %spec.select.i.i.i60, label %149, label %155
+148:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit.thread95
+  br i1 %spec.select.i.i.i52, label %149, label %155
 
 149:                                              ; preds = %148
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1238,23 +1238,23 @@ _ZN4llvm9PrintableD2Ev.exit69:                    ; preds = %139, %145
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %153 = load i64, ptr %152, align 8, !tbaa !31
   %154 = and i64 %153, 32
-  %.not.not.i.i74 = icmp eq i64 %154, 0
-  br i1 %.not.not.i.i74, label %155, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread
+  %.not.not.i.i66 = icmp eq i64 %154, 0
+  br i1 %.not.not.i.i66, label %155, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread
 
 155:                                              ; preds = %149, %148
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, 131072
-  %.not.i.i71 = icmp eq i32 %158, 0
-  br i1 %.not.i.i71, label %159, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  %.not.i.i63 = icmp eq i32 %158, 0
+  br i1 %.not.i.i63, label %159, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
 159:                                              ; preds = %155
   %160 = and i32 %157, 12
   %161 = icmp eq i32 %160, 0
   %162 = and i32 %157, 4
   %163 = icmp ne i32 %162, 0
-  %or.cond.i.i.i73 = or i1 %161, %163
-  br i1 %or.cond.i.i.i73, label %164, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75
+  %or.cond.i.i.i65 = or i1 %161, %163
+  br i1 %or.cond.i.i.i65, label %164, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1262,20 +1262,20 @@ _ZN4llvm9PrintableD2Ev.exit69:                    ; preds = %139, %145
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load i64, ptr %167, align 8, !tbaa !181
   %169 = and i64 %168, 68719476736
-  %.not112 = icmp eq i64 %169, 0
-  br i1 %.not112, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread
+  %.not104 = icmp eq i64 %169, 0
+  br i1 %.not104, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75: ; preds = %159
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67: ; preds = %159
   %170 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 68719476736, i32 noundef 1) #14
-  br i1 %170, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br i1 %170, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread: ; preds = %149, %164, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread: ; preds = %149, %164, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %172 = load i32, ptr %171, align 8, !tbaa !196
-  %.not49 = icmp eq i32 %172, 0
-  br i1 %.not49, label %173, label %181
+  %.not41 = icmp eq i32 %172, 0
+  br i1 %.not41, label %173, label %181
 
-173:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread
+173:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %174 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %175 = getelementptr inbounds nuw i8, ptr %17, i64 33
@@ -1288,23 +1288,23 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr nonnull %18, i64 1)
   %177 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %178 = load ptr, ptr %177, align 8, !tbaa !33
-  %.not.i.i76 = icmp eq ptr %178, null
-  br i1 %.not.i.i76, label %_ZN4llvm9PrintableD2Ev.exit77, label %179
+  %.not.i.i68 = icmp eq ptr %178, null
+  br i1 %.not.i.i68, label %_ZN4llvm9PrintableD2Ev.exit69, label %179
 
 179:                                              ; preds = %173
   %180 = call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit77
+  br label %_ZN4llvm9PrintableD2Ev.exit69
 
-_ZN4llvm9PrintableD2Ev.exit77:                    ; preds = %173, %179
+_ZN4llvm9PrintableD2Ev.exit69:                    ; preds = %173, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-181:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread
+181:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread
   store i32 1, ptr %171, align 8, !tbaa !196
-  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109
+  br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75.thread109: ; preds = %155, %164, %147, %181, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit75, %_ZN4llvm9PrintableD2Ev.exit77, %_ZN4llvm9PrintableD2Ev.exit69, %_ZN4llvm9PrintableD2Ev.exit67, %_ZN4llvm9PrintableD2Ev.exit58, %_ZN4llvm9PrintableD2Ev.exit56, %_ZN4llvm9PrintableD2Ev.exit54, %_ZN4llvm9PrintableD2Ev.exit52, %_ZN4llvm9PrintableD2Ev.exit
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67.thread101: ; preds = %155, %164, %147, %181, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE12isConvergentERKNS_12MachineInstrE.exit67, %_ZN4llvm9PrintableD2Ev.exit69, %_ZN4llvm9PrintableD2Ev.exit61, %_ZN4llvm9PrintableD2Ev.exit59, %_ZN4llvm9PrintableD2Ev.exit50, %_ZN4llvm9PrintableD2Ev.exit48, %_ZN4llvm9PrintableD2Ev.exit46, %_ZN4llvm9PrintableD2Ev.exit44, %_ZN4llvm9PrintableD2Ev.exit
   ret void
 }
 
@@ -2260,13 +2260,13 @@ _ZN4llvm9PrintableD2Ev.exit:                      ; preds = %32, %37
   %57 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !183
   %59 = icmp eq ptr %58, %1
-  br i1 %59, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit88, label %60
+  br i1 %59, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit83, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !183
   %63 = icmp eq ptr %62, %1
-  br i1 %63, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit90, label %64
+  br i1 %63, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit85, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -2320,25 +2320,25 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0
   %80 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit88: ; preds = %56
+_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit83: ; preds = %56
   %81 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit90: ; preds = %60
+_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit85: ; preds = %60
   %82 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit: ; preds = %49, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit88, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit90, %69, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %69 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %80, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %81, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit88 ], [ %82, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit90 ], [ %.02946.i.i.i.i, %49 ]
-  %.not69 = icmp eq ptr %.028.i.i.i.i, %46
-  br i1 %.not69, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread, label %.preheader
+_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit: ; preds = %49, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit83, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit85, %69, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %69 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %80, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %81, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit83 ], [ %82, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit85 ], [ %.02946.i.i.i.i, %49 ]
+  %.not64 = icmp eq ptr %.028.i.i.i.i, %46
+  br i1 %.not64, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit
   %83 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
   %85 = load ptr, ptr %84, align 8, !tbaa !183
-  %.not78 = icmp eq ptr %85, %1
-  br i1 %.not78, label %106, label %.lr.ph
+  %.not73 = icmp eq ptr %85, %1
+  br i1 %.not73, label %106, label %.lr.ph
 
 _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2356,23 +2356,23 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %91
 
-91:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread
-  %92 = phi ptr [ %90, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread ], [ %93, %_ZN4llvm9PrintableD2Ev.exit43 ]
+91:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit38, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread
+  %92 = phi ptr [ %90, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKNS_12MachineInstrEEES4_EEbOT_RKT0_.exit.thread ], [ %93, %_ZN4llvm9PrintableD2Ev.exit38 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 -32
   %94 = getelementptr inbounds i8, ptr %92, i64 -16
   %95 = load ptr, ptr %94, align 8, !tbaa !33
-  %.not.i.i42 = icmp eq ptr %95, null
-  br i1 %.not.i.i42, label %_ZN4llvm9PrintableD2Ev.exit43, label %96
+  %.not.i.i37 = icmp eq ptr %95, null
+  br i1 %.not.i.i37, label %_ZN4llvm9PrintableD2Ev.exit38, label %96
 
 96:                                               ; preds = %91
   %97 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %93, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit43
+  br label %_ZN4llvm9PrintableD2Ev.exit38
 
-_ZN4llvm9PrintableD2Ev.exit43:                    ; preds = %91, %96
+_ZN4llvm9PrintableD2Ev.exit38:                    ; preds = %91, %96
   %98 = icmp eq ptr %93, %10
   br i1 %98, label %99, label %91
 
-99:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit43
+99:                                               ; preds = %_ZN4llvm9PrintableD2Ev.exit38
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %198
@@ -2397,8 +2397,8 @@ _ZN4llvm9PrintableD2Ev.exit43:                    ; preds = %91, %96
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %109 = tail call noundef ptr @_ZNK4llvm16GenericCycleInfoINS_17GenericSSAContextINS_15MachineFunctionEEEE8getCycleEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(80) %108, ptr noundef %107) #14
   store ptr %109, ptr %11, align 8, !tbaa !310
-  %.not39 = icmp eq ptr %109, null
-  br i1 %.not39, label %197, label %110
+  %.not34 = icmp eq ptr %109, null
+  br i1 %.not34, label %197, label %110
 
 110:                                              ; preds = %106
   %111 = load ptr, ptr %21, align 8, !tbaa !201
@@ -2421,8 +2421,8 @@ _ZN4llvm9PrintableD2Ev.exit43:                    ; preds = %91, %96
 
 _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader: ; preds = %116
   %119 = load ptr, ptr %109, align 8, !tbaa !312
-  %.not4079 = icmp eq ptr %119, null
-  br i1 %.not4079, label %._crit_edge81, label %.lr.ph80
+  %.not3574 = icmp eq ptr %119, null
+  br i1 %.not3574, label %._crit_edge76, label %.lr.ph75
 
 120:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2446,61 +2446,61 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   %127 = getelementptr inbounds nuw i8, ptr %13, i64 64
   br label %128
 
-128:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit45, %120
-  %129 = phi ptr [ %127, %120 ], [ %130, %_ZN4llvm9PrintableD2Ev.exit45 ]
+128:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40, %120
+  %129 = phi ptr [ %127, %120 ], [ %130, %_ZN4llvm9PrintableD2Ev.exit40 ]
   %130 = getelementptr inbounds i8, ptr %129, i64 -32
   %131 = getelementptr inbounds i8, ptr %129, i64 -16
   %132 = load ptr, ptr %131, align 8, !tbaa !33
-  %.not.i.i44 = icmp eq ptr %132, null
-  br i1 %.not.i.i44, label %_ZN4llvm9PrintableD2Ev.exit45, label %133
+  %.not.i.i39 = icmp eq ptr %132, null
+  br i1 %.not.i.i39, label %_ZN4llvm9PrintableD2Ev.exit40, label %133
 
 133:                                              ; preds = %128
   %134 = call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit45
+  br label %_ZN4llvm9PrintableD2Ev.exit40
 
-_ZN4llvm9PrintableD2Ev.exit45:                    ; preds = %128, %133
+_ZN4llvm9PrintableD2Ev.exit40:                    ; preds = %128, %133
   %135 = icmp eq ptr %130, %13
   br i1 %135, label %136, label %128
 
-136:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit45
+136:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit40
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %197
 
-.lr.ph80:                                         ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
+.lr.ph75:                                         ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
   %137 = phi ptr [ %140, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit ], [ %119, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %111, ptr %5, align 8, !tbaa !226
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
   %139 = call noundef zeroext i1 @_ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EE8containsERKS7_(ptr noundef nonnull align 8 dereferenceable(104) %138, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %139, label %.lr.ph80.._crit_edge81.loopexit_crit_edge, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
+  br i1 %139, label %.lr.ph75.._crit_edge76.loopexit_crit_edge, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit
 
-.lr.ph80.._crit_edge81.loopexit_crit_edge:        ; preds = %.lr.ph80
+.lr.ph75.._crit_edge76.loopexit_crit_edge:        ; preds = %.lr.ph75
   %.pre.pre = load ptr, ptr %11, align 8, !tbaa !310
-  br label %._crit_edge81
+  br label %._crit_edge76
 
-_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit: ; preds = %.lr.ph80
+_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit: ; preds = %.lr.ph75
   store ptr %137, ptr %11, align 8, !tbaa !310
   %140 = load ptr, ptr %137, align 8, !tbaa !312
-  %.not40 = icmp eq ptr %140, null
-  br i1 %.not40, label %._crit_edge81, label %.lr.ph80
+  %.not35 = icmp eq ptr %140, null
+  br i1 %.not35, label %._crit_edge76, label %.lr.ph75
 
-._crit_edge81:                                    ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, %.lr.ph80.._crit_edge81.loopexit_crit_edge, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader
-  %141 = phi ptr [ %109, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader ], [ %.pre.pre, %.lr.ph80.._crit_edge81.loopexit_crit_edge ], [ %137, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit ]
+._crit_edge76:                                    ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit, %.lr.ph75.._crit_edge76.loopexit_crit_edge, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader
+  %141 = phi ptr [ %109, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit.preheader ], [ %.pre.pre, %.lr.ph75.._crit_edge76.loopexit_crit_edge ], [ %137, %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE9getConvOpERKNS_12MachineInstrE.exit ]
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load i32, ptr %142, align 8, !tbaa !211
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %145, label %150
 
-145:                                              ; preds = %._crit_edge81
+145:                                              ; preds = %._crit_edge76
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !210
   %148 = load ptr, ptr %147, align 8, !tbaa !226
   %149 = icmp eq ptr %107, %148
   br i1 %149, label %168, label %150
 
-150:                                              ; preds = %145, %._crit_edge81
+150:                                              ; preds = %145, %._crit_edge76
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 33
@@ -2517,30 +2517,30 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunction
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEE5printERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %156, align 8, !tbaa !173, !alias.scope !326
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store ptr %141, ptr %155, align 8, !alias.scope !326
-  %.sroa.3.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr %108, ptr %.sroa.3.0..sroa_idx.i.i46, align 8, !tbaa !31, !alias.scope !326
+  %.sroa.3.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr %108, ptr %.sroa.3.0..sroa_idx.i.i41, align 8, !tbaa !31, !alias.scope !326
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEE5printERKS7_EUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %157, align 8, !tbaa !33, !alias.scope !326
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %19, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr nonnull %15, i64 3)
   %158 = getelementptr inbounds nuw i8, ptr %15, i64 96
   br label %159
 
-159:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit48, %150
-  %160 = phi ptr [ %158, %150 ], [ %161, %_ZN4llvm9PrintableD2Ev.exit48 ]
+159:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit43, %150
+  %160 = phi ptr [ %158, %150 ], [ %161, %_ZN4llvm9PrintableD2Ev.exit43 ]
   %161 = getelementptr inbounds i8, ptr %160, i64 -32
   %162 = getelementptr inbounds i8, ptr %160, i64 -16
   %163 = load ptr, ptr %162, align 8, !tbaa !33
-  %.not.i.i47 = icmp eq ptr %163, null
-  br i1 %.not.i.i47, label %_ZN4llvm9PrintableD2Ev.exit48, label %164
+  %.not.i.i42 = icmp eq ptr %163, null
+  br i1 %.not.i.i42, label %_ZN4llvm9PrintableD2Ev.exit43, label %164
 
 164:                                              ; preds = %159
   %165 = call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit48
+  br label %_ZN4llvm9PrintableD2Ev.exit43
 
-_ZN4llvm9PrintableD2Ev.exit48:                    ; preds = %159, %164
+_ZN4llvm9PrintableD2Ev.exit43:                    ; preds = %159, %164
   %166 = icmp eq ptr %161, %15
   br i1 %166, label %167, label %159
 
-167:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit48
+167:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit43
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %197
@@ -2549,8 +2549,8 @@ _ZN4llvm9PrintableD2Ev.exit48:                    ; preds = %159, %164
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %170 = load ptr, ptr %169, align 8, !tbaa !331
   %171 = call noundef i32 @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_12GenericCycleINS_17GenericSSAContextINS_15MachineFunctionEEEEEPKNS_12MachineInstrENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SB_EEEES8_SB_SD_SG_E5countES8_(ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull %141)
-  %.not41 = icmp eq i32 %171, 0
-  br i1 %.not41, label %194, label %172
+  %.not36 = icmp eq i32 %171, 0
+  br i1 %.not36, label %194, label %172
 
 172:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2573,30 +2573,30 @@ _ZN4llvm9PrintableD2Ev.exit48:                    ; preds = %159, %164
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEE5printERKS7_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %182, align 8, !tbaa !173, !alias.scope !332
   %183 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store ptr %181, ptr %180, align 8, !alias.scope !332
-  %.sroa.3.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store ptr %108, ptr %.sroa.3.0..sroa_idx.i.i49, align 8, !tbaa !31, !alias.scope !332
+  %.sroa.3.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  store ptr %108, ptr %.sroa.3.0..sroa_idx.i.i44, align 8, !tbaa !31, !alias.scope !332
   store ptr @_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNKS0_12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEE5printERKS7_EUlS2_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %183, align 8, !tbaa !33, !alias.scope !332
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_15MachineFunctionEEEE13reportFailureERKNS_5TwineENS_8ArrayRefINS_9PrintableEEE(ptr noundef nonnull align 8 dereferenceable(169) %19, ptr noundef nonnull align 8 dereferenceable(34) %16, ptr nonnull %17, i64 3)
   %184 = getelementptr inbounds nuw i8, ptr %17, i64 96
   br label %185
 
-185:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit51, %172
-  %186 = phi ptr [ %184, %172 ], [ %187, %_ZN4llvm9PrintableD2Ev.exit51 ]
+185:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit46, %172
+  %186 = phi ptr [ %184, %172 ], [ %187, %_ZN4llvm9PrintableD2Ev.exit46 ]
   %187 = getelementptr inbounds i8, ptr %186, i64 -32
   %188 = getelementptr inbounds i8, ptr %186, i64 -16
   %189 = load ptr, ptr %188, align 8, !tbaa !33
-  %.not.i.i50 = icmp eq ptr %189, null
-  br i1 %.not.i.i50, label %_ZN4llvm9PrintableD2Ev.exit51, label %190
+  %.not.i.i45 = icmp eq ptr %189, null
+  br i1 %.not.i.i45, label %_ZN4llvm9PrintableD2Ev.exit46, label %190
 
 190:                                              ; preds = %185
   %191 = call noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %187, i32 noundef 3) #14
-  br label %_ZN4llvm9PrintableD2Ev.exit51
+  br label %_ZN4llvm9PrintableD2Ev.exit46
 
-_ZN4llvm9PrintableD2Ev.exit51:                    ; preds = %185, %190
+_ZN4llvm9PrintableD2Ev.exit46:                    ; preds = %185, %190
   %192 = icmp eq ptr %187, %17
   br i1 %192, label %193, label %185
 
-193:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit51
+193:                                              ; preds = %_ZN4llvm9PrintableD2Ev.exit46
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %197

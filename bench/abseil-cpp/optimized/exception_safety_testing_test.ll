@@ -44647,12 +44647,12 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %126, %_ZNKSt14defau
   %158 = landingpad { ptr, i32 }
           cleanup
   %159 = load ptr, ptr %148, align 8, !tbaa !416, !noalias !406
-  %.not.i12.i.i.i.i = icmp eq ptr %159, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %160
+  %.not.i11.i.i.i.i = icmp eq ptr %159, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %160
 
 160:                                              ; preds = %157
   %161 = invoke noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %162, !noalias !406
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %162, !noalias !406
 
 162:                                              ; preds = %160
   %163 = landingpad { ptr, i32 }
@@ -44661,13 +44661,13 @@ _ZN7testing15AssertionResultD2Ev.exit62:          ; preds = %126, %_ZNKSt14defau
   call void @__clang_call_terminate(ptr %164) #31, !noalias !406
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %160, %157
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %160, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !406
   %165 = load ptr, ptr %145, align 8, !tbaa !416, !noalias !406
-  %.not.i14.i.i.i.i = icmp eq ptr %165, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %166
+  %.not.i13.i.i.i.i = icmp eq ptr %165, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %166
 
-166:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+166:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %167 = invoke noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %144, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %168, !noalias !406
 
@@ -44678,10 +44678,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %160, %157
   call void @__clang_call_terminate(ptr %170) #31, !noalias !406
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %166, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %166, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %171 = load ptr, ptr %142, align 8, !tbaa !416, !noalias !406
-  %.not.i16.i.i.i.i = icmp eq ptr %171, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %172
+  %.not.i15.i.i.i.i = icmp eq ptr %171, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %172
 
 172:                                              ; preds = %.body.i.i.i.i
   %173 = invoke noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef 3)
@@ -45076,12 +45076,12 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %274, %_ZNKSt14defau
   %306 = landingpad { ptr, i32 }
           cleanup
   %307 = load ptr, ptr %296, align 8, !tbaa !416, !noalias !430
-  %.not.i12.i.i.i.i80 = icmp eq ptr %307, null
-  br i1 %.not.i12.i.i.i.i80, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81, label %308
+  %.not.i11.i.i.i.i80 = icmp eq ptr %307, null
+  br i1 %.not.i11.i.i.i.i80, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i81, label %308
 
 308:                                              ; preds = %305
   %309 = invoke noundef zeroext i1 %307(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81 unwind label %310, !noalias !430
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i81 unwind label %310, !noalias !430
 
 310:                                              ; preds = %308
   %311 = landingpad { ptr, i32 }
@@ -45090,13 +45090,13 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %274, %_ZNKSt14defau
   call void @__clang_call_terminate(ptr %312) #31, !noalias !430
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81:       ; preds = %308, %305
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i81:       ; preds = %308, %305
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !430
   %313 = load ptr, ptr %293, align 8, !tbaa !416, !noalias !430
-  %.not.i14.i.i.i.i82 = icmp eq ptr %313, null
-  br i1 %.not.i14.i.i.i.i82, label %.body.i.i.i.i83, label %314
+  %.not.i13.i.i.i.i82 = icmp eq ptr %313, null
+  br i1 %.not.i13.i.i.i.i82, label %.body.i.i.i.i83, label %314
 
-314:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81
+314:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i81
   %315 = invoke noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull align 8 dereferenceable(32) %292, i32 noundef 3)
           to label %.body.i.i.i.i83 unwind label %316, !noalias !430
 
@@ -45107,10 +45107,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81:       ; preds = %308, %305
   call void @__clang_call_terminate(ptr %318) #31, !noalias !430
   unreachable
 
-.body.i.i.i.i83:                                  ; preds = %314, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i81
+.body.i.i.i.i83:                                  ; preds = %314, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i81
   %319 = load ptr, ptr %290, align 8, !tbaa !416, !noalias !430
-  %.not.i16.i.i.i.i84 = icmp eq ptr %319, null
-  br i1 %.not.i16.i.i.i.i84, label %.body.i.i.i85, label %320
+  %.not.i15.i.i.i.i84 = icmp eq ptr %319, null
+  br i1 %.not.i15.i.i.i.i84, label %.body.i.i.i85, label %320
 
 320:                                              ; preds = %.body.i.i.i.i83
   %321 = invoke noundef zeroext i1 %319(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -45506,7 +45506,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14defaul
   br label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i
 
 _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i: ; preds = %12, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2IRKPS7_vEEOT_.exit.i.i
-  %.val.i8.i16.i.i = phi ptr [ null, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2IRKPS7_vEEOT_.exit.i.i ], [ @_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_113ExampleStructEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %12 ]
+  %.val.i7.i16.i.i = phi ptr [ null, %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2IRKPS7_vEEOT_.exit.i.i ], [ @_ZNSt17_Function_handlerIFvPN7testing12_GLOBAL__N_113ExampleStructEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -45525,7 +45525,7 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i
   %24 = load ptr, ptr %18, align 8, !tbaa !416, !noalias !445
   store ptr %24, ptr %16, align 8, !tbaa !416, !noalias !445
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val.i8.i.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !416, !noalias !445
+  %.val.i7.i.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !416, !noalias !445
   br label %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i
 
 25:                                               ; preds = %19
@@ -45547,17 +45547,17 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i: ; preds = %21, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i
-  %.val.i8.i.i.i = phi ptr [ %.val.i8.i.pre.i.i, %21 ], [ %.val.i8.i16.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i ]
+  %.val.i7.i.i.i = phi ptr [ %.val.i7.i.pre.i.i, %21 ], [ %.val.i7.i16.i.i, %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2IRPS4_vEEOT_.exit.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false), !noalias !445
-  %.not.i.i.not.i9.i.i.i = icmp eq ptr %.val.i8.i.i.i, null
-  br i1 %.not.i.i.not.i9.i.i.i, label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i, label %37
+  %.not.i.i.not.i8.i.i.i = icmp eq ptr %.val.i7.i.i.i, null
+  br i1 %.not.i.i.not.i8.i.i.i, label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i, label %37
 
 37:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvEEC2ERKS8_.exit.i.i.i
-  %38 = invoke noundef zeroext i1 %.val.i8.i.i.i(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2)
+  %38 = invoke noundef zeroext i1 %.val.i7.i.i.i(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2)
           to label %39 unwind label %43, !noalias !445
 
 39:                                               ; preds = %37
@@ -45572,8 +45572,8 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14defaul
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = load ptr, ptr %34, align 8, !tbaa !416, !noalias !445
-  %.not.i.i10.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i10.i.i.i, label %.body.i.i.i, label %46
+  %.not.i.i9.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i9.i.i.i, label %.body.i.i.i, label %46
 
 46:                                               ; preds = %43
   %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
@@ -45621,12 +45621,12 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i: 
   %64 = landingpad { ptr, i32 }
           cleanup
   %65 = load ptr, ptr %53, align 8, !tbaa !416, !noalias !445
-  %.not.i12.i.i.i = icmp eq ptr %65, null
-  br i1 %.not.i12.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i, label %66
+  %.not.i11.i.i.i = icmp eq ptr %65, null
+  br i1 %.not.i11.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i, label %66
 
 66:                                               ; preds = %63
   %67 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i unwind label %68, !noalias !445
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i unwind label %68, !noalias !445
 
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
@@ -45635,13 +45635,13 @@ _ZNSt8functionIFvPN7testing12_GLOBAL__N_113ExampleStructEEEC2ERKS5_.exit.i.i.i: 
   call void @__clang_call_terminate(ptr %70) #31, !noalias !445
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %66, %63
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i:           ; preds = %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !445
   %71 = load ptr, ptr %34, align 8, !tbaa !416, !noalias !445
-  %.not.i14.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i14.i.i.i, label %.body.i.i.i, label %72
+  %.not.i13.i.i.i = icmp eq ptr %71, null
+  br i1 %.not.i13.i.i.i, label %.body.i.i.i, label %72
 
-72:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i
+72:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i
   %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
           to label %.body.i.i.i unwind label %74, !noalias !445
 
@@ -45652,11 +45652,11 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %66, %63
   call void @__clang_call_terminate(ptr %76) #31, !noalias !445
   unreachable
 
-.body.i.i.i:                                      ; preds = %72, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i, %46, %43
-  %.pn.i.i.i = phi { ptr, i32 } [ %44, %46 ], [ %44, %43 ], [ %64, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i ], [ %64, %72 ]
+.body.i.i.i:                                      ; preds = %72, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i, %46, %43
+  %.pn.i.i.i = phi { ptr, i32 } [ %44, %46 ], [ %44, %43 ], [ %64, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i ], [ %64, %72 ]
   %77 = load ptr, ptr %16, align 8, !tbaa !416, !noalias !445
-  %.not.i16.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i16.i.i.i, label %.body.i.i, label %78
+  %.not.i15.i.i.i = icmp eq ptr %77, null
+  br i1 %.not.i15.i.i.i, label %.body.i.i, label %78
 
 78:                                               ; preds = %.body.i.i.i
   %79 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 3)
@@ -46771,12 +46771,12 @@ define internal void @_ZN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuarant
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = load ptr, ptr %22, align 8, !tbaa !416, !noalias !497
-  %.not.i12.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %35
+  %.not.i11.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %35
 
 35:                                               ; preds = %32
   %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %37, !noalias !497
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %37, !noalias !497
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -46785,13 +46785,13 @@ define internal void @_ZN7testing12_GLOBAL__N_145ExceptionCheckTest_BasicGuarant
   call void @__clang_call_terminate(ptr %39) #31, !noalias !497
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %35, %32
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %35, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !497
   %40 = load ptr, ptr %19, align 8, !tbaa !416, !noalias !497
-  %.not.i14.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %41
+  %.not.i13.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %41
 
-41:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+41:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %43, !noalias !497
 
@@ -46802,10 +46802,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %35, %32
   call void @__clang_call_terminate(ptr %45) #31, !noalias !497
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %41, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %41, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %46 = load ptr, ptr %16, align 8, !tbaa !416, !noalias !497
-  %.not.i16.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %47
+  %.not.i15.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %47
 
 47:                                               ; preds = %.body.i.i.i.i
   %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -47929,12 +47929,12 @@ define internal void @_ZN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarant
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = load ptr, ptr %21, align 8, !tbaa !416, !noalias !547
-  %.not.i12.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %34
+  %.not.i11.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %34
 
 34:                                               ; preds = %31
   %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %36, !noalias !547
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %36, !noalias !547
 
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
@@ -47943,13 +47943,13 @@ define internal void @_ZN7testing12_GLOBAL__N_138ExceptionCheckTest_BasicGuarant
   call void @__clang_call_terminate(ptr %38) #31, !noalias !547
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %34, %31
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %34, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !547
   %39 = load ptr, ptr %18, align 8, !tbaa !416, !noalias !547
-  %.not.i14.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %40
+  %.not.i13.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %40
 
-40:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+40:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %42, !noalias !547
 
@@ -47960,10 +47960,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %34, %31
   call void @__clang_call_terminate(ptr %44) #31, !noalias !547
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %40, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %40, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %45 = load ptr, ptr %15, align 8, !tbaa !416, !noalias !547
-  %.not.i16.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %46
+  %.not.i15.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %46
 
 46:                                               ; preds = %.body.i.i.i.i
   %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -49072,17 +49072,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %46, %41
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %55
 
-55:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, %52
-  %56 = phi ptr [ %54, %52 ], [ %57, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i ]
+55:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, %52
+  %56 = phi ptr [ %54, %52 ], [ %57, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -32
   %58 = getelementptr inbounds i8, ptr %56, i64 -16
   %59 = load ptr, ptr %58, align 8, !tbaa !416, !noalias !597
-  %.not.i12.i.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %60
+  %.not.i11.i.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %60
 
 60:                                               ; preds = %55
   %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %62, !noalias !597
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %62, !noalias !597
 
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
@@ -49091,15 +49091,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %46, %41
   call void @__clang_call_terminate(ptr %64) #31, !noalias !597
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %60, %55
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %60, %55
   %65 = icmp eq ptr %57, %6
   br i1 %65, label %66, label %55
 
-66:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+66:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !597
   %67 = load ptr, ptr %28, align 8, !tbaa !416, !noalias !597
-  %.not.i14.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %68
+  %.not.i13.i.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %68
 
 68:                                               ; preds = %66
   %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
@@ -49114,8 +49114,8 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %60, %55
 
 .body.i.i.i.i:                                    ; preds = %68, %66
   %73 = load ptr, ptr %25, align 8, !tbaa !416, !noalias !597
-  %.not.i16.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %74
+  %.not.i15.i.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %74
 
 74:                                               ; preds = %.body.i.i.i.i
   %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef 3)
@@ -49576,17 +49576,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i49:         ; preds = %228, %223
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %237
 
-237:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38, %234
-  %238 = phi ptr [ %236, %234 ], [ %239, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38 ]
+237:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38, %234
+  %238 = phi ptr [ %236, %234 ], [ %239, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38 ]
   %239 = getelementptr inbounds i8, ptr %238, i64 -32
   %240 = getelementptr inbounds i8, ptr %238, i64 -16
   %241 = load ptr, ptr %240, align 8, !tbaa !416, !noalias !612
-  %.not.i12.i.i.i.i37 = icmp eq ptr %241, null
-  br i1 %.not.i12.i.i.i.i37, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38, label %242
+  %.not.i11.i.i.i.i37 = icmp eq ptr %241, null
+  br i1 %.not.i11.i.i.i.i37, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38, label %242
 
 242:                                              ; preds = %237
   %243 = invoke noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(32) %239, ptr noundef nonnull align 8 dereferenceable(32) %239, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38 unwind label %244, !noalias !612
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38 unwind label %244, !noalias !612
 
 244:                                              ; preds = %242
   %245 = landingpad { ptr, i32 }
@@ -49595,15 +49595,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i49:         ; preds = %228, %223
   call void @__clang_call_terminate(ptr %246) #31, !noalias !612
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38:       ; preds = %242, %237
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38:       ; preds = %242, %237
   %247 = icmp eq ptr %239, %2
   br i1 %247, label %248, label %237
 
-248:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38
+248:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i38
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !612
   %249 = load ptr, ptr %210, align 8, !tbaa !416, !noalias !612
-  %.not.i14.i.i.i.i39 = icmp eq ptr %249, null
-  br i1 %.not.i14.i.i.i.i39, label %.body.i.i.i.i40, label %250
+  %.not.i13.i.i.i.i39 = icmp eq ptr %249, null
+  br i1 %.not.i13.i.i.i.i39, label %.body.i.i.i.i40, label %250
 
 250:                                              ; preds = %248
   %251 = invoke noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(32) %209, i32 noundef 3)
@@ -49618,8 +49618,8 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i38:       ; preds = %242, %237
 
 .body.i.i.i.i40:                                  ; preds = %250, %248
   %255 = load ptr, ptr %207, align 8, !tbaa !416, !noalias !612
-  %.not.i16.i.i.i.i41 = icmp eq ptr %255, null
-  br i1 %.not.i16.i.i.i.i41, label %.body.i.i.i42, label %256
+  %.not.i15.i.i.i.i41 = icmp eq ptr %255, null
+  br i1 %.not.i15.i.i.i.i41, label %.body.i.i.i42, label %256
 
 256:                                              ; preds = %.body.i.i.i.i40
   %257 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -50234,12 +50234,12 @@ define internal void @_ZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuarant
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load ptr, ptr %29, align 8, !tbaa !416, !noalias !658
-  %.not.i12.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %42
+  %.not.i11.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %42
 
 42:                                               ; preds = %39
   %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %44, !noalias !658
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %44, !noalias !658
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -50248,13 +50248,13 @@ define internal void @_ZN7testing12_GLOBAL__N_156ExceptionCheckTest_BasicGuarant
   call void @__clang_call_terminate(ptr %46) #31, !noalias !658
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %42, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !658
   %47 = load ptr, ptr %26, align 8, !tbaa !416, !noalias !658
-  %.not.i14.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %48
+  %.not.i13.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %48
 
-48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %50, !noalias !658
 
@@ -50265,10 +50265,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   call void @__clang_call_terminate(ptr %52) #31, !noalias !658
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %53 = load ptr, ptr %23, align 8, !tbaa !416, !noalias !658
-  %.not.i16.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %54
+  %.not.i15.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %54
 
 54:                                               ; preds = %.body.i.i.i.i
   %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef 3)
@@ -50683,17 +50683,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i33:         ; preds = %191, %186
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %200
 
-200:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, %197
-  %201 = phi ptr [ %199, %197 ], [ %202, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i ]
+200:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, %197
+  %201 = phi ptr [ %199, %197 ], [ %202, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i ]
   %202 = getelementptr inbounds i8, ptr %201, i64 -32
   %203 = getelementptr inbounds i8, ptr %201, i64 -16
   %204 = load ptr, ptr %203, align 8, !tbaa !416, !noalias !680
-  %.not.i13.i.i.i.i = icmp eq ptr %204, null
-  br i1 %.not.i13.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, label %205
+  %.not.i12.i.i.i.i = icmp eq ptr %204, null
+  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %205
 
 205:                                              ; preds = %200
   %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(32) %202, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i unwind label %207, !noalias !680
+          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %207, !noalias !680
 
 207:                                              ; preds = %205
   %208 = landingpad { ptr, i32 }
@@ -50702,15 +50702,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i33:         ; preds = %191, %186
   call void @__clang_call_terminate(ptr %209) #31, !noalias !680
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %205, %200
+_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %205, %200
   %210 = icmp eq ptr %202, %2
   br i1 %210, label %211, label %200
 
-211:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i
+211:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !680
   %212 = load ptr, ptr %175, align 8, !tbaa !416, !noalias !680
-  %.not.i15.i.i.i.i = icmp eq ptr %212, null
-  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i.i29, label %213
+  %.not.i14.i.i.i.i = icmp eq ptr %212, null
+  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i29, label %213
 
 213:                                              ; preds = %211
   %214 = invoke noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %174, i32 noundef 3)
@@ -50725,8 +50725,8 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %205, %200
 
 .body.i.i.i.i29:                                  ; preds = %213, %211
   %218 = load ptr, ptr %172, align 8, !tbaa !416, !noalias !680
-  %.not.i17.i.i.i.i = icmp eq ptr %218, null
-  br i1 %.not.i17.i.i.i.i, label %.body.i.i.i30, label %219
+  %.not.i16.i.i.i.i = icmp eq ptr %218, null
+  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i30, label %219
 
 219:                                              ; preds = %.body.i.i.i.i29
   %220 = invoke noundef zeroext i1 %218(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -52087,12 +52087,12 @@ define internal void @_ZN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuaran
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load ptr, ptr %29, align 8, !tbaa !416, !noalias !730
-  %.not.i12.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %42
+  %.not.i11.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %42
 
 42:                                               ; preds = %39
   %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %44, !noalias !730
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %44, !noalias !730
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -52101,13 +52101,13 @@ define internal void @_ZN7testing12_GLOBAL__N_139ExceptionCheckTest_StrongGuaran
   call void @__clang_call_terminate(ptr %46) #31, !noalias !730
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %42, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !730
   %47 = load ptr, ptr %26, align 8, !tbaa !416, !noalias !730
-  %.not.i14.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %48
+  %.not.i13.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %48
 
-48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %50, !noalias !730
 
@@ -52118,10 +52118,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   call void @__clang_call_terminate(ptr %52) #31, !noalias !730
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %53 = load ptr, ptr %23, align 8, !tbaa !416, !noalias !730
-  %.not.i16.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %54
+  %.not.i15.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %54
 
 54:                                               ; preds = %.body.i.i.i.i
   %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef 3)
@@ -52541,17 +52541,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i36:         ; preds = %194, %189
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %203
 
-203:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29, %200
-  %204 = phi ptr [ %202, %200 ], [ %205, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29 ]
+203:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29, %200
+  %204 = phi ptr [ %202, %200 ], [ %205, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29 ]
   %205 = getelementptr inbounds i8, ptr %204, i64 -32
   %206 = getelementptr inbounds i8, ptr %204, i64 -16
   %207 = load ptr, ptr %206, align 8, !tbaa !416, !noalias !752
-  %.not.i12.i.i.i.i28 = icmp eq ptr %207, null
-  br i1 %.not.i12.i.i.i.i28, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29, label %208
+  %.not.i11.i.i.i.i28 = icmp eq ptr %207, null
+  br i1 %.not.i11.i.i.i.i28, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29, label %208
 
 208:                                              ; preds = %203
   %209 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(32) %205, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29 unwind label %210, !noalias !752
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29 unwind label %210, !noalias !752
 
 210:                                              ; preds = %208
   %211 = landingpad { ptr, i32 }
@@ -52560,15 +52560,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i36:         ; preds = %194, %189
   call void @__clang_call_terminate(ptr %212) #31, !noalias !752
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29:       ; preds = %208, %203
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29:       ; preds = %208, %203
   %213 = icmp eq ptr %205, %2
   br i1 %213, label %214, label %203
 
-214:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29
+214:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !752
   %215 = load ptr, ptr %176, align 8, !tbaa !416, !noalias !752
-  %.not.i14.i.i.i.i30 = icmp eq ptr %215, null
-  br i1 %.not.i14.i.i.i.i30, label %.body.i.i.i.i31, label %216
+  %.not.i13.i.i.i.i30 = icmp eq ptr %215, null
+  br i1 %.not.i13.i.i.i.i30, label %.body.i.i.i.i31, label %216
 
 216:                                              ; preds = %214
   %217 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %175, i32 noundef 3)
@@ -52583,8 +52583,8 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i29:       ; preds = %208, %203
 
 .body.i.i.i.i31:                                  ; preds = %216, %214
   %221 = load ptr, ptr %173, align 8, !tbaa !416, !noalias !752
-  %.not.i16.i.i.i.i32 = icmp eq ptr %221, null
-  br i1 %.not.i16.i.i.i.i32, label %.body.i.i.i33, label %222
+  %.not.i15.i.i.i.i32 = icmp eq ptr %221, null
+  br i1 %.not.i15.i.i.i.i32, label %.body.i.i.i33, label %222
 
 222:                                              ; preds = %.body.i.i.i.i31
   %223 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -53762,17 +53762,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %61, %56
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 96
   br label %70
 
-70:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i, %67
-  %71 = phi ptr [ %69, %67 ], [ %72, %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i ]
+70:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, %67
+  %71 = phi ptr [ %69, %67 ], [ %72, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -32
   %73 = getelementptr inbounds i8, ptr %71, i64 -16
   %74 = load ptr, ptr %73, align 8, !tbaa !416, !noalias !810
-  %.not.i14.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i14.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i, label %75
+  %.not.i13.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i13.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, label %75
 
 75:                                               ; preds = %70
   %76 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i unwind label %77, !noalias !810
+          to label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i unwind label %77, !noalias !810
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
@@ -53781,15 +53781,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i:           ; preds = %61, %56
   call void @__clang_call_terminate(ptr %79) #31, !noalias !810
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %75, %70
+_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %75, %70
   %80 = icmp eq ptr %72, %17
   br i1 %80, label %81, label %70
 
-81:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i
+81:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !810
   %82 = load ptr, ptr %42, align 8, !tbaa !416, !noalias !810
-  %.not.i16.i.i.i.i = icmp eq ptr %82, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i.i, label %83
+  %.not.i15.i.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i.i, label %83
 
 83:                                               ; preds = %81
   %84 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
@@ -53804,8 +53804,8 @@ _ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %75, %70
 
 .body.i.i.i.i:                                    ; preds = %83, %81
   %88 = load ptr, ptr %39, align 8, !tbaa !416, !noalias !810
-  %.not.i18.i.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i18.i.i.i.i, label %.body.i.i.i, label %89
+  %.not.i17.i.i.i.i = icmp eq ptr %88, null
+  br i1 %.not.i17.i.i.i.i, label %.body.i.i.i, label %89
 
 89:                                               ; preds = %.body.i.i.i.i
   %90 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %18, i32 noundef 3)
@@ -54271,17 +54271,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i58:         ; preds = %246, %241
   %254 = getelementptr inbounds nuw i8, ptr %13, i64 96
   br label %255
 
-255:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, %252
-  %256 = phi ptr [ %254, %252 ], [ %257, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i ]
+255:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, %252
+  %256 = phi ptr [ %254, %252 ], [ %257, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i ]
   %257 = getelementptr inbounds i8, ptr %256, i64 -32
   %258 = getelementptr inbounds i8, ptr %256, i64 -16
   %259 = load ptr, ptr %258, align 8, !tbaa !416, !noalias !826
-  %.not.i13.i.i.i.i = icmp eq ptr %259, null
-  br i1 %.not.i13.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, label %260
+  %.not.i12.i.i.i.i = icmp eq ptr %259, null
+  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %260
 
 260:                                              ; preds = %255
   %261 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(32) %257, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i unwind label %262, !noalias !826
+          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %262, !noalias !826
 
 262:                                              ; preds = %260
   %263 = landingpad { ptr, i32 }
@@ -54290,15 +54290,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i58:         ; preds = %246, %241
   call void @__clang_call_terminate(ptr %264) #31, !noalias !826
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %260, %255
+_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %260, %255
   %265 = icmp eq ptr %257, %13
   br i1 %265, label %266, label %255
 
-266:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i
+266:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !826
   %267 = load ptr, ptr %225, align 8, !tbaa !416, !noalias !826
-  %.not.i15.i.i.i.i = icmp eq ptr %267, null
-  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i.i50, label %268
+  %.not.i14.i.i.i.i = icmp eq ptr %267, null
+  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i50, label %268
 
 268:                                              ; preds = %266
   %269 = invoke noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %224, i32 noundef 3)
@@ -54313,8 +54313,8 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %260, %255
 
 .body.i.i.i.i50:                                  ; preds = %268, %266
   %273 = load ptr, ptr %222, align 8, !tbaa !416, !noalias !826
-  %.not.i17.i.i.i.i = icmp eq ptr %273, null
-  br i1 %.not.i17.i.i.i.i, label %.body.i.i.i51, label %274
+  %.not.i16.i.i.i.i = icmp eq ptr %273, null
+  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i51, label %274
 
 274:                                              ; preds = %.body.i.i.i.i50
   %275 = invoke noundef zeroext i1 %273(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(88) %14, i32 noundef 3)
@@ -56291,8 +56291,8 @@ _ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14d
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false), !noalias !920
   %34 = load ptr, ptr %17, align 8, !tbaa !416, !noalias !920
-  %.not.i.i.not.i8.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.not.i8.i.i.i, label %_ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEEC2ERKS6_.exit.i.i.i, label %35
+  %.not.i.i.not.i7.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.not.i7.i.i.i, label %_ZNSt8functionIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEEC2ERKS6_.exit.i.i.i, label %35
 
 35:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14default_deleteIS4_EEvEEC2ERKS9_.exit.i.i.i
   %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2)
@@ -56309,8 +56309,8 @@ _ZNSt8functionIFSt10unique_ptrIN7testing13ThrowingValueILNS1_8TypeSpecE0EEESt14d
   %41 = landingpad { ptr, i32 }
           cleanup
   %42 = load ptr, ptr %32, align 8, !tbaa !416, !noalias !920
-  %.not.i.i9.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i9.i.i.i, label %.body.i4.i.i, label %43
+  %.not.i.i8.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i8.i.i.i, label %.body.i4.i.i, label %43
 
 43:                                               ; preds = %40
   %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3)
@@ -56349,7 +56349,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
           cleanup
   %58 = load ptr, ptr %48, align 8, !tbaa !936, !noalias !920
   %.not.i.i5.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i5.i.i.i.i, label %.body11.i.i.i, label %59
+  br i1 %.not.i.i5.i.i.i.i, label %.body10.i.i.i, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -56358,7 +56358,7 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %62, %63
   call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #30, !noalias !920
-  br label %.body11.i.i.i
+  br label %.body10.i.i.i
 
 65:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESaIS8_EE11_M_allocateEm.exit.i.i.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -56378,14 +56378,14 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
   call void @__clang_call_terminate(ptr %72) #31, !noalias !920
   unreachable
 
-.body11.i.i.i:                                    ; preds = %59, %56
+.body10.i.i.i:                                    ; preds = %59, %56
   %73 = load ptr, ptr %49, align 8, !tbaa !416, !noalias !920
-  %.not.i13.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i13.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i, label %74
+  %.not.i12.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i12.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i, label %74
 
-74:                                               ; preds = %.body11.i.i.i
+74:                                               ; preds = %.body10.i.i.i
   %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i unwind label %76, !noalias !920
+          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i unwind label %76, !noalias !920
 
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
@@ -56394,13 +56394,13 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPNS1_13ThrowingValue
   call void @__clang_call_terminate(ptr %78) #31, !noalias !920
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit14.i.i.i:           ; preds = %74, %.body11.i.i.i
+_ZNSt14_Function_baseD2Ev.exit13.i.i.i:           ; preds = %74, %.body10.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !920
   %79 = load ptr, ptr %32, align 8, !tbaa !416, !noalias !920
-  %.not.i15.i.i.i = icmp eq ptr %79, null
-  br i1 %.not.i15.i.i.i, label %.body.i4.i.i, label %80
+  %.not.i14.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i14.i.i.i, label %.body.i4.i.i, label %80
 
-80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i
+80:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i
   %81 = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3)
           to label %.body.i4.i.i unwind label %82, !noalias !920
 
@@ -56411,11 +56411,11 @@ _ZNSt14_Function_baseD2Ev.exit14.i.i.i:           ; preds = %74, %.body11.i.i.i
   call void @__clang_call_terminate(ptr %84) #31, !noalias !920
   unreachable
 
-.body.i4.i.i:                                     ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i, %43, %40
-  %.pn.i.i.i = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %57, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i ], [ %57, %80 ]
+.body.i4.i.i:                                     ; preds = %80, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i, %43, %40
+  %.pn.i.i.i = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %57, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i ], [ %57, %80 ]
   %85 = load ptr, ptr %19, align 8, !tbaa !416, !noalias !920
-  %.not.i17.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i17.i.i.i, label %.body.i.i, label %86
+  %.not.i16.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i16.i.i.i, label %.body.i.i, label %86
 
 86:                                               ; preds = %.body.i4.i.i
   %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 3)
@@ -57364,12 +57364,12 @@ define internal void @_ZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load ptr, ptr %29, align 8, !tbaa !416, !noalias !964
-  %.not.i12.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i12.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i, label %42
+  %.not.i11.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i11.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i, label %42
 
 42:                                               ; preds = %39
   %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i unwind label %44, !noalias !964
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i unwind label %44, !noalias !964
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -57378,13 +57378,13 @@ define internal void @_ZN7testing12_GLOBAL__N_135ExceptionCheckTest_NonCopyable_
   call void @__clang_call_terminate(ptr %46) #31, !noalias !964
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i:         ; preds = %42, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !964
   %47 = load ptr, ptr %26, align 8, !tbaa !416, !noalias !964
-  %.not.i14.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i14.i.i.i.i, label %.body.i.i.i.i, label %48
+  %.not.i13.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i13.i.i.i.i, label %.body.i.i.i.i, label %48
 
-48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+48:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %.body.i.i.i.i unwind label %50, !noalias !964
 
@@ -57395,10 +57395,10 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i:         ; preds = %42, %39
   call void @__clang_call_terminate(ptr %52) #31, !noalias !964
   unreachable
 
-.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i
+.body.i.i.i.i:                                    ; preds = %48, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i
   %53 = load ptr, ptr %23, align 8, !tbaa !416, !noalias !964
-  %.not.i16.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i, label %54
+  %.not.i15.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i, label %54
 
 54:                                               ; preds = %.body.i.i.i.i
   %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef 3)
@@ -57818,17 +57818,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i32:         ; preds = %194, %189
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %203
 
-203:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25, %200
-  %204 = phi ptr [ %202, %200 ], [ %205, %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25 ]
+203:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25, %200
+  %204 = phi ptr [ %202, %200 ], [ %205, %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25 ]
   %205 = getelementptr inbounds i8, ptr %204, i64 -32
   %206 = getelementptr inbounds i8, ptr %204, i64 -16
   %207 = load ptr, ptr %206, align 8, !tbaa !416, !noalias !986
-  %.not.i12.i.i.i.i24 = icmp eq ptr %207, null
-  br i1 %.not.i12.i.i.i.i24, label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25, label %208
+  %.not.i11.i.i.i.i24 = icmp eq ptr %207, null
+  br i1 %.not.i11.i.i.i.i24, label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25, label %208
 
 208:                                              ; preds = %203
   %209 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(32) %205, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25 unwind label %210, !noalias !986
+          to label %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25 unwind label %210, !noalias !986
 
 210:                                              ; preds = %208
   %211 = landingpad { ptr, i32 }
@@ -57837,15 +57837,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i32:         ; preds = %194, %189
   call void @__clang_call_terminate(ptr %212) #31, !noalias !986
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25:       ; preds = %208, %203
+_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25:       ; preds = %208, %203
   %213 = icmp eq ptr %205, %2
   br i1 %213, label %214, label %203
 
-214:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25
+214:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit12.i.i.i.i25
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !986
   %215 = load ptr, ptr %176, align 8, !tbaa !416, !noalias !986
-  %.not.i14.i.i.i.i26 = icmp eq ptr %215, null
-  br i1 %.not.i14.i.i.i.i26, label %.body.i.i.i.i27, label %216
+  %.not.i13.i.i.i.i26 = icmp eq ptr %215, null
+  br i1 %.not.i13.i.i.i.i26, label %.body.i.i.i.i27, label %216
 
 216:                                              ; preds = %214
   %217 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %175, i32 noundef 3)
@@ -57860,8 +57860,8 @@ _ZNSt14_Function_baseD2Ev.exit13.i.i.i.i25:       ; preds = %208, %203
 
 .body.i.i.i.i27:                                  ; preds = %216, %214
   %221 = load ptr, ptr %173, align 8, !tbaa !416, !noalias !986
-  %.not.i16.i.i.i.i28 = icmp eq ptr %221, null
-  br i1 %.not.i16.i.i.i.i28, label %.body.i.i.i29, label %222
+  %.not.i15.i.i.i.i28 = icmp eq ptr %221, null
+  br i1 %.not.i15.i.i.i.i28, label %.body.i.i.i29, label %222
 
 222:                                              ; preds = %.body.i.i.i.i27
   %223 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 3)
@@ -59741,12 +59741,12 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
-  %.val.i9 = load ptr, ptr %26, align 8, !tbaa !416
-  %.not.i.i.not.i10 = icmp eq ptr %.val.i9, null
-  br i1 %.not.i.i.not.i10, label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEEC2ERKS5_.exit, label %27
+  %.val.i8 = load ptr, ptr %26, align 8, !tbaa !416
+  %.not.i.i.not.i9 = icmp eq ptr %.val.i8, null
+  br i1 %.not.i.i.not.i9, label %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEEC2ERKS5_.exit, label %27
 
 27:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EEvEEC2ERKS8_.exit
-  %28 = invoke noundef zeroext i1 %.val.i9(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
+  %28 = invoke noundef zeroext i1 %.val.i8(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %29 unwind label %33
 
 29:                                               ; preds = %27
@@ -59761,8 +59761,8 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %24, align 8, !tbaa !416
-  %.not.i.i11 = icmp eq ptr %35, null
-  br i1 %.not.i.i11, label %.body, label %36
+  %.not.i.i10 = icmp eq ptr %35, null
+  br i1 %.not.i.i10, label %.body, label %36
 
 36:                                               ; preds = %33
   %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
@@ -59878,7 +59878,7 @@ _ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121No
 .body.i:                                          ; preds = %72
   %.val5.pre.i = load ptr, ptr %41, align 8, !tbaa !1056
   %.not.i.i8.i = icmp eq ptr %.val5.pre.i, null
-  br i1 %.not.i.i8.i, label %.body13, label %78
+  br i1 %.not.i.i8.i, label %.body12, label %78
 
 78:                                               ; preds = %.body.i
   %.val6.i = load ptr, ptr %51, align 8, !tbaa !1061
@@ -59886,7 +59886,7 @@ _ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121No
   %80 = ptrtoint ptr %.val5.pre.i to i64
   %81 = sub i64 %79, %80
   call void @_ZdlPvm(ptr noundef nonnull %.val5.pre.i, i64 noundef %81) #30
-  br label %.body13
+  br label %.body12
 
 82:                                               ; preds = %_ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121NonEqualityComparableEEEJRKS7_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -59924,24 +59924,24 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %85, %90
 97:                                               ; preds = %_ZNSt8functionIFvPN7testing12_GLOBAL__N_121NonEqualityComparableEEEC2ERKS5_.exit
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %.body13
+  br label %.body12
 
-.body13:                                          ; preds = %.body.i, %78, %97
-  %eh.lpad-body14 = phi { ptr, i32 } [ %98, %97 ], [ %73, %78 ], [ %73, %.body.i ]
+.body12:                                          ; preds = %.body.i, %78, %97
+  %eh.lpad-body13 = phi { ptr, i32 } [ %98, %97 ], [ %73, %78 ], [ %73, %.body.i ]
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 64
   br label %100
 
-100:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit16, %.body13
-  %101 = phi ptr [ %99, %.body13 ], [ %102, %_ZNSt14_Function_baseD2Ev.exit16 ]
+100:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit15, %.body12
+  %101 = phi ptr [ %99, %.body12 ], [ %102, %_ZNSt14_Function_baseD2Ev.exit15 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 -32
   %103 = getelementptr inbounds i8, ptr %101, i64 -16
   %104 = load ptr, ptr %103, align 8, !tbaa !416
-  %.not.i15 = icmp eq ptr %104, null
-  br i1 %.not.i15, label %_ZNSt14_Function_baseD2Ev.exit16, label %105
+  %.not.i14 = icmp eq ptr %104, null
+  br i1 %.not.i14, label %_ZNSt14_Function_baseD2Ev.exit15, label %105
 
 105:                                              ; preds = %100
   %106 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit16 unwind label %107
+          to label %_ZNSt14_Function_baseD2Ev.exit15 unwind label %107
 
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
@@ -59950,15 +59950,15 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %85, %90
   call void @__clang_call_terminate(ptr %109) #31
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit16:                 ; preds = %100, %105
+_ZNSt14_Function_baseD2Ev.exit15:                 ; preds = %100, %105
   %110 = icmp eq ptr %102, %5
   br i1 %110, label %111, label %100
 
-111:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit16
+111:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %112 = load ptr, ptr %24, align 8, !tbaa !416
-  %.not.i17 = icmp eq ptr %112, null
-  br i1 %.not.i17, label %.body, label %113
+  %.not.i16 = icmp eq ptr %112, null
+  br i1 %.not.i16, label %.body, label %113
 
 113:                                              ; preds = %111
   %114 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
@@ -59972,10 +59972,10 @@ _ZNSt14_Function_baseD2Ev.exit16:                 ; preds = %100, %105
   unreachable
 
 .body:                                            ; preds = %113, %111, %36, %33
-  %.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %eh.lpad-body14, %111 ], [ %eh.lpad-body14, %113 ]
+  %.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %eh.lpad-body13, %111 ], [ %eh.lpad-body13, %113 ]
   %118 = load ptr, ptr %6, align 8, !tbaa !416
-  %.not.i19 = icmp eq ptr %118, null
-  br i1 %.not.i19, label %common.resume, label %119
+  %.not.i18 = icmp eq ptr %118, null
+  br i1 %.not.i18, label %common.resume, label %119
 
 119:                                              ; preds = %.body
   %120 = invoke noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
@@ -61562,7 +61562,7 @@ _ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_120Ex
 .body.i.i.i.i.i:                                  ; preds = %311
   %.val5.pre.i.i.i.i.i = load ptr, ptr %280, align 8, !tbaa !1171, !noalias !1150
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %.val5.pre.i.i.i.i.i, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %.body12.i.i.i.i, label %317
+  br i1 %.not.i.i8.i.i.i.i.i, label %.body11.i.i.i.i, label %317
 
 317:                                              ; preds = %.body.i.i.i.i.i
   %.val6.i.i.i.i.i = load ptr, ptr %290, align 8, !tbaa !1174, !noalias !1150
@@ -61570,7 +61570,7 @@ _ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_120Ex
   %319 = ptrtoint ptr %.val5.pre.i.i.i.i.i to i64
   %320 = sub i64 %318, %319
   call void @_ZdlPvm(ptr noundef nonnull %.val5.pre.i.i.i.i.i, i64 noundef %320) #30
-  br label %.body12.i.i.i.i
+  br label %.body11.i.i.i.i
 
 321:                                              ; preds = %_ZSt10_ConstructISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEEEEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i
   %322 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -61604,24 +61604,24 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i51:         ; preds = %329, %324
 335:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit46
   %336 = landingpad { ptr, i32 }
           cleanup
-  br label %.body12.i.i.i.i
+  br label %.body11.i.i.i.i
 
-.body12.i.i.i.i:                                  ; preds = %335, %317, %.body.i.i.i.i.i
-  %eh.lpad-body13.i.i.i.i = phi { ptr, i32 } [ %336, %335 ], [ %312, %317 ], [ %312, %.body.i.i.i.i.i ]
+.body11.i.i.i.i:                                  ; preds = %335, %317, %.body.i.i.i.i.i
+  %eh.lpad-body12.i.i.i.i = phi { ptr, i32 } [ %336, %335 ], [ %312, %317 ], [ %312, %.body.i.i.i.i.i ]
   %337 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %338
 
-338:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i, %.body12.i.i.i.i
-  %339 = phi ptr [ %337, %.body12.i.i.i.i ], [ %340, %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i ]
+338:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, %.body11.i.i.i.i
+  %339 = phi ptr [ %337, %.body11.i.i.i.i ], [ %340, %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i ]
   %340 = getelementptr inbounds i8, ptr %339, i64 -32
   %341 = getelementptr inbounds i8, ptr %339, i64 -16
   %342 = load ptr, ptr %341, align 8, !tbaa !416, !noalias !1150
-  %.not.i14.i.i.i.i = icmp eq ptr %342, null
-  br i1 %.not.i14.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i, label %343
+  %.not.i13.i.i.i.i = icmp eq ptr %342, null
+  br i1 %.not.i13.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i, label %343
 
 343:                                              ; preds = %338
   %344 = invoke noundef zeroext i1 %342(ptr noundef nonnull align 8 dereferenceable(32) %340, ptr noundef nonnull align 8 dereferenceable(32) %340, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i unwind label %345
+          to label %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i unwind label %345
 
 345:                                              ; preds = %343
   %346 = landingpad { ptr, i32 }
@@ -61630,15 +61630,15 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i51:         ; preds = %329, %324
   call void @__clang_call_terminate(ptr %347) #31
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %343, %338
+_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i:         ; preds = %343, %338
   %348 = icmp eq ptr %340, %10
   br i1 %348, label %349, label %338
 
-349:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit15.i.i.i.i
+349:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1150
   %350 = load ptr, ptr %278, align 8, !tbaa !416, !noalias !1150
-  %.not.i16.i.i.i.i = icmp eq ptr %350, null
-  br i1 %.not.i16.i.i.i.i, label %.body.i.i.i.i, label %351
+  %.not.i15.i.i.i.i = icmp eq ptr %350, null
+  br i1 %.not.i15.i.i.i.i, label %.body.i.i.i.i, label %351
 
 351:                                              ; preds = %349
   %352 = invoke noundef zeroext i1 %350(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(32) %277, i32 noundef 3)
@@ -61653,8 +61653,8 @@ _ZNSt14_Function_baseD2Ev.exit15.i.i.i.i:         ; preds = %343, %338
 
 .body.i.i.i.i:                                    ; preds = %351, %349
   %356 = load ptr, ptr %275, align 8, !tbaa !416, !noalias !1150
-  %.not.i18.i.i.i.i = icmp eq ptr %356, null
-  br i1 %.not.i18.i.i.i.i, label %.body.i.i.i47, label %357
+  %.not.i17.i.i.i.i = icmp eq ptr %356, null
+  br i1 %.not.i17.i.i.i.i, label %.body.i.i.i47, label %357
 
 357:                                              ; preds = %.body.i.i.i.i
   %358 = invoke noundef zeroext i1 %356(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %11, i32 noundef 3)
@@ -62055,7 +62055,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i80:           ; preds = %457, %_ZN7testing19
   unreachable
 
 .body.i.i.i47:                                    ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit57.i.i.i.i, %357, %.body.i.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %.merged.i.i.i.i58, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit57.i.i.i.i ], [ %eh.lpad-body13.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body13.i.i.i.i, %357 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %.merged.i.i.i.i58, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit57.i.i.i.i ], [ %eh.lpad-body12.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body12.i.i.i.i, %357 ]
   %468 = load ptr, ptr %273, align 8, !tbaa !416, !noalias !1150
   %.not.i18.i.i.i = icmp eq ptr %468, null
   br i1 %.not.i18.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit19.i.i.i, label %469

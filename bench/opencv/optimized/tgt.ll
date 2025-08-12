@@ -551,15 +551,15 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
-  %.not33 = icmp eq ptr %10, null
-  br i1 %.not33, label %.preheader.preheader, label %.lr.ph
+  %.not32 = icmp eq ptr %10, null
+  br i1 %.not32, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %11 = phi ptr [ %13, %.lr.ph ], [ %10, %4 ]
-  %.02335 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
-  %.02534 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
-  store ptr %.02335, ptr %.02534, align 8, !tbaa !34
+  %.02334 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
+  %.02533 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02533, i64 8
+  store ptr %.02334, ptr %.02533, align 8, !tbaa !34
   %13 = load ptr, ptr %11, align 8, !tbaa !17
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !35
@@ -572,7 +572,7 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
 .preheader:                                       ; preds = %.preheader.preheader, %30
   %.126 = phi ptr [ %31, %30 ], [ %.126.ph, %.preheader.preheader ]
   %.124 = phi ptr [ %32, %30 ], [ %.124.ph, %.preheader.preheader ]
-  %.0 = phi i32 [ %.232, %30 ], [ 0, %.preheader.preheader ]
+  %.0 = phi i32 [ %.231, %30 ], [ 0, %.preheader.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.124, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = icmp sgt i32 %.0, %15
@@ -585,23 +585,23 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
 18:                                               ; preds = %.preheader, %17
   %.1 = phi i32 [ %.0, %17 ], [ %15, %.preheader ]
   %19 = icmp slt i32 %.1, %3
-  br i1 %19, label %.lr.ph38, label %.loopexit
+  br i1 %19, label %.lr.ph37, label %.loopexit
 
-.lr.ph38:                                         ; preds = %18
+.lr.ph37:                                         ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %.124, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph38, %27
-  %.237 = phi i32 [ %.1, %.lr.ph38 ], [ %28, %27 ]
+21:                                               ; preds = %.lr.ph37, %27
+  %.236 = phi i32 [ %.1, %.lr.ph37 ], [ %28, %27 ]
   %22 = load i32, ptr %20, align 8, !tbaa !24
-  %.not29 = icmp slt i32 %.237, %22
-  br i1 %.not29, label %27, label %23
+  %.not28 = icmp slt i32 %.236, %22
+  br i1 %.not28, label %27, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.124, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !26
-  %.not30 = icmp eq i32 %25, 0
-  br i1 %.not30, label %26, label %.loopexit
+  %.not29 = icmp eq i32 %25, 0
+  br i1 %.not29, label %26, label %.loopexit
 
 26:                                               ; preds = %23
   call void @opj_bio_putbit(ptr noundef %0, i32 noundef 1) #6
@@ -610,13 +610,13 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
 
 27:                                               ; preds = %21
   call void @opj_bio_putbit(ptr noundef %0, i32 noundef 0) #6
-  %28 = add nsw i32 %.237, 1
+  %28 = add nsw i32 %.236, 1
   %exitcond.not = icmp eq i32 %28, %3
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !36
 
 .loopexit:                                        ; preds = %27, %18, %23, %26
-  %.232 = phi i32 [ %.237, %23 ], [ %.237, %26 ], [ %.1, %18 ], [ %3, %27 ]
-  store i32 %.232, ptr %14, align 4, !tbaa !25
+  %.231 = phi i32 [ %.236, %23 ], [ %.236, %26 ], [ %.1, %18 ], [ %3, %27 ]
+  store i32 %.231, ptr %14, align 4, !tbaa !25
   %29 = icmp eq ptr %.126, %5
   br i1 %29, label %33, label %30
 
@@ -641,15 +641,15 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
-  %.not31 = icmp eq ptr %10, null
-  br i1 %.not31, label %.preheader.preheader, label %.lr.ph
+  %.not30 = icmp eq ptr %10, null
+  br i1 %.not30, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %11 = phi ptr [ %13, %.lr.ph ], [ %10, %4 ]
-  %.02433 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
-  %.02632 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02632, i64 8
-  store ptr %.02433, ptr %.02632, align 8, !tbaa !34
+  %.02432 = phi ptr [ %11, %.lr.ph ], [ %9, %4 ]
+  %.02631 = phi ptr [ %12, %.lr.ph ], [ %5, %4 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02631, i64 8
+  store ptr %.02432, ptr %.02631, align 8, !tbaa !34
   %13 = load ptr, ptr %11, align 8, !tbaa !17
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !37
@@ -676,34 +676,34 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %.1 = phi i32 [ %.0, %17 ], [ %15, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.125, i64 8
   %20 = icmp slt i32 %.1, %3
-  br i1 %20, label %.lr.ph36, label %.critedge
+  br i1 %20, label %.lr.ph35, label %.critedge
 
-.lr.ph36:                                         ; preds = %18, %28
-  %.235 = phi i32 [ %.3, %28 ], [ %.1, %18 ]
+.lr.ph35:                                         ; preds = %18, %28
+  %.234 = phi i32 [ %.3, %28 ], [ %.1, %18 ]
   %21 = load i32, ptr %19, align 8, !tbaa !24
-  %22 = icmp slt i32 %.235, %21
+  %22 = icmp slt i32 %.234, %21
   br i1 %22, label %23, label %.critedge
 
-23:                                               ; preds = %.lr.ph36
+23:                                               ; preds = %.lr.ph35
   %24 = call i32 @opj_bio_read(ptr noundef %0, i32 noundef 1) #6
-  %.not30 = icmp eq i32 %24, 0
-  br i1 %.not30, label %26, label %25
+  %.not29 = icmp eq i32 %24, 0
+  br i1 %.not29, label %26, label %25
 
 25:                                               ; preds = %23
-  store i32 %.235, ptr %19, align 8, !tbaa !24
+  store i32 %.234, ptr %19, align 8, !tbaa !24
   br label %28
 
 26:                                               ; preds = %23
-  %27 = add nuw nsw i32 %.235, 1
+  %27 = add nuw nsw i32 %.234, 1
   br label %28
 
 28:                                               ; preds = %26, %25
-  %.3 = phi i32 [ %.235, %25 ], [ %27, %26 ]
+  %.3 = phi i32 [ %.234, %25 ], [ %27, %26 ]
   %29 = icmp slt i32 %.3, %3
-  br i1 %29, label %.lr.ph36, label %.critedge, !llvm.loop !38
+  br i1 %29, label %.lr.ph35, label %.critedge, !llvm.loop !38
 
-.critedge:                                        ; preds = %.lr.ph36, %28, %18
-  %.2.lcssa = phi i32 [ %.1, %18 ], [ %.3, %28 ], [ %.235, %.lr.ph36 ]
+.critedge:                                        ; preds = %.lr.ph35, %28, %18
+  %.2.lcssa = phi i32 [ %.1, %18 ], [ %.3, %28 ], [ %.234, %.lr.ph35 ]
   store i32 %.2.lcssa, ptr %14, align 4, !tbaa !25
   %30 = icmp eq ptr %.127, %5
   br i1 %30, label %34, label %31

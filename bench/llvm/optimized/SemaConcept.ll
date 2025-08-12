@@ -8077,7 +8077,7 @@ define dso_local void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_o
   %8 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   switch i64 %7, label %22 [
     i64 0, label %.lr.ph.i.i.i.i.i.i.i
-    i64 1, label %.lr.ph.i.i.i.i.i.i.i44
+    i64 1, label %.lr.ph.i.i.i.i.i.i.i42
   ]
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %2
@@ -8097,7 +8097,7 @@ define dso_local void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_o
   store i32 1, ptr %10, align 8, !tbaa !28
   br label %227
 
-.lr.ph.i.i.i.i.i.i.i44:                           ; preds = %2
+.lr.ph.i.i.i.i.i.i.i42:                           ; preds = %2
   %15 = or disjoint i64 %8, 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !30
@@ -8120,13 +8120,13 @@ define dso_local void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_o
   %23 = inttoptr i64 %8 to ptr
   call void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.1229") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.0.copyload.i.i.i.i.i.i.i.i63 = load i64, ptr %1, align 8
-  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i63, -8
+  %.0.copyload.i.i.i.i.i.i.i.i61 = load i64, ptr %1, align 8
+  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i61, -8
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.1229") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %.0.copyload.i.i.i.i.i.i.i.i64 = load i64, ptr %1, align 8
-  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i64, 4
+  %.0.copyload.i.i.i.i.i.i.i.i62 = load i64, ptr %1, align 8
+  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i62, 4
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %102
 
@@ -8146,23 +8146,23 @@ define dso_local void @_ZN5clang7makeCNFERKNS_20NormalizedConstraintE(ptr dead_o
 
 41:                                               ; preds = %29
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %36)
-  %.pre108 = load i32, ptr %33, align 8, !tbaa !28
+  %.pre106 = load i32, ptr %33, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit: ; preds = %29, %41
-  %42 = phi i32 [ %34, %29 ], [ %.pre108, %41 ]
-  %.not.i103 = icmp eq i32 %42, 0
-  br i1 %.not.i103, label %._crit_edge105, label %.lr.ph104
+  %42 = phi i32 [ %34, %29 ], [ %.pre106, %41 ]
+  %.not.i101 = icmp eq i32 %42, 0
+  br i1 %.not.i101, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph104:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
+.lr.ph102:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %46 = ptrtoint ptr %5 to i64
   br label %47
 
-47:                                               ; preds = %.lr.ph104, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67
-  %48 = phi i32 [ %42, %.lr.ph104 ], [ %95, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67 ]
+47:                                               ; preds = %.lr.ph102, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65
+  %48 = phi i32 [ %42, %.lr.ph102 ], [ %95, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1057)
   %49 = load ptr, ptr %4, align 8, !tbaa !30, !noalias !1057
@@ -8225,11 +8225,11 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicCo
 
 .critedge.i.i.i:                                  ; preds = %70
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %68)
-  %.pre.i65 = load ptr, ptr %3, align 8, !tbaa !30
+  %.pre.i63 = load ptr, ptr %3, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE28reserveForParamAndGetAddressERS9_m.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE28reserveForParamAndGetAddressERS9_m.exit.i: ; preds = %.critedge.i.i.i, %74, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit
-  %79 = phi ptr [ %.pre4.i, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %77, %74 ], [ %.pre.i65, %.critedge.i.i.i ]
+  %79 = phi ptr [ %.pre4.i, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %77, %74 ], [ %.pre.i63, %.critedge.i.i.i ]
   %.016.i.i.i = phi ptr [ %5, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %78, %74 ], [ %5, %.critedge.i.i.i ]
   %80 = load i32, ptr %30, align 8, !tbaa !28
   %81 = zext i32 %80 to i64
@@ -8255,19 +8255,19 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16
   store i32 %91, ptr %30, align 8, !tbaa !28
   %92 = load ptr, ptr %5, align 8, !tbaa !30
   %93 = icmp eq ptr %92, %43
-  br i1 %93, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67, label %94
+  br i1 %93, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65, label %94
 
 94:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit
   call void @free(ptr noundef %92) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit, %94
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %95 = load i32, ptr %33, align 8, !tbaa !28
   %.not.i = icmp eq i32 %95, 0
-  br i1 %.not.i, label %._crit_edge105, label %47, !llvm.loop !1060
+  br i1 %.not.i, label %._crit_edge103, label %47, !llvm.loop !1060
 
-._crit_edge105:                                   ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
+._crit_edge103:                                   ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %96, ptr %0, align 8, !tbaa !30
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8278,7 +8278,7 @@ _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldE
   %.not.i.i = icmp eq i32 %99, 0
   br i1 %.not.i.i, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %100
 
-100:                                              ; preds = %._crit_edge105
+100:                                              ; preds = %._crit_edge103
   %101 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSEOSA_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %3)
   br label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit
 
@@ -8297,57 +8297,57 @@ _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldE
   %111 = zext i32 %110 to i64
   %112 = mul nuw i64 %111, %108
   %113 = icmp ugt i64 %112, 4
-  br i1 %113, label %114, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+  br i1 %113, label %114, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
 
 114:                                              ; preds = %102
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %112)
   %.pre = load i32, ptr %106, align 8, !tbaa !28
-  %.pre109 = zext i32 %.pre to i64
-  br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+  %.pre107 = zext i32 %.pre to i64
+  br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
 
-_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68: ; preds = %102, %114
-  %.pre-phi = phi i64 [ %108, %102 ], [ %.pre109, %114 ]
+_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66: ; preds = %102, %114
+  %.pre-phi = phi i64 [ %108, %102 ], [ %.pre107, %114 ]
   %115 = phi i32 [ %107, %102 ], [ %.pre, %114 ]
   %116 = load ptr, ptr %3, align 8, !tbaa !30
   %.idx = shl nuw nsw i64 %.pre-phi, 5
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx
-  %.not100 = icmp eq i32 %115, 0
-  br i1 %.not100, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %.lr.ph102
+  %.not98 = icmp eq i32 %115, 0
+  br i1 %.not98, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %.lr.ph100
 
-.lr.ph102:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+.lr.ph100:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %121
 
-121:                                              ; preds = %.lr.ph102, %._crit_edge
-  %.0101 = phi ptr [ %116, %.lr.ph102 ], [ %127, %._crit_edge ]
+121:                                              ; preds = %.lr.ph100, %._crit_edge
+  %.099 = phi ptr [ %116, %.lr.ph100 ], [ %127, %._crit_edge ]
   %122 = load ptr, ptr %4, align 8, !tbaa !30
   %123 = load i32, ptr %109, align 8, !tbaa !28
   %124 = zext i32 %123 to i64
-  %.idx106 = shl nuw nsw i64 %124, 5
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx106
-  %.not3998 = icmp eq i32 %123, 0
-  br i1 %.not3998, label %._crit_edge, label %.lr.ph
+  %.idx104 = shl nuw nsw i64 %124, 5
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx104
+  %.not3796 = icmp eq i32 %123, 0
+  br i1 %.not3796, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %.0101, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.099, i64 8
   br label %128
 
-._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81, %121
-  %127 = getelementptr inbounds nuw i8, ptr %.0101, i64 32
+._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79, %121
+  %127 = getelementptr inbounds nuw i8, ptr %.099, i64 32
   %.not = icmp eq ptr %127, %117
   br i1 %.not, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %121
 
-128:                                              ; preds = %.lr.ph, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81
-  %.03699 = phi ptr [ %122, %.lr.ph ], [ %198, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81 ]
+128:                                              ; preds = %.lr.ph, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79
+  %.03697 = phi ptr [ %122, %.lr.ph ], [ %198, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %118, ptr %6, align 8, !tbaa !30
   store i32 0, ptr %119, align 8, !tbaa !28
   store i32 2, ptr %120, align 4, !tbaa !722
   %129 = load i32, ptr %126, align 8, !tbaa !28
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw i8, ptr %.03699, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.03697, i64 8
   %132 = load i32, ptr %131, align 8, !tbaa !28
   %133 = zext i32 %132 to i64
   %134 = add nuw nsw i64 %133, %130
@@ -8356,17 +8356,17 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicCo
 
 136:                                              ; preds = %128
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %118, i64 noundef %134, i64 noundef 8) #25
-  %.pre107 = load i32, ptr %126, align 8, !tbaa !28
+  %.pre105 = load i32, ptr %126, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit: ; preds = %128, %136
-  %137 = phi i32 [ %129, %128 ], [ %.pre107, %136 ]
-  %.not96 = icmp eq i32 %137, 0
-  br i1 %.not96, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i.i
+  %137 = phi i32 [ %129, %128 ], [ %.pre105, %136 ]
+  %.not94 = icmp eq i32 %137, 0
+  br i1 %.not94, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
   %138 = zext i32 %137 to i64
-  %139 = load ptr, ptr %.0101, align 8, !tbaa !30
+  %139 = load ptr, ptr %.099, align 8, !tbaa !30
   %.pre.i.i.i.i.i = load i32, ptr %119, align 8, !tbaa !28
   br label %140
 
@@ -8402,56 +8402,56 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16At
 
 _ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i, %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
   %155 = load i32, ptr %131, align 8, !tbaa !28
-  %.not97 = icmp eq i32 %155, 0
-  br i1 %.not97, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77, label %.lr.ph.i.i.i.i.i69
+  %.not95 = icmp eq i32 %155, 0
+  br i1 %.not95, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75, label %.lr.ph.i.i.i.i.i67
 
-.lr.ph.i.i.i.i.i69:                               ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
+.lr.ph.i.i.i.i.i67:                               ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
   %156 = zext i32 %155 to i64
-  %157 = load ptr, ptr %.03699, align 8, !tbaa !30
-  %.pre.i.i.i.i.i70 = load i32, ptr %119, align 8, !tbaa !28
+  %157 = load ptr, ptr %.03697, align 8, !tbaa !30
+  %.pre.i.i.i.i.i68 = load i32, ptr %119, align 8, !tbaa !28
   br label %158
 
-158:                                              ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, %.lr.ph.i.i.i.i.i69
-  %159 = phi i32 [ %.pre.i.i.i.i.i70, %.lr.ph.i.i.i.i.i69 ], [ %169, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.07.i.i.i.i.i71 = phi i64 [ %156, %.lr.ph.i.i.i.i.i69 ], [ %171, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.056.i.i.i.i.i72 = phi ptr [ %157, %.lr.ph.i.i.i.i.i69 ], [ %170, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.sroa.0.0.copyload.i.i.i.i.i.i73 = load i64, ptr %.056.i.i.i.i.i72, align 8
+158:                                              ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, %.lr.ph.i.i.i.i.i67
+  %159 = phi i32 [ %.pre.i.i.i.i.i68, %.lr.ph.i.i.i.i.i67 ], [ %169, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.07.i.i.i.i.i69 = phi i64 [ %156, %.lr.ph.i.i.i.i.i67 ], [ %171, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.056.i.i.i.i.i70 = phi ptr [ %157, %.lr.ph.i.i.i.i.i67 ], [ %170, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.sroa.0.0.copyload.i.i.i.i.i.i71 = load i64, ptr %.056.i.i.i.i.i70, align 8
   %160 = load i32, ptr %120, align 4, !tbaa !722
-  %.not.i.i.not.i.i.i.i.i.i.i74 = icmp ult i32 %159, %160
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i74, label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, label %161, !prof !782
+  %.not.i.i.not.i.i.i.i.i.i.i72 = icmp ult i32 %159, %160
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i72, label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, label %161, !prof !782
 
 161:                                              ; preds = %158
   %162 = zext i32 %159 to i64
   %163 = add nuw nsw i64 %162, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %118, i64 noundef %163, i64 noundef 8) #25
-  %.pre.i.i.i.i.i.i.i75 = load i32, ptr %119, align 8, !tbaa !28
-  br label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76
+  %.pre.i.i.i.i.i.i.i73 = load i32, ptr %119, align 8, !tbaa !28
+  br label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74
 
-_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76: ; preds = %161, %158
-  %164 = phi i32 [ %159, %158 ], [ %.pre.i.i.i.i.i.i.i75, %161 ]
+_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74: ; preds = %161, %158
+  %164 = phi i32 [ %159, %158 ], [ %.pre.i.i.i.i.i.i.i73, %161 ]
   %165 = load ptr, ptr %6, align 8, !tbaa !30
   %166 = zext i32 %164 to i64
   %167 = getelementptr inbounds nuw %"class.llvm::PointerUnion.1241", ptr %165, i64 %166
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i73, ptr %167, align 1
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i71, ptr %167, align 1
   %168 = load i32, ptr %119, align 8, !tbaa !28
   %169 = add i32 %168, 1
   store i32 %169, ptr %119, align 8, !tbaa !28
-  %170 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i72, i64 8
-  %171 = add nsw i64 %.07.i.i.i.i.i71, -1
-  %172 = icmp sgt i64 %.07.i.i.i.i.i71, 1
-  br i1 %172, label %158, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77, !llvm.loop !1061
+  %170 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i70, i64 8
+  %171 = add nsw i64 %.07.i.i.i.i.i69, -1
+  %172 = icmp sgt i64 %.07.i.i.i.i.i69, 1
+  br i1 %172, label %158, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75, !llvm.loop !1061
 
-_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
+_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
   %173 = load i32, ptr %104, align 8, !tbaa !28
   %174 = load i32, ptr %105, align 4, !tbaa !722
-  %.not.i78 = icmp ult i32 %173, %174
-  br i1 %.not.i78, label %177, label %175, !prof !782
+  %.not.i76 = icmp ult i32 %173, %174
+  br i1 %.not.i76, label %177, label %175, !prof !782
 
-175:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77
+175:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75
   %176 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE18growAndEmplaceBackIJRS9_EEESC_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit
 
-177:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77
+177:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75
   %178 = zext i32 %173 to i64
   %179 = load ptr, ptr %0, align 8, !tbaa !30
   %180 = getelementptr inbounds nuw %"class.llvm::SmallVector.1235", ptr %179, i64 %178
@@ -8462,9 +8462,9 @@ _ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedC
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 12
   store i32 2, ptr %183, align 4, !tbaa !722
   %184 = load i32, ptr %119, align 8, !tbaa !28
-  %.not.i.i.i79 = icmp eq i32 %184, 0
+  %.not.i.i.i77 = icmp eq i32 %184, 0
   %185 = icmp eq ptr %180, %6
-  %or.cond.i.i = or i1 %185, %.not.i.i.i79
+  %or.cond.i.i = or i1 %185, %.not.i.i.i77
   br i1 %or.cond.i.i, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEC2ERKS8_.exit.i, label %186
 
 186:                                              ; preds = %177
@@ -8479,11 +8479,11 @@ _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpanded
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i
 
 _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i: ; preds = %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i.i
-  %.pre.i80 = load ptr, ptr %180, align 8, !tbaa !30
+  %.pre.i78 = load ptr, ptr %180, align 8, !tbaa !30
   br label %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i.i
 
 _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i, %186
-  %189 = phi ptr [ %.pre.i80, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %181, %186 ]
+  %189 = phi ptr [ %.pre.i78, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %181, %186 ]
   %190 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %184, %186 ]
   %191 = zext i32 %190 to i64
   %192 = load ptr, ptr %6, align 8, !tbaa !30
@@ -8504,19 +8504,19 @@ _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldE
 _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit: ; preds = %175, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEC2ERKS8_.exit.i
   %195 = load ptr, ptr %6, align 8, !tbaa !30
   %196 = icmp eq ptr %195, %118
-  br i1 %196, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81, label %197
+  br i1 %196, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79, label %197
 
 197:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit
   call void @free(ptr noundef %195) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81: ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit, %197
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79: ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %198 = getelementptr inbounds nuw i8, ptr %.03699, i64 32
-  %.not39 = icmp eq ptr %198, %125
-  br i1 %.not39, label %._crit_edge, label %128
+  %198 = getelementptr inbounds nuw i8, ptr %.03697, i64 32
+  %.not37 = icmp eq ptr %198, %125
+  br i1 %.not37, label %._crit_edge, label %128
 
-_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit: ; preds = %._crit_edge, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68, %100, %._crit_edge105
+_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit: ; preds = %._crit_edge, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66, %100, %._crit_edge103
   %199 = load ptr, ptr %4, align 8, !tbaa !30
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %201 = load i32, ptr %200, align 8, !tbaa !28
@@ -8542,15 +8542,15 @@ _ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22
   br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i
 
 _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i: ; preds = %208, %.lr.ph.i.i
-  %.not.i.i82 = icmp eq ptr %199, %204
-  br i1 %.not.i.i82, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1062
+  %.not.i.i80 = icmp eq ptr %199, %204
+  br i1 %.not.i.i80, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1062
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i
-  %.pre.i83 = load ptr, ptr %4, align 8, !tbaa !30
+  %.pre.i81 = load ptr, ptr %4, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit
-  %209 = phi ptr [ %.pre.i83, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i ], [ %199, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit ]
+  %209 = phi ptr [ %.pre.i81, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i ], [ %199, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit ]
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %211 = icmp eq ptr %209, %210
   br i1 %211, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit, label %212
@@ -8564,50 +8564,50 @@ _ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22
   %213 = load ptr, ptr %3, align 8, !tbaa !30
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %215 = load i32, ptr %214, align 8, !tbaa !28
-  %.not4.i.i84 = icmp eq i32 %215, 0
-  br i1 %.not4.i.i84, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93, label %.lr.ph.i.preheader.i85
+  %.not4.i.i82 = icmp eq i32 %215, 0
+  br i1 %.not4.i.i82, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91, label %.lr.ph.i.preheader.i83
 
-.lr.ph.i.preheader.i85:                           ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
+.lr.ph.i.preheader.i83:                           ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
   %216 = zext i32 %215 to i64
-  %.idx.i86 = shl nuw nsw i64 %216, 5
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx.i86
-  br label %.lr.ph.i.i87
+  %.idx.i84 = shl nuw nsw i64 %216, 5
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx.i84
+  br label %.lr.ph.i.i85
 
-.lr.ph.i.i87:                                     ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89, %.lr.ph.i.preheader.i85
-  %.05.i.i88 = phi ptr [ %218, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89 ], [ %217, %.lr.ph.i.preheader.i85 ]
-  %218 = getelementptr inbounds i8, ptr %.05.i.i88, i64 -32
+.lr.ph.i.i85:                                     ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87, %.lr.ph.i.preheader.i83
+  %.05.i.i86 = phi ptr [ %218, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87 ], [ %217, %.lr.ph.i.preheader.i83 ]
+  %218 = getelementptr inbounds i8, ptr %.05.i.i86, i64 -32
   %219 = load ptr, ptr %218, align 8, !tbaa !30
-  %220 = getelementptr inbounds i8, ptr %.05.i.i88, i64 -16
+  %220 = getelementptr inbounds i8, ptr %.05.i.i86, i64 -16
   %221 = icmp eq ptr %219, %220
-  br i1 %221, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89, label %222
+  br i1 %221, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87, label %222
 
-222:                                              ; preds = %.lr.ph.i.i87
+222:                                              ; preds = %.lr.ph.i.i85
   call void @free(ptr noundef %219) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89: ; preds = %222, %.lr.ph.i.i87
-  %.not.i.i90 = icmp eq ptr %213, %218
-  br i1 %.not.i.i90, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91, label %.lr.ph.i.i87, !llvm.loop !1062
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87: ; preds = %222, %.lr.ph.i.i85
+  %.not.i.i88 = icmp eq ptr %213, %218
+  br i1 %.not.i.i88, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89, label %.lr.ph.i.i85, !llvm.loop !1062
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89
-  %.pre.i92 = load ptr, ptr %3, align 8, !tbaa !30
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93
+_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87
+  %.pre.i90 = load ptr, ptr %3, align 8, !tbaa !30
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
-  %223 = phi ptr [ %.pre.i92, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91 ], [ %213, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit ]
+_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
+  %223 = phi ptr [ %.pre.i90, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89 ], [ %213, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit ]
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %225 = icmp eq ptr %223, %224
-  br i1 %225, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94, label %226
+  br i1 %225, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92, label %226
 
-226:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93
+226:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91
   call void @free(ptr noundef %223) #25
-  br label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94
+  br label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92
 
-_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93, %226
+_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91, %226
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %227
 
-227:                                              ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i
+227:                                              ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92, %.lr.ph.i.i.i.i.i.i.i42, %.lr.ph.i.i.i.i.i.i.i
   ret void
 }
 
@@ -8622,7 +8622,7 @@ define dso_local void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_o
   %8 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   switch i64 %7, label %22 [
     i64 0, label %.lr.ph.i.i.i.i.i.i.i
-    i64 1, label %.lr.ph.i.i.i.i.i.i.i44
+    i64 1, label %.lr.ph.i.i.i.i.i.i.i42
   ]
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %2
@@ -8642,7 +8642,7 @@ define dso_local void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_o
   store i32 1, ptr %10, align 8, !tbaa !28
   br label %226
 
-.lr.ph.i.i.i.i.i.i.i44:                           ; preds = %2
+.lr.ph.i.i.i.i.i.i.i42:                           ; preds = %2
   %15 = or disjoint i64 %8, 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !30
@@ -8665,15 +8665,15 @@ define dso_local void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_o
   %23 = inttoptr i64 %8 to ptr
   call void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.1229") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.0.copyload.i.i.i.i.i.i.i.i63 = load i64, ptr %1, align 8
-  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i63, -8
+  %.0.copyload.i.i.i.i.i.i.i.i61 = load i64, ptr %1, align 8
+  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i61, -8
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.1229") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %26)
-  %.0.copyload.i.i.i.i.i.i.i.i64 = load i64, ptr %1, align 8
-  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i64, 4
-  %.not96 = icmp eq i64 %27, 0
-  br i1 %.not96, label %101, label %28
+  %.0.copyload.i.i.i.i.i.i.i.i62 = load i64, ptr %1, align 8
+  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i62, 4
+  %.not94 = icmp eq i64 %27, 0
+  br i1 %.not94, label %101, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8696,8 +8696,8 @@ define dso_local void @_ZN5clang7makeDNFERKNS_20NormalizedConstraintE(ptr dead_o
 
 _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit: ; preds = %28, %40
   %41 = phi i32 [ %33, %28 ], [ %.pre, %40 ]
-  %.not.i99 = icmp eq i32 %41, 0
-  br i1 %.not.i99, label %._crit_edge, label %.lr.ph
+  %.not.i97 = icmp eq i32 %41, 0
+  br i1 %.not.i97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8706,8 +8706,8 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicCo
   %45 = ptrtoint ptr %5 to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67
-  %47 = phi i32 [ %41, %.lr.ph ], [ %94, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67 ]
+46:                                               ; preds = %.lr.ph, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65
+  %47 = phi i32 [ %41, %.lr.ph ], [ %94, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1063)
   %48 = load ptr, ptr %4, align 8, !tbaa !30, !noalias !1063
@@ -8770,11 +8770,11 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicCo
 
 .critedge.i.i.i:                                  ; preds = %69
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %67)
-  %.pre.i65 = load ptr, ptr %3, align 8, !tbaa !30
+  %.pre.i63 = load ptr, ptr %3, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE28reserveForParamAndGetAddressERS9_m.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE28reserveForParamAndGetAddressERS9_m.exit.i: ; preds = %.critedge.i.i.i, %73, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit
-  %78 = phi ptr [ %.pre4.i, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %76, %73 ], [ %.pre.i65, %.critedge.i.i.i ]
+  %78 = phi ptr [ %.pre4.i, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %76, %73 ], [ %.pre.i63, %.critedge.i.i.i ]
   %.016.i.i.i = phi ptr [ %5, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12pop_back_valEv.exit ], [ %77, %73 ], [ %5, %.critedge.i.i.i ]
   %79 = load i32, ptr %29, align 8, !tbaa !28
   %80 = zext i32 %79 to i64
@@ -8800,19 +8800,19 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16
   store i32 %90, ptr %29, align 8, !tbaa !28
   %91 = load ptr, ptr %5, align 8, !tbaa !30
   %92 = icmp eq ptr %91, %42
-  br i1 %92, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67, label %93
+  br i1 %92, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65, label %93
 
 93:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit
   call void @free(ptr noundef %91) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit, %93
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE9push_backEOS9_.exit, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = load i32, ptr %32, align 8, !tbaa !28
   %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %._crit_edge, label %46, !llvm.loop !1066
 
-._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit67, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
+._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit65, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %95, ptr %0, align 8, !tbaa !30
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8842,57 +8842,57 @@ _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldE
   %110 = zext i32 %109 to i64
   %111 = mul nuw i64 %110, %107
   %112 = icmp ugt i64 %111, 4
-  br i1 %112, label %113, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+  br i1 %112, label %113, label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
 
 113:                                              ; preds = %101
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %111)
-  %.pre109 = load i32, ptr %105, align 8, !tbaa !28
-  %.pre111 = zext i32 %.pre109 to i64
-  br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+  %.pre107 = load i32, ptr %105, align 8, !tbaa !28
+  %.pre109 = zext i32 %.pre107 to i64
+  br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
 
-_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68: ; preds = %101, %113
-  %.pre-phi = phi i64 [ %107, %101 ], [ %.pre111, %113 ]
-  %114 = phi i32 [ %106, %101 ], [ %.pre109, %113 ]
+_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66: ; preds = %101, %113
+  %.pre-phi = phi i64 [ %107, %101 ], [ %.pre109, %113 ]
+  %114 = phi i32 [ %106, %101 ], [ %.pre107, %113 ]
   %115 = load ptr, ptr %3, align 8, !tbaa !30
   %.idx = shl nuw nsw i64 %.pre-phi, 5
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx
-  %.not105 = icmp eq i32 %114, 0
-  br i1 %.not105, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %.lr.ph107
+  %.not103 = icmp eq i32 %114, 0
+  br i1 %.not103, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68
+.lr.ph105:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %120
 
-120:                                              ; preds = %.lr.ph107, %._crit_edge104
-  %.0106 = phi ptr [ %115, %.lr.ph107 ], [ %126, %._crit_edge104 ]
+120:                                              ; preds = %.lr.ph105, %._crit_edge102
+  %.0104 = phi ptr [ %115, %.lr.ph105 ], [ %126, %._crit_edge102 ]
   %121 = load ptr, ptr %4, align 8, !tbaa !30
   %122 = load i32, ptr %108, align 8, !tbaa !28
   %123 = zext i32 %122 to i64
-  %.idx108 = shl nuw nsw i64 %123, 5
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx108
-  %.not39100 = icmp eq i32 %122, 0
-  br i1 %.not39100, label %._crit_edge104, label %.lr.ph103
+  %.idx106 = shl nuw nsw i64 %123, 5
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx106
+  %.not3798 = icmp eq i32 %122, 0
+  br i1 %.not3798, label %._crit_edge102, label %.lr.ph101
 
-.lr.ph103:                                        ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %.0106, i64 8
+.lr.ph101:                                        ; preds = %120
+  %125 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
   br label %127
 
-._crit_edge104:                                   ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81, %120
-  %126 = getelementptr inbounds nuw i8, ptr %.0106, i64 32
+._crit_edge102:                                   ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79, %120
+  %126 = getelementptr inbounds nuw i8, ptr %.0104, i64 32
   %.not = icmp eq ptr %126, %116
   br i1 %.not, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit, label %120
 
-127:                                              ; preds = %.lr.ph103, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81
-  %.036101 = phi ptr [ %121, %.lr.ph103 ], [ %197, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81 ]
+127:                                              ; preds = %.lr.ph101, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79
+  %.03699 = phi ptr [ %121, %.lr.ph101 ], [ %197, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %117, ptr %6, align 8, !tbaa !30
   store i32 0, ptr %118, align 8, !tbaa !28
   store i32 2, ptr %119, align 4, !tbaa !722
   %128 = load i32, ptr %125, align 8, !tbaa !28
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i8, ptr %.036101, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.03699, i64 8
   %131 = load i32, ptr %130, align 8, !tbaa !28
   %132 = zext i32 %131 to i64
   %133 = add nuw nsw i64 %132, %129
@@ -8901,17 +8901,17 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicCo
 
 135:                                              ; preds = %127
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %117, i64 noundef %133, i64 noundef 8) #25
-  %.pre110 = load i32, ptr %125, align 8, !tbaa !28
+  %.pre108 = load i32, ptr %125, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit: ; preds = %127, %135
-  %136 = phi i32 [ %128, %127 ], [ %.pre110, %135 ]
-  %.not97 = icmp eq i32 %136, 0
-  br i1 %.not97, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i.i
+  %136 = phi i32 [ %128, %127 ], [ %.pre108, %135 ]
+  %.not95 = icmp eq i32 %136, 0
+  br i1 %.not95, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
   %137 = zext i32 %136 to i64
-  %138 = load ptr, ptr %.0106, align 8, !tbaa !30
+  %138 = load ptr, ptr %.0104, align 8, !tbaa !30
   %.pre.i.i.i.i.i = load i32, ptr %118, align 8, !tbaa !28
   br label %139
 
@@ -8947,56 +8947,56 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16At
 
 _ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i, %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEE7reserveEm.exit
   %154 = load i32, ptr %130, align 8, !tbaa !28
-  %.not98 = icmp eq i32 %154, 0
-  br i1 %.not98, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77, label %.lr.ph.i.i.i.i.i69
+  %.not96 = icmp eq i32 %154, 0
+  br i1 %.not96, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75, label %.lr.ph.i.i.i.i.i67
 
-.lr.ph.i.i.i.i.i69:                               ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
+.lr.ph.i.i.i.i.i67:                               ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
   %155 = zext i32 %154 to i64
-  %156 = load ptr, ptr %.036101, align 8, !tbaa !30
-  %.pre.i.i.i.i.i70 = load i32, ptr %118, align 8, !tbaa !28
+  %156 = load ptr, ptr %.03699, align 8, !tbaa !30
+  %.pre.i.i.i.i.i68 = load i32, ptr %118, align 8, !tbaa !28
   br label %157
 
-157:                                              ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, %.lr.ph.i.i.i.i.i69
-  %158 = phi i32 [ %.pre.i.i.i.i.i70, %.lr.ph.i.i.i.i.i69 ], [ %168, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.07.i.i.i.i.i71 = phi i64 [ %155, %.lr.ph.i.i.i.i.i69 ], [ %170, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.056.i.i.i.i.i72 = phi ptr [ %156, %.lr.ph.i.i.i.i.i69 ], [ %169, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76 ]
-  %.sroa.0.0.copyload.i.i.i.i.i.i73 = load i64, ptr %.056.i.i.i.i.i72, align 8
+157:                                              ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, %.lr.ph.i.i.i.i.i67
+  %158 = phi i32 [ %.pre.i.i.i.i.i68, %.lr.ph.i.i.i.i.i67 ], [ %168, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.07.i.i.i.i.i69 = phi i64 [ %155, %.lr.ph.i.i.i.i.i67 ], [ %170, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.056.i.i.i.i.i70 = phi ptr [ %156, %.lr.ph.i.i.i.i.i67 ], [ %169, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74 ]
+  %.sroa.0.0.copyload.i.i.i.i.i.i71 = load i64, ptr %.056.i.i.i.i.i70, align 8
   %159 = load i32, ptr %119, align 4, !tbaa !722
-  %.not.i.i.not.i.i.i.i.i.i.i74 = icmp ult i32 %158, %159
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i74, label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, label %160, !prof !782
+  %.not.i.i.not.i.i.i.i.i.i.i72 = icmp ult i32 %158, %159
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i72, label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, label %160, !prof !782
 
 160:                                              ; preds = %157
   %161 = zext i32 %158 to i64
   %162 = add nuw nsw i64 %161, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %117, i64 noundef %162, i64 noundef 8) #25
-  %.pre.i.i.i.i.i.i.i75 = load i32, ptr %118, align 8, !tbaa !28
-  br label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76
+  %.pre.i.i.i.i.i.i.i73 = load i32, ptr %118, align 8, !tbaa !28
+  br label %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74
 
-_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76: ; preds = %160, %157
-  %163 = phi i32 [ %158, %157 ], [ %.pre.i.i.i.i.i.i.i75, %160 ]
+_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74: ; preds = %160, %157
+  %163 = phi i32 [ %158, %157 ], [ %.pre.i.i.i.i.i.i.i73, %160 ]
   %164 = load ptr, ptr %6, align 8, !tbaa !30
   %165 = zext i32 %163 to i64
   %166 = getelementptr inbounds nuw %"class.llvm::PointerUnion.1241", ptr %164, i64 %165
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i73, ptr %166, align 1
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i71, ptr %166, align 1
   %167 = load i32, ptr %118, align 8, !tbaa !28
   %168 = add i32 %167, 1
   store i32 %168, ptr %118, align 8, !tbaa !28
-  %169 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i72, i64 8
-  %170 = add nsw i64 %.07.i.i.i.i.i71, -1
-  %171 = icmp sgt i64 %.07.i.i.i.i.i71, 1
-  br i1 %171, label %157, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77, !llvm.loop !1061
+  %169 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i70, i64 8
+  %170 = add nsw i64 %.07.i.i.i.i.i69, -1
+  %171 = icmp sgt i64 %.07.i.i.i.i.i69, 1
+  br i1 %171, label %157, label %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75, !llvm.loop !1061
 
-_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i76, %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
+_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorINS0_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEEaSERKS8_.exit.i.i.i.i.i74, %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit
   %172 = load i32, ptr %103, align 8, !tbaa !28
   %173 = load i32, ptr %104, align 4, !tbaa !722
-  %.not.i78 = icmp ult i32 %172, %173
-  br i1 %.not.i78, label %176, label %174, !prof !782
+  %.not.i76 = icmp ult i32 %172, %173
+  br i1 %.not.i76, label %176, label %174, !prof !782
 
-174:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77
+174:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75
   %175 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE18growAndEmplaceBackIJRS9_EEESC_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit
 
-176:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit77
+176:                                              ; preds = %_ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj2EEEEET0_T_SE_SD_.exit75
   %177 = zext i32 %172 to i64
   %178 = load ptr, ptr %0, align 8, !tbaa !30
   %179 = getelementptr inbounds nuw %"class.llvm::SmallVector.1235", ptr %178, i64 %177
@@ -9007,9 +9007,9 @@ _ZSt4copyIPN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedC
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 12
   store i32 2, ptr %182, align 4, !tbaa !722
   %183 = load i32, ptr %118, align 8, !tbaa !28
-  %.not.i.i.i79 = icmp eq i32 %183, 0
+  %.not.i.i.i77 = icmp eq i32 %183, 0
   %184 = icmp eq ptr %179, %6
-  %or.cond.i.i = or i1 %184, %.not.i.i.i79
+  %or.cond.i.i = or i1 %184, %.not.i.i.i77
   br i1 %or.cond.i.i, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEC2ERKS8_.exit.i, label %185
 
 185:                                              ; preds = %176
@@ -9024,11 +9024,11 @@ _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpanded
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i
 
 _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i: ; preds = %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i.i
-  %.pre.i80 = load ptr, ptr %179, align 8, !tbaa !30
+  %.pre.i78 = load ptr, ptr %179, align 8, !tbaa !30
   br label %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i.i
 
 _ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i.i: ; preds = %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i, %185
-  %188 = phi ptr [ %.pre.i80, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %180, %185 ]
+  %188 = phi ptr [ %.pre.i78, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %180, %185 ]
   %189 = phi i32 [ %.pre.i.i, %_ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.i._ZSt4copyIPKN4llvm12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEEPS7_ET0_T_SC_SB_.exit31.i.thread.i_crit_edge.i ], [ %183, %185 ]
   %190 = zext i32 %189 to i64
   %191 = load ptr, ptr %6, align 8, !tbaa !30
@@ -9049,19 +9049,19 @@ _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldE
 _ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit: ; preds = %174, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEC2ERKS8_.exit.i
   %194 = load ptr, ptr %6, align 8, !tbaa !30
   %195 = icmp eq ptr %194, %117
-  br i1 %195, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81, label %196
+  br i1 %195, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79, label %196
 
 196:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit
   call void @free(ptr noundef %194) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit81: ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit, %196
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit79: ; preds = %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE12emplace_backIJRS9_EEESC_DpOT_.exit, %196
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %197 = getelementptr inbounds nuw i8, ptr %.036101, i64 32
-  %.not39 = icmp eq ptr %197, %124
-  br i1 %.not39, label %._crit_edge104, label %127
+  %197 = getelementptr inbounds nuw i8, ptr %.03699, i64 32
+  %.not37 = icmp eq ptr %197, %124
+  br i1 %.not37, label %._crit_edge102, label %127
 
-_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit: ; preds = %._crit_edge104, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit68, %99, %._crit_edge
+_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit: ; preds = %._crit_edge102, %_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEEE7reserveEm.exit66, %99, %._crit_edge
   %198 = load ptr, ptr %4, align 8, !tbaa !30
   %199 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %200 = load i32, ptr %199, align 8, !tbaa !28
@@ -9087,15 +9087,15 @@ _ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22
   br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i
 
 _ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i: ; preds = %207, %.lr.ph.i.i
-  %.not.i.i82 = icmp eq ptr %198, %203
-  br i1 %.not.i.i82, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1062
+  %.not.i.i80 = icmp eq ptr %198, %203
+  br i1 %.not.i.i80, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !1062
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i
-  %.pre.i83 = load ptr, ptr %4, align 8, !tbaa !30
+  %.pre.i81 = load ptr, ptr %4, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit
-  %208 = phi ptr [ %.pre.i83, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i ], [ %198, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit ]
+  %208 = phi ptr [ %.pre.i81, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i ], [ %198, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EEC2EOS9_.exit ]
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %210 = icmp eq ptr %208, %209
   br i1 %210, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit, label %211
@@ -9109,50 +9109,50 @@ _ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22
   %212 = load ptr, ptr %3, align 8, !tbaa !30
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %214 = load i32, ptr %213, align 8, !tbaa !28
-  %.not4.i.i84 = icmp eq i32 %214, 0
-  br i1 %.not4.i.i84, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93, label %.lr.ph.i.preheader.i85
+  %.not4.i.i82 = icmp eq i32 %214, 0
+  br i1 %.not4.i.i82, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91, label %.lr.ph.i.preheader.i83
 
-.lr.ph.i.preheader.i85:                           ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
+.lr.ph.i.preheader.i83:                           ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
   %215 = zext i32 %214 to i64
-  %.idx.i86 = shl nuw nsw i64 %215, 5
-  %216 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i86
-  br label %.lr.ph.i.i87
+  %.idx.i84 = shl nuw nsw i64 %215, 5
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i84
+  br label %.lr.ph.i.i85
 
-.lr.ph.i.i87:                                     ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89, %.lr.ph.i.preheader.i85
-  %.05.i.i88 = phi ptr [ %217, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89 ], [ %216, %.lr.ph.i.preheader.i85 ]
-  %217 = getelementptr inbounds i8, ptr %.05.i.i88, i64 -32
+.lr.ph.i.i85:                                     ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87, %.lr.ph.i.preheader.i83
+  %.05.i.i86 = phi ptr [ %217, %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87 ], [ %216, %.lr.ph.i.preheader.i83 ]
+  %217 = getelementptr inbounds i8, ptr %.05.i.i86, i64 -32
   %218 = load ptr, ptr %217, align 8, !tbaa !30
-  %219 = getelementptr inbounds i8, ptr %.05.i.i88, i64 -16
+  %219 = getelementptr inbounds i8, ptr %.05.i.i86, i64 -16
   %220 = icmp eq ptr %218, %219
-  br i1 %220, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89, label %221
+  br i1 %220, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87, label %221
 
-221:                                              ; preds = %.lr.ph.i.i87
+221:                                              ; preds = %.lr.ph.i.i85
   call void @free(ptr noundef %218) #25
-  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89
+  br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89: ; preds = %221, %.lr.ph.i.i87
-  %.not.i.i90 = icmp eq ptr %212, %217
-  br i1 %.not.i.i90, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91, label %.lr.ph.i.i87, !llvm.loop !1062
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87: ; preds = %221, %.lr.ph.i.i85
+  %.not.i.i88 = icmp eq ptr %212, %217
+  br i1 %.not.i.i88, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89, label %.lr.ph.i.i85, !llvm.loop !1062
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i89
-  %.pre.i92 = load ptr, ptr %3, align 8, !tbaa !30
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93
+_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89: ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EED2Ev.exit.i.i87
+  %.pre.i90 = load ptr, ptr %3, align 8, !tbaa !30
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91
 
-_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
-  %222 = phi ptr [ %.pre.i92, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i91 ], [ %212, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit ]
+_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit
+  %222 = phi ptr [ %.pre.i90, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.loopexit.i89 ], [ %212, %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit ]
   %223 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %224 = icmp eq ptr %222, %223
-  br i1 %224, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94, label %225
+  br i1 %224, label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92, label %225
 
-225:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93
+225:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91
   call void @free(ptr noundef %222) #25
-  br label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94
+  br label %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92
 
-_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i93, %225
+_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_12PointerUnionIJPN5clang16AtomicConstraintEPNS3_22FoldExpandedConstraintEEEELj2EEELb0EE13destroy_rangeEPS9_SB_.exit.i91, %225
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %226
 
-226:                                              ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit94, %.lr.ph.i.i.i.i.i.i.i44, %.lr.ph.i.i.i.i.i.i.i
+226:                                              ; preds = %_ZN4llvm11SmallVectorINS0_INS_12PointerUnionIJPN5clang16AtomicConstraintEPNS2_22FoldExpandedConstraintEEEELj2EEELj4EED2Ev.exit92, %.lr.ph.i.i.i.i.i.i.i42, %.lr.ph.i.i.i.i.i.i.i
   ret void
 }
 

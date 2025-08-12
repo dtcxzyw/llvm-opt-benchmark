@@ -16656,16 +16656,16 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit345: ; p
   br i1 %1355, label %1390, label %1366
 
 .preheader.i:                                     ; preds = %1347, %1364
-  %.sroa.7.086.i = phi i64 [ %1365, %1364 ], [ 0, %1347 ]
-  %.sroa.059.0.idx85.i = phi i64 [ %.sroa.059.0.add.i, %1364 ], [ 0, %1347 ]
-  %.sroa.059.0.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_143getDeploymentTargetFromEnvironmentVariablesERKN5clang6driver6DriverERKN4llvm6TripleE.EnvVars, i64 %.sroa.059.0.idx85.i
-  %1356 = load ptr, ptr %.sroa.059.0.ptr.i, align 8, !tbaa !3, !noalias !694
+  %.sroa.7.085.i = phi i64 [ %1365, %1364 ], [ 0, %1347 ]
+  %.sroa.058.0.idx84.i = phi i64 [ %.sroa.058.0.add.i, %1364 ], [ 0, %1347 ]
+  %.sroa.058.0.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_143getDeploymentTargetFromEnvironmentVariablesERKN5clang6driver6DriverERKN4llvm6TripleE.EnvVars, i64 %.sroa.058.0.idx84.i
+  %1356 = load ptr, ptr %.sroa.058.0.ptr.i, align 8, !tbaa !3, !noalias !694
   %1357 = call ptr @getenv(ptr noundef %1356) #23, !noalias !694
-  %.not34.i = icmp eq ptr %1357, null
-  br i1 %.not34.i, label %1364, label %1358
+  %.not33.i = icmp eq ptr %1357, null
+  br i1 %.not33.i, label %1364, label %1358
 
 1358:                                             ; preds = %.preheader.i
-  %1359 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %24, i64 0, i64 %.sroa.7.086.i
+  %1359 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %24, i64 0, i64 %.sroa.7.085.i
   %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 8
   %1361 = load i64, ptr %1360, align 8, !tbaa !88, !noalias !694
   %1362 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1357) #23, !noalias !694
@@ -16673,10 +16673,10 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit345: ; p
   br label %1364
 
 1364:                                             ; preds = %1358, %.preheader.i
-  %1365 = add nuw nsw i64 %.sroa.7.086.i, 1
-  %.sroa.059.0.add.i = add nuw nsw i64 %.sroa.059.0.idx85.i, 8
-  %.not79.i = icmp eq i64 %.sroa.059.0.add.i, 48
-  br i1 %.not79.i, label %1351, label %.preheader.i
+  %1365 = add nuw nsw i64 %.sroa.7.085.i, 1
+  %.sroa.058.0.add.i = add nuw nsw i64 %.sroa.058.0.idx84.i, 8
+  %.not78.i = icmp eq i64 %.sroa.058.0.add.i, 48
+  br i1 %.not78.i, label %1351, label %.preheader.i
 
 1366:                                             ; preds = %1351
   %1367 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -16690,12 +16690,12 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit345: ; p
   %1374 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %1375 = load i64, ptr %1374, align 8, !noalias !694
   %1376 = icmp eq i64 %1375, 0
-  %or.cond74.i = select i1 %or.cond.i346, i1 %1376, i1 false
+  %or.cond73.i = select i1 %or.cond.i346, i1 %1376, i1 false
   %1377 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %1378 = load i64, ptr %1377, align 8, !noalias !694
   %1379 = icmp eq i64 %1378, 0
-  %or.cond78.i = select i1 %or.cond74.i, i1 %1379, i1 false
-  br i1 %or.cond78.i, label %1390, label %1380
+  %or.cond77.i = select i1 %or.cond73.i, i1 %1379, i1 false
+  br i1 %or.cond77.i, label %1390, label %1380
 
 1380:                                             ; preds = %1366
   %1381 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16732,7 +16732,7 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit345: ; p
 
 1398:                                             ; preds = %1432, %1390
   %indvars.iv.i = phi i64 [ 0, %1390 ], [ %indvars.iv.next.i, %1432 ]
-  %.088.i = phi i32 [ 6, %1390 ], [ %.1.i, %1432 ]
+  %.087.i = phi i32 [ 6, %1390 ], [ %.1.i, %1432 ]
   %1399 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %24, i64 0, i64 %indvars.iv.i
   %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   %1401 = load i64, ptr %1400, align 8, !tbaa !88, !noalias !694
@@ -16740,12 +16740,12 @@ _ZNSt14_Optional_baseIN12_GLOBAL__N_114DarwinPlatformELb0ELb0EED2Ev.exit345: ; p
   br i1 %1402, label %1432, label %1403
 
 1403:                                             ; preds = %1398
-  %1404 = icmp eq i32 %.088.i, 6
+  %1404 = icmp eq i32 %.087.i, 6
   %1405 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %1404, label %1432, label %1406
 
 1406:                                             ; preds = %1403
-  %1407 = zext i32 %.088.i to i64
+  %1407 = zext i32 %.087.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !694
   %1408 = load ptr, ptr %1346, align 8, !tbaa !253, !noalias !697
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %25, ptr noundef nonnull align 8 dereferenceable(15248) %1408, i32 0, i32 noundef 342) #23, !noalias !694
@@ -16807,7 +16807,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i360:       ; preds = %1431, %1429, %_ZNSt
   br label %1432
 
 1432:                                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i360, %1403, %1398
-  %.1.i = phi i32 [ %.088.i, %1398 ], [ %.088.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i360 ], [ %1405, %1403 ]
+  %.1.i = phi i32 [ %.087.i, %1398 ], [ %.087.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i360 ], [ %1405, %1403 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i361 = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %.not.i361, label %.loopexit.i.preheader, label %1398, !llvm.loop !700
@@ -16816,21 +16816,21 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i360:       ; preds = %1431, %1429, %_ZNSt
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.preheader, %.critedge.i
-  %.sroa.8.090.i = phi i64 [ %1478, %.critedge.i ], [ 0, %.loopexit.i.preheader ]
-  %.sroa.047.0.idx89.i = phi i64 [ %.sroa.047.0.add.i, %.critedge.i ], [ 0, %.loopexit.i.preheader ]
-  %.sroa.047.0.ptr91.i = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.047.0.idx89.i
-  %1433 = getelementptr inbounds nuw i8, ptr %.sroa.047.0.ptr91.i, i64 8
+  %.sroa.8.089.i = phi i64 [ %1478, %.critedge.i ], [ 0, %.loopexit.i.preheader ]
+  %.sroa.046.0.idx88.i = phi i64 [ %.sroa.046.0.add.i, %.critedge.i ], [ 0, %.loopexit.i.preheader ]
+  %.sroa.046.0.ptr90.i = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.046.0.idx88.i
+  %1433 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.ptr90.i, i64 8
   %1434 = load i64, ptr %1433, align 8, !tbaa !88, !noalias !694
   %1435 = icmp eq i64 %1434, 0
   br i1 %1435, label %.critedge.i, label %_ZN4llvm9StringRefC2EPKc.exit.i347
 
 _ZN4llvm9StringRefC2EPKc.exit.i347:               ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !694
-  %1436 = trunc i64 %.sroa.8.090.i to i32
-  %1437 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN12_GLOBAL__N_143getDeploymentTargetFromEnvironmentVariablesERKN5clang6driver6DriverERKN4llvm6TripleE.EnvVars, i64 0, i64 %.sroa.8.090.i
+  %1436 = trunc i64 %.sroa.8.089.i to i32
+  %1437 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN12_GLOBAL__N_143getDeploymentTargetFromEnvironmentVariablesERKN5clang6driver6DriverERKN4llvm6TripleE.EnvVars, i64 0, i64 %.sroa.8.089.i
   %1438 = load ptr, ptr %1437, align 8, !tbaa !3, !noalias !694
   %1439 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1438) #23, !noalias !694
-  %1440 = load ptr, ptr %.sroa.047.0.ptr91.i, align 8, !tbaa !87, !noalias !694
+  %1440 = load ptr, ptr %.sroa.046.0.ptr90.i, align 8, !tbaa !87, !noalias !694
   call void @llvm.experimental.noalias.scope.decl(metadata !701)
   store i32 3, ptr %26, align 8, !tbaa !586, !alias.scope !701, !noalias !694
   %1441 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -16936,17 +16936,17 @@ _ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit.i351:  ; preds = %_ZNKSt7__cxx1112bas
   br label %.preheader
 
 .critedge.i:                                      ; preds = %.loopexit.i
-  %1478 = add nuw nsw i64 %.sroa.8.090.i, 1
-  %.sroa.047.0.add.i = add nuw nsw i64 %.sroa.047.0.idx89.i, 32
-  %.not81.i = icmp eq i64 %.sroa.047.0.add.i, 192
-  br i1 %.not81.i, label %.critedge36.i, label %.loopexit.i
+  %1478 = add nuw nsw i64 %.sroa.8.089.i, 1
+  %.sroa.046.0.add.i = add nuw nsw i64 %.sroa.046.0.idx88.i, 32
+  %.not80.i = icmp eq i64 %.sroa.046.0.add.i, 192
+  br i1 %.not80.i, label %.critedge35.i, label %.loopexit.i
 
-.critedge36.i:                                    ; preds = %.critedge.i
+.critedge35.i:                                    ; preds = %.critedge.i
   %1479 = getelementptr inbounds nuw i8, ptr %93, i64 160
   store i8 0, ptr %1479, align 8, !tbaa !593, !alias.scope !694
   br label %.preheader
 
-.preheader:                                       ; preds = %.critedge36.i, %_ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit.i351
+.preheader:                                       ; preds = %.critedge35.i, %_ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit.i351
   br label %1480
 
 1480:                                             ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i353

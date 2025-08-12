@@ -2775,9 +2775,9 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %19 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread12
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11
 
-_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread12: ; preds = %17
+_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11: ; preds = %17
   %21 = load i32, ptr %18, align 4, !tbaa !40
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %18, align 4, !tbaa !40
@@ -2792,8 +2792,8 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread12, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %25 = phi ptr [ %15, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread12 ], [ %.pre, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+24:                                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %25 = phi ptr [ %15, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread11 ], [ %.pre, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load atomic i64, ptr %26 acquire, align 8
   %28 = icmp eq i64 %27, 4294967297
@@ -2816,8 +2816,8 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 38:                                               ; preds = %24
   %39 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
-  %.not.i.i.i6 = icmp eq i8 %39, 0
-  br i1 %.not.i.i.i6, label %42, label %40
+  %.not.i.i.i5 = icmp eq i8 %39, 0
+  br i1 %.not.i.i.i5, label %42, label %40
 
 40:                                               ; preds = %38
   %41 = add nsw i32 %29, -1
@@ -2901,8 +2901,8 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %8
 68:                                               ; preds = %.lr.ph.i.i.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
-  %.not.i.i.i.i.i.i.i.i.i.i8 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i8, label %74, label %71
+  %.not.i.i.i.i.i.i.i.i.i.i7 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i7, label %74, label %71
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %69, align 4, !tbaa !40

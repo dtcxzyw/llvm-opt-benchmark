@@ -2164,12 +2164,12 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl23ac
   %134 = getelementptr inbounds nuw i8, ptr %36, i64 196
   %135 = load i8, ptr %134, align 4, !tbaa !215, !range !76, !noundef !77
   %136 = trunc nuw i8 %135 to i1
-  %indvars.iv599.sroa.gep614 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %indvars.iv599.sroa.gep617 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %indvars.iv595.sroa.gep618 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %indvars.iv599.sroa.gep621 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %indvars.iv597.sroa.gep622 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %indvars.iv595.sroa.gep625 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %indvars.iv597.sroa.gep612 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %indvars.iv597.sroa.gep615 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %indvars.iv593.sroa.gep616 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %indvars.iv597.sroa.gep619 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %indvars.iv595.sroa.gep620 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %indvars.iv593.sroa.gep623 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br i1 %136, label %171, label %137
 
 137:                                              ; preds = %13
@@ -2184,44 +2184,44 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl23ac
   %144 = zext i1 %143 to i8
   store i8 %144, ptr %22, align 8, !tbaa !252
   %145 = load i32, ptr %95, align 4, !tbaa !210
-  %.not351 = icmp sge i32 %145, %139
+  %.not349 = icmp sge i32 %145, %139
   %146 = icmp slt i32 %145, %141
-  %narrow541 = select i1 %.not351, i1 %146, i1 false
-  %147 = and i1 %109, %narrow541
+  %narrow539 = select i1 %.not349, i1 %146, i1 false
+  %147 = and i1 %109, %narrow539
   %148 = zext i1 %147 to i8
   store i8 %148, ptr %110, align 1, !tbaa !252
   %149 = load i32, ptr %20, align 4, !tbaa !210
   %150 = load i32, ptr %112, align 4, !tbaa !213
-  %.not352 = icmp sge i32 %149, %150
+  %.not350 = icmp sge i32 %149, %150
   %151 = load i32, ptr %114, align 8
   %152 = add nsw i32 %151, %150
   %153 = icmp slt i32 %149, %152
-  %narrow542 = select i1 %.not352, i1 %153, i1 false
-  %154 = and i1 %116, %narrow542
+  %narrow540 = select i1 %.not350, i1 %153, i1 false
+  %154 = and i1 %116, %narrow540
   %155 = zext i1 %154 to i8
   store i8 %155, ptr %100, align 2, !tbaa !252
   %156 = load i32, ptr %97, align 4, !tbaa !210
-  %.not353 = icmp sge i32 %156, %150
+  %.not351 = icmp sge i32 %156, %150
   %157 = icmp slt i32 %156, %152
-  %narrow543 = select i1 %.not353, i1 %157, i1 false
-  %158 = and i1 %120, %narrow543
+  %narrow541 = select i1 %.not351, i1 %157, i1 false
+  %158 = and i1 %120, %narrow541
   %159 = zext i1 %158 to i8
   store i8 %159, ptr %121, align 1, !tbaa !252
   %160 = load i32, ptr %21, align 4, !tbaa !210
   %161 = load i32, ptr %123, align 8, !tbaa !214
-  %.not354 = icmp sge i32 %160, %161
+  %.not352 = icmp sge i32 %160, %161
   %162 = load i32, ptr %125, align 4
   %163 = add nsw i32 %162, %161
   %164 = icmp slt i32 %160, %163
-  %narrow544 = select i1 %.not354, i1 %164, i1 false
-  %165 = and i1 %127, %narrow544
+  %narrow542 = select i1 %.not352, i1 %164, i1 false
+  %165 = and i1 %127, %narrow542
   %166 = zext i1 %165 to i8
   store i8 %166, ptr %101, align 4, !tbaa !252
   %167 = load i32, ptr %99, align 4, !tbaa !210
-  %.not355 = icmp sge i32 %167, %161
+  %.not353 = icmp sge i32 %167, %161
   %168 = icmp slt i32 %167, %163
-  %narrow545 = select i1 %.not355, i1 %168, i1 false
-  %169 = and i1 %131, %narrow545
+  %narrow543 = select i1 %.not353, i1 %168, i1 false
+  %169 = and i1 %131, %narrow543
   %170 = zext i1 %169 to i8
   store i8 %170, ptr %132, align 1, !tbaa !252
   br label %171
@@ -2244,13 +2244,13 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl23ac
 
 185:                                              ; preds = %171
   %186 = icmp sgt i32 %6, %7
-  br i1 %186, label %187, label %.loopexit554
+  br i1 %186, label %187, label %.loopexit552
 
 187:                                              ; preds = %185
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %189 = load float, ptr %188, align 8, !tbaa !158
   %190 = fcmp une float %189, 0.000000e+00
-  br i1 %190, label %.lr.ph.preheader, label %.loopexit554
+  br i1 %190, label %.lr.ph.preheader, label %.loopexit552
 
 .lr.ph.preheader:                                 ; preds = %187
   %191 = and i32 %175, 255
@@ -2309,13 +2309,13 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl23ac
   store float %238, ptr %236, align 4, !tbaa !124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit554, label %.lr.ph, !llvm.loop !253
+  br i1 %exitcond.not, label %.loopexit552, label %.lr.ph, !llvm.loop !253
 
-.loopexit554:                                     ; preds = %.lr.ph, %187, %185
+.loopexit552:                                     ; preds = %.lr.ph, %187, %185
   %239 = icmp slt i32 %7, 0
   br i1 %239, label %1723, label %240
 
-240:                                              ; preds = %.loopexit554
+240:                                              ; preds = %.loopexit552
   %241 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
   %242 = load i32, ptr %241, align 8, !tbaa !225
   %243 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 52
@@ -2423,9 +2423,9 @@ _ZN11OpenImageIO6v3_1_06TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit: ; preds = 
   %320 = sub nsw i32 %294, %319
   %321 = icmp eq i64 %172, 1103823438081
   %or.cond = and i1 %321, %279
-  br i1 %or.cond, label %337, label %.preheader553
+  br i1 %or.cond, label %337, label %.preheader551
 
-.preheader553:                                    ; preds = %_ZN11OpenImageIO6v3_1_06TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit
+.preheader551:                                    ; preds = %_ZN11OpenImageIO6v3_1_06TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %323 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %324 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2441,7 +2441,7 @@ _ZN11OpenImageIO6v3_1_06TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit: ; preds = 
   %334 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %335 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %336 = sext i32 %320 to i64
-  br label %.preheader552
+  br label %.preheader550
 
 337:                                              ; preds = %_ZN11OpenImageIO6v3_1_06TileIDC2ERNS0_14ImageCacheFileEiiiiiiii.exit
   %338 = sub nsw i32 %251, %254
@@ -2504,7 +2504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 360:                                              ; preds = %344
   %361 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372
 
 362:                                              ; preds = %346
   %363 = landingpad { ptr, i32 }
@@ -2512,23 +2512,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %364 = load ptr, ptr %26, align 8, !tbaa !169
   %365 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %366 = icmp eq ptr %364, %365
-  br i1 %366, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i373, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i372
+  br i1 %366, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i373: ; preds = %362
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371: ; preds = %362
   %367 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %368 = load i64, ptr %367, align 8, !tbaa !168
   %369 = icmp ult i64 %368, 16
   call void @llvm.assume(i1 %369)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i372: ; preds = %362
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370: ; preds = %362
   %370 = load i64, ptr %365, align 8, !tbaa !130
   %371 = add i64 %370, 1
   call void @_ZdlPvm(ptr noundef %364, i64 noundef %371) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i372, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i373, %360
-  %.pn361 = phi { ptr, i32 } [ %361, %360 ], [ %363, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i373 ], [ %363, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i372 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371, %360
+  %.pn359 = phi { ptr, i32 } [ %361, %360 ], [ %363, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371 ], [ %363, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1707
 
@@ -2585,41 +2585,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
   %413 = getelementptr inbounds nuw i8, ptr %411, i64 %288
   %414 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %413, ptr %414, align 8, !tbaa !86
-  br label %.critedge371
+  br label %.critedge369
 
-.preheader552:                                    ; preds = %.preheader553, %.critedge369.thread538
-  %415 = phi i32 [ %244, %.preheader553 ], [ %641, %.critedge369.thread538 ]
-  %416 = phi i32 [ %242, %.preheader553 ], [ %642, %.critedge369.thread538 ]
-  %.not590 = phi i1 [ true, %.preheader553 ], [ false, %.critedge369.thread538 ]
-  %indvars.iv599.sroa.phi = phi ptr [ %24, %.preheader553 ], [ %indvars.iv599.sroa.gep614, %.critedge369.thread538 ]
-  %indvars.iv599.sroa.phi615 = phi ptr [ %23, %.preheader553 ], [ %indvars.iv599.sroa.gep617, %.critedge369.thread538 ]
-  %indvars.iv599.sroa.phi619 = phi ptr [ %21, %.preheader553 ], [ %indvars.iv599.sroa.gep621, %.critedge369.thread538 ]
-  %indvars.iv599 = phi i64 [ 0, %.preheader553 ], [ 1, %.critedge369.thread538 ]
-  %.0310586 = phi i1 [ true, %.preheader553 ], [ %.5315, %.critedge369.thread538 ]
-  %417 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv599
+.preheader550:                                    ; preds = %.preheader551, %.critedge367.thread536
+  %415 = phi i32 [ %244, %.preheader551 ], [ %641, %.critedge367.thread536 ]
+  %416 = phi i32 [ %242, %.preheader551 ], [ %642, %.critedge367.thread536 ]
+  %.not588 = phi i1 [ true, %.preheader551 ], [ false, %.critedge367.thread536 ]
+  %indvars.iv597.sroa.phi = phi ptr [ %24, %.preheader551 ], [ %indvars.iv597.sroa.gep612, %.critedge367.thread536 ]
+  %indvars.iv597.sroa.phi613 = phi ptr [ %23, %.preheader551 ], [ %indvars.iv597.sroa.gep615, %.critedge367.thread536 ]
+  %indvars.iv597.sroa.phi617 = phi ptr [ %21, %.preheader551 ], [ %indvars.iv597.sroa.gep619, %.critedge367.thread536 ]
+  %indvars.iv597 = phi i64 [ 0, %.preheader551 ], [ 1, %.critedge367.thread536 ]
+  %.0310584 = phi i1 [ true, %.preheader551 ], [ %.5315, %.critedge367.thread536 ]
+  %417 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv597
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader552, %644
-  %418 = phi i32 [ %415, %.preheader552 ], [ %641, %644 ]
-  %419 = phi i32 [ %416, %.preheader552 ], [ %642, %644 ]
-  %.not589 = phi i1 [ true, %.preheader552 ], [ false, %644 ]
-  %indvars.iv597.sroa.phi = phi ptr [ %20, %.preheader552 ], [ %indvars.iv597.sroa.gep622, %644 ]
-  %indvars.iv597 = phi i64 [ 0, %.preheader552 ], [ 1, %644 ]
-  %.1311584 = phi i1 [ %.0310586, %.preheader552 ], [ %.5315, %644 ]
-  %420 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv597
-  %421 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %indvars.iv599.sroa.phi615, i64 0, i64 %indvars.iv597
-  %422 = getelementptr inbounds nuw [2 x [2 x %"class.OpenImageIO::v3_1_0::intrusive_ptr"]], ptr %indvars.iv599.sroa.phi, i64 0, i64 %indvars.iv597
+.preheader:                                       ; preds = %.preheader550, %644
+  %418 = phi i32 [ %415, %.preheader550 ], [ %641, %644 ]
+  %419 = phi i32 [ %416, %.preheader550 ], [ %642, %644 ]
+  %.not587 = phi i1 [ true, %.preheader550 ], [ false, %644 ]
+  %indvars.iv595.sroa.phi = phi ptr [ %20, %.preheader550 ], [ %indvars.iv595.sroa.gep620, %644 ]
+  %indvars.iv595 = phi i64 [ 0, %.preheader550 ], [ 1, %644 ]
+  %.1311582 = phi i1 [ %.0310584, %.preheader550 ], [ %.5315, %644 ]
+  %420 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv595
+  %421 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %indvars.iv597.sroa.phi613, i64 0, i64 %indvars.iv595
+  %422 = getelementptr inbounds nuw [2 x [2 x %"class.OpenImageIO::v3_1_0::intrusive_ptr"]], ptr %indvars.iv597.sroa.phi, i64 0, i64 %indvars.iv595
   br label %423
 
 423:                                              ; preds = %.preheader, %640
   %424 = phi i32 [ %418, %.preheader ], [ %641, %640 ]
   %425 = phi i32 [ %419, %.preheader ], [ %642, %640 ]
-  %.not588 = phi i1 [ true, %.preheader ], [ false, %640 ]
-  %indvars.iv595.sroa.phi = phi ptr [ %22, %.preheader ], [ %indvars.iv595.sroa.gep618, %640 ]
-  %indvars.iv595.sroa.phi623 = phi ptr [ %19, %.preheader ], [ %indvars.iv595.sroa.gep625, %640 ]
-  %indvars.iv595 = phi i64 [ 0, %.preheader ], [ 1, %640 ]
-  %.3313582 = phi i1 [ %.1311584, %.preheader ], [ %.5315, %640 ]
-  %426 = load i8, ptr %indvars.iv595.sroa.phi, align 1, !tbaa !252, !range !76, !noundef !77
+  %.not586 = phi i1 [ true, %.preheader ], [ false, %640 ]
+  %indvars.iv593.sroa.phi = phi ptr [ %22, %.preheader ], [ %indvars.iv593.sroa.gep616, %640 ]
+  %indvars.iv593.sroa.phi621 = phi ptr [ %19, %.preheader ], [ %indvars.iv593.sroa.gep623, %640 ]
+  %indvars.iv593 = phi i64 [ 0, %.preheader ], [ 1, %640 ]
+  %.3313580 = phi i1 [ %.1311582, %.preheader ], [ %.5315, %640 ]
+  %426 = load i8, ptr %indvars.iv593.sroa.phi, align 1, !tbaa !252, !range !76, !noundef !77
   %427 = trunc nuw i8 %426 to i1
   br i1 %427, label %428, label %640
 
@@ -2634,15 +2634,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
   br i1 %433, label %434, label %640
 
 434:                                              ; preds = %431
-  %435 = load i32, ptr %indvars.iv595.sroa.phi623, align 4, !tbaa !210
+  %435 = load i32, ptr %indvars.iv593.sroa.phi621, align 4, !tbaa !210
   %436 = load i32, ptr %spec.select.i.i, align 8, !tbaa !212
   %437 = sub nsw i32 %435, %436
   %438 = srem i32 %437, %425
-  %439 = load i32, ptr %indvars.iv597.sroa.phi, align 4, !tbaa !210
+  %439 = load i32, ptr %indvars.iv595.sroa.phi, align 4, !tbaa !210
   %440 = load i32, ptr %112, align 4, !tbaa !213
   %441 = sub nsw i32 %439, %440
   %442 = srem i32 %441, %424
-  %443 = load i32, ptr %indvars.iv599.sroa.phi619, align 4, !tbaa !210
+  %443 = load i32, ptr %indvars.iv597.sroa.phi617, align 4, !tbaa !210
   %444 = load i32, ptr %123, align 8, !tbaa !214
   %445 = sub nsw i32 %443, %444
   %446 = load i32, ptr %245, align 8, !tbaa !227
@@ -2658,8 +2658,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
   %453 = add nsw i64 %452, 1
   store i64 %453, ptr %323, align 8, !tbaa !264
   %454 = load ptr, ptr %324, align 8, !tbaa !239
-  %.not.i403 = icmp eq ptr %454, null
-  br i1 %.not.i403, label %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i, label %455
+  %.not.i401 = icmp eq ptr %454, null
+  br i1 %.not.i401, label %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i, label %455
 
 455:                                              ; preds = %434
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 8
@@ -2722,12 +2722,12 @@ _ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.i:   ; preds = %487
   br i1 %495, label %496, label %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.thread.i
 
 496:                                              ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.i
-  br i1 %.3313582, label %497, label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread
+  br i1 %.3313580, label %497, label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread
 
 497:                                              ; preds = %496
   %498 = getelementptr inbounds nuw i8, ptr %454, i64 80
   store atomic i32 1, ptr %498 seq_cst, align 4
-  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread
+  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread
 
 _ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.thread.i: ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.i, %487, %482, %477, %472, %467, %463, %459, %455
   %499 = load ptr, ptr %325, align 8, !tbaa !239
@@ -2799,16 +2799,16 @@ _ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.i: ; preds = %532
 541:                                              ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.i
   %542 = getelementptr inbounds nuw i8, ptr %499, i64 80
   store atomic i32 1, ptr %542 seq_cst, align 4
-  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread
+  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread
 
 _ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i: ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.i, %532, %527, %522, %517, %512, %508, %504, %500, %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit.thread.i, %434
   %543 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014ImageCacheImpl20find_tile_main_cacheERKNS0_6TileIDERNS0_13intrusive_ptrINS0_14ImageCacheTileEEEPNS0_23ImageCachePerThreadInfoE(ptr noundef nonnull align 64 dereferenceable(25240) %451, ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(8) %324, ptr noundef nonnull %4)
-          to label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375 unwind label %599
+          to label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373 unwind label %599
 
-_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375: ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i
-  br i1 %543, label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread, label %544
+_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373: ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i
+  br i1 %543, label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread, label %544
 
-544:                                              ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375
+544:                                              ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %545 = load ptr, ptr %322, align 8, !tbaa !8
   invoke void @_ZNK11OpenImageIO6v3_1_014ImageCacheImpl8geterrorB5cxx11Eb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 64 dereferenceable(25240) %545, i1 noundef zeroext true)
@@ -2891,8 +2891,8 @@ _ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageC
   store i8 0, ptr %567, align 1, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !287
   %568 = load ptr, ptr %328, align 8, !tbaa !280, !noalias !277
-  %.not.i.i.i405 = icmp eq ptr %568, %331
-  br i1 %.not.i.i.i405, label %.noexc, label %569
+  %.not.i.i.i403 = icmp eq ptr %568, %331
+  br i1 %.not.i.i.i403, label %.noexc, label %569
 
 569:                                              ; preds = %564
   %570 = load i64, ptr %329, align 8, !tbaa !282, !noalias !277
@@ -2979,23 +2979,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %593 = load ptr, ptr %27, align 8, !tbaa !169
   %594 = icmp eq ptr %593, %335
-  br i1 %594, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376
+  br i1 %594, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i375, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i374
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377: ; preds = %592
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i375: ; preds = %592
   %595 = load i64, ptr %326, align 8, !tbaa !168
   %596 = icmp ult i64 %595, 16
   call void @llvm.assume(i1 %596)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376: ; preds = %592
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i374: ; preds = %592
   %597 = load i64, ptr %335, align 8, !tbaa !130
   %598 = add i64 %597, 1
   call void @_ZdlPvm(ptr noundef %593, i64 noundef %598) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i377, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i376
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i374
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread
+  br label %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread
 
 599:                                              ; preds = %_ZNK11OpenImageIO6v3_1_06TileIDeqERKS1_.exit17.thread.i
   %600 = landingpad { ptr, i32 }
@@ -3005,40 +3005,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378: ; preds = %_Z
 601:                                              ; preds = %544
   %602 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379
 
 .body:                                            ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i
   %eh.lpad-body = phi { ptr, i32 } [ %585, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i ], [ %lpad.phi, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit9.i ]
   %603 = load ptr, ptr %27, align 8, !tbaa !169
   %604 = icmp eq ptr %603, %335
-  br i1 %604, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379
+  br i1 %604, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i377
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i378: ; preds = %.body
   %605 = load i64, ptr %326, align 8, !tbaa !168
   %606 = icmp ult i64 %605, 16
   call void @llvm.assume(i1 %606)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i377: ; preds = %.body
   %607 = load i64, ptr %335, align 8, !tbaa !130
   %608 = add i64 %607, 1
   call void @_ZdlPvm(ptr noundef %603, i64 noundef %608) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380, %601
-  %.pn = phi { ptr, i32 } [ %602, %601 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i380 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i379 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i377, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i378, %601
+  %.pn = phi { ptr, i32 } [ %602, %601 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i378 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1707
 
-_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread: ; preds = %496, %497, %541, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit378, %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375
+_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread: ; preds = %496, %497, %541, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376, %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373
   %609 = load ptr, ptr %324, align 8, !tbaa !239
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 76
   %611 = load i8, ptr %610, align 4, !tbaa !256, !range !76, !noundef !77
   %612 = trunc nuw i8 %611 to i1
   br i1 %612, label %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i, label %.critedge
 
-_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread
-  %613 = getelementptr inbounds nuw [2 x %"class.OpenImageIO::v3_1_0::intrusive_ptr"], ptr %422, i64 0, i64 %indvars.iv595
+_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread
+  %613 = getelementptr inbounds nuw [2 x %"class.OpenImageIO::v3_1_0::intrusive_ptr"], ptr %422, i64 0, i64 %indvars.iv593
   %614 = atomicrmw add ptr %609, i32 1 seq_cst, align 4
   %615 = load ptr, ptr %613, align 8, !tbaa !239
   store ptr %609, ptr %613, align 8, !tbaa !239
@@ -3081,31 +3081,31 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %.sink = phi ptr [ %639, %620 ], [ @_ZZN11OpenImageIO6v3_1_017TextureSystemImpl23accum3d_sample_bilinearERKN9Imath_3_14Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS0_13TextureOpt_v2EiifPfSD_SD_SD_E5black, %431 ], [ @_ZZN11OpenImageIO6v3_1_017TextureSystemImpl23accum3d_sample_bilinearERKN9Imath_3_14Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS0_13TextureOpt_v2EiifPfSD_SD_SD_E5black, %428 ], [ @_ZZN11OpenImageIO6v3_1_017TextureSystemImpl23accum3d_sample_bilinearERKN9Imath_3_14Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS0_13TextureOpt_v2EiifPfSD_SD_SD_E5black, %423 ]
   %641 = phi i32 [ %621, %620 ], [ %424, %431 ], [ %424, %428 ], [ %424, %423 ]
   %642 = phi i32 [ %622, %620 ], [ %425, %431 ], [ %425, %428 ], [ %425, %423 ]
-  %.5315 = phi i1 [ false, %620 ], [ %.3313582, %431 ], [ %.3313582, %428 ], [ %.3313582, %423 ]
-  %643 = getelementptr inbounds nuw [2 x ptr], ptr %421, i64 0, i64 %indvars.iv595
+  %.5315 = phi i1 [ false, %620 ], [ %.3313580, %431 ], [ %.3313580, %428 ], [ %.3313580, %423 ]
+  %643 = getelementptr inbounds nuw [2 x ptr], ptr %421, i64 0, i64 %indvars.iv593
   store ptr %.sink, ptr %643, align 8, !tbaa !86
-  br i1 %.not588, label %423, label %644, !llvm.loop !290
+  br i1 %.not586, label %423, label %644, !llvm.loop !290
 
 644:                                              ; preds = %640
-  br i1 %.not589, label %.preheader, label %.critedge369.thread538, !llvm.loop !291
+  br i1 %.not587, label %.preheader, label %.critedge367.thread536, !llvm.loop !291
 
-.critedge369.thread538:                           ; preds = %644
-  br i1 %.not590, label %.preheader552, label %.critedge371, !llvm.loop !292
+.critedge367.thread536:                           ; preds = %644
+  br i1 %.not588, label %.preheader550, label %.critedge369, !llvm.loop !292
 
-.critedge371:                                     ; preds = %.critedge369.thread538, %378
+.critedge369:                                     ; preds = %.critedge367.thread536, %378
   switch i8 %40, label %1558 [
     i8 2, label %645
     i8 4, label %646
     i8 10, label %813
   ]
 
-645:                                              ; preds = %.critedge371
+645:                                              ; preds = %.critedge369
   invoke void @_ZN11OpenImageIO6v3_1_013trilerp_accumIhNS0_17EightBitConverterIfEEEEvPfS4_S4_S4_PA2_A2_PKhfffifRKNS0_9ImageSpecERKT0_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %23, float noundef %72, float noundef %75, float noundef %78, i32 noundef %7, float noundef %8, ptr noundef nonnull align 8 dereferenceable(160) %spec.select.i.i, ptr noundef nonnull align 4 dereferenceable(1024) @_ZN11OpenImageIO6v3_1_017TextureSystemImpl11uchar2floatE)
           to label %.critedge unwind label %356
 
-646:                                              ; preds = %.critedge371
-  %.not547 = icmp eq i32 %7, 0
-  br i1 %.not547, label %._crit_edge.i, label %.lr.ph.i
+646:                                              ; preds = %.critedge369
+  %.not545 = icmp eq i32 %7, 0
+  br i1 %.not545, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %646
   %647 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3199,7 +3199,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %722 = load i32, ptr %62, align 4, !tbaa !208
   %723 = sitofp i32 %722 to float
   %724 = fmul float %8, %723
-  br i1 %.not547, label %.critedge, label %.lr.ph146.i
+  br i1 %.not545, label %.critedge, label %.lr.ph146.i
 
 .lr.ph146.i:                                      ; preds = %715
   %725 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3301,11 +3301,11 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i
   br i1 %exitcond152.not.i, label %.critedge, label %743, !llvm.loop !294
 
-813:                                              ; preds = %.critedge371
-  %.not546 = icmp eq i32 %7, 0
-  br i1 %.not546, label %._crit_edge.i383, label %.lr.ph.i385
+813:                                              ; preds = %.critedge369
+  %.not544 = icmp eq i32 %7, 0
+  br i1 %.not544, label %._crit_edge.i381, label %.lr.ph.i383
 
-.lr.ph.i385:                                      ; preds = %813
+.lr.ph.i383:                                      ; preds = %813
   %814 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %815 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %816 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -3316,7 +3316,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %821 = fsub float 1.000000e+00, %72
   %822 = fsub float 1.000000e+00, %75
   %823 = fsub float 1.000000e+00, %78
-  %wide.trip.count.i386 = zext nneg i32 %7 to i64
+  %wide.trip.count.i384 = zext nneg i32 %7 to i64
   %824 = load ptr, ptr %23, align 16, !tbaa !86
   %825 = load ptr, ptr %814, align 8, !tbaa !86
   %826 = load ptr, ptr %815, align 16, !tbaa !86
@@ -3327,19 +3327,19 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %831 = load ptr, ptr %820, align 8, !tbaa !86
   br label %832
 
-._crit_edge.i383:                                 ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504, %813
-  %.not.i384 = icmp eq ptr %10, null
-  br i1 %.not.i384, label %.critedge, label %1034
+._crit_edge.i381:                                 ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502, %813
+  %.not.i382 = icmp eq ptr %10, null
+  br i1 %.not.i382, label %.critedge, label %1034
 
-832:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504, %.lr.ph.i385
-  %indvars.iv.i387 = phi i64 [ 0, %.lr.ph.i385 ], [ %indvars.iv.next.i388, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504 ]
-  %833 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %824, i64 %indvars.iv.i387
+832:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502, %.lr.ph.i383
+  %indvars.iv.i385 = phi i64 [ 0, %.lr.ph.i383 ], [ %indvars.iv.next.i386, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502 ]
+  %833 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %824, i64 %indvars.iv.i385
   %.sroa.061.0.copyload.i = load i16, ptr %833, align 2, !tbaa !243
   %834 = zext i16 %.sroa.061.0.copyload.i to i32
   %835 = shl nuw nsw i32 %834, 13
   %836 = and i32 %835, 268427264
-  %.signext.i.i.i529 = sext i16 %.sroa.061.0.copyload.i to i32
-  %837 = and i32 %.signext.i.i.i529, -2147483648
+  %.signext.i.i.i527 = sext i16 %.sroa.061.0.copyload.i to i32
+  %837 = and i32 %.signext.i.i.i527, -2147483648
   %838 = icmp samesign ugt i32 %836, 8388607
   br i1 %838, label %839, label %846, !prof !247
 
@@ -3350,15 +3350,15 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
 
 842:                                              ; preds = %839
   %843 = add nuw nsw i32 %840, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530
 
 844:                                              ; preds = %839
   %845 = or i32 %840, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530
 
 846:                                              ; preds = %832
-  %.not.i.i.i530 = icmp eq i32 %836, 0
-  br i1 %.not.i.i.i530, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532, label %847
+  %.not.i.i.i528 = icmp eq i32 %836, 0
+  br i1 %.not.i.i.i528, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530, label %847
 
 847:                                              ; preds = %846
   %848 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %836, i1 true)
@@ -3368,37 +3368,37 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %852 = or i32 %851, 947912704
   %853 = shl nuw nsw i32 %849, 23
   %854 = sub nuw i32 %852, %853
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532: ; preds = %842, %844, %846, %847
-  %.sroa.0.0.i.i.i531 = phi i32 [ %843, %842 ], [ %845, %844 ], [ %854, %847 ], [ %837, %846 ]
-  %855 = bitcast i32 %.sroa.0.0.i.i.i531 to float
-  %856 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %825, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530: ; preds = %842, %844, %846, %847
+  %.sroa.0.0.i.i.i529 = phi i32 [ %843, %842 ], [ %845, %844 ], [ %854, %847 ], [ %837, %846 ]
+  %855 = bitcast i32 %.sroa.0.0.i.i.i529 to float
+  %856 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %825, i64 %indvars.iv.i385
   %.sroa.060.0.copyload.i = load i16, ptr %856, align 2, !tbaa !243
   %857 = zext i16 %.sroa.060.0.copyload.i to i32
   %858 = shl nuw nsw i32 %857, 13
   %859 = and i32 %858, 268427264
-  %.signext.i.i.i525 = sext i16 %.sroa.060.0.copyload.i to i32
-  %860 = and i32 %.signext.i.i.i525, -2147483648
+  %.signext.i.i.i523 = sext i16 %.sroa.060.0.copyload.i to i32
+  %860 = and i32 %.signext.i.i.i523, -2147483648
   %861 = icmp samesign ugt i32 %859, 8388607
   br i1 %861, label %862, label %869, !prof !247
 
-862:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532
+862:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530
   %863 = or disjoint i32 %859, %860
   %864 = icmp samesign ult i32 %859, 260046848
   br i1 %864, label %865, label %867, !prof !247
 
 865:                                              ; preds = %862
   %866 = add nuw nsw i32 %863, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526
 
 867:                                              ; preds = %862
   %868 = or i32 %863, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526
 
-869:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532
-  %.not.i.i.i526 = icmp eq i32 %859, 0
-  br i1 %.not.i.i.i526, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528, label %870
+869:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit530
+  %.not.i.i.i524 = icmp eq i32 %859, 0
+  br i1 %.not.i.i.i524, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526, label %870
 
 870:                                              ; preds = %869
   %871 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %859, i1 true)
@@ -3408,37 +3408,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit532: ; p
   %875 = or i32 %874, 947912704
   %876 = shl nuw nsw i32 %872, 23
   %877 = sub nuw i32 %875, %876
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528: ; preds = %865, %867, %869, %870
-  %.sroa.0.0.i.i.i527 = phi i32 [ %866, %865 ], [ %868, %867 ], [ %877, %870 ], [ %860, %869 ]
-  %878 = bitcast i32 %.sroa.0.0.i.i.i527 to float
-  %879 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %826, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526: ; preds = %865, %867, %869, %870
+  %.sroa.0.0.i.i.i525 = phi i32 [ %866, %865 ], [ %868, %867 ], [ %877, %870 ], [ %860, %869 ]
+  %878 = bitcast i32 %.sroa.0.0.i.i.i525 to float
+  %879 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %826, i64 %indvars.iv.i385
   %.sroa.059.0.copyload.i = load i16, ptr %879, align 2, !tbaa !243
   %880 = zext i16 %.sroa.059.0.copyload.i to i32
   %881 = shl nuw nsw i32 %880, 13
   %882 = and i32 %881, 268427264
-  %.signext.i.i.i521 = sext i16 %.sroa.059.0.copyload.i to i32
-  %883 = and i32 %.signext.i.i.i521, -2147483648
+  %.signext.i.i.i519 = sext i16 %.sroa.059.0.copyload.i to i32
+  %883 = and i32 %.signext.i.i.i519, -2147483648
   %884 = icmp samesign ugt i32 %882, 8388607
   br i1 %884, label %885, label %892, !prof !247
 
-885:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528
+885:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526
   %886 = or disjoint i32 %882, %883
   %887 = icmp samesign ult i32 %882, 260046848
   br i1 %887, label %888, label %890, !prof !247
 
 888:                                              ; preds = %885
   %889 = add nuw nsw i32 %886, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522
 
 890:                                              ; preds = %885
   %891 = or i32 %886, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522
 
-892:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528
-  %.not.i.i.i522 = icmp eq i32 %882, 0
-  br i1 %.not.i.i.i522, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524, label %893
+892:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit526
+  %.not.i.i.i520 = icmp eq i32 %882, 0
+  br i1 %.not.i.i.i520, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522, label %893
 
 893:                                              ; preds = %892
   %894 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %882, i1 true)
@@ -3448,37 +3448,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit528: ; p
   %898 = or i32 %897, 947912704
   %899 = shl nuw nsw i32 %895, 23
   %900 = sub nuw i32 %898, %899
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524: ; preds = %888, %890, %892, %893
-  %.sroa.0.0.i.i.i523 = phi i32 [ %889, %888 ], [ %891, %890 ], [ %900, %893 ], [ %883, %892 ]
-  %901 = bitcast i32 %.sroa.0.0.i.i.i523 to float
-  %902 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %827, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522: ; preds = %888, %890, %892, %893
+  %.sroa.0.0.i.i.i521 = phi i32 [ %889, %888 ], [ %891, %890 ], [ %900, %893 ], [ %883, %892 ]
+  %901 = bitcast i32 %.sroa.0.0.i.i.i521 to float
+  %902 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %827, i64 %indvars.iv.i385
   %.sroa.058.0.copyload.i = load i16, ptr %902, align 2, !tbaa !243
   %903 = zext i16 %.sroa.058.0.copyload.i to i32
   %904 = shl nuw nsw i32 %903, 13
   %905 = and i32 %904, 268427264
-  %.signext.i.i.i517 = sext i16 %.sroa.058.0.copyload.i to i32
-  %906 = and i32 %.signext.i.i.i517, -2147483648
+  %.signext.i.i.i515 = sext i16 %.sroa.058.0.copyload.i to i32
+  %906 = and i32 %.signext.i.i.i515, -2147483648
   %907 = icmp samesign ugt i32 %905, 8388607
   br i1 %907, label %908, label %915, !prof !247
 
-908:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524
+908:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522
   %909 = or disjoint i32 %905, %906
   %910 = icmp samesign ult i32 %905, 260046848
   br i1 %910, label %911, label %913, !prof !247
 
 911:                                              ; preds = %908
   %912 = add nuw nsw i32 %909, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518
 
 913:                                              ; preds = %908
   %914 = or i32 %909, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518
 
-915:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524
-  %.not.i.i.i518 = icmp eq i32 %905, 0
-  br i1 %.not.i.i.i518, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520, label %916
+915:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit522
+  %.not.i.i.i516 = icmp eq i32 %905, 0
+  br i1 %.not.i.i.i516, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518, label %916
 
 916:                                              ; preds = %915
   %917 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %905, i1 true)
@@ -3488,37 +3488,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit524: ; p
   %921 = or i32 %920, 947912704
   %922 = shl nuw nsw i32 %918, 23
   %923 = sub nuw i32 %921, %922
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520: ; preds = %911, %913, %915, %916
-  %.sroa.0.0.i.i.i519 = phi i32 [ %912, %911 ], [ %914, %913 ], [ %923, %916 ], [ %906, %915 ]
-  %924 = bitcast i32 %.sroa.0.0.i.i.i519 to float
-  %925 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %828, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518: ; preds = %911, %913, %915, %916
+  %.sroa.0.0.i.i.i517 = phi i32 [ %912, %911 ], [ %914, %913 ], [ %923, %916 ], [ %906, %915 ]
+  %924 = bitcast i32 %.sroa.0.0.i.i.i517 to float
+  %925 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %828, i64 %indvars.iv.i385
   %.sroa.057.0.copyload.i = load i16, ptr %925, align 2, !tbaa !243
   %926 = zext i16 %.sroa.057.0.copyload.i to i32
   %927 = shl nuw nsw i32 %926, 13
   %928 = and i32 %927, 268427264
-  %.signext.i.i.i513 = sext i16 %.sroa.057.0.copyload.i to i32
-  %929 = and i32 %.signext.i.i.i513, -2147483648
+  %.signext.i.i.i511 = sext i16 %.sroa.057.0.copyload.i to i32
+  %929 = and i32 %.signext.i.i.i511, -2147483648
   %930 = icmp samesign ugt i32 %928, 8388607
   br i1 %930, label %931, label %938, !prof !247
 
-931:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520
+931:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518
   %932 = or disjoint i32 %928, %929
   %933 = icmp samesign ult i32 %928, 260046848
   br i1 %933, label %934, label %936, !prof !247
 
 934:                                              ; preds = %931
   %935 = add nuw nsw i32 %932, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514
 
 936:                                              ; preds = %931
   %937 = or i32 %932, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514
 
-938:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520
-  %.not.i.i.i514 = icmp eq i32 %928, 0
-  br i1 %.not.i.i.i514, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516, label %939
+938:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit518
+  %.not.i.i.i512 = icmp eq i32 %928, 0
+  br i1 %.not.i.i.i512, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514, label %939
 
 939:                                              ; preds = %938
   %940 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %928, i1 true)
@@ -3528,37 +3528,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit520: ; p
   %944 = or i32 %943, 947912704
   %945 = shl nuw nsw i32 %941, 23
   %946 = sub nuw i32 %944, %945
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516: ; preds = %934, %936, %938, %939
-  %.sroa.0.0.i.i.i515 = phi i32 [ %935, %934 ], [ %937, %936 ], [ %946, %939 ], [ %929, %938 ]
-  %947 = bitcast i32 %.sroa.0.0.i.i.i515 to float
-  %948 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %829, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514: ; preds = %934, %936, %938, %939
+  %.sroa.0.0.i.i.i513 = phi i32 [ %935, %934 ], [ %937, %936 ], [ %946, %939 ], [ %929, %938 ]
+  %947 = bitcast i32 %.sroa.0.0.i.i.i513 to float
+  %948 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %829, i64 %indvars.iv.i385
   %.sroa.056.0.copyload.i = load i16, ptr %948, align 2, !tbaa !243
   %949 = zext i16 %.sroa.056.0.copyload.i to i32
   %950 = shl nuw nsw i32 %949, 13
   %951 = and i32 %950, 268427264
-  %.signext.i.i.i509 = sext i16 %.sroa.056.0.copyload.i to i32
-  %952 = and i32 %.signext.i.i.i509, -2147483648
+  %.signext.i.i.i507 = sext i16 %.sroa.056.0.copyload.i to i32
+  %952 = and i32 %.signext.i.i.i507, -2147483648
   %953 = icmp samesign ugt i32 %951, 8388607
   br i1 %953, label %954, label %961, !prof !247
 
-954:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516
+954:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514
   %955 = or disjoint i32 %951, %952
   %956 = icmp samesign ult i32 %951, 260046848
   br i1 %956, label %957, label %959, !prof !247
 
 957:                                              ; preds = %954
   %958 = add nuw nsw i32 %955, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510
 
 959:                                              ; preds = %954
   %960 = or i32 %955, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510
 
-961:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516
-  %.not.i.i.i510 = icmp eq i32 %951, 0
-  br i1 %.not.i.i.i510, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512, label %962
+961:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit514
+  %.not.i.i.i508 = icmp eq i32 %951, 0
+  br i1 %.not.i.i.i508, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510, label %962
 
 962:                                              ; preds = %961
   %963 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %951, i1 true)
@@ -3568,37 +3568,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit516: ; p
   %967 = or i32 %966, 947912704
   %968 = shl nuw nsw i32 %964, 23
   %969 = sub nuw i32 %967, %968
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512: ; preds = %957, %959, %961, %962
-  %.sroa.0.0.i.i.i511 = phi i32 [ %958, %957 ], [ %960, %959 ], [ %969, %962 ], [ %952, %961 ]
-  %970 = bitcast i32 %.sroa.0.0.i.i.i511 to float
-  %971 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %830, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510: ; preds = %957, %959, %961, %962
+  %.sroa.0.0.i.i.i509 = phi i32 [ %958, %957 ], [ %960, %959 ], [ %969, %962 ], [ %952, %961 ]
+  %970 = bitcast i32 %.sroa.0.0.i.i.i509 to float
+  %971 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %830, i64 %indvars.iv.i385
   %.sroa.055.0.copyload.i = load i16, ptr %971, align 2, !tbaa !243
   %972 = zext i16 %.sroa.055.0.copyload.i to i32
   %973 = shl nuw nsw i32 %972, 13
   %974 = and i32 %973, 268427264
-  %.signext.i.i.i505 = sext i16 %.sroa.055.0.copyload.i to i32
-  %975 = and i32 %.signext.i.i.i505, -2147483648
+  %.signext.i.i.i503 = sext i16 %.sroa.055.0.copyload.i to i32
+  %975 = and i32 %.signext.i.i.i503, -2147483648
   %976 = icmp samesign ugt i32 %974, 8388607
   br i1 %976, label %977, label %984, !prof !247
 
-977:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512
+977:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510
   %978 = or disjoint i32 %974, %975
   %979 = icmp samesign ult i32 %974, 260046848
   br i1 %979, label %980, label %982, !prof !247
 
 980:                                              ; preds = %977
   %981 = add nuw nsw i32 %978, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506
 
 982:                                              ; preds = %977
   %983 = or i32 %978, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506
 
-984:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512
-  %.not.i.i.i506 = icmp eq i32 %974, 0
-  br i1 %.not.i.i.i506, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508, label %985
+984:                                              ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit510
+  %.not.i.i.i504 = icmp eq i32 %974, 0
+  br i1 %.not.i.i.i504, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506, label %985
 
 985:                                              ; preds = %984
   %986 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %974, i1 true)
@@ -3608,37 +3608,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit512: ; p
   %990 = or i32 %989, 947912704
   %991 = shl nuw nsw i32 %987, 23
   %992 = sub nuw i32 %990, %991
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508: ; preds = %980, %982, %984, %985
-  %.sroa.0.0.i.i.i507 = phi i32 [ %981, %980 ], [ %983, %982 ], [ %992, %985 ], [ %975, %984 ]
-  %993 = bitcast i32 %.sroa.0.0.i.i.i507 to float
-  %994 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %831, i64 %indvars.iv.i387
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506: ; preds = %980, %982, %984, %985
+  %.sroa.0.0.i.i.i505 = phi i32 [ %981, %980 ], [ %983, %982 ], [ %992, %985 ], [ %975, %984 ]
+  %993 = bitcast i32 %.sroa.0.0.i.i.i505 to float
+  %994 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %831, i64 %indvars.iv.i385
   %.sroa.054.0.copyload.i = load i16, ptr %994, align 2, !tbaa !243
   %995 = zext i16 %.sroa.054.0.copyload.i to i32
   %996 = shl nuw nsw i32 %995, 13
   %997 = and i32 %996, 268427264
-  %.signext.i.i.i501 = sext i16 %.sroa.054.0.copyload.i to i32
-  %998 = and i32 %.signext.i.i.i501, -2147483648
+  %.signext.i.i.i499 = sext i16 %.sroa.054.0.copyload.i to i32
+  %998 = and i32 %.signext.i.i.i499, -2147483648
   %999 = icmp samesign ugt i32 %997, 8388607
   br i1 %999, label %1000, label %1007, !prof !247
 
-1000:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508
+1000:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506
   %1001 = or disjoint i32 %997, %998
   %1002 = icmp samesign ult i32 %997, 260046848
   br i1 %1002, label %1003, label %1005, !prof !247
 
 1003:                                             ; preds = %1000
   %1004 = add nuw nsw i32 %1001, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502
 
 1005:                                             ; preds = %1000
   %1006 = or i32 %1001, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502
 
-1007:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508
-  %.not.i.i.i502 = icmp eq i32 %997, 0
-  br i1 %.not.i.i.i502, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504, label %1008
+1007:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit506
+  %.not.i.i.i500 = icmp eq i32 %997, 0
+  br i1 %.not.i.i.i500, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502, label %1008
 
 1008:                                             ; preds = %1007
   %1009 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %997, i1 true)
@@ -3648,11 +3648,11 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit508: ; p
   %1013 = or i32 %1012, 947912704
   %1014 = shl nuw nsw i32 %1010, 23
   %1015 = sub nuw i32 %1013, %1014
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; preds = %1003, %1005, %1007, %1008
-  %.sroa.0.0.i.i.i503 = phi i32 [ %1004, %1003 ], [ %1006, %1005 ], [ %1015, %1008 ], [ %998, %1007 ]
-  %1016 = bitcast i32 %.sroa.0.0.i.i.i503 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit502: ; preds = %1003, %1005, %1007, %1008
+  %.sroa.0.0.i.i.i501 = phi i32 [ %1004, %1003 ], [ %1006, %1005 ], [ %1015, %1008 ], [ %998, %1007 ]
+  %1016 = bitcast i32 %.sroa.0.0.i.i.i501 to float
   %1017 = fmul float %72, %878
   %1018 = call float @llvm.fmuladd.f32(float %855, float %821, float %1017)
   %1019 = fmul float %72, %924
@@ -3667,15 +3667,15 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; p
   %1028 = call float @llvm.fmuladd.f32(float %822, float %1024, float %1027)
   %1029 = fmul float %78, %1028
   %1030 = call noundef float @llvm.fmuladd.f32(float %823, float %1022, float %1029)
-  %1031 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i387
+  %1031 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i385
   %1032 = load float, ptr %1031, align 4, !tbaa !124
   %1033 = call float @llvm.fmuladd.f32(float %8, float %1030, float %1032)
   store float %1033, ptr %1031, align 4, !tbaa !124
-  %indvars.iv.next.i388 = add nuw nsw i64 %indvars.iv.i387, 1
-  %exitcond.not.i389 = icmp eq i64 %indvars.iv.next.i388, %wide.trip.count.i386
-  br i1 %exitcond.not.i389, label %._crit_edge.i383, label %832, !llvm.loop !295
+  %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i385, 1
+  %exitcond.not.i387 = icmp eq i64 %indvars.iv.next.i386, %wide.trip.count.i384
+  br i1 %exitcond.not.i387, label %._crit_edge.i381, label %832, !llvm.loop !295
 
-1034:                                             ; preds = %._crit_edge.i383
+1034:                                             ; preds = %._crit_edge.i381
   %1035 = load i32, ptr %42, align 4, !tbaa !204
   %1036 = sitofp i32 %1035 to float
   %1037 = fmul float %8, %1036
@@ -3685,7 +3685,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; p
   %1041 = load i32, ptr %62, align 4, !tbaa !208
   %1042 = sitofp i32 %1041 to float
   %1043 = fmul float %8, %1042
-  br i1 %.not546, label %.critedge, label %.lr.ph177.i
+  br i1 %.not544, label %.critedge, label %.lr.ph177.i
 
 .lr.ph177.i:                                      ; preds = %1034
   %1044 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3716,8 +3716,8 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; p
   %1064 = zext i16 %.sroa.023.0.copyload.i to i32
   %1065 = shl nuw nsw i32 %1064, 13
   %1066 = and i32 %1065, 268427264
-  %.signext.i.i.i497 = sext i16 %.sroa.023.0.copyload.i to i32
-  %1067 = and i32 %.signext.i.i.i497, -2147483648
+  %.signext.i.i.i495 = sext i16 %.sroa.023.0.copyload.i to i32
+  %1067 = and i32 %.signext.i.i.i495, -2147483648
   %1068 = icmp samesign ugt i32 %1066, 8388607
   br i1 %1068, label %1069, label %1076, !prof !247
 
@@ -3728,15 +3728,15 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; p
 
 1072:                                             ; preds = %1069
   %1073 = add nuw nsw i32 %1070, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498
 
 1074:                                             ; preds = %1069
   %1075 = or i32 %1070, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498
 
 1076:                                             ; preds = %1062
-  %.not.i.i.i498 = icmp eq i32 %1066, 0
-  br i1 %.not.i.i.i498, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500, label %1077
+  %.not.i.i.i496 = icmp eq i32 %1066, 0
+  br i1 %.not.i.i.i496, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498, label %1077
 
 1077:                                             ; preds = %1076
   %1078 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1066, i1 true)
@@ -3746,37 +3746,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit504: ; p
   %1082 = or i32 %1081, 947912704
   %1083 = shl nuw nsw i32 %1079, 23
   %1084 = sub nuw i32 %1082, %1083
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500: ; preds = %1072, %1074, %1076, %1077
-  %.sroa.0.0.i.i.i499 = phi i32 [ %1073, %1072 ], [ %1075, %1074 ], [ %1084, %1077 ], [ %1067, %1076 ]
-  %1085 = bitcast i32 %.sroa.0.0.i.i.i499 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498: ; preds = %1072, %1074, %1076, %1077
+  %.sroa.0.0.i.i.i497 = phi i32 [ %1073, %1072 ], [ %1075, %1074 ], [ %1084, %1077 ], [ %1067, %1076 ]
+  %1085 = bitcast i32 %.sroa.0.0.i.i.i497 to float
   %1086 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1055, i64 %indvars.iv179.i
   %.sroa.022.0.copyload.i = load i16, ptr %1086, align 2, !tbaa !243
   %1087 = zext i16 %.sroa.022.0.copyload.i to i32
   %1088 = shl nuw nsw i32 %1087, 13
   %1089 = and i32 %1088, 268427264
-  %.signext.i.i.i493 = sext i16 %.sroa.022.0.copyload.i to i32
-  %1090 = and i32 %.signext.i.i.i493, -2147483648
+  %.signext.i.i.i491 = sext i16 %.sroa.022.0.copyload.i to i32
+  %1090 = and i32 %.signext.i.i.i491, -2147483648
   %1091 = icmp samesign ugt i32 %1089, 8388607
   br i1 %1091, label %1092, label %1099, !prof !247
 
-1092:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500
+1092:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498
   %1093 = or disjoint i32 %1089, %1090
   %1094 = icmp samesign ult i32 %1089, 260046848
   br i1 %1094, label %1095, label %1097, !prof !247
 
 1095:                                             ; preds = %1092
   %1096 = add nuw nsw i32 %1093, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494
 
 1097:                                             ; preds = %1092
   %1098 = or i32 %1093, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494
 
-1099:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500
-  %.not.i.i.i494 = icmp eq i32 %1089, 0
-  br i1 %.not.i.i.i494, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496, label %1100
+1099:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit498
+  %.not.i.i.i492 = icmp eq i32 %1089, 0
+  br i1 %.not.i.i.i492, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494, label %1100
 
 1100:                                             ; preds = %1099
   %1101 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1089, i1 true)
@@ -3786,38 +3786,38 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit500: ; p
   %1105 = or i32 %1104, 947912704
   %1106 = shl nuw nsw i32 %1102, 23
   %1107 = sub nuw i32 %1105, %1106
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496: ; preds = %1095, %1097, %1099, %1100
-  %.sroa.0.0.i.i.i495 = phi i32 [ %1096, %1095 ], [ %1098, %1097 ], [ %1107, %1100 ], [ %1090, %1099 ]
-  %1108 = bitcast i32 %.sroa.0.0.i.i.i495 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494: ; preds = %1095, %1097, %1099, %1100
+  %.sroa.0.0.i.i.i493 = phi i32 [ %1096, %1095 ], [ %1098, %1097 ], [ %1107, %1100 ], [ %1090, %1099 ]
+  %1108 = bitcast i32 %.sroa.0.0.i.i.i493 to float
   %1109 = fsub float %1085, %1108
   %1110 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1056, i64 %indvars.iv179.i
   %.sroa.021.0.copyload.i = load i16, ptr %1110, align 2, !tbaa !243
   %1111 = zext i16 %.sroa.021.0.copyload.i to i32
   %1112 = shl nuw nsw i32 %1111, 13
   %1113 = and i32 %1112, 268427264
-  %.signext.i.i.i489 = sext i16 %.sroa.021.0.copyload.i to i32
-  %1114 = and i32 %.signext.i.i.i489, -2147483648
+  %.signext.i.i.i487 = sext i16 %.sroa.021.0.copyload.i to i32
+  %1114 = and i32 %.signext.i.i.i487, -2147483648
   %1115 = icmp samesign ugt i32 %1113, 8388607
   br i1 %1115, label %1116, label %1123, !prof !247
 
-1116:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496
+1116:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494
   %1117 = or disjoint i32 %1113, %1114
   %1118 = icmp samesign ult i32 %1113, 260046848
   br i1 %1118, label %1119, label %1121, !prof !247
 
 1119:                                             ; preds = %1116
   %1120 = add nuw nsw i32 %1117, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490
 
 1121:                                             ; preds = %1116
   %1122 = or i32 %1117, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490
 
-1123:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496
-  %.not.i.i.i490 = icmp eq i32 %1113, 0
-  br i1 %.not.i.i.i490, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492, label %1124
+1123:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit494
+  %.not.i.i.i488 = icmp eq i32 %1113, 0
+  br i1 %.not.i.i.i488, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490, label %1124
 
 1124:                                             ; preds = %1123
   %1125 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1113, i1 true)
@@ -3827,37 +3827,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit496: ; p
   %1129 = or i32 %1128, 947912704
   %1130 = shl nuw nsw i32 %1126, 23
   %1131 = sub nuw i32 %1129, %1130
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492: ; preds = %1119, %1121, %1123, %1124
-  %.sroa.0.0.i.i.i491 = phi i32 [ %1120, %1119 ], [ %1122, %1121 ], [ %1131, %1124 ], [ %1114, %1123 ]
-  %1132 = bitcast i32 %.sroa.0.0.i.i.i491 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490: ; preds = %1119, %1121, %1123, %1124
+  %.sroa.0.0.i.i.i489 = phi i32 [ %1120, %1119 ], [ %1122, %1121 ], [ %1131, %1124 ], [ %1114, %1123 ]
+  %1132 = bitcast i32 %.sroa.0.0.i.i.i489 to float
   %1133 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1057, i64 %indvars.iv179.i
   %.sroa.020.0.copyload.i = load i16, ptr %1133, align 2, !tbaa !243
   %1134 = zext i16 %.sroa.020.0.copyload.i to i32
   %1135 = shl nuw nsw i32 %1134, 13
   %1136 = and i32 %1135, 268427264
-  %.signext.i.i.i485 = sext i16 %.sroa.020.0.copyload.i to i32
-  %1137 = and i32 %.signext.i.i.i485, -2147483648
+  %.signext.i.i.i483 = sext i16 %.sroa.020.0.copyload.i to i32
+  %1137 = and i32 %.signext.i.i.i483, -2147483648
   %1138 = icmp samesign ugt i32 %1136, 8388607
   br i1 %1138, label %1139, label %1146, !prof !247
 
-1139:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492
+1139:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490
   %1140 = or disjoint i32 %1136, %1137
   %1141 = icmp samesign ult i32 %1136, 260046848
   br i1 %1141, label %1142, label %1144, !prof !247
 
 1142:                                             ; preds = %1139
   %1143 = add nuw nsw i32 %1140, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486
 
 1144:                                             ; preds = %1139
   %1145 = or i32 %1140, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486
 
-1146:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492
-  %.not.i.i.i486 = icmp eq i32 %1136, 0
-  br i1 %.not.i.i.i486, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488, label %1147
+1146:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit490
+  %.not.i.i.i484 = icmp eq i32 %1136, 0
+  br i1 %.not.i.i.i484, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486, label %1147
 
 1147:                                             ; preds = %1146
   %1148 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1136, i1 true)
@@ -3867,38 +3867,38 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit492: ; p
   %1152 = or i32 %1151, 947912704
   %1153 = shl nuw nsw i32 %1149, 23
   %1154 = sub nuw i32 %1152, %1153
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488: ; preds = %1142, %1144, %1146, %1147
-  %.sroa.0.0.i.i.i487 = phi i32 [ %1143, %1142 ], [ %1145, %1144 ], [ %1154, %1147 ], [ %1137, %1146 ]
-  %1155 = bitcast i32 %.sroa.0.0.i.i.i487 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486: ; preds = %1142, %1144, %1146, %1147
+  %.sroa.0.0.i.i.i485 = phi i32 [ %1143, %1142 ], [ %1145, %1144 ], [ %1154, %1147 ], [ %1137, %1146 ]
+  %1155 = bitcast i32 %.sroa.0.0.i.i.i485 to float
   %1156 = fsub float %1132, %1155
   %1157 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1058, i64 %indvars.iv179.i
   %.sroa.019.0.copyload.i = load i16, ptr %1157, align 2, !tbaa !243
   %1158 = zext i16 %.sroa.019.0.copyload.i to i32
   %1159 = shl nuw nsw i32 %1158, 13
   %1160 = and i32 %1159, 268427264
-  %.signext.i.i.i481 = sext i16 %.sroa.019.0.copyload.i to i32
-  %1161 = and i32 %.signext.i.i.i481, -2147483648
+  %.signext.i.i.i479 = sext i16 %.sroa.019.0.copyload.i to i32
+  %1161 = and i32 %.signext.i.i.i479, -2147483648
   %1162 = icmp samesign ugt i32 %1160, 8388607
   br i1 %1162, label %1163, label %1170, !prof !247
 
-1163:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488
+1163:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486
   %1164 = or disjoint i32 %1160, %1161
   %1165 = icmp samesign ult i32 %1160, 260046848
   br i1 %1165, label %1166, label %1168, !prof !247
 
 1166:                                             ; preds = %1163
   %1167 = add nuw nsw i32 %1164, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482
 
 1168:                                             ; preds = %1163
   %1169 = or i32 %1164, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482
 
-1170:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488
-  %.not.i.i.i482 = icmp eq i32 %1160, 0
-  br i1 %.not.i.i.i482, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484, label %1171
+1170:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit486
+  %.not.i.i.i480 = icmp eq i32 %1160, 0
+  br i1 %.not.i.i.i480, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482, label %1171
 
 1171:                                             ; preds = %1170
   %1172 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1160, i1 true)
@@ -3908,37 +3908,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit488: ; p
   %1176 = or i32 %1175, 947912704
   %1177 = shl nuw nsw i32 %1173, 23
   %1178 = sub nuw i32 %1176, %1177
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484: ; preds = %1166, %1168, %1170, %1171
-  %.sroa.0.0.i.i.i483 = phi i32 [ %1167, %1166 ], [ %1169, %1168 ], [ %1178, %1171 ], [ %1161, %1170 ]
-  %1179 = bitcast i32 %.sroa.0.0.i.i.i483 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482: ; preds = %1166, %1168, %1170, %1171
+  %.sroa.0.0.i.i.i481 = phi i32 [ %1167, %1166 ], [ %1169, %1168 ], [ %1178, %1171 ], [ %1161, %1170 ]
+  %1179 = bitcast i32 %.sroa.0.0.i.i.i481 to float
   %1180 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1059, i64 %indvars.iv179.i
   %.sroa.018.0.copyload.i = load i16, ptr %1180, align 2, !tbaa !243
   %1181 = zext i16 %.sroa.018.0.copyload.i to i32
   %1182 = shl nuw nsw i32 %1181, 13
   %1183 = and i32 %1182, 268427264
-  %.signext.i.i.i477 = sext i16 %.sroa.018.0.copyload.i to i32
-  %1184 = and i32 %.signext.i.i.i477, -2147483648
+  %.signext.i.i.i475 = sext i16 %.sroa.018.0.copyload.i to i32
+  %1184 = and i32 %.signext.i.i.i475, -2147483648
   %1185 = icmp samesign ugt i32 %1183, 8388607
   br i1 %1185, label %1186, label %1193, !prof !247
 
-1186:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484
+1186:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482
   %1187 = or disjoint i32 %1183, %1184
   %1188 = icmp samesign ult i32 %1183, 260046848
   br i1 %1188, label %1189, label %1191, !prof !247
 
 1189:                                             ; preds = %1186
   %1190 = add nuw nsw i32 %1187, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478
 
 1191:                                             ; preds = %1186
   %1192 = or i32 %1187, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478
 
-1193:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484
-  %.not.i.i.i478 = icmp eq i32 %1183, 0
-  br i1 %.not.i.i.i478, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480, label %1194
+1193:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit482
+  %.not.i.i.i476 = icmp eq i32 %1183, 0
+  br i1 %.not.i.i.i476, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478, label %1194
 
 1194:                                             ; preds = %1193
   %1195 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1183, i1 true)
@@ -3948,38 +3948,38 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit484: ; p
   %1199 = or i32 %1198, 947912704
   %1200 = shl nuw nsw i32 %1196, 23
   %1201 = sub nuw i32 %1199, %1200
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480: ; preds = %1189, %1191, %1193, %1194
-  %.sroa.0.0.i.i.i479 = phi i32 [ %1190, %1189 ], [ %1192, %1191 ], [ %1201, %1194 ], [ %1184, %1193 ]
-  %1202 = bitcast i32 %.sroa.0.0.i.i.i479 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478: ; preds = %1189, %1191, %1193, %1194
+  %.sroa.0.0.i.i.i477 = phi i32 [ %1190, %1189 ], [ %1192, %1191 ], [ %1201, %1194 ], [ %1184, %1193 ]
+  %1202 = bitcast i32 %.sroa.0.0.i.i.i477 to float
   %1203 = fsub float %1179, %1202
   %1204 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1060, i64 %indvars.iv179.i
   %.sroa.017.0.copyload.i = load i16, ptr %1204, align 2, !tbaa !243
   %1205 = zext i16 %.sroa.017.0.copyload.i to i32
   %1206 = shl nuw nsw i32 %1205, 13
   %1207 = and i32 %1206, 268427264
-  %.signext.i.i.i473 = sext i16 %.sroa.017.0.copyload.i to i32
-  %1208 = and i32 %.signext.i.i.i473, -2147483648
+  %.signext.i.i.i471 = sext i16 %.sroa.017.0.copyload.i to i32
+  %1208 = and i32 %.signext.i.i.i471, -2147483648
   %1209 = icmp samesign ugt i32 %1207, 8388607
   br i1 %1209, label %1210, label %1217, !prof !247
 
-1210:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480
+1210:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478
   %1211 = or disjoint i32 %1207, %1208
   %1212 = icmp samesign ult i32 %1207, 260046848
   br i1 %1212, label %1213, label %1215, !prof !247
 
 1213:                                             ; preds = %1210
   %1214 = add nuw nsw i32 %1211, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474
 
 1215:                                             ; preds = %1210
   %1216 = or i32 %1211, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474
 
-1217:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480
-  %.not.i.i.i474 = icmp eq i32 %1207, 0
-  br i1 %.not.i.i.i474, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476, label %1218
+1217:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit478
+  %.not.i.i.i472 = icmp eq i32 %1207, 0
+  br i1 %.not.i.i.i472, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474, label %1218
 
 1218:                                             ; preds = %1217
   %1219 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1207, i1 true)
@@ -3989,37 +3989,37 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit480: ; p
   %1223 = or i32 %1222, 947912704
   %1224 = shl nuw nsw i32 %1220, 23
   %1225 = sub nuw i32 %1223, %1224
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476: ; preds = %1213, %1215, %1217, %1218
-  %.sroa.0.0.i.i.i475 = phi i32 [ %1214, %1213 ], [ %1216, %1215 ], [ %1225, %1218 ], [ %1208, %1217 ]
-  %1226 = bitcast i32 %.sroa.0.0.i.i.i475 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474: ; preds = %1213, %1215, %1217, %1218
+  %.sroa.0.0.i.i.i473 = phi i32 [ %1214, %1213 ], [ %1216, %1215 ], [ %1225, %1218 ], [ %1208, %1217 ]
+  %1226 = bitcast i32 %.sroa.0.0.i.i.i473 to float
   %1227 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1061, i64 %indvars.iv179.i
   %.sroa.016.0.copyload.i = load i16, ptr %1227, align 2, !tbaa !243
   %1228 = zext i16 %.sroa.016.0.copyload.i to i32
   %1229 = shl nuw nsw i32 %1228, 13
   %1230 = and i32 %1229, 268427264
-  %.signext.i.i.i469 = sext i16 %.sroa.016.0.copyload.i to i32
-  %1231 = and i32 %.signext.i.i.i469, -2147483648
+  %.signext.i.i.i467 = sext i16 %.sroa.016.0.copyload.i to i32
+  %1231 = and i32 %.signext.i.i.i467, -2147483648
   %1232 = icmp samesign ugt i32 %1230, 8388607
   br i1 %1232, label %1233, label %1240, !prof !247
 
-1233:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476
+1233:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474
   %1234 = or disjoint i32 %1230, %1231
   %1235 = icmp samesign ult i32 %1230, 260046848
   br i1 %1235, label %1236, label %1238, !prof !247
 
 1236:                                             ; preds = %1233
   %1237 = add nuw nsw i32 %1234, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470
 
 1238:                                             ; preds = %1233
   %1239 = or i32 %1234, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470
 
-1240:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476
-  %.not.i.i.i470 = icmp eq i32 %1230, 0
-  br i1 %.not.i.i.i470, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472, label %1241
+1240:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit474
+  %.not.i.i.i468 = icmp eq i32 %1230, 0
+  br i1 %.not.i.i.i468, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470, label %1241
 
 1241:                                             ; preds = %1240
   %1242 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1230, i1 true)
@@ -4029,11 +4029,11 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit476: ; p
   %1246 = or i32 %1245, 947912704
   %1247 = shl nuw nsw i32 %1243, 23
   %1248 = sub nuw i32 %1246, %1247
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472: ; preds = %1236, %1238, %1240, %1241
-  %.sroa.0.0.i.i.i471 = phi i32 [ %1237, %1236 ], [ %1239, %1238 ], [ %1248, %1241 ], [ %1231, %1240 ]
-  %1249 = bitcast i32 %.sroa.0.0.i.i.i471 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470: ; preds = %1236, %1238, %1240, %1241
+  %.sroa.0.0.i.i.i469 = phi i32 [ %1237, %1236 ], [ %1239, %1238 ], [ %1248, %1241 ], [ %1231, %1240 ]
+  %1249 = bitcast i32 %.sroa.0.0.i.i.i469 to float
   %1250 = fsub float %1226, %1249
   %1251 = fmul float %75, %1156
   %1252 = call float @llvm.fmuladd.f32(float %1109, float %1051, float %1251)
@@ -4047,22 +4047,22 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472: ; p
   store float %1259, ptr %1257, align 4, !tbaa !124
   br i1 %1138, label %1260, label %1267, !prof !247
 
-1260:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472
+1260:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470
   %1261 = or disjoint i32 %1136, %1137
   %1262 = icmp samesign ult i32 %1136, 260046848
   br i1 %1262, label %1263, label %1265, !prof !247
 
 1263:                                             ; preds = %1260
   %1264 = add nuw nsw i32 %1261, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466
 
 1265:                                             ; preds = %1260
   %1266 = or i32 %1261, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466
 
-1267:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472
-  %.not.i.i.i466 = icmp eq i32 %1136, 0
-  br i1 %.not.i.i.i466, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468, label %1268
+1267:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit470
+  %.not.i.i.i464 = icmp eq i32 %1136, 0
+  br i1 %.not.i.i.i464, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466, label %1268
 
 1268:                                             ; preds = %1267
   %1269 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1136, i1 true)
@@ -4072,29 +4072,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit472: ; p
   %1273 = or i32 %1272, 947912704
   %1274 = shl nuw nsw i32 %1270, 23
   %1275 = sub nuw i32 %1273, %1274
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468: ; preds = %1263, %1265, %1267, %1268
-  %.sroa.0.0.i.i.i467 = phi i32 [ %1264, %1263 ], [ %1266, %1265 ], [ %1275, %1268 ], [ %1137, %1267 ]
-  %1276 = bitcast i32 %.sroa.0.0.i.i.i467 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466: ; preds = %1263, %1265, %1267, %1268
+  %.sroa.0.0.i.i.i465 = phi i32 [ %1264, %1263 ], [ %1266, %1265 ], [ %1275, %1268 ], [ %1137, %1267 ]
+  %1276 = bitcast i32 %.sroa.0.0.i.i.i465 to float
   br i1 %1091, label %1277, label %1284, !prof !247
 
-1277:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468
+1277:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466
   %1278 = or disjoint i32 %1089, %1090
   %1279 = icmp samesign ult i32 %1089, 260046848
   br i1 %1279, label %1280, label %1282, !prof !247
 
 1280:                                             ; preds = %1277
   %1281 = add nuw nsw i32 %1278, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462
 
 1282:                                             ; preds = %1277
   %1283 = or i32 %1278, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462
 
-1284:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468
-  %.not.i.i.i462 = icmp eq i32 %1089, 0
-  br i1 %.not.i.i.i462, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464, label %1285
+1284:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit466
+  %.not.i.i.i460 = icmp eq i32 %1089, 0
+  br i1 %.not.i.i.i460, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462, label %1285
 
 1285:                                             ; preds = %1284
   %1286 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1089, i1 true)
@@ -4104,30 +4104,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit468: ; p
   %1290 = or i32 %1289, 947912704
   %1291 = shl nuw nsw i32 %1287, 23
   %1292 = sub nuw i32 %1290, %1291
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464: ; preds = %1280, %1282, %1284, %1285
-  %.sroa.0.0.i.i.i463 = phi i32 [ %1281, %1280 ], [ %1283, %1282 ], [ %1292, %1285 ], [ %1090, %1284 ]
-  %1293 = bitcast i32 %.sroa.0.0.i.i.i463 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462: ; preds = %1280, %1282, %1284, %1285
+  %.sroa.0.0.i.i.i461 = phi i32 [ %1281, %1280 ], [ %1283, %1282 ], [ %1292, %1285 ], [ %1090, %1284 ]
+  %1293 = bitcast i32 %.sroa.0.0.i.i.i461 to float
   %1294 = fsub float %1276, %1293
   br i1 %1115, label %1295, label %1302, !prof !247
 
-1295:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464
+1295:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462
   %1296 = or disjoint i32 %1113, %1114
   %1297 = icmp samesign ult i32 %1113, 260046848
   br i1 %1297, label %1298, label %1300, !prof !247
 
 1298:                                             ; preds = %1295
   %1299 = add nuw nsw i32 %1296, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458
 
 1300:                                             ; preds = %1295
   %1301 = or i32 %1296, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458
 
-1302:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464
-  %.not.i.i.i458 = icmp eq i32 %1113, 0
-  br i1 %.not.i.i.i458, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460, label %1303
+1302:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit462
+  %.not.i.i.i456 = icmp eq i32 %1113, 0
+  br i1 %.not.i.i.i456, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458, label %1303
 
 1303:                                             ; preds = %1302
   %1304 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1113, i1 true)
@@ -4137,29 +4137,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit464: ; p
   %1308 = or i32 %1307, 947912704
   %1309 = shl nuw nsw i32 %1305, 23
   %1310 = sub nuw i32 %1308, %1309
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460: ; preds = %1298, %1300, %1302, %1303
-  %.sroa.0.0.i.i.i459 = phi i32 [ %1299, %1298 ], [ %1301, %1300 ], [ %1310, %1303 ], [ %1114, %1302 ]
-  %1311 = bitcast i32 %.sroa.0.0.i.i.i459 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458: ; preds = %1298, %1300, %1302, %1303
+  %.sroa.0.0.i.i.i457 = phi i32 [ %1299, %1298 ], [ %1301, %1300 ], [ %1310, %1303 ], [ %1114, %1302 ]
+  %1311 = bitcast i32 %.sroa.0.0.i.i.i457 to float
   br i1 %1068, label %1312, label %1319, !prof !247
 
-1312:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460
+1312:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458
   %1313 = or disjoint i32 %1066, %1067
   %1314 = icmp samesign ult i32 %1066, 260046848
   br i1 %1314, label %1315, label %1317, !prof !247
 
 1315:                                             ; preds = %1312
   %1316 = add nuw nsw i32 %1313, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454
 
 1317:                                             ; preds = %1312
   %1318 = or i32 %1313, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454
 
-1319:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460
-  %.not.i.i.i454 = icmp eq i32 %1066, 0
-  br i1 %.not.i.i.i454, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456, label %1320
+1319:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit458
+  %.not.i.i.i452 = icmp eq i32 %1066, 0
+  br i1 %.not.i.i.i452, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454, label %1320
 
 1320:                                             ; preds = %1319
   %1321 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1066, i1 true)
@@ -4169,30 +4169,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit460: ; p
   %1325 = or i32 %1324, 947912704
   %1326 = shl nuw nsw i32 %1322, 23
   %1327 = sub nuw i32 %1325, %1326
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456: ; preds = %1315, %1317, %1319, %1320
-  %.sroa.0.0.i.i.i455 = phi i32 [ %1316, %1315 ], [ %1318, %1317 ], [ %1327, %1320 ], [ %1067, %1319 ]
-  %1328 = bitcast i32 %.sroa.0.0.i.i.i455 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454: ; preds = %1315, %1317, %1319, %1320
+  %.sroa.0.0.i.i.i453 = phi i32 [ %1316, %1315 ], [ %1318, %1317 ], [ %1327, %1320 ], [ %1067, %1319 ]
+  %1328 = bitcast i32 %.sroa.0.0.i.i.i453 to float
   %1329 = fsub float %1311, %1328
   br i1 %1232, label %1330, label %1337, !prof !247
 
-1330:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456
+1330:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454
   %1331 = or disjoint i32 %1230, %1231
   %1332 = icmp samesign ult i32 %1230, 260046848
   br i1 %1332, label %1333, label %1335, !prof !247
 
 1333:                                             ; preds = %1330
   %1334 = add nuw nsw i32 %1331, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450
 
 1335:                                             ; preds = %1330
   %1336 = or i32 %1331, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450
 
-1337:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456
-  %.not.i.i.i450 = icmp eq i32 %1230, 0
-  br i1 %.not.i.i.i450, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452, label %1338
+1337:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit454
+  %.not.i.i.i448 = icmp eq i32 %1230, 0
+  br i1 %.not.i.i.i448, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450, label %1338
 
 1338:                                             ; preds = %1337
   %1339 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1230, i1 true)
@@ -4202,29 +4202,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit456: ; p
   %1343 = or i32 %1342, 947912704
   %1344 = shl nuw nsw i32 %1340, 23
   %1345 = sub nuw i32 %1343, %1344
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452: ; preds = %1333, %1335, %1337, %1338
-  %.sroa.0.0.i.i.i451 = phi i32 [ %1334, %1333 ], [ %1336, %1335 ], [ %1345, %1338 ], [ %1231, %1337 ]
-  %1346 = bitcast i32 %.sroa.0.0.i.i.i451 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450: ; preds = %1333, %1335, %1337, %1338
+  %.sroa.0.0.i.i.i449 = phi i32 [ %1334, %1333 ], [ %1336, %1335 ], [ %1345, %1338 ], [ %1231, %1337 ]
+  %1346 = bitcast i32 %.sroa.0.0.i.i.i449 to float
   br i1 %1185, label %1347, label %1354, !prof !247
 
-1347:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452
+1347:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450
   %1348 = or disjoint i32 %1183, %1184
   %1349 = icmp samesign ult i32 %1183, 260046848
   br i1 %1349, label %1350, label %1352, !prof !247
 
 1350:                                             ; preds = %1347
   %1351 = add nuw nsw i32 %1348, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446
 
 1352:                                             ; preds = %1347
   %1353 = or i32 %1348, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446
 
-1354:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452
-  %.not.i.i.i446 = icmp eq i32 %1183, 0
-  br i1 %.not.i.i.i446, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448, label %1355
+1354:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit450
+  %.not.i.i.i444 = icmp eq i32 %1183, 0
+  br i1 %.not.i.i.i444, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446, label %1355
 
 1355:                                             ; preds = %1354
   %1356 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1183, i1 true)
@@ -4234,30 +4234,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit452: ; p
   %1360 = or i32 %1359, 947912704
   %1361 = shl nuw nsw i32 %1357, 23
   %1362 = sub nuw i32 %1360, %1361
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448: ; preds = %1350, %1352, %1354, %1355
-  %.sroa.0.0.i.i.i447 = phi i32 [ %1351, %1350 ], [ %1353, %1352 ], [ %1362, %1355 ], [ %1184, %1354 ]
-  %1363 = bitcast i32 %.sroa.0.0.i.i.i447 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446: ; preds = %1350, %1352, %1354, %1355
+  %.sroa.0.0.i.i.i445 = phi i32 [ %1351, %1350 ], [ %1353, %1352 ], [ %1362, %1355 ], [ %1184, %1354 ]
+  %1363 = bitcast i32 %.sroa.0.0.i.i.i445 to float
   %1364 = fsub float %1346, %1363
   br i1 %1209, label %1365, label %1372, !prof !247
 
-1365:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448
+1365:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446
   %1366 = or disjoint i32 %1207, %1208
   %1367 = icmp samesign ult i32 %1207, 260046848
   br i1 %1367, label %1368, label %1370, !prof !247
 
 1368:                                             ; preds = %1365
   %1369 = add nuw nsw i32 %1366, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442
 
 1370:                                             ; preds = %1365
   %1371 = or i32 %1366, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442
 
-1372:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448
-  %.not.i.i.i442 = icmp eq i32 %1207, 0
-  br i1 %.not.i.i.i442, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444, label %1373
+1372:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit446
+  %.not.i.i.i440 = icmp eq i32 %1207, 0
+  br i1 %.not.i.i.i440, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442, label %1373
 
 1373:                                             ; preds = %1372
   %1374 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1207, i1 true)
@@ -4267,29 +4267,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit448: ; p
   %1378 = or i32 %1377, 947912704
   %1379 = shl nuw nsw i32 %1375, 23
   %1380 = sub nuw i32 %1378, %1379
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444: ; preds = %1368, %1370, %1372, %1373
-  %.sroa.0.0.i.i.i443 = phi i32 [ %1369, %1368 ], [ %1371, %1370 ], [ %1380, %1373 ], [ %1208, %1372 ]
-  %1381 = bitcast i32 %.sroa.0.0.i.i.i443 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442: ; preds = %1368, %1370, %1372, %1373
+  %.sroa.0.0.i.i.i441 = phi i32 [ %1369, %1368 ], [ %1371, %1370 ], [ %1380, %1373 ], [ %1208, %1372 ]
+  %1381 = bitcast i32 %.sroa.0.0.i.i.i441 to float
   br i1 %1162, label %1382, label %1389, !prof !247
 
-1382:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444
+1382:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442
   %1383 = or disjoint i32 %1160, %1161
   %1384 = icmp samesign ult i32 %1160, 260046848
   br i1 %1384, label %1385, label %1387, !prof !247
 
 1385:                                             ; preds = %1382
   %1386 = add nuw nsw i32 %1383, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438
 
 1387:                                             ; preds = %1382
   %1388 = or i32 %1383, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438
 
-1389:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444
-  %.not.i.i.i438 = icmp eq i32 %1160, 0
-  br i1 %.not.i.i.i438, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440, label %1390
+1389:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit442
+  %.not.i.i.i436 = icmp eq i32 %1160, 0
+  br i1 %.not.i.i.i436, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438, label %1390
 
 1390:                                             ; preds = %1389
   %1391 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1160, i1 true)
@@ -4299,11 +4299,11 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit444: ; p
   %1395 = or i32 %1394, 947912704
   %1396 = shl nuw nsw i32 %1392, 23
   %1397 = sub nuw i32 %1395, %1396
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440: ; preds = %1385, %1387, %1389, %1390
-  %.sroa.0.0.i.i.i439 = phi i32 [ %1386, %1385 ], [ %1388, %1387 ], [ %1397, %1390 ], [ %1161, %1389 ]
-  %1398 = bitcast i32 %.sroa.0.0.i.i.i439 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438: ; preds = %1385, %1387, %1389, %1390
+  %.sroa.0.0.i.i.i437 = phi i32 [ %1386, %1385 ], [ %1388, %1387 ], [ %1397, %1390 ], [ %1161, %1389 ]
+  %1398 = bitcast i32 %.sroa.0.0.i.i.i437 to float
   %1399 = fsub float %1381, %1398
   %1400 = fmul float %72, %1329
   %1401 = call float @llvm.fmuladd.f32(float %1294, float %1053, float %1400)
@@ -4317,22 +4317,22 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440: ; p
   store float %1408, ptr %1406, align 4, !tbaa !124
   br i1 %1138, label %1409, label %1416, !prof !247
 
-1409:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440
+1409:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438
   %1410 = or disjoint i32 %1136, %1137
   %1411 = icmp samesign ult i32 %1136, 260046848
   br i1 %1411, label %1412, label %1414, !prof !247
 
 1412:                                             ; preds = %1409
   %1413 = add nuw nsw i32 %1410, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434
 
 1414:                                             ; preds = %1409
   %1415 = or i32 %1410, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434
 
-1416:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440
-  %.not.i.i.i434 = icmp eq i32 %1136, 0
-  br i1 %.not.i.i.i434, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436, label %1417
+1416:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit438
+  %.not.i.i.i432 = icmp eq i32 %1136, 0
+  br i1 %.not.i.i.i432, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434, label %1417
 
 1417:                                             ; preds = %1416
   %1418 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1136, i1 true)
@@ -4342,29 +4342,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit440: ; p
   %1422 = or i32 %1421, 947912704
   %1423 = shl nuw nsw i32 %1419, 23
   %1424 = sub nuw i32 %1422, %1423
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436: ; preds = %1412, %1414, %1416, %1417
-  %.sroa.0.0.i.i.i435 = phi i32 [ %1413, %1412 ], [ %1415, %1414 ], [ %1424, %1417 ], [ %1137, %1416 ]
-  %1425 = bitcast i32 %.sroa.0.0.i.i.i435 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434: ; preds = %1412, %1414, %1416, %1417
+  %.sroa.0.0.i.i.i433 = phi i32 [ %1413, %1412 ], [ %1415, %1414 ], [ %1424, %1417 ], [ %1137, %1416 ]
+  %1425 = bitcast i32 %.sroa.0.0.i.i.i433 to float
   br i1 %1232, label %1426, label %1433, !prof !247
 
-1426:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436
+1426:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434
   %1427 = or disjoint i32 %1230, %1231
   %1428 = icmp samesign ult i32 %1230, 260046848
   br i1 %1428, label %1429, label %1431, !prof !247
 
 1429:                                             ; preds = %1426
   %1430 = add nuw nsw i32 %1427, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430
 
 1431:                                             ; preds = %1426
   %1432 = or i32 %1427, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430
 
-1433:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436
-  %.not.i.i.i430 = icmp eq i32 %1230, 0
-  br i1 %.not.i.i.i430, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432, label %1434
+1433:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit434
+  %.not.i.i.i428 = icmp eq i32 %1230, 0
+  br i1 %.not.i.i.i428, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430, label %1434
 
 1434:                                             ; preds = %1433
   %1435 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1230, i1 true)
@@ -4374,30 +4374,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit436: ; p
   %1439 = or i32 %1438, 947912704
   %1440 = shl nuw nsw i32 %1436, 23
   %1441 = sub nuw i32 %1439, %1440
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432: ; preds = %1429, %1431, %1433, %1434
-  %.sroa.0.0.i.i.i431 = phi i32 [ %1430, %1429 ], [ %1432, %1431 ], [ %1441, %1434 ], [ %1231, %1433 ]
-  %1442 = bitcast i32 %.sroa.0.0.i.i.i431 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430: ; preds = %1429, %1431, %1433, %1434
+  %.sroa.0.0.i.i.i429 = phi i32 [ %1430, %1429 ], [ %1432, %1431 ], [ %1441, %1434 ], [ %1231, %1433 ]
+  %1442 = bitcast i32 %.sroa.0.0.i.i.i429 to float
   %1443 = fsub float %1425, %1442
   br i1 %1115, label %1444, label %1451, !prof !247
 
-1444:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432
+1444:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430
   %1445 = or disjoint i32 %1113, %1114
   %1446 = icmp samesign ult i32 %1113, 260046848
   br i1 %1446, label %1447, label %1449, !prof !247
 
 1447:                                             ; preds = %1444
   %1448 = add nuw nsw i32 %1445, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426
 
 1449:                                             ; preds = %1444
   %1450 = or i32 %1445, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426
 
-1451:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432
-  %.not.i.i.i426 = icmp eq i32 %1113, 0
-  br i1 %.not.i.i.i426, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428, label %1452
+1451:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit430
+  %.not.i.i.i424 = icmp eq i32 %1113, 0
+  br i1 %.not.i.i.i424, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426, label %1452
 
 1452:                                             ; preds = %1451
   %1453 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1113, i1 true)
@@ -4407,29 +4407,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit432: ; p
   %1457 = or i32 %1456, 947912704
   %1458 = shl nuw nsw i32 %1454, 23
   %1459 = sub nuw i32 %1457, %1458
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428: ; preds = %1447, %1449, %1451, %1452
-  %.sroa.0.0.i.i.i427 = phi i32 [ %1448, %1447 ], [ %1450, %1449 ], [ %1459, %1452 ], [ %1114, %1451 ]
-  %1460 = bitcast i32 %.sroa.0.0.i.i.i427 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426: ; preds = %1447, %1449, %1451, %1452
+  %.sroa.0.0.i.i.i425 = phi i32 [ %1448, %1447 ], [ %1450, %1449 ], [ %1459, %1452 ], [ %1114, %1451 ]
+  %1460 = bitcast i32 %.sroa.0.0.i.i.i425 to float
   br i1 %1209, label %1461, label %1468, !prof !247
 
-1461:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428
+1461:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426
   %1462 = or disjoint i32 %1207, %1208
   %1463 = icmp samesign ult i32 %1207, 260046848
   br i1 %1463, label %1464, label %1466, !prof !247
 
 1464:                                             ; preds = %1461
   %1465 = add nuw nsw i32 %1462, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422
 
 1466:                                             ; preds = %1461
   %1467 = or i32 %1462, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422
 
-1468:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428
-  %.not.i.i.i422 = icmp eq i32 %1207, 0
-  br i1 %.not.i.i.i422, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424, label %1469
+1468:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit426
+  %.not.i.i.i420 = icmp eq i32 %1207, 0
+  br i1 %.not.i.i.i420, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422, label %1469
 
 1469:                                             ; preds = %1468
   %1470 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1207, i1 true)
@@ -4439,30 +4439,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit428: ; p
   %1474 = or i32 %1473, 947912704
   %1475 = shl nuw nsw i32 %1471, 23
   %1476 = sub nuw i32 %1474, %1475
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424: ; preds = %1464, %1466, %1468, %1469
-  %.sroa.0.0.i.i.i423 = phi i32 [ %1465, %1464 ], [ %1467, %1466 ], [ %1476, %1469 ], [ %1208, %1468 ]
-  %1477 = bitcast i32 %.sroa.0.0.i.i.i423 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422: ; preds = %1464, %1466, %1468, %1469
+  %.sroa.0.0.i.i.i421 = phi i32 [ %1465, %1464 ], [ %1467, %1466 ], [ %1476, %1469 ], [ %1208, %1468 ]
+  %1477 = bitcast i32 %.sroa.0.0.i.i.i421 to float
   %1478 = fsub float %1460, %1477
   br i1 %1068, label %1479, label %1486, !prof !247
 
-1479:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424
+1479:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422
   %1480 = or disjoint i32 %1066, %1067
   %1481 = icmp samesign ult i32 %1066, 260046848
   br i1 %1481, label %1482, label %1484, !prof !247
 
 1482:                                             ; preds = %1479
   %1483 = add nuw nsw i32 %1480, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418
 
 1484:                                             ; preds = %1479
   %1485 = or i32 %1480, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418
 
-1486:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424
-  %.not.i.i.i418 = icmp eq i32 %1066, 0
-  br i1 %.not.i.i.i418, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420, label %1487
+1486:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit422
+  %.not.i.i.i416 = icmp eq i32 %1066, 0
+  br i1 %.not.i.i.i416, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418, label %1487
 
 1487:                                             ; preds = %1486
   %1488 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1066, i1 true)
@@ -4472,29 +4472,29 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit424: ; p
   %1492 = or i32 %1491, 947912704
   %1493 = shl nuw nsw i32 %1489, 23
   %1494 = sub nuw i32 %1492, %1493
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420: ; preds = %1482, %1484, %1486, %1487
-  %.sroa.0.0.i.i.i419 = phi i32 [ %1483, %1482 ], [ %1485, %1484 ], [ %1494, %1487 ], [ %1067, %1486 ]
-  %1495 = bitcast i32 %.sroa.0.0.i.i.i419 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418: ; preds = %1482, %1484, %1486, %1487
+  %.sroa.0.0.i.i.i417 = phi i32 [ %1483, %1482 ], [ %1485, %1484 ], [ %1494, %1487 ], [ %1067, %1486 ]
+  %1495 = bitcast i32 %.sroa.0.0.i.i.i417 to float
   br i1 %1185, label %1496, label %1503, !prof !247
 
-1496:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420
+1496:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418
   %1497 = or disjoint i32 %1183, %1184
   %1498 = icmp samesign ult i32 %1183, 260046848
   br i1 %1498, label %1499, label %1501, !prof !247
 
 1499:                                             ; preds = %1496
   %1500 = add nuw nsw i32 %1497, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414
 
 1501:                                             ; preds = %1496
   %1502 = or i32 %1497, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414
 
-1503:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420
-  %.not.i.i.i414 = icmp eq i32 %1183, 0
-  br i1 %.not.i.i.i414, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416, label %1504
+1503:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit418
+  %.not.i.i.i412 = icmp eq i32 %1183, 0
+  br i1 %.not.i.i.i412, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414, label %1504
 
 1504:                                             ; preds = %1503
   %1505 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1183, i1 true)
@@ -4504,30 +4504,30 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit420: ; p
   %1509 = or i32 %1508, 947912704
   %1510 = shl nuw nsw i32 %1506, 23
   %1511 = sub nuw i32 %1509, %1510
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416: ; preds = %1499, %1501, %1503, %1504
-  %.sroa.0.0.i.i.i415 = phi i32 [ %1500, %1499 ], [ %1502, %1501 ], [ %1511, %1504 ], [ %1184, %1503 ]
-  %1512 = bitcast i32 %.sroa.0.0.i.i.i415 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414: ; preds = %1499, %1501, %1503, %1504
+  %.sroa.0.0.i.i.i413 = phi i32 [ %1500, %1499 ], [ %1502, %1501 ], [ %1511, %1504 ], [ %1184, %1503 ]
+  %1512 = bitcast i32 %.sroa.0.0.i.i.i413 to float
   %1513 = fsub float %1495, %1512
   br i1 %1115, label %1514, label %1521, !prof !247
 
-1514:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416
+1514:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414
   %1515 = or disjoint i32 %1113, %1114
   %1516 = icmp samesign ult i32 %1113, 260046848
   br i1 %1516, label %1517, label %1519, !prof !247
 
 1517:                                             ; preds = %1514
   %1518 = add nuw nsw i32 %1515, 939524096
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410
 
 1519:                                             ; preds = %1514
   %1520 = or i32 %1515, 2139095040
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410
 
-1521:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416
-  %.not.i.i.i410 = icmp eq i32 %1113, 0
-  br i1 %.not.i.i.i410, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412, label %1522
+1521:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit414
+  %.not.i.i.i408 = icmp eq i32 %1113, 0
+  br i1 %.not.i.i.i408, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410, label %1522
 
 1522:                                             ; preds = %1521
   %1523 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1113, i1 true)
@@ -4537,14 +4537,14 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit416: ; p
   %1527 = or i32 %1526, 947912704
   %1528 = shl nuw nsw i32 %1524, 23
   %1529 = sub nuw i32 %1527, %1528
-  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412
+  br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410
 
-_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412: ; preds = %1517, %1519, %1521, %1522
-  %.sroa.0.0.i.i.i411 = phi i32 [ %1518, %1517 ], [ %1520, %1519 ], [ %1529, %1522 ], [ %1114, %1521 ]
-  %1530 = bitcast i32 %.sroa.0.0.i.i.i411 to float
+_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410: ; preds = %1517, %1519, %1521, %1522
+  %.sroa.0.0.i.i.i409 = phi i32 [ %1518, %1517 ], [ %1520, %1519 ], [ %1529, %1522 ], [ %1114, %1521 ]
+  %1530 = bitcast i32 %.sroa.0.0.i.i.i409 to float
   br i1 %1209, label %1531, label %1538, !prof !247
 
-1531:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412
+1531:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410
   %1532 = or disjoint i32 %1207, %1208
   %1533 = icmp samesign ult i32 %1207, 260046848
   br i1 %1533, label %1534, label %1536, !prof !247
@@ -4557,9 +4557,9 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412: ; p
   %1537 = or i32 %1532, 2139095040
   br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit
 
-1538:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit412
-  %.not.i.i.i408 = icmp eq i32 %1207, 0
-  br i1 %.not.i.i.i408, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit, label %1539
+1538:                                             ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit410
+  %.not.i.i.i406 = icmp eq i32 %1207, 0
+  br i1 %.not.i.i.i406, label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit, label %1539
 
 1539:                                             ; preds = %1538
   %1540 = call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1207, i1 true)
@@ -4589,11 +4589,11 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count182.i
   br i1 %exitcond183.not.i, label %.critedge, label %1062, !llvm.loop !296
 
-1558:                                             ; preds = %.critedge371
-  %.not548 = icmp eq i32 %7, 0
-  br i1 %.not548, label %._crit_edge.i390, label %.lr.ph.i397
+1558:                                             ; preds = %.critedge369
+  %.not546 = icmp eq i32 %7, 0
+  br i1 %.not546, label %._crit_edge.i388, label %.lr.ph.i395
 
-.lr.ph.i397:                                      ; preds = %1558
+.lr.ph.i395:                                      ; preds = %1558
   %1559 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %1560 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %1561 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -4604,7 +4604,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1566 = fsub float 1.000000e+00, %72
   %1567 = fsub float 1.000000e+00, %75
   %1568 = fsub float 1.000000e+00, %78
-  %wide.trip.count.i398 = zext nneg i32 %7 to i64
+  %wide.trip.count.i396 = zext nneg i32 %7 to i64
   %1569 = load ptr, ptr %23, align 16, !tbaa !86
   %1570 = load ptr, ptr %1559, align 8, !tbaa !86
   %1571 = load ptr, ptr %1560, align 16, !tbaa !86
@@ -4615,27 +4615,27 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1576 = load ptr, ptr %1565, align 8, !tbaa !86
   br label %1577
 
-._crit_edge.i390:                                 ; preds = %1577, %1558
-  %.not.i391 = icmp eq ptr %10, null
-  br i1 %.not.i391, label %.critedge, label %1611
+._crit_edge.i388:                                 ; preds = %1577, %1558
+  %.not.i389 = icmp eq ptr %10, null
+  br i1 %.not.i389, label %.critedge, label %1611
 
-1577:                                             ; preds = %1577, %.lr.ph.i397
-  %indvars.iv.i399 = phi i64 [ 0, %.lr.ph.i397 ], [ %indvars.iv.next.i400, %1577 ]
-  %1578 = getelementptr inbounds nuw float, ptr %1569, i64 %indvars.iv.i399
+1577:                                             ; preds = %1577, %.lr.ph.i395
+  %indvars.iv.i397 = phi i64 [ 0, %.lr.ph.i395 ], [ %indvars.iv.next.i398, %1577 ]
+  %1578 = getelementptr inbounds nuw float, ptr %1569, i64 %indvars.iv.i397
   %1579 = load float, ptr %1578, align 4, !tbaa !124
-  %1580 = getelementptr inbounds nuw float, ptr %1570, i64 %indvars.iv.i399
+  %1580 = getelementptr inbounds nuw float, ptr %1570, i64 %indvars.iv.i397
   %1581 = load float, ptr %1580, align 4, !tbaa !124
-  %1582 = getelementptr inbounds nuw float, ptr %1571, i64 %indvars.iv.i399
+  %1582 = getelementptr inbounds nuw float, ptr %1571, i64 %indvars.iv.i397
   %1583 = load float, ptr %1582, align 4, !tbaa !124
-  %1584 = getelementptr inbounds nuw float, ptr %1572, i64 %indvars.iv.i399
+  %1584 = getelementptr inbounds nuw float, ptr %1572, i64 %indvars.iv.i397
   %1585 = load float, ptr %1584, align 4, !tbaa !124
-  %1586 = getelementptr inbounds nuw float, ptr %1573, i64 %indvars.iv.i399
+  %1586 = getelementptr inbounds nuw float, ptr %1573, i64 %indvars.iv.i397
   %1587 = load float, ptr %1586, align 4, !tbaa !124
-  %1588 = getelementptr inbounds nuw float, ptr %1574, i64 %indvars.iv.i399
+  %1588 = getelementptr inbounds nuw float, ptr %1574, i64 %indvars.iv.i397
   %1589 = load float, ptr %1588, align 4, !tbaa !124
-  %1590 = getelementptr inbounds nuw float, ptr %1575, i64 %indvars.iv.i399
+  %1590 = getelementptr inbounds nuw float, ptr %1575, i64 %indvars.iv.i397
   %1591 = load float, ptr %1590, align 4, !tbaa !124
-  %1592 = getelementptr inbounds nuw float, ptr %1576, i64 %indvars.iv.i399
+  %1592 = getelementptr inbounds nuw float, ptr %1576, i64 %indvars.iv.i397
   %1593 = load float, ptr %1592, align 4, !tbaa !124
   %1594 = fmul float %72, %1581
   %1595 = call float @llvm.fmuladd.f32(float %1579, float %1566, float %1594)
@@ -4651,15 +4651,15 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1605 = call float @llvm.fmuladd.f32(float %1567, float %1601, float %1604)
   %1606 = fmul float %78, %1605
   %1607 = call noundef float @llvm.fmuladd.f32(float %1568, float %1599, float %1606)
-  %1608 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i399
+  %1608 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i397
   %1609 = load float, ptr %1608, align 4, !tbaa !124
   %1610 = call float @llvm.fmuladd.f32(float %8, float %1607, float %1609)
   store float %1610, ptr %1608, align 4, !tbaa !124
-  %indvars.iv.next.i400 = add nuw nsw i64 %indvars.iv.i399, 1
-  %exitcond.not.i401 = icmp eq i64 %indvars.iv.next.i400, %wide.trip.count.i398
-  br i1 %exitcond.not.i401, label %._crit_edge.i390, label %1577, !llvm.loop !297
+  %indvars.iv.next.i398 = add nuw nsw i64 %indvars.iv.i397, 1
+  %exitcond.not.i399 = icmp eq i64 %indvars.iv.next.i398, %wide.trip.count.i396
+  br i1 %exitcond.not.i399, label %._crit_edge.i388, label %1577, !llvm.loop !297
 
-1611:                                             ; preds = %._crit_edge.i390
+1611:                                             ; preds = %._crit_edge.i388
   %1612 = load i32, ptr %42, align 4, !tbaa !204
   %1613 = sitofp i32 %1612 to float
   %1614 = fmul float %8, %1613
@@ -4669,9 +4669,9 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1618 = load i32, ptr %62, align 4, !tbaa !208
   %1619 = sitofp i32 %1618 to float
   %1620 = fmul float %8, %1619
-  br i1 %.not548, label %.critedge, label %.lr.ph146.i392
+  br i1 %.not546, label %.critedge, label %.lr.ph146.i390
 
-.lr.ph146.i392:                                   ; preds = %1611
+.lr.ph146.i390:                                   ; preds = %1611
   %1621 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %1622 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %1623 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -4682,7 +4682,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1628 = fsub float 1.000000e+00, %75
   %1629 = fsub float 1.000000e+00, %78
   %1630 = fsub float 1.000000e+00, %72
-  %wide.trip.count151.i393 = zext nneg i32 %7 to i64
+  %wide.trip.count151.i391 = zext nneg i32 %7 to i64
   %1631 = load ptr, ptr %1621, align 8, !tbaa !86
   %1632 = load ptr, ptr %23, align 16, !tbaa !86
   %1633 = load ptr, ptr %1623, align 8, !tbaa !86
@@ -4693,26 +4693,26 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1638 = load ptr, ptr %1626, align 16, !tbaa !86
   br label %1639
 
-1639:                                             ; preds = %1639, %.lr.ph146.i392
-  %indvars.iv148.i394 = phi i64 [ 0, %.lr.ph146.i392 ], [ %indvars.iv.next149.i395, %1639 ]
-  %1640 = getelementptr inbounds nuw float, ptr %1631, i64 %indvars.iv148.i394
+1639:                                             ; preds = %1639, %.lr.ph146.i390
+  %indvars.iv148.i392 = phi i64 [ 0, %.lr.ph146.i390 ], [ %indvars.iv.next149.i393, %1639 ]
+  %1640 = getelementptr inbounds nuw float, ptr %1631, i64 %indvars.iv148.i392
   %1641 = load float, ptr %1640, align 4, !tbaa !124
-  %1642 = getelementptr inbounds nuw float, ptr %1632, i64 %indvars.iv148.i394
+  %1642 = getelementptr inbounds nuw float, ptr %1632, i64 %indvars.iv148.i392
   %1643 = load float, ptr %1642, align 4, !tbaa !124
   %1644 = fsub float %1641, %1643
-  %1645 = getelementptr inbounds nuw float, ptr %1633, i64 %indvars.iv148.i394
+  %1645 = getelementptr inbounds nuw float, ptr %1633, i64 %indvars.iv148.i392
   %1646 = load float, ptr %1645, align 4, !tbaa !124
-  %1647 = getelementptr inbounds nuw float, ptr %1634, i64 %indvars.iv148.i394
+  %1647 = getelementptr inbounds nuw float, ptr %1634, i64 %indvars.iv148.i392
   %1648 = load float, ptr %1647, align 4, !tbaa !124
   %1649 = fsub float %1646, %1648
-  %1650 = getelementptr inbounds nuw float, ptr %1635, i64 %indvars.iv148.i394
+  %1650 = getelementptr inbounds nuw float, ptr %1635, i64 %indvars.iv148.i392
   %1651 = load float, ptr %1650, align 4, !tbaa !124
-  %1652 = getelementptr inbounds nuw float, ptr %1636, i64 %indvars.iv148.i394
+  %1652 = getelementptr inbounds nuw float, ptr %1636, i64 %indvars.iv148.i392
   %1653 = load float, ptr %1652, align 4, !tbaa !124
   %1654 = fsub float %1651, %1653
-  %1655 = getelementptr inbounds nuw float, ptr %1637, i64 %indvars.iv148.i394
+  %1655 = getelementptr inbounds nuw float, ptr %1637, i64 %indvars.iv148.i392
   %1656 = load float, ptr %1655, align 4, !tbaa !124
-  %1657 = getelementptr inbounds nuw float, ptr %1638, i64 %indvars.iv148.i394
+  %1657 = getelementptr inbounds nuw float, ptr %1638, i64 %indvars.iv148.i392
   %1658 = load float, ptr %1657, align 4, !tbaa !124
   %1659 = fsub float %1656, %1658
   %1660 = fmul float %75, %1649
@@ -4721,7 +4721,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1663 = call float @llvm.fmuladd.f32(float %1654, float %1628, float %1662)
   %1664 = fmul float %78, %1663
   %1665 = call noundef float @llvm.fmuladd.f32(float %1629, float %1661, float %1664)
-  %1666 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv148.i394
+  %1666 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv148.i392
   %1667 = load float, ptr %1666, align 4, !tbaa !124
   %1668 = call float @llvm.fmuladd.f32(float %1614, float %1665, float %1667)
   store float %1668, ptr %1666, align 4, !tbaa !124
@@ -4743,7 +4743,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1684 = call float @llvm.fmuladd.f32(float %1677, float %1630, float %1683)
   %1685 = fmul float %78, %1684
   %1686 = call noundef float @llvm.fmuladd.f32(float %1629, float %1682, float %1685)
-  %1687 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv148.i394
+  %1687 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv148.i392
   %1688 = load float, ptr %1687, align 4, !tbaa !124
   %1689 = call float @llvm.fmuladd.f32(float %1617, float %1686, float %1688)
   store float %1689, ptr %1687, align 4, !tbaa !124
@@ -4761,21 +4761,21 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1701 = call float @llvm.fmuladd.f32(float %1698, float %1630, float %1699)
   %1702 = fmul float %75, %1701
   %1703 = call noundef float @llvm.fmuladd.f32(float %1628, float %1700, float %1702)
-  %1704 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv148.i394
+  %1704 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv148.i392
   %1705 = load float, ptr %1704, align 4, !tbaa !124
   %1706 = call float @llvm.fmuladd.f32(float %1620, float %1703, float %1705)
   store float %1706, ptr %1704, align 4, !tbaa !124
-  %indvars.iv.next149.i395 = add nuw nsw i64 %indvars.iv148.i394, 1
-  %exitcond152.not.i396 = icmp eq i64 %indvars.iv.next149.i395, %wide.trip.count151.i393
-  br i1 %exitcond152.not.i396, label %.critedge, label %1639, !llvm.loop !298
+  %indvars.iv.next149.i393 = add nuw nsw i64 %indvars.iv148.i392, 1
+  %exitcond152.not.i394 = icmp eq i64 %indvars.iv.next149.i393, %wide.trip.count151.i391
+  br i1 %exitcond152.not.i394, label %.critedge, label %1639, !llvm.loop !298
 
-.critedge:                                        ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit, %743, %1639, %1611, %._crit_edge.i390, %1034, %._crit_edge.i383, %715, %._crit_edge.i, %372, %645
-  %.2 = phi i1 [ true, %645 ], [ false, %372 ], [ true, %._crit_edge.i ], [ true, %715 ], [ true, %._crit_edge.i383 ], [ true, %1034 ], [ true, %._crit_edge.i390 ], [ true, %1611 ], [ true, %1639 ], [ true, %743 ], [ true, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit ], [ false, %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit375.thread ]
+.critedge:                                        ; preds = %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit, %743, %1639, %1611, %._crit_edge.i388, %1034, %._crit_edge.i381, %715, %._crit_edge.i, %372, %645
+  %.2 = phi i1 [ true, %645 ], [ false, %372 ], [ true, %._crit_edge.i ], [ true, %715 ], [ true, %._crit_edge.i381 ], [ true, %1034 ], [ true, %._crit_edge.i388 ], [ true, %1611 ], [ true, %1639 ], [ true, %743 ], [ true, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit ], [ false, %_ZN11OpenImageIO6v3_1_017TextureSystemImpl9find_tileERKNS0_6TileIDEPNS0_23ImageCachePerThreadInfoEb.exit373.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1708
 
-1707:                                             ; preds = %356, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374, %358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381, %599
-  %.pn365.pn = phi { ptr, i32 } [ %357, %356 ], [ %.pn361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374 ], [ %359, %358 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit381 ], [ %600, %599 ]
+1707:                                             ; preds = %356, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372, %358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379, %599
+  %.pn363.pn = phi { ptr, i32 } [ %357, %356 ], [ %.pn359, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372 ], [ %359, %358 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379 ], [ %600, %599 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1718
 
@@ -4783,8 +4783,8 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_110half2floatEN9Imath_3_14halfE.exit: ; pred
   %1709 = phi ptr [ %250, %.critedge ], [ %1710, %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEED2Ev.exit ]
   %1710 = getelementptr inbounds i8, ptr %1709, i64 -8
   %1711 = load ptr, ptr %1710, align 8, !tbaa !239
-  %.not.i402 = icmp eq ptr %1711, null
-  br i1 %.not.i402, label %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEED2Ev.exit, label %1712
+  %.not.i400 = icmp eq ptr %1711, null
+  br i1 %.not.i400, label %_ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEED2Ev.exit, label %1712
 
 1712:                                             ; preds = %1708
   %1713 = atomicrmw sub ptr %1711, i32 1 seq_cst, align 4
@@ -4819,10 +4819,10 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  resume { ptr, i32 } %.pn365.pn
+  resume { ptr, i32 } %.pn363.pn
 
-1723:                                             ; preds = %.loopexit554, %171, %1717
-  %.0 = phi i1 [ %.2, %1717 ], [ true, %171 ], [ true, %.loopexit554 ]
+1723:                                             ; preds = %.loopexit552, %171, %1717
+  %.0 = phi i1 [ %.2, %1717 ], [ true, %171 ], [ true, %.loopexit552 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)

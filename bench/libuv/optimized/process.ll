@@ -65,13 +65,13 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.val = load ptr, ptr %5, align 8
-  %.not41 = icmp eq ptr %.val, %5
-  br i1 %.not41, label %._crit_edge47, label %.lr.ph
+  %.not40 = icmp eq ptr %.val, %5
+  br i1 %.not40, label %._crit_edge46, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %.backedge40
-  %.042 = phi ptr [ %.0.val, %.backedge40 ], [ %.val, %1 ]
-  %.0.val = load ptr, ptr %.042, align 8
-  %6 = getelementptr inbounds i8, ptr %.042, i64 -8
+.lr.ph:                                           ; preds = %1, %.backedge39
+  %.041 = phi ptr [ %.0.val, %.backedge39 ], [ %.val, %1 ]
+  %.0.val = load ptr, ptr %.041, align 8
+  %6 = getelementptr inbounds i8, ptr %.041, i64 -8
   br label %7
 
 7:                                                ; preds = %10, %.lr.ph
@@ -79,7 +79,7 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
   %9 = call i32 @waitpid(i32 noundef %8, ptr noundef nonnull %2, i32 noundef 1) #12
   switch i32 %9, label %14 [
     i32 -1, label %10
-    i32 0, label %.backedge40
+    i32 0, label %.backedge39
   ]
 
 10:                                               ; preds = %7
@@ -87,7 +87,7 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %13 [
     i32 4, label %7
-    i32 10, label %.backedge40
+    i32 10, label %.backedge39
   ]
 
 13:                                               ; preds = %10
@@ -96,58 +96,58 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
 
 14:                                               ; preds = %7
   %15 = load i32, ptr %2, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.042, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.041, i64 16
   store i32 %15, ptr %16, align 8
-  %17 = load ptr, ptr %.042, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %.042, i64 8
+  %17 = load ptr, ptr %.041, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %17, ptr %19, align 8
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %21, align 8
-  store ptr %3, ptr %.042, align 8
+  store ptr %3, ptr %.041, align 8
   %22 = load ptr, ptr %4, align 8
   store ptr %22, ptr %18, align 8
-  store ptr %.042, ptr %22, align 8
-  store ptr %.042, ptr %4, align 8
-  br label %.backedge40
+  store ptr %.041, ptr %22, align 8
+  store ptr %.041, ptr %4, align 8
+  br label %.backedge39
 
-.backedge40:                                      ; preds = %7, %10, %14
+.backedge39:                                      ; preds = %7, %10, %14
   %.not = icmp eq ptr %.0.val, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge40
-  %.val39.pre = load ptr, ptr %3, align 8
-  %.not3643 = icmp eq ptr %.val39.pre, %3
-  br i1 %.not3643, label %._crit_edge47, label %.lr.ph46
+._crit_edge:                                      ; preds = %.backedge39
+  %.val38.pre = load ptr, ptr %3, align 8
+  %.not3542 = icmp eq ptr %.val38.pre, %3
+  br i1 %.not3542, label %._crit_edge46, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %._crit_edge, %.backedge
-  %.144 = phi ptr [ %.1.val, %.backedge ], [ %.val39.pre, %._crit_edge ]
-  %23 = getelementptr inbounds i8, ptr %.144, i64 -112
-  %.1.val = load ptr, ptr %.144, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.144, i64 8
+.lr.ph45:                                         ; preds = %._crit_edge, %.backedge
+  %.143 = phi ptr [ %.1.val, %.backedge ], [ %.val38.pre, %._crit_edge ]
+  %23 = getelementptr inbounds i8, ptr %.143, i64 -112
+  %.1.val = load ptr, ptr %.143, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.143, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %.1.val, ptr %25, align 8
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.1.val, i64 8
   store ptr %26, ptr %27, align 8
-  store ptr %.144, ptr %.144, align 8
-  store ptr %.144, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %.144, i64 -24
+  store ptr %.143, ptr %.143, align 8
+  store ptr %.143, ptr %24, align 8
+  %28 = getelementptr inbounds i8, ptr %.143, i64 -24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %41, label %32
 
-32:                                               ; preds = %.lr.ph46
+32:                                               ; preds = %.lr.ph45
   %33 = and i32 %29, -5
   store i32 %33, ptr %28, align 8
   %34 = and i32 %29, 8
-  %.not37 = icmp eq i32 %34, 0
-  br i1 %.not37, label %41, label %35
+  %.not36 = icmp eq i32 %34, 0
+  br i1 %.not36, label %41, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.144, i64 -104
+  %36 = getelementptr inbounds i8, ptr %.143, i64 -104
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
@@ -155,14 +155,14 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
   store i32 %40, ptr %38, align 8
   br label %41
 
-41:                                               ; preds = %35, %32, %.lr.ph46
-  %42 = getelementptr inbounds i8, ptr %.144, i64 -16
+41:                                               ; preds = %35, %32, %.lr.ph45
+  %42 = getelementptr inbounds i8, ptr %.143, i64 -16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.backedge, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %.144, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.143, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 127
   %49 = icmp eq i32 %48, 0
@@ -178,10 +178,10 @@ define hidden void @uv__wait_children(ptr noundef readonly captures(address) %0)
   br label %.backedge
 
 .backedge:                                        ; preds = %45, %41
-  %.not36 = icmp eq ptr %.1.val, %3
-  br i1 %.not36, label %._crit_edge47, label %.lr.ph46
+  %.not35 = icmp eq ptr %.1.val, %3
+  br i1 %.not35, label %._crit_edge46, label %.lr.ph45
 
-._crit_edge47:                                    ; preds = %.backedge, %1, %._crit_edge
+._crit_edge46:                                    ; preds = %.backedge, %1, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

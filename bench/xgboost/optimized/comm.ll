@@ -17829,60 +17829,60 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit: ; preds = %2, %1
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !103
   store ptr %24, ptr %22, align 8, !tbaa !103
-  %.not.i.i.i17 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19, label %25
+  %.not.i.i.i15 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i15, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17, label %25
 
 25:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i.i18 = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i18, label %31, label %28
+  %.not.i.i.i.i16 = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i16, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %26, align 4, !tbaa !47
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !tbaa !47
-  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19
+  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19
+  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17
 
-_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19: ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit, %28, %31
+_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17: ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit, %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %35
 
-35:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.0.idx40 = phi i64 [ 0, %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit19 ], [ %.0.add, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx40
+35:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.0.idx38 = phi i64 [ 0, %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit17 ], [ %.0.add, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load ptr, ptr %.0.ptr, align 8, !tbaa !159
   store ptr %36, ptr %4, align 8, !tbaa !159
   %37 = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !103
   store ptr %38, ptr %34, align 8, !tbaa !103
-  %.not.i.i.i20 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i20, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22, label %39
+  %.not.i.i.i18 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i18, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i.i21 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i.i21, label %45, label %42
+  %.not.i.i.i.i19 = icmp eq i8 %41, 0
+  br i1 %.not.i.i.i.i19, label %45, label %42
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %40, align 4, !tbaa !47
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %40, align 4, !tbaa !47
-  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22
+  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20
 
 45:                                               ; preds = %39
   %46 = atomicrmw volatile add ptr %40, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %4, align 8, !tbaa !159
-  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22
+  br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20
 
-_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22: ; preds = %35, %42, %45
+_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20: ; preds = %35, %42, %45
   %47 = phi ptr [ %36, %35 ], [ %36, %42 ], [ %.pre, %45 ]
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -17890,14 +17890,14 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22: ; preds = %35,
   invoke void %50(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %47)
           to label %51 unwind label %54
 
-51:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22
+51:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20
   %52 = load ptr, ptr %0, align 8, !tbaa !68
   %.not.i = icmp eq ptr %52, null
   %53 = load ptr, ptr %34, align 8, !tbaa !103
-  %.not.i.i23 = icmp eq ptr %53, null
+  %.not.i.i21 = icmp eq ptr %53, null
   br i1 %.not.i, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %.critedge
 
-54:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22
+54:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit20
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
@@ -17905,7 +17905,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit22: ; preds = %35,
   br label %125
 
 _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %51
-  br i1 %.not.i.i23, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %56
+  br i1 %.not.i.i21, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %56
 
 56:                                               ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -17930,8 +17930,8 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %51
 
 69:                                               ; preds = %56
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i24 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i24, label %73, label %71
+  %.not.i.i.i22 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i22, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
@@ -17953,12 +17953,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %73, %71
 
 _ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit, %61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.0.add = add nuw nsw i64 %.0.idx40, 16
+  %.0.add = add nuw nsw i64 %.0.idx38, 16
   %.not = icmp eq i64 %.0.add, 32
   br i1 %.not, label %.loopexit.preheader, label %35
 
 .critedge:                                        ; preds = %51
-  br i1 %.not.i.i23, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29, label %77
+  br i1 %.not.i.i21, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, label %77
 
 77:                                               ; preds = %.critedge
   %78 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -17979,45 +17979,45 @@ _ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EE
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %53) #13
-  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29
+  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27
 
 90:                                               ; preds = %77
   %91 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i26 = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i26, label %94, label %92
+  %.not.i.i.i24 = icmp eq i8 %91, 0
+  br i1 %.not.i.i.i24, label %94, label %92
 
 92:                                               ; preds = %90
   %93 = add nsw i32 %81, -1
   store i32 %93, ptr %78, align 4, !tbaa !47
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
 
 94:                                               ; preds = %90
   %95 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27: ; preds = %94, %92
-  %.0.i.i.i.i28 = phi i32 [ %81, %92 ], [ %95, %94 ]
-  %96 = icmp eq i32 %.0.i.i.i.i28, 1
-  br i1 %96, label %97, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29, !prof !48
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25: ; preds = %94, %92
+  %.0.i.i.i.i26 = phi i32 [ %81, %92 ], [ %95, %94 ]
+  %96 = icmp eq i32 %.0.i.i.i.i26, 1
+  br i1 %96, label %97, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, !prof !48
 
-97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27
+97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #13
-  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29
+  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27
 
-_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29: ; preds = %.critedge, %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27, %97
+_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27: ; preds = %.critedge, %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.preheader
 
-.loopexit.preheader:                              ; preds = %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit29
+.loopexit.preheader:                              ; preds = %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34
-  %98 = phi ptr [ %99, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34 ], [ %33, %.loopexit.preheader ]
+.loopexit:                                        ; preds = %.loopexit.preheader, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
+  %98 = phi ptr [ %99, %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32 ], [ %33, %.loopexit.preheader ]
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   %100 = getelementptr inbounds i8, ptr %98, i64 -8
   %101 = load ptr, ptr %100, align 8, !tbaa !103
-  %.not.i.i30 = icmp eq ptr %101, null
-  br i1 %.not.i.i30, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34, label %102
+  %.not.i.i28 = icmp eq ptr %101, null
+  br i1 %.not.i.i28, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32, label %102
 
 102:                                              ; preds = %.loopexit
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -18038,36 +18038,36 @@ _ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EE
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %101) #13
-  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34
+  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
 
 115:                                              ; preds = %102
   %116 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !41
-  %.not.i.i.i31 = icmp eq i8 %116, 0
-  br i1 %.not.i.i.i31, label %119, label %117
+  %.not.i.i.i29 = icmp eq i8 %116, 0
+  br i1 %.not.i.i.i29, label %119, label %117
 
 117:                                              ; preds = %115
   %118 = add nsw i32 %106, -1
   store i32 %118, ptr %103, align 4, !tbaa !47
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30
 
 119:                                              ; preds = %115
   %120 = atomicrmw volatile add ptr %103, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32: ; preds = %119, %117
-  %.0.i.i.i.i33 = phi i32 [ %106, %117 ], [ %120, %119 ]
-  %121 = icmp eq i32 %.0.i.i.i.i33, 1
-  br i1 %121, label %122, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34, !prof !48
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30: ; preds = %119, %117
+  %.0.i.i.i.i31 = phi i32 [ %106, %117 ], [ %120, %119 ]
+  %121 = icmp eq i32 %.0.i.i.i.i31, 1
+  br i1 %121, label %122, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32, !prof !48
 
-122:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32
+122:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #13
-  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34
+  br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
 
-_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34: ; preds = %.loopexit, %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i32, %122
+_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32: ; preds = %.loopexit, %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i30, %122
   %123 = icmp eq ptr %99, %3
   br i1 %123, label %124, label %.loopexit
 
-124:                                              ; preds = %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34
+124:                                              ; preds = %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i, label %130, label %131
 

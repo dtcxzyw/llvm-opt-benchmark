@@ -1792,8 +1792,8 @@ define linkonce_odr noundef ptr @_ZN3g2o20CholmodSolverCreator9constructEv(ptr n
 
 20:                                               ; preds = %1
   %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16solver_factoriesB5cxx11) #36
-  %.not31.i = icmp eq i32 %21, 0
-  br i1 %.not31.i, label %38, label %22
+  %.not30.i = icmp eq i32 %21, 0
+  br i1 %.not30.i, label %38, label %22
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1807,14 +1807,14 @@ define linkonce_odr noundef ptr @_ZN3g2o20CholmodSolverCreator9constructEv(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi3ELi2ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv, ptr %5, align 8, !tbaa !32
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISA_EEvEEEC2IRA15_KcPSE_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISN_SO_EEEbE4typeELb1EEEOSN_OSO_(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 1 dereferenceable(15) @.str.33, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %25 unwind label %.thread105.i
+          to label %25 unwind label %.thread104.i
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi6ELi3ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv, ptr %6, align 8, !tbaa !32
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISA_EEvEEEC2IRA15_KcPSE_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISN_SO_EEEbE4typeELb1EEEOSN_OSO_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 1 dereferenceable(15) @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %27 unwind label %.thread111.i
+          to label %27 unwind label %.thread110.i
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -1908,7 +1908,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !33
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16solver_factoriesB5cxx11, i64 16), align 8, !tbaa !36
   %.not10.i.i.i.i = icmp eq ptr %58, null
-  %.pre104.i = load ptr, ptr %10, align 8, !tbaa !9
+  %.pre103.i = load ptr, ptr %10, align 8, !tbaa !9
   br i1 %.not10.i.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i
@@ -1927,7 +1927,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i: ; preds
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !9
-  %66 = call i32 @memcmp(ptr noundef %65, ptr noundef %.pre104.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #36
+  %66 = call i32 @memcmp(ptr noundef %65, ptr noundef %.pre103.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #36
   %.not.i.i.i.i.i.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
 
@@ -1962,7 +1962,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !9
-  %76 = call i32 @memcmp(ptr noundef %.pre104.i, ptr noundef %75, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #36
+  %76 = call i32 @memcmp(ptr noundef %.pre103.i, ptr noundef %75, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #36
   %.not.i.i.i.i.i.i = icmp eq i32 %76, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
 
@@ -1983,12 +1983,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           cleanup
   br label %.loopexit.sink.split.i
 
-.thread105.i:                                     ; preds = %23
+.thread104.i:                                     ; preds = %23
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader.i
 
-.thread111.i:                                     ; preds = %25
+.thread110.i:                                     ; preds = %25
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2007,9 +2007,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %87 = getelementptr inbounds i8, ptr %86, i64 -64
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISA_EEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %87) #36
   %88 = icmp eq ptr %87, %3
-  br i1 %88, label %.thread115.i, label %85
+  br i1 %88, label %.thread114.i, label %85
 
-.thread115.i:                                     ; preds = %85
+.thread114.i:                                     ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2022,27 +2022,27 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %89, %.thread111.i, %.thread105.i
-  %.pn.pn.pn110.i = phi { ptr, i32 } [ %80, %.thread105.i ], [ %90, %89 ], [ %81, %.thread111.i ]
-  %.126109.i = phi ptr [ %24, %.thread105.i ], [ %28, %89 ], [ %26, %.thread111.i ]
+.preheader.preheader.i:                           ; preds = %89, %.thread110.i, %.thread104.i
+  %.pn.pn.pn109.i = phi { ptr, i32 } [ %80, %.thread104.i ], [ %90, %89 ], [ %81, %.thread110.i ]
+  %.126108.i = phi ptr [ %24, %.thread104.i ], [ %28, %89 ], [ %26, %.thread110.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %91 = phi ptr [ %92, %.preheader.i ], [ %.126109.i, %.preheader.preheader.i ]
+  %91 = phi ptr [ %92, %.preheader.i ], [ %.126108.i, %.preheader.preheader.i ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -64
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISA_EEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %92) #36
   %93 = icmp eq ptr %92, %3
   br i1 %93, label %.loopexit.i, label %.preheader.i
 
-.loopexit.sink.split.i:                           ; preds = %.thread115.i, %.thread.i
-  %.pn.pn.pn.pn102.ph.i = phi { ptr, i32 } [ %83, %.thread115.i ], [ %79, %.thread.i ]
+.loopexit.sink.split.i:                           ; preds = %.thread114.i, %.thread.i
+  %.pn.pn.pn.pn101.ph.i = phi { ptr, i32 } [ %83, %.thread114.i ], [ %79, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit.sink.split.i
-  %.pn.pn.pn.pn102.i = phi { ptr, i32 } [ %.pn.pn.pn.pn102.ph.i, %.loopexit.sink.split.i ], [ %.pn.pn.pn110.i, %.preheader.i ]
+  %.pn.pn.pn.pn101.i = phi { ptr, i32 } [ %.pn.pn.pn.pn101.ph.i, %.loopexit.sink.split.i ], [ %.pn.pn.pn109.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16solver_factoriesB5cxx11) #36
   br label %227
@@ -2125,8 +2125,8 @@ _ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i.i: ; preds = %116
 _ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i.i, %116
   store ptr null, ptr %12, align 8, !tbaa !59
   %121 = load ptr, ptr %13, align 8, !tbaa !54
-  %.not.i51.i = icmp eq ptr %121, null
-  br i1 %.not.i51.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i.i
+  %.not.i50.i = icmp eq ptr %121, null
+  br i1 %.not.i50.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit.i
   %122 = load ptr, ptr %121, align 8, !tbaa !27
@@ -2147,37 +2147,37 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i: ; 
 127:                                              ; preds = %111, %110
   %128 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i
 
 129:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit.i
   %130 = landingpad { ptr, i32 }
           cleanup
   %131 = load ptr, ptr %12, align 8, !tbaa !59
-  %.not.i52.i = icmp eq ptr %131, null
-  br i1 %.not.i52.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i53.i
+  %.not.i51.i = icmp eq ptr %131, null
+  br i1 %.not.i51.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i52.i
 
-_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i53.i: ; preds = %129
+_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i52.i: ; preds = %129
   %132 = load ptr, ptr %131, align 8, !tbaa !27
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(64) %131) #36
-  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i
+  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i
 
-_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i53.i, %129
+_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i52.i, %129
   store ptr null, ptr %12, align 8, !tbaa !59
   %135 = load ptr, ptr %13, align 8, !tbaa !54
-  %.not.i55.i = icmp eq ptr %135, null
-  br i1 %.not.i55.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i56.i
+  %.not.i54.i = icmp eq ptr %135, null
+  br i1 %.not.i54.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i55.i
 
-_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i56.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i
+_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i55.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i
   %136 = load ptr, ptr %135, align 8, !tbaa !27
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(64) %135) #36
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i
 
-_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i56.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i, %127
-  %.pn40.i = phi { ptr, i32 } [ %128, %127 ], [ %130, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit54.i ], [ %130, %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i56.i ]
+_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i55.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i, %127
+  %.pn39.i = phi { ptr, i32 } [ %128, %127 ], [ %130, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit53.i ], [ %130, %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i55.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef 88) #35
   br label %208
@@ -2195,14 +2195,14 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i: 
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %145 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 80
   %146 = load ptr, ptr %145, align 8, !tbaa !47, !noalias !60
-  %.not.i.i58.i = icmp eq ptr %146, null
-  br i1 %.not.i.i58.i, label %147, label %148
+  %.not.i.i57.i = icmp eq ptr %146, null
+  br i1 %.not.i.i57.i, label %147, label %148
 
 147:                                              ; preds = %144
   invoke void @_ZSt25__throw_bad_function_callv() #38
-          to label %.noexc59.i unwind label %162
+          to label %.noexc58.i unwind label %162
 
-.noexc59.i:                                       ; preds = %147
+.noexc58.i:                                       ; preds = %147
   unreachable
 
 148:                                              ; preds = %144
@@ -2210,78 +2210,78 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i: 
   %150 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 88
   %151 = load ptr, ptr %150, align 8, !tbaa !52, !noalias !60
   invoke void %151(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %149)
-          to label %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit61.i unwind label %162
+          to label %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit60.i unwind label %162
 
-_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit61.i: ; preds = %148
+_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit60.i: ; preds = %148
   %152 = load ptr, ptr %15, align 8, !tbaa !54
   store ptr null, ptr %15, align 8, !tbaa !54
   store ptr %152, ptr %14, align 8, !tbaa !56
   invoke void @_ZN3g2o30OptimizationAlgorithmLevenbergC1ESt10unique_ptrINS_6SolverESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(152) %143, ptr noundef nonnull %14)
           to label %153 unwind label %164
 
-153:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit61.i
+153:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit60.i
   %154 = load ptr, ptr %14, align 8, !tbaa !59
-  %.not.i62.i = icmp eq ptr %154, null
-  br i1 %.not.i62.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit64.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i63.i
+  %.not.i61.i = icmp eq ptr %154, null
+  br i1 %.not.i61.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit63.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i62.i
 
-_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i63.i: ; preds = %153
+_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i62.i: ; preds = %153
   %155 = load ptr, ptr %154, align 8, !tbaa !27
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(64) %154) #36
-  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit64.i
+  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit63.i
 
-_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit64.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i63.i, %153
+_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit63.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i62.i, %153
   store ptr null, ptr %14, align 8, !tbaa !59
   %158 = load ptr, ptr %15, align 8, !tbaa !54
-  %.not.i65.i = icmp eq ptr %158, null
-  br i1 %.not.i65.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit67.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i66.i
+  %.not.i64.i = icmp eq ptr %158, null
+  br i1 %.not.i64.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit66.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i65.i
 
-_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i66.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit64.i
+_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i65.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit63.i
   %159 = load ptr, ptr %158, align 8, !tbaa !27
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull align 8 dereferenceable(64) %158) #36
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit67.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit66.i
 
-_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit67.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i66.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit64.i
+_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit66.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i65.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit63.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %201
 
 162:                                              ; preds = %148, %147
   %163 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i
 
-164:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit61.i
+164:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit60.i
   %165 = landingpad { ptr, i32 }
           cleanup
   %166 = load ptr, ptr %14, align 8, !tbaa !59
-  %.not.i68.i = icmp eq ptr %166, null
-  br i1 %.not.i68.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i69.i
+  %.not.i67.i = icmp eq ptr %166, null
+  br i1 %.not.i67.i, label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i, label %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i68.i
 
-_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i69.i: ; preds = %164
+_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i68.i: ; preds = %164
   %167 = load ptr, ptr %166, align 8, !tbaa !27
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   call void %169(ptr noundef nonnull align 8 dereferenceable(64) %166) #36
-  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i
+  br label %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i
 
-_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i69.i, %164
+_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i: ; preds = %_ZNKSt14default_deleteIN3g2o6SolverEEclEPS1_.exit.i68.i, %164
   store ptr null, ptr %14, align 8, !tbaa !59
   %170 = load ptr, ptr %15, align 8, !tbaa !54
-  %.not.i71.i = icmp eq ptr %170, null
-  br i1 %.not.i71.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i72.i
+  %.not.i70.i = icmp eq ptr %170, null
+  br i1 %.not.i70.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i71.i
 
-_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i72.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i
+_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i71.i: ; preds = %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i
   %171 = load ptr, ptr %170, align 8, !tbaa !27
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(64) %170) #36
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i
 
-_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i72.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i, %162
-  %.pn38.i = phi { ptr, i32 } [ %163, %162 ], [ %165, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit70.i ], [ %165, %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i72.i ]
+_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i71.i, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i, %162
+  %.pn37.i = phi { ptr, i32 } [ %163, %162 ], [ %165, %_ZNSt10unique_ptrIN3g2o6SolverESt14default_deleteIS1_EED2Ev.exit69.i ], [ %165, %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i71.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 152) #35
   br label %208
@@ -2298,14 +2298,14 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i: 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 80
   %181 = load ptr, ptr %180, align 8, !tbaa !47, !noalias !63
-  %.not.i.i74.i = icmp eq ptr %181, null
-  br i1 %.not.i.i74.i, label %182, label %183
+  %.not.i.i73.i = icmp eq ptr %181, null
+  br i1 %.not.i.i73.i, label %182, label %183
 
 182:                                              ; preds = %179
   invoke void @_ZSt25__throw_bad_function_callv() #38
-          to label %.noexc75.i unwind label %192
+          to label %.noexc74.i unwind label %192
 
-.noexc75.i:                                       ; preds = %182
+.noexc74.i:                                       ; preds = %182
   unreachable
 
 183:                                              ; preds = %179
@@ -2313,25 +2313,25 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i: 
   %185 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 88
   %186 = load ptr, ptr %185, align 8, !tbaa !52, !noalias !63
   invoke void %186(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %184)
-          to label %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit77.i unwind label %192
+          to label %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit76.i unwind label %192
 
-_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit77.i: ; preds = %183
+_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit76.i: ; preds = %183
   invoke void @_ZN3g2o27OptimizationAlgorithmDoglegC1ESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(200) %178, ptr noundef nonnull %16)
           to label %187 unwind label %194
 
-187:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit77.i
+187:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit76.i
   %188 = load ptr, ptr %16, align 8, !tbaa !54
-  %.not.i78.i = icmp eq ptr %188, null
-  br i1 %.not.i78.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i79.i
+  %.not.i77.i = icmp eq ptr %188, null
+  br i1 %.not.i77.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit79.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i78.i
 
-_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i79.i: ; preds = %187
+_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i78.i: ; preds = %187
   %189 = load ptr, ptr %188, align 8, !tbaa !27
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   call void %191(ptr noundef nonnull align 8 dereferenceable(64) %188) #36
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit79.i
 
-_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i79.i, %187
+_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit79.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i78.i, %187
   store ptr null, ptr %16, align 8, !tbaa !54
   br label %201
 
@@ -2340,31 +2340,31 @@ _ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i: 
           cleanup
   br label %200
 
-194:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit77.i
+194:                                              ; preds = %_ZNKSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvEEclEv.exit76.i
   %195 = landingpad { ptr, i32 }
           cleanup
   %196 = load ptr, ptr %16, align 8, !tbaa !54
-  %.not.i81.i = icmp eq ptr %196, null
-  br i1 %.not.i81.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit83.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i82.i
+  %.not.i80.i = icmp eq ptr %196, null
+  br i1 %.not.i80.i, label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit82.i, label %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i81.i
 
-_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i82.i: ; preds = %194
+_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i81.i: ; preds = %194
   %197 = load ptr, ptr %196, align 8, !tbaa !27
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
   call void %199(ptr noundef nonnull align 8 dereferenceable(64) %196) #36
-  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit83.i
+  br label %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit82.i
 
-_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit83.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i82.i, %194
+_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit82.i: ; preds = %_ZNKSt14default_deleteIN3g2o15BlockSolverBaseEEclEPS1_.exit.i81.i, %194
   store ptr null, ptr %16, align 8, !tbaa !54
   br label %200
 
-200:                                              ; preds = %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit83.i, %192
-  %.pn36.i = phi { ptr, i32 } [ %195, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit83.i ], [ %193, %192 ]
+200:                                              ; preds = %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit82.i, %192
+  %.pn35.i = phi { ptr, i32 } [ %195, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit82.i ], [ %193, %192 ]
   call void @_ZdlPvm(ptr noundef nonnull %178, i64 noundef 200) #35
   br label %208
 
-201:                                              ; preds = %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i, %174, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit67.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %.129.i = phi ptr [ %106, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %143, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit67.i ], [ %178, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit80.i ], [ null, %174 ]
+201:                                              ; preds = %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit79.i, %174, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit66.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %.129.i = phi ptr [ %106, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %143, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit66.i ], [ %178, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit79.i ], [ null, %174 ]
   %202 = load ptr, ptr %11, align 8, !tbaa !9
   %203 = icmp eq ptr %202, %95
   br i1 %203, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -2386,69 +2386,69 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !9
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i
 
-208:                                              ; preds = %200, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i, %125
-  %.pn40.pn.i = phi { ptr, i32 } [ %.pn40.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit57.i ], [ %126, %125 ], [ %.pn38.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit73.i ], [ %.pn36.i, %200 ]
+208:                                              ; preds = %200, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i, %125
+  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit56.i ], [ %126, %125 ], [ %.pn37.i, %_ZNSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS1_EED2Ev.exit72.i ], [ %.pn35.i, %200 ]
   %209 = load ptr, ptr %11, align 8, !tbaa !9
   %210 = icmp eq ptr %209, %95
-  br i1 %210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84.i
+  br i1 %210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85.i: ; preds = %208
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i: ; preds = %208
   %211 = load i64, ptr %101, align 8, !tbaa !12
   %212 = icmp ult i64 %211, 16
   call void @llvm.assume(i1 %212)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84.i: ; preds = %208
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i: ; preds = %208
   %213 = load i64, ptr %95, align 8, !tbaa !14
   %214 = add i64 %213, 1
   call void @_ZdlPvm(ptr noundef %209, i64 noundef %214) #35
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %215 = load ptr, ptr %10, align 8, !tbaa !9
   %216 = icmp eq ptr %215, %43
-  br i1 %216, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90.i
+  br i1 %216, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i90.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89.i
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISB_EEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i
-  %217 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pre104.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISB_EEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %.pre104.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i ], [ %.pre104.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %217 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pre103.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISB_EEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ %.pre103.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i ], [ %.pre103.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
   %.028.i = phi ptr [ %.129.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ null, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteISB_EEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISH_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ null, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit.i ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
   %218 = icmp eq ptr %217, %43
-  br i1 %218, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87.i
+  br i1 %218, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i87.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88.i: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i87.i: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i
   %219 = load i64, ptr %55, align 8, !tbaa !12
   %220 = icmp ult i64 %219, 16
   call void @llvm.assume(i1 %220)
   br label %_ZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87.i: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86.i: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS9_EEvEESt4lessIS5_ESaISt4pairIKS5_SE_EEE4findERSI_.exit.thread.i
   %221 = load i64, ptr %43, align 8, !tbaa !14
   %222 = add i64 %221, 1
   call void @_ZdlPvm(ptr noundef %217, i64 noundef %222) #35
   br label %_ZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i90.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i
   %223 = load i64, ptr %55, align 8, !tbaa !12
   %224 = icmp ult i64 %223, 16
   call void @llvm.assume(i1 %224)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85.i
   %225 = load i64, ptr %43, align 8, !tbaa !14
   %226 = add i64 %225, 1
   call void @_ZdlPvm(ptr noundef %215, i64 noundef %226) #35
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i90.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %227
 
-227:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i, %.loopexit.i
-  %.pn40.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn40.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i ], [ %.pn.pn.pn.pn102.i, %.loopexit.i ]
-  resume { ptr, i32 } %.pn40.pn.pn.pn.pn.i
+227:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.i, %.loopexit.i
+  %.pn39.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91.i ], [ %.pn.pn.pn.pn101.i, %.loopexit.i ]
+  resume { ptr, i32 } %.pn39.pn.pn.pn.pn.i
 
-_ZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87.i
+_ZN3g2oL12createSolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i87.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

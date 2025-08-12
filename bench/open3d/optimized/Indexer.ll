@@ -744,8 +744,8 @@ _ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %4
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %7, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %50 = load ptr, ptr %49, align 8, !tbaa !14
-  %.not.i.i.i13 = icmp eq ptr %50, null
-  br i1 %.not.i.i.i13, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %51
+  %.not.i.i.i12 = icmp eq ptr %50, null
+  br i1 %.not.i.i.i12, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev.exit
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -770,8 +770,8 @@ _ZNSt6vectorIN6open3d4core6TensorESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %4
 
 64:                                               ; preds = %51
   %65 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
-  %.not.i.i.i.i14 = icmp eq i8 %65, 0
-  br i1 %.not.i.i.i.i14, label %68, label %66
+  %.not.i.i.i.i13 = icmp eq i8 %65, 0
+  br i1 %.not.i.i.i.i13, label %68, label %66
 
 66:                                               ; preds = %64
   %67 = add nsw i32 %55, -1
@@ -796,24 +796,24 @@ _ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %73 = load ptr, ptr %72, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %75 = icmp eq ptr %73, %74
-  br i1 %75, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15, label %76
+  br i1 %75, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i14, label %76
 
 76:                                               ; preds = %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   call void @free(ptr noundef %73) #33
-  br label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15
+  br label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i14
 
-_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15: ; preds = %76, %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i14: ; preds = %76, %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !18
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %_ZN6open3d4core6TensorD2Ev.exit, label %81
 
-81:                                               ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15
+81:                                               ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i14
   call void @free(ptr noundef %78) #33
   br label %_ZN6open3d4core6TensorD2Ev.exit
 
-_ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i15, %81
+_ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i14, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

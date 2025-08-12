@@ -955,8 +955,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 101:                                              ; preds = %97
   %102 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE0_clEvE2id) #27, !noalias !34
-  %.not.i152.i = icmp eq i32 %102, 0
-  br i1 %.not.i152.i, label %107, label %103
+  %.not.i151.i = icmp eq i32 %102, 0
+  br i1 %.not.i151.i, label %107, label %103
 
 103:                                              ; preds = %101
   %104 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.39, i64 1))
@@ -970,8 +970,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 107:                                              ; preds = %105, %101, %97
   %108 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE0_clEvE2id, align 4, !tbaa !29, !noalias !34
-  %.not.i.i.i151.i = icmp eq i32 %108, 0
-  br i1 %.not.i.i.i151.i, label %117, label %109
+  %.not.i.i.i150.i = icmp eq i32 %108, 0
+  br i1 %.not.i.i.i150.i, label %117, label %109
 
 109:                                              ; preds = %107
   %110 = sext i32 %108 to i64
@@ -997,8 +997,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 121:                                              ; preds = %117
   %122 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE1_clEvE2id) #27, !noalias !37
-  %.not.i156.i = icmp eq i32 %122, 0
-  br i1 %.not.i156.i, label %127, label %123
+  %.not.i155.i = icmp eq i32 %122, 0
+  br i1 %.not.i155.i, label %127, label %123
 
 123:                                              ; preds = %121
   %124 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.40, i64 1))
@@ -1012,8 +1012,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 127:                                              ; preds = %125, %121, %117
   %128 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE1_clEvE2id, align 4, !tbaa !29, !noalias !37
-  %.not.i.i.i155.i = icmp eq i32 %128, 0
-  br i1 %.not.i.i.i155.i, label %137, label %129
+  %.not.i.i.i154.i = icmp eq i32 %128, 0
+  br i1 %.not.i.i.i154.i, label %137, label %129
 
 129:                                              ; preds = %127
   %130 = sext i32 %128 to i64
@@ -1039,8 +1039,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 141:                                              ; preds = %137
   %142 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE2_clEvE2id) #27, !noalias !40
-  %.not.i160.i = icmp eq i32 %142, 0
-  br i1 %.not.i160.i, label %147, label %143
+  %.not.i159.i = icmp eq i32 %142, 0
+  br i1 %.not.i159.i, label %147, label %143
 
 143:                                              ; preds = %141
   %144 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 1))
@@ -1054,8 +1054,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 147:                                              ; preds = %145, %141, %137
   %148 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE2_clEvE2id, align 4, !tbaa !29, !noalias !40
-  %.not.i.i.i159.i = icmp eq i32 %148, 0
-  br i1 %.not.i.i.i159.i, label %157, label %149
+  %.not.i.i.i158.i = icmp eq i32 %148, 0
+  br i1 %.not.i.i.i158.i, label %157, label %149
 
 149:                                              ; preds = %147
   %150 = sext i32 %148 to i64
@@ -1081,8 +1081,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 161:                                              ; preds = %157
   %162 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE3_clEvE2id) #27, !noalias !43
-  %.not.i164.i = icmp eq i32 %162, 0
-  br i1 %.not.i164.i, label %167, label %163
+  %.not.i163.i = icmp eq i32 %162, 0
+  br i1 %.not.i163.i, label %167, label %163
 
 163:                                              ; preds = %161
   %164 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 1))
@@ -1096,8 +1096,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 167:                                              ; preds = %165, %161, %157
   %168 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE3_clEvE2id, align 4, !tbaa !29, !noalias !43
-  %.not.i.i.i163.i = icmp eq i32 %168, 0
-  br i1 %.not.i.i.i163.i, label %177, label %169
+  %.not.i.i.i162.i = icmp eq i32 %168, 0
+  br i1 %.not.i.i.i162.i, label %177, label %169
 
 169:                                              ; preds = %167
   %170 = sext i32 %168 to i64
@@ -1123,8 +1123,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 181:                                              ; preds = %177
   %182 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE4_clEvE2id) #27, !noalias !46
-  %.not.i168.i = icmp eq i32 %182, 0
-  br i1 %.not.i168.i, label %187, label %183
+  %.not.i167.i = icmp eq i32 %182, 0
+  br i1 %.not.i167.i, label %187, label %183
 
 183:                                              ; preds = %181
   %184 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 1))
@@ -1138,8 +1138,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 187:                                              ; preds = %185, %181, %177
   %188 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE4_clEvE2id, align 4, !tbaa !29, !noalias !46
-  %.not.i.i.i167.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i.i167.i, label %197, label %189
+  %.not.i.i.i166.i = icmp eq i32 %188, 0
+  br i1 %.not.i.i.i166.i, label %197, label %189
 
 189:                                              ; preds = %187
   %190 = sext i32 %188 to i64
@@ -1165,8 +1165,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 201:                                              ; preds = %197
   %202 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE5_clEvE2id) #27, !noalias !49
-  %.not.i172.i = icmp eq i32 %202, 0
-  br i1 %.not.i172.i, label %207, label %203
+  %.not.i171.i = icmp eq i32 %202, 0
+  br i1 %.not.i171.i, label %207, label %203
 
 203:                                              ; preds = %201
   %204 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 1))
@@ -1180,8 +1180,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 207:                                              ; preds = %205, %201, %197
   %208 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE5_clEvE2id, align 4, !tbaa !29, !noalias !49
-  %.not.i.i.i171.i = icmp eq i32 %208, 0
-  br i1 %.not.i.i.i171.i, label %217, label %209
+  %.not.i.i.i170.i = icmp eq i32 %208, 0
+  br i1 %.not.i.i.i170.i, label %217, label %209
 
 209:                                              ; preds = %207
   %210 = sext i32 %208 to i64
@@ -1207,8 +1207,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 221:                                              ; preds = %217
   %222 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE6_clEvE2id) #27, !noalias !52
-  %.not.i176.i = icmp eq i32 %222, 0
-  br i1 %.not.i176.i, label %227, label %223
+  %.not.i175.i = icmp eq i32 %222, 0
+  br i1 %.not.i175.i, label %227, label %223
 
 223:                                              ; preds = %221
   %224 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 1))
@@ -1222,8 +1222,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 227:                                              ; preds = %225, %221, %217
   %228 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE6_clEvE2id, align 4, !tbaa !29, !noalias !52
-  %.not.i.i.i175.i = icmp eq i32 %228, 0
-  br i1 %.not.i.i.i175.i, label %237, label %229
+  %.not.i.i.i174.i = icmp eq i32 %228, 0
+  br i1 %.not.i.i.i174.i, label %237, label %229
 
 229:                                              ; preds = %227
   %230 = sext i32 %228 to i64
@@ -1249,8 +1249,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 241:                                              ; preds = %237
   %242 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE7_clEvE2id) #27, !noalias !55
-  %.not.i180.i = icmp eq i32 %242, 0
-  br i1 %.not.i180.i, label %247, label %243
+  %.not.i179.i = icmp eq i32 %242, 0
+  br i1 %.not.i179.i, label %247, label %243
 
 243:                                              ; preds = %241
   %244 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.46, i64 1))
@@ -1264,8 +1264,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 247:                                              ; preds = %245, %241, %237
   %248 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE7_clEvE2id, align 4, !tbaa !29, !noalias !55
-  %.not.i.i.i179.i = icmp eq i32 %248, 0
-  br i1 %.not.i.i.i179.i, label %257, label %249
+  %.not.i.i.i178.i = icmp eq i32 %248, 0
+  br i1 %.not.i.i.i178.i, label %257, label %249
 
 249:                                              ; preds = %247
   %250 = sext i32 %248 to i64
@@ -1291,8 +1291,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 261:                                              ; preds = %257
   %262 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE8_clEvE2id) #27, !noalias !58
-  %.not.i184.i = icmp eq i32 %262, 0
-  br i1 %.not.i184.i, label %267, label %263
+  %.not.i183.i = icmp eq i32 %262, 0
+  br i1 %.not.i183.i, label %267, label %263
 
 263:                                              ; preds = %261
   %264 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 1))
@@ -1306,8 +1306,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 267:                                              ; preds = %265, %261, %257
   %268 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE8_clEvE2id, align 4, !tbaa !29, !noalias !58
-  %.not.i.i.i183.i = icmp eq i32 %268, 0
-  br i1 %.not.i.i.i183.i, label %277, label %269
+  %.not.i.i.i182.i = icmp eq i32 %268, 0
+  br i1 %.not.i.i.i182.i, label %277, label %269
 
 269:                                              ; preds = %267
   %270 = sext i32 %268 to i64
@@ -1333,8 +1333,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 281:                                              ; preds = %277
   %282 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE9_clEvE2id) #27, !noalias !61
-  %.not.i188.i = icmp eq i32 %282, 0
-  br i1 %.not.i188.i, label %287, label %283
+  %.not.i187.i = icmp eq i32 %282, 0
+  br i1 %.not.i187.i, label %287, label %283
 
 283:                                              ; preds = %281
   %284 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 1))
@@ -1348,8 +1348,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 287:                                              ; preds = %285, %281, %277
   %288 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE9_clEvE2id, align 4, !tbaa !29, !noalias !61
-  %.not.i.i.i187.i = icmp eq i32 %288, 0
-  br i1 %.not.i.i.i187.i, label %297, label %289
+  %.not.i.i.i186.i = icmp eq i32 %288, 0
+  br i1 %.not.i.i.i186.i, label %297, label %289
 
 289:                                              ; preds = %287
   %290 = sext i32 %288 to i64
@@ -1375,8 +1375,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 301:                                              ; preds = %297
   %302 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE10_clEvE2id) #27, !noalias !64
-  %.not.i192.i = icmp eq i32 %302, 0
-  br i1 %.not.i192.i, label %307, label %303
+  %.not.i191.i = icmp eq i32 %302, 0
+  br i1 %.not.i191.i, label %307, label %303
 
 303:                                              ; preds = %301
   %304 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.49, i64 1))
@@ -1390,8 +1390,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 307:                                              ; preds = %305, %301, %297
   %308 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE10_clEvE2id, align 4, !tbaa !29, !noalias !64
-  %.not.i.i.i191.i = icmp eq i32 %308, 0
-  br i1 %.not.i.i.i191.i, label %317, label %309
+  %.not.i.i.i190.i = icmp eq i32 %308, 0
+  br i1 %.not.i.i.i190.i, label %317, label %309
 
 309:                                              ; preds = %307
   %310 = sext i32 %308 to i64
@@ -1417,8 +1417,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 321:                                              ; preds = %317
   %322 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE11_clEvE2id) #27, !noalias !67
-  %.not.i196.i = icmp eq i32 %322, 0
-  br i1 %.not.i196.i, label %327, label %323
+  %.not.i195.i = icmp eq i32 %322, 0
+  br i1 %.not.i195.i, label %327, label %323
 
 323:                                              ; preds = %321
   %324 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 1))
@@ -1432,8 +1432,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 327:                                              ; preds = %325, %321, %317
   %328 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE11_clEvE2id, align 4, !tbaa !29, !noalias !67
-  %.not.i.i.i195.i = icmp eq i32 %328, 0
-  br i1 %.not.i.i.i195.i, label %337, label %329
+  %.not.i.i.i194.i = icmp eq i32 %328, 0
+  br i1 %.not.i.i.i194.i, label %337, label %329
 
 329:                                              ; preds = %327
   %330 = sext i32 %328 to i64
@@ -1459,8 +1459,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 341:                                              ; preds = %337
   %342 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE12_clEvE2id) #27, !noalias !70
-  %.not.i200.i = icmp eq i32 %342, 0
-  br i1 %.not.i200.i, label %347, label %343
+  %.not.i199.i = icmp eq i32 %342, 0
+  br i1 %.not.i199.i, label %347, label %343
 
 343:                                              ; preds = %341
   %344 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.51, i64 1))
@@ -1474,8 +1474,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 347:                                              ; preds = %345, %341, %337
   %348 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE12_clEvE2id, align 4, !tbaa !29, !noalias !70
-  %.not.i.i.i199.i = icmp eq i32 %348, 0
-  br i1 %.not.i.i.i199.i, label %357, label %349
+  %.not.i.i.i198.i = icmp eq i32 %348, 0
+  br i1 %.not.i.i.i198.i, label %357, label %349
 
 349:                                              ; preds = %347
   %350 = sext i32 %348 to i64
@@ -1501,8 +1501,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 361:                                              ; preds = %357
   %362 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE13_clEvE2id) #27, !noalias !73
-  %.not.i204.i = icmp eq i32 %362, 0
-  br i1 %.not.i204.i, label %367, label %363
+  %.not.i203.i = icmp eq i32 %362, 0
+  br i1 %.not.i203.i, label %367, label %363
 
 363:                                              ; preds = %361
   %364 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 1))
@@ -1516,8 +1516,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 367:                                              ; preds = %365, %361, %357
   %368 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE13_clEvE2id, align 4, !tbaa !29, !noalias !73
-  %.not.i.i.i203.i = icmp eq i32 %368, 0
-  br i1 %.not.i.i.i203.i, label %377, label %369
+  %.not.i.i.i202.i = icmp eq i32 %368, 0
+  br i1 %.not.i.i.i202.i, label %377, label %369
 
 369:                                              ; preds = %367
   %370 = sext i32 %368 to i64
@@ -1543,8 +1543,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 381:                                              ; preds = %377
   %382 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE14_clEvE2id) #27, !noalias !76
-  %.not.i208.i = icmp eq i32 %382, 0
-  br i1 %.not.i208.i, label %387, label %383
+  %.not.i207.i = icmp eq i32 %382, 0
+  br i1 %.not.i207.i, label %387, label %383
 
 383:                                              ; preds = %381
   %384 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 1))
@@ -1558,8 +1558,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 387:                                              ; preds = %385, %381, %377
   %388 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE14_clEvE2id, align 4, !tbaa !29, !noalias !76
-  %.not.i.i.i207.i = icmp eq i32 %388, 0
-  br i1 %.not.i.i.i207.i, label %397, label %389
+  %.not.i.i.i206.i = icmp eq i32 %388, 0
+  br i1 %.not.i.i.i206.i, label %397, label %389
 
 389:                                              ; preds = %387
   %390 = sext i32 %388 to i64
@@ -1585,8 +1585,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 401:                                              ; preds = %397
   %402 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE15_clEvE2id) #27, !noalias !79
-  %.not.i212.i = icmp eq i32 %402, 0
-  br i1 %.not.i212.i, label %407, label %403
+  %.not.i211.i = icmp eq i32 %402, 0
+  br i1 %.not.i211.i, label %407, label %403
 
 403:                                              ; preds = %401
   %404 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 1))
@@ -1600,8 +1600,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 407:                                              ; preds = %405, %401, %397
   %408 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE15_clEvE2id, align 4, !tbaa !29, !noalias !79
-  %.not.i.i.i211.i = icmp eq i32 %408, 0
-  br i1 %.not.i.i.i211.i, label %417, label %409
+  %.not.i.i.i210.i = icmp eq i32 %408, 0
+  br i1 %.not.i.i.i210.i, label %417, label %409
 
 409:                                              ; preds = %407
   %410 = sext i32 %408 to i64
@@ -1627,8 +1627,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 421:                                              ; preds = %417
   %422 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE16_clEvE2id) #27, !noalias !82
-  %.not.i216.i = icmp eq i32 %422, 0
-  br i1 %.not.i216.i, label %427, label %423
+  %.not.i215.i = icmp eq i32 %422, 0
+  br i1 %.not.i215.i, label %427, label %423
 
 423:                                              ; preds = %421
   %424 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.55, i64 1))
@@ -1642,8 +1642,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 427:                                              ; preds = %425, %421, %417
   %428 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE16_clEvE2id, align 4, !tbaa !29, !noalias !82
-  %.not.i.i.i215.i = icmp eq i32 %428, 0
-  br i1 %.not.i.i.i215.i, label %437, label %429
+  %.not.i.i.i214.i = icmp eq i32 %428, 0
+  br i1 %.not.i.i.i214.i, label %437, label %429
 
 429:                                              ; preds = %427
   %430 = sext i32 %428 to i64
@@ -1669,8 +1669,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 441:                                              ; preds = %437
   %442 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE17_clEvE2id) #27, !noalias !85
-  %.not.i220.i = icmp eq i32 %442, 0
-  br i1 %.not.i220.i, label %447, label %443
+  %.not.i219.i = icmp eq i32 %442, 0
+  br i1 %.not.i219.i, label %447, label %443
 
 443:                                              ; preds = %441
   %444 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.56, i64 1))
@@ -1684,8 +1684,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 447:                                              ; preds = %445, %441, %437
   %448 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE17_clEvE2id, align 4, !tbaa !29, !noalias !85
-  %.not.i.i.i219.i = icmp eq i32 %448, 0
-  br i1 %.not.i.i.i219.i, label %457, label %449
+  %.not.i.i.i218.i = icmp eq i32 %448, 0
+  br i1 %.not.i.i.i218.i, label %457, label %449
 
 449:                                              ; preds = %447
   %450 = sext i32 %448 to i64
@@ -1711,8 +1711,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 461:                                              ; preds = %457
   %462 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE18_clEvE2id) #27, !noalias !88
-  %.not.i224.i = icmp eq i32 %462, 0
-  br i1 %.not.i224.i, label %467, label %463
+  %.not.i223.i = icmp eq i32 %462, 0
+  br i1 %.not.i223.i, label %467, label %463
 
 463:                                              ; preds = %461
   %464 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.57, i64 1))
@@ -1726,8 +1726,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 467:                                              ; preds = %465, %461, %457
   %468 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE18_clEvE2id, align 4, !tbaa !29, !noalias !88
-  %.not.i.i.i223.i = icmp eq i32 %468, 0
-  br i1 %.not.i.i.i223.i, label %477, label %469
+  %.not.i.i.i222.i = icmp eq i32 %468, 0
+  br i1 %.not.i.i.i222.i, label %477, label %469
 
 469:                                              ; preds = %467
   %470 = sext i32 %468 to i64
@@ -1753,8 +1753,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 481:                                              ; preds = %477
   %482 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE19_clEvE2id) #27, !noalias !91
-  %.not.i228.i = icmp eq i32 %482, 0
-  br i1 %.not.i228.i, label %487, label %483
+  %.not.i227.i = icmp eq i32 %482, 0
+  br i1 %.not.i227.i, label %487, label %483
 
 483:                                              ; preds = %481
   %484 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 1))
@@ -1768,8 +1768,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 487:                                              ; preds = %485, %481, %477
   %488 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE19_clEvE2id, align 4, !tbaa !29, !noalias !91
-  %.not.i.i.i227.i = icmp eq i32 %488, 0
-  br i1 %.not.i.i.i227.i, label %497, label %489
+  %.not.i.i.i226.i = icmp eq i32 %488, 0
+  br i1 %.not.i.i.i226.i, label %497, label %489
 
 489:                                              ; preds = %487
   %490 = sext i32 %488 to i64
@@ -1795,8 +1795,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 501:                                              ; preds = %497
   %502 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE20_clEvE2id) #27, !noalias !94
-  %.not.i232.i = icmp eq i32 %502, 0
-  br i1 %.not.i232.i, label %507, label %503
+  %.not.i231.i = icmp eq i32 %502, 0
+  br i1 %.not.i231.i, label %507, label %503
 
 503:                                              ; preds = %501
   %504 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 1))
@@ -1810,8 +1810,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 507:                                              ; preds = %505, %501, %497
   %508 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE20_clEvE2id, align 4, !tbaa !29, !noalias !94
-  %.not.i.i.i231.i = icmp eq i32 %508, 0
-  br i1 %.not.i.i.i231.i, label %517, label %509
+  %.not.i.i.i230.i = icmp eq i32 %508, 0
+  br i1 %.not.i.i.i230.i, label %517, label %509
 
 509:                                              ; preds = %507
   %510 = sext i32 %508 to i64
@@ -1837,8 +1837,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 521:                                              ; preds = %517
   %522 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE21_clEvE2id) #27, !noalias !97
-  %.not.i236.i = icmp eq i32 %522, 0
-  br i1 %.not.i236.i, label %527, label %523
+  %.not.i235.i = icmp eq i32 %522, 0
+  br i1 %.not.i235.i, label %527, label %523
 
 523:                                              ; preds = %521
   %524 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 1))
@@ -1852,8 +1852,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 527:                                              ; preds = %525, %521, %517
   %528 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE21_clEvE2id, align 4, !tbaa !29, !noalias !97
-  %.not.i.i.i235.i = icmp eq i32 %528, 0
-  br i1 %.not.i.i.i235.i, label %537, label %529
+  %.not.i.i.i234.i = icmp eq i32 %528, 0
+  br i1 %.not.i.i.i234.i, label %537, label %529
 
 529:                                              ; preds = %527
   %530 = sext i32 %528 to i64
@@ -1879,8 +1879,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 541:                                              ; preds = %537
   %542 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE22_clEvE2id) #27, !noalias !100
-  %.not.i240.i = icmp eq i32 %542, 0
-  br i1 %.not.i240.i, label %547, label %543
+  %.not.i239.i = icmp eq i32 %542, 0
+  br i1 %.not.i239.i, label %547, label %543
 
 543:                                              ; preds = %541
   %544 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 1))
@@ -1894,8 +1894,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 547:                                              ; preds = %545, %541, %537
   %548 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE22_clEvE2id, align 4, !tbaa !29, !noalias !100
-  %.not.i.i.i239.i = icmp eq i32 %548, 0
-  br i1 %.not.i.i.i239.i, label %557, label %549
+  %.not.i.i.i238.i = icmp eq i32 %548, 0
+  br i1 %.not.i.i.i238.i, label %557, label %549
 
 549:                                              ; preds = %547
   %550 = sext i32 %548 to i64
@@ -1921,8 +1921,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 561:                                              ; preds = %557
   %562 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE23_clEvE2id) #27, !noalias !103
-  %.not.i244.i = icmp eq i32 %562, 0
-  br i1 %.not.i244.i, label %567, label %563
+  %.not.i243.i = icmp eq i32 %562, 0
+  br i1 %.not.i243.i, label %567, label %563
 
 563:                                              ; preds = %561
   %564 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 1))
@@ -1936,8 +1936,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 567:                                              ; preds = %565, %561, %557
   %568 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE23_clEvE2id, align 4, !tbaa !29, !noalias !103
-  %.not.i.i.i243.i = icmp eq i32 %568, 0
-  br i1 %.not.i.i.i243.i, label %577, label %569
+  %.not.i.i.i242.i = icmp eq i32 %568, 0
+  br i1 %.not.i.i.i242.i, label %577, label %569
 
 569:                                              ; preds = %567
   %570 = sext i32 %568 to i64
@@ -1963,8 +1963,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 581:                                              ; preds = %577
   %582 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE24_clEvE2id) #27, !noalias !106
-  %.not.i248.i = icmp eq i32 %582, 0
-  br i1 %.not.i248.i, label %587, label %583
+  %.not.i247.i = icmp eq i32 %582, 0
+  br i1 %.not.i247.i, label %587, label %583
 
 583:                                              ; preds = %581
   %584 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.63, i64 1))
@@ -1978,8 +1978,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 587:                                              ; preds = %585, %581, %577
   %588 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE24_clEvE2id, align 4, !tbaa !29, !noalias !106
-  %.not.i.i.i247.i = icmp eq i32 %588, 0
-  br i1 %.not.i.i.i247.i, label %597, label %589
+  %.not.i.i.i246.i = icmp eq i32 %588, 0
+  br i1 %.not.i.i.i246.i, label %597, label %589
 
 589:                                              ; preds = %587
   %590 = sext i32 %588 to i64
@@ -2005,8 +2005,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 601:                                              ; preds = %597
   %602 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE25_clEvE2id) #27, !noalias !109
-  %.not.i252.i = icmp eq i32 %602, 0
-  br i1 %.not.i252.i, label %607, label %603
+  %.not.i251.i = icmp eq i32 %602, 0
+  br i1 %.not.i251.i, label %607, label %603
 
 603:                                              ; preds = %601
   %604 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.64, i64 1))
@@ -2020,8 +2020,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 607:                                              ; preds = %605, %601, %597
   %608 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE25_clEvE2id, align 4, !tbaa !29, !noalias !109
-  %.not.i.i.i251.i = icmp eq i32 %608, 0
-  br i1 %.not.i.i.i251.i, label %617, label %609
+  %.not.i.i.i250.i = icmp eq i32 %608, 0
+  br i1 %.not.i.i.i250.i, label %617, label %609
 
 609:                                              ; preds = %607
   %610 = sext i32 %608 to i64
@@ -2047,8 +2047,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 621:                                              ; preds = %617
   %622 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE26_clEvE2id) #27, !noalias !112
-  %.not.i256.i = icmp eq i32 %622, 0
-  br i1 %.not.i256.i, label %627, label %623
+  %.not.i255.i = icmp eq i32 %622, 0
+  br i1 %.not.i255.i, label %627, label %623
 
 623:                                              ; preds = %621
   %624 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.65, i64 1))
@@ -2062,8 +2062,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 627:                                              ; preds = %625, %621, %617
   %628 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE26_clEvE2id, align 4, !tbaa !29, !noalias !112
-  %.not.i.i.i255.i = icmp eq i32 %628, 0
-  br i1 %.not.i.i.i255.i, label %637, label %629
+  %.not.i.i.i254.i = icmp eq i32 %628, 0
+  br i1 %.not.i.i.i254.i, label %637, label %629
 
 629:                                              ; preds = %627
   %630 = sext i32 %628 to i64
@@ -2089,8 +2089,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 641:                                              ; preds = %637
   %642 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE27_clEvE2id) #27, !noalias !115
-  %.not.i260.i = icmp eq i32 %642, 0
-  br i1 %.not.i260.i, label %647, label %643
+  %.not.i259.i = icmp eq i32 %642, 0
+  br i1 %.not.i259.i, label %647, label %643
 
 643:                                              ; preds = %641
   %644 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 1))
@@ -2104,8 +2104,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 647:                                              ; preds = %645, %641, %637
   %648 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE27_clEvE2id, align 4, !tbaa !29, !noalias !115
-  %.not.i.i.i259.i = icmp eq i32 %648, 0
-  br i1 %.not.i.i.i259.i, label %657, label %649
+  %.not.i.i.i258.i = icmp eq i32 %648, 0
+  br i1 %.not.i.i.i258.i, label %657, label %649
 
 649:                                              ; preds = %647
   %650 = sext i32 %648 to i64
@@ -2131,8 +2131,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 661:                                              ; preds = %657
   %662 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE28_clEvE2id) #27, !noalias !118
-  %.not.i264.i = icmp eq i32 %662, 0
-  br i1 %.not.i264.i, label %667, label %663
+  %.not.i263.i = icmp eq i32 %662, 0
+  br i1 %.not.i263.i, label %667, label %663
 
 663:                                              ; preds = %661
   %664 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.67, i64 1))
@@ -2146,8 +2146,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 667:                                              ; preds = %665, %661, %657
   %668 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE28_clEvE2id, align 4, !tbaa !29, !noalias !118
-  %.not.i.i.i263.i = icmp eq i32 %668, 0
-  br i1 %.not.i.i.i263.i, label %677, label %669
+  %.not.i.i.i262.i = icmp eq i32 %668, 0
+  br i1 %.not.i.i.i262.i, label %677, label %669
 
 669:                                              ; preds = %667
   %670 = sext i32 %668 to i64
@@ -2173,8 +2173,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 681:                                              ; preds = %677
   %682 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE29_clEvE2id) #27, !noalias !121
-  %.not.i268.i = icmp eq i32 %682, 0
-  br i1 %.not.i268.i, label %687, label %683
+  %.not.i267.i = icmp eq i32 %682, 0
+  br i1 %.not.i267.i, label %687, label %683
 
 683:                                              ; preds = %681
   %684 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.68, i64 1))
@@ -2188,8 +2188,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 687:                                              ; preds = %685, %681, %677
   %688 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE29_clEvE2id, align 4, !tbaa !29, !noalias !121
-  %.not.i.i.i267.i = icmp eq i32 %688, 0
-  br i1 %.not.i.i.i267.i, label %697, label %689
+  %.not.i.i.i266.i = icmp eq i32 %688, 0
+  br i1 %.not.i.i.i266.i, label %697, label %689
 
 689:                                              ; preds = %687
   %690 = sext i32 %688 to i64
@@ -2215,8 +2215,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 701:                                              ; preds = %697
   %702 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE30_clEvE2id) #27, !noalias !124
-  %.not.i272.i = icmp eq i32 %702, 0
-  br i1 %.not.i272.i, label %707, label %703
+  %.not.i271.i = icmp eq i32 %702, 0
+  br i1 %.not.i271.i, label %707, label %703
 
 703:                                              ; preds = %701
   %704 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 1))
@@ -2230,8 +2230,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 707:                                              ; preds = %705, %701, %697
   %708 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE30_clEvE2id, align 4, !tbaa !29, !noalias !124
-  %.not.i.i.i271.i = icmp eq i32 %708, 0
-  br i1 %.not.i.i.i271.i, label %717, label %709
+  %.not.i.i.i270.i = icmp eq i32 %708, 0
+  br i1 %.not.i.i.i270.i, label %717, label %709
 
 709:                                              ; preds = %707
   %710 = sext i32 %708 to i64
@@ -2257,8 +2257,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 721:                                              ; preds = %717
   %722 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE31_clEvE2id) #27, !noalias !127
-  %.not.i276.i = icmp eq i32 %722, 0
-  br i1 %.not.i276.i, label %727, label %723
+  %.not.i275.i = icmp eq i32 %722, 0
+  br i1 %.not.i275.i, label %727, label %723
 
 723:                                              ; preds = %721
   %724 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 1))
@@ -2272,8 +2272,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 727:                                              ; preds = %725, %721, %717
   %728 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE31_clEvE2id, align 4, !tbaa !29, !noalias !127
-  %.not.i.i.i275.i = icmp eq i32 %728, 0
-  br i1 %.not.i.i.i275.i, label %737, label %729
+  %.not.i.i.i274.i = icmp eq i32 %728, 0
+  br i1 %.not.i.i.i274.i, label %737, label %729
 
 729:                                              ; preds = %727
   %730 = sext i32 %728 to i64
@@ -2299,8 +2299,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 741:                                              ; preds = %737
   %742 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE32_clEvE2id) #27, !noalias !130
-  %.not.i280.i = icmp eq i32 %742, 0
-  br i1 %.not.i280.i, label %747, label %743
+  %.not.i279.i = icmp eq i32 %742, 0
+  br i1 %.not.i279.i, label %747, label %743
 
 743:                                              ; preds = %741
   %744 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 1))
@@ -2314,8 +2314,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 747:                                              ; preds = %745, %741, %737
   %748 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE32_clEvE2id, align 4, !tbaa !29, !noalias !130
-  %.not.i.i.i279.i = icmp eq i32 %748, 0
-  br i1 %.not.i.i.i279.i, label %757, label %749
+  %.not.i.i.i278.i = icmp eq i32 %748, 0
+  br i1 %.not.i.i.i278.i, label %757, label %749
 
 749:                                              ; preds = %747
   %750 = sext i32 %748 to i64
@@ -2341,8 +2341,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 761:                                              ; preds = %757
   %762 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE33_clEvE2id) #27, !noalias !133
-  %.not.i284.i = icmp eq i32 %762, 0
-  br i1 %.not.i284.i, label %767, label %763
+  %.not.i283.i = icmp eq i32 %762, 0
+  br i1 %.not.i283.i, label %767, label %763
 
 763:                                              ; preds = %761
   %764 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 1))
@@ -2356,8 +2356,8 @@ define internal void @_ZN12_GLOBAL__N_111WreducePass7executeESt6vectorINSt7__cxx
 
 767:                                              ; preds = %765, %761, %757
   %768 = load i32, ptr @_ZZZN12_GLOBAL__N_113WreduceConfigC1EvENKUlvE33_clEvE2id, align 4, !tbaa !29, !noalias !133
-  %.not.i.i.i283.i = icmp eq i32 %768, 0
-  br i1 %.not.i.i.i283.i, label %777, label %769
+  %.not.i.i.i282.i = icmp eq i32 %768, 0
+  br i1 %.not.i.i.i282.i, label %777, label %769
 
 769:                                              ; preds = %767
   %770 = sext i32 %768 to i64
@@ -2518,8 +2518,8 @@ _ZSt8_DestroyIPN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7ent
 
 _ZSt8_DestroyIPN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tES8_EvT_SA_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i.i.i, %805
   %841 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %807, %805 ]
-  %.not.i.i.i.i287.i = icmp eq ptr %841, null
-  br i1 %.not.i.i.i.i287.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tESaIS8_EED2Ev.exit.i.i, label %842
+  %.not.i.i.i.i286.i = icmp eq ptr %841, null
+  br i1 %.not.i.i.i.i286.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tESaIS8_EED2Ev.exit.i.i, label %842
 
 842:                                              ; preds = %_ZSt8_DestroyIPN5Yosys7hashlib4poolINS0_5RTLIL8IdStringENS1_8hash_opsIS4_EEE7entry_tES8_EvT_SA_RSaIT0_E.exit.i.i.i
   %843 = load ptr, ptr %823, align 8, !tbaa !150
@@ -2609,11 +2609,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %868, %861, %854
   br i1 %883, label %.body.thread.i, label %880
 
 common.resume:                                    ; preds = %_ZN12_GLOBAL__N_113WreduceConfigD2Ev.exit725, %.body.thread.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn326.i, %.body.thread.i ], [ %.pn204.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_113WreduceConfigD2Ev.exit725 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn325.i, %.body.thread.i ], [ %.pn204.pn.pn.pn.pn.pn.pn.pn, %_ZN12_GLOBAL__N_113WreduceConfigD2Ev.exit725 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.thread.i:                                   ; preds = %880, %876, %95
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn326.i = phi { ptr, i32 } [ %96, %95 ], [ %874, %876 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %880 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn325.i = phi { ptr, i32 } [ %96, %95 ], [ %874, %876 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %880 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -9912,8 +9912,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit159.i: ; preds = %_ZN5Yosys5RT
 
 ._crit_edge742.i:                                 ; preds = %._crit_edge742.loopexit.i, %3899
   %3902 = phi ptr [ %.pre.i, %._crit_edge742.loopexit.i ], [ %3900, %3899 ]
-  %.not.i.i.i.i691 = icmp eq ptr %3902, null
-  br i1 %.not.i.i.i.i691, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.i, label %3903
+  %.not.i.i.i.i690 = icmp eq ptr %3902, null
+  br i1 %.not.i.i.i.i690, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.i, label %3903
 
 3903:                                             ; preds = %._crit_edge742.i
   %3904 = load ptr, ptr %1044, align 8, !tbaa !177
@@ -10068,8 +10068,8 @@ _ZNSt3setIPN5Yosys5RTLIL4CellENS1_8IdString19compare_ptr_by_nameIS2_EESaIS3_EE6i
   %3967 = landingpad { ptr, i32 }
           cleanup
   %3968 = load ptr, ptr %15, align 8, !tbaa !175
-  %.not.i.i.i163.i690 = icmp eq ptr %3968, null
-  br i1 %.not.i.i.i163.i690, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit164.i, label %3969
+  %.not.i.i.i163.i = icmp eq ptr %3968, null
+  br i1 %.not.i.i.i163.i, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit164.i, label %3969
 
 3969:                                             ; preds = %3966
   %3970 = load ptr, ptr %1044, align 8, !tbaa !177
@@ -10751,8 +10751,8 @@ _ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit.i.i.i374.i: ; preds = %4219
   %.fr28.i.i.i = freeze ptr %4250
   %4251 = getelementptr inbounds nuw i8, ptr %4249, i64 8
   %4252 = load i32, ptr %4251, align 8, !tbaa !29
-  %.not.i.i.i170.i = icmp eq i32 %4252, 0
-  br i1 %.not.i.i.i170.i, label %4259, label %4253
+  %.not.i.i.i170.i691 = icmp eq i32 %4252, 0
+  br i1 %.not.i.i.i170.i691, label %4259, label %4253
 
 4253:                                             ; preds = %.lr.ph751.i
   %4254 = sext i32 %4252 to i64

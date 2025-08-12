@@ -9356,8 +9356,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 28:                                               ; preds = %1
   %29 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbE9bram1_map) #23
-  %.not99 = icmp eq i32 %29, 0
-  br i1 %.not99, label %69, label %30
+  %.not97 = icmp eq i32 %29, 0
+  br i1 %.not97, label %69, label %30
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -9869,21 +9869,21 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %178
 
 178:                                              ; preds = %177, %168
-  %.pn115.pn = phi { ptr, i32 } [ %171, %177 ], [ %169, %168 ]
+  %.pn113.pn = phi { ptr, i32 } [ %171, %177 ], [ %169, %168 ]
   %.13 = phi i1 [ true, %177 ], [ false, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #23
   br label %179
 
 179:                                              ; preds = %178, %166
-  %.pn115.pn.pn = phi { ptr, i32 } [ %.pn115.pn, %178 ], [ %167, %166 ]
+  %.pn113.pn.pn = phi { ptr, i32 } [ %.pn113.pn, %178 ], [ %167, %166 ]
   %.12 = phi i1 [ %.13, %178 ], [ false, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #23
   br label %180
 
 180:                                              ; preds = %179, %164
-  %.pn115.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn, %179 ], [ %165, %164 ]
+  %.pn113.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn, %179 ], [ %165, %164 ]
   %.1021 = phi ptr [ %98, %179 ], [ %92, %164 ]
   %.10 = phi i1 [ %.12, %179 ], [ false, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -9891,7 +9891,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %181
 
 181:                                              ; preds = %180, %162
-  %.pn115.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn, %180 ], [ %163, %162 ]
+  %.pn113.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn, %180 ], [ %163, %162 ]
   %.920 = phi ptr [ %.1021, %180 ], [ %92, %162 ]
   %.9 = phi i1 [ %.10, %180 ], [ false, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -9899,7 +9899,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %182
 
 182:                                              ; preds = %181, %160
-  %.pn115.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn, %181 ], [ %161, %160 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn, %181 ], [ %161, %160 ]
   %.718 = phi ptr [ %.920, %181 ], [ %86, %160 ]
   %.7 = phi i1 [ %.9, %181 ], [ false, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -9907,7 +9907,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %183
 
 183:                                              ; preds = %182, %158
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn, %182 ], [ %159, %158 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn.pn.pn, %182 ], [ %159, %158 ]
   %.617 = phi ptr [ %.718, %182 ], [ %86, %158 ]
   %.6 = phi i1 [ %.7, %182 ], [ false, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -9915,7 +9915,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %184
 
 184:                                              ; preds = %183, %156
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn, %183 ], [ %157, %156 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn, %183 ], [ %157, %156 ]
   %.415 = phi ptr [ %.617, %183 ], [ %80, %156 ]
   %.4 = phi i1 [ %.6, %183 ], [ false, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -9923,7 +9923,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %185
 
 185:                                              ; preds = %184, %154
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %155, %154 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %155, %154 ]
   %.314 = phi ptr [ %.415, %184 ], [ %80, %154 ]
   %.3 = phi i1 [ %.4, %184 ], [ false, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -9943,21 +9943,21 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %189, label %.loopexit, label %.preheader
 
 .loopexit.sink.split:                             ; preds = %.thread30, %.thread36
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35.ph = phi { ptr, i32 } [ %153, %.thread36 ], [ %152, %.thread30 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35.ph = phi { ptr, i32 } [ %153, %.thread36 ], [ %152, %.thread30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %185
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35 = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35.ph, %.loopexit.sink.split ], [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35 = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35.ph, %.loopexit.sink.split ], [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %190
 
 190:                                              ; preds = %.loopexit, %.loopexit42
   %_ZGVZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbE9bram2_map.sink = phi ptr [ @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbE9bram2_map, %.loopexit ], [ @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbE9bram1_map, %.loopexit42 ]
-  %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn24, %.loopexit42 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn35, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn24, %.loopexit42 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN12_GLOBAL__N_117QlBramMergeWorker9param_mapEbE9bram2_map.sink) #23
-  resume { ptr, i32 } %.pn115.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn113.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 declare void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
@@ -10030,8 +10030,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 64:                                               ; preds = %1
   %65 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbE9bram1_map) #23
-  %.not261 = icmp eq i32 %65, 0
-  br i1 %.not261, label %159, label %66
+  %.not259 = icmp eq i32 %65, 0
+  br i1 %.not259, label %159, label %66
 
 66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -11263,21 +11263,21 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %412
 
 412:                                              ; preds = %411, %402
-  %.pn304.pn = phi { ptr, i32 } [ %405, %411 ], [ %403, %402 ]
+  %.pn302.pn = phi { ptr, i32 } [ %405, %411 ], [ %403, %402 ]
   %.40 = phi i1 [ true, %411 ], [ false, %402 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %60) #23
   br label %413
 
 413:                                              ; preds = %412, %400
-  %.pn304.pn.pn = phi { ptr, i32 } [ %.pn304.pn, %412 ], [ %401, %400 ]
+  %.pn302.pn.pn = phi { ptr, i32 } [ %.pn302.pn, %412 ], [ %401, %400 ]
   %.39 = phi i1 [ %.40, %412 ], [ false, %400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %59) #23
   br label %414
 
 414:                                              ; preds = %413, %398
-  %.pn304.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn, %413 ], [ %399, %398 ]
+  %.pn302.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn, %413 ], [ %399, %398 ]
   %.3748 = phi ptr [ %242, %413 ], [ %236, %398 ]
   %.37 = phi i1 [ %.39, %413 ], [ false, %398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
@@ -11285,7 +11285,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %415
 
 415:                                              ; preds = %414, %396
-  %.pn304.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn, %414 ], [ %397, %396 ]
+  %.pn302.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn, %414 ], [ %397, %396 ]
   %.3647 = phi ptr [ %.3748, %414 ], [ %236, %396 ]
   %.36 = phi i1 [ %.37, %414 ], [ false, %396 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -11293,7 +11293,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %416
 
 416:                                              ; preds = %415, %394
-  %.pn304.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn, %415 ], [ %395, %394 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn, %415 ], [ %395, %394 ]
   %.3445 = phi ptr [ %.3647, %415 ], [ %230, %394 ]
   %.34 = phi i1 [ %.36, %415 ], [ false, %394 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
@@ -11301,7 +11301,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %417
 
 417:                                              ; preds = %416, %392
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn, %416 ], [ %393, %392 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn, %416 ], [ %393, %392 ]
   %.3344 = phi ptr [ %.3445, %416 ], [ %230, %392 ]
   %.33 = phi i1 [ %.34, %416 ], [ false, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
@@ -11309,7 +11309,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %418
 
 418:                                              ; preds = %417, %390
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn, %417 ], [ %391, %390 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn, %417 ], [ %391, %390 ]
   %.3142 = phi ptr [ %.3344, %417 ], [ %224, %390 ]
   %.31 = phi i1 [ %.33, %417 ], [ false, %390 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -11317,7 +11317,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %419
 
 419:                                              ; preds = %418, %388
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %418 ], [ %389, %388 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %418 ], [ %389, %388 ]
   %.3041 = phi ptr [ %.3142, %418 ], [ %224, %388 ]
   %.30 = phi i1 [ %.31, %418 ], [ false, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
@@ -11325,7 +11325,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %420
 
 420:                                              ; preds = %419, %386
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %419 ], [ %387, %386 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %419 ], [ %387, %386 ]
   %.2839 = phi ptr [ %.3041, %419 ], [ %218, %386 ]
   %.28 = phi i1 [ %.30, %419 ], [ false, %386 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
@@ -11333,7 +11333,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %421
 
 421:                                              ; preds = %420, %384
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %420 ], [ %385, %384 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %420 ], [ %385, %384 ]
   %.2738 = phi ptr [ %.2839, %420 ], [ %218, %384 ]
   %.27 = phi i1 [ %.28, %420 ], [ false, %384 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
@@ -11341,7 +11341,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %422
 
 422:                                              ; preds = %421, %382
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %421 ], [ %383, %382 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %421 ], [ %383, %382 ]
   %.2536 = phi ptr [ %.2738, %421 ], [ %212, %382 ]
   %.25 = phi i1 [ %.27, %421 ], [ false, %382 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -11349,7 +11349,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %423
 
 423:                                              ; preds = %422, %380
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %422 ], [ %381, %380 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %422 ], [ %381, %380 ]
   %.2435 = phi ptr [ %.2536, %422 ], [ %212, %380 ]
   %.24 = phi i1 [ %.25, %422 ], [ false, %380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -11357,7 +11357,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %424
 
 424:                                              ; preds = %423, %378
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %379, %378 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %379, %378 ]
   %.2233 = phi ptr [ %.2435, %423 ], [ %206, %378 ]
   %.22 = phi i1 [ %.24, %423 ], [ false, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
@@ -11365,7 +11365,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %425
 
 425:                                              ; preds = %424, %376
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %424 ], [ %377, %376 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %424 ], [ %377, %376 ]
   %.2132 = phi ptr [ %.2233, %424 ], [ %206, %376 ]
   %.21 = phi i1 [ %.22, %424 ], [ false, %376 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
@@ -11373,7 +11373,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %426
 
 426:                                              ; preds = %425, %374
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %425 ], [ %375, %374 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %425 ], [ %375, %374 ]
   %.1930 = phi ptr [ %.2132, %425 ], [ %200, %374 ]
   %.19 = phi i1 [ %.21, %425 ], [ false, %374 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
@@ -11381,7 +11381,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %427
 
 427:                                              ; preds = %426, %372
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %426 ], [ %373, %372 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %426 ], [ %373, %372 ]
   %.1829 = phi ptr [ %.1930, %426 ], [ %200, %372 ]
   %.18 = phi i1 [ %.19, %426 ], [ false, %372 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -11389,7 +11389,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %428
 
 428:                                              ; preds = %427, %370
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %427 ], [ %371, %370 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %427 ], [ %371, %370 ]
   %.1627 = phi ptr [ %.1829, %427 ], [ %194, %370 ]
   %.16 = phi i1 [ %.18, %427 ], [ false, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
@@ -11397,7 +11397,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %429
 
 429:                                              ; preds = %428, %368
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %428 ], [ %369, %368 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %428 ], [ %369, %368 ]
   %.1526 = phi ptr [ %.1627, %428 ], [ %194, %368 ]
   %.15 = phi i1 [ %.16, %428 ], [ false, %368 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
@@ -11405,7 +11405,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %430
 
 430:                                              ; preds = %429, %366
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %429 ], [ %367, %366 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %429 ], [ %367, %366 ]
   %.1324 = phi ptr [ %.1526, %429 ], [ %188, %366 ]
   %.13 = phi i1 [ %.15, %429 ], [ false, %366 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -11413,7 +11413,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %431
 
 431:                                              ; preds = %430, %364
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %430 ], [ %365, %364 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %430 ], [ %365, %364 ]
   %.1223 = phi ptr [ %.1324, %430 ], [ %188, %364 ]
   %.12 = phi i1 [ %.13, %430 ], [ false, %364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -11421,7 +11421,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %432
 
 432:                                              ; preds = %431, %362
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %431 ], [ %363, %362 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %431 ], [ %363, %362 ]
   %.1021 = phi ptr [ %.1223, %431 ], [ %182, %362 ]
   %.10 = phi i1 [ %.12, %431 ], [ false, %362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -11429,7 +11429,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %433
 
 433:                                              ; preds = %432, %360
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %432 ], [ %361, %360 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %432 ], [ %361, %360 ]
   %.920 = phi ptr [ %.1021, %432 ], [ %182, %360 ]
   %.9 = phi i1 [ %.10, %432 ], [ false, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -11437,7 +11437,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %434
 
 434:                                              ; preds = %433, %358
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %433 ], [ %359, %358 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %433 ], [ %359, %358 ]
   %.718 = phi ptr [ %.920, %433 ], [ %176, %358 ]
   %.7 = phi i1 [ %.9, %433 ], [ false, %358 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
@@ -11445,7 +11445,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %435
 
 435:                                              ; preds = %434, %356
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %434 ], [ %357, %356 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %434 ], [ %357, %356 ]
   %.617 = phi ptr [ %.718, %434 ], [ %176, %356 ]
   %.6 = phi i1 [ %.7, %434 ], [ false, %356 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -11453,7 +11453,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %436
 
 436:                                              ; preds = %435, %354
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %435 ], [ %355, %354 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %435 ], [ %355, %354 ]
   %.415 = phi ptr [ %.617, %435 ], [ %170, %354 ]
   %.4 = phi i1 [ %.6, %435 ], [ false, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -11461,7 +11461,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br label %437
 
 437:                                              ; preds = %436, %352
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %436 ], [ %353, %352 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %436 ], [ %353, %352 ]
   %.314 = phi ptr [ %.415, %436 ], [ %170, %352 ]
   %.3 = phi i1 [ %.4, %436 ], [ false, %352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -11481,21 +11481,21 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
   br i1 %441, label %.loopexit, label %.preheader
 
 .loopexit.sink.split:                             ; preds = %.thread66, %.thread72
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71.ph = phi { ptr, i32 } [ %351, %.thread72 ], [ %350, %.thread66 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71.ph = phi { ptr, i32 } [ %351, %.thread72 ], [ %350, %.thread66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %437
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71 = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %437 ], [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71.ph, %.loopexit.sink.split ], [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71 = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %437 ], [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71.ph, %.loopexit.sink.split ], [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %442
 
 442:                                              ; preds = %.loopexit, %.loopexit78
   %_ZGVZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbE9bram2_map.sink = phi ptr [ @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbE9bram2_map, %.loopexit ], [ @_ZGVZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbE9bram1_map, %.loopexit78 ]
-  %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn60, %.loopexit78 ]
+  %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn71, %.loopexit ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn60, %.loopexit78 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN12_GLOBAL__N_117QlBramMergeWorker8port_mapEbE9bram2_map.sink) #23
-  resume { ptr, i32 } %.pn304.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn302.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL4Cell7hasPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0

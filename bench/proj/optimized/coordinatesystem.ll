@@ -6162,26 +6162,26 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   store ptr %24, ptr %22, align 8, !tbaa !27
-  %.not.i.i.i.i12 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, label %25
+  %.not.i.i.i.i10 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i10, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, label %25
 
 25:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i13 = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i13, label %31, label %28
+  %.not.i.i.i.i.i11 = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i11, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %26, align 4, !tbaa !72
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load ptr, ptr %4, align 8, !tbaa !69
   store ptr %34, ptr %33, align 8, !tbaa !69
@@ -6189,32 +6189,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   store ptr %37, ptr %35, align 8, !tbaa !27
-  %.not.i.i.i.i15 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i15, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17, label %38
+  %.not.i.i.i.i13 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i13, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15, label %38
 
-38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i16 = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i16, label %44, label %41
+  %.not.i.i.i.i.i14 = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i14, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %39, align 4, !tbaa !72
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %39, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
 44:                                               ; preds = %38
   %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, %41, %44
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, %41, %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %47 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc unwind label %95
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   store ptr %47, ptr %6, align 8, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6292,8 +6292,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 83:                                               ; preds = %70
   %84 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i18 = icmp eq i8 %84, 0
-  br i1 %.not.i.i.i.i18, label %87, label %85
+  %.not.i.i.i.i16 = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i16, label %87, label %85
 
 85:                                               ; preds = %83
   %86 = add nsw i32 %74, -1
@@ -6327,7 +6327,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %106 unwind label %104
 
-95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -6413,8 +6413,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %116, %.lr.ph.i.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i19 = icmp eq ptr %132, %108
-  br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i17 = icmp eq ptr %132, %108
+  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !131
@@ -6422,8 +6422,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %106
   %133 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %107, %106 ]
-  %.not.i.i.i20 = icmp eq ptr %133, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
+  %.not.i.i.i18 = icmp eq ptr %133, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
 
 134:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %135 = load ptr, ptr %49, align 8, !tbaa !132
@@ -6695,32 +6695,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   store ptr %23, ptr %21, align 8, !tbaa !27
-  %.not.i.i.i.i11 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i11, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13, label %24
+  %.not.i.i.i.i9 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i9, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11, label %24
 
 24:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i12 = icmp eq i8 %26, 0
-  br i1 %.not.i.i.i.i.i12, label %30, label %27
+  %.not.i.i.i.i.i10 = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i10, label %30, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %25, align 4, !tbaa !72
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %25, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
 30:                                               ; preds = %24
   %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   store ptr %33, ptr %5, align 8, !tbaa !131
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6798,8 +6798,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 69:                                               ; preds = %56
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i14 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i.i14, label %73, label %71
+  %.not.i.i.i.i12 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i12, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
@@ -6833,7 +6833,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %92 unwind label %90
 
-81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -6919,8 +6919,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %102, %.lr.ph.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i15 = icmp eq ptr %118, %94
-  br i1 %.not.i.i.i.i15, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i13 = icmp eq ptr %118, %94
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !131
@@ -6928,8 +6928,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %92
   %119 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %93, %92 ]
-  %.not.i.i.i16 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
+  %.not.i.i.i14 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
 
 120:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %121 = load ptr, ptr %35, align 8, !tbaa !132
@@ -7058,32 +7058,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   store ptr %23, ptr %21, align 8, !tbaa !27
-  %.not.i.i.i.i11 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i11, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13, label %24
+  %.not.i.i.i.i9 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i9, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11, label %24
 
 24:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i12 = icmp eq i8 %26, 0
-  br i1 %.not.i.i.i.i.i12, label %30, label %27
+  %.not.i.i.i.i.i10 = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i10, label %30, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %25, align 4, !tbaa !72
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %25, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
 30:                                               ; preds = %24
   %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   store ptr %33, ptr %5, align 8, !tbaa !131
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7161,8 +7161,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 69:                                               ; preds = %56
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i14 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i.i14, label %73, label %71
+  %.not.i.i.i.i12 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i12, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
@@ -7196,7 +7196,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %92 unwind label %90
 
-81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -7282,8 +7282,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %102, %.lr.ph.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i15 = icmp eq ptr %118, %94
-  br i1 %.not.i.i.i.i15, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i13 = icmp eq ptr %118, %94
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !131
@@ -7291,8 +7291,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %92
   %119 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %93, %92 ]
-  %.not.i.i.i16 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
+  %.not.i.i.i14 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
 
 120:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %121 = load ptr, ptr %35, align 8, !tbaa !132
@@ -7478,26 +7478,26 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   store ptr %24, ptr %22, align 8, !tbaa !27
-  %.not.i.i.i.i12 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, label %25
+  %.not.i.i.i.i10 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i10, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, label %25
 
 25:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i13 = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i13, label %31, label %28
+  %.not.i.i.i.i.i11 = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i11, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %26, align 4, !tbaa !72
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load ptr, ptr %4, align 8, !tbaa !69
   store ptr %34, ptr %33, align 8, !tbaa !69
@@ -7505,32 +7505,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   store ptr %37, ptr %35, align 8, !tbaa !27
-  %.not.i.i.i.i15 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i15, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17, label %38
+  %.not.i.i.i.i13 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i13, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15, label %38
 
-38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i16 = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i16, label %44, label %41
+  %.not.i.i.i.i.i14 = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i14, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %39, align 4, !tbaa !72
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %39, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
 44:                                               ; preds = %38
   %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, %41, %44
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, %41, %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %47 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc unwind label %95
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   store ptr %47, ptr %6, align 8, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7608,8 +7608,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 83:                                               ; preds = %70
   %84 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i18 = icmp eq i8 %84, 0
-  br i1 %.not.i.i.i.i18, label %87, label %85
+  %.not.i.i.i.i16 = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i16, label %87, label %85
 
 85:                                               ; preds = %83
   %86 = add nsw i32 %74, -1
@@ -7643,7 +7643,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %106 unwind label %104
 
-95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -7729,8 +7729,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %116, %.lr.ph.i.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i19 = icmp eq ptr %132, %108
-  br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i17 = icmp eq ptr %132, %108
+  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !131
@@ -7738,8 +7738,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %106
   %133 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %107, %106 ]
-  %.not.i.i.i20 = icmp eq ptr %133, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
+  %.not.i.i.i18 = icmp eq ptr %133, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
 
 134:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %135 = load ptr, ptr %49, align 8, !tbaa !132
@@ -9843,8 +9843,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %41, %.lr.ph.i.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i6 = icmp eq ptr %.05.i.i.i.i, %17
-  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i5 = icmp eq ptr %.05.i.i.i.i, %17
+  br i1 %.not.i.i.i.i5, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !131
@@ -9866,8 +9866,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i, %59
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !27
-  %.not.i.i.i7 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i7, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %66
+  %.not.i.i.i6 = icmp eq ptr %65, null
+  br i1 %.not.i.i.i6, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -9892,8 +9892,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 
 79:                                               ; preds = %66
   %80 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i8 = icmp eq i8 %80, 0
-  br i1 %.not.i.i.i.i8, label %83, label %81
+  %.not.i.i.i.i7 = icmp eq i8 %80, 0
+  br i1 %.not.i.i.i.i7, label %83, label %81
 
 81:                                               ; preds = %79
   %82 = add nsw i32 %70, -1
@@ -10519,32 +10519,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   store ptr %23, ptr %21, align 8, !tbaa !27
-  %.not.i.i.i.i11 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i11, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13, label %24
+  %.not.i.i.i.i9 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i9, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11, label %24
 
 24:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i12 = icmp eq i8 %26, 0
-  br i1 %.not.i.i.i.i.i12, label %30, label %27
+  %.not.i.i.i.i.i10 = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i10, label %30, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %25, align 4, !tbaa !72
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %25, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
 30:                                               ; preds = %24
   %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   store ptr %33, ptr %5, align 8, !tbaa !131
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -10622,8 +10622,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 69:                                               ; preds = %56
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i14 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i.i14, label %73, label %71
+  %.not.i.i.i.i12 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i12, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
@@ -10657,7 +10657,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %92 unwind label %90
 
-81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -10743,8 +10743,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %102, %.lr.ph.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i15 = icmp eq ptr %118, %94
-  br i1 %.not.i.i.i.i15, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i13 = icmp eq ptr %118, %94
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !131
@@ -10752,8 +10752,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %92
   %119 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %93, %92 ]
-  %.not.i.i.i16 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
+  %.not.i.i.i14 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
 
 120:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %121 = load ptr, ptr %35, align 8, !tbaa !132
@@ -10939,26 +10939,26 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   store ptr %24, ptr %22, align 8, !tbaa !27
-  %.not.i.i.i.i12 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, label %25
+  %.not.i.i.i.i10 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i10, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, label %25
 
 25:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i13 = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i13, label %31, label %28
+  %.not.i.i.i.i.i11 = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i11, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %26, align 4, !tbaa !72
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load ptr, ptr %4, align 8, !tbaa !69
   store ptr %34, ptr %33, align 8, !tbaa !69
@@ -10966,32 +10966,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   store ptr %37, ptr %35, align 8, !tbaa !27
-  %.not.i.i.i.i15 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i15, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17, label %38
+  %.not.i.i.i.i13 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i13, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15, label %38
 
-38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i16 = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i16, label %44, label %41
+  %.not.i.i.i.i.i14 = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i14, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %39, align 4, !tbaa !72
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %39, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
 44:                                               ; preds = %38
   %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, %41, %44
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, %41, %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %47 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc unwind label %95
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   store ptr %47, ptr %6, align 8, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11069,8 +11069,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 83:                                               ; preds = %70
   %84 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i18 = icmp eq i8 %84, 0
-  br i1 %.not.i.i.i.i18, label %87, label %85
+  %.not.i.i.i.i16 = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i16, label %87, label %85
 
 85:                                               ; preds = %83
   %86 = add nsw i32 %74, -1
@@ -11104,7 +11104,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %106 unwind label %104
 
-95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -11190,8 +11190,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %116, %.lr.ph.i.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i19 = icmp eq ptr %132, %108
-  br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i17 = icmp eq ptr %132, %108
+  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !131
@@ -11199,8 +11199,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %106
   %133 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %107, %106 ]
-  %.not.i.i.i20 = icmp eq ptr %133, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
+  %.not.i.i.i18 = icmp eq ptr %133, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
 
 134:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %135 = load ptr, ptr %49, align 8, !tbaa !132
@@ -14079,32 +14079,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   store ptr %23, ptr %21, align 8, !tbaa !27
-  %.not.i.i.i.i11 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i11, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13, label %24
+  %.not.i.i.i.i9 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i9, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11, label %24
 
 24:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i12 = icmp eq i8 %26, 0
-  br i1 %.not.i.i.i.i.i12, label %30, label %27
+  %.not.i.i.i.i.i10 = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i10, label %30, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %25, align 4, !tbaa !72
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %25, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
 30:                                               ; preds = %24
   %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %27, %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %.noexc unwind label %81
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   store ptr %33, ptr %5, align 8, !tbaa !131
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -14182,8 +14182,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 69:                                               ; preds = %56
   %70 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i14 = icmp eq i8 %70, 0
-  br i1 %.not.i.i.i.i14, label %73, label %71
+  %.not.i.i.i.i12 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i12, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
@@ -14217,7 +14217,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %92 unwind label %90
 
-81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit13
+81:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit11
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %83
@@ -14303,8 +14303,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %117, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %102, %.lr.ph.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i15 = icmp eq ptr %118, %94
-  br i1 %.not.i.i.i.i15, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i13 = icmp eq ptr %118, %94
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !131
@@ -14312,8 +14312,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %92
   %119 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %93, %92 ]
-  %.not.i.i.i16 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
+  %.not.i.i.i14 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %120
 
 120:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %121 = load ptr, ptr %35, align 8, !tbaa !132
@@ -14499,26 +14499,26 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   store ptr %24, ptr %22, align 8, !tbaa !27
-  %.not.i.i.i.i12 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, label %25
+  %.not.i.i.i.i10 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i10, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, label %25
 
 25:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i13 = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i13, label %31, label %28
+  %.not.i.i.i.i.i11 = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i11, label %31, label %28
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %26, align 4, !tbaa !72
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %26, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
 31:                                               ; preds = %25
   %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit, %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load ptr, ptr %4, align 8, !tbaa !69
   store ptr %34, ptr %33, align 8, !tbaa !69
@@ -14526,32 +14526,32 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   store ptr %37, ptr %35, align 8, !tbaa !27
-  %.not.i.i.i.i15 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i15, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17, label %38
+  %.not.i.i.i.i13 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i13, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15, label %38
 
-38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14
+38:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i.i16 = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i16, label %44, label %41
+  %.not.i.i.i.i.i14 = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i14, label %44, label %41
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %39, align 4, !tbaa !72
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %39, align 4, !tbaa !72
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
 44:                                               ; preds = %38
   %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
-  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+  br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
 
-_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit14, %41, %44
+_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit12, %41, %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %47 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %.noexc unwind label %95
 
-.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+.noexc:                                           ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   store ptr %47, ptr %6, align 8, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -14629,8 +14629,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 
 83:                                               ; preds = %70
   %84 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i18 = icmp eq i8 %84, 0
-  br i1 %.not.i.i.i.i18, label %87, label %85
+  %.not.i.i.i.i16 = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i16, label %87, label %85
 
 85:                                               ; preds = %83
   %86 = add nsw i32 %74, -1
@@ -14664,7 +14664,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   invoke void @_ZN5osgeo4proj6common16IdentifiedObject13setPropertiesERKNS0_4util11PropertyMapE(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %106 unwind label %104
 
-95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit17
+95:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit15
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %97
@@ -14750,8 +14750,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %116, %.lr.ph.i.i.i.i
   %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i19 = icmp eq ptr %132, %108
-  br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i17 = icmp eq ptr %132, %108
+  br i1 %.not.i.i.i.i17, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !131
@@ -14759,8 +14759,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %106
   %133 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %107, %106 ]
-  %.not.i.i.i20 = icmp eq ptr %133, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
+  %.not.i.i.i18 = icmp eq ptr %133, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit, label %134
 
 134:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i
   %135 = load ptr, ptr %49, align 8, !tbaa !132
@@ -15596,8 +15596,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %43, %.lr.ph.i.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i11 = icmp eq ptr %59, %35
-  br i1 %.not.i.i.i.i11, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i9 = icmp eq ptr %59, %35
+  br i1 %.not.i.i.i.i9, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %4, align 8, !tbaa !131
@@ -15619,8 +15619,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i, %61
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !27
-  %.not.i.i.i12 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i12, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %68
+  %.not.i.i.i10 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i10, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %68
 
 68:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -15645,8 +15645,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 
 81:                                               ; preds = %68
   %82 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i13 = icmp eq i8 %82, 0
-  br i1 %.not.i.i.i.i13, label %85, label %83
+  %.not.i.i.i.i11 = icmp eq i8 %82, 0
+  br i1 %.not.i.i.i.i11, label %85, label %83
 
 83:                                               ; preds = %81
   %84 = add nsw i32 %72, -1
@@ -15701,8 +15701,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
   ret void
 
 98:                                               ; preds = %95, %94
-  %.pn9 = phi { ptr, i32 } [ %96, %95 ], [ %.pn, %94 ]
-  resume { ptr, i32 } %.pn9
+  %.pn7 = phi { ptr, i32 } [ %96, %95 ], [ %.pn, %94 ]
+  resume { ptr, i32 } %.pn7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16885,8 +16885,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i: ; preds = %56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %41, %.lr.ph.i.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i6 = icmp eq ptr %.05.i.i.i.i, %17
-  br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  %.not.i.i.i.i5 = icmp eq ptr %.05.i.i.i.i, %17
+  br i1 %.not.i.i.i.i5, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %3, align 8, !tbaa !131
@@ -16908,8 +16908,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSys
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEES9_EvT_SB_RSaIT0_E.exit.i, %59
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !27
-  %.not.i.i.i7 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i7, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %66
+  %.not.i.i.i6 = icmp eq ptr %65, null
+  br i1 %.not.i.i.i6, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2Ev.exit, label %66
 
 66:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEESaIS9_EED2Ev.exit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -16934,8 +16934,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 
 79:                                               ; preds = %66
   %80 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36
-  %.not.i.i.i.i8 = icmp eq i8 %80, 0
-  br i1 %.not.i.i.i.i8, label %83, label %81
+  %.not.i.i.i.i7 = icmp eq i8 %80, 0
+  br i1 %.not.i.i.i.i7, label %83, label %81
 
 81:                                               ; preds = %79
   %82 = add nsw i32 %70, -1

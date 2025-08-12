@@ -3007,9 +3007,9 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(96) %42, i32 noundef -1)
-          to label %54 unwind label %.body43
+          to label %54 unwind label %.body42
 
-.body43:                                          ; preds = %48
+.body42:                                          ; preds = %48
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #32
@@ -3096,8 +3096,8 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
           cleanup
   br label %.body
 
-.body:                                            ; preds = %79, %.body43
-  %.pn31 = phi { ptr, i32 } [ %53, %.body43 ], [ %80, %79 ]
+.body:                                            ; preds = %79, %.body42
+  %.pn30 = phi { ptr, i32 } [ %53, %.body42 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3118,7 +3118,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
   br label %85
 
 85:                                               ; preds = %83, %81
-  %.pn36.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
+  %.pn35.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 192
   br label %87
 
@@ -3130,15 +3130,15 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl10compu
   br i1 %90, label %.loopexit, label %87
 
 .loopexit:                                        ; preds = %87, %.body, %.body.thread
-  %.pn36.pn.pn.pn = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn31, %.body ], [ %.pn36.pn.pn, %87 ]
+  %.pn35.pn.pn.pn = phi { ptr, i32 } [ %40, %.body.thread ], [ %.pn30, %.body ], [ %.pn35.pn.pn, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 
 91:                                               ; preds = %75, %77, %.loopexit, %73
-  %.pn36.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn36.pn.pn.pn, %.loopexit ], [ %78, %77 ], [ %76, %75 ]
+  %.pn35.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn35.pn.pn.pn, %.loopexit ], [ %78, %77 ], [ %76, %75 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn35.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3979,7 +3979,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %56
   br label %93
 
 93:                                               ; preds = %91, %89
-  %.pn33 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
+  %.pn31 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %96
@@ -3992,7 +3992,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %56
   br label %96
 
 96:                                               ; preds = %94, %93, %87, %85, %83, %81
-  %.pn35.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn33, %93 ], [ %88, %87 ], [ %86, %85 ], [ %82, %81 ], [ %84, %83 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn31, %93 ], [ %88, %87 ], [ %86, %85 ], [ %82, %81 ], [ %84, %83 ]
   br label %97
 
 97:                                               ; preds = %97, %96
@@ -4004,7 +4004,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %56
 
 101:                                              ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %.pn35.pn.pn
+  resume { ptr, i32 } %.pn33.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4396,13 +4396,13 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl17compu
 
 25:                                               ; preds = %22, %21
   invoke void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull %5)
-          to label %.preheader37 unwind label %23
+          to label %.preheader36 unwind label %23
 
-.preheader37:                                     ; preds = %25
+.preheader36:                                     ; preds = %25
   %26 = icmp sgt i32 %17, 0
-  br i1 %26, label %.preheader36.lr.ph, label %.preheader.preheader
+  br i1 %26, label %.preheader35.lr.ph, label %.preheader.preheader
 
-.preheader36.lr.ph:                               ; preds = %.preheader37
+.preheader35.lr.ph:                               ; preds = %.preheader36
   %27 = icmp sgt i32 %19, 0
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 168
@@ -4410,35 +4410,35 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl17compu
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  br i1 %27, label %.preheader36.lr.ph.split.us, label %.preheader.preheader
+  br i1 %27, label %.preheader35.lr.ph.split.us, label %.preheader.preheader
 
-.preheader36.lr.ph.split.us:                      ; preds = %.preheader36.lr.ph
+.preheader35.lr.ph.split.us:                      ; preds = %.preheader35.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = load ptr, ptr %34, align 8, !tbaa !47
   %38 = load i64, ptr %37, align 8, !tbaa !48
-  %wide.trip.count45 = zext nneg i32 %17 to i64
+  %wide.trip.count44 = zext nneg i32 %17 to i64
   %wide.trip.count = zext nneg i32 %19 to i64
   %39 = load ptr, ptr %32, align 8, !tbaa !38
   %40 = load ptr, ptr %33, align 8, !tbaa !47
   %41 = load i64, ptr %40, align 8, !tbaa !48
-  br label %.preheader36.us
+  br label %.preheader35.us
 
-.preheader36.us:                                  ; preds = %._crit_edge.us, %.preheader36.lr.ph.split.us
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us ], [ 0, %.preheader36.lr.ph.split.us ]
-  %42 = mul i64 %38, %indvars.iv42
+.preheader35.us:                                  ; preds = %._crit_edge.us, %.preheader35.lr.ph.split.us
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us ], [ 0, %.preheader35.lr.ph.split.us ]
+  %42 = mul i64 %38, %indvars.iv41
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 %42
   %44 = load ptr, ptr %28, align 16
   %45 = load ptr, ptr %29, align 8
   %46 = load ptr, ptr %30, align 16
   %47 = load ptr, ptr %31, align 8
-  %48 = mul i64 %41, %indvars.iv42
+  %48 = mul i64 %41, %indvars.iv41
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 %48
   br label %50
 
-50:                                               ; preds = %.preheader36.us, %68
-  %indvars.iv = phi i64 [ 0, %.preheader36.us ], [ %indvars.iv.next, %68 ]
+50:                                               ; preds = %.preheader35.us, %68
+  %indvars.iv = phi i64 [ 0, %.preheader35.us ], [ %indvars.iv.next, %68 ]
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1, !tbaa !50
   %.not.us = icmp eq i8 %52, 0
@@ -4446,12 +4446,12 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl17compu
 
 53:                                               ; preds = %50
   %54 = load i64, ptr %45, align 8, !tbaa !48
-  %55 = mul i64 %54, %indvars.iv42
+  %55 = mul i64 %54, %indvars.iv41
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 %55
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !123
   %59 = load i64, ptr %47, align 8, !tbaa !48
-  %60 = mul i64 %59, %indvars.iv42
+  %60 = mul i64 %59, %indvars.iv41
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 %60
   %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %63 = load float, ptr %62, align 4, !tbaa !123
@@ -4470,11 +4470,11 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl17compu
   br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !139
 
 ._crit_edge.us:                                   ; preds = %68
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %.preheader.preheader, label %.preheader36.us, !llvm.loop !140
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
+  br i1 %exitcond45.not, label %.preheader.preheader, label %.preheader35.us, !llvm.loop !140
 
-.preheader.preheader:                             ; preds = %._crit_edge.us, %.preheader36.lr.ph, %.preheader37
+.preheader.preheader:                             ; preds = %._crit_edge.us, %.preheader35.lr.ph, %.preheader36
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
