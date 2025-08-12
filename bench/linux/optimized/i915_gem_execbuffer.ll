@@ -8048,10 +8048,10 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 496
   br label %261
 
-261:                                              ; preds = %431, %231
-  %262 = phi i64 [ %247, %231 ], [ %433, %431 ]
-  %263 = phi i64 [ %248, %231 ], [ %432, %431 ]
-  %264 = phi i1 [ %251, %231 ], [ false, %431 ]
+261:                                              ; preds = %430, %231
+  %262 = phi i64 [ %247, %231 ], [ %432, %430 ]
+  %263 = phi i64 [ %248, %231 ], [ %431, %430 ]
+  %264 = phi i1 [ %251, %231 ], [ false, %430 ]
   %265 = lshr i64 %263, 12
   %266 = load i64, ptr %253, align 8
   %267 = icmp eq i64 %266, %265
@@ -8061,7 +8061,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
 269:                                              ; preds = %261
   %270 = and i64 %268, -4096
   %271 = inttoptr i64 %270 to ptr
-  br label %409
+  br label %.thread22.thread28
 
 272:                                              ; preds = %261
   %273 = and i64 %268, 4
@@ -8107,7 +8107,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %299 = load i32, ptr %298, align 8
   %300 = and i32 %299, 127
   %301 = icmp eq i32 %300, 0
-  br i1 %301, label %302, label %.thread29
+  br i1 %301, label %302, label %.thread22.thread28.thread
 
 302:                                              ; preds = %297
   %303 = call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %275) #13
@@ -8155,7 +8155,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
 329:                                              ; preds = %321, %327
   %330 = call ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %275, ptr noundef nonnull %257, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 13) #13
   %331 = icmp eq ptr %330, inttoptr (i64 -35 to ptr)
-  br i1 %331, label %.thread29, label %332
+  br i1 %331, label %.thread22.thread28.thread, label %332
 
 332:                                              ; preds = %329
   %333 = icmp ugt ptr %330, inttoptr (i64 -4096 to ptr)
@@ -8229,7 +8229,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
 .thread22:                                        ; preds = %318, %363
   %374 = phi ptr [ %372, %363 ], [ %320, %318 ]
   %375 = icmp eq ptr %374, null
-  br i1 %375, label %.thread22.thread, label %409
+  br i1 %375, label %.thread22.thread, label %.thread22.thread28
 
 .thread22.thread:                                 ; preds = %313, %.thread20, %304, %308, %.thread22
   %.pr = load i64, ptr %254, align 8
@@ -8265,7 +8265,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %388 = sext i32 %379 to i64
   %389 = inttoptr i64 %388 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %409
+  br label %.thread22.thread28
 
 .thread24:                                        ; preds = %272, %.thread26, %.thread22.thread
   %390 = phi ptr [ %376, %.thread22.thread ], [ %376, %.thread26 ], [ %275, %272 ]
@@ -8293,66 +8293,66 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %408 = or i64 %407, %404
   store i64 %408, ptr %254, align 8
   store i64 %265, ptr %253, align 8
-  br label %409
+  br label %.thread22.thread28
 
-409:                                              ; preds = %387, %398, %.thread22, %269
-  %410 = phi ptr [ %271, %269 ], [ %374, %.thread22 ], [ %405, %398 ], [ %389, %387 ]
-  %411 = icmp ugt ptr %410, inttoptr (i64 -4096 to ptr)
-  br i1 %411, label %.thread29, label %414
+.thread22.thread28:                               ; preds = %387, %398, %.thread22, %269
+  %409 = phi ptr [ %271, %269 ], [ %374, %.thread22 ], [ %405, %398 ], [ %389, %387 ]
+  %410 = icmp ugt ptr %409, inttoptr (i64 -4096 to ptr)
+  br i1 %410, label %.thread22.thread28.thread, label %413
 
-.thread29:                                        ; preds = %297, %329, %409
-  %412 = phi ptr [ %410, %409 ], [ inttoptr (i64 -35 to ptr), %329 ], [ inttoptr (i64 -22 to ptr), %297 ]
-  %413 = ptrtoint ptr %412 to i64
+.thread22.thread28.thread:                        ; preds = %297, %329, %.thread22.thread28
+  %411 = phi ptr [ %409, %.thread22.thread28 ], [ inttoptr (i64 -22 to ptr), %297 ], [ inttoptr (i64 -35 to ptr), %329 ]
+  %412 = ptrtoint ptr %411 to i64
   br label %.thread
 
-414:                                              ; preds = %409
-  %415 = and i64 %263, 4095
-  %416 = getelementptr i8, ptr %410, i64 %415
-  %417 = trunc i64 %262 to i32
-  %418 = load i64, ptr %254, align 8
-  %419 = and i64 %418, 3
-  %420 = icmp eq i64 %419, 0
-  br i1 %420, label %429, label %421, !prof !11
+413:                                              ; preds = %.thread22.thread28
+  %414 = and i64 %263, 4095
+  %415 = getelementptr i8, ptr %409, i64 %414
+  %416 = trunc i64 %262 to i32
+  %417 = load i64, ptr %254, align 8
+  %418 = and i64 %417, 3
+  %419 = icmp eq i64 %418, 0
+  br i1 %419, label %428, label %420, !prof !11
 
-421:                                              ; preds = %414
-  %422 = and i64 %418, 1
-  %423 = icmp eq i64 %422, 0
-  br i1 %423, label %425, label %424
+420:                                              ; preds = %413
+  %421 = and i64 %417, 1
+  %422 = icmp eq i64 %421, 0
+  br i1 %422, label %424, label %423
 
-424:                                              ; preds = %421
-  call void @drm_clflush_virt_range(ptr noundef %416, i64 noundef 4) #13
-  br label %425
+423:                                              ; preds = %420
+  call void @drm_clflush_virt_range(ptr noundef %415, i64 noundef 4) #13
+  br label %424
 
-425:                                              ; preds = %424, %421
-  store i32 %417, ptr %416, align 4
-  %426 = and i64 %418, 2
-  %427 = icmp eq i64 %426, 0
-  br i1 %427, label %430, label %428
+424:                                              ; preds = %423, %420
+  store i32 %416, ptr %415, align 4
+  %425 = and i64 %417, 2
+  %426 = icmp eq i64 %425, 0
+  br i1 %426, label %429, label %427
 
-428:                                              ; preds = %425
-  call void @drm_clflush_virt_range(ptr noundef %416, i64 noundef 4) #13
-  br label %430
+427:                                              ; preds = %424
+  call void @drm_clflush_virt_range(ptr noundef %415, i64 noundef 4) #13
+  br label %429
 
-429:                                              ; preds = %414
-  store i32 %417, ptr %416, align 4
-  br label %430
+428:                                              ; preds = %413
+  store i32 %416, ptr %415, align 4
+  br label %429
 
-430:                                              ; preds = %429, %428, %425
-  br i1 %264, label %431, label %434
+429:                                              ; preds = %428, %427, %424
+  br i1 %264, label %430, label %433
 
-431:                                              ; preds = %430
-  %432 = add i64 %263, 4
-  %433 = lshr i64 %262, 32
+430:                                              ; preds = %429
+  %431 = add i64 %263, 4
+  %432 = lshr i64 %262, 32
   br label %261
 
-434:                                              ; preds = %430
-  %435 = load i64, ptr %239, align 8
-  %436 = or i64 %435, 128
+433:                                              ; preds = %429
+  %434 = load i64, ptr %239, align 8
+  %435 = or i64 %434, 128
   br label %.thread
 
-.thread:                                          ; preds = %32, %15, %11, %434, %.thread29, %227, %214, %183, %180, %72, %54, %39
-  %437 = phi i64 [ -22, %54 ], [ -22, %72 ], [ -22, %214 ], [ -22, %227 ], [ %182, %180 ], [ -2, %39 ], [ 0, %183 ], [ %413, %.thread29 ], [ %436, %434 ], [ -2, %11 ], [ -2, %15 ], [ -2, %32 ]
-  ret i64 %437
+.thread:                                          ; preds = %32, %15, %11, %433, %.thread22.thread28.thread, %227, %214, %183, %180, %72, %54, %39
+  %436 = phi i64 [ -22, %54 ], [ -22, %72 ], [ -22, %214 ], [ -22, %227 ], [ %182, %180 ], [ -2, %39 ], [ 0, %183 ], [ %412, %.thread22.thread28.thread ], [ %435, %433 ], [ -2, %11 ], [ -2, %15 ], [ -2, %32 ]
+  ret i64 %436
 }
 
 ; Function Attrs: null_pointer_is_valid

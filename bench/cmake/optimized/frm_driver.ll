@@ -2560,7 +2560,7 @@ define internal i32 @Field_Editing(ptr noundef readonly captures(address) %0, pt
   br label %47
 
 34:                                               ; preds = %28, %24, %20
-  %35 = tail call i32 @FE_New_Line(ptr noundef nonnull %1)
+  %35 = tail call i32 %0(ptr noundef nonnull %1) #13
   br label %47
 
 .thread:                                          ; preds = %4, %8, %12, %18

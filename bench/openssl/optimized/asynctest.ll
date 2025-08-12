@@ -62,7 +62,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
 29:                                               ; preds = %2
   %30 = load ptr, ptr @stderr, align 8, !tbaa !4
   %31 = tail call i64 @fwrite(ptr nonnull @.str, i64 58, i64 1, ptr %30) #6
-  br label %268
+  br label %270
 
 32:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -139,7 +139,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %269
+  br label %271
 
 test_ASYNC_init_thread.exit:                      ; preds = %49
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %35) #5
@@ -156,17 +156,17 @@ test_ASYNC_init_thread.exit:                      ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %60 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %.not.i9 = icmp eq i32 %60, 0
-  br i1 %.not.i9, label %.critedge47, label %61
+  br i1 %.not.i9, label %.critedge48, label %61
 
 61:                                               ; preds = %test_ASYNC_init_thread.exit
   %62 = call ptr @ASYNC_WAIT_CTX_new() #5
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.critedge47, label %64
+  br i1 %63, label %.critedge48, label %64
 
 64:                                               ; preds = %61
   %65 = call i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef nonnull %62, ptr noundef nonnull @test_callback, ptr noundef nonnull %19) #5
   %.not15.i = icmp eq i32 %65, 1
-  br i1 %.not15.i, label %66, label %.critedge47
+  br i1 %.not15.i, label %66, label %.critedge48
 
 66:                                               ; preds = %64
   %67 = call i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef nonnull %62, ptr noundef nonnull %20, ptr noundef nonnull %21) #5
@@ -177,31 +177,35 @@ test_ASYNC_init_thread.exit:                      ; preds = %49
   %71 = load ptr, ptr %21, align 8
   %72 = icmp ne ptr %71, %19
   %or.cond3.i13 = select i1 %or.cond.i12, i1 true, i1 %72
-  br i1 %or.cond3.i13, label %.critedge47, label %73
+  br i1 %or.cond3.i13, label %.critedge48, label %73
 
 73:                                               ; preds = %66
-  %puts.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %74 = call i32 @ASYNC_WAIT_CTX_set_status(ptr noundef nonnull %62, i32 noundef 1) #5
-  %.not17.i14 = icmp eq i32 %74, 1
-  br i1 %.not17.i14, label %75, label %.critedge47
+  %74 = call i32 %69(ptr noundef %71) #5
+  %.not16.i14 = icmp eq i32 %74, 1
+  br i1 %.not16.i14, label %75, label %.critedge48
 
 75:                                               ; preds = %73
-  %76 = call i32 @ASYNC_WAIT_CTX_get_status(ptr noundef nonnull %62) #5
-  %.not18.i15 = icmp eq i32 %76, 1
-  br i1 %.not18.i15, label %test_ASYNC_callback_status.exit, label %.critedge47
+  %76 = call i32 @ASYNC_WAIT_CTX_set_status(ptr noundef nonnull %62, i32 noundef 1) #5
+  %.not17.i15 = icmp eq i32 %76, 1
+  br i1 %.not17.i15, label %77, label %.critedge48
 
-.critedge47:                                      ; preds = %75, %73, %66, %64, %61, %test_ASYNC_init_thread.exit
-  %.011.i = phi ptr [ null, %61 ], [ %62, %64 ], [ %62, %66 ], [ %62, %73 ], [ %62, %75 ], [ null, %test_ASYNC_init_thread.exit ]
-  %77 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %78 = call i64 @fwrite(ptr nonnull @.str.3, i64 36, i64 1, ptr %77) #6
+77:                                               ; preds = %75
+  %78 = call i32 @ASYNC_WAIT_CTX_get_status(ptr noundef nonnull %62) #5
+  %.not18.i16 = icmp eq i32 %78, 1
+  br i1 %.not18.i16, label %test_ASYNC_callback_status.exit, label %.critedge48
+
+.critedge48:                                      ; preds = %77, %75, %73, %66, %64, %61, %test_ASYNC_init_thread.exit
+  %.011.i = phi ptr [ null, %61 ], [ %62, %64 ], [ %62, %66 ], [ %62, %73 ], [ %62, %75 ], [ %62, %77 ], [ null, %test_ASYNC_init_thread.exit ]
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %80 = call i64 @fwrite(ptr nonnull @.str.3, i64 36, i64 1, ptr %79) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.011.i) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %269
+  br label %271
 
-test_ASYNC_callback_status.exit:                  ; preds = %75
+test_ASYNC_callback_status.exit:                  ; preds = %77
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %62) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -211,46 +215,46 @@ test_ASYNC_callback_status.exit:                  ; preds = %75
   store ptr null, ptr %17, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr @ctr, align 4, !tbaa !11
-  %79 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
-  %.not.i16 = icmp eq i32 %79, 0
-  br i1 %.not.i16, label %.critedge48, label %80
+  %81 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
+  %.not.i17 = icmp eq i32 %81, 0
+  br i1 %.not.i17, label %.critedge49, label %82
 
-80:                                               ; preds = %test_ASYNC_callback_status.exit
-  %81 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %.critedge48, label %83
+82:                                               ; preds = %test_ASYNC_callback_status.exit
+  %83 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.critedge49, label %85
 
-83:                                               ; preds = %80
-  %84 = call i32 @ASYNC_start_job(ptr noundef nonnull %17, ptr noundef nonnull %81, ptr noundef nonnull %18, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
-  %85 = icmp ne i32 %84, 2
-  %86 = load i32, ptr @ctr, align 4
-  %87 = icmp ne i32 %86, 1
-  %or.cond.i17 = select i1 %85, i1 true, i1 %87
-  br i1 %or.cond.i17, label %.critedge48, label %88
+85:                                               ; preds = %82
+  %86 = call i32 @ASYNC_start_job(ptr noundef nonnull %17, ptr noundef nonnull %83, ptr noundef nonnull %18, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
+  %87 = icmp ne i32 %86, 2
+  %88 = load i32, ptr @ctr, align 4
+  %89 = icmp ne i32 %88, 1
+  %or.cond.i18 = select i1 %87, i1 true, i1 %89
+  br i1 %or.cond.i18, label %.critedge49, label %90
 
-88:                                               ; preds = %83
-  %89 = call i32 @ASYNC_start_job(ptr noundef nonnull %17, ptr noundef nonnull %81, ptr noundef nonnull %18, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
-  %90 = icmp ne i32 %89, 3
-  %91 = load i32, ptr @ctr, align 4
-  %92 = icmp ne i32 %91, 2
-  %or.cond3.i18 = select i1 %90, i1 true, i1 %92
-  %93 = load i32, ptr %18, align 4
+90:                                               ; preds = %85
+  %91 = call i32 @ASYNC_start_job(ptr noundef nonnull %17, ptr noundef nonnull %83, ptr noundef nonnull %18, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
+  %92 = icmp ne i32 %91, 3
+  %93 = load i32, ptr @ctr, align 4
   %94 = icmp ne i32 %93, 2
-  %or.cond5.i19 = select i1 %or.cond3.i18, i1 true, i1 %94
-  br i1 %or.cond5.i19, label %.critedge48, label %test_ASYNC_start_job.exit
+  %or.cond3.i19 = select i1 %92, i1 true, i1 %94
+  %95 = load i32, ptr %18, align 4
+  %96 = icmp ne i32 %95, 2
+  %or.cond5.i20 = select i1 %or.cond3.i19, i1 true, i1 %96
+  br i1 %or.cond5.i20, label %.critedge49, label %test_ASYNC_start_job.exit
 
-.critedge48:                                      ; preds = %88, %83, %80, %test_ASYNC_callback_status.exit
-  %.0.i21 = phi ptr [ null, %80 ], [ %81, %83 ], [ %81, %88 ], [ null, %test_ASYNC_callback_status.exit ]
-  %95 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %96 = call i64 @fwrite(ptr nonnull @.str.5, i64 30, i64 1, ptr %95) #6
-  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i21) #5
+.critedge49:                                      ; preds = %90, %85, %82, %test_ASYNC_callback_status.exit
+  %.0.i22 = phi ptr [ null, %82 ], [ %83, %85 ], [ %83, %90 ], [ null, %test_ASYNC_callback_status.exit ]
+  %97 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %98 = call i64 @fwrite(ptr nonnull @.str.5, i64 30, i64 1, ptr %97) #6
+  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i22) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %269
+  br label %271
 
-test_ASYNC_start_job.exit:                        ; preds = %88
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %81) #5
+test_ASYNC_start_job.exit:                        ; preds = %90
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %83) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -258,46 +262,46 @@ test_ASYNC_start_job.exit:                        ; preds = %88
   store ptr null, ptr %15, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr @currjob, align 8, !tbaa !9
-  %97 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
-  %.not.i22 = icmp eq i32 %97, 0
-  br i1 %.not.i22, label %.critedge49, label %98
+  %99 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
+  %.not.i23 = icmp eq i32 %99, 0
+  br i1 %.not.i23, label %.critedge50, label %100
 
-98:                                               ; preds = %test_ASYNC_start_job.exit
-  %99 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %.critedge49, label %101
+100:                                              ; preds = %test_ASYNC_start_job.exit
+  %101 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %.critedge50, label %103
 
-101:                                              ; preds = %98
-  %102 = call i32 @ASYNC_start_job(ptr noundef nonnull %15, ptr noundef nonnull %99, ptr noundef nonnull %16, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
-  %.not7.i = icmp eq i32 %102, 2
-  br i1 %.not7.i, label %103, label %.critedge49
+103:                                              ; preds = %100
+  %104 = call i32 @ASYNC_start_job(ptr noundef nonnull %15, ptr noundef nonnull %101, ptr noundef nonnull %16, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
+  %.not7.i = icmp eq i32 %104, 2
+  br i1 %.not7.i, label %105, label %.critedge50
 
-103:                                              ; preds = %101
-  %104 = load ptr, ptr @currjob, align 8, !tbaa !9
-  %105 = load ptr, ptr %15, align 8, !tbaa !9
-  %.not8.i = icmp eq ptr %104, %105
-  br i1 %.not8.i, label %106, label %.critedge49
+105:                                              ; preds = %103
+  %106 = load ptr, ptr @currjob, align 8, !tbaa !9
+  %107 = load ptr, ptr %15, align 8, !tbaa !9
+  %.not8.i = icmp eq ptr %106, %107
+  br i1 %.not8.i, label %108, label %.critedge50
 
-106:                                              ; preds = %103
-  %107 = call i32 @ASYNC_start_job(ptr noundef nonnull %15, ptr noundef nonnull %99, ptr noundef nonnull %16, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
-  %108 = icmp ne i32 %107, 3
-  %109 = load i32, ptr %16, align 4
-  %110 = icmp ne i32 %109, 1
-  %or.cond.i25 = select i1 %108, i1 true, i1 %110
-  br i1 %or.cond.i25, label %.critedge49, label %test_ASYNC_get_current_job.exit
+108:                                              ; preds = %105
+  %109 = call i32 @ASYNC_start_job(ptr noundef nonnull %15, ptr noundef nonnull %101, ptr noundef nonnull %16, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
+  %110 = icmp ne i32 %109, 3
+  %111 = load i32, ptr %16, align 4
+  %112 = icmp ne i32 %111, 1
+  %or.cond.i26 = select i1 %110, i1 true, i1 %112
+  br i1 %or.cond.i26, label %.critedge50, label %test_ASYNC_get_current_job.exit
 
-.critedge49:                                      ; preds = %106, %103, %101, %98, %test_ASYNC_start_job.exit
-  %.0.i23 = phi ptr [ null, %98 ], [ %99, %101 ], [ %99, %103 ], [ %99, %106 ], [ null, %test_ASYNC_start_job.exit ]
-  %111 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %112 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %111) #6
-  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i23) #5
+.critedge50:                                      ; preds = %108, %105, %103, %100, %test_ASYNC_start_job.exit
+  %.0.i24 = phi ptr [ null, %100 ], [ %101, %103 ], [ %101, %105 ], [ %101, %108 ], [ null, %test_ASYNC_start_job.exit ]
+  %113 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %114 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %113) #6
+  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i24) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %269
+  br label %271
 
-test_ASYNC_get_current_job.exit:                  ; preds = %106
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %99) #5
+test_ASYNC_get_current_job.exit:                  ; preds = %108
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %101) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -310,144 +314,144 @@ test_ASYNC_get_current_job.exit:                  ; preds = %106
   store i32 -1, ptr %12, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %113 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
-  %.not.i26 = icmp eq i32 %113, 0
-  br i1 %.not.i26, label %.critedge50, label %114
+  %115 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
+  %.not.i27 = icmp eq i32 %115, 0
+  br i1 %.not.i27, label %.critedge51, label %116
 
-114:                                              ; preds = %test_ASYNC_get_current_job.exit
-  %115 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %.critedge50, label %117
+116:                                              ; preds = %test_ASYNC_get_current_job.exit
+  %117 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.critedge51, label %119
 
-117:                                              ; preds = %114
-  %118 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %115, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
-  %.not50.i = icmp eq i32 %118, 2
-  br i1 %.not50.i, label %119, label %.critedge50
+119:                                              ; preds = %116
+  %120 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %117, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
+  %.not50.i = icmp eq i32 %120, 2
+  br i1 %.not50.i, label %121, label %.critedge51
 
-119:                                              ; preds = %117
-  %120 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13) #5
-  %121 = icmp eq i32 %120, 0
-  %122 = load i64, ptr %13, align 8
-  %123 = icmp ne i64 %122, 0
-  %or.cond.i29 = select i1 %121, i1 true, i1 %123
-  br i1 %or.cond.i29, label %.critedge50, label %124
+121:                                              ; preds = %119
+  %122 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13) #5
+  %123 = icmp eq i32 %122, 0
+  %124 = load i64, ptr %13, align 8
+  %125 = icmp ne i64 %124, 0
+  %or.cond.i30 = select i1 %123, i1 true, i1 %125
+  br i1 %or.cond.i30, label %.critedge51, label %126
 
-124:                                              ; preds = %119
-  %125 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
-  %126 = icmp eq i32 %125, 0
-  %127 = load i64, ptr %13, align 8
-  %128 = icmp ne i64 %127, 0
-  %or.cond3.i30 = select i1 %126, i1 true, i1 %128
-  %129 = load i64, ptr %14, align 8
+126:                                              ; preds = %121
+  %127 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
+  %128 = icmp eq i32 %127, 0
+  %129 = load i64, ptr %13, align 8
   %130 = icmp ne i64 %129, 0
-  %or.cond5.i31 = select i1 %or.cond3.i30, i1 true, i1 %130
-  br i1 %or.cond5.i31, label %.critedge50, label %131
+  %or.cond3.i31 = select i1 %128, i1 true, i1 %130
+  %131 = load i64, ptr %14, align 8
+  %132 = icmp ne i64 %131, 0
+  %or.cond5.i32 = select i1 %or.cond3.i31, i1 true, i1 %132
+  br i1 %or.cond5.i32, label %.critedge51, label %133
 
-131:                                              ; preds = %124
-  %132 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %115, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
-  %.not51.i = icmp eq i32 %132, 2
-  br i1 %.not51.i, label %133, label %.critedge50
+133:                                              ; preds = %126
+  %134 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %117, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
+  %.not51.i = icmp eq i32 %134, 2
+  br i1 %.not51.i, label %135, label %.critedge51
 
-133:                                              ; preds = %131
-  %134 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13) #5
-  %135 = icmp eq i32 %134, 0
-  %136 = load i64, ptr %13, align 8
-  %137 = icmp ne i64 %136, 1
-  %or.cond7.i = select i1 %135, i1 true, i1 %137
-  br i1 %or.cond7.i, label %.critedge50, label %138
+135:                                              ; preds = %133
+  %136 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13) #5
+  %137 = icmp eq i32 %136, 0
+  %138 = load i64, ptr %13, align 8
+  %139 = icmp ne i64 %138, 1
+  %or.cond7.i = select i1 %137, i1 true, i1 %139
+  br i1 %or.cond7.i, label %.critedge51, label %140
 
-138:                                              ; preds = %133
-  %139 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %115, ptr noundef nonnull %11, ptr noundef nonnull %13) #5
-  %140 = icmp eq i32 %139, 0
-  %141 = load i32, ptr %11, align 4
-  %142 = icmp ne i32 %141, 99
-  %or.cond9.i = select i1 %140, i1 true, i1 %142
-  br i1 %or.cond9.i, label %.critedge50, label %143
+140:                                              ; preds = %135
+  %141 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %117, ptr noundef nonnull %11, ptr noundef nonnull %13) #5
+  %142 = icmp eq i32 %141, 0
+  %143 = load i32, ptr %11, align 4
+  %144 = icmp ne i32 %143, 99
+  %or.cond9.i = select i1 %142, i1 true, i1 %144
+  br i1 %or.cond9.i, label %.critedge51, label %145
 
-143:                                              ; preds = %138
+145:                                              ; preds = %140
   store i32 -1, ptr %11, align 4, !tbaa !11
-  %144 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
-  %145 = icmp eq i32 %144, 0
-  %146 = load i64, ptr %13, align 8
-  %147 = icmp ne i64 %146, 1
-  %or.cond11.i = select i1 %145, i1 true, i1 %147
-  %148 = load i64, ptr %14, align 8
-  %149 = icmp ne i64 %148, 0
-  %or.cond13.i = select i1 %or.cond11.i, i1 true, i1 %149
-  br i1 %or.cond13.i, label %.critedge50, label %150
+  %146 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
+  %147 = icmp eq i32 %146, 0
+  %148 = load i64, ptr %13, align 8
+  %149 = icmp ne i64 %148, 1
+  %or.cond11.i = select i1 %147, i1 true, i1 %149
+  %150 = load i64, ptr %14, align 8
+  %151 = icmp ne i64 %150, 0
+  %or.cond13.i = select i1 %or.cond11.i, i1 true, i1 %151
+  br i1 %or.cond13.i, label %.critedge51, label %152
 
-150:                                              ; preds = %143
-  %151 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
-  %152 = icmp eq i32 %151, 0
-  %153 = load i32, ptr %11, align 4
-  %154 = icmp ne i32 %153, 99
-  %or.cond15.i = select i1 %152, i1 true, i1 %154
-  br i1 %or.cond15.i, label %.critedge50, label %155
+152:                                              ; preds = %145
+  %153 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
+  %154 = icmp eq i32 %153, 0
+  %155 = load i32, ptr %11, align 4
+  %156 = icmp ne i32 %155, 99
+  %or.cond15.i = select i1 %154, i1 true, i1 %156
+  br i1 %or.cond15.i, label %.critedge51, label %157
 
-155:                                              ; preds = %150
-  %156 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %115, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
-  %.not52.i = icmp eq i32 %156, 2
-  br i1 %.not52.i, label %157, label %.critedge50
+157:                                              ; preds = %152
+  %158 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %117, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
+  %.not52.i = icmp eq i32 %158, 2
+  br i1 %.not52.i, label %159, label %.critedge51
 
-157:                                              ; preds = %155
-  %158 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13) #5
-  %159 = icmp eq i32 %158, 0
-  %160 = load i64, ptr %13, align 8
-  %161 = icmp ne i64 %160, 0
-  %or.cond17.i = select i1 %159, i1 true, i1 %161
-  br i1 %or.cond17.i, label %.critedge50, label %162
+159:                                              ; preds = %157
+  %160 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13) #5
+  %161 = icmp eq i32 %160, 0
+  %162 = load i64, ptr %13, align 8
+  %163 = icmp ne i64 %162, 0
+  %or.cond17.i = select i1 %161, i1 true, i1 %163
+  br i1 %or.cond17.i, label %.critedge51, label %164
 
-162:                                              ; preds = %157
-  %163 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
-  %164 = icmp eq i32 %163, 0
-  %165 = load i64, ptr %13, align 8
-  %166 = icmp ne i64 %165, 0
-  %or.cond19.i = select i1 %164, i1 true, i1 %166
-  %167 = load i64, ptr %14, align 8
-  %168 = icmp ne i64 %167, 1
-  %or.cond21.i = select i1 %or.cond19.i, i1 true, i1 %168
-  br i1 %or.cond21.i, label %.critedge50, label %169
+164:                                              ; preds = %159
+  %165 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
+  %166 = icmp eq i32 %165, 0
+  %167 = load i64, ptr %13, align 8
+  %168 = icmp ne i64 %167, 0
+  %or.cond19.i = select i1 %166, i1 true, i1 %168
+  %169 = load i64, ptr %14, align 8
+  %170 = icmp ne i64 %169, 1
+  %or.cond21.i = select i1 %or.cond19.i, i1 true, i1 %170
+  br i1 %or.cond21.i, label %.critedge51, label %171
 
-169:                                              ; preds = %162
-  %170 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %14) #5
-  %171 = icmp eq i32 %170, 0
-  %172 = load i32, ptr %12, align 4
-  %173 = icmp ne i32 %172, 99
-  %or.cond23.i = select i1 %171, i1 true, i1 %173
-  br i1 %or.cond23.i, label %.critedge50, label %174
+171:                                              ; preds = %164
+  %172 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %14) #5
+  %173 = icmp eq i32 %172, 0
+  %174 = load i32, ptr %12, align 4
+  %175 = icmp ne i32 %174, 99
+  %or.cond23.i = select i1 %173, i1 true, i1 %175
+  br i1 %or.cond23.i, label %.critedge51, label %176
 
-174:                                              ; preds = %169
-  %175 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %115, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
-  %.not53.i = icmp eq i32 %175, 3
-  br i1 %.not53.i, label %176, label %.critedge50
+176:                                              ; preds = %171
+  %177 = call i32 @ASYNC_start_job(ptr noundef nonnull %9, ptr noundef nonnull %117, ptr noundef nonnull %10, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
+  %.not53.i = icmp eq i32 %177, 3
+  br i1 %.not53.i, label %178, label %.critedge51
 
-176:                                              ; preds = %174
-  %177 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13) #5
-  %178 = icmp eq i32 %177, 0
-  %179 = load i64, ptr %13, align 8
-  %180 = icmp ne i64 %179, 0
-  %or.cond25.i = select i1 %178, i1 true, i1 %180
-  br i1 %or.cond25.i, label %.critedge50, label %181
+178:                                              ; preds = %176
+  %179 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13) #5
+  %180 = icmp eq i32 %179, 0
+  %181 = load i64, ptr %13, align 8
+  %182 = icmp ne i64 %181, 0
+  %or.cond25.i = select i1 %180, i1 true, i1 %182
+  br i1 %or.cond25.i, label %.critedge51, label %183
 
-181:                                              ; preds = %176
-  %182 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %115, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
-  %183 = icmp eq i32 %182, 0
-  %184 = load i64, ptr %13, align 8
-  %185 = icmp ne i64 %184, 0
-  %or.cond27.i = select i1 %183, i1 true, i1 %185
-  %186 = load i64, ptr %14, align 8
+183:                                              ; preds = %178
+  %184 = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %117, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #5
+  %185 = icmp eq i32 %184, 0
+  %186 = load i64, ptr %13, align 8
   %187 = icmp ne i64 %186, 0
-  %or.cond29.i = select i1 %or.cond27.i, i1 true, i1 %187
-  %188 = load i32, ptr %10, align 4
-  %189 = icmp ne i32 %188, 1
-  %or.cond31.i = select i1 %or.cond29.i, i1 true, i1 %189
-  br i1 %or.cond31.i, label %.critedge50, label %test_ASYNC_WAIT_CTX_get_all_fds.exit
+  %or.cond27.i = select i1 %185, i1 true, i1 %187
+  %188 = load i64, ptr %14, align 8
+  %189 = icmp ne i64 %188, 0
+  %or.cond29.i = select i1 %or.cond27.i, i1 true, i1 %189
+  %190 = load i32, ptr %10, align 4
+  %191 = icmp ne i32 %190, 1
+  %or.cond31.i = select i1 %or.cond29.i, i1 true, i1 %191
+  br i1 %or.cond31.i, label %.critedge51, label %test_ASYNC_WAIT_CTX_get_all_fds.exit
 
-.critedge50:                                      ; preds = %181, %176, %174, %169, %162, %157, %155, %150, %143, %138, %133, %131, %124, %119, %117, %114, %test_ASYNC_get_current_job.exit
-  %.0.i27 = phi ptr [ null, %114 ], [ %115, %117 ], [ %115, %119 ], [ %115, %124 ], [ %115, %131 ], [ %115, %133 ], [ %115, %138 ], [ %115, %143 ], [ %115, %150 ], [ %115, %155 ], [ %115, %157 ], [ %115, %162 ], [ %115, %169 ], [ %115, %174 ], [ %115, %176 ], [ %115, %181 ], [ null, %test_ASYNC_get_current_job.exit ]
-  %190 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %191 = call i64 @fwrite(ptr nonnull @.str.7, i64 32, i64 1, ptr %190) #6
-  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i27) #5
+.critedge51:                                      ; preds = %183, %178, %176, %171, %164, %159, %157, %152, %145, %140, %135, %133, %126, %121, %119, %116, %test_ASYNC_get_current_job.exit
+  %.0.i28 = phi ptr [ null, %116 ], [ %117, %119 ], [ %117, %121 ], [ %117, %126 ], [ %117, %133 ], [ %117, %135 ], [ %117, %140 ], [ %117, %145 ], [ %117, %152 ], [ %117, %157 ], [ %117, %159 ], [ %117, %164 ], [ %117, %171 ], [ %117, %176 ], [ %117, %178 ], [ %117, %183 ], [ null, %test_ASYNC_get_current_job.exit ]
+  %192 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %193 = call i64 @fwrite(ptr nonnull @.str.7, i64 32, i64 1, ptr %192) #6
+  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i28) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -455,10 +459,10 @@ test_ASYNC_get_current_job.exit:                  ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %269
+  br label %271
 
-test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %181
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %115) #5
+test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %183
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %117) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -469,199 +473,199 @@ test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %192 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
-  %.not.i32 = icmp eq i32 %192, 0
-  br i1 %.not.i32, label %.critedge51, label %193
+  %194 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
+  %.not.i33 = icmp eq i32 %194, 0
+  br i1 %.not.i33, label %.critedge52, label %195
 
-193:                                              ; preds = %test_ASYNC_WAIT_CTX_get_all_fds.exit
-  %194 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %.critedge51, label %196
+195:                                              ; preds = %test_ASYNC_WAIT_CTX_get_all_fds.exit
+  %196 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %.critedge52, label %198
 
-196:                                              ; preds = %193
-  %197 = call i32 @ASYNC_start_job(ptr noundef nonnull %7, ptr noundef nonnull %194, ptr noundef nonnull %8, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
-  %.not7.i33 = icmp eq i32 %197, 2
-  br i1 %.not7.i33, label %198, label %.critedge51
+198:                                              ; preds = %195
+  %199 = call i32 @ASYNC_start_job(ptr noundef nonnull %7, ptr noundef nonnull %196, ptr noundef nonnull %8, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
+  %.not7.i34 = icmp eq i32 %199, 2
+  br i1 %.not7.i34, label %200, label %.critedge52
 
-198:                                              ; preds = %196
-  %199 = call i32 @ASYNC_start_job(ptr noundef nonnull %7, ptr noundef nonnull %194, ptr noundef nonnull %8, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
-  %200 = icmp ne i32 %199, 3
-  %201 = load i32, ptr %8, align 4
-  %202 = icmp ne i32 %201, 1
-  %or.cond.i37 = select i1 %200, i1 true, i1 %202
-  br i1 %or.cond.i37, label %.critedge51, label %test_ASYNC_block_pause.exit
+200:                                              ; preds = %198
+  %201 = call i32 @ASYNC_start_job(ptr noundef nonnull %7, ptr noundef nonnull %196, ptr noundef nonnull %8, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
+  %202 = icmp ne i32 %201, 3
+  %203 = load i32, ptr %8, align 4
+  %204 = icmp ne i32 %203, 1
+  %or.cond.i38 = select i1 %202, i1 true, i1 %204
+  br i1 %or.cond.i38, label %.critedge52, label %test_ASYNC_block_pause.exit
 
-.critedge51:                                      ; preds = %198, %196, %193, %test_ASYNC_WAIT_CTX_get_all_fds.exit
-  %.0.i34 = phi ptr [ null, %193 ], [ %194, %196 ], [ %194, %198 ], [ null, %test_ASYNC_WAIT_CTX_get_all_fds.exit ]
-  %203 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %204 = call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %203) #6
-  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i34) #5
+.critedge52:                                      ; preds = %200, %198, %195, %test_ASYNC_WAIT_CTX_get_all_fds.exit
+  %.0.i35 = phi ptr [ null, %195 ], [ %196, %198 ], [ %196, %200 ], [ null, %test_ASYNC_WAIT_CTX_get_all_fds.exit ]
+  %205 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %206 = call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %205) #6
+  call void @ASYNC_WAIT_CTX_free(ptr noundef %.0.i35) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %269
+  br label %271
 
-test_ASYNC_block_pause.exit:                      ; preds = %198
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %194) #5
+test_ASYNC_block_pause.exit:                      ; preds = %200
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %196) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %205 = call ptr @OSSL_LIB_CTX_new() #5
-  %206 = icmp eq ptr %205, null
-  br i1 %206, label %207, label %210
+  %207 = call ptr @OSSL_LIB_CTX_new() #5
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %209, label %212
 
-207:                                              ; preds = %test_ASYNC_block_pause.exit
-  %208 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %209 = call i64 @fwrite(ptr nonnull @.str.9, i64 50, i64 1, ptr %208) #6
-  br label %.critedge52
+209:                                              ; preds = %test_ASYNC_block_pause.exit
+  %210 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %211 = call i64 @fwrite(ptr nonnull @.str.9, i64 50, i64 1, ptr %210) #6
+  br label %.critedge53
 
-210:                                              ; preds = %test_ASYNC_block_pause.exit
-  %211 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %205) #5
-  %212 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %213 = icmp eq ptr %212, null
-  br i1 %213, label %216, label %214
+212:                                              ; preds = %test_ASYNC_block_pause.exit
+  %213 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %207) #5
+  %214 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %215 = icmp eq ptr %214, null
+  br i1 %215, label %218, label %216
 
-214:                                              ; preds = %210
-  %215 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %212, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %.not.i38 = icmp eq i32 %215, 2
-  br i1 %.not.i38, label %219, label %216
+216:                                              ; preds = %212
+  %217 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %214, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %.not.i39 = icmp eq i32 %217, 2
+  br i1 %.not.i39, label %221, label %218
 
-216:                                              ; preds = %214, %210
-  %217 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %218 = call i64 @fwrite(ptr nonnull @.str.10, i64 46, i64 1, ptr %217) #6
-  br label %.critedge52
+218:                                              ; preds = %216, %212
+  %219 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %220 = call i64 @fwrite(ptr nonnull @.str.10, i64 46, i64 1, ptr %219) #6
+  br label %.critedge53
 
-219:                                              ; preds = %214
-  %220 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %211) #5
-  %221 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %220) #5
-  %.not22.i = icmp eq ptr %220, %205
-  br i1 %.not22.i, label %225, label %222
+221:                                              ; preds = %216
+  %222 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %213) #5
+  %223 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %222) #5
+  %.not22.i = icmp eq ptr %222, %207
+  br i1 %.not22.i, label %227, label %224
 
-222:                                              ; preds = %219
-  %223 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %224 = call i64 @fwrite(ptr nonnull @.str.11, i64 53, i64 1, ptr %223) #6
-  br label %.critedge52
+224:                                              ; preds = %221
+  %225 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %226 = call i64 @fwrite(ptr nonnull @.str.11, i64 53, i64 1, ptr %225) #6
+  br label %.critedge53
 
-225:                                              ; preds = %219
-  %226 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %212, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %.not23.i = icmp eq i32 %226, 2
-  br i1 %.not23.i, label %230, label %227
+227:                                              ; preds = %221
+  %228 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %214, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %.not23.i = icmp eq i32 %228, 2
+  br i1 %.not23.i, label %232, label %229
 
-227:                                              ; preds = %225
-  %228 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %229 = call i64 @fwrite(ptr nonnull @.str.12, i64 50, i64 1, ptr %228) #6
-  br label %.critedge52
+229:                                              ; preds = %227
+  %230 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %231 = call i64 @fwrite(ptr nonnull @.str.12, i64 50, i64 1, ptr %230) #6
+  br label %.critedge53
 
-230:                                              ; preds = %225
-  %231 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %221) #5
-  %.not24.i = icmp eq ptr %231, %205
-  br i1 %.not24.i, label %235, label %232
+232:                                              ; preds = %227
+  %233 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %223) #5
+  %.not24.i = icmp eq ptr %233, %207
+  br i1 %.not24.i, label %237, label %234
 
-232:                                              ; preds = %230
-  %233 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %234 = call i64 @fwrite(ptr nonnull @.str.11, i64 53, i64 1, ptr %233) #6
-  br label %.critedge52
+234:                                              ; preds = %232
+  %235 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %236 = call i64 @fwrite(ptr nonnull @.str.11, i64 53, i64 1, ptr %235) #6
+  br label %.critedge53
 
-235:                                              ; preds = %230
-  %236 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %212, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %237 = icmp ne i32 %236, 3
-  %238 = load i32, ptr %6, align 4
-  %239 = icmp ne i32 %238, 1
-  %or.cond.i40 = select i1 %237, i1 true, i1 %239
-  br i1 %or.cond.i40, label %240, label %243
+237:                                              ; preds = %232
+  %238 = call i32 @ASYNC_start_job(ptr noundef nonnull %5, ptr noundef nonnull %214, ptr noundef nonnull %6, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %239 = icmp ne i32 %238, 3
+  %240 = load i32, ptr %6, align 4
+  %241 = icmp ne i32 %240, 1
+  %or.cond.i41 = select i1 %239, i1 true, i1 %241
+  br i1 %or.cond.i41, label %242, label %245
 
-240:                                              ; preds = %235
-  %241 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %242 = call i64 @fwrite(ptr nonnull @.str.13, i64 49, i64 1, ptr %241) #6
-  br label %.critedge52
+242:                                              ; preds = %237
+  %243 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %244 = call i64 @fwrite(ptr nonnull @.str.13, i64 49, i64 1, ptr %243) #6
+  br label %.critedge53
 
-243:                                              ; preds = %235
-  %244 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %205) #5
-  %245 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %244) #5
-  %.not25.i = icmp eq ptr %244, %211
-  br i1 %.not25.i, label %test_ASYNC_start_job_ex.exit, label %246
+245:                                              ; preds = %237
+  %246 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %207) #5
+  %247 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %246) #5
+  %.not25.i = icmp eq ptr %246, %213
+  br i1 %.not25.i, label %test_ASYNC_start_job_ex.exit, label %248
 
-246:                                              ; preds = %243
-  %247 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %248 = call i64 @fwrite(ptr nonnull @.str.14, i64 62, i64 1, ptr %247) #6
-  br label %.critedge52
+248:                                              ; preds = %245
+  %249 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %250 = call i64 @fwrite(ptr nonnull @.str.14, i64 62, i64 1, ptr %249) #6
+  br label %.critedge53
 
-test_ASYNC_start_job_ex.exit:                     ; preds = %243
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %212) #5
+test_ASYNC_start_job_ex.exit:                     ; preds = %245
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %214) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @OSSL_LIB_CTX_free(ptr noundef nonnull %205) #5
+  call void @OSSL_LIB_CTX_free(ptr noundef nonnull %207) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %249 = call i32 @ASYNC_set_mem_functions(ptr noundef nonnull @test_alloc_stack, ptr noundef nonnull @test_free_stack) #5
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %test_ASYNC_set_mem_functions.exit, label %251
+  %251 = call i32 @ASYNC_set_mem_functions(ptr noundef nonnull @test_alloc_stack, ptr noundef nonnull @test_free_stack) #5
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %test_ASYNC_set_mem_functions.exit, label %253
 
-251:                                              ; preds = %test_ASYNC_start_job_ex.exit
+253:                                              ; preds = %test_ASYNC_start_job_ex.exit
   call void @ASYNC_get_mem_functions(ptr noundef nonnull %3, ptr noundef nonnull %4) #5
-  %252 = load ptr, ptr %3, align 8, !tbaa !13
-  %253 = icmp ne ptr %252, @test_alloc_stack
-  %254 = load ptr, ptr %4, align 8
-  %255 = icmp ne ptr %254, @test_free_stack
-  %or.cond.i41 = select i1 %253, i1 true, i1 %255
-  br i1 %or.cond.i41, label %256, label %259
+  %254 = load ptr, ptr %3, align 8, !tbaa !13
+  %255 = icmp ne ptr %254, @test_alloc_stack
+  %256 = load ptr, ptr %4, align 8
+  %257 = icmp ne ptr %256, @test_free_stack
+  %or.cond.i42 = select i1 %255, i1 true, i1 %257
+  br i1 %or.cond.i42, label %258, label %261
 
-256:                                              ; preds = %251
-  %257 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %258 = call i64 @fwrite(ptr nonnull @.str.15, i64 81, i64 1, ptr %257) #6
+258:                                              ; preds = %253
+  %259 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %260 = call i64 @fwrite(ptr nonnull @.str.15, i64 81, i64 1, ptr %259) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-259:                                              ; preds = %251
-  %260 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 1) #5
-  %.not.i42 = icmp eq i32 %260, 0
-  br i1 %.not.i42, label %261, label %264
+261:                                              ; preds = %253
+  %262 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 1) #5
+  %.not.i43 = icmp eq i32 %262, 0
+  br i1 %.not.i43, label %263, label %266
 
-261:                                              ; preds = %259
-  %262 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %263 = call i64 @fwrite(ptr nonnull @.str.16, i64 62, i64 1, ptr %262) #6
+263:                                              ; preds = %261
+  %264 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %265 = call i64 @fwrite(ptr nonnull @.str.16, i64 62, i64 1, ptr %264) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-264:                                              ; preds = %259
+266:                                              ; preds = %261
   call void @ASYNC_cleanup_thread() #5
   %.b.i = load i1, ptr @custom_alloc_used, align 4
   %.b4.i = load i1, ptr @custom_free_used, align 4
-  %or.cond3.i43 = select i1 %.b.i, i1 %.b4.i, i1 false
-  br i1 %or.cond3.i43, label %test_ASYNC_set_mem_functions.exit, label %265
+  %or.cond3.i44 = select i1 %.b.i, i1 %.b4.i, i1 false
+  br i1 %or.cond3.i44, label %test_ASYNC_set_mem_functions.exit, label %267
 
-265:                                              ; preds = %264
-  %266 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %267 = call i64 @fwrite(ptr nonnull @.str.17, i64 70, i64 1, ptr %266) #6
+267:                                              ; preds = %266
+  %268 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %269 = call i64 @fwrite(ptr nonnull @.str.17, i64 70, i64 1, ptr %268) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-test_ASYNC_set_mem_functions.exit.thread:         ; preds = %256, %265, %261
+test_ASYNC_set_mem_functions.exit.thread:         ; preds = %258, %267, %263
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %269
+  br label %271
 
-test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_job_ex.exit, %264
+test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_job_ex.exit, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %268
+  br label %270
 
-268:                                              ; preds = %test_ASYNC_set_mem_functions.exit, %29
+270:                                              ; preds = %test_ASYNC_set_mem_functions.exit, %29
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %269
+  br label %271
 
-.critedge52:                                      ; preds = %246, %240, %232, %227, %222, %216, %207
-  %.019.i.ph = phi ptr [ %212, %246 ], [ %212, %240 ], [ %212, %232 ], [ %212, %227 ], [ %212, %222 ], [ %212, %216 ], [ null, %207 ]
+.critedge53:                                      ; preds = %248, %242, %234, %229, %224, %218, %209
+  %.019.i.ph = phi ptr [ %214, %248 ], [ %214, %242 ], [ %214, %234 ], [ %214, %229 ], [ %214, %224 ], [ %214, %218 ], [ null, %209 ]
   call void @ASYNC_WAIT_CTX_free(ptr noundef %.019.i.ph) #5
   call void @ASYNC_cleanup_thread() #5
-  call void @OSSL_LIB_CTX_free(ptr noundef %205) #5
+  call void @OSSL_LIB_CTX_free(ptr noundef %207) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %269
+  br label %271
 
-269:                                              ; preds = %.critedge52, %.critedge51, %.critedge50, %.critedge49, %.critedge48, %.critedge47, %.critedge, %test_ASYNC_set_mem_functions.exit.thread, %268
-  %.0 = phi i32 [ 0, %268 ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %.critedge ], [ 1, %.critedge47 ], [ 1, %.critedge48 ], [ 1, %.critedge49 ], [ 1, %.critedge50 ], [ 1, %.critedge51 ], [ 1, %.critedge52 ]
+271:                                              ; preds = %.critedge53, %.critedge52, %.critedge51, %.critedge50, %.critedge49, %.critedge48, %.critedge, %test_ASYNC_set_mem_functions.exit.thread, %270
+  %.0 = phi i32 [ 0, %270 ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %.critedge ], [ 1, %.critedge48 ], [ 1, %.critedge49 ], [ 1, %.critedge50 ], [ 1, %.critedge51 ], [ 1, %.critedge52 ], [ 1, %.critedge53 ]
   ret i32 %.0
 }
 
