@@ -3327,7 +3327,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES9_RKNS0_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNS6_15KelvinletParamsIS9_EEEUlS4_E0_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3361,7 +3361,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !244
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !244
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %31, i64 0
   %.sroa.15.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %33, i64 0
   %.sroa.18.96.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %35, i64 0
@@ -3376,7 +3376,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %44 = fmul <2 x double> %43, %42
   %45 = fadd <2 x double> %37, %44
   %46 = fsub <2 x double> %36, %45
-  store <2 x double> %46, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !232
+  store <2 x double> %46, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !232
   %47 = getelementptr i8, ptr %25, i64 16
   %48 = getelementptr i8, ptr %27, i64 16
   %49 = getelementptr i8, ptr %29, i64 16
@@ -3388,8 +3388,8 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %55 = fadd double %54, %53
   %56 = load double, ptr %47, align 8, !tbaa !35, !noalias !232
   %57 = fsub double %56, %55
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %57, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !232
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %57, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !232
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %58 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %59 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !232
@@ -3400,17 +3400,17 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %64 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %65 = load <2 x double>, ptr %64, align 1, !tbaa !54, !noalias !232
   %66 = fmul <2 x double> %58, %65
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !232
-  %67 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !232
+  %67 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x double> %66, %67
   %69 = fadd <2 x double> %63, %68
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %71 = load <2 x double>, ptr %70, align 1, !tbaa !54, !noalias !232
   %72 = fmul <2 x double> %58, %71
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !232
-  %73 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !232
+  %73 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %74 = fmul <2 x double> %72, %73
   %75 = fadd <2 x double> %69, %74
   store <2 x double> %75, ptr %0, align 8, !tbaa !54, !alias.scope !232
@@ -3422,7 +3422,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %81 = getelementptr i8, ptr %23, i64 40
   %82 = load double, ptr %81, align 8, !tbaa !35, !noalias !232
   %83 = fmul double %21, %82
-  %84 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %84 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %85 = fmul double %84, %83
   %86 = getelementptr i8, ptr %23, i64 64
   %87 = load double, ptr %86, align 8, !tbaa !35, !noalias !232
@@ -3431,7 +3431,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %90 = fadd double %85, %89
   %91 = fadd double %80, %90
   store double %91, ptr %76, align 8, !tbaa !35, !alias.scope !232
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -3475,7 +3475,7 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen6MatrixI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES9_RKNS0_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EERKNSB_IT2_EERKNS6_15KelvinletParamsIS9_EEEUlS4_E1_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3509,7 +3509,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !260
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !260
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %31, i64 0
   %.sroa.15.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %33, i64 0
   %.sroa.18.96.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %35, i64 0
@@ -3524,7 +3524,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %44 = fmul <2 x double> %43, %42
   %45 = fadd <2 x double> %37, %44
   %46 = fsub <2 x double> %36, %45
-  store <2 x double> %46, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !248
+  store <2 x double> %46, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !248
   %47 = getelementptr i8, ptr %25, i64 16
   %48 = getelementptr i8, ptr %27, i64 16
   %49 = getelementptr i8, ptr %29, i64 16
@@ -3536,8 +3536,8 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %55 = fadd double %54, %53
   %56 = load double, ptr %47, align 8, !tbaa !35, !noalias !248
   %57 = fsub double %56, %55
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %57, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !248
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %57, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !248
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %58 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %59 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !248
@@ -3548,17 +3548,17 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %64 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %65 = load <2 x double>, ptr %64, align 1, !tbaa !54, !noalias !248
   %66 = fmul <2 x double> %58, %65
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !248
-  %67 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !248
+  %67 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %68 = fmul <2 x double> %66, %67
   %69 = fadd <2 x double> %63, %68
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %71 = load <2 x double>, ptr %70, align 1, !tbaa !54, !noalias !248
   %72 = fmul <2 x double> %58, %71
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !248
-  %73 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !248
+  %73 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %74 = fmul <2 x double> %72, %73
   %75 = fadd <2 x double> %69, %74
   store <2 x double> %75, ptr %0, align 8, !tbaa !54, !alias.scope !248
@@ -3570,7 +3570,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %81 = getelementptr i8, ptr %23, i64 40
   %82 = load double, ptr %81, align 8, !tbaa !35, !noalias !248
   %83 = fmul double %21, %82
-  %84 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %84 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %85 = fmul double %84, %83
   %86 = getelementptr i8, ptr %23, i64 64
   %87 = load double, ptr %86, align 8, !tbaa !35, !noalias !248
@@ -3579,7 +3579,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %90 = fadd double %85, %89
   %91 = fadd double %80, %90
   store double %91, ptr %76, align 8, !tbaa !35, !alias.scope !248
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -3668,9 +3668,9 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen6MatrixI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorIS2_S2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEES6_RKNS0_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS3_15KelvinletParamsIS6_EEEUlRKdE2_JSU_EENSt9enable_ifIX16is_invocable_r_vIS9_SD_DpT1_EES9_E4typeEOSD_DpOSY_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix.18", %"struct.Eigen::internal::evaluator.295" }, align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [3 x double], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !264, !noalias !266
   %6 = load double, ptr %5, align 8, !tbaa !35, !noalias !266
@@ -3703,7 +3703,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %.sroa.2.72.vec.insert.i.i.i = insertelement <2 x double> poison, double %24, i64 0
   %.sroa.4.88.vec.insert.i.i.i = insertelement <2 x double> poison, double %26, i64 0
   %.sroa.6.104.vec.insert.i.i.i = insertelement <2 x double> poison, double %28, i64 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %33 = load <2 x double>, ptr %18, align 1, !tbaa !54, !noalias !266
   %34 = load <2 x double>, ptr %20, align 1, !tbaa !54, !noalias !266
   %35 = load <2 x double>, ptr %22, align 1, !tbaa !54, !noalias !266
@@ -3715,7 +3715,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %41 = fmul <2 x double> %40, %39
   %42 = fadd <2 x double> %34, %41
   %43 = fsub <2 x double> %33, %42
-  store <2 x double> %43, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !266
+  store <2 x double> %43, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !266
   %44 = getelementptr i8, ptr %18, i64 16
   %45 = getelementptr i8, ptr %20, i64 16
   %46 = getelementptr i8, ptr %22, i64 16
@@ -3727,26 +3727,24 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %52 = fadd double %51, %50
   %53 = load double, ptr %44, align 8, !tbaa !35, !noalias !266
   %54 = fsub double %53, %52
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %54, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx26, align 16, !tbaa !35, !noalias !266
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  store ptr %16, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !278, !noalias !266
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %54, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx28, align 16, !tbaa !35, !noalias !266
   %55 = load <2 x double>, ptr %16, align 1, !tbaa !54, !noalias !266
   %56 = extractelement <2 x double> %43, i64 0
   %57 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %58 = fmul <2 x double> %57, %55
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %60 = load <2 x double>, ptr %59, align 1, !tbaa !54, !noalias !266
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !266
-  %61 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i. = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx27, align 8, !noalias !266
+  %61 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i., <2 x double> poison, <2 x i32> zeroinitializer
   %62 = fmul <2 x double> %60, %61
   %63 = fadd <2 x double> %58, %62
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %65 = load <2 x double>, ptr %64, align 1, !tbaa !54, !noalias !266
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !266
-  %66 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx29 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx29, align 16, !noalias !266
+  %66 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %67 = fmul <2 x double> %65, %66
   %68 = fadd <2 x double> %63, %67
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3754,14 +3752,14 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %71 = fmul double %56, %70
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %73 = load double, ptr %72, align 8, !tbaa !35, !noalias !266
-  %74 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %74 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i., i64 0
   %75 = fmul double %74, %73
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %77 = load double, ptr %76, align 8, !tbaa !35, !noalias !266
   %78 = fmul double %54, %77
   %79 = fadd double %75, %78
   %80 = fadd double %71, %79
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %81 = fmul <2 x double> %43, %68
   %shift = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %82 = fadd <2 x double> %81, %shift
@@ -3773,42 +3771,42 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %88 = fmul double %87, 0x3FB45F306DC9C883
   %89 = fmul double %87, %88
   %90 = fmul double %87, %89
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i)
-  store <2 x double> %43, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %54, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx34, align 16, !tbaa !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0)
+  store <2 x double> %43, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx39 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %54, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx39, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
   %91 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %92 = fmul <2 x double> %91, %55
   %93 = fmul <2 x double> %57, %92
   %94 = fmul <2 x double> %91, %60
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %95 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx38 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx38, align 8
+  %95 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %96 = fmul <2 x double> %94, %95
   %97 = fadd <2 x double> %93, %96
   %98 = fmul <2 x double> %91, %65
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %99 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx40 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx40, align 16
+  %99 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %100 = fmul <2 x double> %98, %99
   %101 = fadd <2 x double> %97, %100
   %102 = fmul double %14, %70
   %103 = fmul double %56, %102
   %104 = fmul double %14, %73
-  %105 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i, i64 0
+  %105 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i, i64 0
   %106 = fmul double %105, %104
   %107 = fmul double %14, %77
   %108 = fmul double %54, %107
   %109 = fadd double %106, %108
   %110 = fadd double %103, %109
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.2.48.vec.insert = insertelement <2 x double> poison, double %32, i64 0
-  %.sroa.428.80.vec.insert = insertelement <2 x double> poison, double %86, i64 0
-  %.sroa.630.160.vec.insert = insertelement <2 x double> poison, double %24, i64 0
+  %.sroa.431.80.vec.insert = insertelement <2 x double> poison, double %86, i64 0
+  %.sroa.633.160.vec.insert = insertelement <2 x double> poison, double %24, i64 0
   %.sroa.8.176.vec.insert = insertelement <2 x double> poison, double %26, i64 0
   %.sroa.10.192.vec.insert = insertelement <2 x double> poison, double %28, i64 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %111 = load <2 x double>, ptr %18, align 8, !tbaa !54
   %112 = load <2 x double>, ptr %20, align 8, !tbaa !54
   %113 = load <2 x double>, ptr %22, align 8, !tbaa !54
@@ -3817,7 +3815,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %116 = fmul <2 x double> %40, %115
   %117 = fadd <2 x double> %112, %116
   %118 = fsub <2 x double> %111, %117
-  store <2 x double> %118, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %118, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %119 = load double, ptr %46, align 8, !tbaa !35
   %120 = fdiv double %119, %24
   %121 = fdiv double %120, %26
@@ -3826,8 +3824,8 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %124 = fadd double %123, %122
   %125 = load double, ptr %44, align 8, !tbaa !35
   %126 = fsub double %125, %124
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %126, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx35, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx43 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %126, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx43, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %90, i64 0
   %127 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %128 = load <2 x double>, ptr %16, align 8, !tbaa !54
@@ -3837,16 +3835,16 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %132 = fmul <2 x double> %131, %129
   %133 = load <2 x double>, ptr %59, align 8, !tbaa !54
   %134 = fmul <2 x double> %127, %133
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..s = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %135 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..s, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx42 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i. = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx42, align 8
+  %135 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i., <2 x double> poison, <2 x i32> zeroinitializer
   %136 = fmul <2 x double> %134, %135
   %137 = fadd <2 x double> %132, %136
   %138 = load <2 x double>, ptr %64, align 8, !tbaa !54
   %139 = fmul <2 x double> %127, %138
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa. = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %140 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa., <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx44 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx44, align 16
+  %140 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %141 = fmul <2 x double> %139, %140
   %142 = fadd <2 x double> %137, %141
   %143 = load double, ptr %69, align 8, !tbaa !35
@@ -3854,17 +3852,17 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %145 = fmul double %130, %144
   %146 = load double, ptr %72, align 8, !tbaa !35
   %147 = fmul double %90, %146
-  %148 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..s, i64 0
+  %148 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i., i64 0
   %149 = fmul double %148, %147
   %150 = load double, ptr %76, align 8, !tbaa !35
   %151 = fmul double %90, %150
   %152 = fmul double %126, %151
   %153 = fadd double %149, %152
   %154 = fadd double %145, %153
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %155 = shufflevector <2 x double> %.sroa.2.48.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
-  %156 = shufflevector <2 x double> %.sroa.428.80.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
-  %157 = shufflevector <2 x double> %.sroa.630.160.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %156 = shufflevector <2 x double> %.sroa.431.80.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %157 = shufflevector <2 x double> %.sroa.633.160.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %158 = fdiv <2 x double> %113, %157
   %159 = shufflevector <2 x double> %.sroa.8.176.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %160 = fdiv <2 x double> %158, %159
@@ -3899,96 +3897,96 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %4 = alloca %"struct.Eigen::internal::assign_op", align 1
   %5 = alloca %"class.Eigen::CwiseBinaryOp.699", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !280
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !278
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !289, !noalias !291
-  %9 = load double, ptr %8, align 8, !tbaa !35, !noalias !291
-  %10 = load double, ptr %2, align 8, !tbaa !35, !noalias !291
+  %8 = load ptr, ptr %7, align 8, !tbaa !287, !noalias !289
+  %9 = load double, ptr %8, align 8, !tbaa !35, !noalias !289
+  %10 = load double, ptr %2, align 8, !tbaa !35, !noalias !289
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %10, double %9)
-  %12 = tail call double @sqrt(double noundef %11) #23, !tbaa !26, !noalias !291
+  %12 = tail call double @sqrt(double noundef %11) #23, !tbaa !26, !noalias !289
   %13 = fmul double %12, %12
   %14 = fmul double %12, %13
   %15 = fdiv double 0x3FA45F306DC9C883, %12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !292, !noalias !291
+  %17 = load ptr, ptr %16, align 8, !tbaa !290, !noalias !289
   %18 = fdiv double 0x3FA45F306DC9C883, %14
-  %19 = load ptr, ptr %6, align 8, !tbaa !293, !noalias !291
+  %19 = load ptr, ptr %6, align 8, !tbaa !291, !noalias !289
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !124, !noalias !294
+  %21 = load ptr, ptr %20, align 8, !tbaa !124, !noalias !292
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !294
+  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !292
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !294
+  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !292
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !294
+  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !292
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !294
+  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !292
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !294
+  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !292
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 136
-  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !294
+  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !292
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 160
-  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !294
+  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !292
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 184
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !294
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !292
   %38 = fmul double %10, 0x3FB45F306DC9C883
   %39 = fmul double %10, %38
   %40 = fmul double %14, 2.000000e+00
   %41 = fdiv double %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store double %15, ptr %42, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %15, ptr %42, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %17, ptr %43, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %17, ptr %43, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store double %18, ptr %44, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %18, ptr %44, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr %21, ptr %45, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %21, ptr %45, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store double %23, ptr %46, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %23, ptr %46, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store ptr %25, ptr %47, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %25, ptr %47, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  store double %27, ptr %48, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %27, ptr %48, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store ptr %29, ptr %49, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %29, ptr %49, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  store ptr %31, ptr %50, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %31, ptr %50, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store double %33, ptr %51, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %33, ptr %51, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  store double %35, ptr %52, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %35, ptr %52, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store double %37, ptr %53, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %37, ptr %53, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  store ptr %21, ptr %54, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %21, ptr %54, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store double %23, ptr %55, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %23, ptr %55, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store ptr %25, ptr %56, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %25, ptr %56, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store double %27, ptr %57, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %27, ptr %57, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  store ptr %29, ptr %58, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %29, ptr %58, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  store ptr %31, ptr %59, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %31, ptr %59, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 440
-  store double %33, ptr %60, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %33, ptr %60, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 464
-  store double %35, ptr %61, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %35, ptr %61, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 488
-  store double %37, ptr %62, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %37, ptr %62, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  store ptr %17, ptr %63, align 8, !tbaa !41, !alias.scope !297, !noalias !280
+  store ptr %17, ptr %63, align 8, !tbaa !41, !alias.scope !295, !noalias !278
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 552
-  store double %41, ptr %64, align 8, !tbaa !46, !alias.scope !297, !noalias !280
+  store double %41, ptr %64, align 8, !tbaa !46, !alias.scope !295, !noalias !278
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  store ptr %17, ptr %65, align 8, !tbaa !41, !alias.scope !297, !noalias !280
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !280
+  store ptr %17, ptr %65, align 8, !tbaa !41, !alias.scope !295, !noalias !278
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !278
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS4_IS6_KNS4_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESC_EEKNS_7ProductINSH_INS4_IS8_SE_KNS4_INS0_20scalar_difference_opIddEEKNS4_IS6_SC_KNS4_IS8_SG_SE_EEEEKNS4_IS6_SC_KNS4_IS8_KNS4_INS0_18scalar_quotient_opIddEEKNS4_ISP_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeISZ_EELi0EEES3_Li0EEEEESG_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(577) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !280
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !278
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !278
   ret void
 }
 
@@ -4013,7 +4011,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !300
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !298
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS3_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS1_15KelvinletParamsISO_EEEUlRKdE_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation.exit
 
@@ -4043,50 +4041,50 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !133
-  store ptr %12, ptr %10, align 8, !tbaa !301
+  store ptr %12, ptr %10, align 8, !tbaa !299
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %14, ptr %13, align 8, !tbaa !301
+  store ptr %14, ptr %13, align 8, !tbaa !299
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %16 = load ptr, ptr %15, align 8, !tbaa !303
+  %16 = load ptr, ptr %15, align 8, !tbaa !301
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !309
+  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !307
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !124, !noalias !309
+  %20 = load ptr, ptr %19, align 8, !tbaa !124, !noalias !307
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !309
+  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !307
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !133, !noalias !309
+  %24 = load ptr, ptr %23, align 8, !tbaa !133, !noalias !307
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !309
+  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !307
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %28 = load ptr, ptr %27, align 8, !tbaa !229, !noalias !309
+  %28 = load ptr, ptr %27, align 8, !tbaa !229, !noalias !307
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %30 = load ptr, ptr %29, align 8, !tbaa !230, !noalias !309
+  %30 = load ptr, ptr %29, align 8, !tbaa !230, !noalias !307
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !309
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !307
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !309
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !307
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %36 = load double, ptr %35, align 8, !tbaa !46, !noalias !309
+  %36 = load double, ptr %35, align 8, !tbaa !46, !noalias !307
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %38 = load ptr, ptr %37, align 8, !tbaa !124, !noalias !309
+  %38 = load ptr, ptr %37, align 8, !tbaa !124, !noalias !307
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !309
+  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !307
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !309
+  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !307
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !309
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !307
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !309
+  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !307
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 424
-  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !309
+  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !307
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !309
+  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !307
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !309
+  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !307
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !309
+  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !307
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %18, i64 0
@@ -4194,13 +4192,13 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   store double %136, ptr %135, align 8, !tbaa !35
   %137 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %137, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %138, label %128, !llvm.loop !312
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %138, label %128, !llvm.loop !310
 
 138:                                              ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %139 = load <2 x double>, ptr %5, align 16, !tbaa !54
-  %140 = load <2 x double>, ptr %16, align 8
-  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> zeroinitializer
+  %140 = load <1 x double>, ptr %16, align 8
+  %141 = shufflevector <1 x double> %140, <1 x double> poison, <2 x i32> zeroinitializer
   %142 = fmul <2 x double> %139, %141
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %144 = load <2 x double>, ptr %143, align 8, !tbaa !54
@@ -4239,7 +4237,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %175 = load ptr, ptr %174, align 8, !tbaa !133
-  store ptr %175, ptr %173, align 8, !tbaa !301
+  store ptr %175, ptr %173, align 8, !tbaa !299
   %176 = load <2 x double>, ptr %7, align 8
   %177 = shufflevector <2 x double> %176, <2 x double> poison, <2 x i32> zeroinitializer
   %178 = load <2 x double>, ptr %12, align 1, !tbaa !54
@@ -4269,15 +4267,15 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS0_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS6_15KelvinletParamsISQ_EEEUlS4_E0_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !316, !noalias !318
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !318
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !318
+  %6 = load ptr, ptr %5, align 8, !tbaa !314, !noalias !316
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !316
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !316
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !318
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !316
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -4290,41 +4288,41 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFB45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !323, !noalias !318
-  %24 = load ptr, ptr %4, align 8, !tbaa !324, !noalias !318
+  %23 = load ptr, ptr %22, align 8, !tbaa !321, !noalias !316
+  %24 = load ptr, ptr %4, align 8, !tbaa !322, !noalias !316
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !325
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !323
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !325
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !323
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !325
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !323
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !325
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !323
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %34 = load ptr, ptr %33, align 8, !tbaa !229, !noalias !325
+  %34 = load ptr, ptr %33, align 8, !tbaa !229, !noalias !323
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !230, !noalias !325
+  %36 = load ptr, ptr %35, align 8, !tbaa !230, !noalias !323
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !325
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !323
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 160
-  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !325
+  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !323
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 184
-  %42 = load double, ptr %41, align 8, !tbaa !46, !noalias !325
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %42 = load double, ptr %41, align 8, !tbaa !46, !noalias !323
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %38, i64 0
   %.sroa.24.144.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %40, i64 0
   %.sroa.27.160.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %42, i64 0
-  %43 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !313
+  %43 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !311
   %44 = shufflevector <2 x double> %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !313
+  %45 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !311
   %46 = fmul <2 x double> %44, %45
   %47 = shufflevector <2 x double> %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %48 = fmul <2 x double> %47, %46
   %49 = fadd <2 x double> %43, %48
-  %50 = load <2 x double>, ptr %34, align 1, !tbaa !54, !noalias !313
-  %51 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !313
+  %50 = load <2 x double>, ptr %34, align 1, !tbaa !54, !noalias !311
+  %51 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !311
   %52 = shufflevector <2 x double> %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %53 = fdiv <2 x double> %51, %52
   %54 = shufflevector <2 x double> %.sroa.24.144.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -4333,67 +4331,67 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %57 = fmul <2 x double> %56, %55
   %58 = fadd <2 x double> %50, %57
   %59 = fsub <2 x double> %49, %58
-  store <2 x double> %59, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !313
+  store <2 x double> %59, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !311
   %60 = getelementptr i8, ptr %26, i64 16
   %61 = getelementptr i8, ptr %30, i64 16
-  %62 = load double, ptr %61, align 8, !tbaa !35, !noalias !313
+  %62 = load double, ptr %61, align 8, !tbaa !35, !noalias !311
   %63 = fmul double %28, %62
   %64 = fmul double %32, %63
-  %65 = load double, ptr %60, align 8, !tbaa !35, !noalias !313
+  %65 = load double, ptr %60, align 8, !tbaa !35, !noalias !311
   %66 = fadd double %65, %64
   %67 = getelementptr i8, ptr %34, i64 16
   %68 = getelementptr i8, ptr %36, i64 16
-  %69 = load double, ptr %68, align 8, !tbaa !35, !noalias !313
+  %69 = load double, ptr %68, align 8, !tbaa !35, !noalias !311
   %70 = fdiv double %69, %38
   %71 = fdiv double %70, %40
   %72 = fmul double %42, %71
-  %73 = load double, ptr %67, align 8, !tbaa !35, !noalias !313
+  %73 = load double, ptr %67, align 8, !tbaa !35, !noalias !311
   %74 = fadd double %73, %72
   %75 = fsub double %66, %74
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %75, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !313
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %75, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !311
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %76 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %77 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !313
+  %77 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !311
   %78 = fmul <2 x double> %76, %77
   %79 = extractelement <2 x double> %59, i64 0
   %80 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
   %81 = fmul <2 x double> %80, %78
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %83 = load <2 x double>, ptr %82, align 1, !tbaa !54, !noalias !313
+  %83 = load <2 x double>, ptr %82, align 1, !tbaa !54, !noalias !311
   %84 = fmul <2 x double> %76, %83
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !313
-  %85 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !311
+  %85 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %86 = fmul <2 x double> %84, %85
   %87 = fadd <2 x double> %81, %86
   %88 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %89 = load <2 x double>, ptr %88, align 1, !tbaa !54, !noalias !313
+  %89 = load <2 x double>, ptr %88, align 1, !tbaa !54, !noalias !311
   %90 = fmul <2 x double> %76, %89
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !313
-  %91 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !311
+  %91 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %92 = fmul <2 x double> %90, %91
   %93 = fadd <2 x double> %87, %92
-  store <2 x double> %93, ptr %0, align 8, !tbaa !54, !alias.scope !313
+  store <2 x double> %93, ptr %0, align 8, !tbaa !54, !alias.scope !311
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = getelementptr i8, ptr %23, i64 16
-  %96 = load double, ptr %95, align 8, !tbaa !35, !noalias !313
+  %96 = load double, ptr %95, align 8, !tbaa !35, !noalias !311
   %97 = fmul double %21, %96
   %98 = fmul double %79, %97
   %99 = getelementptr i8, ptr %23, i64 40
-  %100 = load double, ptr %99, align 8, !tbaa !35, !noalias !313
+  %100 = load double, ptr %99, align 8, !tbaa !35, !noalias !311
   %101 = fmul double %21, %100
-  %102 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %102 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %103 = fmul double %102, %101
   %104 = getelementptr i8, ptr %23, i64 64
-  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !313
+  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !311
   %106 = fmul double %21, %105
   %107 = fmul double %75, %106
   %108 = fadd double %103, %107
   %109 = fadd double %98, %108
-  store double %109, ptr %94, align 8, !tbaa !35, !alias.scope !313
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %109, ptr %94, align 8, !tbaa !35, !alias.scope !311
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -4418,7 +4416,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !328
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !326
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS3_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS1_15KelvinletParamsISO_EEEUlRKdE0_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation.exit
 
@@ -4437,15 +4435,15 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS0_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS6_15KelvinletParamsISQ_EEEUlS4_E1_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !332, !noalias !334
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !334
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !334
+  %6 = load ptr, ptr %5, align 8, !tbaa !330, !noalias !332
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !332
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !332
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !334
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !332
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -4458,41 +4456,41 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFA45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !339, !noalias !334
-  %24 = load ptr, ptr %4, align 8, !tbaa !340, !noalias !334
+  %23 = load ptr, ptr %22, align 8, !tbaa !337, !noalias !332
+  %24 = load ptr, ptr %4, align 8, !tbaa !338, !noalias !332
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !341
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !339
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !341
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !339
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !341
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !339
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !341
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !339
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %34 = load ptr, ptr %33, align 8, !tbaa !229, !noalias !341
+  %34 = load ptr, ptr %33, align 8, !tbaa !229, !noalias !339
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !230, !noalias !341
+  %36 = load ptr, ptr %35, align 8, !tbaa !230, !noalias !339
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !341
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !339
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 160
-  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !341
+  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !339
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 184
-  %42 = load double, ptr %41, align 8, !tbaa !46, !noalias !341
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %42 = load double, ptr %41, align 8, !tbaa !46, !noalias !339
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %38, i64 0
   %.sroa.24.144.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %40, i64 0
   %.sroa.27.160.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %42, i64 0
-  %43 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !329
+  %43 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !327
   %44 = shufflevector <2 x double> %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !329
+  %45 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !327
   %46 = fmul <2 x double> %44, %45
   %47 = shufflevector <2 x double> %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %48 = fmul <2 x double> %47, %46
   %49 = fadd <2 x double> %43, %48
-  %50 = load <2 x double>, ptr %34, align 1, !tbaa !54, !noalias !329
-  %51 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !329
+  %50 = load <2 x double>, ptr %34, align 1, !tbaa !54, !noalias !327
+  %51 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !327
   %52 = shufflevector <2 x double> %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %53 = fdiv <2 x double> %51, %52
   %54 = shufflevector <2 x double> %.sroa.24.144.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -4501,67 +4499,67 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %57 = fmul <2 x double> %56, %55
   %58 = fadd <2 x double> %50, %57
   %59 = fsub <2 x double> %49, %58
-  store <2 x double> %59, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !329
+  store <2 x double> %59, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !327
   %60 = getelementptr i8, ptr %26, i64 16
   %61 = getelementptr i8, ptr %30, i64 16
-  %62 = load double, ptr %61, align 8, !tbaa !35, !noalias !329
+  %62 = load double, ptr %61, align 8, !tbaa !35, !noalias !327
   %63 = fmul double %28, %62
   %64 = fmul double %32, %63
-  %65 = load double, ptr %60, align 8, !tbaa !35, !noalias !329
+  %65 = load double, ptr %60, align 8, !tbaa !35, !noalias !327
   %66 = fadd double %65, %64
   %67 = getelementptr i8, ptr %34, i64 16
   %68 = getelementptr i8, ptr %36, i64 16
-  %69 = load double, ptr %68, align 8, !tbaa !35, !noalias !329
+  %69 = load double, ptr %68, align 8, !tbaa !35, !noalias !327
   %70 = fdiv double %69, %38
   %71 = fdiv double %70, %40
   %72 = fmul double %42, %71
-  %73 = load double, ptr %67, align 8, !tbaa !35, !noalias !329
+  %73 = load double, ptr %67, align 8, !tbaa !35, !noalias !327
   %74 = fadd double %73, %72
   %75 = fsub double %66, %74
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %75, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !329
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %75, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !327
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %76 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %77 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !329
+  %77 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !327
   %78 = fmul <2 x double> %76, %77
   %79 = extractelement <2 x double> %59, i64 0
   %80 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
   %81 = fmul <2 x double> %80, %78
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %83 = load <2 x double>, ptr %82, align 1, !tbaa !54, !noalias !329
+  %83 = load <2 x double>, ptr %82, align 1, !tbaa !54, !noalias !327
   %84 = fmul <2 x double> %76, %83
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !329
-  %85 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !327
+  %85 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %86 = fmul <2 x double> %84, %85
   %87 = fadd <2 x double> %81, %86
   %88 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %89 = load <2 x double>, ptr %88, align 1, !tbaa !54, !noalias !329
+  %89 = load <2 x double>, ptr %88, align 1, !tbaa !54, !noalias !327
   %90 = fmul <2 x double> %76, %89
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !329
-  %91 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !327
+  %91 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %92 = fmul <2 x double> %90, %91
   %93 = fadd <2 x double> %87, %92
-  store <2 x double> %93, ptr %0, align 8, !tbaa !54, !alias.scope !329
+  store <2 x double> %93, ptr %0, align 8, !tbaa !54, !alias.scope !327
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = getelementptr i8, ptr %23, i64 16
-  %96 = load double, ptr %95, align 8, !tbaa !35, !noalias !329
+  %96 = load double, ptr %95, align 8, !tbaa !35, !noalias !327
   %97 = fmul double %21, %96
   %98 = fmul double %79, %97
   %99 = getelementptr i8, ptr %23, i64 40
-  %100 = load double, ptr %99, align 8, !tbaa !35, !noalias !329
+  %100 = load double, ptr %99, align 8, !tbaa !35, !noalias !327
   %101 = fmul double %21, %100
-  %102 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %102 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %103 = fmul double %102, %101
   %104 = getelementptr i8, ptr %23, i64 64
-  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !329
+  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !327
   %106 = fmul double %21, %105
   %107 = fmul double %75, %106
   %108 = fadd double %103, %107
   %109 = fadd double %98, %108
-  store double %109, ptr %94, align 8, !tbaa !35, !alias.scope !329
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %109, ptr %94, align 8, !tbaa !35, !alias.scope !327
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -4586,7 +4584,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !328
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !326
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS3_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS1_15KelvinletParamsISO_EEEUlRKdE1_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation.exit
 
@@ -4631,7 +4629,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !342
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS3_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS1_15KelvinletParamsISO_EEEUlRKdE2_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation.exit
 
@@ -4651,43 +4649,43 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE2_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::assign_op", align 1
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix.18", %"struct.Eigen::internal::evaluator.295" }, align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [3 x double], align 16
   %5 = alloca %"class.Eigen::CwiseBinaryOp.807", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !351, !noalias !353
-  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !353
+  %7 = load ptr, ptr %6, align 8, !tbaa !349, !noalias !351
+  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !351
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !354, !noalias !353
-  %11 = load double, ptr %10, align 8, !tbaa !272, !noalias !353
+  %10 = load ptr, ptr %9, align 8, !tbaa !352, !noalias !351
+  %11 = load double, ptr %10, align 8, !tbaa !272, !noalias !351
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %8)
-  %13 = tail call double @sqrt(double noundef %12) #23, !tbaa !26, !noalias !353
+  %13 = tail call double @sqrt(double noundef %12) #23, !tbaa !26, !noalias !351
   %14 = fmul double %13, %13
   %15 = fmul double %13, %14
   %16 = fdiv double 0.000000e+00, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !355, !noalias !353
-  %19 = load ptr, ptr %1, align 8, !tbaa !356, !noalias !353
+  %18 = load ptr, ptr %17, align 8, !tbaa !353, !noalias !351
+  %19 = load ptr, ptr %1, align 8, !tbaa !354, !noalias !351
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !124, !noalias !357
+  %21 = load ptr, ptr %20, align 8, !tbaa !124, !noalias !355
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !357
+  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !355
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !357
+  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !355
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !357
+  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !355
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !357
+  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !355
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 120
-  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !357
+  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !355
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 136
-  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !357
+  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !355
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 160
-  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !357
+  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !355
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 184
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !357
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !355
   %38 = fmul double %13, 2.000000e+00
   %39 = fmul double %13, %38
   %40 = fmul double %39, %15
@@ -4697,16 +4695,16 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %.sroa.65.136.vec.insert.i.i.i = insertelement <2 x double> poison, double %33, i64 0
   %.sroa.8.152.vec.insert.i.i.i = insertelement <2 x double> poison, double %35, i64 0
   %.sroa.10.168.vec.insert.i.i.i = insertelement <2 x double> poison, double %37, i64 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %42 = load <2 x double>, ptr %21, align 1, !tbaa !54, !noalias !353
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
+  %42 = load <2 x double>, ptr %21, align 1, !tbaa !54, !noalias !351
   %43 = shufflevector <2 x double> %.sroa.2.48.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = load <2 x double>, ptr %25, align 1, !tbaa !54, !noalias !353
+  %44 = load <2 x double>, ptr %25, align 1, !tbaa !54, !noalias !351
   %45 = fmul <2 x double> %43, %44
   %46 = shufflevector <2 x double> %.sroa.43.72.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %47 = fmul <2 x double> %46, %45
   %48 = fadd <2 x double> %42, %47
-  %49 = load <2 x double>, ptr %29, align 1, !tbaa !54, !noalias !353
-  %50 = load <2 x double>, ptr %31, align 1, !tbaa !54, !noalias !353
+  %49 = load <2 x double>, ptr %29, align 1, !tbaa !54, !noalias !351
+  %50 = load <2 x double>, ptr %31, align 1, !tbaa !54, !noalias !351
   %51 = shufflevector <2 x double> %.sroa.65.136.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %52 = fdiv <2 x double> %50, %51
   %53 = shufflevector <2 x double> %.sroa.8.152.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -4715,58 +4713,56 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %56 = fmul <2 x double> %55, %54
   %57 = fadd <2 x double> %49, %56
   %58 = fsub <2 x double> %48, %57
-  store <2 x double> %58, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !353
+  store <2 x double> %58, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !351
   %59 = getelementptr i8, ptr %21, i64 16
   %60 = getelementptr i8, ptr %25, i64 16
-  %61 = load double, ptr %60, align 8, !tbaa !35, !noalias !353
+  %61 = load double, ptr %60, align 8, !tbaa !35, !noalias !351
   %62 = fmul double %23, %61
   %63 = fmul double %27, %62
-  %64 = load double, ptr %59, align 8, !tbaa !35, !noalias !353
+  %64 = load double, ptr %59, align 8, !tbaa !35, !noalias !351
   %65 = fadd double %64, %63
   %66 = getelementptr i8, ptr %29, i64 16
   %67 = getelementptr i8, ptr %31, i64 16
-  %68 = load double, ptr %67, align 8, !tbaa !35, !noalias !353
+  %68 = load double, ptr %67, align 8, !tbaa !35, !noalias !351
   %69 = fdiv double %68, %33
   %70 = fdiv double %69, %35
   %71 = fmul double %37, %70
-  %72 = load double, ptr %66, align 8, !tbaa !35, !noalias !353
+  %72 = load double, ptr %66, align 8, !tbaa !35, !noalias !351
   %73 = fadd double %72, %71
   %74 = fsub double %65, %73
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %74, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !353
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  store ptr %18, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !278, !noalias !353
-  %75 = load <2 x double>, ptr %18, align 1, !tbaa !54, !noalias !353
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %74, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !351
+  %75 = load <2 x double>, ptr %18, align 1, !tbaa !54, !noalias !351
   %76 = extractelement <2 x double> %58, i64 0
   %77 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
   %78 = fmul <2 x double> %77, %75
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %80 = load <2 x double>, ptr %79, align 1, !tbaa !54, !noalias !353
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !353
-  %81 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %80 = load <2 x double>, ptr %79, align 1, !tbaa !54, !noalias !351
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i. = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !351
+  %81 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i., <2 x double> poison, <2 x i32> zeroinitializer
   %82 = fmul <2 x double> %80, %81
   %83 = fadd <2 x double> %78, %82
   %84 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %85 = load <2 x double>, ptr %84, align 1, !tbaa !54, !noalias !353
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !353
-  %86 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %85 = load <2 x double>, ptr %84, align 1, !tbaa !54, !noalias !351
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !351
+  %86 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %87 = fmul <2 x double> %85, %86
   %88 = fadd <2 x double> %83, %87
   %89 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %90 = load double, ptr %89, align 8, !tbaa !35, !noalias !353
+  %90 = load double, ptr %89, align 8, !tbaa !35, !noalias !351
   %91 = fmul double %76, %90
   %92 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %93 = load double, ptr %92, align 8, !tbaa !35, !noalias !353
-  %94 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %93 = load double, ptr %92, align 8, !tbaa !35, !noalias !351
+  %94 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i., i64 0
   %95 = fmul double %94, %93
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !353
+  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !351
   %98 = fmul double %74, %97
   %99 = fadd double %95, %98
   %100 = fadd double %91, %99
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %101 = fmul <2 x double> %58, %88
   %shift = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %102 = fadd <2 x double> %101, %shift
@@ -4774,76 +4770,76 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %104 = fmul double %74, %100
   %105 = fadd double %103, %104
   %106 = fmul double %105, 0x3FB45F306DC9C883
-  %107 = load double, ptr %2, align 8, !tbaa !35, !noalias !353
+  %107 = load double, ptr %2, align 8, !tbaa !35, !noalias !351
   %108 = fmul double %107, 0x3FB45F306DC9C883
   %109 = fmul double %107, %108
   %110 = fmul double %107, %109
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store double %16, ptr %111, align 8, !tbaa !46, !alias.scope !360
+  store double %16, ptr %111, align 8, !tbaa !46, !alias.scope !358
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %18, ptr %112, align 8, !tbaa !363, !alias.scope !360
+  store ptr %18, ptr %112, align 8, !tbaa !361, !alias.scope !358
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %21, ptr %113, align 8, !tbaa !41, !alias.scope !360
+  store ptr %21, ptr %113, align 8, !tbaa !41, !alias.scope !358
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store double %23, ptr %114, align 8, !tbaa !46, !alias.scope !360
+  store double %23, ptr %114, align 8, !tbaa !46, !alias.scope !358
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %25, ptr %115, align 8, !tbaa !41, !alias.scope !360
+  store ptr %25, ptr %115, align 8, !tbaa !41, !alias.scope !358
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store double %27, ptr %116, align 8, !tbaa !46, !alias.scope !360
+  store double %27, ptr %116, align 8, !tbaa !46, !alias.scope !358
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store ptr %29, ptr %117, align 8, !tbaa !41, !alias.scope !360
+  store ptr %29, ptr %117, align 8, !tbaa !41, !alias.scope !358
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store ptr %31, ptr %118, align 8, !tbaa !41, !alias.scope !360
+  store ptr %31, ptr %118, align 8, !tbaa !41, !alias.scope !358
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  store double %33, ptr %119, align 8, !tbaa !46, !alias.scope !360
+  store double %33, ptr %119, align 8, !tbaa !46, !alias.scope !358
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  store double %35, ptr %120, align 8, !tbaa !46, !alias.scope !360
+  store double %35, ptr %120, align 8, !tbaa !46, !alias.scope !358
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store double %37, ptr %121, align 8, !tbaa !46, !alias.scope !360
+  store double %37, ptr %121, align 8, !tbaa !46, !alias.scope !358
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  store double %41, ptr %122, align 8, !tbaa !46, !alias.scope !360
+  store double %41, ptr %122, align 8, !tbaa !46, !alias.scope !358
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  store double %106, ptr %123, align 8, !tbaa !46, !alias.scope !360
+  store double %106, ptr %123, align 8, !tbaa !46, !alias.scope !358
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  store ptr %21, ptr %124, align 8, !tbaa !41, !alias.scope !360
+  store ptr %21, ptr %124, align 8, !tbaa !41, !alias.scope !358
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store double %23, ptr %125, align 8, !tbaa !46, !alias.scope !360
+  store double %23, ptr %125, align 8, !tbaa !46, !alias.scope !358
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store ptr %25, ptr %126, align 8, !tbaa !41, !alias.scope !360
+  store ptr %25, ptr %126, align 8, !tbaa !41, !alias.scope !358
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store double %27, ptr %127, align 8, !tbaa !46, !alias.scope !360
+  store double %27, ptr %127, align 8, !tbaa !46, !alias.scope !358
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 416
-  store ptr %29, ptr %128, align 8, !tbaa !41, !alias.scope !360
+  store ptr %29, ptr %128, align 8, !tbaa !41, !alias.scope !358
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 440
-  store ptr %31, ptr %129, align 8, !tbaa !41, !alias.scope !360
+  store ptr %31, ptr %129, align 8, !tbaa !41, !alias.scope !358
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 456
-  store double %33, ptr %130, align 8, !tbaa !46, !alias.scope !360
+  store double %33, ptr %130, align 8, !tbaa !46, !alias.scope !358
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  store double %35, ptr %131, align 8, !tbaa !46, !alias.scope !360
+  store double %35, ptr %131, align 8, !tbaa !46, !alias.scope !358
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store double %37, ptr %132, align 8, !tbaa !46, !alias.scope !360
+  store double %37, ptr %132, align 8, !tbaa !46, !alias.scope !358
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  store double %110, ptr %133, align 8, !tbaa !46, !alias.scope !360
+  store double %110, ptr %133, align 8, !tbaa !46, !alias.scope !358
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  store ptr %18, ptr %134, align 8, !tbaa !363, !alias.scope !360
+  store ptr %18, ptr %134, align 8, !tbaa !361, !alias.scope !358
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 592
-  store ptr %21, ptr %135, align 8, !tbaa !41, !alias.scope !360
+  store ptr %21, ptr %135, align 8, !tbaa !41, !alias.scope !358
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  store double %23, ptr %136, align 8, !tbaa !46, !alias.scope !360
+  store double %23, ptr %136, align 8, !tbaa !46, !alias.scope !358
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  store ptr %25, ptr %137, align 8, !tbaa !41, !alias.scope !360
+  store ptr %25, ptr %137, align 8, !tbaa !41, !alias.scope !358
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 656
-  store double %27, ptr %138, align 8, !tbaa !46, !alias.scope !360
+  store double %27, ptr %138, align 8, !tbaa !46, !alias.scope !358
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  store ptr %29, ptr %139, align 8, !tbaa !41, !alias.scope !360
+  store ptr %29, ptr %139, align 8, !tbaa !41, !alias.scope !358
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  store ptr %31, ptr %140, align 8, !tbaa !41, !alias.scope !360
+  store ptr %31, ptr %140, align 8, !tbaa !41, !alias.scope !358
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store double %33, ptr %141, align 8, !tbaa !46, !alias.scope !360
+  store double %33, ptr %141, align 8, !tbaa !46, !alias.scope !358
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store double %35, ptr %142, align 8, !tbaa !46, !alias.scope !360
+  store double %35, ptr %142, align 8, !tbaa !46, !alias.scope !358
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 768
-  store double %37, ptr %143, align 8, !tbaa !46, !alias.scope !360
+  store double %37, ptr %143, align 8, !tbaa !46, !alias.scope !358
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_7ProductINS4_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS2_IdLi3ELi3ELi0ELi3ELi3EEEEESE_EENS4_IS6_KNS4_INS0_13scalar_sum_opIddEEKS3_KNS4_IS9_KNS4_IS9_KNSA_ISC_SK_EESK_EESM_EEEEKNS4_ISJ_SK_KNS4_IS9_KNS4_INS0_18scalar_quotient_opIddEEKNS4_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS4_IS9_SM_KNS4_ISJ_KNS4_IS9_SM_KS13_EES15_EEEEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(817) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4853,36 +4849,36 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_7ProductINS4_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS2_IdLi3ELi3ELi0ELi3ELi3EEEEESE_EENS4_IS6_KNS4_INS0_13scalar_sum_opIddEEKS3_KNS4_IS9_KNS4_IS9_KNSA_ISC_SK_EESK_EESM_EEEEKNS4_ISJ_SK_KNS4_IS9_KNS4_INS0_18scalar_quotient_opIddEEKNS4_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS4_IS9_SM_KNS4_ISJ_KNS4_IS9_SM_KS13_EES15_EEEEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(817) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = alloca %"struct.Eigen::internal::evaluator.874", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %5, align 8, !tbaa !301
+  store ptr %6, ptr %5, align 8, !tbaa !299
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load double, ptr %7, align 8, !tbaa !46, !noalias !365
+  %8 = load double, ptr %7, align 8, !tbaa !46, !noalias !363
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !368, !noalias !365
+  %10 = load ptr, ptr %9, align 8, !tbaa !366, !noalias !363
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !124, !noalias !365
+  %12 = load ptr, ptr %11, align 8, !tbaa !124, !noalias !363
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %14 = load double, ptr %13, align 8, !tbaa !46, !noalias !365
+  %14 = load double, ptr %13, align 8, !tbaa !46, !noalias !363
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %16 = load ptr, ptr %15, align 8, !tbaa !133, !noalias !365
+  %16 = load ptr, ptr %15, align 8, !tbaa !133, !noalias !363
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !365
+  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !363
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %20 = load ptr, ptr %19, align 8, !tbaa !229, !noalias !365
+  %20 = load ptr, ptr %19, align 8, !tbaa !229, !noalias !363
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %22 = load ptr, ptr %21, align 8, !tbaa !230, !noalias !365
+  %22 = load ptr, ptr %21, align 8, !tbaa !230, !noalias !363
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %24 = load double, ptr %23, align 8, !tbaa !46, !noalias !365
+  %24 = load double, ptr %23, align 8, !tbaa !46, !noalias !363
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !365
+  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !363
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !365
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i)
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !363
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %18, i64 0
   %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %24, i64 0
@@ -4905,7 +4901,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %43 = fmul <2 x double> %42, %41
   %44 = fadd <2 x double> %36, %43
   %45 = fsub <2 x double> %35, %44
-  store <2 x double> %45, ptr %.sroa.2.i.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %45, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %46 = getelementptr i8, ptr %12, i64 16
   %47 = getelementptr i8, ptr %16, i64 16
   %48 = load double, ptr %47, align 8, !tbaa !35
@@ -4922,8 +4918,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %59 = load double, ptr %53, align 8, !tbaa !35
   %60 = fadd double %59, %58
   %61 = fsub double %52, %60
-  %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 16
-  store double %61, ptr %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx26, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %61, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx28, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %8, i64 0
   %62 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %63 = load <2 x double>, ptr %10, align 1, !tbaa !54
@@ -4934,17 +4930,17 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %69 = load <2 x double>, ptr %68, align 1, !tbaa !54
   %70 = fmul <2 x double> %62, %69
-  %.sroa.2.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %71 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx27, align 8
+  %71 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x double> %70, %71
   %73 = fadd <2 x double> %67, %72
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %75 = load <2 x double>, ptr %74, align 1, !tbaa !54
   %76 = fmul <2 x double> %62, %75
-  %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %77 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx29 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx29, align 16
+  %77 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %78 = fmul <2 x double> %76, %77
   %79 = fadd <2 x double> %73, %78
   store <2 x double> %79, ptr %6, align 8, !tbaa !54
@@ -4956,7 +4952,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %85 = getelementptr i8, ptr %10, i64 40
   %86 = load double, ptr %85, align 8, !tbaa !35
   %87 = fmul double %8, %86
-  %88 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, i64 0
+  %88 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, i64 0
   %89 = fmul double %88, %87
   %90 = getelementptr i8, ptr %10, i64 64
   %91 = load double, ptr %90, align 8, !tbaa !35
@@ -4965,7 +4961,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %94 = fadd double %89, %93
   %95 = fadd double %84, %94
   store double %95, ptr %80, align 8, !tbaa !35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.sroa.0)
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %98 = load double, ptr %97, align 8, !tbaa !46
@@ -4977,7 +4973,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %104 = load ptr, ptr %102, align 8, !tbaa !124
-  store ptr %104, ptr %103, align 8, !tbaa !301
+  store ptr %104, ptr %103, align 8, !tbaa !299
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %107 = load double, ptr %106, align 8, !tbaa !46
@@ -4985,7 +4981,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %110 = load ptr, ptr %109, align 8, !tbaa !133
-  store ptr %110, ptr %108, align 8, !tbaa !301
+  store ptr %110, ptr %108, align 8, !tbaa !299
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %113 = load double, ptr %112, align 8, !tbaa !46
@@ -4993,11 +4989,11 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %116 = load ptr, ptr %114, align 8, !tbaa !229
-  store ptr %116, ptr %115, align 8, !tbaa !301
+  store ptr %116, ptr %115, align 8, !tbaa !299
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %119 = load ptr, ptr %117, align 8, !tbaa !230
-  store ptr %119, ptr %118, align 8, !tbaa !301
+  store ptr %119, ptr %118, align 8, !tbaa !299
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %122 = load double, ptr %121, align 8, !tbaa !46
@@ -5012,30 +5008,30 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   store double %128, ptr %126, align 8, !tbaa !46
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store ptr %130, ptr %129, align 8, !tbaa !301
+  store ptr %130, ptr %129, align 8, !tbaa !299
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %132 = load double, ptr %131, align 8, !tbaa !46, !noalias !371
+  %132 = load double, ptr %131, align 8, !tbaa !46, !noalias !369
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %134 = load ptr, ptr %133, align 8, !tbaa !368, !noalias !371
+  %134 = load ptr, ptr %133, align 8, !tbaa !366, !noalias !369
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %136 = load ptr, ptr %135, align 8, !tbaa !124, !noalias !371
+  %136 = load ptr, ptr %135, align 8, !tbaa !124, !noalias !369
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 624
-  %138 = load double, ptr %137, align 8, !tbaa !46, !noalias !371
+  %138 = load double, ptr %137, align 8, !tbaa !46, !noalias !369
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %140 = load ptr, ptr %139, align 8, !tbaa !133, !noalias !371
+  %140 = load ptr, ptr %139, align 8, !tbaa !133, !noalias !369
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 656
-  %142 = load double, ptr %141, align 8, !tbaa !46, !noalias !371
+  %142 = load double, ptr %141, align 8, !tbaa !46, !noalias !369
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %144 = load ptr, ptr %143, align 8, !tbaa !229, !noalias !371
+  %144 = load ptr, ptr %143, align 8, !tbaa !229, !noalias !369
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %146 = load ptr, ptr %145, align 8, !tbaa !230, !noalias !371
+  %146 = load ptr, ptr %145, align 8, !tbaa !230, !noalias !369
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %148 = load double, ptr %147, align 8, !tbaa !46, !noalias !371
+  %148 = load double, ptr %147, align 8, !tbaa !46, !noalias !369
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 744
-  %150 = load double, ptr %149, align 8, !tbaa !46, !noalias !371
+  %150 = load double, ptr %149, align 8, !tbaa !46, !noalias !369
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 768
-  %152 = load double, ptr %151, align 8, !tbaa !46, !noalias !371
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %152 = load double, ptr %151, align 8, !tbaa !46, !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.40.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %138, i64 0
   %.sroa.12.64.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %142, i64 0
   %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %148, i64 0
@@ -5058,7 +5054,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %167 = fmul <2 x double> %166, %165
   %168 = fadd <2 x double> %160, %167
   %169 = fsub <2 x double> %159, %168
-  store <2 x double> %169, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %169, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %170 = getelementptr i8, ptr %136, i64 16
   %171 = getelementptr i8, ptr %140, i64 16
   %172 = load double, ptr %171, align 8, !tbaa !35
@@ -5075,8 +5071,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %183 = load double, ptr %177, align 8, !tbaa !35
   %184 = fadd double %183, %182
   %185 = fsub double %176, %184
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %185, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx27, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx32 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %185, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx32, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %132, i64 0
   %186 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %187 = load <2 x double>, ptr %134, align 1, !tbaa !54
@@ -5087,17 +5083,17 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %192 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %193 = load <2 x double>, ptr %192, align 1, !tbaa !54
   %194 = fmul <2 x double> %186, %193
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %195 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx31 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx31, align 8
+  %195 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %196 = fmul <2 x double> %194, %195
   %197 = fadd <2 x double> %191, %196
   %198 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %199 = load <2 x double>, ptr %198, align 1, !tbaa !54
   %200 = fmul <2 x double> %186, %199
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %201 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx33, align 16
+  %201 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %202 = fmul <2 x double> %200, %201
   %203 = fadd <2 x double> %197, %202
   store <2 x double> %203, ptr %130, align 8, !tbaa !54
@@ -5109,7 +5105,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %209 = getelementptr i8, ptr %134, i64 40
   %210 = load double, ptr %209, align 8, !tbaa !35
   %211 = fmul double %132, %210
-  %212 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %212 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %213 = fmul double %212, %211
   %214 = getelementptr i8, ptr %134, i64 64
   %215 = load double, ptr %214, align 8, !tbaa !35
@@ -5118,7 +5114,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   %218 = fadd double %213, %217
   %219 = fadd double %208, %218
   store double %219, ptr %204, align 8, !tbaa !35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %220 = load <2 x double>, ptr %96, align 8
   %221 = shufflevector <2 x double> %220, <2 x double> poison, <2 x i32> zeroinitializer
   %222 = load <2 x double>, ptr %99, align 8
@@ -5212,7 +5208,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !374
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !372
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS3_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS1_15KelvinletParamsISQ_EEEUlRKdE_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation.exit
 
@@ -5234,41 +5230,41 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %4 = alloca %"struct.Eigen::internal::evaluator.999", align 16
   %5 = alloca %"struct.Eigen::internal::evaluator.987", align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !375, !noalias !377
-  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !377
-  %9 = load double, ptr %2, align 8, !tbaa !35, !noalias !377
+  %7 = load ptr, ptr %6, align 8, !tbaa !373, !noalias !375
+  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !375
+  %9 = load double, ptr %2, align 8, !tbaa !35, !noalias !375
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %8)
-  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !377
+  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !375
   %12 = fmul double %11, %11
   %13 = fmul double %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !382, !noalias !377
+  %15 = load ptr, ptr %14, align 8, !tbaa !380, !noalias !375
   %16 = fdiv double 0x3FA45F306DC9C883, %13
-  %17 = load ptr, ptr %1, align 8, !tbaa !383, !noalias !377
+  %17 = load ptr, ptr %1, align 8, !tbaa !381, !noalias !375
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !124, !noalias !384
+  %19 = load ptr, ptr %18, align 8, !tbaa !124, !noalias !382
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !384
+  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !382
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %23 = load ptr, ptr %22, align 8, !tbaa !133, !noalias !384
+  %23 = load ptr, ptr %22, align 8, !tbaa !133, !noalias !382
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !384
+  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !382
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !384
+  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !382
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %29 = load ptr, ptr %28, align 8, !tbaa !133, !noalias !384
+  %29 = load ptr, ptr %28, align 8, !tbaa !133, !noalias !382
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !384
+  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !382
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 184
-  %33 = load ptr, ptr %32, align 8, !tbaa !229, !noalias !384
+  %33 = load ptr, ptr %32, align 8, !tbaa !229, !noalias !382
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %35 = load ptr, ptr %34, align 8, !tbaa !230, !noalias !384
+  %35 = load ptr, ptr %34, align 8, !tbaa !230, !noalias !382
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 224
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !384
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !382
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 248
-  %39 = load double, ptr %38, align 8, !tbaa !46, !noalias !384
+  %39 = load double, ptr %38, align 8, !tbaa !46, !noalias !382
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 272
-  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !384
+  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !382
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %16, i64 0
@@ -5351,7 +5347,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   store double %101, ptr %100, align 8, !tbaa !35
   %102 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %102, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_7ProductINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS3_INS0_20scalar_difference_opIddEEKNS3_INS0_13scalar_sum_opIddEEKNS3_ISH_SB_KNS3_IS5_KNS3_IS5_SD_SB_EESD_EEEESL_EEKNS3_ISH_SB_KNS3_IS5_KNS3_INS0_18scalar_quotient_opIddEEKNS3_ISR_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS11_EELi0EEESA_NS_10DenseShapeES16_Li3EE6evalToISA_EEvRT_RKS15_RSB_.exit, label %93, !llvm.loop !387
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_7ProductINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS3_INS0_20scalar_difference_opIddEEKNS3_INS0_13scalar_sum_opIddEEKNS3_ISH_SB_KNS3_IS5_KNS3_IS5_SD_SB_EESD_EEEESL_EEKNS3_ISH_SB_KNS3_IS5_KNS3_INS0_18scalar_quotient_opIddEEKNS3_ISR_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS11_EELi0EEESA_NS_10DenseShapeES16_Li3EE6evalToISA_EEvRT_RKS15_RSB_.exit, label %93, !llvm.loop !385
 
 _ZN5Eigen8internal20generic_product_implINS_7ProductINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS3_INS0_20scalar_difference_opIddEEKNS3_INS0_13scalar_sum_opIddEEKNS3_ISH_SB_KNS3_IS5_KNS3_IS5_SD_SB_EESD_EEEESL_EEKNS3_ISH_SB_KNS3_IS5_KNS3_INS0_18scalar_quotient_opIddEEKNS3_ISR_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS11_EELi0EEESA_NS_10DenseShapeES16_Li3EE6evalToISA_EEvRT_RKS15_RSB_.exit: ; preds = %93
   %103 = fdiv double 0x3FA45F306DC9C883, %11
@@ -5410,15 +5406,15 @@ _ZN5Eigen8internal20generic_product_implINS_7ProductINS_13CwiseBinaryOpINS0_17sc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS0_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS6_15KelvinletParamsISS_EEEUlS4_E0_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !391, !noalias !393
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !393
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !393
+  %6 = load ptr, ptr %5, align 8, !tbaa !389, !noalias !391
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !391
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !391
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !393
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !391
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -5431,33 +5427,33 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFB45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !398, !noalias !393
-  %24 = load ptr, ptr %4, align 8, !tbaa !399, !noalias !393
+  %23 = load ptr, ptr %22, align 8, !tbaa !396, !noalias !391
+  %24 = load ptr, ptr %4, align 8, !tbaa !397, !noalias !391
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !400
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !398
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !400
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !398
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !400
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !398
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !400
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !398
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !400
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !398
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !400
+  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !398
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 160
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !400
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !398
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 184
-  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !400
+  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !398
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 208
-  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !400
+  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !398
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 224
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !400
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !398
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 248
-  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !400
+  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !398
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 272
-  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !400
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !398
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.48.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.1521.104.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %34, i64 0
@@ -5465,21 +5461,21 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %44, i64 0
   %.sroa.33.208.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %46, i64 0
   %.sroa.36.224.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %48, i64 0
-  %49 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !388
+  %49 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !386
   %50 = shufflevector <2 x double> %.sroa.615.48.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !388
+  %51 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !386
   %52 = fmul <2 x double> %50, %51
   %53 = shufflevector <2 x double> %.sroa.12.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %53, %52
   %55 = fadd <2 x double> %49, %54
   %56 = shufflevector <2 x double> %.sroa.1521.104.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !388
+  %57 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !386
   %58 = fmul <2 x double> %56, %57
   %59 = shufflevector <2 x double> %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fmul <2 x double> %59, %58
   %61 = fadd <2 x double> %55, %60
-  %62 = load <2 x double>, ptr %40, align 1, !tbaa !54, !noalias !388
-  %63 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !388
+  %62 = load <2 x double>, ptr %40, align 1, !tbaa !54, !noalias !386
+  %63 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !386
   %64 = shufflevector <2 x double> %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %65 = fdiv <2 x double> %63, %64
   %66 = shufflevector <2 x double> %.sroa.33.208.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -5488,72 +5484,72 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %69 = fmul <2 x double> %68, %67
   %70 = fadd <2 x double> %62, %69
   %71 = fsub <2 x double> %61, %70
-  store <2 x double> %71, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !388
+  store <2 x double> %71, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !386
   %72 = getelementptr i8, ptr %26, i64 16
   %73 = getelementptr i8, ptr %30, i64 16
-  %74 = load double, ptr %73, align 8, !tbaa !35, !noalias !388
+  %74 = load double, ptr %73, align 8, !tbaa !35, !noalias !386
   %75 = fmul double %28, %74
   %76 = fmul double %32, %75
-  %77 = load double, ptr %72, align 8, !tbaa !35, !noalias !388
+  %77 = load double, ptr %72, align 8, !tbaa !35, !noalias !386
   %78 = fadd double %77, %76
   %79 = getelementptr i8, ptr %36, i64 16
-  %80 = load double, ptr %79, align 8, !tbaa !35, !noalias !388
+  %80 = load double, ptr %79, align 8, !tbaa !35, !noalias !386
   %81 = fmul double %34, %80
   %82 = fmul double %38, %81
   %83 = fadd double %78, %82
   %84 = getelementptr i8, ptr %40, i64 16
   %85 = getelementptr i8, ptr %42, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !388
+  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !386
   %87 = fdiv double %86, %44
   %88 = fdiv double %87, %46
   %89 = fmul double %48, %88
-  %90 = load double, ptr %84, align 8, !tbaa !35, !noalias !388
+  %90 = load double, ptr %84, align 8, !tbaa !35, !noalias !386
   %91 = fadd double %90, %89
   %92 = fsub double %83, %91
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %92, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !388
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %92, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !386
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %93 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !388
+  %94 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !386
   %95 = fmul <2 x double> %93, %94
   %96 = extractelement <2 x double> %71, i64 0
   %97 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> zeroinitializer
   %98 = fmul <2 x double> %97, %95
   %99 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !388
+  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !386
   %101 = fmul <2 x double> %93, %100
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !388
-  %102 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !386
+  %102 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %103 = fmul <2 x double> %101, %102
   %104 = fadd <2 x double> %98, %103
   %105 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %106 = load <2 x double>, ptr %105, align 1, !tbaa !54, !noalias !388
+  %106 = load <2 x double>, ptr %105, align 1, !tbaa !54, !noalias !386
   %107 = fmul <2 x double> %93, %106
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !388
-  %108 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !386
+  %108 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %109 = fmul <2 x double> %107, %108
   %110 = fadd <2 x double> %104, %109
-  store <2 x double> %110, ptr %0, align 8, !tbaa !54, !alias.scope !388
+  store <2 x double> %110, ptr %0, align 8, !tbaa !54, !alias.scope !386
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %112 = getelementptr i8, ptr %23, i64 16
-  %113 = load double, ptr %112, align 8, !tbaa !35, !noalias !388
+  %113 = load double, ptr %112, align 8, !tbaa !35, !noalias !386
   %114 = fmul double %21, %113
   %115 = fmul double %96, %114
   %116 = getelementptr i8, ptr %23, i64 40
-  %117 = load double, ptr %116, align 8, !tbaa !35, !noalias !388
+  %117 = load double, ptr %116, align 8, !tbaa !35, !noalias !386
   %118 = fmul double %21, %117
-  %119 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %119 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %120 = fmul double %119, %118
   %121 = getelementptr i8, ptr %23, i64 64
-  %122 = load double, ptr %121, align 8, !tbaa !35, !noalias !388
+  %122 = load double, ptr %121, align 8, !tbaa !35, !noalias !386
   %123 = fmul double %21, %122
   %124 = fmul double %92, %123
   %125 = fadd double %120, %124
   %126 = fadd double %115, %125
-  store double %126, ptr %111, align 8, !tbaa !35, !alias.scope !388
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %126, ptr %111, align 8, !tbaa !35, !alias.scope !386
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -5578,7 +5574,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !403
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !401
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS3_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS1_15KelvinletParamsISQ_EEEUlRKdE0_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation.exit
 
@@ -5597,15 +5593,15 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS0_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS6_15KelvinletParamsISS_EEEUlS4_E1_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !407, !noalias !409
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !409
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !409
+  %6 = load ptr, ptr %5, align 8, !tbaa !405, !noalias !407
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !407
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !407
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !409
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !407
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -5618,33 +5614,33 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFA45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !414, !noalias !409
-  %24 = load ptr, ptr %4, align 8, !tbaa !415, !noalias !409
+  %23 = load ptr, ptr %22, align 8, !tbaa !412, !noalias !407
+  %24 = load ptr, ptr %4, align 8, !tbaa !413, !noalias !407
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !416
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !414
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !416
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !414
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !416
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !414
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !416
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !414
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !416
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !414
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !416
+  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !414
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 160
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !416
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !414
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 184
-  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !416
+  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !414
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 208
-  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !416
+  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !414
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 224
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !416
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !414
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 248
-  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !416
+  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !414
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 272
-  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !416
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !414
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.48.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.1521.104.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %34, i64 0
@@ -5652,21 +5648,21 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %44, i64 0
   %.sroa.33.208.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %46, i64 0
   %.sroa.36.224.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %48, i64 0
-  %49 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !404
+  %49 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !402
   %50 = shufflevector <2 x double> %.sroa.615.48.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !404
+  %51 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !402
   %52 = fmul <2 x double> %50, %51
   %53 = shufflevector <2 x double> %.sroa.12.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %53, %52
   %55 = fadd <2 x double> %49, %54
   %56 = shufflevector <2 x double> %.sroa.1521.104.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !404
+  %57 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !402
   %58 = fmul <2 x double> %56, %57
   %59 = shufflevector <2 x double> %.sroa.21.128.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fmul <2 x double> %59, %58
   %61 = fadd <2 x double> %55, %60
-  %62 = load <2 x double>, ptr %40, align 1, !tbaa !54, !noalias !404
-  %63 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !404
+  %62 = load <2 x double>, ptr %40, align 1, !tbaa !54, !noalias !402
+  %63 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !402
   %64 = shufflevector <2 x double> %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %65 = fdiv <2 x double> %63, %64
   %66 = shufflevector <2 x double> %.sroa.33.208.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -5675,72 +5671,72 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %69 = fmul <2 x double> %68, %67
   %70 = fadd <2 x double> %62, %69
   %71 = fsub <2 x double> %61, %70
-  store <2 x double> %71, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !404
+  store <2 x double> %71, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !402
   %72 = getelementptr i8, ptr %26, i64 16
   %73 = getelementptr i8, ptr %30, i64 16
-  %74 = load double, ptr %73, align 8, !tbaa !35, !noalias !404
+  %74 = load double, ptr %73, align 8, !tbaa !35, !noalias !402
   %75 = fmul double %28, %74
   %76 = fmul double %32, %75
-  %77 = load double, ptr %72, align 8, !tbaa !35, !noalias !404
+  %77 = load double, ptr %72, align 8, !tbaa !35, !noalias !402
   %78 = fadd double %77, %76
   %79 = getelementptr i8, ptr %36, i64 16
-  %80 = load double, ptr %79, align 8, !tbaa !35, !noalias !404
+  %80 = load double, ptr %79, align 8, !tbaa !35, !noalias !402
   %81 = fmul double %34, %80
   %82 = fmul double %38, %81
   %83 = fadd double %78, %82
   %84 = getelementptr i8, ptr %40, i64 16
   %85 = getelementptr i8, ptr %42, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !404
+  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !402
   %87 = fdiv double %86, %44
   %88 = fdiv double %87, %46
   %89 = fmul double %48, %88
-  %90 = load double, ptr %84, align 8, !tbaa !35, !noalias !404
+  %90 = load double, ptr %84, align 8, !tbaa !35, !noalias !402
   %91 = fadd double %90, %89
   %92 = fsub double %83, %91
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %92, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !404
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %92, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !402
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %93 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %94 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !404
+  %94 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !402
   %95 = fmul <2 x double> %93, %94
   %96 = extractelement <2 x double> %71, i64 0
   %97 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> zeroinitializer
   %98 = fmul <2 x double> %97, %95
   %99 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !404
+  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !402
   %101 = fmul <2 x double> %93, %100
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !404
-  %102 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !402
+  %102 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %103 = fmul <2 x double> %101, %102
   %104 = fadd <2 x double> %98, %103
   %105 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %106 = load <2 x double>, ptr %105, align 1, !tbaa !54, !noalias !404
+  %106 = load <2 x double>, ptr %105, align 1, !tbaa !54, !noalias !402
   %107 = fmul <2 x double> %93, %106
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !404
-  %108 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !402
+  %108 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %109 = fmul <2 x double> %107, %108
   %110 = fadd <2 x double> %104, %109
-  store <2 x double> %110, ptr %0, align 8, !tbaa !54, !alias.scope !404
+  store <2 x double> %110, ptr %0, align 8, !tbaa !54, !alias.scope !402
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %112 = getelementptr i8, ptr %23, i64 16
-  %113 = load double, ptr %112, align 8, !tbaa !35, !noalias !404
+  %113 = load double, ptr %112, align 8, !tbaa !35, !noalias !402
   %114 = fmul double %21, %113
   %115 = fmul double %96, %114
   %116 = getelementptr i8, ptr %23, i64 40
-  %117 = load double, ptr %116, align 8, !tbaa !35, !noalias !404
+  %117 = load double, ptr %116, align 8, !tbaa !35, !noalias !402
   %118 = fmul double %21, %117
-  %119 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %119 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %120 = fmul double %119, %118
   %121 = getelementptr i8, ptr %23, i64 64
-  %122 = load double, ptr %121, align 8, !tbaa !35, !noalias !404
+  %122 = load double, ptr %121, align 8, !tbaa !35, !noalias !402
   %123 = fmul double %21, %122
   %124 = fmul double %92, %123
   %125 = fadd double %120, %124
   %126 = fadd double %115, %125
-  store double %126, ptr %111, align 8, !tbaa !35, !alias.scope !404
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %126, ptr %111, align 8, !tbaa !35, !alias.scope !402
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -5765,7 +5761,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !403
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !401
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS3_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS1_15KelvinletParamsISQ_EEEUlRKdE1_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation.exit
 
@@ -5810,7 +5806,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !419
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !417
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS3_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS1_15KelvinletParamsISQ_EEEUlRKdE2_E10_M_managerERSt9_Any_dataRKS1H_St18_Manager_operation.exit
 
@@ -5829,47 +5825,47 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE2_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2 = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix.18", %"struct.Eigen::internal::evaluator.295" }, align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [3 x double], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !420, !noalias !422
-  %6 = load double, ptr %5, align 8, !tbaa !35, !noalias !422
+  %5 = load ptr, ptr %4, align 8, !tbaa !418, !noalias !420
+  %6 = load double, ptr %5, align 8, !tbaa !35, !noalias !420
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !427, !noalias !422
-  %9 = load double, ptr %8, align 8, !tbaa !272, !noalias !422
+  %8 = load ptr, ptr %7, align 8, !tbaa !425, !noalias !420
+  %9 = load double, ptr %8, align 8, !tbaa !272, !noalias !420
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %6)
-  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !422
+  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !420
   %12 = fmul double %11, %11
   %13 = fmul double %11, %12
   %14 = fdiv double 0.000000e+00, %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !428, !noalias !422
-  %17 = load ptr, ptr %1, align 8, !tbaa !429, !noalias !422
+  %16 = load ptr, ptr %15, align 8, !tbaa !426, !noalias !420
+  %17 = load ptr, ptr %1, align 8, !tbaa !427, !noalias !420
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !124, !noalias !430
+  %19 = load ptr, ptr %18, align 8, !tbaa !124, !noalias !428
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !430
+  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !428
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %23 = load ptr, ptr %22, align 8, !tbaa !133, !noalias !430
+  %23 = load ptr, ptr %22, align 8, !tbaa !133, !noalias !428
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !430
+  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !428
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !430
+  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !428
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %29 = load ptr, ptr %28, align 8, !tbaa !133, !noalias !430
+  %29 = load ptr, ptr %28, align 8, !tbaa !133, !noalias !428
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !430
+  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !428
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 184
-  %33 = load ptr, ptr %32, align 8, !tbaa !229, !noalias !430
+  %33 = load ptr, ptr %32, align 8, !tbaa !229, !noalias !428
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  %35 = load ptr, ptr %34, align 8, !tbaa !230, !noalias !430
+  %35 = load ptr, ptr %34, align 8, !tbaa !230, !noalias !428
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 224
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !430
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !428
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 248
-  %39 = load double, ptr %38, align 8, !tbaa !46, !noalias !430
+  %39 = load double, ptr %38, align 8, !tbaa !46, !noalias !428
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 272
-  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !430
+  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !428
   %42 = fmul double %11, 2.000000e+00
   %43 = fmul double %11, %42
   %44 = fmul double %43, %13
@@ -5881,22 +5877,22 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %.sroa.109.200.vec.insert.i.i.i = insertelement <2 x double> poison, double %37, i64 0
   %.sroa.12.216.vec.insert.i.i.i = insertelement <2 x double> poison, double %39, i64 0
   %.sroa.14.232.vec.insert.i.i.i = insertelement <2 x double> poison, double %41, i64 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %46 = load <2 x double>, ptr %19, align 1, !tbaa !54, !noalias !422
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
+  %46 = load <2 x double>, ptr %19, align 1, !tbaa !54, !noalias !420
   %47 = shufflevector <2 x double> %.sroa.2.56.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !422
+  %48 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !420
   %49 = fmul <2 x double> %47, %48
   %50 = shufflevector <2 x double> %.sroa.43.80.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %51 = fmul <2 x double> %50, %49
   %52 = fadd <2 x double> %46, %51
   %53 = shufflevector <2 x double> %.sroa.65.112.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = load <2 x double>, ptr %29, align 1, !tbaa !54, !noalias !422
+  %54 = load <2 x double>, ptr %29, align 1, !tbaa !54, !noalias !420
   %55 = fmul <2 x double> %53, %54
   %56 = shufflevector <2 x double> %.sroa.87.136.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %57 = fmul <2 x double> %56, %55
   %58 = fadd <2 x double> %52, %57
-  %59 = load <2 x double>, ptr %33, align 1, !tbaa !54, !noalias !422
-  %60 = load <2 x double>, ptr %35, align 1, !tbaa !54, !noalias !422
+  %59 = load <2 x double>, ptr %33, align 1, !tbaa !54, !noalias !420
+  %60 = load <2 x double>, ptr %35, align 1, !tbaa !54, !noalias !420
   %61 = shufflevector <2 x double> %.sroa.109.200.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %62 = fdiv <2 x double> %60, %61
   %63 = shufflevector <2 x double> %.sroa.12.216.vec.insert.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -5905,63 +5901,61 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %66 = fmul <2 x double> %65, %64
   %67 = fadd <2 x double> %59, %66
   %68 = fsub <2 x double> %58, %67
-  store <2 x double> %68, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !422
+  store <2 x double> %68, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !420
   %69 = getelementptr i8, ptr %19, i64 16
   %70 = getelementptr i8, ptr %23, i64 16
-  %71 = load double, ptr %70, align 8, !tbaa !35, !noalias !422
+  %71 = load double, ptr %70, align 8, !tbaa !35, !noalias !420
   %72 = fmul double %21, %71
   %73 = fmul double %25, %72
-  %74 = load double, ptr %69, align 8, !tbaa !35, !noalias !422
+  %74 = load double, ptr %69, align 8, !tbaa !35, !noalias !420
   %75 = fadd double %74, %73
   %76 = getelementptr i8, ptr %29, i64 16
-  %77 = load double, ptr %76, align 8, !tbaa !35, !noalias !422
+  %77 = load double, ptr %76, align 8, !tbaa !35, !noalias !420
   %78 = fmul double %27, %77
   %79 = fmul double %31, %78
   %80 = fadd double %75, %79
   %81 = getelementptr i8, ptr %33, i64 16
   %82 = getelementptr i8, ptr %35, i64 16
-  %83 = load double, ptr %82, align 8, !tbaa !35, !noalias !422
+  %83 = load double, ptr %82, align 8, !tbaa !35, !noalias !420
   %84 = fdiv double %83, %37
   %85 = fdiv double %84, %39
   %86 = fmul double %41, %85
-  %87 = load double, ptr %81, align 8, !tbaa !35, !noalias !422
+  %87 = load double, ptr %81, align 8, !tbaa !35, !noalias !420
   %88 = fadd double %87, %86
   %89 = fsub double %80, %88
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx44 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %89, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx44, align 16, !tbaa !35, !noalias !422
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  store ptr %16, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !278, !noalias !422
-  %90 = load <2 x double>, ptr %16, align 1, !tbaa !54, !noalias !422
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx46 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %89, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx46, align 16, !tbaa !35, !noalias !420
+  %90 = load <2 x double>, ptr %16, align 1, !tbaa !54, !noalias !420
   %91 = extractelement <2 x double> %68, i64 0
   %92 = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> zeroinitializer
   %93 = fmul <2 x double> %92, %90
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %95 = load <2 x double>, ptr %94, align 1, !tbaa !54, !noalias !422
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !422
-  %96 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %95 = load <2 x double>, ptr %94, align 1, !tbaa !54, !noalias !420
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx45 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx45, align 8, !noalias !420
+  %96 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %97 = fmul <2 x double> %95, %96
   %98 = fadd <2 x double> %93, %97
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !422
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !422
-  %101 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %100 = load <2 x double>, ptr %99, align 1, !tbaa !54, !noalias !420
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx47 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx47, align 16, !noalias !420
+  %101 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %102 = fmul <2 x double> %100, %101
   %103 = fadd <2 x double> %98, %102
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !422
+  %105 = load double, ptr %104, align 8, !tbaa !35, !noalias !420
   %106 = fmul double %91, %105
   %107 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %108 = load double, ptr %107, align 8, !tbaa !35, !noalias !422
-  %109 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %108 = load double, ptr %107, align 8, !tbaa !35, !noalias !420
+  %109 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %110 = fmul double %109, %108
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %112 = load double, ptr %111, align 8, !tbaa !35, !noalias !422
+  %112 = load double, ptr %111, align 8, !tbaa !35, !noalias !420
   %113 = fmul double %89, %112
   %114 = fadd double %110, %113
   %115 = fadd double %106, %114
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %116 = fmul <2 x double> %68, %103
   %shift = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %117 = fadd <2 x double> %116, %shift
@@ -5969,50 +5963,50 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %119 = fmul double %89, %115
   %120 = fadd double %118, %119
   %121 = fmul double %120, 0x3FB45F306DC9C883
-  %122 = load double, ptr %2, align 8, !tbaa !35, !noalias !422
+  %122 = load double, ptr %2, align 8, !tbaa !35, !noalias !420
   %123 = fmul double %122, 0x3FB45F306DC9C883
   %124 = fmul double %122, %123
   %125 = fmul double %122, %124
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i)
-  store <2 x double> %68, ptr %.sroa.2.i.i.i.i.i.i.i, align 16, !tbaa !54
-  %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx61 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 16
-  store double %89, ptr %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx61, align 16, !tbaa !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.sroa.0)
+  store <2 x double> %68, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx66 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %89, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx66, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
   %126 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %127 = fmul <2 x double> %126, %90
   %128 = fmul <2 x double> %92, %127
   %129 = fmul <2 x double> %126, %95
-  %.sroa.2.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %130 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx65 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx65, align 8
+  %130 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %131 = fmul <2 x double> %129, %130
   %132 = fadd <2 x double> %128, %131
   %133 = fmul <2 x double> %126, %100
-  %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %134 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx67 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx67, align 16
+  %134 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %135 = fmul <2 x double> %133, %134
   %136 = fadd <2 x double> %132, %135
   %137 = fmul double %14, %105
   %138 = fmul double %91, %137
   %139 = fmul double %14, %108
-  %140 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, i64 0
+  %140 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i, i64 0
   %141 = fmul double %140, %139
   %142 = fmul double %14, %112
   %143 = fmul double %89, %142
   %144 = fadd double %141, %143
   %145 = fadd double %138, %144
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i)
-  %.sroa.445.48.vec.insert = insertelement <2 x double> poison, double %45, i64 0
-  %.sroa.647.80.vec.insert = insertelement <2 x double> poison, double %121, i64 0
-  %.sroa.849.144.vec.insert = insertelement <2 x double> poison, double %21, i64 0
-  %.sroa.1051.168.vec.insert = insertelement <2 x double> poison, double %25, i64 0
-  %.sroa.1253.200.vec.insert = insertelement <2 x double> poison, double %27, i64 0
-  %.sroa.1455.224.vec.insert = insertelement <2 x double> poison, double %31, i64 0
-  %.sroa.1657.288.vec.insert = insertelement <2 x double> poison, double %37, i64 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.sroa.0)
+  %.sroa.448.48.vec.insert = insertelement <2 x double> poison, double %45, i64 0
+  %.sroa.650.80.vec.insert = insertelement <2 x double> poison, double %121, i64 0
+  %.sroa.852.144.vec.insert = insertelement <2 x double> poison, double %21, i64 0
+  %.sroa.1054.168.vec.insert = insertelement <2 x double> poison, double %25, i64 0
+  %.sroa.1256.200.vec.insert = insertelement <2 x double> poison, double %27, i64 0
+  %.sroa.1458.224.vec.insert = insertelement <2 x double> poison, double %31, i64 0
+  %.sroa.1660.288.vec.insert = insertelement <2 x double> poison, double %37, i64 0
   %.sroa.18.304.vec.insert = insertelement <2 x double> poison, double %39, i64 0
   %.sroa.20.320.vec.insert = insertelement <2 x double> poison, double %41, i64 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0)
   %146 = load <2 x double>, ptr %19, align 8, !tbaa !54
   %147 = load <2 x double>, ptr %23, align 8, !tbaa !54
   %148 = fmul <2 x double> %47, %147
@@ -6029,7 +6023,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %159 = fmul <2 x double> %65, %158
   %160 = fadd <2 x double> %155, %159
   %161 = fsub <2 x double> %154, %160
-  store <2 x double> %161, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2, align 16, !tbaa !54
+  store <2 x double> %161, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0, align 16, !tbaa !54
   %162 = load double, ptr %70, align 8, !tbaa !35
   %163 = fmul double %21, %162
   %164 = fmul double %25, %163
@@ -6046,8 +6040,8 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %175 = load double, ptr %81, align 8, !tbaa !35
   %176 = fadd double %175, %174
   %177 = fsub double %170, %176
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2, i64 16
-  store double %177, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx62, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx70 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0, i64 16
+  store double %177, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx70, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %125, i64 0
   %178 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %179 = load <2 x double>, ptr %16, align 8, !tbaa !54
@@ -6057,16 +6051,16 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %183 = fmul <2 x double> %182, %180
   %184 = load <2 x double>, ptr %94, align 8, !tbaa !54
   %185 = fmul <2 x double> %178, %184
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %186 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx69 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx69, align 8
+  %186 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %187 = fmul <2 x double> %185, %186
   %188 = fadd <2 x double> %183, %187
   %189 = load <2 x double>, ptr %99, align 8, !tbaa !54
   %190 = fmul <2 x double> %178, %189
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %191 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx71 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx71, align 16
+  %191 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %192 = fmul <2 x double> %190, %191
   %193 = fadd <2 x double> %188, %192
   %194 = load double, ptr %104, align 8, !tbaa !35
@@ -6074,27 +6068,27 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %196 = fmul double %181, %195
   %197 = load double, ptr %107, align 8, !tbaa !35
   %198 = fmul double %125, %197
-  %199 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %199 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %200 = fmul double %199, %198
   %201 = load double, ptr %111, align 8, !tbaa !35
   %202 = fmul double %125, %201
   %203 = fmul double %177, %202
   %204 = fadd double %200, %203
   %205 = fadd double %196, %204
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2)
-  %206 = shufflevector <2 x double> %.sroa.445.48.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
-  %207 = shufflevector <2 x double> %.sroa.647.80.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
-  %208 = shufflevector <2 x double> %.sroa.849.144.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2.sroa.0)
+  %206 = shufflevector <2 x double> %.sroa.448.48.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %207 = shufflevector <2 x double> %.sroa.650.80.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %208 = shufflevector <2 x double> %.sroa.852.144.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %209 = fmul <2 x double> %208, %147
-  %210 = shufflevector <2 x double> %.sroa.1051.168.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %210 = shufflevector <2 x double> %.sroa.1054.168.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %211 = fmul <2 x double> %209, %210
   %212 = fadd <2 x double> %146, %211
-  %213 = shufflevector <2 x double> %.sroa.1253.200.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %213 = shufflevector <2 x double> %.sroa.1256.200.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %214 = fmul <2 x double> %213, %151
-  %215 = shufflevector <2 x double> %.sroa.1455.224.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %215 = shufflevector <2 x double> %.sroa.1458.224.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %216 = fmul <2 x double> %214, %215
   %217 = fadd <2 x double> %212, %216
-  %218 = shufflevector <2 x double> %.sroa.1657.288.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %218 = shufflevector <2 x double> %.sroa.1660.288.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %219 = fdiv <2 x double> %156, %218
   %220 = shufflevector <2 x double> %.sroa.18.304.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %221 = fdiv <2 x double> %219, %220
@@ -6155,7 +6149,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !433
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !431
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS3_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS1_15KelvinletParamsISS_EEEUlRKdE_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation.exit
 
@@ -6177,149 +6171,149 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %4 = alloca %"struct.Eigen::internal::evaluator.1194", align 8
   %5 = alloca %"class.Eigen::CwiseBinaryOp.1153", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !440, !noalias !442
-  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !442
-  %9 = load double, ptr %2, align 8, !tbaa !35, !noalias !442
+  %7 = load ptr, ptr %6, align 8, !tbaa !438, !noalias !440
+  %8 = load double, ptr %7, align 8, !tbaa !35, !noalias !440
+  %9 = load double, ptr %2, align 8, !tbaa !35, !noalias !440
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %8)
-  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !442
+  %11 = tail call double @sqrt(double noundef %10) #23, !tbaa !26, !noalias !440
   %12 = fmul double %11, %11
   %13 = fmul double %11, %12
   %14 = fdiv double 0x3FA45F306DC9C883, %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !443, !noalias !442
+  %16 = load ptr, ptr %15, align 8, !tbaa !441, !noalias !440
   %17 = fdiv double 0x3FA45F306DC9C883, %13
-  %18 = load ptr, ptr %1, align 8, !tbaa !444, !noalias !442
+  %18 = load ptr, ptr %1, align 8, !tbaa !442, !noalias !440
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !124, !noalias !445
+  %20 = load ptr, ptr %19, align 8, !tbaa !124, !noalias !443
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !445
+  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !443
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !133, !noalias !445
+  %24 = load ptr, ptr %23, align 8, !tbaa !133, !noalias !443
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !445
+  %26 = load double, ptr %25, align 8, !tbaa !46, !noalias !443
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 136
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !445
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !443
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !445
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !443
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 168
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !445
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !443
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !445
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !443
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 224
-  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !445
+  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !443
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 248
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !445
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !443
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 272
-  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !445
+  %40 = load ptr, ptr %39, align 8, !tbaa !229, !noalias !443
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 296
-  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !445
+  %42 = load ptr, ptr %41, align 8, !tbaa !230, !noalias !443
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 312
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !445
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !443
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 336
-  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !445
+  %46 = load double, ptr %45, align 8, !tbaa !46, !noalias !443
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 360
-  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !445
+  %48 = load double, ptr %47, align 8, !tbaa !46, !noalias !443
   %49 = fmul double %9, 0x3FB45F306DC9C883
   %50 = fmul double %9, %49
   %51 = fmul double %13, 2.000000e+00
   %52 = fdiv double %50, %51
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store double %14, ptr %53, align 8, !tbaa !46, !alias.scope !448
+  store double %14, ptr %53, align 8, !tbaa !46, !alias.scope !446
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %16, ptr %54, align 8, !tbaa !41, !alias.scope !448
+  store ptr %16, ptr %54, align 8, !tbaa !41, !alias.scope !446
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store double %17, ptr %55, align 8, !tbaa !46, !alias.scope !448
+  store double %17, ptr %55, align 8, !tbaa !46, !alias.scope !446
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr %20, ptr %56, align 8, !tbaa !41, !alias.scope !448
+  store ptr %20, ptr %56, align 8, !tbaa !41, !alias.scope !446
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store double %22, ptr %57, align 8, !tbaa !46, !alias.scope !448
+  store double %22, ptr %57, align 8, !tbaa !46, !alias.scope !446
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store ptr %24, ptr %58, align 8, !tbaa !41, !alias.scope !448
+  store ptr %24, ptr %58, align 8, !tbaa !41, !alias.scope !446
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store double %26, ptr %59, align 8, !tbaa !46, !alias.scope !448
+  store double %26, ptr %59, align 8, !tbaa !46, !alias.scope !446
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store double %28, ptr %60, align 8, !tbaa !46, !alias.scope !448
+  store double %28, ptr %60, align 8, !tbaa !46, !alias.scope !446
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  store ptr %30, ptr %61, align 8, !tbaa !41, !alias.scope !448
+  store ptr %30, ptr %61, align 8, !tbaa !41, !alias.scope !446
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store double %32, ptr %62, align 8, !tbaa !46, !alias.scope !448
+  store double %32, ptr %62, align 8, !tbaa !46, !alias.scope !446
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  store double %34, ptr %63, align 8, !tbaa !46, !alias.scope !448
+  store double %34, ptr %63, align 8, !tbaa !46, !alias.scope !446
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %36, ptr %64, align 8, !tbaa !41, !alias.scope !448
+  store ptr %36, ptr %64, align 8, !tbaa !41, !alias.scope !446
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  store double %38, ptr %65, align 8, !tbaa !46, !alias.scope !448
+  store double %38, ptr %65, align 8, !tbaa !46, !alias.scope !446
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store ptr %40, ptr %66, align 8, !tbaa !41, !alias.scope !448
+  store ptr %40, ptr %66, align 8, !tbaa !41, !alias.scope !446
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store ptr %42, ptr %67, align 8, !tbaa !41, !alias.scope !448
+  store ptr %42, ptr %67, align 8, !tbaa !41, !alias.scope !446
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  store double %44, ptr %68, align 8, !tbaa !46, !alias.scope !448
+  store double %44, ptr %68, align 8, !tbaa !46, !alias.scope !446
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 416
-  store double %46, ptr %69, align 8, !tbaa !46, !alias.scope !448
+  store double %46, ptr %69, align 8, !tbaa !46, !alias.scope !446
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 440
-  store double %48, ptr %70, align 8, !tbaa !46, !alias.scope !448
+  store double %48, ptr %70, align 8, !tbaa !46, !alias.scope !446
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  store ptr %20, ptr %71, align 8, !tbaa !41, !alias.scope !448
+  store ptr %20, ptr %71, align 8, !tbaa !41, !alias.scope !446
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 536
-  store double %22, ptr %72, align 8, !tbaa !46, !alias.scope !448
+  store double %22, ptr %72, align 8, !tbaa !46, !alias.scope !446
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 544
-  store ptr %24, ptr %73, align 8, !tbaa !41, !alias.scope !448
+  store ptr %24, ptr %73, align 8, !tbaa !41, !alias.scope !446
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  store double %26, ptr %74, align 8, !tbaa !46, !alias.scope !448
+  store double %26, ptr %74, align 8, !tbaa !46, !alias.scope !446
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  store double %28, ptr %75, align 8, !tbaa !46, !alias.scope !448
+  store double %28, ptr %75, align 8, !tbaa !46, !alias.scope !446
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  store ptr %30, ptr %76, align 8, !tbaa !41, !alias.scope !448
+  store ptr %30, ptr %76, align 8, !tbaa !41, !alias.scope !446
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  store double %32, ptr %77, align 8, !tbaa !46, !alias.scope !448
+  store double %32, ptr %77, align 8, !tbaa !46, !alias.scope !446
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 696
-  store double %34, ptr %78, align 8, !tbaa !46, !alias.scope !448
+  store double %34, ptr %78, align 8, !tbaa !46, !alias.scope !446
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  store ptr %36, ptr %79, align 8, !tbaa !41, !alias.scope !448
+  store ptr %36, ptr %79, align 8, !tbaa !41, !alias.scope !446
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  store double %38, ptr %80, align 8, !tbaa !46, !alias.scope !448
+  store double %38, ptr %80, align 8, !tbaa !46, !alias.scope !446
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 752
-  store ptr %40, ptr %81, align 8, !tbaa !41, !alias.scope !448
+  store ptr %40, ptr %81, align 8, !tbaa !41, !alias.scope !446
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 776
-  store ptr %42, ptr %82, align 8, !tbaa !41, !alias.scope !448
+  store ptr %42, ptr %82, align 8, !tbaa !41, !alias.scope !446
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 792
-  store double %44, ptr %83, align 8, !tbaa !46, !alias.scope !448
+  store double %44, ptr %83, align 8, !tbaa !46, !alias.scope !446
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 816
-  store double %46, ptr %84, align 8, !tbaa !46, !alias.scope !448
+  store double %46, ptr %84, align 8, !tbaa !46, !alias.scope !446
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 840
-  store double %48, ptr %85, align 8, !tbaa !46, !alias.scope !448
+  store double %48, ptr %85, align 8, !tbaa !46, !alias.scope !446
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 872
-  store ptr %16, ptr %86, align 8, !tbaa !41, !alias.scope !448
+  store ptr %16, ptr %86, align 8, !tbaa !41, !alias.scope !446
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 904
-  store double %52, ptr %87, align 8, !tbaa !46, !alias.scope !448
+  store double %52, ptr %87, align 8, !tbaa !46, !alias.scope !446
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 912
-  store ptr %16, ptr %88, align 8, !tbaa !41, !alias.scope !448
+  store ptr %16, ptr %88, align 8, !tbaa !41, !alias.scope !446
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %14, ptr %89, align 8, !tbaa !46
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %16, ptr %90, align 8, !tbaa !301
+  store ptr %16, ptr %90, align 8, !tbaa !299
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %93, ptr %91, align 8, !tbaa !301
+  store ptr %93, ptr %91, align 8, !tbaa !299
   call void @_ZN5Eigen8internal20generic_product_implINS_7ProductINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS3_INS0_20scalar_difference_opIddEEKNS3_INS0_13scalar_sum_opIddEEKNS3_ISH_KNS3_ISH_SB_KNS3_IS5_KNS3_IS5_SD_SB_EESD_EEEESL_EESL_EEKNS3_ISH_SB_KNS3_IS5_KNS3_INS0_18scalar_quotient_opIddEEKNS3_IST_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS13_EELi0EEESA_NS_10DenseShapeES18_Li3EE6evalToISA_EEvRT_RKS17_RSB_(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(824) %92, ptr noundef nonnull align 8 dereferenceable(24) %16)
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %95 = load double, ptr %87, align 8, !tbaa !46
   store double %95, ptr %94, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %97 = load ptr, ptr %88, align 8, !tbaa !133
-  store ptr %97, ptr %96, align 8, !tbaa !301
+  store ptr %97, ptr %96, align 8, !tbaa !299
   %98 = load <2 x double>, ptr %89, align 8
   %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> zeroinitializer
-  %100 = load ptr, ptr %90, align 8, !tbaa !451
+  %100 = load ptr, ptr %90, align 8, !tbaa !449
   %101 = load <2 x double>, ptr %100, align 1, !tbaa !54
   %102 = fmul <2 x double> %99, %101
-  %103 = load ptr, ptr %91, align 8, !tbaa !451
+  %103 = load ptr, ptr %91, align 8, !tbaa !449
   %104 = load <2 x double>, ptr %103, align 1, !tbaa !54
   %105 = fadd <2 x double> %102, %104
   %106 = load <2 x double>, ptr %94, align 8
@@ -6352,67 +6346,67 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal20generic_product_implINS_
   %4 = alloca %"struct.Eigen::internal::evaluator.1226", align 16
   %5 = alloca %"struct.Eigen::internal::evaluator.1214", align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load double, ptr %6, align 8, !tbaa !46, !noalias !453
+  %7 = load double, ptr %6, align 8, !tbaa !46, !noalias !451
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !124, !noalias !453
+  %9 = load ptr, ptr %8, align 8, !tbaa !124, !noalias !451
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %11 = load double, ptr %10, align 8, !tbaa !46, !noalias !453
+  %11 = load double, ptr %10, align 8, !tbaa !46, !noalias !451
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !133, !noalias !453
+  %13 = load ptr, ptr %12, align 8, !tbaa !133, !noalias !451
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %15 = load double, ptr %14, align 8, !tbaa !46, !noalias !453
+  %15 = load double, ptr %14, align 8, !tbaa !46, !noalias !451
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %17 = load double, ptr %16, align 8, !tbaa !46, !noalias !453
+  %17 = load double, ptr %16, align 8, !tbaa !46, !noalias !451
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %19 = load ptr, ptr %18, align 8, !tbaa !133, !noalias !453
+  %19 = load ptr, ptr %18, align 8, !tbaa !133, !noalias !451
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !453
+  %21 = load double, ptr %20, align 8, !tbaa !46, !noalias !451
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !453
+  %23 = load double, ptr %22, align 8, !tbaa !46, !noalias !451
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !453
+  %25 = load ptr, ptr %24, align 8, !tbaa !133, !noalias !451
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !453
+  %27 = load double, ptr %26, align 8, !tbaa !46, !noalias !451
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !453
+  %29 = load ptr, ptr %28, align 8, !tbaa !229, !noalias !451
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !453
+  %31 = load ptr, ptr %30, align 8, !tbaa !230, !noalias !451
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !453
+  %33 = load double, ptr %32, align 8, !tbaa !46, !noalias !451
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !453
+  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !451
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !453
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !451
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %39 = load ptr, ptr %38, align 8, !tbaa !124, !noalias !453
+  %39 = load ptr, ptr %38, align 8, !tbaa !124, !noalias !451
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !453
+  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !451
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %43 = load ptr, ptr %42, align 8, !tbaa !133, !noalias !453
+  %43 = load ptr, ptr %42, align 8, !tbaa !133, !noalias !451
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %45 = load double, ptr %44, align 8, !tbaa !46, !noalias !453
+  %45 = load double, ptr %44, align 8, !tbaa !46, !noalias !451
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %47 = load double, ptr %46, align 8, !tbaa !46, !noalias !453
+  %47 = load double, ptr %46, align 8, !tbaa !46, !noalias !451
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %49 = load ptr, ptr %48, align 8, !tbaa !133, !noalias !453
+  %49 = load ptr, ptr %48, align 8, !tbaa !133, !noalias !451
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %51 = load double, ptr %50, align 8, !tbaa !46, !noalias !453
+  %51 = load double, ptr %50, align 8, !tbaa !46, !noalias !451
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %53 = load double, ptr %52, align 8, !tbaa !46, !noalias !453
+  %53 = load double, ptr %52, align 8, !tbaa !46, !noalias !451
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %55 = load ptr, ptr %54, align 8, !tbaa !133, !noalias !453
+  %55 = load ptr, ptr %54, align 8, !tbaa !133, !noalias !451
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %57 = load double, ptr %56, align 8, !tbaa !46, !noalias !453
+  %57 = load double, ptr %56, align 8, !tbaa !46, !noalias !451
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %59 = load ptr, ptr %58, align 8, !tbaa !229, !noalias !453
+  %59 = load ptr, ptr %58, align 8, !tbaa !229, !noalias !451
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %61 = load ptr, ptr %60, align 8, !tbaa !230, !noalias !453
+  %61 = load ptr, ptr %60, align 8, !tbaa !230, !noalias !451
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  %63 = load double, ptr %62, align 8, !tbaa !46, !noalias !453
+  %63 = load double, ptr %62, align 8, !tbaa !46, !noalias !451
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  %65 = load double, ptr %64, align 8, !tbaa !46, !noalias !453
+  %65 = load double, ptr %64, align 8, !tbaa !46, !noalias !451
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %67 = load double, ptr %66, align 8, !tbaa !46, !noalias !453
+  %67 = load double, ptr %66, align 8, !tbaa !46, !noalias !451
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.3.8.vec.insert.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %7, i64 0
@@ -6572,13 +6566,13 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal20generic_product_implINS_
   store double %193, ptr %192, align 8, !tbaa !35
   %194 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %194, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS0_20scalar_difference_opIddEEKNS2_INS0_13scalar_sum_opIddEEKNS2_ISG_KNS2_ISG_SA_KNS2_IS4_KNS2_IS4_SC_SA_EESC_EEEESK_EESK_EEKNS2_ISG_SA_KNS2_IS4_KNS2_INS0_18scalar_quotient_opIddEEKNS2_ISS_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeIS12_EENS_10DenseShapeES16_Li3EE6evalToINS8_IdLi3ELi3ELi0ELi3ELi3EEEEEvRT_RKS13_RKS15_.exit, label %185, !llvm.loop !456
+  br i1 %exitcond.not.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS0_20scalar_difference_opIddEEKNS2_INS0_13scalar_sum_opIddEEKNS2_ISG_KNS2_ISG_SA_KNS2_IS4_KNS2_IS4_SC_SA_EESC_EEEESK_EESK_EEKNS2_ISG_SA_KNS2_IS4_KNS2_INS0_18scalar_quotient_opIddEEKNS2_ISS_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeIS12_EENS_10DenseShapeES16_Li3EE6evalToINS8_IdLi3ELi3ELi0ELi3ELi3EEEEEvRT_RKS13_RKS15_.exit, label %185, !llvm.loop !454
 
 _ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS0_20scalar_difference_opIddEEKNS2_INS0_13scalar_sum_opIddEEKNS2_ISG_KNS2_ISG_SA_KNS2_IS4_KNS2_IS4_SC_SA_EESC_EEEESK_EESK_EEKNS2_ISG_SA_KNS2_IS4_KNS2_INS0_18scalar_quotient_opIddEEKNS2_ISS_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeIS12_EENS_10DenseShapeES16_Li3EE6evalToINS8_IdLi3ELi3ELi0ELi3ELi3EEEEEvRT_RKS13_RKS15_.exit: ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %195 = load <2 x double>, ptr %5, align 16, !tbaa !54
-  %196 = load <2 x double>, ptr %2, align 8
-  %197 = shufflevector <2 x double> %196, <2 x double> poison, <2 x i32> zeroinitializer
+  %196 = load <1 x double>, ptr %2, align 8
+  %197 = shufflevector <1 x double> %196, <1 x double> poison, <2 x i32> zeroinitializer
   %198 = fmul <2 x double> %195, %197
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %200 = load <2 x double>, ptr %199, align 8, !tbaa !54
@@ -6615,15 +6609,15 @@ _ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESU_RKNS0_10MatrixBaseIT_EERKNSW_IT0_EERKNSW_IT1_EERKNSW_IT2_EERKNS6_15KelvinletParamsISU_EEEUlS4_E0_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !460, !noalias !462
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !462
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !462
+  %6 = load ptr, ptr %5, align 8, !tbaa !458, !noalias !460
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !460
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !460
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !462
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !460
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -6636,39 +6630,39 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFB45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !467, !noalias !462
-  %24 = load ptr, ptr %4, align 8, !tbaa !468, !noalias !462
+  %23 = load ptr, ptr %22, align 8, !tbaa !465, !noalias !460
+  %24 = load ptr, ptr %4, align 8, !tbaa !466, !noalias !460
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !469
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !467
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !469
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !467
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !469
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !467
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !469
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !467
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !469
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !467
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 144
-  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !469
+  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !467
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 168
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !469
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !467
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 216
-  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !469
+  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !467
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 224
-  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !469
+  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !467
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 248
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !469
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !467
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 272
-  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !469
+  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !467
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 296
-  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !469
+  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !467
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 312
-  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !469
+  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !467
   %51 = getelementptr inbounds nuw i8, ptr %24, i64 336
-  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !469
+  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !467
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 360
-  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !469
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !467
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %34, i64 0
@@ -6678,27 +6672,27 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.sroa.39.256.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %50, i64 0
   %.sroa.42.272.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %52, i64 0
   %.sroa.45.288.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %54, i64 0
-  %55 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !457
+  %55 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !455
   %56 = shufflevector <2 x double> %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !457
+  %57 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !455
   %58 = fmul <2 x double> %56, %57
   %59 = shufflevector <2 x double> %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fmul <2 x double> %59, %58
   %61 = fadd <2 x double> %55, %60
   %62 = shufflevector <2 x double> %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %63 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !457
+  %63 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !455
   %64 = fmul <2 x double> %62, %63
   %65 = shufflevector <2 x double> %.sroa.21.136.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %66 = fmul <2 x double> %65, %64
   %67 = fadd <2 x double> %61, %66
   %68 = shufflevector <2 x double> %.sroa.2427.168.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !457
+  %69 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !455
   %70 = fmul <2 x double> %68, %69
   %71 = shufflevector <2 x double> %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x double> %71, %70
   %73 = fadd <2 x double> %67, %72
-  %74 = load <2 x double>, ptr %46, align 1, !tbaa !54, !noalias !457
-  %75 = load <2 x double>, ptr %48, align 1, !tbaa !54, !noalias !457
+  %74 = load <2 x double>, ptr %46, align 1, !tbaa !54, !noalias !455
+  %75 = load <2 x double>, ptr %48, align 1, !tbaa !54, !noalias !455
   %76 = shufflevector <2 x double> %.sroa.39.256.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %77 = fdiv <2 x double> %75, %76
   %78 = shufflevector <2 x double> %.sroa.42.272.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -6707,77 +6701,77 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %81 = fmul <2 x double> %80, %79
   %82 = fadd <2 x double> %74, %81
   %83 = fsub <2 x double> %73, %82
-  store <2 x double> %83, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !457
+  store <2 x double> %83, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !455
   %84 = getelementptr i8, ptr %26, i64 16
   %85 = getelementptr i8, ptr %30, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !457
+  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !455
   %87 = fmul double %28, %86
   %88 = fmul double %32, %87
-  %89 = load double, ptr %84, align 8, !tbaa !35, !noalias !457
+  %89 = load double, ptr %84, align 8, !tbaa !35, !noalias !455
   %90 = fadd double %89, %88
   %91 = getelementptr i8, ptr %36, i64 16
-  %92 = load double, ptr %91, align 8, !tbaa !35, !noalias !457
+  %92 = load double, ptr %91, align 8, !tbaa !35, !noalias !455
   %93 = fmul double %34, %92
   %94 = fmul double %38, %93
   %95 = fadd double %90, %94
   %96 = getelementptr i8, ptr %42, i64 16
-  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !457
+  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !455
   %98 = fmul double %40, %97
   %99 = fmul double %44, %98
   %100 = fadd double %95, %99
   %101 = getelementptr i8, ptr %46, i64 16
   %102 = getelementptr i8, ptr %48, i64 16
-  %103 = load double, ptr %102, align 8, !tbaa !35, !noalias !457
+  %103 = load double, ptr %102, align 8, !tbaa !35, !noalias !455
   %104 = fdiv double %103, %50
   %105 = fdiv double %104, %52
   %106 = fmul double %54, %105
-  %107 = load double, ptr %101, align 8, !tbaa !35, !noalias !457
+  %107 = load double, ptr %101, align 8, !tbaa !35, !noalias !455
   %108 = fadd double %107, %106
   %109 = fsub double %100, %108
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %109, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !457
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %109, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !455
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %110 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %111 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !457
+  %111 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !455
   %112 = fmul <2 x double> %110, %111
   %113 = extractelement <2 x double> %83, i64 0
   %114 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
   %115 = fmul <2 x double> %114, %112
   %116 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %117 = load <2 x double>, ptr %116, align 1, !tbaa !54, !noalias !457
+  %117 = load <2 x double>, ptr %116, align 1, !tbaa !54, !noalias !455
   %118 = fmul <2 x double> %110, %117
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !457
-  %119 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !455
+  %119 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %120 = fmul <2 x double> %118, %119
   %121 = fadd <2 x double> %115, %120
   %122 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %123 = load <2 x double>, ptr %122, align 1, !tbaa !54, !noalias !457
+  %123 = load <2 x double>, ptr %122, align 1, !tbaa !54, !noalias !455
   %124 = fmul <2 x double> %110, %123
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !457
-  %125 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !455
+  %125 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %126 = fmul <2 x double> %124, %125
   %127 = fadd <2 x double> %121, %126
-  store <2 x double> %127, ptr %0, align 8, !tbaa !54, !alias.scope !457
+  store <2 x double> %127, ptr %0, align 8, !tbaa !54, !alias.scope !455
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = getelementptr i8, ptr %23, i64 16
-  %130 = load double, ptr %129, align 8, !tbaa !35, !noalias !457
+  %130 = load double, ptr %129, align 8, !tbaa !35, !noalias !455
   %131 = fmul double %21, %130
   %132 = fmul double %113, %131
   %133 = getelementptr i8, ptr %23, i64 40
-  %134 = load double, ptr %133, align 8, !tbaa !35, !noalias !457
+  %134 = load double, ptr %133, align 8, !tbaa !35, !noalias !455
   %135 = fmul double %21, %134
-  %136 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %136 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %137 = fmul double %136, %135
   %138 = getelementptr i8, ptr %23, i64 64
-  %139 = load double, ptr %138, align 8, !tbaa !35, !noalias !457
+  %139 = load double, ptr %138, align 8, !tbaa !35, !noalias !455
   %140 = fmul double %21, %139
   %141 = fmul double %109, %140
   %142 = fadd double %137, %141
   %143 = fadd double %132, %142
-  store double %143, ptr %128, align 8, !tbaa !35, !alias.scope !457
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %143, ptr %128, align 8, !tbaa !35, !alias.scope !455
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -6802,7 +6796,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !472
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !470
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS3_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS1_15KelvinletParamsISS_EEEUlRKdE0_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation.exit
 
@@ -6821,15 +6815,15 @@ _ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseB
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERKdEZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS8_ISB_KNS8_ISB_KS2_KNS8_INS9_17scalar_product_opIddEEKNS8_ISE_KNS0_14CwiseNullaryOpINS9_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESU_RKNS0_10MatrixBaseIT_EERKNSW_IT0_EERKNSW_IT1_EERKNSW_IT2_EERKNS6_15KelvinletParamsISU_EEEUlS4_E1_E9_M_invokeERKSt9_Any_dataS4_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %4 = load ptr, ptr %1, align 8, !tbaa !24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !471)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !476, !noalias !478
-  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !478
-  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !478
+  %6 = load ptr, ptr %5, align 8, !tbaa !474, !noalias !476
+  %7 = load double, ptr %6, align 8, !tbaa !35, !noalias !476
+  %8 = load double, ptr %2, align 8, !tbaa !35, !noalias !476
   %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !478
+  %10 = tail call double @sqrt(double noundef %9) #23, !tbaa !26, !noalias !476
   %11 = fmul double %10, %10
   %12 = fmul double %10, %11
   %13 = fdiv double 1.000000e+00, %12
@@ -6842,39 +6836,39 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %20 = fadd double %13, %19
   %21 = fmul double %20, 0xBFA45F306DC9C883
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !483, !noalias !478
-  %24 = load ptr, ptr %4, align 8, !tbaa !484, !noalias !478
+  %23 = load ptr, ptr %22, align 8, !tbaa !481, !noalias !476
+  %24 = load ptr, ptr %4, align 8, !tbaa !482, !noalias !476
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !485
+  %26 = load ptr, ptr %25, align 8, !tbaa !124, !noalias !483
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !485
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !483
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !485
+  %30 = load ptr, ptr %29, align 8, !tbaa !133, !noalias !483
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !485
+  %32 = load double, ptr %31, align 8, !tbaa !46, !noalias !483
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !485
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !483
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 144
-  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !485
+  %36 = load ptr, ptr %35, align 8, !tbaa !133, !noalias !483
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 168
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !485
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !483
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 216
-  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !485
+  %40 = load double, ptr %39, align 8, !tbaa !46, !noalias !483
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 224
-  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !485
+  %42 = load ptr, ptr %41, align 8, !tbaa !133, !noalias !483
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 248
-  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !485
+  %44 = load double, ptr %43, align 8, !tbaa !46, !noalias !483
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 272
-  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !485
+  %46 = load ptr, ptr %45, align 8, !tbaa !229, !noalias !483
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 296
-  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !485
+  %48 = load ptr, ptr %47, align 8, !tbaa !230, !noalias !483
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 312
-  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !485
+  %50 = load double, ptr %49, align 8, !tbaa !46, !noalias !483
   %51 = getelementptr inbounds nuw i8, ptr %24, i64 336
-  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !485
+  %52 = load double, ptr %51, align 8, !tbaa !46, !noalias !483
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 360
-  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !485
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  %54 = load double, ptr %53, align 8, !tbaa !46, !noalias !483
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %34, i64 0
@@ -6884,27 +6878,27 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %.sroa.39.256.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %50, i64 0
   %.sroa.42.272.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %52, i64 0
   %.sroa.45.288.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %54, i64 0
-  %55 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !473
+  %55 = load <2 x double>, ptr %26, align 1, !tbaa !54, !noalias !471
   %56 = shufflevector <2 x double> %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !473
+  %57 = load <2 x double>, ptr %30, align 1, !tbaa !54, !noalias !471
   %58 = fmul <2 x double> %56, %57
   %59 = shufflevector <2 x double> %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fmul <2 x double> %59, %58
   %61 = fadd <2 x double> %55, %60
   %62 = shufflevector <2 x double> %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %63 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !473
+  %63 = load <2 x double>, ptr %36, align 1, !tbaa !54, !noalias !471
   %64 = fmul <2 x double> %62, %63
   %65 = shufflevector <2 x double> %.sroa.21.136.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %66 = fmul <2 x double> %65, %64
   %67 = fadd <2 x double> %61, %66
   %68 = shufflevector <2 x double> %.sroa.2427.168.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !473
+  %69 = load <2 x double>, ptr %42, align 1, !tbaa !54, !noalias !471
   %70 = fmul <2 x double> %68, %69
   %71 = shufflevector <2 x double> %.sroa.30.192.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x double> %71, %70
   %73 = fadd <2 x double> %67, %72
-  %74 = load <2 x double>, ptr %46, align 1, !tbaa !54, !noalias !473
-  %75 = load <2 x double>, ptr %48, align 1, !tbaa !54, !noalias !473
+  %74 = load <2 x double>, ptr %46, align 1, !tbaa !54, !noalias !471
+  %75 = load <2 x double>, ptr %48, align 1, !tbaa !54, !noalias !471
   %76 = shufflevector <2 x double> %.sroa.39.256.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %77 = fdiv <2 x double> %75, %76
   %78 = shufflevector <2 x double> %.sroa.42.272.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -6913,77 +6907,77 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFN5Eigen6MatrixIdLi
   %81 = fmul <2 x double> %80, %79
   %82 = fadd <2 x double> %74, %81
   %83 = fsub <2 x double> %73, %82
-  store <2 x double> %83, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54, !noalias !473
+  store <2 x double> %83, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54, !noalias !471
   %84 = getelementptr i8, ptr %26, i64 16
   %85 = getelementptr i8, ptr %30, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !473
+  %86 = load double, ptr %85, align 8, !tbaa !35, !noalias !471
   %87 = fmul double %28, %86
   %88 = fmul double %32, %87
-  %89 = load double, ptr %84, align 8, !tbaa !35, !noalias !473
+  %89 = load double, ptr %84, align 8, !tbaa !35, !noalias !471
   %90 = fadd double %89, %88
   %91 = getelementptr i8, ptr %36, i64 16
-  %92 = load double, ptr %91, align 8, !tbaa !35, !noalias !473
+  %92 = load double, ptr %91, align 8, !tbaa !35, !noalias !471
   %93 = fmul double %34, %92
   %94 = fmul double %38, %93
   %95 = fadd double %90, %94
   %96 = getelementptr i8, ptr %42, i64 16
-  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !473
+  %97 = load double, ptr %96, align 8, !tbaa !35, !noalias !471
   %98 = fmul double %40, %97
   %99 = fmul double %44, %98
   %100 = fadd double %95, %99
   %101 = getelementptr i8, ptr %46, i64 16
   %102 = getelementptr i8, ptr %48, i64 16
-  %103 = load double, ptr %102, align 8, !tbaa !35, !noalias !473
+  %103 = load double, ptr %102, align 8, !tbaa !35, !noalias !471
   %104 = fdiv double %103, %50
   %105 = fdiv double %104, %52
   %106 = fmul double %54, %105
-  %107 = load double, ptr %101, align 8, !tbaa !35, !noalias !473
+  %107 = load double, ptr %101, align 8, !tbaa !35, !noalias !471
   %108 = fadd double %107, %106
   %109 = fsub double %100, %108
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  store double %109, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx4, align 16, !tbaa !35, !noalias !473
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %109, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx6, align 16, !tbaa !35, !noalias !471
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %21, i64 0
   %110 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %111 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !473
+  %111 = load <2 x double>, ptr %23, align 1, !tbaa !54, !noalias !471
   %112 = fmul <2 x double> %110, %111
   %113 = extractelement <2 x double> %83, i64 0
   %114 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
   %115 = fmul <2 x double> %114, %112
   %116 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %117 = load <2 x double>, ptr %116, align 1, !tbaa !54, !noalias !473
+  %117 = load <2 x double>, ptr %116, align 1, !tbaa !54, !noalias !471
   %118 = fmul <2 x double> %110, %117
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !noalias !473
-  %119 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx5, align 8, !noalias !471
+  %119 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %120 = fmul <2 x double> %118, %119
   %121 = fadd <2 x double> %115, %120
   %122 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %123 = load <2 x double>, ptr %122, align 1, !tbaa !54, !noalias !473
+  %123 = load <2 x double>, ptr %122, align 1, !tbaa !54, !noalias !471
   %124 = fmul <2 x double> %110, %123
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16, !noalias !473
-  %125 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !noalias !471
+  %125 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %126 = fmul <2 x double> %124, %125
   %127 = fadd <2 x double> %121, %126
-  store <2 x double> %127, ptr %0, align 8, !tbaa !54, !alias.scope !473
+  store <2 x double> %127, ptr %0, align 8, !tbaa !54, !alias.scope !471
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = getelementptr i8, ptr %23, i64 16
-  %130 = load double, ptr %129, align 8, !tbaa !35, !noalias !473
+  %130 = load double, ptr %129, align 8, !tbaa !35, !noalias !471
   %131 = fmul double %21, %130
   %132 = fmul double %113, %131
   %133 = getelementptr i8, ptr %23, i64 40
-  %134 = load double, ptr %133, align 8, !tbaa !35, !noalias !473
+  %134 = load double, ptr %133, align 8, !tbaa !35, !noalias !471
   %135 = fmul double %21, %134
-  %136 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
+  %136 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i, i64 0
   %137 = fmul double %136, %135
   %138 = getelementptr i8, ptr %23, i64 64
-  %139 = load double, ptr %138, align 8, !tbaa !35, !noalias !473
+  %139 = load double, ptr %138, align 8, !tbaa !35, !noalias !471
   %140 = fmul double %21, %139
   %141 = fmul double %109, %140
   %142 = fadd double %137, %141
   %143 = fadd double %132, %142
-  store double %143, ptr %128, align 8, !tbaa !35, !alias.scope !473
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i)
+  store double %143, ptr %128, align 8, !tbaa !35, !alias.scope !471
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -7008,7 +7002,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !472
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !470
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS3_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS1_15KelvinletParamsISS_EEEUlRKdE1_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation.exit
 
@@ -7053,7 +7047,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFN5Ei
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !24
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !488
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !486
   store ptr %9, ptr %0, align 8, !tbaa !24
   br label %_ZNSt14_Function_base13_Base_managerIZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS3_8internal13scalar_sum_opIddEEKNS4_IS7_KNS4_IS7_KNS3_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS4_INS5_17scalar_product_opIddEEKNS4_ISC_KNS3_14CwiseNullaryOpINS5_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EES9_S9_NS8_IdLi3ELi3ELi0ELi3ELi3EEEdEENS8_IT3_Li3ELi1ELi0ELi3ELi1EEESS_RKNS3_10MatrixBaseIT_EERKNSU_IT0_EERKNSU_IT1_EERKNSU_IT2_EERKNS1_15KelvinletParamsISS_EEEUlRKdE2_E10_M_managerERSt9_Any_dataRKS1J_St18_Manager_operation.exit
 
@@ -7077,12 +7071,12 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %6 = alloca %"struct.Eigen::internal::evaluator.1328", align 8
   %7 = alloca %"class.Eigen::CwiseBinaryOp.1261", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !492, !noalias !489
+  %9 = load ptr, ptr %8, align 8, !tbaa !490, !noalias !487
   %10 = load double, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !494, !noalias !489
+  %12 = load ptr, ptr %11, align 8, !tbaa !492, !noalias !487
   %13 = load double, ptr %12, align 8, !tbaa !272
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %10)
   %15 = tail call double @sqrt(double noundef %14) #23, !tbaa !26
@@ -7090,252 +7084,252 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %17 = fmul double %15, %16
   %18 = fdiv double 0.000000e+00, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !495, !noalias !489
-  %21 = load ptr, ptr %1, align 8, !tbaa !496, !noalias !489
+  %20 = load ptr, ptr %19, align 8, !tbaa !493, !noalias !487
+  %21 = load ptr, ptr %1, align 8, !tbaa !494, !noalias !487
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !124, !noalias !497
+  %23 = load ptr, ptr %22, align 8, !tbaa !124, !noalias !495
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !497
+  %25 = load double, ptr %24, align 8, !tbaa !46, !noalias !495
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !133, !noalias !497
+  %27 = load ptr, ptr %26, align 8, !tbaa !133, !noalias !495
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %29 = load double, ptr %28, align 8, !tbaa !46, !noalias !497
+  %29 = load double, ptr %28, align 8, !tbaa !46, !noalias !495
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 136
-  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !497
+  %31 = load double, ptr %30, align 8, !tbaa !46, !noalias !495
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 144
-  %33 = load ptr, ptr %32, align 8, !tbaa !133, !noalias !497
+  %33 = load ptr, ptr %32, align 8, !tbaa !133, !noalias !495
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !497
+  %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !495
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 216
-  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !497
+  %37 = load double, ptr %36, align 8, !tbaa !46, !noalias !495
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 224
-  %39 = load ptr, ptr %38, align 8, !tbaa !133, !noalias !497
+  %39 = load ptr, ptr %38, align 8, !tbaa !133, !noalias !495
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 248
-  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !497
+  %41 = load double, ptr %40, align 8, !tbaa !46, !noalias !495
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 272
-  %43 = load ptr, ptr %42, align 8, !tbaa !229, !noalias !497
+  %43 = load ptr, ptr %42, align 8, !tbaa !229, !noalias !495
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 296
-  %45 = load ptr, ptr %44, align 8, !tbaa !230, !noalias !497
+  %45 = load ptr, ptr %44, align 8, !tbaa !230, !noalias !495
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 312
-  %47 = load double, ptr %46, align 8, !tbaa !46, !noalias !497
+  %47 = load double, ptr %46, align 8, !tbaa !46, !noalias !495
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 336
-  %49 = load double, ptr %48, align 8, !tbaa !46, !noalias !497
+  %49 = load double, ptr %48, align 8, !tbaa !46, !noalias !495
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 360
-  %51 = load double, ptr %50, align 8, !tbaa !46, !noalias !497
+  %51 = load double, ptr %50, align 8, !tbaa !46, !noalias !495
   %52 = fmul double %15, 2.000000e+00
   %53 = fmul double %15, %52
   %54 = fmul double %53, %17
   %55 = fdiv double 3.000000e+00, %54
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !489
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !487
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %23, ptr %56, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %23, ptr %56, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store double %25, ptr %57, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %25, ptr %57, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr %27, ptr %58, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %27, ptr %58, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store double %29, ptr %59, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %29, ptr %59, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store double %31, ptr %60, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %31, ptr %60, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  store ptr %33, ptr %61, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %33, ptr %61, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store double %35, ptr %62, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %35, ptr %62, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  store double %37, ptr %63, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %37, ptr %63, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store ptr %39, ptr %64, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %39, ptr %64, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  store double %41, ptr %65, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %41, ptr %65, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 280
-  store ptr %43, ptr %66, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %43, ptr %66, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %45, ptr %67, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %45, ptr %67, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  store double %47, ptr %68, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %47, ptr %68, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store double %49, ptr %69, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %49, ptr %69, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store double %51, ptr %70, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %51, ptr %70, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  store ptr %20, ptr %71, align 8, !tbaa !363, !alias.scope !500, !noalias !489
+  store ptr %20, ptr %71, align 8, !tbaa !361, !alias.scope !498, !noalias !487
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  store ptr %23, ptr %72, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %23, ptr %72, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 464
-  store double %25, ptr %73, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %25, ptr %73, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 472
-  store ptr %27, ptr %74, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %27, ptr %74, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  store double %29, ptr %75, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %29, ptr %75, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 544
-  store double %31, ptr %76, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %31, ptr %76, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 552
-  store ptr %33, ptr %77, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %33, ptr %77, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  store double %35, ptr %78, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %35, ptr %78, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  store double %37, ptr %79, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %37, ptr %79, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 632
-  store ptr %39, ptr %80, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %39, ptr %80, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 656
-  store double %41, ptr %81, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %41, ptr %81, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  store ptr %43, ptr %82, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %43, ptr %82, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  store ptr %45, ptr %83, align 8, !tbaa !41, !alias.scope !500, !noalias !489
+  store ptr %45, ptr %83, align 8, !tbaa !41, !alias.scope !498, !noalias !487
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  store double %47, ptr %84, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %47, ptr %84, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  store double %49, ptr %85, align 8, !tbaa !46, !alias.scope !500, !noalias !489
+  store double %49, ptr %85, align 8, !tbaa !46, !alias.scope !498, !noalias !487
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 768
-  store double %51, ptr %86, align 8, !tbaa !46, !alias.scope !500, !noalias !489
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !489
+  store double %51, ptr %86, align 8, !tbaa !46, !alias.scope !498, !noalias !487
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !487
   %87 = call noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal22scalar_conj_product_opIddEEKNS_9TransposeIKNS5_IKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_IS9_KNS1_IS9_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_ISE_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS1_IS9_SC_KNS1_ISE_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEEEKNS_7ProductINSA_IdLi3ELi3ELi0ELi3ELi3EEES14_Li0EEEEEE5reduxIS9_EEdRKT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !489
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !489
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !487
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !487
   %88 = fmul double %87, 0x3FB45F306DC9C883
-  %89 = load ptr, ptr %1, align 8, !tbaa !496, !noalias !489
+  %89 = load ptr, ptr %1, align 8, !tbaa !494, !noalias !487
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !124, !noalias !503
+  %91 = load ptr, ptr %90, align 8, !tbaa !124, !noalias !501
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  %93 = load double, ptr %92, align 8, !tbaa !46, !noalias !503
+  %93 = load double, ptr %92, align 8, !tbaa !46, !noalias !501
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %95 = load ptr, ptr %94, align 8, !tbaa !133, !noalias !503
+  %95 = load ptr, ptr %94, align 8, !tbaa !133, !noalias !501
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %97 = load double, ptr %96, align 8, !tbaa !46, !noalias !503
+  %97 = load double, ptr %96, align 8, !tbaa !46, !noalias !501
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 136
-  %99 = load double, ptr %98, align 8, !tbaa !46, !noalias !503
+  %99 = load double, ptr %98, align 8, !tbaa !46, !noalias !501
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 144
-  %101 = load ptr, ptr %100, align 8, !tbaa !133, !noalias !503
+  %101 = load ptr, ptr %100, align 8, !tbaa !133, !noalias !501
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 168
-  %103 = load double, ptr %102, align 8, !tbaa !46, !noalias !503
+  %103 = load double, ptr %102, align 8, !tbaa !46, !noalias !501
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 216
-  %105 = load double, ptr %104, align 8, !tbaa !46, !noalias !503
+  %105 = load double, ptr %104, align 8, !tbaa !46, !noalias !501
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 224
-  %107 = load ptr, ptr %106, align 8, !tbaa !133, !noalias !503
+  %107 = load ptr, ptr %106, align 8, !tbaa !133, !noalias !501
   %108 = getelementptr inbounds nuw i8, ptr %89, i64 248
-  %109 = load double, ptr %108, align 8, !tbaa !46, !noalias !503
+  %109 = load double, ptr %108, align 8, !tbaa !46, !noalias !501
   %110 = getelementptr inbounds nuw i8, ptr %89, i64 272
-  %111 = load ptr, ptr %110, align 8, !tbaa !229, !noalias !503
+  %111 = load ptr, ptr %110, align 8, !tbaa !229, !noalias !501
   %112 = getelementptr inbounds nuw i8, ptr %89, i64 296
-  %113 = load ptr, ptr %112, align 8, !tbaa !230, !noalias !503
+  %113 = load ptr, ptr %112, align 8, !tbaa !230, !noalias !501
   %114 = getelementptr inbounds nuw i8, ptr %89, i64 312
-  %115 = load double, ptr %114, align 8, !tbaa !46, !noalias !503
+  %115 = load double, ptr %114, align 8, !tbaa !46, !noalias !501
   %116 = getelementptr inbounds nuw i8, ptr %89, i64 336
-  %117 = load double, ptr %116, align 8, !tbaa !46, !noalias !503
+  %117 = load double, ptr %116, align 8, !tbaa !46, !noalias !501
   %118 = getelementptr inbounds nuw i8, ptr %89, i64 360
-  %119 = load double, ptr %118, align 8, !tbaa !46, !noalias !503
-  %120 = load double, ptr %2, align 8, !tbaa !35, !noalias !489
+  %119 = load double, ptr %118, align 8, !tbaa !46, !noalias !501
+  %120 = load double, ptr %2, align 8, !tbaa !35, !noalias !487
   %121 = fmul double %120, 0x3FB45F306DC9C883
   %122 = fmul double %120, %121
   %123 = fmul double %120, %122
-  %124 = load ptr, ptr %19, align 8, !tbaa !495, !noalias !489
+  %124 = load ptr, ptr %19, align 8, !tbaa !493, !noalias !487
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %18, ptr %125, align 8, !tbaa !46, !alias.scope !506
+  store double %18, ptr %125, align 8, !tbaa !46, !alias.scope !504
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %20, ptr %126, align 8, !tbaa !363, !alias.scope !506
+  store ptr %20, ptr %126, align 8, !tbaa !361, !alias.scope !504
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %23, ptr %127, align 8, !tbaa !41, !alias.scope !506
+  store ptr %23, ptr %127, align 8, !tbaa !41, !alias.scope !504
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store double %25, ptr %128, align 8, !tbaa !46, !alias.scope !506
+  store double %25, ptr %128, align 8, !tbaa !46, !alias.scope !504
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store ptr %27, ptr %129, align 8, !tbaa !41, !alias.scope !506
+  store ptr %27, ptr %129, align 8, !tbaa !41, !alias.scope !504
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  store double %29, ptr %130, align 8, !tbaa !46, !alias.scope !506
+  store double %29, ptr %130, align 8, !tbaa !46, !alias.scope !504
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  store double %31, ptr %131, align 8, !tbaa !46, !alias.scope !506
+  store double %31, ptr %131, align 8, !tbaa !46, !alias.scope !504
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store ptr %33, ptr %132, align 8, !tbaa !41, !alias.scope !506
+  store ptr %33, ptr %132, align 8, !tbaa !41, !alias.scope !504
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  store double %35, ptr %133, align 8, !tbaa !46, !alias.scope !506
+  store double %35, ptr %133, align 8, !tbaa !46, !alias.scope !504
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  store double %37, ptr %134, align 8, !tbaa !46, !alias.scope !506
+  store double %37, ptr %134, align 8, !tbaa !46, !alias.scope !504
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  store ptr %39, ptr %135, align 8, !tbaa !41, !alias.scope !506
+  store ptr %39, ptr %135, align 8, !tbaa !41, !alias.scope !504
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  store double %41, ptr %136, align 8, !tbaa !46, !alias.scope !506
+  store double %41, ptr %136, align 8, !tbaa !46, !alias.scope !504
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  store ptr %43, ptr %137, align 8, !tbaa !41, !alias.scope !506
+  store ptr %43, ptr %137, align 8, !tbaa !41, !alias.scope !504
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 344
-  store ptr %45, ptr %138, align 8, !tbaa !41, !alias.scope !506
+  store ptr %45, ptr %138, align 8, !tbaa !41, !alias.scope !504
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 360
-  store double %47, ptr %139, align 8, !tbaa !46, !alias.scope !506
+  store double %47, ptr %139, align 8, !tbaa !46, !alias.scope !504
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  store double %49, ptr %140, align 8, !tbaa !46, !alias.scope !506
+  store double %49, ptr %140, align 8, !tbaa !46, !alias.scope !504
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 408
-  store double %51, ptr %141, align 8, !tbaa !46, !alias.scope !506
+  store double %51, ptr %141, align 8, !tbaa !46, !alias.scope !504
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  store double %55, ptr %142, align 8, !tbaa !46, !alias.scope !506
+  store double %55, ptr %142, align 8, !tbaa !46, !alias.scope !504
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 488
-  store double %88, ptr %143, align 8, !tbaa !46, !alias.scope !506
+  store double %88, ptr %143, align 8, !tbaa !46, !alias.scope !504
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 520
-  store ptr %91, ptr %144, align 8, !tbaa !41, !alias.scope !506
+  store ptr %91, ptr %144, align 8, !tbaa !41, !alias.scope !504
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 552
-  store double %93, ptr %145, align 8, !tbaa !46, !alias.scope !506
+  store double %93, ptr %145, align 8, !tbaa !46, !alias.scope !504
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 560
-  store ptr %95, ptr %146, align 8, !tbaa !41, !alias.scope !506
+  store ptr %95, ptr %146, align 8, !tbaa !41, !alias.scope !504
   %147 = getelementptr inbounds nuw i8, ptr %7, i64 584
-  store double %97, ptr %147, align 8, !tbaa !46, !alias.scope !506
+  store double %97, ptr %147, align 8, !tbaa !46, !alias.scope !504
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 632
-  store double %99, ptr %148, align 8, !tbaa !46, !alias.scope !506
+  store double %99, ptr %148, align 8, !tbaa !46, !alias.scope !504
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 640
-  store ptr %101, ptr %149, align 8, !tbaa !41, !alias.scope !506
+  store ptr %101, ptr %149, align 8, !tbaa !41, !alias.scope !504
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 664
-  store double %103, ptr %150, align 8, !tbaa !46, !alias.scope !506
+  store double %103, ptr %150, align 8, !tbaa !46, !alias.scope !504
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 712
-  store double %105, ptr %151, align 8, !tbaa !46, !alias.scope !506
+  store double %105, ptr %151, align 8, !tbaa !46, !alias.scope !504
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 720
-  store ptr %107, ptr %152, align 8, !tbaa !41, !alias.scope !506
+  store ptr %107, ptr %152, align 8, !tbaa !41, !alias.scope !504
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 744
-  store double %109, ptr %153, align 8, !tbaa !46, !alias.scope !506
+  store double %109, ptr %153, align 8, !tbaa !46, !alias.scope !504
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 768
-  store ptr %111, ptr %154, align 8, !tbaa !41, !alias.scope !506
+  store ptr %111, ptr %154, align 8, !tbaa !41, !alias.scope !504
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 792
-  store ptr %113, ptr %155, align 8, !tbaa !41, !alias.scope !506
+  store ptr %113, ptr %155, align 8, !tbaa !41, !alias.scope !504
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 808
-  store double %115, ptr %156, align 8, !tbaa !46, !alias.scope !506
+  store double %115, ptr %156, align 8, !tbaa !46, !alias.scope !504
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 832
-  store double %117, ptr %157, align 8, !tbaa !46, !alias.scope !506
+  store double %117, ptr %157, align 8, !tbaa !46, !alias.scope !504
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 856
-  store double %119, ptr %158, align 8, !tbaa !46, !alias.scope !506
+  store double %119, ptr %158, align 8, !tbaa !46, !alias.scope !504
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 912
-  store double %123, ptr %159, align 8, !tbaa !46, !alias.scope !506
+  store double %123, ptr %159, align 8, !tbaa !46, !alias.scope !504
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 920
-  store ptr %124, ptr %160, align 8, !tbaa !363, !alias.scope !506
+  store ptr %124, ptr %160, align 8, !tbaa !361, !alias.scope !504
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 960
-  store ptr %91, ptr %161, align 8, !tbaa !41, !alias.scope !506
+  store ptr %91, ptr %161, align 8, !tbaa !41, !alias.scope !504
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 992
-  store double %93, ptr %162, align 8, !tbaa !46, !alias.scope !506
+  store double %93, ptr %162, align 8, !tbaa !46, !alias.scope !504
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 1000
-  store ptr %95, ptr %163, align 8, !tbaa !41, !alias.scope !506
+  store ptr %95, ptr %163, align 8, !tbaa !41, !alias.scope !504
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 1024
-  store double %97, ptr %164, align 8, !tbaa !46, !alias.scope !506
+  store double %97, ptr %164, align 8, !tbaa !46, !alias.scope !504
   %165 = getelementptr inbounds nuw i8, ptr %7, i64 1072
-  store double %99, ptr %165, align 8, !tbaa !46, !alias.scope !506
+  store double %99, ptr %165, align 8, !tbaa !46, !alias.scope !504
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 1080
-  store ptr %101, ptr %166, align 8, !tbaa !41, !alias.scope !506
+  store ptr %101, ptr %166, align 8, !tbaa !41, !alias.scope !504
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 1104
-  store double %103, ptr %167, align 8, !tbaa !46, !alias.scope !506
+  store double %103, ptr %167, align 8, !tbaa !46, !alias.scope !504
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 1152
-  store double %105, ptr %168, align 8, !tbaa !46, !alias.scope !506
+  store double %105, ptr %168, align 8, !tbaa !46, !alias.scope !504
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 1160
-  store ptr %107, ptr %169, align 8, !tbaa !41, !alias.scope !506
+  store ptr %107, ptr %169, align 8, !tbaa !41, !alias.scope !504
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 1184
-  store double %109, ptr %170, align 8, !tbaa !46, !alias.scope !506
+  store double %109, ptr %170, align 8, !tbaa !46, !alias.scope !504
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 1208
-  store ptr %111, ptr %171, align 8, !tbaa !41, !alias.scope !506
+  store ptr %111, ptr %171, align 8, !tbaa !41, !alias.scope !504
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 1232
-  store ptr %113, ptr %172, align 8, !tbaa !41, !alias.scope !506
+  store ptr %113, ptr %172, align 8, !tbaa !41, !alias.scope !504
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 1248
-  store double %115, ptr %173, align 8, !tbaa !46, !alias.scope !506
+  store double %115, ptr %173, align 8, !tbaa !46, !alias.scope !504
   %174 = getelementptr inbounds nuw i8, ptr %7, i64 1272
-  store double %117, ptr %174, align 8, !tbaa !46, !alias.scope !506
+  store double %117, ptr %174, align 8, !tbaa !46, !alias.scope !504
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 1296
-  store double %119, ptr %175, align 8, !tbaa !46, !alias.scope !506
+  store double %119, ptr %175, align 8, !tbaa !46, !alias.scope !504
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_7ProductINS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS2_IS4_KNS2_INS0_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS7_KNS2_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS7_KNS2_INS0_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEKNS2_IS7_SM_KNS2_ISI_KNS2_IS7_SM_KS17_EES19_EEEEEENS0_10IndexBasedES1I_ddE4DataC2ERKS1H_(ptr noundef nonnull align 8 dereferenceable(432) %6, ptr noundef nonnull align 8 dereferenceable(1345) %7)
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %177 = load ptr, ptr %176, align 8, !tbaa !451
+  %177 = load ptr, ptr %176, align 8, !tbaa !449
   %178 = load <2 x double>, ptr %177, align 1, !tbaa !54
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %180 = load <2 x double>, ptr %179, align 8
@@ -7344,13 +7338,13 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %183 = load <2 x double>, ptr %182, align 8
   %184 = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> zeroinitializer
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %186 = load ptr, ptr %185, align 8, !tbaa !451
+  %186 = load ptr, ptr %185, align 8, !tbaa !449
   %187 = load <2 x double>, ptr %186, align 1, !tbaa !54
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %189 = load <2 x double>, ptr %188, align 8
   %190 = shufflevector <2 x double> %189, <2 x double> poison, <2 x i32> zeroinitializer
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %192 = load ptr, ptr %191, align 8, !tbaa !451
+  %192 = load ptr, ptr %191, align 8, !tbaa !449
   %193 = load <2 x double>, ptr %192, align 1, !tbaa !54
   %194 = fmul <2 x double> %190, %193
   %195 = getelementptr inbounds nuw i8, ptr %6, i64 176
@@ -7362,7 +7356,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %201 = load <2 x double>, ptr %200, align 8
   %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> zeroinitializer
   %203 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %204 = load ptr, ptr %203, align 8, !tbaa !451
+  %204 = load ptr, ptr %203, align 8, !tbaa !449
   %205 = load <2 x double>, ptr %204, align 1, !tbaa !54
   %206 = fmul <2 x double> %202, %205
   %207 = getelementptr inbounds nuw i8, ptr %6, i64 232
@@ -7374,7 +7368,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %213 = load <2 x double>, ptr %212, align 8
   %214 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> zeroinitializer
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  %216 = load ptr, ptr %215, align 8, !tbaa !451
+  %216 = load ptr, ptr %215, align 8, !tbaa !449
   %217 = load <2 x double>, ptr %216, align 1, !tbaa !54
   %218 = fmul <2 x double> %214, %217
   %219 = getelementptr inbounds nuw i8, ptr %6, i64 288
@@ -7383,10 +7377,10 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %222 = fmul <2 x double> %218, %221
   %223 = fadd <2 x double> %211, %222
   %224 = getelementptr inbounds nuw i8, ptr %6, i64 312
-  %225 = load ptr, ptr %224, align 8, !tbaa !451
+  %225 = load ptr, ptr %224, align 8, !tbaa !449
   %226 = load <2 x double>, ptr %225, align 1, !tbaa !54
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 344
-  %228 = load ptr, ptr %227, align 8, !tbaa !451
+  %228 = load ptr, ptr %227, align 8, !tbaa !449
   %229 = load <2 x double>, ptr %228, align 1, !tbaa !54
   %230 = getelementptr inbounds nuw i8, ptr %6, i64 352
   %231 = load <2 x double>, ptr %230, align 8
@@ -7404,7 +7398,7 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
   %243 = fsub <2 x double> %223, %242
   %244 = fmul <2 x double> %184, %243
   %245 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  %246 = load ptr, ptr %245, align 8, !tbaa !451
+  %246 = load ptr, ptr %245, align 8, !tbaa !449
   %247 = load <2 x double>, ptr %246, align 1, !tbaa !54
   %248 = fadd <2 x double> %247, %244
   %249 = fmul <2 x double> %181, %248
@@ -7464,13 +7458,13 @@ define linkonce_odr dso_local void @_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal22scalar_conj_product_opIddEEKNS_9TransposeIKNS5_IKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_IS9_KNS1_IS9_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_ISE_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS1_IS9_SC_KNS1_ISE_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEEEKNS_7ProductINSA_IdLi3ELi3ELi0ELi3ELi3EEES14_Li0EEEEEE5reduxIS9_EEdRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix.18", %"struct.Eigen::internal::evaluator.295" }, align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [3 x double], align 16
   %3 = alloca %"class.Eigen::internal::redux_evaluator.1302", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %4, align 8, !tbaa !124
-  store ptr %6, ptr %5, align 8, !tbaa !301
+  store ptr %6, ptr %5, align 8, !tbaa !299
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load double, ptr %8, align 8, !tbaa !46
@@ -7478,7 +7472,7 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !133
-  store ptr %12, ptr %10, align 8, !tbaa !301
+  store ptr %12, ptr %10, align 8, !tbaa !299
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load double, ptr %14, align 8, !tbaa !46
@@ -7490,7 +7484,7 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load ptr, ptr %20, align 8, !tbaa !133
-  store ptr %21, ptr %19, align 8, !tbaa !301
+  store ptr %21, ptr %19, align 8, !tbaa !299
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load double, ptr %23, align 8, !tbaa !46
@@ -7502,7 +7496,7 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %30 = load ptr, ptr %29, align 8, !tbaa !133
-  store ptr %30, ptr %28, align 8, !tbaa !301
+  store ptr %30, ptr %28, align 8, !tbaa !299
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load double, ptr %32, align 8, !tbaa !46
@@ -7510,11 +7504,11 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %36 = load ptr, ptr %34, align 8, !tbaa !229
-  store ptr %36, ptr %35, align 8, !tbaa !301
+  store ptr %36, ptr %35, align 8, !tbaa !299
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %39 = load ptr, ptr %37, align 8, !tbaa !230
-  store ptr %39, ptr %38, align 8, !tbaa !301
+  store ptr %39, ptr %38, align 8, !tbaa !299
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %42 = load double, ptr %41, align 8, !tbaa !46
@@ -7530,39 +7524,39 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  store ptr %51, ptr %49, align 8, !tbaa !301
-  %52 = load ptr, ptr %50, align 8, !tbaa !509
+  store ptr %51, ptr %49, align 8, !tbaa !299
+  %52 = load ptr, ptr %50, align 8, !tbaa !507
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %54 = load ptr, ptr %53, align 8, !tbaa !124, !noalias !514
+  %54 = load ptr, ptr %53, align 8, !tbaa !124, !noalias !512
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %56 = load double, ptr %55, align 8, !tbaa !46, !noalias !514
+  %56 = load double, ptr %55, align 8, !tbaa !46, !noalias !512
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %58 = load ptr, ptr %57, align 8, !tbaa !133, !noalias !514
+  %58 = load ptr, ptr %57, align 8, !tbaa !133, !noalias !512
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %60 = load double, ptr %59, align 8, !tbaa !46, !noalias !514
+  %60 = load double, ptr %59, align 8, !tbaa !46, !noalias !512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %62 = load double, ptr %61, align 8, !tbaa !46, !noalias !514
+  %62 = load double, ptr %61, align 8, !tbaa !46, !noalias !512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %64 = load ptr, ptr %63, align 8, !tbaa !133, !noalias !514
+  %64 = load ptr, ptr %63, align 8, !tbaa !133, !noalias !512
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %66 = load double, ptr %65, align 8, !tbaa !46, !noalias !514
+  %66 = load double, ptr %65, align 8, !tbaa !46, !noalias !512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %68 = load double, ptr %67, align 8, !tbaa !46, !noalias !514
+  %68 = load double, ptr %67, align 8, !tbaa !46, !noalias !512
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %70 = load ptr, ptr %69, align 8, !tbaa !133, !noalias !514
+  %70 = load ptr, ptr %69, align 8, !tbaa !133, !noalias !512
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %72 = load double, ptr %71, align 8, !tbaa !46, !noalias !514
+  %72 = load double, ptr %71, align 8, !tbaa !46, !noalias !512
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %74 = load ptr, ptr %73, align 8, !tbaa !229, !noalias !514
+  %74 = load ptr, ptr %73, align 8, !tbaa !229, !noalias !512
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %76 = load ptr, ptr %75, align 8, !tbaa !230, !noalias !514
+  %76 = load ptr, ptr %75, align 8, !tbaa !230, !noalias !512
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %78 = load double, ptr %77, align 8, !tbaa !46, !noalias !514
+  %78 = load double, ptr %77, align 8, !tbaa !46, !noalias !512
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %80 = load double, ptr %79, align 8, !tbaa !46, !noalias !514
+  %80 = load double, ptr %79, align 8, !tbaa !46, !noalias !512
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %82 = load double, ptr %81, align 8, !tbaa !46, !noalias !514
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i)
+  %82 = load double, ptr %81, align 8, !tbaa !46, !noalias !512
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %56, i64 0
   %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %60, i64 0
   %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %62, i64 0
@@ -7601,7 +7595,7 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %109 = fmul <2 x double> %108, %107
   %110 = fadd <2 x double> %102, %109
   %111 = fsub <2 x double> %101, %110
-  store <2 x double> %111, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %111, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %112 = getelementptr i8, ptr %54, i64 16
   %113 = getelementptr i8, ptr %58, i64 16
   %114 = load double, ptr %113, align 8, !tbaa !35
@@ -7628,26 +7622,24 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %135 = load double, ptr %129, align 8, !tbaa !35
   %136 = fadd double %135, %134
   %137 = fsub double %128, %136
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %137, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx5, align 16, !tbaa !35
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 24
-  store ptr %52, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.i.24.i.i.i.i.24.i.i.i.i.24.i.i.i.24.i.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !278
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %137, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx7, align 16, !tbaa !35
   %138 = load <2 x double>, ptr %52, align 1, !tbaa !54
   %139 = extractelement <2 x double> %111, i64 0
   %140 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
   %141 = fmul <2 x double> %140, %138
   %142 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %143 = load <2 x double>, ptr %142, align 1, !tbaa !54
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %144 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx6, align 8
+  %144 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %145 = fmul <2 x double> %143, %144
   %146 = fadd <2 x double> %141, %145
   %147 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %148 = load <2 x double>, ptr %147, align 1, !tbaa !54
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %149 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.24..i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx8, align 16
+  %149 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %150 = fmul <2 x double> %148, %149
   %151 = fadd <2 x double> %146, %150
   store <2 x double> %151, ptr %51, align 8, !tbaa !54
@@ -7656,14 +7648,14 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
   %154 = fmul double %139, %153
   %155 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %156 = load double, ptr %155, align 8, !tbaa !35
-  %157 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i, i64 0
+  %157 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.16..i.i.i.i.i.i.i.i.i.i, i64 0
   %158 = fmul double %157, %156
   %159 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %160 = load double, ptr %159, align 8, !tbaa !35
   %161 = fmul double %137, %160
   %162 = fadd double %158, %161
   %163 = fadd double %154, %162
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %164 = load <2 x double>, ptr %6, align 1, !tbaa !54
   %165 = load <2 x double>, ptr %7, align 8
   %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
@@ -7749,46 +7741,46 @@ define linkonce_odr dso_local noundef double @_ZNK5Eigen9DenseBaseINS_13CwiseBin
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_7ProductINS2_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS2_IS4_KNS2_INS0_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS7_KNS2_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS7_KNS2_INS0_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEKNS2_IS7_SM_KNS2_ISI_KNS2_IS7_SM_KS17_EES19_EEEEEENS0_10IndexBasedES1I_ddE4DataC2ERKS1H_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(1345) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
-  %.sroa.2.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
+  %.sroa.2.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %3, align 8, !tbaa !301
+  store ptr %4, ptr %3, align 8, !tbaa !299
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load double, ptr %5, align 8, !tbaa !46, !noalias !517
+  %6 = load double, ptr %5, align 8, !tbaa !46, !noalias !515
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !368, !noalias !517
+  %8 = load ptr, ptr %7, align 8, !tbaa !366, !noalias !515
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !124, !noalias !517
+  %10 = load ptr, ptr %9, align 8, !tbaa !124, !noalias !515
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %12 = load double, ptr %11, align 8, !tbaa !46, !noalias !517
+  %12 = load double, ptr %11, align 8, !tbaa !46, !noalias !515
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !133, !noalias !517
+  %14 = load ptr, ptr %13, align 8, !tbaa !133, !noalias !515
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %16 = load double, ptr %15, align 8, !tbaa !46, !noalias !517
+  %16 = load double, ptr %15, align 8, !tbaa !46, !noalias !515
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !517
+  %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !515
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %20 = load ptr, ptr %19, align 8, !tbaa !133, !noalias !517
+  %20 = load ptr, ptr %19, align 8, !tbaa !133, !noalias !515
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !517
+  %22 = load double, ptr %21, align 8, !tbaa !46, !noalias !515
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %24 = load double, ptr %23, align 8, !tbaa !46, !noalias !517
+  %24 = load double, ptr %23, align 8, !tbaa !46, !noalias !515
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %26 = load ptr, ptr %25, align 8, !tbaa !133, !noalias !517
+  %26 = load ptr, ptr %25, align 8, !tbaa !133, !noalias !515
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !517
+  %28 = load double, ptr %27, align 8, !tbaa !46, !noalias !515
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %30 = load ptr, ptr %29, align 8, !tbaa !229, !noalias !517
+  %30 = load ptr, ptr %29, align 8, !tbaa !229, !noalias !515
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %32 = load ptr, ptr %31, align 8, !tbaa !230, !noalias !517
+  %32 = load ptr, ptr %31, align 8, !tbaa !230, !noalias !515
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !517
+  %34 = load double, ptr %33, align 8, !tbaa !46, !noalias !515
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %36 = load double, ptr %35, align 8, !tbaa !46, !noalias !517
+  %36 = load double, ptr %35, align 8, !tbaa !46, !noalias !515
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !517
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i)
+  %38 = load double, ptr %37, align 8, !tbaa !46, !noalias !515
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.sroa.0)
   %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %12, i64 0
   %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %16, i64 0
   %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %18, i64 0
@@ -7827,7 +7819,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %65 = fmul <2 x double> %64, %63
   %66 = fadd <2 x double> %58, %65
   %67 = fsub <2 x double> %57, %66
-  store <2 x double> %67, ptr %.sroa.2.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %67, ptr %.sroa.2.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %68 = getelementptr i8, ptr %10, i64 16
   %69 = getelementptr i8, ptr %14, i64 16
   %70 = load double, ptr %69, align 8, !tbaa !35
@@ -7854,8 +7846,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %91 = load double, ptr %85, align 8, !tbaa !35
   %92 = fadd double %91, %90
   %93 = fsub double %84, %92
-  %.sroa.2.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i, i64 16
-  store double %93, ptr %.sroa.2.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx9, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.sroa.0, i64 16
+  store double %93, ptr %.sroa.2.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx11, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %6, i64 0
   %94 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %95 = load <2 x double>, ptr %8, align 1, !tbaa !54
@@ -7866,17 +7858,17 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %101 = load <2 x double>, ptr %100, align 1, !tbaa !54
   %102 = fmul <2 x double> %94, %101
-  %.sroa.2.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %103 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx10, align 8
+  %103 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x double> %102, %103
   %105 = fadd <2 x double> %99, %104
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %107 = load <2 x double>, ptr %106, align 1, !tbaa !54
   %108 = fmul <2 x double> %94, %107
-  %.sroa.2.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %109 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx12, align 16
+  %109 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %110 = fmul <2 x double> %108, %109
   %111 = fadd <2 x double> %105, %110
   store <2 x double> %111, ptr %4, align 8, !tbaa !54
@@ -7888,7 +7880,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %117 = getelementptr i8, ptr %8, i64 40
   %118 = load double, ptr %117, align 8, !tbaa !35
   %119 = fmul double %6, %118
-  %120 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i, i64 0
+  %120 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i, i64 0
   %121 = fmul double %120, %119
   %122 = getelementptr i8, ptr %8, i64 64
   %123 = load double, ptr %122, align 8, !tbaa !35
@@ -7897,7 +7889,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %126 = fadd double %121, %125
   %127 = fadd double %116, %126
   store double %127, ptr %112, align 8, !tbaa !35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.sroa.0)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %130 = load double, ptr %129, align 8, !tbaa !46
@@ -7909,7 +7901,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %136 = load ptr, ptr %134, align 8, !tbaa !124
-  store ptr %136, ptr %135, align 8, !tbaa !301
+  store ptr %136, ptr %135, align 8, !tbaa !299
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %139 = load double, ptr %138, align 8, !tbaa !46
@@ -7917,7 +7909,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %142 = load ptr, ptr %141, align 8, !tbaa !133
-  store ptr %142, ptr %140, align 8, !tbaa !301
+  store ptr %142, ptr %140, align 8, !tbaa !299
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %145 = load double, ptr %144, align 8, !tbaa !46
@@ -7929,7 +7921,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %151 = load ptr, ptr %150, align 8, !tbaa !133
-  store ptr %151, ptr %149, align 8, !tbaa !301
+  store ptr %151, ptr %149, align 8, !tbaa !299
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %154 = load double, ptr %153, align 8, !tbaa !46
@@ -7941,7 +7933,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %160 = load ptr, ptr %159, align 8, !tbaa !133
-  store ptr %160, ptr %158, align 8, !tbaa !301
+  store ptr %160, ptr %158, align 8, !tbaa !299
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %163 = load double, ptr %162, align 8, !tbaa !46
@@ -7949,11 +7941,11 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %166 = load ptr, ptr %164, align 8, !tbaa !229
-  store ptr %166, ptr %165, align 8, !tbaa !301
+  store ptr %166, ptr %165, align 8, !tbaa !299
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %169 = load ptr, ptr %167, align 8, !tbaa !230
-  store ptr %169, ptr %168, align 8, !tbaa !301
+  store ptr %169, ptr %168, align 8, !tbaa !299
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %172 = load double, ptr %171, align 8, !tbaa !46
@@ -7968,42 +7960,42 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   store double %178, ptr %176, align 8, !tbaa !46
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %180, ptr %179, align 8, !tbaa !301
+  store ptr %180, ptr %179, align 8, !tbaa !299
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 912
-  %182 = load double, ptr %181, align 8, !tbaa !46, !noalias !520
+  %182 = load double, ptr %181, align 8, !tbaa !46, !noalias !518
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 920
-  %184 = load ptr, ptr %183, align 8, !tbaa !368, !noalias !520
+  %184 = load ptr, ptr %183, align 8, !tbaa !366, !noalias !518
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  %186 = load ptr, ptr %185, align 8, !tbaa !124, !noalias !520
+  %186 = load ptr, ptr %185, align 8, !tbaa !124, !noalias !518
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 992
-  %188 = load double, ptr %187, align 8, !tbaa !46, !noalias !520
+  %188 = load double, ptr %187, align 8, !tbaa !46, !noalias !518
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 1000
-  %190 = load ptr, ptr %189, align 8, !tbaa !133, !noalias !520
+  %190 = load ptr, ptr %189, align 8, !tbaa !133, !noalias !518
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 1024
-  %192 = load double, ptr %191, align 8, !tbaa !46, !noalias !520
+  %192 = load double, ptr %191, align 8, !tbaa !46, !noalias !518
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 1072
-  %194 = load double, ptr %193, align 8, !tbaa !46, !noalias !520
+  %194 = load double, ptr %193, align 8, !tbaa !46, !noalias !518
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %196 = load ptr, ptr %195, align 8, !tbaa !133, !noalias !520
+  %196 = load ptr, ptr %195, align 8, !tbaa !133, !noalias !518
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 1104
-  %198 = load double, ptr %197, align 8, !tbaa !46, !noalias !520
+  %198 = load double, ptr %197, align 8, !tbaa !46, !noalias !518
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  %200 = load double, ptr %199, align 8, !tbaa !46, !noalias !520
+  %200 = load double, ptr %199, align 8, !tbaa !46, !noalias !518
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 1160
-  %202 = load ptr, ptr %201, align 8, !tbaa !133, !noalias !520
+  %202 = load ptr, ptr %201, align 8, !tbaa !133, !noalias !518
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 1184
-  %204 = load double, ptr %203, align 8, !tbaa !46, !noalias !520
+  %204 = load double, ptr %203, align 8, !tbaa !46, !noalias !518
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 1208
-  %206 = load ptr, ptr %205, align 8, !tbaa !229, !noalias !520
+  %206 = load ptr, ptr %205, align 8, !tbaa !229, !noalias !518
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 1232
-  %208 = load ptr, ptr %207, align 8, !tbaa !230, !noalias !520
+  %208 = load ptr, ptr %207, align 8, !tbaa !230, !noalias !518
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 1248
-  %210 = load double, ptr %209, align 8, !tbaa !46, !noalias !520
+  %210 = load double, ptr %209, align 8, !tbaa !46, !noalias !518
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 1272
-  %212 = load double, ptr %211, align 8, !tbaa !46, !noalias !520
+  %212 = load double, ptr %211, align 8, !tbaa !46, !noalias !518
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  %214 = load double, ptr %213, align 8, !tbaa !46, !noalias !520
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %214 = load double, ptr %213, align 8, !tbaa !46, !noalias !518
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %.sroa.615.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %188, i64 0
   %.sroa.12.80.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %192, i64 0
   %.sroa.1521.112.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %194, i64 0
@@ -8042,7 +8034,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %241 = fmul <2 x double> %240, %239
   %242 = fadd <2 x double> %234, %241
   %243 = fsub <2 x double> %233, %242
-  store <2 x double> %243, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !54
+  store <2 x double> %243, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !54
   %244 = getelementptr i8, ptr %186, i64 16
   %245 = getelementptr i8, ptr %190, i64 16
   %246 = load double, ptr %245, align 8, !tbaa !35
@@ -8069,8 +8061,8 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %267 = load double, ptr %261, align 8, !tbaa !35
   %268 = fadd double %267, %266
   %269 = fsub double %260, %268
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  store double %269, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx10, align 16, !tbaa !35
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  store double %269, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx15, align 16, !tbaa !35
   %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %182, i64 0
   %270 = shufflevector <2 x double> %.sroa.6.72.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %271 = load <2 x double>, ptr %184, align 1, !tbaa !54
@@ -8081,17 +8073,17 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %276 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %277 = load <2 x double>, ptr %276, align 1, !tbaa !54
   %278 = fmul <2 x double> %270, %277
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %279 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx14, align 8
+  %279 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %280 = fmul <2 x double> %278, %279
   %281 = fadd <2 x double> %275, %280
   %282 = getelementptr inbounds nuw i8, ptr %184, i64 48
   %283 = load <2 x double>, ptr %282, align 1, !tbaa !54
   %284 = fmul <2 x double> %270, %283
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %285 = shufflevector <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.i.16..sroa.2.i.i.16..sroa.2.i.i.16..sroa.2.i.16..sroa.2.i.16..sroa.2.16..sroa.2.16..sroa.2.56..i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx16, align 16
+  %285 = shufflevector <1 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %286 = fmul <2 x double> %284, %285
   %287 = fadd <2 x double> %281, %286
   store <2 x double> %287, ptr %180, align 8, !tbaa !54
@@ -8103,7 +8095,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %293 = getelementptr i8, ptr %184, i64 40
   %294 = load double, ptr %293, align 8, !tbaa !35
   %295 = fmul double %182, %294
-  %296 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %296 = extractelement <2 x double> %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.i.8..sroa.2.i.i.8..sroa.2.i.i.8..sroa.2.i.8..sroa.2.i.8..sroa.2.8..sroa.2.8..sroa.2.48..i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %297 = fmul double %296, %295
   %298 = getelementptr i8, ptr %184, i64 64
   %299 = load double, ptr %298, align 8, !tbaa !35
@@ -8112,7 +8104,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16binary_evaluatorINS_13Cw
   %302 = fadd double %297, %301
   %303 = fadd double %292, %302
   store double %303, ptr %288, align 8, !tbaa !35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   ret void
 }
 
@@ -8209,15 +8201,15 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i9.i: ; preds = %40
 .lr.ph.i.i.i:                                     ; preds = %46, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %24, %46 ]
   %.0911.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %10, %46 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !523)
-  call void @llvm.experimental.noalias.scope.decl(metadata !526)
-  %47 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !526, !noalias !523
-  store i64 %47, ptr %.012.i.i.i, align 8, !tbaa !68, !alias.scope !523, !noalias !526
-  store i64 0, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !526, !noalias !523
+  call void @llvm.experimental.noalias.scope.decl(metadata !521)
+  call void @llvm.experimental.noalias.scope.decl(metadata !524)
+  %47 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !524, !noalias !521
+  store i64 %47, ptr %.012.i.i.i, align 8, !tbaa !68, !alias.scope !521, !noalias !524
+  store i64 0, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !524, !noalias !521
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %48, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !528
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !526
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %46
   %.0.lcssa.i.i.i = phi ptr [ %24, %46 ], [ %49, %.lr.ph.i.i.i ]
@@ -8228,15 +8220,15 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %53, %.lr.ph.i.i.i30 ], [ %50, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   %.0911.i.i.i32 = phi ptr [ %52, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !529)
-  call void @llvm.experimental.noalias.scope.decl(metadata !532)
-  %51 = load i64, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !532, !noalias !529
-  store i64 %51, ptr %.012.i.i.i31, align 8, !tbaa !68, !alias.scope !529, !noalias !532
-  store i64 0, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !532, !noalias !529
+  call void @llvm.experimental.noalias.scope.decl(metadata !527)
+  call void @llvm.experimental.noalias.scope.decl(metadata !530)
+  %51 = load i64, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !530, !noalias !527
+  store i64 %51, ptr %.012.i.i.i31, align 8, !tbaa !68, !alias.scope !527, !noalias !530
+  store i64 0, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !530, !noalias !527
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 8
   %.not.i.i.i33 = icmp eq ptr %52, %9
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !528
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !526
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %50, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %53, %.lr.ph.i.i.i30 ]
@@ -8369,11 +8361,11 @@ define linkonce_odr dso_local void @_ZZN3igl12parallel_forIiZNS_12parallel_forIi
 
 41:                                               ; preds = %.lr.ph, %_ZZN3igl12parallel_forIiZNS_10kelvinletsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IdLi3ELi1ELi0ELi3ELi1EEES5_NS3_IdLi3ELi3ELi0ELi3ELi3EEES4_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERKNS7_IT2_EERKNS_15KelvinletParamsINS8_6ScalarEEERNS2_15PlainObjectBaseIT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit
   %indvars.iv = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next, %_ZZN3igl12parallel_forIiZNS_10kelvinletsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IdLi3ELi1ELi0ELi3ELi1EEES5_NS3_IdLi3ELi3ELi0ELi3ELi3EEES4_EEvRKNS2_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERKNS7_IT2_EERKNS_15KelvinletParamsINS8_6ScalarEEERNS2_15PlainObjectBaseIT3_EEEUliE_EEbS8_RKSC_mENKUlimE_clEim.exit ]
-  %42 = load ptr, ptr %0, align 8, !tbaa !534
+  %42 = load ptr, ptr %0, align 8, !tbaa !532
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %44 = load ptr, ptr %43, align 8, !tbaa !30
-  %45 = load ptr, ptr %44, align 8, !tbaa !25, !noalias !536
+  %45 = load ptr, ptr %44, align 8, !tbaa !25, !noalias !534
   %46 = getelementptr inbounds double, ptr %45, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !17
@@ -8409,39 +8401,39 @@ define linkonce_odr dso_local void @_ZZN3igl12parallel_forIiZNS_12parallel_forIi
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = call double @llvm.fmuladd.f64(double %.sroa.speculated14.i.i, double 5.000000e-01, double %.038.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %12, ptr %7, align 8, !tbaa !41, !alias.scope !539
-  store double %.sroa.speculated14.i.i, ptr %16, align 8, !tbaa !46, !alias.scope !539
-  store ptr %5, ptr %17, align 8, !tbaa !41, !alias.scope !539
-  store double 5.000000e-01, ptr %18, align 8, !tbaa !46, !alias.scope !539
+  store ptr %12, ptr %7, align 8, !tbaa !41, !alias.scope !537
+  store double %.sroa.speculated14.i.i, ptr %16, align 8, !tbaa !46, !alias.scope !537
+  store ptr %5, ptr %17, align 8, !tbaa !41, !alias.scope !537
+  store double 5.000000e-01, ptr %18, align 8, !tbaa !46, !alias.scope !537
   call void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.18") align 8 %6, double noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(64) %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %67 = call double @llvm.fmuladd.f64(double %.sroa.speculated14.i.i, double 7.500000e-01, double %.038.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %12, ptr %19, align 8, !tbaa !41, !alias.scope !542
-  store double %.sroa.speculated14.i.i, ptr %20, align 8, !tbaa !46, !alias.scope !542
-  store ptr %5, ptr %21, align 8, !tbaa !41, !alias.scope !542
-  store double 0.000000e+00, ptr %22, align 8, !tbaa !46, !alias.scope !542
-  store double %.sroa.speculated14.i.i, ptr %23, align 8, !tbaa !46, !alias.scope !542
-  store ptr %6, ptr %24, align 8, !tbaa !41, !alias.scope !542
-  store double 7.500000e-01, ptr %25, align 8, !tbaa !46, !alias.scope !542
+  store ptr %12, ptr %19, align 8, !tbaa !41, !alias.scope !540
+  store double %.sroa.speculated14.i.i, ptr %20, align 8, !tbaa !46, !alias.scope !540
+  store ptr %5, ptr %21, align 8, !tbaa !41, !alias.scope !540
+  store double 0.000000e+00, ptr %22, align 8, !tbaa !46, !alias.scope !540
+  store double %.sroa.speculated14.i.i, ptr %23, align 8, !tbaa !46, !alias.scope !540
+  store ptr %6, ptr %24, align 8, !tbaa !41, !alias.scope !540
+  store double 7.500000e-01, ptr %25, align 8, !tbaa !46, !alias.scope !540
   call void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.18") align 8 %8, double noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(64) %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %68 = fadd double %.038.i.i, %.sroa.speculated14.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %12, ptr %26, align 8, !tbaa !41, !alias.scope !545
-  store double %.sroa.speculated14.i.i, ptr %27, align 8, !tbaa !46, !alias.scope !545
-  store ptr %5, ptr %28, align 8, !tbaa !41, !alias.scope !545
-  store double 0x3FCC71C720000000, ptr %29, align 8, !tbaa !46, !alias.scope !545
-  store double %.sroa.speculated14.i.i, ptr %30, align 8, !tbaa !46, !alias.scope !545
-  store ptr %6, ptr %31, align 8, !tbaa !41, !alias.scope !545
-  store double 0x3FD5555560000000, ptr %32, align 8, !tbaa !46, !alias.scope !545
-  store double %.sroa.speculated14.i.i, ptr %33, align 8, !tbaa !46, !alias.scope !545
-  store ptr %8, ptr %34, align 8, !tbaa !41, !alias.scope !545
-  store double 0x3FDC71C720000000, ptr %35, align 8, !tbaa !46, !alias.scope !545
+  store ptr %12, ptr %26, align 8, !tbaa !41, !alias.scope !543
+  store double %.sroa.speculated14.i.i, ptr %27, align 8, !tbaa !46, !alias.scope !543
+  store ptr %5, ptr %28, align 8, !tbaa !41, !alias.scope !543
+  store double 0x3FCC71C720000000, ptr %29, align 8, !tbaa !46, !alias.scope !543
+  store double %.sroa.speculated14.i.i, ptr %30, align 8, !tbaa !46, !alias.scope !543
+  store ptr %6, ptr %31, align 8, !tbaa !41, !alias.scope !543
+  store double 0x3FD5555560000000, ptr %32, align 8, !tbaa !46, !alias.scope !543
+  store double %.sroa.speculated14.i.i, ptr %33, align 8, !tbaa !46, !alias.scope !543
+  store ptr %8, ptr %34, align 8, !tbaa !41, !alias.scope !543
+  store double 0x3FDC71C720000000, ptr %35, align 8, !tbaa !46, !alias.scope !543
   call void @_ZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.18") align 8 %10, double noundef %68, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(64) %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8536,10 +8528,10 @@ define linkonce_odr dso_local void @_ZZN3igl12parallel_forIiZNS_12parallel_forIi
 140:                                              ; preds = %138
   %141 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %142 = load ptr, ptr %141, align 8, !tbaa !57
-  %143 = load ptr, ptr %142, align 8, !tbaa !25, !noalias !548
+  %143 = load ptr, ptr %142, align 8, !tbaa !25, !noalias !546
   %144 = getelementptr inbounds double, ptr %143, i64 %indvars.iv
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !21, !noalias !548
+  %146 = load i64, ptr %145, align 8, !tbaa !21, !noalias !546
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !17
   %149 = icmp sgt i64 %146, 0
@@ -8561,7 +8553,7 @@ _ZZN3igl12parallel_forIiZNS_10kelvinletsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !551
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !549
 }
 
 declare void @__cxa_rethrow() local_unnamed_addr
@@ -8655,15 +8647,15 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i9.i: ; preds = %40
 .lr.ph.i.i.i:                                     ; preds = %46, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %24, %46 ]
   %.0911.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %10, %46 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !552)
-  call void @llvm.experimental.noalias.scope.decl(metadata !555)
-  %47 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !555, !noalias !552
-  store i64 %47, ptr %.012.i.i.i, align 8, !tbaa !68, !alias.scope !552, !noalias !555
-  store i64 0, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !555, !noalias !552
+  call void @llvm.experimental.noalias.scope.decl(metadata !550)
+  call void @llvm.experimental.noalias.scope.decl(metadata !553)
+  %47 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !553, !noalias !550
+  store i64 %47, ptr %.012.i.i.i, align 8, !tbaa !68, !alias.scope !550, !noalias !553
+  store i64 0, ptr %.0911.i.i.i, align 8, !tbaa !68, !alias.scope !553, !noalias !550
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %48, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !528
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !526
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %46
   %.0.lcssa.i.i.i = phi ptr [ %24, %46 ], [ %49, %.lr.ph.i.i.i ]
@@ -8674,15 +8666,15 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
 .lr.ph.i.i.i30:                                   ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %.lr.ph.i.i.i30
   %.012.i.i.i31 = phi ptr [ %53, %.lr.ph.i.i.i30 ], [ %50, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   %.0911.i.i.i32 = phi ptr [ %52, %.lr.ph.i.i.i30 ], [ %1, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !557)
-  call void @llvm.experimental.noalias.scope.decl(metadata !560)
-  %51 = load i64, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !560, !noalias !557
-  store i64 %51, ptr %.012.i.i.i31, align 8, !tbaa !68, !alias.scope !557, !noalias !560
-  store i64 0, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !560, !noalias !557
+  call void @llvm.experimental.noalias.scope.decl(metadata !555)
+  call void @llvm.experimental.noalias.scope.decl(metadata !558)
+  %51 = load i64, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !558, !noalias !555
+  store i64 %51, ptr %.012.i.i.i31, align 8, !tbaa !68, !alias.scope !555, !noalias !558
+  store i64 0, ptr %.0911.i.i.i32, align 8, !tbaa !68, !alias.scope !558, !noalias !555
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i32, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i31, i64 8
   %.not.i.i.i33 = icmp eq ptr %52, %9
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !528
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, label %.lr.ph.i.i.i30, !llvm.loop !526
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.lr.ph.i.i.i30, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %.0.lcssa.i.i.i34 = phi ptr [ %50, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %53, %.lr.ph.i.i.i30 ]
@@ -9074,287 +9066,285 @@ attributes #28 = { builtin nounwind }
 !275 = !{!276, !267, !269}
 !276 = distinct !{!276, !277, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_13scalar_sum_opIddEESJ_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISN_SJ_KNS5_IS7_SJ_EEEESP_EESP_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS10_EE: argument 0"}
 !277 = distinct !{!277, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_13scalar_sum_opIddEESJ_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISN_SJ_KNS5_IS7_SJ_EEEESP_EESP_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS10_EE"}
-!278 = !{!279, !19, i64 0}
-!279 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi3EEE", !19, i64 0}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
-!282 = distinct !{!282, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeISZ_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISM_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1C_RKNS0_10MatrixBaseIT_EERKNS1E_IT0_EERKNS1E_IT1_EERKNS1E_IT2_EERKNS19_15KelvinletParamsIS1C_EEEUlRKdE_JS20_EES1F_St14__invoke_otherOS1J_DpOT1_: argument 0"}
-!285 = distinct !{!285, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeISZ_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISM_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1C_RKNS0_10MatrixBaseIT_EERKNS1E_IT0_EERKNS1E_IT1_EERKNS1E_IT2_EERKNS19_15KelvinletParamsIS1C_EEEUlRKdE_JS20_EES1F_St14__invoke_otherOS1J_DpOT1_"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE_clES1A_: argument 0"}
-!288 = distinct !{!288, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE_clES1A_"}
-!289 = !{!290, !19, i64 16}
-!290 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE_", !135, i64 0, !10, i64 8, !19, i64 16}
-!291 = !{!287, !284, !281}
-!292 = !{!290, !10, i64 8}
-!293 = !{!290, !135, i64 0}
-!294 = !{!295, !287, !284, !281}
-!295 = distinct !{!295, !296, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS16_EERKS5_RKNS_10MatrixBaseIS16_EE: argument 0"}
-!296 = distinct !{!296, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS16_EERKS5_RKNS_10MatrixBaseIS16_EE"}
-!297 = !{!298, !287, !284}
-!298 = distinct !{!298, !299, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeISZ_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS16_KS1A_EERKNS0_IS1A_EE: argument 0"}
-!299 = distinct !{!299, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeISZ_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS16_KS1A_EERKNS0_IS1A_EE"}
-!300 = !{i64 0, i64 8, !134, i64 8, i64 8, !9, i64 16, i64 8, !94}
-!301 = !{!302, !19, i64 0}
-!302 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEE", !19, i64 0}
-!303 = !{!304, !42, i64 464}
-!304 = !{!"_ZTSN5Eigen7ProductINS0_INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEESA_KNS1_IS4_KNS1_IS4_SC_SA_EESC_EEEEKNS1_ISG_SA_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeISY_EELi0EEES9_Li0EEE", !305, i64 0, !42, i64 464}
-!305 = !{!"_ZTSN5Eigen7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEESA_KNS1_IS4_KNS1_IS4_SC_SA_EESC_EEEEKNS1_ISG_SA_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeISY_EELi0EEE", !306, i64 0, !308, i64 248}
-!306 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS0_INS1_20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEES9_KNS0_IS3_KNS0_IS3_SB_S9_EESB_EEEEKNS0_ISF_S9_KNS0_IS3_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISN_S9_SB_EESB_EESB_EEEEEEEE", !128, i64 8, !307, i64 24, !131, i64 240}
-!307 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_ISA_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES8_EES8_EESF_EEEEKNS0_IS5_S8_KNS0_ISA_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISN_S8_SF_EESF_EESF_EEEEEE", !125, i64 8, !220, i64 96, !225, i64 208}
-!308 = !{!"_ZTSN5Eigen9TransposeIKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_ISB_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES9_EES9_EESG_EEEEKNS1_IS6_S9_KNS1_ISB_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_S9_SG_EESG_EESG_EEEEEEEE", !307, i64 0}
-!309 = !{!310}
-!310 = distinct !{!310, !311, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEESB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISP_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeISZ_EELi0EEEE11lazyProductISA_EEKNS1_IS13_T_Li1EEERKNS0_IS16_EE: argument 0"}
-!311 = distinct !{!311, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEESB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISP_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeISZ_EELi0EEEE11lazyProductISA_EEKNS1_IS13_T_Li1EEERKNS0_IS16_EE"}
-!312 = distinct !{!312, !56}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE0_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
-!315 = distinct !{!315, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE0_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
-!316 = !{!317, !19, i64 16}
-!317 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE0_", !135, i64 0, !12, i64 8, !19, i64 16}
-!318 = !{!319, !321, !314}
-!319 = distinct !{!319, !320, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE0_clES1A_: argument 0"}
-!320 = distinct !{!320, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE0_clES1A_"}
-!321 = distinct !{!321, !322, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE0_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_: argument 0"}
-!322 = distinct !{!322, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE0_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_"}
-!323 = !{!317, !12, i64 8}
-!324 = !{!317, !135, i64 0}
-!325 = !{!326, !319, !321, !314}
-!326 = distinct !{!326, !327, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
-!327 = distinct !{!327, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
-!328 = !{i64 0, i64 8, !134, i64 8, i64 8, !11, i64 16, i64 8, !94}
-!329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE1_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
-!331 = distinct !{!331, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE1_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
-!332 = !{!333, !19, i64 16}
-!333 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE1_", !135, i64 0, !12, i64 8, !19, i64 16}
-!334 = !{!335, !337, !330}
-!335 = distinct !{!335, !336, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE1_clES1A_: argument 0"}
-!336 = distinct !{!336, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE1_clES1A_"}
-!337 = distinct !{!337, !338, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE1_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_: argument 0"}
-!338 = distinct !{!338, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE1_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_"}
-!339 = !{!333, !12, i64 8}
-!340 = !{!333, !135, i64 0}
-!341 = !{!342, !335, !337, !330}
-!342 = distinct !{!342, !343, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
-!343 = distinct !{!343, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
-!344 = !{i64 0, i64 8, !134, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
-!345 = !{!346}
-!346 = distinct !{!346, !347, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS13_EES15_EEEEEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1E_15KelvinletParamsIS1G_EEEUlRKdE2_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_: argument 0"}
-!347 = distinct !{!347, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS13_EES15_EEEEEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1E_15KelvinletParamsIS1G_EEEUlRKdE2_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_"}
-!348 = !{!349}
-!349 = distinct !{!349, !350, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE2_clES1A_: argument 0"}
-!350 = distinct !{!350, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE2_clES1A_"}
-!351 = !{!352, !19, i64 16}
-!352 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE2_", !135, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
-!353 = !{!349, !346}
-!354 = !{!352, !14, i64 24}
-!355 = !{!352, !12, i64 8}
-!356 = !{!352, !135, i64 0}
-!357 = !{!358, !349, !346}
-!358 = distinct !{!358, !359, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
-!359 = distinct !{!359, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
-!360 = !{!361, !349, !346}
-!361 = distinct !{!361, !362, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS13_EEKS14_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1A_KS1F_EERKNS0_IS1F_EE: argument 0"}
-!362 = distinct !{!362, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS13_EEKS14_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1A_KS1F_EERKNS0_IS1F_EE"}
-!363 = !{!364, !364, i64 0}
-!364 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !6, i64 0}
-!365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE: argument 0"}
-!367 = distinct !{!367, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE"}
-!368 = !{!369, !364, i64 24}
-!369 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES9_EE", !370, i64 8, !364, i64 24, !131, i64 32}
-!370 = !{!"_ZTSN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !129, i64 0, !129, i64 1, !47, i64 8}
-!371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE: argument 0"}
-!373 = distinct !{!373, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE"}
-!374 = !{i64 0, i64 8, !160, i64 8, i64 8, !9, i64 16, i64 8, !94}
-!375 = !{!376, !19, i64 16}
-!376 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE_", !161, i64 0, !10, i64 8, !19, i64 16}
-!377 = !{!378, !380}
-!378 = distinct !{!378, !379, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE_clES1C_: argument 0"}
-!379 = distinct !{!379, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE_clES1C_"}
-!380 = distinct !{!380, !381, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISR_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS11_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISO_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1E_RKNS0_10MatrixBaseIT_EERKNS1G_IT0_EERKNS1G_IT1_EERKNS1G_IT2_EERKNS1B_15KelvinletParamsIS1E_EEEUlRKdE_JS22_EES1H_St14__invoke_otherOS1L_DpOT1_: argument 0"}
-!381 = distinct !{!381, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISR_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS11_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISO_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1E_RKNS0_10MatrixBaseIT_EERKNS1G_IT0_EERKNS1G_IT1_EERKNS1G_IT2_EERKNS1B_15KelvinletParamsIS1E_EEEUlRKdE_JS22_EES1H_St14__invoke_otherOS1L_DpOT1_"}
-!382 = !{!376, !10, i64 8}
-!383 = !{!376, !161, i64 0}
-!384 = !{!385, !378, !380}
-!385 = distinct !{!385, !386, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS18_EERKS5_RKNS_10MatrixBaseIS18_EE: argument 0"}
-!386 = distinct !{!386, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS18_EERKS5_RKNS_10MatrixBaseIS18_EE"}
-!387 = distinct !{!387, !56}
-!388 = !{!389}
-!389 = distinct !{!389, !390, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE0_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_: argument 0"}
-!390 = distinct !{!390, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE0_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_"}
-!391 = !{!392, !19, i64 16}
-!392 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE0_", !161, i64 0, !12, i64 8, !19, i64 16}
-!393 = !{!394, !396, !389}
-!394 = distinct !{!394, !395, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE0_clES1C_: argument 0"}
-!395 = distinct !{!395, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE0_clES1C_"}
-!396 = distinct !{!396, !397, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE0_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_: argument 0"}
-!397 = distinct !{!397, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE0_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_"}
-!398 = !{!392, !12, i64 8}
-!399 = !{!392, !161, i64 0}
-!400 = !{!401, !394, !396, !389}
-!401 = distinct !{!401, !402, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
-!402 = distinct !{!402, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
-!403 = !{i64 0, i64 8, !160, i64 8, i64 8, !11, i64 16, i64 8, !94}
-!404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE1_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_: argument 0"}
-!406 = distinct !{!406, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE1_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_"}
-!407 = !{!408, !19, i64 16}
-!408 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE1_", !161, i64 0, !12, i64 8, !19, i64 16}
-!409 = !{!410, !412, !405}
-!410 = distinct !{!410, !411, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE1_clES1C_: argument 0"}
-!411 = distinct !{!411, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE1_clES1C_"}
-!412 = distinct !{!412, !413, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE1_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_: argument 0"}
-!413 = distinct !{!413, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE1_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_"}
-!414 = !{!408, !12, i64 8}
-!415 = !{!408, !161, i64 0}
-!416 = !{!417, !410, !412, !405}
-!417 = distinct !{!417, !418, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
-!418 = distinct !{!418, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
-!419 = !{i64 0, i64 8, !160, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
-!420 = !{!421, !19, i64 16}
-!421 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE2_", !161, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
-!422 = !{!423, !425}
-!423 = distinct !{!423, !424, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE2_clES1C_: argument 0"}
-!424 = distinct !{!424, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE2_clES1C_"}
-!425 = distinct !{!425, !426, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNS1_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISW_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS15_EES17_EEEEEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1I_RKNS0_10MatrixBaseIT_EERKNS1K_IT0_EERKNS1K_IT1_EERKNS1K_IT2_EERKNS1G_15KelvinletParamsIS1I_EEEUlRKdE2_JS26_EES1L_St14__invoke_otherOS1P_DpOT1_: argument 0"}
-!426 = distinct !{!426, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNS1_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISW_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS15_EES17_EEEEEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1I_RKNS0_10MatrixBaseIT_EERKNS1K_IT0_EERKNS1K_IT1_EERKNS1K_IT2_EERKNS1G_15KelvinletParamsIS1I_EEEUlRKdE2_JS26_EES1L_St14__invoke_otherOS1P_DpOT1_"}
-!427 = !{!421, !14, i64 24}
-!428 = !{!421, !12, i64 8}
-!429 = !{!421, !161, i64 0}
-!430 = !{!431, !423, !425}
-!431 = distinct !{!431, !432, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
-!432 = distinct !{!432, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
-!433 = !{i64 0, i64 8, !186, i64 8, i64 8, !9, i64 16, i64 8, !94}
-!434 = !{!435}
-!435 = distinct !{!435, !436, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS13_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISQ_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1D_15KelvinletParamsIS1G_EEEUlRKdE_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_: argument 0"}
-!436 = distinct !{!436, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS13_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISQ_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1D_15KelvinletParamsIS1G_EEEUlRKdE_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_"}
-!437 = !{!438}
-!438 = distinct !{!438, !439, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE_clES1E_: argument 0"}
-!439 = distinct !{!439, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE_clES1E_"}
-!440 = !{!441, !19, i64 16}
-!441 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE_", !187, i64 0, !10, i64 8, !19, i64 16}
-!442 = !{!438, !435}
-!443 = !{!441, !10, i64 8}
-!444 = !{!441, !187, i64 0}
-!445 = !{!446, !438, !435}
-!446 = distinct !{!446, !447, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE: argument 0"}
-!447 = distinct !{!447, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE"}
-!448 = !{!449, !438, !435}
-!449 = distinct !{!449, !450, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeIS13_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS1A_KS1E_EERKNS0_IS1E_EE: argument 0"}
-!450 = distinct !{!450, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeIS13_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS1A_KS1E_EERKNS0_IS1E_EE"}
-!451 = !{!452, !19, i64 0}
-!452 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEE", !302, i64 0}
-!453 = !{!454}
-!454 = distinct !{!454, !455, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISH_KNS2_ISH_SB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEESL_EESL_EEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS13_EELi0EEEE11lazyProductISA_EEKNS1_IS17_T_Li1EEERKNS0_IS1A_EE: argument 0"}
-!455 = distinct !{!455, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISH_KNS2_ISH_SB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEESL_EESL_EEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS13_EELi0EEEE11lazyProductISA_EEKNS1_IS17_T_Li1EEERKNS0_IS1A_EE"}
-!456 = distinct !{!456, !56}
-!457 = !{!458}
-!458 = distinct !{!458, !459, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE0_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_: argument 0"}
-!459 = distinct !{!459, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE0_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_"}
-!460 = !{!461, !19, i64 16}
-!461 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE0_", !187, i64 0, !12, i64 8, !19, i64 16}
-!462 = !{!463, !465, !458}
-!463 = distinct !{!463, !464, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE0_clES1E_: argument 0"}
-!464 = distinct !{!464, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE0_clES1E_"}
-!465 = distinct !{!465, !466, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE0_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_: argument 0"}
-!466 = distinct !{!466, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE0_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_"}
-!467 = !{!461, !12, i64 8}
-!468 = !{!461, !187, i64 0}
-!469 = !{!470, !463, !465, !458}
-!470 = distinct !{!470, !471, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
-!471 = distinct !{!471, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
-!472 = !{i64 0, i64 8, !186, i64 8, i64 8, !11, i64 16, i64 8, !94}
-!473 = !{!474}
-!474 = distinct !{!474, !475, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE1_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_: argument 0"}
-!475 = distinct !{!475, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE1_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_"}
-!476 = !{!477, !19, i64 16}
-!477 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE1_", !187, i64 0, !12, i64 8, !19, i64 16}
-!478 = !{!479, !481, !474}
-!479 = distinct !{!479, !480, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE1_clES1E_: argument 0"}
-!480 = distinct !{!480, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE1_clES1E_"}
-!481 = distinct !{!481, !482, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE1_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_: argument 0"}
-!482 = distinct !{!482, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE1_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_"}
-!483 = !{!477, !12, i64 8}
-!484 = !{!477, !187, i64 0}
-!485 = !{!486, !479, !481, !474}
-!486 = distinct !{!486, !487, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
-!487 = distinct !{!487, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
-!488 = !{i64 0, i64 8, !186, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
-!489 = !{!490}
-!490 = distinct !{!490, !491, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE2_clES1E_: argument 0"}
-!491 = distinct !{!491, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE2_clES1E_"}
-!492 = !{!493, !19, i64 16}
-!493 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE2_", !187, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
-!494 = !{!493, !14, i64 24}
-!495 = !{!493, !12, i64 8}
-!496 = !{!493, !187, i64 0}
-!497 = !{!498}
-!498 = distinct !{!498, !499, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
-!499 = distinct !{!499, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
-!500 = !{!501}
-!501 = distinct !{!501, !502, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS1_IKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_IS7_KNS2_IS7_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISC_KNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS2_IS7_SA_KNS2_ISC_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SA_SH_EESH_EESH_EEEEEEEEEEE10binaryExprINS3_22scalar_conj_product_opIddEENS_7ProductINS8_IdLi3ELi3ELi0ELi3ELi3EEES12_Li0EEEEEKNS2_IT_KS16_KT0_EERKNS0_IS1G_EERKS1E_: argument 0"}
-!502 = distinct !{!502, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS1_IKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_IS7_KNS2_IS7_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISC_KNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS2_IS7_SA_KNS2_ISC_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SA_SH_EESH_EESH_EEEEEEEEEEE10binaryExprINS3_22scalar_conj_product_opIddEENS_7ProductINS8_IdLi3ELi3ELi0ELi3ELi3EEES12_Li0EEEEEKNS2_IT_KS16_KT0_EERKNS0_IS1G_EERKS1E_"}
-!503 = !{!504}
-!504 = distinct !{!504, !505, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE: argument 0"}
-!505 = distinct !{!505, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE"}
-!506 = !{!507, !490}
-!507 = distinct !{!507, !508, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS17_EEKS18_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1E_KS1J_EERKNS0_IS1J_EE: argument 0"}
-!508 = distinct !{!508, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS17_EEKS18_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1E_KS1J_EERKNS0_IS1J_EE"}
-!509 = !{!510, !364, i64 0}
-!510 = !{!"_ZTSN5Eigen7ProductINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS3_INS4_13scalar_sum_opIddEEKNS3_IS8_KNS3_IS8_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS3_INS4_17scalar_product_opIddEEKNS3_ISC_KNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS3_IS8_SA_KNS3_ISC_KNS3_INS4_18scalar_quotient_opIddEEKNS3_IST_SA_SH_EESH_EESH_EEEEEELi0EEE", !364, i64 0, !511, i64 8}
-!511 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEEKNS0_IS5_KNS0_IS5_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_ISA_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EEKNS0_IS5_S8_KNS0_ISA_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISR_S8_SF_EESF_EESF_EEEEEE", !512, i64 8, !220, i64 272, !225, i64 384}
-!512 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS0_IS3_KNS0_IS3_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_IS8_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES6_EES6_EESD_EEEESH_EESH_EE", !513, i64 8, !126, i64 184, !132, i64 256}
-!513 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS0_IS3_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_IS8_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES6_EES6_EESD_EEEESH_EE", !125, i64 8, !126, i64 96, !132, i64 168}
-!514 = !{!515}
-!515 = distinct !{!515, !516, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE11lazyProductINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS5_INS6_13scalar_sum_opIddEEKNS5_ISA_KNS5_ISA_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS5_INS6_17scalar_product_opIddEEKNS5_ISE_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS5_ISA_SC_KNS5_ISE_KNS5_INS6_18scalar_quotient_opIddEEKNS5_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS16_EE: argument 0"}
-!516 = distinct !{!516, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE11lazyProductINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS5_INS6_13scalar_sum_opIddEEKNS5_ISA_KNS5_ISA_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS5_INS6_17scalar_product_opIddEEKNS5_ISE_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS5_ISA_SC_KNS5_ISE_KNS5_INS6_18scalar_quotient_opIddEEKNS5_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS16_EE"}
-!517 = !{!518}
-!518 = distinct !{!518, !519, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE: argument 0"}
-!519 = distinct !{!519, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE"}
-!520 = !{!521}
-!521 = distinct !{!521, !522, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE: argument 0"}
-!522 = distinct !{!522, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE"}
-!523 = !{!524}
-!524 = distinct !{!524, !525, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!525 = distinct !{!525, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
-!526 = !{!527}
-!527 = distinct !{!527, !525, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!528 = distinct !{!528, !56}
-!529 = !{!530}
-!530 = distinct !{!530, !531, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!531 = distinct !{!531, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
-!532 = !{!533}
-!533 = distinct !{!533, !531, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!534 = !{!535, !6, i64 0}
-!535 = !{!"_ZTSZN3igl12parallel_forIiZNS_12parallel_forIiZNS_10kelvinletsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IdLi3ELi1ELi0ELi3ELi1EEES6_NS4_IdLi3ELi3ELi0ELi3ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS_15KelvinletParamsINS9_6ScalarEEERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IiSY_EEbS9_S10_mEUlimE_S11_EEbS9_S10_RKSH_RKSL_mEUliimE_", !6, i64 0}
-!536 = !{!537}
-!537 = distinct !{!537, !538, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!538 = distinct !{!538, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!539 = !{!540}
-!540 = distinct !{!540, !541, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEplINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS5_IS8_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESE_EEEEKNS5_INS6_13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEESC_KSK_EERKNS0_ISK_EE: argument 0"}
-!541 = distinct !{!541, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEplINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS5_IS8_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESE_EEEEKNS5_INS6_13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEESC_KSK_EERKNS0_ISK_EE"}
-!542 = !{!543}
-!543 = distinct !{!543, !544, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE: argument 0"}
-!544 = distinct !{!544, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE"}
-!545 = !{!546}
-!546 = distinct !{!546, !547, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEESI_EEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSL_KSP_EERKNS0_ISP_EE: argument 0"}
-!547 = distinct !{!547, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEESI_EEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSL_KSP_EERKNS0_ISP_EE"}
-!548 = !{!549}
-!549 = distinct !{!549, !550, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
-!550 = distinct !{!550, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
-!551 = distinct !{!551, !56}
-!552 = !{!553}
-!553 = distinct !{!553, !554, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!554 = distinct !{!554, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
+!278 = !{!279}
+!279 = distinct !{!279, !280, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
+!280 = distinct !{!280, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeISZ_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISM_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1C_RKNS0_10MatrixBaseIT_EERKNS1E_IT0_EERKNS1E_IT1_EERKNS1E_IT2_EERKNS19_15KelvinletParamsIS1C_EEEUlRKdE_JS20_EES1F_St14__invoke_otherOS1J_DpOT1_: argument 0"}
+!283 = distinct !{!283, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeISZ_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISM_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1C_RKNS0_10MatrixBaseIT_EERKNS1E_IT0_EERKNS1E_IT1_EERKNS1E_IT2_EERKNS19_15KelvinletParamsIS1C_EEEUlRKdE_JS20_EES1F_St14__invoke_otherOS1J_DpOT1_"}
+!284 = !{!285}
+!285 = distinct !{!285, !286, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE_clES1A_: argument 0"}
+!286 = distinct !{!286, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE_clES1A_"}
+!287 = !{!288, !19, i64 16}
+!288 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE_", !135, i64 0, !10, i64 8, !19, i64 16}
+!289 = !{!285, !282, !279}
+!290 = !{!288, !10, i64 8}
+!291 = !{!288, !135, i64 0}
+!292 = !{!293, !285, !282, !279}
+!293 = distinct !{!293, !294, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS16_EERKS5_RKNS_10MatrixBaseIS16_EE: argument 0"}
+!294 = distinct !{!294, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS16_EERKS5_RKNS_10MatrixBaseIS16_EE"}
+!295 = !{!296, !285, !282}
+!296 = distinct !{!296, !297, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeISZ_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS16_KS1A_EERKNS0_IS1A_EE: argument 0"}
+!297 = distinct !{!297, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_SC_KNS1_IS6_SG_SE_EEEEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISP_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeISZ_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS16_KS1A_EERKNS0_IS1A_EE"}
+!298 = !{i64 0, i64 8, !134, i64 8, i64 8, !9, i64 16, i64 8, !94}
+!299 = !{!300, !19, i64 0}
+!300 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEE", !19, i64 0}
+!301 = !{!302, !42, i64 464}
+!302 = !{!"_ZTSN5Eigen7ProductINS0_INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEESA_KNS1_IS4_KNS1_IS4_SC_SA_EESC_EEEEKNS1_ISG_SA_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeISY_EELi0EEES9_Li0EEE", !303, i64 0, !42, i64 464}
+!303 = !{!"_ZTSN5Eigen7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEESA_KNS1_IS4_KNS1_IS4_SC_SA_EESC_EEEEKNS1_ISG_SA_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_SA_SC_EESC_EESC_EEEEEEEENS_9TransposeISY_EELi0EEE", !304, i64 0, !306, i64 248}
+!304 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS0_INS1_20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEES9_KNS0_IS3_KNS0_IS3_SB_S9_EESB_EEEEKNS0_ISF_S9_KNS0_IS3_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISN_S9_SB_EESB_EESB_EEEEEEEE", !128, i64 8, !305, i64 24, !131, i64 240}
+!305 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_ISA_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES8_EES8_EESF_EEEEKNS0_IS5_S8_KNS0_ISA_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISN_S8_SF_EESF_EESF_EEEEEE", !125, i64 8, !220, i64 96, !225, i64 208}
+!306 = !{!"_ZTSN5Eigen9TransposeIKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_ISB_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES9_EES9_EESG_EEEEKNS1_IS6_S9_KNS1_ISB_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISO_S9_SG_EESG_EESG_EEEEEEEE", !305, i64 0}
+!307 = !{!308}
+!308 = distinct !{!308, !309, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEESB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISP_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeISZ_EELi0EEEE11lazyProductISA_EEKNS1_IS13_T_Li1EEERKNS0_IS16_EE: argument 0"}
+!309 = distinct !{!309, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEESB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISP_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeISZ_EELi0EEEE11lazyProductISA_EEKNS1_IS13_T_Li1EEERKNS0_IS16_EE"}
+!310 = distinct !{!310, !56}
+!311 = !{!312}
+!312 = distinct !{!312, !313, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE0_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
+!313 = distinct !{!313, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE0_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
+!314 = !{!315, !19, i64 16}
+!315 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE0_", !135, i64 0, !12, i64 8, !19, i64 16}
+!316 = !{!317, !319, !312}
+!317 = distinct !{!317, !318, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE0_clES1A_: argument 0"}
+!318 = distinct !{!318, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE0_clES1A_"}
+!319 = distinct !{!319, !320, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE0_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_: argument 0"}
+!320 = distinct !{!320, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE0_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_"}
+!321 = !{!315, !12, i64 8}
+!322 = !{!315, !135, i64 0}
+!323 = !{!324, !317, !319, !312}
+!324 = distinct !{!324, !325, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
+!325 = distinct !{!325, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
+!326 = !{i64 0, i64 8, !134, i64 8, i64 8, !11, i64 16, i64 8, !94}
+!327 = !{!328}
+!328 = distinct !{!328, !329, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE1_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_: argument 0"}
+!329 = distinct !{!329, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESN_RKNS0_10MatrixBaseIT_EERKNSP_IT0_EERKNSP_IT1_EERKNSP_IT2_EERKNS3_15KelvinletParamsISN_EEEUlRKdE1_JS1B_EENSt9enable_ifIX16is_invocable_r_vISQ_SU_DpT1_EESQ_E4typeEOSU_DpOS1F_"}
+!330 = !{!331, !19, i64 16}
+!331 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE1_", !135, i64 0, !12, i64 8, !19, i64 16}
+!332 = !{!333, !335, !328}
+!333 = distinct !{!333, !334, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE1_clES1A_: argument 0"}
+!334 = distinct !{!334, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE1_clES1A_"}
+!335 = distinct !{!335, !336, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE1_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_: argument 0"}
+!336 = distinct !{!336, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES17_RKNS0_10MatrixBaseIT_EERKNS19_IT0_EERKNS19_IT1_EERKNS19_IT2_EERKNS15_15KelvinletParamsIS17_EEEUlRKdE1_JS1V_EES1A_St14__invoke_otherOS1E_DpOT1_"}
+!337 = !{!331, !12, i64 8}
+!338 = !{!331, !135, i64 0}
+!339 = !{!340, !333, !335, !328}
+!340 = distinct !{!340, !341, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
+!341 = distinct !{!341, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
+!342 = !{i64 0, i64 8, !134, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS13_EES15_EEEEEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1E_15KelvinletParamsIS1G_EEEUlRKdE2_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_: argument 0"}
+!345 = distinct !{!345, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS13_EES15_EEEEEERZN3igl19kelvinlet_evaluatorISR_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1E_15KelvinletParamsIS1G_EEEUlRKdE2_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_"}
+!346 = !{!347}
+!347 = distinct !{!347, !348, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE2_clES1A_: argument 0"}
+!348 = distinct !{!348, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEENKUlRKdE2_clES1A_"}
+!349 = !{!350, !19, i64 16}
+!350 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESM_RKNS1_10MatrixBaseIT_EERKNSO_IT0_EERKNSO_IT1_EERKNSO_IT2_EERKNS_15KelvinletParamsISM_EEEUlRKdE2_", !135, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
+!351 = !{!347, !344}
+!352 = !{!350, !14, i64 24}
+!353 = !{!350, !12, i64 8}
+!354 = !{!350, !135, i64 0}
+!355 = !{!356, !347, !344}
+!356 = distinct !{!356, !357, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE: argument 0"}
+!357 = distinct !{!357, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS16_EE"}
+!358 = !{!359, !347, !344}
+!359 = distinct !{!359, !360, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS13_EEKS14_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1A_KS1F_EERKNS0_IS1F_EE: argument 0"}
+!360 = distinct !{!360, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISU_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS13_EEKS14_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1A_KS1F_EERKNS0_IS1F_EE"}
+!361 = !{!362, !362, i64 0}
+!362 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !6, i64 0}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE: argument 0"}
+!365 = distinct !{!365, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE"}
+!366 = !{!367, !362, i64 24}
+!367 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEES9_EE", !368, i64 8, !362, i64 24, !131, i64 32}
+!368 = !{!"_ZTSN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !129, i64 0, !129, i64 1, !47, i64 8}
+!369 = !{!370}
+!370 = distinct !{!370, !371, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE: argument 0"}
+!371 = distinct !{!371, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISV_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS16_EE"}
+!372 = !{i64 0, i64 8, !160, i64 8, i64 8, !9, i64 16, i64 8, !94}
+!373 = !{!374, !19, i64 16}
+!374 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE_", !161, i64 0, !10, i64 8, !19, i64 16}
+!375 = !{!376, !378}
+!376 = distinct !{!376, !377, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE_clES1C_: argument 0"}
+!377 = distinct !{!377, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE_clES1C_"}
+!378 = distinct !{!378, !379, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISR_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS11_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISO_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1E_RKNS0_10MatrixBaseIT_EERKNS1G_IT0_EERKNS1G_IT1_EERKNS1G_IT2_EERKNS1B_15KelvinletParamsIS1E_EEEUlRKdE_JS22_EES1H_St14__invoke_otherOS1L_DpOT1_: argument 0"}
+!379 = distinct !{!379, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISR_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS11_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISO_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1E_RKNS0_10MatrixBaseIT_EERKNS1G_IT0_EERKNS1G_IT1_EERKNS1G_IT2_EERKNS1B_15KelvinletParamsIS1E_EEEUlRKdE_JS22_EES1H_St14__invoke_otherOS1L_DpOT1_"}
+!380 = !{!374, !10, i64 8}
+!381 = !{!374, !161, i64 0}
+!382 = !{!383, !376, !378}
+!383 = distinct !{!383, !384, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS18_EERKS5_RKNS_10MatrixBaseIS18_EE: argument 0"}
+!384 = distinct !{!384, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS18_EERKS5_RKNS_10MatrixBaseIS18_EE"}
+!385 = distinct !{!385, !56}
+!386 = !{!387}
+!387 = distinct !{!387, !388, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE0_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_: argument 0"}
+!388 = distinct !{!388, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE0_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_"}
+!389 = !{!390, !19, i64 16}
+!390 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE0_", !161, i64 0, !12, i64 8, !19, i64 16}
+!391 = !{!392, !394, !387}
+!392 = distinct !{!392, !393, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE0_clES1C_: argument 0"}
+!393 = distinct !{!393, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE0_clES1C_"}
+!394 = distinct !{!394, !395, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE0_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_: argument 0"}
+!395 = distinct !{!395, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE0_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_"}
+!396 = !{!390, !12, i64 8}
+!397 = !{!390, !161, i64 0}
+!398 = !{!399, !392, !394, !387}
+!399 = distinct !{!399, !400, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
+!400 = distinct !{!400, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
+!401 = !{i64 0, i64 8, !160, i64 8, i64 8, !11, i64 16, i64 8, !94}
+!402 = !{!403}
+!403 = distinct !{!403, !404, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE1_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_: argument 0"}
+!404 = distinct !{!404, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESP_RKNS0_10MatrixBaseIT_EERKNSR_IT0_EERKNSR_IT1_EERKNSR_IT2_EERKNS3_15KelvinletParamsISP_EEEUlRKdE1_JS1D_EENSt9enable_ifIX16is_invocable_r_vISS_SW_DpT1_EESS_E4typeEOSW_DpOS1H_"}
+!405 = !{!406, !19, i64 16}
+!406 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE1_", !161, i64 0, !12, i64 8, !19, i64 16}
+!407 = !{!408, !410, !403}
+!408 = distinct !{!408, !409, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE1_clES1C_: argument 0"}
+!409 = distinct !{!409, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE1_clES1C_"}
+!410 = distinct !{!410, !411, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE1_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_: argument 0"}
+!411 = distinct !{!411, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISW_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES19_RKNS0_10MatrixBaseIT_EERKNS1B_IT0_EERKNS1B_IT1_EERKNS1B_IT2_EERKNS17_15KelvinletParamsIS19_EEEUlRKdE1_JS1X_EES1C_St14__invoke_otherOS1G_DpOT1_"}
+!412 = !{!406, !12, i64 8}
+!413 = !{!406, !161, i64 0}
+!414 = !{!415, !408, !410, !403}
+!415 = distinct !{!415, !416, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
+!416 = distinct !{!416, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
+!417 = !{i64 0, i64 8, !160, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
+!418 = !{!419, !19, i64 16}
+!419 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEEUlRKdE2_", !161, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
+!420 = !{!421, !423}
+!421 = distinct !{!421, !422, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE2_clES1C_: argument 0"}
+!422 = distinct !{!422, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESO_RKNS1_10MatrixBaseIT_EERKNSQ_IT0_EERKNSQ_IT1_EERKNSQ_IT2_EERKNS_15KelvinletParamsISO_EEENKUlRKdE2_clES1C_"}
+!423 = distinct !{!423, !424, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNS1_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISW_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS15_EES17_EEEEEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1I_RKNS0_10MatrixBaseIT_EERKNS1K_IT0_EERKNS1K_IT1_EERKNS1K_IT2_EERKNS1G_15KelvinletParamsIS1I_EEEUlRKdE2_JS26_EES1L_St14__invoke_otherOS1P_DpOT1_: argument 0"}
+!424 = distinct !{!424, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal20scalar_difference_opIddEEKNS0_7ProductINS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESD_EENS1_IS4_KNS1_INS2_13scalar_sum_opIddEEKNS1_ISI_KNSB_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS7_KNS1_IS7_KNS8_ISA_SK_EESK_EESM_EEEESQ_EEKNS1_ISI_SK_KNS1_IS7_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISW_SK_SM_EESM_EESM_EEEEEELi0EEEKNS1_IS7_SM_KNS1_ISI_KNS1_IS7_SM_KS15_EES17_EEEEEERZN3igl19kelvinlet_evaluatorIST_SJ_SJ_SC_dEENSB_IT3_Li3ELi1ELi0ELi3ELi1EEES1I_RKNS0_10MatrixBaseIT_EERKNS1K_IT0_EERKNS1K_IT1_EERKNS1K_IT2_EERKNS1G_15KelvinletParamsIS1I_EEEUlRKdE2_JS26_EES1L_St14__invoke_otherOS1P_DpOT1_"}
+!425 = !{!419, !14, i64 24}
+!426 = !{!419, !12, i64 8}
+!427 = !{!419, !161, i64 0}
+!428 = !{!429, !421, !423}
+!429 = distinct !{!429, !430, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE: argument 0"}
+!430 = distinct !{!430, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISX_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS18_EE"}
+!431 = !{i64 0, i64 8, !186, i64 8, i64 8, !9, i64 16, i64 8, !94}
+!432 = !{!433}
+!433 = distinct !{!433, !434, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS13_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISQ_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1D_15KelvinletParamsIS1G_EEEUlRKdE_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_: argument 0"}
+!434 = distinct !{!434, !"_ZSt13__invoke_implIN5Eigen13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS0_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS0_9TransposeIS13_EELi0EEESB_Li0EEEEESG_EERZN3igl19kelvinlet_evaluatorISQ_SB_SB_NSA_IdLi3ELi3ELi0ELi3ELi3EEEdEENSA_IT3_Li3ELi1ELi0ELi3ELi1EEES1G_RKNS0_10MatrixBaseIT_EERKNS1I_IT0_EERKNS1I_IT1_EERKNS1I_IT2_EERKNS1D_15KelvinletParamsIS1G_EEEUlRKdE_JS24_EES1J_St14__invoke_otherOS1N_DpOT1_"}
+!435 = !{!436}
+!436 = distinct !{!436, !437, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE_clES1E_: argument 0"}
+!437 = distinct !{!437, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE_clES1E_"}
+!438 = !{!439, !19, i64 16}
+!439 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE_", !187, i64 0, !10, i64 8, !19, i64 16}
+!440 = !{!436, !433}
+!441 = !{!439, !10, i64 8}
+!442 = !{!439, !187, i64 0}
+!443 = !{!444, !436, !433}
+!444 = distinct !{!444, !445, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE: argument 0"}
+!445 = distinct !{!445, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE"}
+!446 = !{!447, !436, !433}
+!447 = distinct !{!447, !448, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeIS13_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS1A_KS1E_EERKNS0_IS1E_EE: argument 0"}
+!448 = distinct !{!448, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEESC_EEKNS_7ProductINSH_INS1_IS6_SE_KNS1_INS2_20scalar_difference_opIddEEKNS1_IS4_KNS1_IS4_KNS1_IS4_SC_KNS1_IS6_SG_SE_EEEESL_EESL_EEKNS1_IS4_SC_KNS1_IS6_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IST_SC_SE_EESE_EESE_EEEEEEEENS_9TransposeIS13_EELi0EEESB_Li0EEEEEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKS1A_KS1E_EERKNS0_IS1E_EE"}
+!449 = !{!450, !19, i64 0}
+!450 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEE", !300, i64 0}
+!451 = !{!452}
+!452 = distinct !{!452, !453, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISH_KNS2_ISH_SB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEESL_EESL_EEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS13_EELi0EEEE11lazyProductISA_EEKNS1_IS17_T_Li1EEERKNS0_IS1A_EE: argument 0"}
+!453 = distinct !{!453, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEKNS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISH_KNS2_ISH_SB_KNS2_IS5_KNS2_IS5_SD_SB_EESD_EEEESL_EESL_EEKNS2_ISH_SB_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SB_SD_EESD_EESD_EEEEEEEENS_9TransposeIS13_EELi0EEEE11lazyProductISA_EEKNS1_IS17_T_Li1EEERKNS0_IS1A_EE"}
+!454 = distinct !{!454, !56}
+!455 = !{!456}
+!456 = distinct !{!456, !457, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE0_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_: argument 0"}
+!457 = distinct !{!457, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE0_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_"}
+!458 = !{!459, !19, i64 16}
+!459 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE0_", !187, i64 0, !12, i64 8, !19, i64 16}
+!460 = !{!461, !463, !456}
+!461 = distinct !{!461, !462, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE0_clES1E_: argument 0"}
+!462 = distinct !{!462, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE0_clES1E_"}
+!463 = distinct !{!463, !464, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE0_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_: argument 0"}
+!464 = distinct !{!464, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE0_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_"}
+!465 = !{!459, !12, i64 8}
+!466 = !{!459, !187, i64 0}
+!467 = !{!468, !461, !463, !456}
+!468 = distinct !{!468, !469, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
+!469 = distinct !{!469, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
+!470 = !{i64 0, i64 8, !186, i64 8, i64 8, !11, i64 16, i64 8, !94}
+!471 = !{!472}
+!472 = distinct !{!472, !473, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE1_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_: argument 0"}
+!473 = distinct !{!473, !"_ZSt10__invoke_rIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEERZN3igl19kelvinlet_evaluatorINS0_13CwiseBinaryOpINS0_8internal13scalar_sum_opIddEEKNS5_IS8_KNS5_IS8_KS2_KNS5_INS6_17scalar_product_opIddEEKNS5_ISB_KNS0_14CwiseNullaryOpINS6_18scalar_constant_opIdEES9_EES9_EESG_EEEESK_EESK_EES2_S2_NS1_IdLi3ELi3ELi0ELi3ELi3EEEdEENS1_IT3_Li3ELi1ELi0ELi3ELi1EEESR_RKNS0_10MatrixBaseIT_EERKNST_IT0_EERKNST_IT1_EERKNST_IT2_EERKNS3_15KelvinletParamsISR_EEEUlRKdE1_JS1F_EENSt9enable_ifIX16is_invocable_r_vISU_SY_DpT1_EESU_E4typeEOSY_DpOS1J_"}
+!474 = !{!475, !19, i64 16}
+!475 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE1_", !187, i64 0, !12, i64 8, !19, i64 16}
+!476 = !{!477, !479, !472}
+!477 = distinct !{!477, !478, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE1_clES1E_: argument 0"}
+!478 = distinct !{!478, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE1_clES1E_"}
+!479 = distinct !{!479, !480, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE1_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_: argument 0"}
+!480 = distinct !{!480, !"_ZSt13__invoke_implIN5Eigen7ProductINS0_13CwiseBinaryOpINS0_8internal17scalar_product_opIddEEKNS0_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS0_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEERZN3igl19kelvinlet_evaluatorISV_SJ_SJ_SA_dEENS9_IT3_Li3ELi1ELi0ELi3ELi1EEES1B_RKNS0_10MatrixBaseIT_EERKNS1D_IT0_EERKNS1D_IT1_EERKNS1D_IT2_EERKNS19_15KelvinletParamsIS1B_EEEUlRKdE1_JS1Z_EES1E_St14__invoke_otherOS1I_DpOT1_"}
+!481 = !{!475, !12, i64 8}
+!482 = !{!475, !187, i64 0}
+!483 = !{!484, !477, !479, !472}
+!484 = distinct !{!484, !485, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
+!485 = distinct !{!485, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
+!486 = !{i64 0, i64 8, !186, i64 8, i64 8, !11, i64 16, i64 8, !94, i64 24, i64 8, !13}
+!487 = !{!488}
+!488 = distinct !{!488, !489, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE2_clES1E_: argument 0"}
+!489 = distinct !{!489, !"_ZZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEENKUlRKdE2_clES1E_"}
+!490 = !{!491, !19, i64 16}
+!491 = !{!"_ZTSZN3igl19kelvinlet_evaluatorIN5Eigen13CwiseBinaryOpINS1_8internal13scalar_sum_opIddEEKNS2_IS5_KNS2_IS5_KNS1_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISA_KNS1_14CwiseNullaryOpINS3_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EES7_S7_NS6_IdLi3ELi3ELi0ELi3ELi3EEEdEENS6_IT3_Li3ELi1ELi0ELi3ELi1EEESQ_RKNS1_10MatrixBaseIT_EERKNSS_IT0_EERKNSS_IT1_EERKNSS_IT2_EERKNS_15KelvinletParamsISQ_EEEUlRKdE2_", !187, i64 0, !12, i64 8, !19, i64 16, !14, i64 24}
+!492 = !{!491, !14, i64 24}
+!493 = !{!491, !12, i64 8}
+!494 = !{!491, !187, i64 0}
+!495 = !{!496}
+!496 = distinct !{!496, !497, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE: argument 0"}
+!497 = distinct !{!497, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEEmlINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li0EEERKNS0_IS1A_EE"}
+!498 = !{!499}
+!499 = distinct !{!499, !500, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS1_IKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_IS7_KNS2_IS7_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISC_KNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS2_IS7_SA_KNS2_ISC_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SA_SH_EESH_EESH_EEEEEEEEEEE10binaryExprINS3_22scalar_conj_product_opIddEENS_7ProductINS8_IdLi3ELi3ELi0ELi3ELi3EEES12_Li0EEEEEKNS2_IT_KS16_KT0_EERKNS0_IS1G_EERKS1E_: argument 0"}
+!500 = distinct !{!500, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS1_IKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_IS7_KNS2_IS7_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS2_INS3_17scalar_product_opIddEEKNS2_ISC_KNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS2_IS7_SA_KNS2_ISC_KNS2_INS3_18scalar_quotient_opIddEEKNS2_IST_SA_SH_EESH_EESH_EEEEEEEEEEE10binaryExprINS3_22scalar_conj_product_opIddEENS_7ProductINS8_IdLi3ELi3ELi0ELi3ELi3EEES12_Li0EEEEEKNS2_IT_KS16_KT0_EERKNS0_IS1G_EERKS1E_"}
+!501 = !{!502}
+!502 = distinct !{!502, !503, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE: argument 0"}
+!503 = distinct !{!503, !"_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISG_KNS1_ISG_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS3_IddEEKNS1_ISK_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEESJ_EESJ_EESP_EEEEST_EEST_EEKNS1_ISG_SJ_KNS1_ISK_KNS1_INS2_18scalar_quotient_opIddEEKNS1_IS11_SJ_SP_EESP_EESP_EEEEEESA_E4typeEKS1A_EERKS5_RKNS_10MatrixBaseIS1A_EE"}
+!504 = !{!505, !488}
+!505 = distinct !{!505, !506, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS17_EEKS18_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1E_KS1J_EERKNS0_IS1J_EE: argument 0"}
+!506 = distinct !{!506, !"_ZNK5Eigen10MatrixBaseINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS3_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESB_EENS2_INS3_20scalar_difference_opIddEEKNS2_INS3_13scalar_sum_opIddEEKNS2_ISI_KNS2_ISI_KNS9_IdLi3ELi1ELi0ELi3ELi1EEEKNS2_IS5_KNS2_IS5_KNS6_IS8_SK_EESK_EESM_EEEESQ_EESQ_EEKNS2_ISI_SK_KNS2_IS5_KNS2_INS3_18scalar_quotient_opIddEEKNS2_ISY_SK_SM_EESM_EESM_EEEEEELi0EEEEmiINS2_IS5_SM_KNS2_ISI_KNS2_IS5_SM_KS17_EEKS18_EEEEEEKNS2_INSF_IdNS3_6traitsIT_E6ScalarEEES1E_KS1J_EERKNS0_IS1J_EE"}
+!507 = !{!508, !362, i64 0}
+!508 = !{!"_ZTSN5Eigen7ProductINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS3_INS4_13scalar_sum_opIddEEKNS3_IS8_KNS3_IS8_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS3_INS4_17scalar_product_opIddEEKNS3_ISC_KNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEESA_EESA_EESH_EEEESL_EESL_EEKNS3_IS8_SA_KNS3_ISC_KNS3_INS4_18scalar_quotient_opIddEEKNS3_IST_SA_SH_EESH_EESH_EEEEEELi0EEE", !362, i64 0, !509, i64 8}
+!509 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS0_INS1_13scalar_sum_opIddEEKNS0_IS5_KNS0_IS5_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_ISA_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES8_EES8_EESF_EEEESJ_EESJ_EEKNS0_IS5_S8_KNS0_ISA_KNS0_INS1_18scalar_quotient_opIddEEKNS0_ISR_S8_SF_EESF_EESF_EEEEEE", !510, i64 8, !220, i64 272, !225, i64 384}
+!510 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS0_IS3_KNS0_IS3_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_IS8_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES6_EES6_EESD_EEEESH_EESH_EE", !511, i64 8, !126, i64 184, !132, i64 256}
+!511 = !{!"_ZTSN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS0_IS3_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS0_INS1_17scalar_product_opIddEEKNS0_IS8_KNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEES6_EES6_EESD_EEEESH_EE", !125, i64 8, !126, i64 96, !132, i64 168}
+!512 = !{!513}
+!513 = distinct !{!513, !514, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE11lazyProductINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS5_INS6_13scalar_sum_opIddEEKNS5_ISA_KNS5_ISA_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS5_INS6_17scalar_product_opIddEEKNS5_ISE_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS5_ISA_SC_KNS5_ISE_KNS5_INS6_18scalar_quotient_opIddEEKNS5_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS16_EE: argument 0"}
+!514 = distinct !{!514, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE11lazyProductINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS5_INS6_13scalar_sum_opIddEEKNS5_ISA_KNS5_ISA_KNS1_IdLi3ELi1ELi0ELi3ELi1EEEKNS5_INS6_17scalar_product_opIddEEKNS5_ISE_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EESC_EESJ_EEEESN_EESN_EEKNS5_ISA_SC_KNS5_ISE_KNS5_INS6_18scalar_quotient_opIddEEKNS5_ISV_SC_SJ_EESJ_EESJ_EEEEEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS16_EE"}
+!515 = !{!516}
+!516 = distinct !{!516, !517, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE: argument 0"}
+!517 = distinct !{!517, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE"}
+!518 = !{!519}
+!519 = distinct !{!519, !520, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE: argument 0"}
+!520 = distinct !{!520, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEESA_EEE11lazyProductINS1_INS2_20scalar_difference_opIddEEKNS1_INS2_13scalar_sum_opIddEEKNS1_ISJ_KNS1_ISJ_KNS8_IdLi3ELi1ELi0ELi3ELi1EEEKNS1_IS4_KNS1_IS4_KNS5_IS7_SL_EESL_EESN_EEEESR_EESR_EEKNS1_ISJ_SL_KNS1_IS4_KNS1_INS2_18scalar_quotient_opIddEEKNS1_ISZ_SL_SN_EESN_EESN_EEEEEEEEKNS_7ProductISD_T_Li1EEERKNS0_IS1A_EE"}
+!521 = !{!522}
+!522 = distinct !{!522, !523, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!523 = distinct !{!523, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
+!524 = !{!525}
+!525 = distinct !{!525, !523, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!526 = distinct !{!526, !56}
+!527 = !{!528}
+!528 = distinct !{!528, !529, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!529 = distinct !{!529, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
+!530 = !{!531}
+!531 = distinct !{!531, !529, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!532 = !{!533, !6, i64 0}
+!533 = !{!"_ZTSZN3igl12parallel_forIiZNS_12parallel_forIiZNS_10kelvinletsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IdLi3ELi1ELi0ELi3ELi1EEES6_NS4_IdLi3ELi3ELi0ELi3ELi3EEES5_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS_15KelvinletParamsINS9_6ScalarEEERNS3_15PlainObjectBaseIT3_EEEUliE_EEbS9_RKSD_mEUlmE_ZNS1_IiSY_EEbS9_S10_mEUlimE_S11_EEbS9_S10_RKSH_RKSL_mEUliimE_", !6, i64 0}
+!534 = !{!535}
+!535 = distinct !{!535, !536, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!536 = distinct !{!536, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!537 = !{!538}
+!538 = distinct !{!538, !539, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEplINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS5_IS8_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESE_EEEEKNS5_INS6_13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEESC_KSK_EERKNS0_ISK_EE: argument 0"}
+!539 = distinct !{!539, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEplINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS5_IS8_KNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESE_EEEEKNS5_INS6_13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEESC_KSK_EERKNS0_ISK_EE"}
+!540 = !{!541}
+!541 = distinct !{!541, !542, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE: argument 0"}
+!542 = distinct !{!542, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE"}
+!543 = !{!544}
+!544 = distinct !{!544, !545, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEESI_EEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSL_KSP_EERKNS0_ISP_EE: argument 0"}
+!545 = distinct !{!545, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEKNS1_INS2_17scalar_product_opIddEEKNS1_IS9_KNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EES7_EESE_EEEESI_EEEplISH_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSL_KSP_EERKNS0_ISP_EE"}
+!546 = !{!547}
+!547 = distinct !{!547, !548, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl: argument 0"}
+!548 = distinct !{!548, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE3rowEl"}
+!549 = distinct !{!549, !56}
+!550 = !{!551}
+!551 = distinct !{!551, !552, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!552 = distinct !{!552, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
+!553 = !{!554}
+!554 = distinct !{!554, !552, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
 !555 = !{!556}
-!556 = distinct !{!556, !554, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!557 = !{!558}
-!558 = distinct !{!558, !559, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
-!559 = distinct !{!559, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
-!560 = !{!561}
-!561 = distinct !{!561, !559, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
+!556 = distinct !{!556, !557, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
+!557 = distinct !{!557, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_"}
+!558 = !{!559}
+!559 = distinct !{!559, !557, !"_ZSt19__relocate_object_aISt6threadS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}

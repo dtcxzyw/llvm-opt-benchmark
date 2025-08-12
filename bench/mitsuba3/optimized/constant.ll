@@ -625,7 +625,7 @@ define weak_odr void @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS
   %19 = load float, ptr %18, align 4
   %20 = load float, ptr %4, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %22 = load <4 x float>, ptr %21, align 16
+  %22 = load <1 x float>, ptr %21, align 16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %24 = load <4 x float>, ptr %23, align 16
   %25 = load float, ptr %5, align 4
@@ -924,7 +924,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %224 = fmul contract <4 x float> %223, %221
   %225 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %202, <4 x float> %204, <4 x float> %224)
   %226 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %185, <4 x float> %191, <4 x float> %225)
-  %227 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> zeroinitializer
+  %227 = shufflevector <1 x float> %22, <1 x float> poison, <4 x i32> zeroinitializer
   %228 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %184, <4 x float> %227, <4 x float> %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

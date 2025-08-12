@@ -8012,8 +8012,8 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit: ; preds = %if.end8.si
           to label %if.end46 unwind label %lpad30
 
 if.end46:                                         ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit, %invoke.cont32
-  %vecinit.i.i.i.i.i.i = load <16 x i16>, ptr %value_, align 8
-  %vecinit15.i.i.i.i.i.i = shufflevector <16 x i16> %vecinit.i.i.i.i.i.i, <16 x i16> poison, <16 x i32> zeroinitializer
+  %59 = load <1 x i16>, ptr %value_, align 8
+  %vecinit15.i.i.i.i.i.i = shufflevector <1 x i16> %59, <1 x i16> poison, <16 x i32> zeroinitializer
   %valueBuffer_56 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store <16 x i16> %vecinit15.i.i.i.i.i.i, ptr %valueBuffer_56, align 32
   ret void
@@ -12344,8 +12344,8 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit: ; preds = %if.end8.si
           to label %if.end46 unwind label %lpad30
 
 if.end46:                                         ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit, %invoke.cont32
-  %vecinit.i.i.i.i.i.i = load <4 x i64>, ptr %value_, align 16
-  %vecinit3.i.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
+  %59 = load <1 x i64>, ptr %value_, align 16
+  %vecinit3.i.i.i.i.i.i = shufflevector <1 x i64> %59, <1 x i64> poison, <4 x i32> zeroinitializer
   %valueBuffer_56 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store <4 x i64> %vecinit3.i.i.i.i.i.i, ptr %valueBuffer_56, align 32
   ret void

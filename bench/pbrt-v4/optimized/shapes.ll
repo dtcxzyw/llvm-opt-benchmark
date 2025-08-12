@@ -7394,14 +7394,14 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve12IntersectRayERKNS_3RayEfPN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !240
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !240
-  %18 = load <4 x float>, ptr %1, align 8, !noalias !240
-  %.sroa.07.4.vec.insert.i.i = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
+  %18 = load <1 x float>, ptr %1, align 8, !noalias !240
+  %.sroa.07.4.vec.insert.i.i = shufflevector <1 x float> %18, <1 x float> poison, <2 x i32> zeroinitializer
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load <4 x float>, ptr %19, align 4, !noalias !240
-  %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> zeroinitializer
+  %20 = load <1 x float>, ptr %19, align 4, !noalias !240
+  %.sroa.05.4.vec.insert.i.i = shufflevector <1 x float> %20, <1 x float> poison, <2 x i32> zeroinitializer
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load <4 x float>, ptr %21, align 8, !noalias !240
-  %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> zeroinitializer
+  %22 = load <1 x float>, ptr %21, align 8, !noalias !240
+  %.sroa.0.4.vec.insert.i.i = shufflevector <1 x float> %22, <1 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %6, align 8, !noalias !240
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store <2 x float> %.sroa.05.4.vec.insert.i.i, ptr %23, align 8, !noalias !240

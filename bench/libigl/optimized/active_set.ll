@@ -6393,8 +6393,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %43 = load ptr, ptr %5, align 8, !tbaa !321
   %44 = getelementptr inbounds nuw double, ptr %43, i64 %.011.i
   %45 = load <2 x double>, ptr %44, align 16, !tbaa !24
-  %46 = load <2 x double>, ptr %7, align 8
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
+  %46 = load <1 x double>, ptr %7, align 8
+  %47 = shufflevector <1 x double> %46, <1 x double> poison, <2 x i32> zeroinitializer
   %48 = load ptr, ptr %10, align 8, !tbaa !321
   %49 = getelementptr inbounds nuw double, ptr %48, i64 %.011.i
   %50 = load <2 x double>, ptr %49, align 16, !tbaa !24
@@ -7720,8 +7720,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %55 = load ptr, ptr %5, align 8, !tbaa !341
   %56 = getelementptr inbounds nuw double, ptr %55, i64 %.011.i
   %57 = load <2 x double>, ptr %56, align 16, !tbaa !24
-  %58 = load <2 x double>, ptr %7, align 8
-  %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
+  %58 = load <1 x double>, ptr %7, align 8
+  %59 = shufflevector <1 x double> %58, <1 x double> poison, <2 x i32> zeroinitializer
   %60 = load ptr, ptr %10, align 8, !tbaa !341
   %61 = getelementptr inbounds nuw double, ptr %60, i64 %.011.i
   %62 = load <2 x double>, ptr %61, align 16, !tbaa !24

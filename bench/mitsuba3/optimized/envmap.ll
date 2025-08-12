@@ -3270,8 +3270,8 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit1282: ; preds = %5
   %192 = shufflevector <4 x float> %191, <4 x float> poison, <4 x i32> zeroinitializer
   %193 = fmul contract <4 x float> %192, %188
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %195 = load <4 x float>, ptr %194, align 16
-  %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> zeroinitializer
+  %195 = load <1 x float>, ptr %194, align 16
+  %196 = shufflevector <1 x float> %195, <1 x float> poison, <4 x i32> zeroinitializer
   %197 = fmul contract <4 x float> %196, %193
   br i1 %4, label %198, label %210
 
@@ -3545,8 +3545,8 @@ define weak_odr void @_ZNK7mitsuba21EnvironmentMapEmitterIfN5drjit6MatrixINS_8Sp
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %223 = fsub contract <4 x float> %221, %186
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %225 = load <4 x float>, ptr %224, align 16
-  %226 = shufflevector <4 x float> %225, <4 x float> poison, <4 x i32> zeroinitializer
+  %225 = load <1 x float>, ptr %224, align 16
+  %226 = shufflevector <1 x float> %225, <1 x float> poison, <4 x i32> zeroinitializer
   %227 = fmul contract <4 x float> %223, %226
   %228 = load <4 x float>, ptr %222, align 16
   %229 = fadd contract <4 x float> %228, %227
@@ -4434,18 +4434,18 @@ define weak_odr noundef float @_ZNK7mitsuba21EnvironmentMapEmitterIfN5drjit6Matr
   %16 = shufflevector <4 x float> %13, <4 x float> %15, <4 x i32> <i32 2, i32 6, i32 poison, i32 poison>
   %17 = shufflevector <4 x float> %11, <4 x float> %16, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %19 = load <4 x float>, ptr %18, align 8
-  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> zeroinitializer
+  %19 = load <1 x float>, ptr %18, align 8
+  %20 = shufflevector <1 x float> %19, <1 x float> poison, <4 x i32> zeroinitializer
   %21 = shufflevector <4 x float> %13, <4 x float> %15, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %22 = shufflevector <4 x float> %8, <4 x float> %10, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %23 = shufflevector <4 x float> %21, <4 x float> %22, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %25 = load <4 x float>, ptr %24, align 4
-  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> zeroinitializer
+  %25 = load <1 x float>, ptr %24, align 4
+  %26 = shufflevector <1 x float> %25, <1 x float> poison, <4 x i32> zeroinitializer
   %27 = shufflevector <4 x float> %22, <4 x float> %21, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %29 = load <4 x float>, ptr %28, align 16
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
+  %29 = load <1 x float>, ptr %28, align 16
+  %30 = shufflevector <1 x float> %29, <1 x float> poison, <4 x i32> zeroinitializer
   %31 = fmul contract <4 x float> %27, %30
   %32 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %23, <4 x float> %26, <4 x float> %31)
   %33 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> %20, <4 x float> %32)

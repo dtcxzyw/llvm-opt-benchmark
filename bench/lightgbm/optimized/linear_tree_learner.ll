@@ -10724,7 +10724,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %81 = load i64, ptr %80, align 8, !tbaa !556
   %82 = load ptr, ptr %10, align 8, !tbaa !568
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load <2 x double>, ptr %83, align 8
+  %84 = load <1 x double>, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 88
   %86 = load i64, ptr %85, align 8, !tbaa !586
   %87 = icmp sgt i64 %86, 0
@@ -10765,7 +10765,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %109 = getelementptr double, ptr %79, i64 %.02953
   %110 = mul nsw i64 %81, %.03259
   %111 = getelementptr double, ptr %109, i64 %110
-  %112 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> zeroinitializer
+  %112 = shufflevector <1 x double> %84, <1 x double> poison, <2 x i32> zeroinitializer
   %113 = fmul <2 x double> %112, %.0.i.i.i.i
   store <2 x double> %113, ptr %111, align 16, !tbaa !170
   %114 = add nsw i64 %.02953, 2

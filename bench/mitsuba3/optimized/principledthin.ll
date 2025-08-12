@@ -2723,8 +2723,8 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %12, ptr noundef nonnull align 16 dereferenceable(256) %23, i64 256, i1 false), !noalias !11
-  %401 = load <4 x float>, ptr %28, align 16
-  %402 = shufflevector <4 x float> %401, <4 x float> poison, <4 x i32> zeroinitializer
+  %401 = load <1 x float>, ptr %28, align 16
+  %402 = shufflevector <1 x float> %401, <1 x float> poison, <4 x i32> zeroinitializer
   %403 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %402, <4 x float> zeroinitializer, i8 -1)
   %404 = fadd contract <4 x float> %403, %403
   %405 = fneg contract <4 x float> %402

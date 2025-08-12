@@ -11272,14 +11272,14 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %.lr.ph.i, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !379
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !379
-  %20 = load <4 x float>, ptr %1, align 8, !noalias !379
-  %.sroa.07.4.vec.insert.i.i = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> zeroinitializer
+  %20 = load <1 x float>, ptr %1, align 8, !noalias !379
+  %.sroa.07.4.vec.insert.i.i = shufflevector <1 x float> %20, <1 x float> poison, <2 x i32> zeroinitializer
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %22 = load <4 x float>, ptr %21, align 4, !noalias !379
-  %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> zeroinitializer
+  %22 = load <1 x float>, ptr %21, align 4, !noalias !379
+  %.sroa.05.4.vec.insert.i.i = shufflevector <1 x float> %22, <1 x float> poison, <2 x i32> zeroinitializer
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load <4 x float>, ptr %23, align 8, !noalias !379
-  %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %24, <4 x float> poison, <2 x i32> zeroinitializer
+  %24 = load <1 x float>, ptr %23, align 8, !noalias !379
+  %.sroa.0.4.vec.insert.i.i = shufflevector <1 x float> %24, <1 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %5, align 8, !noalias !379
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.sroa.05.4.vec.insert.i.i, ptr %25, align 8, !noalias !379
@@ -12722,14 +12722,14 @@ define dso_local void @_ZNK4pbrt15RealisticCamera19DrawRayPathFromFilmERKNS_3Ray
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !409
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !409
-  %20 = load <4 x float>, ptr %1, align 8, !noalias !409
-  %.sroa.07.4.vec.insert.i.i = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> zeroinitializer
+  %20 = load <1 x float>, ptr %1, align 8, !noalias !409
+  %.sroa.07.4.vec.insert.i.i = shufflevector <1 x float> %20, <1 x float> poison, <2 x i32> zeroinitializer
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %22 = load <4 x float>, ptr %21, align 4, !noalias !409
-  %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> zeroinitializer
+  %22 = load <1 x float>, ptr %21, align 4, !noalias !409
+  %.sroa.05.4.vec.insert.i.i = shufflevector <1 x float> %22, <1 x float> poison, <2 x i32> zeroinitializer
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load <4 x float>, ptr %23, align 8, !noalias !409
-  %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %24, <4 x float> poison, <2 x i32> zeroinitializer
+  %24 = load <1 x float>, ptr %23, align 8, !noalias !409
+  %.sroa.0.4.vec.insert.i.i = shufflevector <1 x float> %24, <1 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %6, align 8, !noalias !409
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store <2 x float> %.sroa.05.4.vec.insert.i.i, ptr %25, align 8, !noalias !409
@@ -13294,14 +13294,14 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %.lr.ph.i, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !416
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !416
-  %30 = load <4 x float>, ptr %1, align 8, !noalias !416
-  %.sroa.07.4.vec.insert.i.i = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> zeroinitializer
+  %30 = load <1 x float>, ptr %1, align 8, !noalias !416
+  %.sroa.07.4.vec.insert.i.i = shufflevector <1 x float> %30, <1 x float> poison, <2 x i32> zeroinitializer
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %32 = load <4 x float>, ptr %31, align 4, !noalias !416
-  %.sroa.05.4.vec.insert.i.i = shufflevector <4 x float> %32, <4 x float> poison, <2 x i32> zeroinitializer
+  %32 = load <1 x float>, ptr %31, align 4, !noalias !416
+  %.sroa.05.4.vec.insert.i.i = shufflevector <1 x float> %32, <1 x float> poison, <2 x i32> zeroinitializer
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load <4 x float>, ptr %33, align 8, !noalias !416
-  %.sroa.0.4.vec.insert.i.i = shufflevector <4 x float> %34, <4 x float> poison, <2 x i32> zeroinitializer
+  %34 = load <1 x float>, ptr %33, align 8, !noalias !416
+  %.sroa.0.4.vec.insert.i.i = shufflevector <1 x float> %34, <1 x float> poison, <2 x i32> zeroinitializer
   store <2 x float> %.sroa.07.4.vec.insert.i.i, ptr %6, align 8, !noalias !416
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store <2 x float> %.sroa.05.4.vec.insert.i.i, ptr %35, align 8, !noalias !416

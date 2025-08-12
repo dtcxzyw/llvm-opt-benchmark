@@ -265,11 +265,11 @@ define hidden void @_ZN4ring4aead6chacha3Key3new17hef935251f887e877E(ptr noalias
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load <4 x i32>, ptr %4, align 1, !alias.scope !5, !noalias !8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load <4 x i32>, ptr %6, align 1, !alias.scope !5, !noalias !8
-  %8 = shufflevector <4 x i32> %7, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %7 = load <1 x i32>, ptr %6, align 1, !alias.scope !5, !noalias !8
+  %8 = shufflevector <1 x i32> %7, <1 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = load <4 x i32>, ptr %9, align 1, !alias.scope !5, !noalias !8
-  %11 = shufflevector <4 x i32> %10, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %10 = load <1 x i32>, ptr %9, align 1, !alias.scope !5, !noalias !8
+  %11 = shufflevector <1 x i32> %10, <1 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load <4 x i32>, ptr %12, align 1, !alias.scope !5, !noalias !8
   %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>

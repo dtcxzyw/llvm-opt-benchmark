@@ -12718,24 +12718,24 @@ entry:
   %indicesArray = alloca [4 x i64], align 32
   %valuesArray = alloca [4 x i64], align 32
   %min_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %vecinit.i.i.i.i.i.i = load <4 x i64>, ptr %min_, align 8
-  %vecinit3.i.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
+  %0 = load <1 x i64>, ptr %min_, align 8
+  %vecinit3.i.i.i.i.i.i = shufflevector <1 x i64> %0, <1 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i = icmp sgt <4 x i64> %vecinit3.i.i.i.i.i.i, %x.coerce
   %max_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %vecinit.i.i.i.i.i.i9 = load <4 x i64>, ptr %max_, align 8
   %vecinit3.i.i.i.i.i.i10 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i = icmp sgt <4 x i64> %x.coerce, %vecinit3.i.i.i.i.i.i10
   %or.i.i.i35 = or <4 x i1> %cmp.i.i.i.i, %cmp.i.i.i.i.i.i.i
-  %0 = bitcast <4 x i1> %or.i.i.i35 to i4
-  %cmp = icmp eq i4 %0, -1
-  %1 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9, i64 1
-  %2 = inttoptr i64 %1 to ptr
+  %1 = bitcast <4 x i1> %or.i.i.i35 to i4
+  %cmp = icmp eq i4 %1, -1
+  %2 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9, i64 1
+  %3 = inttoptr i64 %2 to ptr
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %containsEmptyMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %3 = load i8, ptr %containsEmptyMarker_, align 8
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %containsEmptyMarker_, align 8
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then40, label %if.end51
 
 if.then40:                                        ; preds = %if.end
@@ -12747,11 +12747,11 @@ if.then40:                                        ; preds = %if.end
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then40
   %indvars.iv.i.i = phi i64 [ 0, %if.then40 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds nuw [4 x i64], ptr %data.i.i, i64 0, i64 %indvars.iv.i.i
-  %4 = load i64, ptr %arrayidx.i.i, align 8
+  %5 = load i64, ptr %arrayidx.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %this, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 80
-  %5 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %4)
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %5)
   %conv.i.i = zext i1 %call.i.i.i to i64
   %arrayidx6.i.i = getelementptr inbounds nuw [4 x i64], ptr %res.i.i, i64 0, i64 %indvars.iv.i.i
   store i64 %conv.i.i, ptr %arrayidx6.i.i, align 8
@@ -12760,9 +12760,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %for.body.i.i, !llvm.loop !138
 
 _ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %for.body.i.i
-  %6 = load <4 x i64>, ptr %res.i.i, align 32
-  %7 = icmp ne <4 x i64> %6, zeroinitializer
-  %xor.i.i.i.i.i.i.i.i = sext <4 x i1> %7 to <4 x i64>
+  %7 = load <4 x i64>, ptr %res.i.i, align 32
+  %8 = icmp ne <4 x i64> %7, zeroinitializer
+  %xor.i.i.i.i.i.i.i.i = sext <4 x i1> %8 to <4 x i64>
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %res.i.i)
   br label %return
@@ -12777,31 +12777,31 @@ if.end51:                                         ; preds = %if.end
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end51
   %i.05.i.i.i.i.i = phi i64 [ 0, %if.end51 ], [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %arrayidx2.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %self_buffer.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i
-  %8 = load i64, ptr %arrayidx2.i.i.i.i.i, align 8
+  %9 = load i64, ptr %arrayidx2.i.i.i.i.i, align 8
   %arrayidx3.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %other_buffer.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i
-  %9 = load i64, ptr %arrayidx3.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i = mul i64 %9, %8
+  %10 = load i64, ptr %arrayidx3.i.i.i.i.i, align 8
+  %mul.i.i.i.i.i.i = mul i64 %10, %9
   store i64 %mul.i.i.i.i.i.i, ptr %arrayidx2.i.i.i.i.i, align 8
   %inc.i.i.i.i.i = add nuw nsw i64 %i.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit, label %for.body.i.i.i.i.i, !llvm.loop !139
 
 _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit: ; preds = %for.body.i.i.i.i.i
-  %10 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i, align 32
+  %11 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i, align 32
   call void @llvm.lifetime.end.p0(ptr nonnull %self_buffer.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %other_buffer.i.i.i.i.i)
   %sizeMask_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %11 = load i32, ptr %sizeMask_, align 8
-  %conv = sext i32 %11 to i64
+  %12 = load i32, ptr %sizeMask_, align 8
+  %conv = sext i32 %12 to i64
   %vecinit.i.i.i.i = insertelement <4 x i64> poison, i64 %conv, i64 0
   %vecinit3.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
-  %and.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i, %10
-  %12 = xor <4 x i1> %or.i.i.i35, splat (i1 true)
-  %xor.i.i.i = sext <4 x i1> %12 to <4 x i64>
-  %13 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %2, <4 x i64> %and.i.i.i.i, <4 x i64> %xor.i.i.i, i8 8)
-  %cmp.i.i.i.i12 = icmp eq <4 x i64> %x.coerce, %13
+  %and.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i, %11
+  %13 = xor <4 x i1> %or.i.i.i35, splat (i1 true)
+  %xor.i.i.i = sext <4 x i1> %13 to <4 x i64>
+  %14 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %3, <4 x i64> %and.i.i.i.i, <4 x i64> %xor.i.i.i, i8 8)
+  %cmp.i.i.i.i12 = icmp eq <4 x i64> %x.coerce, %14
   %sext.i.i.i.i13 = sext <4 x i1> %cmp.i.i.i.i12 to <4 x i64>
-  %cmp.i.i.i.i14 = icmp eq <4 x i64> %13, splat (i64 -2401053089476968723)
+  %cmp.i.i.i.i14 = icmp eq <4 x i64> %14, splat (i64 -2401053089476968723)
   %or3637 = or <4 x i1> %cmp.i.i.i.i12, %cmp.i.i.i.i14
   %or36 = bitcast <4 x i1> %or3637 to i4
   %tobool147.not = icmp eq i4 %or36, -1
@@ -12811,48 +12811,48 @@ while.body.preheader:                             ; preds = %_ZN5xsimdmlERKNS_5b
   %add.i.i.i.i = add <4 x i64> %and.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i, ptr %indicesArray, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray, align 32
-  %14 = bitcast <4 x i1> %cmp.i.i.i.i12 to i4
-  %15 = zext i4 %14 to i32
-  %16 = xor i4 %or36, -1
-  %conv146 = zext i4 %16 to i16
+  %15 = bitcast <4 x i1> %cmp.i.i.i.i12 to i4
+  %16 = zext i4 %15 to i32
+  %17 = xor i4 %or36, -1
+  %conv146 = zext i4 %17 to i16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %for.end
-  %resultBits.044 = phi i32 [ %resultBits.1, %for.end ], [ %15, %while.body.preheader ]
+  %resultBits.044 = phi i32 [ %resultBits.1, %for.end ], [ %16, %while.body.preheader ]
   %unresolved.043 = phi i16 [ %and.i, %for.end ], [ %conv146, %while.body.preheader ]
-  %17 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043, i1 true)
-  %18 = zext nneg i16 %17 to i32
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043, i1 true)
+  %19 = zext nneg i16 %18 to i32
   %sub.i = add nsw i16 %unresolved.043, -1
   %and.i = and i16 %sub.i, %unresolved.043
-  %idxprom = zext nneg i16 %17 to i64
+  %idxprom = zext nneg i16 %18 to i64
   %arrayidx = getelementptr inbounds nuw [4 x i64], ptr %indicesArray, i64 0, i64 %idxprom
-  %19 = load i64, ptr %arrayidx, align 8
+  %20 = load i64, ptr %arrayidx, align 8
   %arrayidx161 = getelementptr inbounds nuw [4 x i64], ptr %valuesArray, i64 0, i64 %idxprom
-  %20 = load i64, ptr %arrayidx161, align 8
-  %vecinit.i.i.i.i.i.i17 = insertelement <4 x i64> poison, i64 %20, i64 0
+  %21 = load i64, ptr %arrayidx161, align 8
+  %vecinit.i.i.i.i.i.i17 = insertelement <4 x i64> poison, i64 %21, i64 0
   %vecinit3.i.i.i.i.i.i18 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17, <4 x i64> poison, <4 x i32> zeroinitializer
-  %add.ptr38 = getelementptr inbounds i64, ptr %2, i64 %19
-  %21 = load <4 x i64>, ptr %add.ptr38, align 1
-  %cmp.i.i.i.i1939 = icmp eq <4 x i64> %21, %vecinit3.i.i.i.i.i.i18
-  %22 = bitcast <4 x i1> %cmp.i.i.i.i1939 to i4
-  %tobool186.not40 = icmp eq i4 %22, 0
+  %add.ptr38 = getelementptr inbounds i64, ptr %3, i64 %20
+  %22 = load <4 x i64>, ptr %add.ptr38, align 1
+  %cmp.i.i.i.i1939 = icmp eq <4 x i64> %22, %vecinit3.i.i.i.i.i.i18
+  %23 = bitcast <4 x i1> %cmp.i.i.i.i1939 to i4
+  %tobool186.not40 = icmp eq i4 %23, 0
   br i1 %tobool186.not40, label %if.end189, label %if.then187
 
 if.then187:                                       ; preds = %if.end205, %while.body
-  %shl = shl nuw nsw i32 1, %18
+  %shl = shl nuw nsw i32 1, %19
   %or188 = or i32 %shl, %resultBits.044
   br label %for.end
 
 if.end189:                                        ; preds = %while.body, %if.end205
-  %23 = phi <4 x i64> [ %25, %if.end205 ], [ %21, %while.body ]
-  %index.041 = phi i64 [ %spec.store.select, %if.end205 ], [ %19, %while.body ]
-  %cmp.i.i.i.i21 = icmp eq <4 x i64> %23, splat (i64 -2401053089476968723)
-  %24 = bitcast <4 x i1> %cmp.i.i.i.i21 to i4
-  %tobool202.not = icmp eq i4 %24, 0
+  %24 = phi <4 x i64> [ %26, %if.end205 ], [ %22, %while.body ]
+  %index.041 = phi i64 [ %spec.store.select, %if.end205 ], [ %20, %while.body ]
+  %cmp.i.i.i.i21 = icmp eq <4 x i64> %24, splat (i64 -2401053089476968723)
+  %25 = bitcast <4 x i1> %cmp.i.i.i.i21 to i4
+  %tobool202.not = icmp eq i4 %25, 0
   br i1 %tobool202.not, label %if.end205, label %if.then203
 
 if.then203:                                       ; preds = %if.end189
-  %shl204 = shl nuw nsw i32 1, %18
+  %shl204 = shl nuw nsw i32 1, %19
   %not = xor i32 %shl204, -1
   %and = and i32 %resultBits.044, %not
   br label %for.end
@@ -12861,11 +12861,11 @@ if.end205:                                        ; preds = %if.end189
   %add = add i64 %index.041, 4
   %cmp208 = icmp sgt i64 %add, %conv
   %spec.store.select = select i1 %cmp208, i64 0, i64 %add
-  %add.ptr = getelementptr inbounds i64, ptr %2, i64 %spec.store.select
-  %25 = load <4 x i64>, ptr %add.ptr, align 1
-  %cmp.i.i.i.i19 = icmp eq <4 x i64> %25, %vecinit3.i.i.i.i.i.i18
-  %26 = bitcast <4 x i1> %cmp.i.i.i.i19 to i4
-  %tobool186.not = icmp eq i4 %26, 0
+  %add.ptr = getelementptr inbounds i64, ptr %3, i64 %spec.store.select
+  %26 = load <4 x i64>, ptr %add.ptr, align 1
+  %cmp.i.i.i.i19 = icmp eq <4 x i64> %26, %vecinit3.i.i.i.i.i.i18
+  %27 = bitcast <4 x i1> %cmp.i.i.i.i19 to i4
+  %tobool186.not = icmp eq i4 %27, 0
   br i1 %tobool186.not, label %if.end189, label %if.then187, !llvm.loop !140
 
 for.end:                                          ; preds = %if.then203, %if.then187
@@ -12942,24 +12942,24 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %indicesArray.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %valuesArray.i)
   %min_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %vecinit.i.i.i.i.i.i.i = load <4 x i64>, ptr %min_.i, align 8
-  %vecinit3.i.i.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
+  %2 = load <1 x i64>, ptr %min_.i, align 8
+  %vecinit3.i.i.i.i.i.i.i = shufflevector <1 x i64> %2, <1 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i = icmp sgt <4 x i64> %vecinit3.i.i.i.i.i.i.i, %conv.i.i.i
   %max_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %vecinit.i.i.i.i.i.i9.i = load <4 x i64>, ptr %max_.i, align 8
   %vecinit3.i.i.i.i.i.i10.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i.i = icmp slt <4 x i64> %vecinit3.i.i.i.i.i.i10.i, %conv.i.i.i
   %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
-  %2 = bitcast <4 x i1> %or.i.i.i35.i to i4
-  %cmp.i = icmp eq i4 %2, -1
-  %3 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
-  %4 = inttoptr i64 %3 to ptr
+  %3 = bitcast <4 x i1> %or.i.i.i35.i to i4
+  %cmp.i = icmp eq i4 %3, -1
+  %4 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
+  %5 = inttoptr i64 %4 to ptr
   br i1 %cmp.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %containsEmptyMarker_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %5 = load i8, ptr %containsEmptyMarker_.i, align 8
-  %tobool.i = trunc i8 %5 to i1
+  %6 = load i8, ptr %containsEmptyMarker_.i, align 8
+  %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %if.then40.i, label %if.end51.i
 
 if.then40.i:                                      ; preds = %if.end.i
@@ -12971,11 +12971,11 @@ if.then40.i:                                      ; preds = %if.end.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then40.i
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then40.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %data.i.i.i, i64 0, i64 %indvars.iv.i.i.i
-  %6 = load i64, ptr %arrayidx.i.i.i, align 8
+  %7 = load i64, ptr %arrayidx.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 80
-  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %6)
+  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %7)
   %conv.i.i.i2 = zext i1 %call.i.i.i.i to i64
   %arrayidx6.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %res.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   store i64 %conv.i.i.i2, ptr %arrayidx6.i.i.i, align 8
@@ -12984,13 +12984,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i, label %for.body.i.i.i, !llvm.loop !138
 
 _ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i: ; preds = %for.body.i.i.i
-  %8 = load <4 x i64>, ptr %res.i.i.i, align 32
-  %9 = icmp ne <4 x i64> %8, zeroinitializer
+  %9 = load <4 x i64>, ptr %res.i.i.i, align 32
+  %10 = icmp ne <4 x i64> %9, zeroinitializer
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %res.i.i.i)
-  %vecinit.i.i.i.i.i.i.i12.pre = load <4 x i64>, ptr %min_.i, align 8
+  %11 = load <1 x i64>, ptr %min_.i, align 8
   %vecinit.i.i.i.i.i.i9.i16.pre = load <4 x i64>, ptr %max_.i, align 8
-  %.pre = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i.i12.pre, <4 x i64> poison, <4 x i32> zeroinitializer
+  %.pre = shufflevector <1 x i64> %11, <1 x i64> poison, <4 x i32> zeroinitializer
   %.pre104 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9.i16.pre, <4 x i64> poison, <4 x i32> zeroinitializer
   %.pre105 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i16.pre, i64 1
   %.pre106 = inttoptr i64 %.pre105 to ptr
@@ -13006,30 +13006,30 @@ if.end51.i:                                       ; preds = %if.end.i
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end51.i
   %i.05.i.i.i.i.i.i = phi i64 [ 0, %if.end51.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %self_buffer.i.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i.i
-  %10 = load i64, ptr %arrayidx2.i.i.i.i.i.i, align 8
+  %12 = load i64, ptr %arrayidx2.i.i.i.i.i.i, align 8
   %arrayidx3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %other_buffer.i.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i.i
-  %11 = load i64, ptr %arrayidx3.i.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i.i = mul i64 %11, %10
+  %13 = load i64, ptr %arrayidx3.i.i.i.i.i.i, align 8
+  %mul.i.i.i.i.i.i.i = mul i64 %13, %12
   store i64 %mul.i.i.i.i.i.i.i, ptr %arrayidx2.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i = add nuw nsw i64 %i.05.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i, label %for.body.i.i.i.i.i.i, !llvm.loop !139
 
 _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i.i.i.i.i.i
-  %12 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i, align 32
+  %14 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i, align 32
   call void @llvm.lifetime.end.p0(ptr nonnull %self_buffer.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %other_buffer.i.i.i.i.i.i)
   %sizeMask_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %13 = load i32, ptr %sizeMask_.i, align 8
-  %conv.i = sext i32 %13 to i64
+  %15 = load i32, ptr %sizeMask_.i, align 8
+  %conv.i = sext i32 %15 to i64
   %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
-  %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %12
-  %14 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
-  %xor.i.i.i.i = sext <4 x i1> %14 to <4 x i64>
-  %15 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %4, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
-  %cmp.i.i.i.i12.i = icmp eq <4 x i64> %15, %conv.i.i.i
-  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %15, splat (i64 -2401053089476968723)
+  %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %14
+  %16 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
+  %xor.i.i.i.i = sext <4 x i1> %16 to <4 x i64>
+  %17 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %5, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
+  %cmp.i.i.i.i12.i = icmp eq <4 x i64> %17, %conv.i.i.i
+  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %17, splat (i64 -2401053089476968723)
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
@@ -13039,48 +13039,48 @@ while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5b
   %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %conv.i.i.i, ptr %valuesArray.i, align 32
-  %16 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
-  %17 = zext i4 %16 to i32
-  %18 = xor i4 %or36.i, -1
-  %conv146.i = zext i4 %18 to i16
+  %18 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
+  %19 = zext i4 %18 to i32
+  %20 = xor i4 %or36.i, -1
+  %conv146.i = zext i4 %20 to i16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end.i, %while.body.preheader.i
-  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %17, %while.body.preheader.i ]
+  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %19, %while.body.preheader.i ]
   %unresolved.043.i = phi i16 [ %and.i.i, %for.end.i ], [ %conv146.i, %while.body.preheader.i ]
-  %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true)
-  %20 = zext nneg i16 %19 to i32
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true)
+  %22 = zext nneg i16 %21 to i32
   %sub.i.i = add nsw i16 %unresolved.043.i, -1
   %and.i.i = and i16 %sub.i.i, %unresolved.043.i
-  %idxprom.i = zext nneg i16 %19 to i64
+  %idxprom.i = zext nneg i16 %21 to i64
   %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %indicesArray.i, i64 0, i64 %idxprom.i
-  %21 = load i64, ptr %arrayidx.i, align 8
+  %23 = load i64, ptr %arrayidx.i, align 8
   %arrayidx161.i = getelementptr inbounds nuw [4 x i64], ptr %valuesArray.i, i64 0, i64 %idxprom.i
-  %22 = load i64, ptr %arrayidx161.i, align 8
-  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %22, i64 0
+  %24 = load i64, ptr %arrayidx161.i, align 8
+  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %24, i64 0
   %vecinit3.i.i.i.i.i.i18.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i, <4 x i64> poison, <4 x i32> zeroinitializer
-  %add.ptr38.i = getelementptr inbounds i64, ptr %4, i64 %21
-  %23 = load <4 x i64>, ptr %add.ptr38.i, align 1
-  %cmp.i.i.i.i1939.i = icmp eq <4 x i64> %23, %vecinit3.i.i.i.i.i.i18.i
-  %24 = bitcast <4 x i1> %cmp.i.i.i.i1939.i to i4
-  %tobool186.not40.i = icmp eq i4 %24, 0
+  %add.ptr38.i = getelementptr inbounds i64, ptr %5, i64 %23
+  %25 = load <4 x i64>, ptr %add.ptr38.i, align 1
+  %cmp.i.i.i.i1939.i = icmp eq <4 x i64> %25, %vecinit3.i.i.i.i.i.i18.i
+  %26 = bitcast <4 x i1> %cmp.i.i.i.i1939.i to i4
+  %tobool186.not40.i = icmp eq i4 %26, 0
   br i1 %tobool186.not40.i, label %if.end189.i, label %if.then187.i
 
 if.then187.i:                                     ; preds = %if.end205.i, %while.body.i
-  %shl.i = shl nuw nsw i32 1, %20
+  %shl.i = shl nuw nsw i32 1, %22
   %or188.i = or i32 %shl.i, %resultBits.044.i
   br label %for.end.i
 
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
-  %25 = phi <4 x i64> [ %27, %if.end205.i ], [ %23, %while.body.i ]
-  %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %21, %while.body.i ]
-  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %25, splat (i64 -2401053089476968723)
-  %26 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
-  %tobool202.not.i = icmp eq i4 %26, 0
+  %27 = phi <4 x i64> [ %29, %if.end205.i ], [ %25, %while.body.i ]
+  %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %23, %while.body.i ]
+  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %27, splat (i64 -2401053089476968723)
+  %28 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
+  %tobool202.not.i = icmp eq i4 %28, 0
   br i1 %tobool202.not.i, label %if.end205.i, label %if.then203.i
 
 if.then203.i:                                     ; preds = %if.end189.i
-  %shl204.i = shl nuw nsw i32 1, %20
+  %shl204.i = shl nuw nsw i32 1, %22
   %not.i = xor i32 %shl204.i, -1
   %and.i = and i32 %resultBits.044.i, %not.i
   br label %for.end.i
@@ -13089,11 +13089,11 @@ if.end205.i:                                      ; preds = %if.end189.i
   %add.i = add i64 %index.041.i, 4
   %cmp208.i = icmp sgt i64 %add.i, %conv.i
   %spec.store.select.i = select i1 %cmp208.i, i64 0, i64 %add.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %4, i64 %spec.store.select.i
-  %27 = load <4 x i64>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i19.i = icmp eq <4 x i64> %27, %vecinit3.i.i.i.i.i.i18.i
-  %28 = bitcast <4 x i1> %cmp.i.i.i.i19.i to i4
-  %tobool186.not.i = icmp eq i4 %28, 0
+  %add.ptr.i = getelementptr inbounds i64, ptr %5, i64 %spec.store.select.i
+  %29 = load <4 x i64>, ptr %add.ptr.i, align 1
+  %cmp.i.i.i.i19.i = icmp eq <4 x i64> %29, %vecinit3.i.i.i.i.i.i18.i
+  %30 = bitcast <4 x i1> %cmp.i.i.i.i19.i to i4
+  %tobool186.not.i = icmp eq i4 %30, 0
   br i1 %tobool186.not.i, label %if.end189.i, label %if.then187.i, !llvm.loop !140
 
 for.end.i:                                        ; preds = %if.then203.i, %if.then187.i
@@ -13105,32 +13105,32 @@ while.end.i:                                      ; preds = %for.end.i
   %conv.i.i23.i = zext nneg i32 %resultBits.1.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [16 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask64E, i64 0, i64 %conv.i.i23.i
   %retval.sroa.0.0.copyload.i.i.i.i = load <4 x i64>, ptr %arrayidx.i.i.i.i, align 32
-  %29 = icmp slt <4 x i64> %retval.sroa.0.0.copyload.i.i.i.i, zeroinitializer
+  %31 = icmp slt <4 x i64> %retval.sroa.0.0.copyload.i.i.i.i, zeroinitializer
   br label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %entry, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i, %while.end.i
-  %.pre-phi107 = phi ptr [ %4, %entry ], [ %.pre106, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %4, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %4, %while.end.i ]
+  %.pre-phi107 = phi ptr [ %5, %entry ], [ %.pre106, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %5, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %5, %while.end.i ]
   %vecinit3.i.i.i.i.i.i10.i17.pre-phi = phi <4 x i64> [ %vecinit3.i.i.i.i.i.i10.i, %entry ], [ %.pre104, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %vecinit3.i.i.i.i.i.i10.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %vecinit3.i.i.i.i.i.i10.i, %while.end.i ]
   %vecinit3.i.i.i.i.i.i.i13.pre-phi = phi <4 x i64> [ %vecinit3.i.i.i.i.i.i.i, %entry ], [ %.pre, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %vecinit3.i.i.i.i.i.i.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %vecinit3.i.i.i.i.i.i.i, %while.end.i ]
-  %retval.sroa.0.0.i = phi <4 x i1> [ zeroinitializer, %entry ], [ %9, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %cmp.i.i.i.i12.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %29, %while.end.i ]
+  %retval.sroa.0.0.i = phi <4 x i1> [ zeroinitializer, %entry ], [ %10, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %cmp.i.i.i.i12.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ], [ %31, %while.end.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %indicesArray.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %valuesArray.i)
-  %30 = bitcast <4 x i64> %x.coerce to <8 x i32>
-  %31 = shufflevector <8 x i32> %30, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %conv.i.i.i4 = sext <4 x i32> %31 to <4 x i64>
+  %32 = bitcast <4 x i64> %x.coerce to <8 x i32>
+  %33 = shufflevector <8 x i32> %32, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %conv.i.i.i4 = sext <4 x i32> %33 to <4 x i64>
   call void @llvm.lifetime.start.p0(ptr nonnull %indicesArray.i9)
   call void @llvm.lifetime.start.p0(ptr nonnull %valuesArray.i10)
   %cmp.i.i.i.i.i14 = icmp sgt <4 x i64> %vecinit3.i.i.i.i.i.i.i13.pre-phi, %conv.i.i.i4
   %cmp.i.i.i.i.i.i.i.i18 = icmp slt <4 x i64> %vecinit3.i.i.i.i.i.i10.i17.pre-phi, %conv.i.i.i4
   %or.i.i.i35.i19 = or <4 x i1> %cmp.i.i.i.i.i14, %cmp.i.i.i.i.i.i.i.i18
-  %32 = bitcast <4 x i1> %or.i.i.i35.i19 to i4
-  %cmp.i20 = icmp eq i4 %32, -1
+  %34 = bitcast <4 x i1> %or.i.i.i35.i19 to i4
+  %cmp.i20 = icmp eq i4 %34, -1
   br i1 %cmp.i20, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100, label %if.end.i21
 
 if.end.i21:                                       ; preds = %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit
   %containsEmptyMarker_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %33 = load i8, ptr %containsEmptyMarker_.i22, align 8
-  %tobool.i23 = trunc i8 %33 to i1
+  %35 = load i8, ptr %containsEmptyMarker_.i22, align 8
+  %tobool.i23 = trunc i8 %35 to i1
   br i1 %tobool.i23, label %if.then40.i87, label %if.end51.i24
 
 if.then40.i87:                                    ; preds = %if.end.i21
@@ -13142,11 +13142,11 @@ if.then40.i87:                                    ; preds = %if.end.i21
 for.body.i.i.i88:                                 ; preds = %for.body.i.i.i88, %if.then40.i87
   %indvars.iv.i.i.i89 = phi i64 [ 0, %if.then40.i87 ], [ %indvars.iv.next.i.i.i96, %for.body.i.i.i88 ]
   %arrayidx.i.i.i90 = getelementptr inbounds nuw [4 x i64], ptr %data.i.i.i7, i64 0, i64 %indvars.iv.i.i.i89
-  %34 = load i64, ptr %arrayidx.i.i.i90, align 8
+  %36 = load i64, ptr %arrayidx.i.i.i90, align 8
   %vtable.i.i.i.i91 = load ptr, ptr %this, align 8
   %vfn.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i91, i64 80
-  %35 = load ptr, ptr %vfn.i.i.i.i92, align 8
-  %call.i.i.i.i93 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %34)
+  %37 = load ptr, ptr %vfn.i.i.i.i92, align 8
+  %call.i.i.i.i93 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %36)
   %conv.i.i.i94 = zext i1 %call.i.i.i.i93 to i64
   %arrayidx6.i.i.i95 = getelementptr inbounds nuw [4 x i64], ptr %res.i.i.i8, i64 0, i64 %indvars.iv.i.i.i89
   store i64 %conv.i.i.i94, ptr %arrayidx6.i.i.i95, align 8
@@ -13155,8 +13155,8 @@ for.body.i.i.i88:                                 ; preds = %for.body.i.i.i88, %
   br i1 %exitcond.not.i.i.i97, label %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98, label %for.body.i.i.i88, !llvm.loop !138
 
 _ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98: ; preds = %for.body.i.i.i88
-  %36 = load <4 x i64>, ptr %res.i.i.i8, align 32
-  %37 = icmp ne <4 x i64> %36, zeroinitializer
+  %38 = load <4 x i64>, ptr %res.i.i.i8, align 32
+  %39 = icmp ne <4 x i64> %38, zeroinitializer
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i7)
   call void @llvm.lifetime.end.p0(ptr nonnull %res.i.i.i8)
   br label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100
@@ -13171,30 +13171,30 @@ if.end51.i24:                                     ; preds = %if.end.i21
 for.body.i.i.i.i.i.i25:                           ; preds = %for.body.i.i.i.i.i.i25, %if.end51.i24
   %i.05.i.i.i.i.i.i26 = phi i64 [ 0, %if.end51.i24 ], [ %inc.i.i.i.i.i.i30, %for.body.i.i.i.i.i.i25 ]
   %arrayidx2.i.i.i.i.i.i27 = getelementptr inbounds nuw [4 x i64], ptr %self_buffer.i.i.i.i.i.i5, i64 0, i64 %i.05.i.i.i.i.i.i26
-  %38 = load i64, ptr %arrayidx2.i.i.i.i.i.i27, align 8
+  %40 = load i64, ptr %arrayidx2.i.i.i.i.i.i27, align 8
   %arrayidx3.i.i.i.i.i.i28 = getelementptr inbounds nuw [4 x i64], ptr %other_buffer.i.i.i.i.i.i6, i64 0, i64 %i.05.i.i.i.i.i.i26
-  %39 = load i64, ptr %arrayidx3.i.i.i.i.i.i28, align 8
-  %mul.i.i.i.i.i.i.i29 = mul i64 %39, %38
+  %41 = load i64, ptr %arrayidx3.i.i.i.i.i.i28, align 8
+  %mul.i.i.i.i.i.i.i29 = mul i64 %41, %40
   store i64 %mul.i.i.i.i.i.i.i29, ptr %arrayidx2.i.i.i.i.i.i27, align 8
   %inc.i.i.i.i.i.i30 = add nuw nsw i64 %i.05.i.i.i.i.i.i26, 1
   %exitcond.not.i.i.i.i.i.i31 = icmp eq i64 %inc.i.i.i.i.i.i30, 4
   br i1 %exitcond.not.i.i.i.i.i.i31, label %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32, label %for.body.i.i.i.i.i.i25, !llvm.loop !139
 
 _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32: ; preds = %for.body.i.i.i.i.i.i25
-  %40 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i5, align 32
+  %42 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i5, align 32
   call void @llvm.lifetime.end.p0(ptr nonnull %self_buffer.i.i.i.i.i.i5)
   call void @llvm.lifetime.end.p0(ptr nonnull %other_buffer.i.i.i.i.i.i6)
   %sizeMask_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %41 = load i32, ptr %sizeMask_.i33, align 8
-  %conv.i34 = sext i32 %41 to i64
+  %43 = load i32, ptr %sizeMask_.i33, align 8
+  %conv.i34 = sext i32 %43 to i64
   %vecinit.i.i.i.i.i35 = insertelement <4 x i64> poison, i64 %conv.i34, i64 0
   %vecinit3.i.i.i.i.i36 = shufflevector <4 x i64> %vecinit.i.i.i.i.i35, <4 x i64> poison, <4 x i32> zeroinitializer
-  %and.i.i.i.i.i37 = and <4 x i64> %vecinit3.i.i.i.i.i36, %40
-  %42 = xor <4 x i1> %or.i.i.i35.i19, splat (i1 true)
-  %xor.i.i.i.i38 = sext <4 x i1> %42 to <4 x i64>
-  %43 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %.pre-phi107, <4 x i64> %and.i.i.i.i.i37, <4 x i64> %xor.i.i.i.i38, i8 8)
-  %cmp.i.i.i.i12.i39 = icmp eq <4 x i64> %43, %conv.i.i.i4
-  %cmp.i.i.i.i14.i41 = icmp eq <4 x i64> %43, splat (i64 -2401053089476968723)
+  %and.i.i.i.i.i37 = and <4 x i64> %vecinit3.i.i.i.i.i36, %42
+  %44 = xor <4 x i1> %or.i.i.i35.i19, splat (i1 true)
+  %xor.i.i.i.i38 = sext <4 x i1> %44 to <4 x i64>
+  %45 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %.pre-phi107, <4 x i64> %and.i.i.i.i.i37, <4 x i64> %xor.i.i.i.i38, i8 8)
+  %cmp.i.i.i.i12.i39 = icmp eq <4 x i64> %45, %conv.i.i.i4
+  %cmp.i.i.i.i14.i41 = icmp eq <4 x i64> %45, splat (i64 -2401053089476968723)
   %or3637.i42 = or <4 x i1> %cmp.i.i.i.i12.i39, %cmp.i.i.i.i14.i41
   %or36.i43 = bitcast <4 x i1> %or3637.i42 to i4
   %tobool147.not.i44 = icmp eq i4 %or36.i43, -1
@@ -13204,48 +13204,48 @@ while.body.preheader.i45:                         ; preds = %_ZN5xsimdmlERKNS_5b
   %add.i.i.i.i.i46 = add <4 x i64> %and.i.i.i.i.i37, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i46, ptr %indicesArray.i9, align 32
   store <4 x i64> %conv.i.i.i4, ptr %valuesArray.i10, align 32
-  %44 = bitcast <4 x i1> %cmp.i.i.i.i12.i39 to i4
-  %45 = zext i4 %44 to i32
-  %46 = xor i4 %or36.i43, -1
-  %conv146.i47 = zext i4 %46 to i16
+  %46 = bitcast <4 x i1> %cmp.i.i.i.i12.i39 to i4
+  %47 = zext i4 %46 to i32
+  %48 = xor i4 %or36.i43, -1
+  %conv146.i47 = zext i4 %48 to i16
   br label %while.body.i48
 
 while.body.i48:                                   ; preds = %for.end.i64, %while.body.preheader.i45
-  %resultBits.044.i49 = phi i32 [ %resultBits.1.i65, %for.end.i64 ], [ %45, %while.body.preheader.i45 ]
+  %resultBits.044.i49 = phi i32 [ %resultBits.1.i65, %for.end.i64 ], [ %47, %while.body.preheader.i45 ]
   %unresolved.043.i50 = phi i16 [ %and.i.i52, %for.end.i64 ], [ %conv146.i47, %while.body.preheader.i45 ]
-  %47 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i50, i1 true)
-  %48 = zext nneg i16 %47 to i32
+  %49 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i50, i1 true)
+  %50 = zext nneg i16 %49 to i32
   %sub.i.i51 = add nsw i16 %unresolved.043.i50, -1
   %and.i.i52 = and i16 %sub.i.i51, %unresolved.043.i50
-  %idxprom.i53 = zext nneg i16 %47 to i64
+  %idxprom.i53 = zext nneg i16 %49 to i64
   %arrayidx.i54 = getelementptr inbounds nuw [4 x i64], ptr %indicesArray.i9, i64 0, i64 %idxprom.i53
-  %49 = load i64, ptr %arrayidx.i54, align 8
+  %51 = load i64, ptr %arrayidx.i54, align 8
   %arrayidx161.i55 = getelementptr inbounds nuw [4 x i64], ptr %valuesArray.i10, i64 0, i64 %idxprom.i53
-  %50 = load i64, ptr %arrayidx161.i55, align 8
-  %vecinit.i.i.i.i.i.i17.i56 = insertelement <4 x i64> poison, i64 %50, i64 0
+  %52 = load i64, ptr %arrayidx161.i55, align 8
+  %vecinit.i.i.i.i.i.i17.i56 = insertelement <4 x i64> poison, i64 %52, i64 0
   %vecinit3.i.i.i.i.i.i18.i57 = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i56, <4 x i64> poison, <4 x i32> zeroinitializer
-  %add.ptr38.i58 = getelementptr inbounds i64, ptr %.pre-phi107, i64 %49
-  %51 = load <4 x i64>, ptr %add.ptr38.i58, align 1
-  %cmp.i.i.i.i1939.i59 = icmp eq <4 x i64> %51, %vecinit3.i.i.i.i.i.i18.i57
-  %52 = bitcast <4 x i1> %cmp.i.i.i.i1939.i59 to i4
-  %tobool186.not40.i60 = icmp eq i4 %52, 0
+  %add.ptr38.i58 = getelementptr inbounds i64, ptr %.pre-phi107, i64 %51
+  %53 = load <4 x i64>, ptr %add.ptr38.i58, align 1
+  %cmp.i.i.i.i1939.i59 = icmp eq <4 x i64> %53, %vecinit3.i.i.i.i.i.i18.i57
+  %54 = bitcast <4 x i1> %cmp.i.i.i.i1939.i59 to i4
+  %tobool186.not40.i60 = icmp eq i4 %54, 0
   br i1 %tobool186.not40.i60, label %if.end189.i72, label %if.then187.i61
 
 if.then187.i61:                                   ; preds = %if.end205.i80, %while.body.i48
-  %shl.i62 = shl nuw nsw i32 1, %48
+  %shl.i62 = shl nuw nsw i32 1, %50
   %or188.i63 = or i32 %shl.i62, %resultBits.044.i49
   br label %for.end.i64
 
 if.end189.i72:                                    ; preds = %while.body.i48, %if.end205.i80
-  %53 = phi <4 x i64> [ %55, %if.end205.i80 ], [ %51, %while.body.i48 ]
-  %index.041.i73 = phi i64 [ %spec.store.select.i83, %if.end205.i80 ], [ %49, %while.body.i48 ]
-  %cmp.i.i.i.i21.i74 = icmp eq <4 x i64> %53, splat (i64 -2401053089476968723)
-  %54 = bitcast <4 x i1> %cmp.i.i.i.i21.i74 to i4
-  %tobool202.not.i75 = icmp eq i4 %54, 0
+  %55 = phi <4 x i64> [ %57, %if.end205.i80 ], [ %53, %while.body.i48 ]
+  %index.041.i73 = phi i64 [ %spec.store.select.i83, %if.end205.i80 ], [ %51, %while.body.i48 ]
+  %cmp.i.i.i.i21.i74 = icmp eq <4 x i64> %55, splat (i64 -2401053089476968723)
+  %56 = bitcast <4 x i1> %cmp.i.i.i.i21.i74 to i4
+  %tobool202.not.i75 = icmp eq i4 %56, 0
   br i1 %tobool202.not.i75, label %if.end205.i80, label %if.then203.i76
 
 if.then203.i76:                                   ; preds = %if.end189.i72
-  %shl204.i77 = shl nuw nsw i32 1, %48
+  %shl204.i77 = shl nuw nsw i32 1, %50
   %not.i78 = xor i32 %shl204.i77, -1
   %and.i79 = and i32 %resultBits.044.i49, %not.i78
   br label %for.end.i64
@@ -13255,10 +13255,10 @@ if.end205.i80:                                    ; preds = %if.end189.i72
   %cmp208.i82 = icmp sgt i64 %add.i81, %conv.i34
   %spec.store.select.i83 = select i1 %cmp208.i82, i64 0, i64 %add.i81
   %add.ptr.i84 = getelementptr inbounds i64, ptr %.pre-phi107, i64 %spec.store.select.i83
-  %55 = load <4 x i64>, ptr %add.ptr.i84, align 1
-  %cmp.i.i.i.i19.i85 = icmp eq <4 x i64> %55, %vecinit3.i.i.i.i.i.i18.i57
-  %56 = bitcast <4 x i1> %cmp.i.i.i.i19.i85 to i4
-  %tobool186.not.i86 = icmp eq i4 %56, 0
+  %57 = load <4 x i64>, ptr %add.ptr.i84, align 1
+  %cmp.i.i.i.i19.i85 = icmp eq <4 x i64> %57, %vecinit3.i.i.i.i.i.i18.i57
+  %58 = bitcast <4 x i1> %cmp.i.i.i.i19.i85 to i4
+  %tobool186.not.i86 = icmp eq i4 %58, 0
   br i1 %tobool186.not.i86, label %if.end189.i72, label %if.then187.i61, !llvm.loop !140
 
 for.end.i64:                                      ; preds = %if.then203.i76, %if.then187.i61
@@ -13270,16 +13270,16 @@ while.end.i67:                                    ; preds = %for.end.i64
   %conv.i.i23.i68 = zext nneg i32 %resultBits.1.i65 to i64
   %arrayidx.i.i.i.i69 = getelementptr inbounds nuw [16 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask64E, i64 0, i64 %conv.i.i23.i68
   %retval.sroa.0.0.copyload.i.i.i.i70 = load <4 x i64>, ptr %arrayidx.i.i.i.i69, align 32
-  %57 = icmp slt <4 x i64> %retval.sroa.0.0.copyload.i.i.i.i70, zeroinitializer
+  %59 = icmp slt <4 x i64> %retval.sroa.0.0.copyload.i.i.i.i70, zeroinitializer
   br label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100
 
 _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100: ; preds = %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32, %while.end.i67
-  %retval.sroa.0.0.i71 = phi <4 x i1> [ %37, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98 ], [ %57, %while.end.i67 ], [ zeroinitializer, %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit ], [ %cmp.i.i.i.i12.i39, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32 ]
+  %retval.sroa.0.0.i71 = phi <4 x i1> [ %39, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98 ], [ %59, %while.end.i67 ], [ zeroinitializer, %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit ], [ %cmp.i.i.i.i12.i39, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %indicesArray.i9)
   call void @llvm.lifetime.end.p0(ptr nonnull %valuesArray.i10)
-  %58 = shufflevector <4 x i1> %retval.sroa.0.0.i, <4 x i1> %retval.sroa.0.0.i71, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %59 = bitcast <8 x i1> %58 to i8
-  %or = zext i8 %59 to i64
+  %60 = shufflevector <4 x i1> %retval.sroa.0.0.i, <4 x i1> %retval.sroa.0.0.i71, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %61 = bitcast <8 x i1> %60 to i8
+  %or = zext i8 %61 to i64
   %arrayidx.i.i.i101 = getelementptr inbounds nuw [256 x %"class.xsimd::batch_bool.269"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask32E, i64 0, i64 %or
   %retval.sroa.0.0.copyload.i.i.i = load <4 x i64>, ptr %arrayidx.i.i.i101, align 32
   ret <4 x i64> %retval.sroa.0.0.copyload.i.i.i
@@ -28304,11 +28304,11 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end18:                                         ; preds = %entry
-  %5 = load <4 x i32>, ptr %lower32_, align 8
-  %vecinit7.i.i.i.i.i2 = shufflevector <4 x i32> %5, <4 x i32> poison, <8 x i32> zeroinitializer
+  %5 = load <2 x i32>, ptr %lower32_, align 8
+  %vecinit7.i.i.i.i.i2 = shufflevector <2 x i32> %5, <2 x i32> poison, <8 x i32> zeroinitializer
   %6 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %or.i.i.i.i56.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2, %6
-  %vecinit7.i.i.i.i.i4 = shufflevector <4 x i32> %5, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %vecinit7.i.i.i.i.i4 = shufflevector <2 x i32> %5, <2 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5 = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4, %6
   %and.i.i.i1112 = and <8 x i1> %or.i.i.i.i56.i.i.i, %or.i.i.i.i56.i.i.i5
   %and.i.i.i11 = sext <8 x i1> %and.i.i.i1112 to <8 x i32>
@@ -28501,11 +28501,11 @@ if.end.i:                                         ; preds = %if.then.i
   br label %_ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE.exit
 
 if.end18.i:                                       ; preds = %entry
-  %6 = load <4 x i32>, ptr %lower32_.i, align 8
-  %vecinit7.i.i.i.i.i2.i = shufflevector <4 x i32> %6, <4 x i32> poison, <8 x i32> zeroinitializer
+  %6 = load <2 x i32>, ptr %lower32_.i, align 8
+  %vecinit7.i.i.i.i.i2.i = shufflevector <2 x i32> %6, <2 x i32> poison, <8 x i32> zeroinitializer
   %7 = bitcast <4 x i64> %values.coerce to <8 x i32>
   %or.i.i.i.i56.i.i.i.i = icmp sle <8 x i32> %vecinit7.i.i.i.i.i2.i, %7
-  %vecinit7.i.i.i.i.i4.i = shufflevector <4 x i32> %6, <4 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %vecinit7.i.i.i.i.i4.i = shufflevector <2 x i32> %6, <2 x i32> poison, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %or.i.i.i.i56.i.i.i5.i = icmp sge <8 x i32> %vecinit7.i.i.i.i.i4.i, %7
   %and.i.i.i1112.i = and <8 x i1> %or.i.i.i.i56.i.i.i.i, %or.i.i.i.i56.i.i.i5.i
   %and.i.i.i11.i = sext <8 x i1> %and.i.i.i1112.i to <8 x i32>
@@ -29329,24 +29329,24 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %indicesArray.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %valuesArray.i)
   %min_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %vecinit.i.i.i.i.i.i.i = load <4 x i64>, ptr %min_.i, align 8
-  %vecinit3.i.i.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
+  %1 = load <1 x i64>, ptr %min_.i, align 8
+  %vecinit3.i.i.i.i.i.i.i = shufflevector <1 x i64> %1, <1 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i = icmp sgt <4 x i64> %vecinit3.i.i.i.i.i.i.i, %x.coerce
   %max_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %vecinit.i.i.i.i.i.i9.i = load <4 x i64>, ptr %max_.i, align 8
   %vecinit3.i.i.i.i.i.i10.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i9.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %cmp.i.i.i.i.i.i.i.i = icmp sgt <4 x i64> %x.coerce, %vecinit3.i.i.i.i.i.i10.i
   %or.i.i.i35.i = or <4 x i1> %cmp.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i
-  %1 = bitcast <4 x i1> %or.i.i.i35.i to i4
-  %cmp.i = icmp eq i4 %1, -1
-  %2 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
-  %3 = inttoptr i64 %2 to ptr
+  %2 = bitcast <4 x i1> %or.i.i.i35.i to i4
+  %cmp.i = icmp eq i4 %2, -1
+  %3 = extractelement <4 x i64> %vecinit.i.i.i.i.i.i9.i, i64 1
+  %4 = inttoptr i64 %3 to ptr
   br i1 %cmp.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %containsEmptyMarker_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i8, ptr %containsEmptyMarker_.i, align 8
-  %tobool.i = trunc i8 %4 to i1
+  %5 = load i8, ptr %containsEmptyMarker_.i, align 8
+  %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %if.then40.i, label %if.end51.i
 
 if.then40.i:                                      ; preds = %if.end.i
@@ -29358,11 +29358,11 @@ if.then40.i:                                      ; preds = %if.end.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then40.i
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then40.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %data.i.i.i, i64 0, i64 %indvars.iv.i.i.i
-  %5 = load i64, ptr %arrayidx.i.i.i, align 8
+  %6 = load i64, ptr %arrayidx.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 80
-  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %5)
+  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %6)
   %conv.i.i.i = zext i1 %call.i.i.i.i to i64
   %arrayidx6.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %res.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   store i64 %conv.i.i.i, ptr %arrayidx6.i.i.i, align 8
@@ -29371,9 +29371,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i, label %for.body.i.i.i, !llvm.loop !138
 
 _ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i: ; preds = %for.body.i.i.i
-  %7 = load <4 x i64>, ptr %res.i.i.i, align 32
-  %8 = icmp ne <4 x i64> %7, zeroinitializer
-  %xor.i.i.i.i.i.i.i.i.i = sext <4 x i1> %8 to <4 x i64>
+  %8 = load <4 x i64>, ptr %res.i.i.i, align 32
+  %9 = icmp ne <4 x i64> %8, zeroinitializer
+  %xor.i.i.i.i.i.i.i.i.i = sext <4 x i1> %9 to <4 x i64>
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %res.i.i.i)
   br label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit
@@ -29388,31 +29388,31 @@ if.end51.i:                                       ; preds = %if.end.i
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end51.i
   %i.05.i.i.i.i.i.i = phi i64 [ 0, %if.end51.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %arrayidx2.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %self_buffer.i.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i.i
-  %9 = load i64, ptr %arrayidx2.i.i.i.i.i.i, align 8
+  %10 = load i64, ptr %arrayidx2.i.i.i.i.i.i, align 8
   %arrayidx3.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %other_buffer.i.i.i.i.i.i, i64 0, i64 %i.05.i.i.i.i.i.i
-  %10 = load i64, ptr %arrayidx3.i.i.i.i.i.i, align 8
-  %mul.i.i.i.i.i.i.i = mul i64 %10, %9
+  %11 = load i64, ptr %arrayidx3.i.i.i.i.i.i, align 8
+  %mul.i.i.i.i.i.i.i = mul i64 %11, %10
   store i64 %mul.i.i.i.i.i.i.i, ptr %arrayidx2.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i = add nuw nsw i64 %i.05.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i, 4
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i, label %for.body.i.i.i.i.i.i, !llvm.loop !139
 
 _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i.i.i.i.i.i
-  %11 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i, align 32
+  %12 = load <4 x i64>, ptr %self_buffer.i.i.i.i.i.i, align 32
   call void @llvm.lifetime.end.p0(ptr nonnull %self_buffer.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %other_buffer.i.i.i.i.i.i)
   %sizeMask_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load i32, ptr %sizeMask_.i, align 8
-  %conv.i = sext i32 %12 to i64
+  %13 = load i32, ptr %sizeMask_.i, align 8
+  %conv.i = sext i32 %13 to i64
   %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
-  %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %11
-  %13 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
-  %xor.i.i.i.i = sext <4 x i1> %13 to <4 x i64>
-  %14 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %3, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
-  %cmp.i.i.i.i12.i = icmp eq <4 x i64> %x.coerce, %14
+  %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %12
+  %14 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
+  %xor.i.i.i.i = sext <4 x i1> %14 to <4 x i64>
+  %15 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %4, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
+  %cmp.i.i.i.i12.i = icmp eq <4 x i64> %x.coerce, %15
   %sext.i.i.i.i13.i = sext <4 x i1> %cmp.i.i.i.i12.i to <4 x i64>
-  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %14, splat (i64 -2401053089476968723)
+  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %15, splat (i64 -2401053089476968723)
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
@@ -29422,48 +29422,48 @@ while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5b
   %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray.i, align 32
-  %15 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
-  %16 = zext i4 %15 to i32
-  %17 = xor i4 %or36.i, -1
-  %conv146.i = zext i4 %17 to i16
+  %16 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
+  %17 = zext i4 %16 to i32
+  %18 = xor i4 %or36.i, -1
+  %conv146.i = zext i4 %18 to i16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end.i, %while.body.preheader.i
-  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %16, %while.body.preheader.i ]
+  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %17, %while.body.preheader.i ]
   %unresolved.043.i = phi i16 [ %and.i.i, %for.end.i ], [ %conv146.i, %while.body.preheader.i ]
-  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true)
-  %19 = zext nneg i16 %18 to i32
+  %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true)
+  %20 = zext nneg i16 %19 to i32
   %sub.i.i = add nsw i16 %unresolved.043.i, -1
   %and.i.i = and i16 %sub.i.i, %unresolved.043.i
-  %idxprom.i = zext nneg i16 %18 to i64
+  %idxprom.i = zext nneg i16 %19 to i64
   %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %indicesArray.i, i64 0, i64 %idxprom.i
-  %20 = load i64, ptr %arrayidx.i, align 8
+  %21 = load i64, ptr %arrayidx.i, align 8
   %arrayidx161.i = getelementptr inbounds nuw [4 x i64], ptr %valuesArray.i, i64 0, i64 %idxprom.i
-  %21 = load i64, ptr %arrayidx161.i, align 8
-  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %21, i64 0
+  %22 = load i64, ptr %arrayidx161.i, align 8
+  %vecinit.i.i.i.i.i.i17.i = insertelement <4 x i64> poison, i64 %22, i64 0
   %vecinit3.i.i.i.i.i.i18.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i.i17.i, <4 x i64> poison, <4 x i32> zeroinitializer
-  %add.ptr38.i = getelementptr inbounds i64, ptr %3, i64 %20
-  %22 = load <4 x i64>, ptr %add.ptr38.i, align 1
-  %cmp.i.i.i.i1939.i = icmp eq <4 x i64> %22, %vecinit3.i.i.i.i.i.i18.i
-  %23 = bitcast <4 x i1> %cmp.i.i.i.i1939.i to i4
-  %tobool186.not40.i = icmp eq i4 %23, 0
+  %add.ptr38.i = getelementptr inbounds i64, ptr %4, i64 %21
+  %23 = load <4 x i64>, ptr %add.ptr38.i, align 1
+  %cmp.i.i.i.i1939.i = icmp eq <4 x i64> %23, %vecinit3.i.i.i.i.i.i18.i
+  %24 = bitcast <4 x i1> %cmp.i.i.i.i1939.i to i4
+  %tobool186.not40.i = icmp eq i4 %24, 0
   br i1 %tobool186.not40.i, label %if.end189.i, label %if.then187.i
 
 if.then187.i:                                     ; preds = %if.end205.i, %while.body.i
-  %shl.i = shl nuw nsw i32 1, %19
+  %shl.i = shl nuw nsw i32 1, %20
   %or188.i = or i32 %shl.i, %resultBits.044.i
   br label %for.end.i
 
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
-  %24 = phi <4 x i64> [ %26, %if.end205.i ], [ %22, %while.body.i ]
-  %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %20, %while.body.i ]
-  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %24, splat (i64 -2401053089476968723)
-  %25 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
-  %tobool202.not.i = icmp eq i4 %25, 0
+  %25 = phi <4 x i64> [ %27, %if.end205.i ], [ %23, %while.body.i ]
+  %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %21, %while.body.i ]
+  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %25, splat (i64 -2401053089476968723)
+  %26 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
+  %tobool202.not.i = icmp eq i4 %26, 0
   br i1 %tobool202.not.i, label %if.end205.i, label %if.then203.i
 
 if.then203.i:                                     ; preds = %if.end189.i
-  %shl204.i = shl nuw nsw i32 1, %19
+  %shl204.i = shl nuw nsw i32 1, %20
   %not.i = xor i32 %shl204.i, -1
   %and.i = and i32 %resultBits.044.i, %not.i
   br label %for.end.i
@@ -29472,11 +29472,11 @@ if.end205.i:                                      ; preds = %if.end189.i
   %add.i = add i64 %index.041.i, 4
   %cmp208.i = icmp sgt i64 %add.i, %conv.i
   %spec.store.select.i = select i1 %cmp208.i, i64 0, i64 %add.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %3, i64 %spec.store.select.i
-  %26 = load <4 x i64>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i19.i = icmp eq <4 x i64> %26, %vecinit3.i.i.i.i.i.i18.i
-  %27 = bitcast <4 x i1> %cmp.i.i.i.i19.i to i4
-  %tobool186.not.i = icmp eq i4 %27, 0
+  %add.ptr.i = getelementptr inbounds i64, ptr %4, i64 %spec.store.select.i
+  %27 = load <4 x i64>, ptr %add.ptr.i, align 1
+  %cmp.i.i.i.i19.i = icmp eq <4 x i64> %27, %vecinit3.i.i.i.i.i.i18.i
+  %28 = bitcast <4 x i1> %cmp.i.i.i.i19.i to i4
+  %tobool186.not.i = icmp eq i4 %28, 0
   br i1 %tobool186.not.i, label %if.end189.i, label %if.then187.i, !llvm.loop !140
 
 for.end.i:                                        ; preds = %if.then203.i, %if.then187.i

@@ -36459,67 +36459,66 @@ land.lhs.true17.i:                                ; preds = %land.lhs.true13.i
   br i1 %cmp.i70.i, label %if.else19.thread, label %_ZNK3irr4core8CMatrix4IfE8getScaleEv.exit
 
 if.else19.thread:                                 ; preds = %entry, %land.lhs.true17.i, %land.lhs.true13.i
-  %11 = load <4 x float>, ptr %this, align 4
-  %12 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %11 = load <2 x float>, ptr %this, align 4
   %arrayidx45.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %13 = load float, ptr %arrayidx45.i, align 4, !tbaa !34
-  %14 = insertelement <2 x float> %0, float %13, i64 1
-  %15 = fmul nsz <2 x float> %14, %14
-  %16 = insertelement <2 x float> %12, float %.pre, i64 1
-  %17 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %16, <2 x float> %15)
-  %18 = shufflevector <2 x float> %0, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = insertelement <2 x float> %18, float %.pre5, i64 1
-  %20 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %19, <2 x float> %19, <2 x float> %17)
-  %21 = tail call nsz <2 x float> @llvm.sqrt.v2f32(<2 x float> %20)
+  %12 = load float, ptr %arrayidx45.i, align 4, !tbaa !34
+  %13 = insertelement <2 x float> %0, float %12, i64 1
+  %14 = fmul nsz <2 x float> %13, %13
+  %15 = insertelement <2 x float> %11, float %.pre, i64 1
+  %16 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %15, <2 x float> %14)
+  %17 = shufflevector <2 x float> %0, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %18 = insertelement <2 x float> %17, float %.pre5, i64 1
+  %19 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %18, <2 x float> %18, <2 x float> %16)
+  %20 = tail call nsz <2 x float> @llvm.sqrt.v2f32(<2 x float> %19)
   %arrayidx54.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %22 = load float, ptr %arrayidx54.i, align 4, !tbaa !34
+  %21 = load float, ptr %arrayidx54.i, align 4, !tbaa !34
   %arrayidx58.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %23 = load float, ptr %arrayidx58.i, align 4, !tbaa !34
-  %mul61.i = fmul nsz float %23, %23
-  %24 = tail call nsz float @llvm.fmuladd.f32(float %22, float %22, float %mul61.i)
+  %22 = load float, ptr %arrayidx58.i, align 4, !tbaa !34
+  %mul61.i = fmul nsz float %22, %22
+  %23 = tail call nsz float @llvm.fmuladd.f32(float %21, float %21, float %mul61.i)
   %arrayidx63.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %25 = load float, ptr %arrayidx63.i, align 4, !tbaa !34
-  %26 = tail call nsz float @llvm.fmuladd.f32(float %25, float %25, float %24)
-  %27 = tail call nsz float @llvm.sqrt.f32(float %26)
-  store <2 x float> %21, ptr %scale, align 8
+  %24 = load float, ptr %arrayidx63.i, align 4, !tbaa !34
+  %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %24, float %23)
+  %26 = tail call nsz float @llvm.sqrt.f32(float %25)
+  store <2 x float> %20, ptr %scale, align 8
   %tmp.coerce.sroa.2.0.scale.sroa_idx43 = getelementptr inbounds nuw i8, ptr %scale, i64 8
-  store float %27, ptr %tmp.coerce.sroa.2.0.scale.sroa_idx43, align 8
+  store float %26, ptr %tmp.coerce.sroa.2.0.scale.sroa_idx43, align 8
   br label %if.end33
 
 _ZNK3irr4core8CMatrix4IfE8getScaleEv.exit:        ; preds = %land.lhs.true17.i
-  %28 = load <4 x float>, ptr %this, align 4
-  %retval.sroa.0.0.vec.insert.i = shufflevector <4 x float> %28, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %27 = load <4 x float>, ptr %this, align 4
+  %retval.sroa.0.0.vec.insert.i = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %arrayidx24.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %29 = load float, ptr %arrayidx24.i, align 4, !tbaa !34
+  %28 = load float, ptr %arrayidx24.i, align 4, !tbaa !34
   %arrayidx26.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %30 = load float, ptr %arrayidx26.i, align 4, !tbaa !34
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %29, i64 1
+  %29 = load float, ptr %arrayidx26.i, align 4, !tbaa !34
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %28, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %scale, align 8
   %tmp.coerce.sroa.2.0.scale.sroa_idx = getelementptr inbounds nuw i8, ptr %scale, i64 8
-  store float %30, ptr %tmp.coerce.sroa.2.0.scale.sroa_idx, align 8
+  store float %29, ptr %tmp.coerce.sroa.2.0.scale.sroa_idx, align 8
   %Y = getelementptr inbounds nuw i8, ptr %scale, i64 4
-  %cmp = fcmp nsz olt float %29, 0.000000e+00
-  %cmp2 = fcmp nsz olt float %30, 0.000000e+00
+  %cmp = fcmp nsz olt float %28, 0.000000e+00
+  %cmp2 = fcmp nsz olt float %29, 0.000000e+00
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
-  %31 = extractelement <4 x float> %28, i64 0
+  %30 = extractelement <4 x float> %27, i64 0
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK3irr4core8CMatrix4IfE8getScaleEv.exit
-  %32 = insertelement <2 x float> poison, float %29, i64 0
-  %33 = insertelement <2 x float> %32, float %30, i64 1
-  %34 = fneg nsz <2 x float> %33
-  store <2 x float> %34, ptr %Y, align 4, !tbaa !34
+  %31 = insertelement <2 x float> poison, float %28, i64 0
+  %32 = insertelement <2 x float> %31, float %29, i64 1
+  %33 = fneg nsz <2 x float> %32
+  store <2 x float> %33, ptr %Y, align 4, !tbaa !34
   br label %if.end33
 
 if.else:                                          ; preds = %_ZNK3irr4core8CMatrix4IfE8getScaleEv.exit
-  %cmp8 = fcmp nsz olt float %31, 0.000000e+00
+  %cmp8 = fcmp nsz olt float %30, 0.000000e+00
   %or.cond36 = select i1 %cmp8, i1 %cmp2, i1 false
   br i1 %or.cond36, label %if.then12, label %if.else19
 
 if.then12:                                        ; preds = %if.else
-  %fneg14 = fneg nsz float %31
+  %fneg14 = fneg nsz float %30
   store float %fneg14, ptr %scale, align 8, !tbaa !662
-  %fneg17 = fneg nsz float %30
+  %fneg17 = fneg nsz float %29
   store float %fneg17, ptr %tmp.coerce.sroa.2.0.scale.sroa_idx, align 8, !tbaa !35
   br label %if.end33
 
@@ -36528,9 +36527,9 @@ if.else19:                                        ; preds = %if.else
   br i1 %or.cond37, label %if.then25, label %if.end33
 
 if.then25:                                        ; preds = %if.else19
-  %fneg27 = fneg nsz float %31
+  %fneg27 = fneg nsz float %30
   store float %fneg27, ptr %scale, align 8, !tbaa !662
-  %fneg30 = fneg nsz float %29
+  %fneg30 = fneg nsz float %28
   store float %fneg30, ptr %Y, align 4, !tbaa !700
   br label %if.end33
 

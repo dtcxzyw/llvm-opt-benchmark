@@ -4113,11 +4113,11 @@ _ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXcl
   unreachable
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.i.i: ; preds = %_ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXclL_ZNS1_4ipowImEET_S6_jET0_Lm3EEEEELm3EEEPKiRKS6_.exit.i.i
-  %132 = load <8 x i32>, ptr %106, align 16
-  %133 = shufflevector <8 x i32> %132, <8 x i32> poison, <8 x i32> zeroinitializer
+  %132 = load <1 x i32>, ptr %106, align 16
+  %133 = shufflevector <1 x i32> %132, <1 x i32> poison, <8 x i32> zeroinitializer
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %135 = load <8 x i32>, ptr %134, align 4
-  %136 = shufflevector <8 x i32> %135, <8 x i32> poison, <8 x i32> zeroinitializer
+  %135 = load <1 x i32>, ptr %134, align 4
+  %136 = shufflevector <1 x i32> %135, <1 x i32> poison, <8 x i32> zeroinitializer
   %137 = load <8 x i32>, ptr %114, align 32
   %138 = mul <8 x i32> %136, %137
   %139 = load <8 x i32>, ptr %113, align 32
@@ -4248,11 +4248,11 @@ _ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXcl
   unreachable
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.i: ; preds = %_ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXclL_ZNS1_4ipowImEET_S6_jET0_Lm3EEEEELm3EEEPKiRKS6_.exit.i
-  %192 = load <8 x i32>, ptr %106, align 16
-  %193 = shufflevector <8 x i32> %192, <8 x i32> poison, <8 x i32> zeroinitializer
+  %192 = load <1 x i32>, ptr %106, align 16
+  %193 = shufflevector <1 x i32> %192, <1 x i32> poison, <8 x i32> zeroinitializer
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %195 = load <8 x i32>, ptr %194, align 4
-  %196 = shufflevector <8 x i32> %195, <8 x i32> poison, <8 x i32> zeroinitializer
+  %195 = load <1 x i32>, ptr %194, align 4
+  %196 = shufflevector <1 x i32> %195, <1 x i32> poison, <8 x i32> zeroinitializer
   %197 = load <8 x i32>, ptr %174, align 32
   %198 = mul <8 x i32> %196, %197
   %199 = load <8 x i32>, ptr %173, align 32
@@ -4862,11 +4862,11 @@ _ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXcl
   unreachable
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.i.i: ; preds = %_ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXclL_ZNS1_4ipowImEET_S6_jET0_Lm3EEEEELm3EEEPKiRKS6_.exit.i.i
-  %90 = load <8 x i32>, ptr %63, align 16
-  %91 = shufflevector <8 x i32> %90, <8 x i32> poison, <8 x i32> zeroinitializer
+  %90 = load <1 x i32>, ptr %63, align 16
+  %91 = shufflevector <1 x i32> %90, <1 x i32> poison, <8 x i32> zeroinitializer
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %93 = load <8 x i32>, ptr %92, align 4
-  %94 = shufflevector <8 x i32> %93, <8 x i32> poison, <8 x i32> zeroinitializer
+  %93 = load <1 x i32>, ptr %92, align 4
+  %94 = shufflevector <1 x i32> %93, <1 x i32> poison, <8 x i32> zeroinitializer
   %95 = load <8 x i32>, ptr %71, align 32
   %96 = mul <8 x i32> %94, %95
   %97 = load <8 x i32>, ptr %70, align 32
@@ -4998,11 +4998,11 @@ _ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXcl
   unreachable
 
 _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit.i: ; preds = %_ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXclL_ZNS1_4ipowImEET_S6_jET0_Lm3EEEEELm3EEEPKiRKS6_.exit.i
-  %152 = load <8 x i32>, ptr %63, align 16
-  %153 = shufflevector <8 x i32> %152, <8 x i32> poison, <8 x i32> zeroinitializer
+  %152 = load <1 x i32>, ptr %63, align 16
+  %153 = shufflevector <1 x i32> %152, <1 x i32> poison, <8 x i32> zeroinitializer
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %155 = load <8 x i32>, ptr %154, align 4
-  %156 = shufflevector <8 x i32> %155, <8 x i32> poison, <8 x i32> zeroinitializer
+  %155 = load <1 x i32>, ptr %154, align 4
+  %156 = shufflevector <1 x i32> %155, <1 x i32> poison, <8 x i32> zeroinitializer
   %157 = load <8 x i32>, ptr %133, align 32
   %158 = mul <8 x i32> %156, %157
   %159 = load <8 x i32>, ptr %132, align 32
@@ -6603,11 +6603,11 @@ _ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXcl
   unreachable
 
 _ZNK5drjit7TextureIfLm3EE5indexINS_5ArrayINS3_IiLm8EEELm3EEEEENS_6detail14replace_scalarINS6_5valueIT_iE4typeEjiE4typeERKS9_.exit: ; preds = %_ZN5drjit7TextureIfLm3EE16interp_positionsINS_5ArrayIiLm3EEELm2EEENS3_INS3_IiXclL_ZNS1_4ipowImEET_S6_jET0_Lm3EEEEELm3EEEPKiRKS6_.exit
-  %125 = load <8 x i32>, ptr %21, align 16
-  %126 = shufflevector <8 x i32> %125, <8 x i32> poison, <8 x i32> zeroinitializer
+  %125 = load <1 x i32>, ptr %21, align 16
+  %126 = shufflevector <1 x i32> %125, <1 x i32> poison, <8 x i32> zeroinitializer
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %128 = load <8 x i32>, ptr %127, align 4
-  %129 = shufflevector <8 x i32> %128, <8 x i32> poison, <8 x i32> zeroinitializer
+  %128 = load <1 x i32>, ptr %127, align 4
+  %129 = shufflevector <1 x i32> %128, <1 x i32> poison, <8 x i32> zeroinitializer
   %130 = load <8 x i32>, ptr %107, align 32
   %131 = mul <8 x i32> %129, %130
   %132 = load <8 x i32>, ptr %106, align 32

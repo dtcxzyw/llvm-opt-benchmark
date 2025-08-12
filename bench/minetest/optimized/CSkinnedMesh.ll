@@ -8315,8 +8315,8 @@ land.lhs.true17.i.i:                              ; preds = %for.body
   br i1 %cmp.i73.i.i, label %if.else19.thread.i, label %_ZNK3irr4core8CMatrix4IfE8getScaleEv.exit.i
 
 if.else19.thread.i:                               ; preds = %for.body, %land.lhs.true17.i.i
-  %20 = load <4 x float>, ptr %LocalAnimatedMatrix, align 4
-  %21 = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %20 = load <1 x float>, ptr %LocalAnimatedMatrix, align 4
+  %21 = shufflevector <1 x float> %20, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %arrayidx46.i.i = getelementptr inbounds nuw i8, ptr %6, i64 444
   %22 = load float, ptr %arrayidx46.i.i, align 4, !tbaa !27
   %23 = insertelement <2 x float> %10, float %22, i64 1
@@ -8429,8 +8429,8 @@ land.lhs.true17.i:                                ; preds = %land.lhs.true13.i
   br i1 %cmp.i73.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true17.i
-  %54 = load <4 x float>, ptr %LocalAnimatedMatrix, align 4
-  %retval.sroa.0.0.vec.insert.i = shufflevector <4 x float> %54, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %54 = load <1 x float>, ptr %LocalAnimatedMatrix, align 4
+  %retval.sroa.0.0.vec.insert.i = shufflevector <1 x float> %54, <1 x float> poison, <2 x i32> <i32 0, i32 poison>
   %arrayidx24.i = getelementptr inbounds nuw i8, ptr %6, i64 444
   %55 = load float, ptr %arrayidx24.i, align 4, !tbaa !27
   %arrayidx26.i = getelementptr inbounds nuw i8, ptr %6, i64 464

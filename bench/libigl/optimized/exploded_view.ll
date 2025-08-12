@@ -718,8 +718,8 @@ thread-pre-split.i.i.i.i:                         ; preds = %15
   %36 = load ptr, ptr %22, align 8, !tbaa !63
   %37 = getelementptr inbounds nuw double, ptr %36, i64 %.011.i.i.i.i.i
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !22
-  %39 = load <2 x double>, ptr %23, align 8
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
+  %39 = load <1 x double>, ptr %23, align 8
+  %40 = shufflevector <1 x double> %39, <1 x double> poison, <2 x i32> zeroinitializer
   %41 = fdiv <2 x double> %38, %40
   store <2 x double> %41, ptr %35, align 16, !tbaa !22
   %42 = add nuw nsw i64 %.011.i.i.i.i.i, 2

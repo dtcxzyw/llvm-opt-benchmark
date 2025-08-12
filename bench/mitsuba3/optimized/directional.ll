@@ -939,8 +939,8 @@ define weak_odr void @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spect
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %88 = fsub contract <4 x float> %84, %86
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %90 = load <4 x float>, ptr %89, align 16
-  %91 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> zeroinitializer
+  %90 = load <1 x float>, ptr %89, align 16
+  %91 = shufflevector <1 x float> %90, <1 x float> poison, <4 x i32> zeroinitializer
   %92 = fmul contract <4 x float> %88, %91
   %93 = load <4 x float>, ptr %87, align 16
   %94 = fadd contract <4 x float> %93, %92

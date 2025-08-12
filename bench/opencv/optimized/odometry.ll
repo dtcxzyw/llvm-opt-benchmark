@@ -11625,11 +11625,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call fastcc void @_ZN2cv4rgbdL10checkDepthERKNS_3MatERKNS_5Size_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %84, i32 %88, i32 %89)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIfLi3ELi3EEEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Matx.47") align 4 %12, ptr noundef nonnull align 8 dereferenceable(96) %90)
-  %91 = load <4 x float>, ptr %12, align 16
+  %.sroa.0.0.vec.insert = load <2 x float>, ptr %12, align 16
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %92 = load <4 x float>, ptr %.sroa.448.0..sroa_idx, align 8
-  %.sroa.0.4.vec.insert = shufflevector <4 x float> %91, <4 x float> %92, <2 x i32> <i32 0, i32 6>
-  %.sroa.6.12.vec.insert = shufflevector <4 x float> %92, <4 x float> poison, <2 x i32> <i32 0, i32 3>
+  %91 = load <4 x float>, ptr %.sroa.448.0..sroa_idx, align 8
+  %92 = shufflevector <4 x float> %91, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
+  %.sroa.0.4.vec.insert = shufflevector <2 x float> %.sroa.0.0.vec.insert, <2 x float> %92, <2 x i32> <i32 0, i32 2>
+  %.sroa.6.12.vec.insert = shufflevector <4 x float> %91, <4 x float> poison, <2 x i32> <i32 0, i32 3>
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %93 = load ptr, ptr %1, align 8, !tbaa !58
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 112
@@ -12062,41 +12063,42 @@ define noundef zeroext i1 @_ZNK2cv4rgbd15FastICPOdometry11computeImplERKNS_3PtrI
   %20 = alloca %"class.cv::Mat", align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIfLi3ELi3EEEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Matx.47") align 4 %9, ptr noundef nonnull align 8 dereferenceable(96) %21)
-  %22 = load <4 x float>, ptr %9, align 16
+  %.sroa.036.0.vec.insert = load <2 x float>, ptr %9, align 16
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load <4 x float>, ptr %.sroa.440.0..sroa_idx, align 8
+  %22 = load <4 x float>, ptr %.sroa.440.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !338)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !338
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !338
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %26, align 8, !noalias !338
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %25, align 8, !noalias !338
   store i32 -2113732604, ptr %8, align 8, !tbaa !118, !noalias !338
-  store ptr %10, ptr %25, align 8, !tbaa !121, !noalias !338
-  invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv.exit unwind label %27
+  store ptr %10, ptr %24, align 8, !tbaa !121, !noalias !338
+  invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %_ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv.exit unwind label %26
 
-27:                                               ; preds = %5
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %5
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !338
-  %29 = load ptr, ptr %10, align 8, !tbaa !126, !alias.scope !338
-  %.not.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i, label %common.resume, label %30
+  %28 = load ptr, ptr %10, align 8, !tbaa !126, !alias.scope !338
+  %.not.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i, label %common.resume, label %29
 
-30:                                               ; preds = %27
-  call void @_ZdlPv(ptr noundef nonnull %29) #30
+29:                                               ; preds = %26
+  call void @_ZdlPv(ptr noundef nonnull %28) #30
   br label %common.resume
 
-common.resume:                                    ; preds = %27, %30, %_ZNSt6vectorIiSaIiEED2Ev.exit35
-  %common.resume.op = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit35 ], [ %28, %30 ], [ %28, %27 ]
+common.resume:                                    ; preds = %26, %29, %_ZNSt6vectorIiSaIiEED2Ev.exit35
+  %common.resume.op = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit35 ], [ %27, %29 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNK2cv3MatcvSt6vectorIT_SaIS2_EEIiEEv.exit:      ; preds = %5
-  %.sroa.6.12.vec.insert = shufflevector <4 x float> %23, <4 x float> poison, <2 x i32> <i32 0, i32 3>
-  %.sroa.036.4.vec.insert = shufflevector <4 x float> %22, <4 x float> %23, <2 x i32> <i32 0, i32 6>
+  %.sroa.6.12.vec.insert = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 0, i32 3>
+  %30 = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
+  %.sroa.036.4.vec.insert = shufflevector <2 x float> %.sroa.036.0.vec.insert, <2 x float> %30, <2 x i32> <i32 0, i32 2>
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !338
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
