@@ -4213,7 +4213,7 @@ define internal fastcc void @save_path(ptr noundef readonly captures(none) %0, p
   %11 = load i16, ptr %10, align 1
   %12 = and i16 %11, 8
   %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %13, label %62
+  br i1 %.not, label %13, label %64
 
 13:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4267,16 +4267,16 @@ define internal fastcc void @save_path(ptr noundef readonly captures(none) %0, p
   %or.cond47 = or i1 %.not43, %or.cond
   br i1 %or.cond47, label %50, label %39
 
-39:                                               ; preds = %13
-  %40 = call ptr @g_strrstr(ptr noundef %1, ptr noundef nonnull @.str.744)
-  %.not44 = icmp eq ptr %40, null
-  br i1 %.not44, label %50, label %41
-
-41:                                               ; preds = %39
-  %42 = icmp eq ptr %40, %1
-  br i1 %42, label %50, label %43
+41:                                               ; preds = %13
+  %42 = call ptr @g_strrstr(ptr noundef %1, ptr noundef nonnull @.str.744)
+  %.not44 = icmp eq ptr %42, null
+  br i1 %.not44, label %50, label %43
 
 43:                                               ; preds = %41
+  %44 = icmp eq ptr %42, %1
+  br i1 %44, label %50, label %43
+
+52:                                               ; preds = %41
   %44 = call ptr @wmem_epan_scope()
   %45 = ptrtoint ptr %40 to i64
   %46 = ptrtoint ptr %1 to i64
@@ -4289,37 +4289,37 @@ define internal fastcc void @save_path(ptr noundef readonly captures(none) %0, p
   %.034 = phi ptr [ @.str.742, %13 ], [ %49, %43 ], [ @.str.742, %39 ], [ @.str.744, %41 ]
   %.0 = phi ptr [ %1, %13 ], [ %49, %43 ], [ @.str.742, %39 ], [ @.str.744, %41 ]
   %.not45 = icmp eq ptr %2, null
-  br i1 %.not45, label %.critedge49, label %51
+  br i1 %.not45, label %.critedge46, label %53
 
-51:                                               ; preds = %50
-  %52 = load i8, ptr %2, align 1
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %.critedge49, label %54
+53:                                               ; preds = %50
+  %54 = load i8, ptr %2, align 1
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %.critedge46, label %56
 
-54:                                               ; preds = %51
-  %55 = icmp eq ptr %.0, @.str.744
-  %56 = call ptr @wmem_file_scope()
-  br i1 %55, label %57, label %.critedge
+56:                                               ; preds = %53
+  %57 = icmp eq ptr %.0, @.str.744
+  %58 = call ptr @wmem_file_scope()
+  br i1 %57, label %59, label %.critedge
 
-57:                                               ; preds = %54
-  %58 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %56, ptr noundef nonnull @.str.745, ptr noundef nonnull %2)
-  br label %.critedge49
+59:                                               ; preds = %56
+  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %58, ptr noundef nonnull @.str.745, ptr noundef nonnull %2)
+  br label %.critedge46
 
-.critedge:                                        ; preds = %54
-  %59 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %56, ptr noundef nonnull @.str.746, ptr noundef %.0, ptr noundef nonnull %2)
-  br label %.critedge49
+.critedge:                                        ; preds = %56
+  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %58, ptr noundef nonnull @.str.746, ptr noundef %.0, ptr noundef nonnull %2)
+  br label %.critedge46
 
-.critedge49:                                      ; preds = %50, %51, %57, %.critedge
-  %.2 = phi ptr [ %58, %57 ], [ %59, %.critedge ], [ @.str.744, %51 ], [ %.034, %50 ]
-  %60 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %.2, ptr %60, align 8
-  %61 = load ptr, ptr @obex_path, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %61, ptr noundef nonnull %6, ptr noundef %31)
+.critedge46:                                      ; preds = %50, %53, %59, %.critedge
+  %.2 = phi ptr [ %60, %57 ], [ %61, %.critedge ], [ @.str.744, %51 ], [ %.034, %50 ]
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store ptr %.2, ptr %62, align 8
+  %63 = load ptr, ptr @obex_path, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %63, ptr noundef nonnull %6, ptr noundef %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %62
+  br label %64
 
-62:                                               ; preds = %.critedge49, %5
+64:                                               ; preds = %.critedge46, %5
   ret void
 }
 

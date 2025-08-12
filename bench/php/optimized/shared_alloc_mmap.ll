@@ -43,9 +43,9 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 .preheader.i:                                     ; preds = %15
   %17 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
   %.not5166.i = icmp eq ptr %17, null
-  br i1 %.not5166.i, label %.thread91, label %.lr.ph.i
+  br i1 %.not5166.i, label %.thread92, label %.lr.ph.i
 
-.thread91:                                        ; preds = %.preheader.i
+.thread92:                                        ; preds = %.preheader.i
   %18 = call i32 @fclose(ptr noundef nonnull %16)
   br label %.thread.sink.split
 
@@ -106,7 +106,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %41 = sub i64 %38, %.343.i
   %42 = icmp ult i64 %41, 4294967295
   %or.cond.i = and i1 %.not57.i, %42
-  br i1 %or.cond.i, label %.thread99, label %47
+  br i1 %or.cond.i, label %.thread100, label %47
 
 43:                                               ; preds = %29
   %44 = sub i64 %.pre-phi, %.04567.i
@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 46:                                               ; preds = %43
   %.not55.i = icmp ugt i64 %.pre-phi, %.pre.i
-  br i1 %.not55.i, label %._crit_edge.i, label %.thread99
+  br i1 %.not55.i, label %._crit_edge.i, label %.thread100
 
 ._crit_edge.i:                                    ; preds = %46
   %.pre78.i = load i64, ptr %6, align 8, !tbaa !19
@@ -139,7 +139,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not51.i = icmp eq ptr %53, null
   br i1 %.not51.i, label %55, label %.lr.ph.i
 
-.thread99:                                        ; preds = %40, %46
+.thread100:                                       ; preds = %40, %46
   %.141.i.ph = phi i64 [ %.03769.i, %46 ], [ %.343.i, %40 ]
   %54 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -156,7 +156,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not = icmp eq i64 %.141.i, -1
   br i1 %.not, label %.thread, label %57
 
-57:                                               ; preds = %.thread99, %55
+57:                                               ; preds = %.thread100, %55
   %.in = phi i64 [ %.141.i.ph, %.thread99 ], [ %.141.i, %55 ]
   %58 = inttoptr i64 %.in to ptr
   %59 = icmp ugt i64 %0, 2097151
@@ -168,14 +168,14 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 62:                                               ; preds = %57
   %63 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
   %.not74 = icmp eq ptr %63, inttoptr (i64 -1 to ptr)
-  br i1 %.not74, label %64, label %.thread95
+  br i1 %.not74, label %64, label %.thread96
 
 64:                                               ; preds = %62, %57
   %65 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
   %.not75 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
-  br i1 %.not75, label %.thread, label %.thread95
+  br i1 %.not75, label %.thread, label %.thread96
 
-.thread.sink.split:                               ; preds = %15, %.thread91
+.thread.sink.split:                               ; preds = %15, %.thread92
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -185,8 +185,8 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %66 = icmp ugt i64 %0, 2097151
   %67 = and i64 %0, 2097151
   %68 = icmp eq i64 %67, 0
-  %or.cond85 = and i1 %66, %68
-  br i1 %or.cond85, label %69, label %82
+  %or.cond86 = and i1 %66, %68
+  br i1 %or.cond86, label %69, label %82
 
 69:                                               ; preds = %.thread
   %70 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
@@ -201,28 +201,28 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %76 = inttoptr i64 %75 to ptr
   %77 = call ptr @mmap(ptr noundef %76, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
   %.not77 = icmp eq ptr %77, inttoptr (i64 -1 to ptr)
-  br i1 %.not77, label %78, label %.thread95
+  br i1 %.not77, label %78, label %.thread96
 
 78:                                               ; preds = %71
   %79 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
   %.not78 = icmp eq ptr %79, inttoptr (i64 -1 to ptr)
-  br i1 %.not78, label %80, label %.thread95
+  br i1 %.not78, label %80, label %.thread96
 
 80:                                               ; preds = %78, %69
   %81 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
   %.not79 = icmp eq ptr %81, inttoptr (i64 -1 to ptr)
-  br i1 %.not79, label %82, label %.thread95
+  br i1 %.not79, label %82, label %.thread96
 
 82:                                               ; preds = %80, %.thread
   %83 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
   %84 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
-  br i1 %84, label %85, label %.thread95
+  br i1 %84, label %85, label %.thread96
 
 85:                                               ; preds = %82
   store ptr @.str, ptr %3, align 8, !tbaa !20
   br label %92
 
-.thread95:                                        ; preds = %64, %62, %82, %80, %78, %71
+.thread96:                                        ; preds = %64, %62, %82, %80, %78, %71
   %.1 = phi ptr [ %77, %71 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %65, %64 ], [ %63, %62 ]
   store i32 1, ptr %2, align 4, !tbaa !21
   %86 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
@@ -230,12 +230,12 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.not80 = icmp eq ptr %86, null
   br i1 %.not80, label %87, label %89
 
-87:                                               ; preds = %.thread95
+87:                                               ; preds = %.thread96
   %88 = call i32 @munmap(ptr noundef %.1, i64 noundef %0) #8
   store ptr @.str.1, ptr %3, align 8, !tbaa !20
   br label %92
 
-89:                                               ; preds = %.thread95
+89:                                               ; preds = %.thread96
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %90, ptr %86, align 8, !tbaa !24
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 32

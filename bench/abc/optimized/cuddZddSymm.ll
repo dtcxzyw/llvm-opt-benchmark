@@ -1088,13 +1088,13 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
 13:                                               ; preds = %3
   %14 = tail call noalias ptr @malloc(i64 noundef %9) #12
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %21, label %.preheader148
+  br i1 %15, label %21, label %.preheader149
 
-.preheader148:                                    ; preds = %13
+.preheader149:                                    ; preds = %13
   %16 = icmp sgt i32 %7, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader148
+.lr.ph:                                           ; preds = %.preheader149
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %18 = load ptr, ptr %17, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1123,54 +1123,54 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %23, %.preheader148
+._crit_edge:                                      ; preds = %23, %.preheader149
   tail call void @qsort(ptr noundef nonnull %14, i64 noundef %8, i64 noundef 4, ptr noundef nonnull @cuddZddUniqueCompare) #11
-  %.not159 = icmp sgt i32 %1, %2
-  br i1 %.not159, label %._crit_edge163, label %.lr.ph162
+  %.not161 = icmp sgt i32 %1, %2
+  br i1 %.not161, label %._crit_edge165, label %.lr.ph164
 
-.lr.ph162:                                        ; preds = %._crit_edge
+.lr.ph164:                                        ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = sext i32 %1 to i64
   %35 = add i32 %2, 1
   br label %36
 
-36:                                               ; preds = %.lr.ph162, %36
-  %indvars.iv190 = phi i64 [ %34, %.lr.ph162 ], [ %indvars.iv.next191, %36 ]
-  %37 = getelementptr inbounds %struct.DdSubtable, ptr %33, i64 %indvars.iv190, i32 6
-  %38 = trunc nsw i64 %indvars.iv190 to i32
+36:                                               ; preds = %.lr.ph164, %36
+  %indvars.iv194 = phi i64 [ %34, %.lr.ph162 ], [ %indvars.iv.next195, %36 ]
+  %37 = getelementptr inbounds %struct.DdSubtable, ptr %33, i64 %indvars.iv194, i32 6
+  %38 = trunc nsw i64 %indvars.iv194 to i32
   store i32 %38, ptr %37, align 4, !tbaa !24
-  %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next191 to i32
-  %exitcond193.not = icmp eq i32 %35, %lftr.wideiv
-  br i1 %exitcond193.not, label %._crit_edge163, label %36, !llvm.loop !81
+  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next195 to i32
+  %exitcond197.not = icmp eq i32 %35, %lftr.wideiv
+  br i1 %exitcond197.not, label %._crit_edge165, label %36, !llvm.loop !81
 
-._crit_edge163:                                   ; preds = %36, %._crit_edge
+._crit_edge165:                                   ; preds = %36, %._crit_edge
   %39 = load i32, ptr %6, align 4, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %41 = load i32, ptr %40, align 8, !tbaa !49
   %. = tail call i32 @llvm.smin.i32(i32 %39, i32 %41)
   %42 = icmp sgt i32 %., 0
-  br i1 %42, label %.lr.ph166, label %._crit_edge167
+  br i1 %42, label %.lr.ph168, label %._crit_edge169
 
-.lr.ph166:                                        ; preds = %._crit_edge163
+.lr.ph168:                                        ; preds = %._crit_edge165
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %wide.trip.count197 = zext nneg i32 %. to i64
-  %.pre207 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !27
+  %wide.trip.count201 = zext nneg i32 %. to i64
+  %.pre211 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !27
   br label %46
 
-46:                                               ; preds = %.lr.ph166, %66
-  %47 = phi i32 [ %.pre207, %.lr.ph166 ], [ %67, %66 ]
-  %indvars.iv194 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next195, %66 ]
+46:                                               ; preds = %.lr.ph168, %66
+  %47 = phi i32 [ %.pre211, %.lr.ph166 ], [ %67, %66 ]
+  %indvars.iv198 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next199, %66 ]
   %48 = load i32, ptr %43, align 4, !tbaa !50
   %.not123 = icmp slt i32 %47, %48
-  br i1 %.not123, label %49, label %._crit_edge167
+  br i1 %.not123, label %49, label %._crit_edge169
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %44, align 8, !tbaa !45
-  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv194
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv198
   %52 = load i32, ptr %51, align 4, !tbaa !27
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %50, i64 %53
@@ -1196,16 +1196,16 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
 
 66:                                               ; preds = %58, %64, %49
   %67 = phi i32 [ %47, %58 ], [ %.pre, %64 ], [ %47, %49 ]
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge167, label %46, !llvm.loop !82
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  br i1 %exitcond202.not, label %._crit_edge169, label %46, !llvm.loop !82
 
-._crit_edge167:                                   ; preds = %66, %46, %._crit_edge163
+._crit_edge169:                                   ; preds = %66, %46, %._crit_edge165
   %68 = load i32, ptr %4, align 8, !tbaa !54
   %69 = icmp ugt i32 %5, %68
-  br i1 %69, label %.preheader147.lr.ph, label %._crit_edge178
+  br i1 %69, label %.preheader147.lr.ph, label %._crit_edge180
 
-.preheader147.lr.ph:                              ; preds = %._crit_edge167
+.preheader147.lr.ph:                              ; preds = %._crit_edge169
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -1213,9 +1213,9 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %.preheader147
 
-.preheader147:                                    ; preds = %.preheader147.lr.ph, %._crit_edge176
+.preheader147:                                    ; preds = %.preheader147.lr.ph, %._crit_edge178
   %75 = phi i32 [ %68, %.preheader147.lr.ph ], [ %314, %._crit_edge176 ]
-  br i1 %.not159, label %._crit_edge172, label %.preheader146.lr.ph
+  br i1 %.not161, label %._crit_edge174, label %.preheader146.lr.ph
 
 .preheader146.lr.ph:                              ; preds = %.preheader147
   %76 = load ptr, ptr %70, align 8, !tbaa !3
@@ -1224,12 +1224,12 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   br label %.preheader146
 
 .preheader146:                                    ; preds = %.preheader146.lr.ph, %85
-  %indvars.iv199 = phi i64 [ 0, %.preheader146.lr.ph ], [ %indvars.iv.next200, %85 ]
-  %.0103170 = phi i32 [ %1, %.preheader146.lr.ph ], [ %93, %85 ]
+  %indvars.iv203 = phi i64 [ 0, %.preheader146.lr.ph ], [ %indvars.iv.next204, %85 ]
+  %.0103172 = phi i32 [ %1, %.preheader146.lr.ph ], [ %93, %85 ]
   br label %79
 
 79:                                               ; preds = %.preheader146, %79
-  %.1 = phi i32 [ %83, %79 ], [ %.0103170, %.preheader146 ]
+  %.1 = phi i32 [ %83, %79 ], [ %.0103172, %.preheader146 ]
   %80 = sext i32 %.1 to i64
   %81 = getelementptr inbounds %struct.DdSubtable, ptr %76, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
@@ -1245,39 +1245,39 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   %90 = sext i32 %87 to i64
   %91 = getelementptr inbounds i32, ptr %78, i64 %90
   store i32 %89, ptr %91, align 4, !tbaa !27
-  %92 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv199
+  %92 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv203
   store i32 %87, ptr %92, align 4, !tbaa !27
   %93 = add nsw i32 %.1, 1
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %.not126.not = icmp slt i32 %.1, %2
-  br i1 %.not126.not, label %.preheader146, label %._crit_edge172.loopexit, !llvm.loop !84
+  br i1 %.not126.not, label %.preheader146, label %._crit_edge174.loopexit, !llvm.loop !84
 
-._crit_edge172.loopexit:                          ; preds = %85
-  %94 = and i64 %indvars.iv.next200, 4294967295
-  br label %._crit_edge172
+._crit_edge174.loopexit:                          ; preds = %85
+  %94 = and i64 %indvars.iv.next204, 4294967295
+  br label %._crit_edge174
 
-._crit_edge172:                                   ; preds = %._crit_edge172.loopexit, %.preheader147
+._crit_edge174:                                   ; preds = %._crit_edge174.loopexit, %.preheader147
   %.0.lcssa = phi i64 [ 0, %.preheader147 ], [ %94, %._crit_edge172.loopexit ]
   tail call void @qsort(ptr noundef nonnull %14, i64 noundef %.0.lcssa, i64 noundef 4, ptr noundef nonnull @cuddZddUniqueCompare) #11
   %95 = load i32, ptr %40, align 8, !tbaa !49
   %.132 = tail call i32 @llvm.smin.i32(i32 %7, i32 %95)
   %96 = icmp sgt i32 %.132, 0
-  br i1 %96, label %.lr.ph175.preheader, label %._crit_edge176
+  br i1 %96, label %.lr.ph177.preheader, label %._crit_edge178
 
-.lr.ph175.preheader:                              ; preds = %._crit_edge172
-  %wide.trip.count205 = zext nneg i32 %.132 to i64
-  br label %.lr.ph175
+.lr.ph177.preheader:                              ; preds = %._crit_edge174
+  %wide.trip.count209 = zext nneg i32 %.132 to i64
+  br label %.lr.ph177
 
-.lr.ph175:                                        ; preds = %.lr.ph175.preheader, %cuddZddSymmSiftingConvAux.exit
-  %indvars.iv202 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next203, %cuddZddSymmSiftingConvAux.exit ]
+.lr.ph177:                                        ; preds = %.lr.ph177.preheader, %cuddZddSymmSiftingConvAux.exit
+  %indvars.iv206 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next207, %cuddZddSymmSiftingConvAux.exit ]
   %97 = load i32, ptr @zddTotalNumberSwapping, align 4, !tbaa !27
   %98 = load i32, ptr %72, align 4, !tbaa !50
   %.not127 = icmp slt i32 %97, %98
-  br i1 %.not127, label %99, label %._crit_edge176
+  br i1 %.not127, label %99, label %._crit_edge178
 
-99:                                               ; preds = %.lr.ph175
+99:                                               ; preds = %.lr.ph177
   %100 = load ptr, ptr %73, align 8, !tbaa !45
-  %101 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv202
+  %101 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv206
   %102 = load i32, ptr %101, align 4, !tbaa !27
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i32, ptr %100, i64 %103
@@ -1803,19 +1803,19 @@ define range(i32 -2147483646, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   br label %cuddZddSymmSiftingConvAux.exit
 
 cuddZddSymmSiftingConvAux.exit:                   ; preds = %..loopexit367_crit_edge.i, %.preheader366.i, %99
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge176, label %.lr.ph175, !llvm.loop !100
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
+  br i1 %exitcond210.not, label %._crit_edge178, label %.lr.ph177, !llvm.loop !100
 
-._crit_edge176:                                   ; preds = %cuddZddSymmSiftingConvAux.exit, %.lr.ph175, %._crit_edge172
+._crit_edge178:                                   ; preds = %cuddZddSymmSiftingConvAux.exit, %.lr.ph177, %._crit_edge174
   %314 = load i32, ptr %4, align 8, !tbaa !54
   %315 = icmp ugt i32 %75, %314
-  br i1 %315, label %.preheader147, label %._crit_edge178, !llvm.loop !101
+  br i1 %315, label %.preheader147, label %._crit_edge180, !llvm.loop !101
 
-._crit_edge178:                                   ; preds = %._crit_edge176, %._crit_edge167
-  br i1 %.not159, label %cuddZddSymmSummary.exit, label %.lr.ph.i133
+._crit_edge180:                                   ; preds = %._crit_edge178, %._crit_edge169
+  br i1 %.not161, label %cuddZddSymmSummary.exit, label %.lr.ph.i133
 
-.lr.ph.i133:                                      ; preds = %._crit_edge178
+.lr.ph.i133:                                      ; preds = %._crit_edge180
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %317 = load ptr, ptr %316, align 8, !tbaa !3
   br label %318
@@ -1850,7 +1850,7 @@ cuddZddSymmSummary.exit.loopexit:                 ; preds = %.loopexit.i134
   %327 = add nsw i32 %.2.i135, 1
   br label %cuddZddSymmSummary.exit
 
-cuddZddSymmSummary.exit:                          ; preds = %cuddZddSymmSummary.exit.loopexit, %._crit_edge178
+cuddZddSymmSummary.exit:                          ; preds = %cuddZddSymmSummary.exit.loopexit, %._crit_edge180
   %.019.lcssa.i = phi i32 [ 1, %._crit_edge178 ], [ %327, %cuddZddSymmSummary.exit.loopexit ]
   tail call void @free(ptr noundef %14) #11
   %328 = load ptr, ptr @zdd_entry, align 8, !tbaa !43

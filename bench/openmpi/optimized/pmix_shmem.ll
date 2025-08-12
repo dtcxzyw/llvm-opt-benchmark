@@ -173,10 +173,10 @@ define internal fastcc range(i32 -67, 1) i32 @segment_attach(ptr noundef %0, i64
   %15 = and i8 %2, 1
   %16 = icmp eq i8 %15, 0
   %17 = icmp eq i64 %1, 0
-  %or.cond.not53 = or i1 %17, %16
+  %or.cond.not54 = or i1 %17, %16
   %18 = ptrtoint ptr %11 to i64
   %.not = icmp eq i64 %1, %18
-  %or.cond29 = or i1 %or.cond.not53, %.not
+  %or.cond29 = or i1 %or.cond.not54, %.not
   %19 = tail call i32 @close(i32 noundef %5) #8
   br i1 %or.cond29, label %30, label %.thread40
 

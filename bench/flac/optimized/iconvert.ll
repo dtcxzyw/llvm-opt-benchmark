@@ -252,29 +252,29 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
   store i64 2048, ptr %10, align 8, !tbaa !10
   %112 = call i64 @iconv(ptr noundef %.0109, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %113 = load i64, ptr %9, align 8, !tbaa !10
-  %.not148237 = icmp eq i64 %113, 0
-  br i1 %.not148237, label %.thread, label %.lr.ph240
+  %.not148235 = icmp eq i64 %113, 0
+  br i1 %.not148235, label %.thread, label %.lr.ph238
 
-.lr.ph240:                                        ; preds = %110, %.backedge226
+.lr.ph238:                                        ; preds = %110, %.backedge224
   %114 = phi i64 [ %134, %.backedge226 ], [ %112, %110 ]
-  %.0105207238 = phi i64 [ %133, %.backedge226 ], [ 0, %110 ]
+  %.0105207236 = phi i64 [ %133, %.backedge226 ], [ 0, %110 ]
   %115 = icmp eq i64 %114, -1
   br i1 %115, label %116, label %120
 
-116:                                              ; preds = %.lr.ph240
+116:                                              ; preds = %.lr.ph238
   %117 = tail call ptr @__errno_location() #11
   %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = icmp eq i32 %118, 7
-  br i1 %119, label %.backedge226, label %120
+  br i1 %119, label %.backedge224, label %120
 
-120:                                              ; preds = %116, %.lr.ph240
+120:                                              ; preds = %116, %.lr.ph238
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr @.str.5, ptr %13, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 1, ptr %14, align 8, !tbaa !10
   %121 = load ptr, ptr %8, align 8, !tbaa !7
   %122 = ptrtoint ptr %121 to i64
-  %123 = sub i64 %.0105207238, %111
+  %123 = sub i64 %.0105207236, %111
   %124 = add i64 %123, %122
   store ptr %11, ptr %8, align 8, !tbaa !7
   store i64 2048, ptr %10, align 8, !tbaa !10
@@ -306,10 +306,10 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
 .critedge:                                        ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.backedge226
+  br label %.backedge224
 
-.backedge226:                                     ; preds = %116, %.critedge
-  %.0105207.sink = phi i64 [ %124, %.critedge ], [ %.0105207238, %116 ]
+.backedge224:                                     ; preds = %116, %.critedge
+  %.0105207.sink = phi i64 [ %124, %.critedge ], [ %.0105207236, %116 ]
   %130 = load ptr, ptr %8, align 8, !tbaa !7
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %.0105207.sink, %111
@@ -319,9 +319,9 @@ safe_realloc_nofree_add_2op_.exit:                ; preds = %88
   %134 = call i64 @iconv(ptr noundef %.0109, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %135 = load i64, ptr %9, align 8, !tbaa !10
   %.not148 = icmp eq i64 %135, 0
-  br i1 %.not148, label %.thread, label %.lr.ph240, !llvm.loop !16
+  br i1 %.not148, label %.thread, label %.lr.ph238, !llvm.loop !16
 
-.thread:                                          ; preds = %.backedge226, %110, %.critedge.thread
+.thread:                                          ; preds = %.backedge224, %110, %.critedge.thread
   %.lcssa.sink = phi i64 [ %124, %.critedge.thread ], [ 0, %110 ], [ %133, %.backedge226 ]
   %136 = load ptr, ptr %8, align 8, !tbaa !7
   %137 = ptrtoint ptr %136 to i64
@@ -351,25 +351,25 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
   %149 = call i64 @iconv(ptr noundef %.0109, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %150 = icmp eq i64 %149, 0
   %151 = icmp ne i32 %.0103.lcssa, 0
-  %or.cond3241 = select i1 %150, i1 true, i1 %151
-  %spec.store.select242 = select i1 %or.cond3241, i32 %.0103.lcssa, i32 1
+  %or.cond3239 = select i1 %150, i1 true, i1 %151
+  %spec.store.select240 = select i1 %or.cond3239, i32 %.0103.lcssa, i32 1
   %152 = load i64, ptr %9, align 8, !tbaa !10
-  %.not144243 = icmp eq i64 %152, 0
-  br i1 %.not144243, label %.thread219, label %.lr.ph246
+  %.not144241 = icmp eq i64 %152, 0
+  br i1 %.not144241, label %.thread219, label %.lr.ph244
 
-.lr.ph246:                                        ; preds = %148, %.backedge
-  %spec.store.select244 = phi i32 [ %spec.store.select, %.backedge ], [ %spec.store.select242, %148 ]
+.lr.ph244:                                        ; preds = %148, %.backedge
+  %spec.store.select242 = phi i32 [ %spec.store.select, %.backedge ], [ %spec.store.select240, %148 ]
   %153 = phi i64 [ %165, %.backedge ], [ %149, %148 ]
   %154 = icmp eq i64 %153, -1
   br i1 %154, label %155, label %159
 
-155:                                              ; preds = %.lr.ph246
+155:                                              ; preds = %.lr.ph244
   %156 = tail call ptr @__errno_location() #11
   %157 = load i32, ptr %156, align 4, !tbaa !12
   %158 = icmp eq i32 %157, 7
   br i1 %158, label %.backedge, label %159
 
-159:                                              ; preds = %155, %.lr.ph246
+159:                                              ; preds = %155, %.lr.ph244
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @.str.5, ptr %15, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -407,15 +407,15 @@ safe_malloc_add_2op_.exit:                        ; preds = %.thread
 .backedge:                                        ; preds = %155, %.critedge5
   %165 = call i64 @iconv(ptr noundef %.0109, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %166 = icmp eq i64 %165, 0
-  %167 = icmp ne i32 %spec.store.select244, 0
+  %167 = icmp ne i32 %spec.store.select242, 0
   %or.cond3 = select i1 %166, i1 true, i1 %167
-  %spec.store.select = select i1 %or.cond3, i32 %spec.store.select244, i32 1
+  %spec.store.select = select i1 %or.cond3, i32 %spec.store.select242, i32 1
   %168 = load i64, ptr %9, align 8, !tbaa !10
   %.not144 = icmp eq i64 %168, 0
-  br i1 %.not144, label %.thread219, label %.lr.ph246, !llvm.loop !18
+  br i1 %.not144, label %.thread219, label %.lr.ph244, !llvm.loop !18
 
 .thread219:                                       ; preds = %.backedge, %148, %.critedge5.thread
-  %spec.store.select234 = phi i32 [ %spec.store.select244, %.critedge5.thread ], [ %spec.store.select242, %148 ], [ %spec.store.select, %.backedge ]
+  %spec.store.select232 = phi i32 [ %spec.store.select242, %.critedge5.thread ], [ %spec.store.select240, %148 ], [ %spec.store.select, %.backedge ]
   %169 = call i64 @iconv(ptr noundef %.0109, ptr noundef null, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   %170 = load ptr, ptr %8, align 8, !tbaa !7
   store i8 0, ptr %170, align 1, !tbaa !4
@@ -447,8 +447,8 @@ safe_realloc_nofree_add_2op_.exit.thread:         ; preds = %57, %54, %.thread, 
   br i1 %.not158, label %.thread174, label %safe_realloc_nofree_add_2op_.exit.thread.thread
 
 safe_realloc_nofree_add_2op_.exit.thread.thread:  ; preds = %safe_realloc_nofree_add_2op_.exit, %safe_realloc_nofree_add_2op_.exit.thread
-  %.0112224 = phi ptr [ %.0112, %safe_realloc_nofree_add_2op_.exit.thread ], [ %.1113.lcssa, %safe_realloc_nofree_add_2op_.exit ]
-  call void @free(ptr noundef nonnull %.0112224) #8
+  %.0112223 = phi ptr [ %.0112, %safe_realloc_nofree_add_2op_.exit.thread ], [ %.1113.lcssa, %safe_realloc_nofree_add_2op_.exit ]
+  call void @free(ptr noundef nonnull %.0112223) #8
   br label %.thread174
 
 .thread174:                                       ; preds = %46, %safe_realloc_nofree_add_2op_.exit.thread.thread, %safe_realloc_nofree_add_2op_.exit.thread
@@ -461,7 +461,7 @@ safe_realloc_nofree_add_2op_.exit.thread.thread:  ; preds = %safe_realloc_nofree
   br label %180
 
 180:                                              ; preds = %.thread174.thread, %.thread165, %.thread174, %178, %6, %176, %175, %96, %86
-  %.0 = phi i32 [ %.0103.lcssa, %96 ], [ %.0103.lcssa, %86 ], [ %spec.store.select234, %176 ], [ %spec.store.select234, %175 ], [ -1, %6 ], [ -2, %178 ], [ -2, %.thread174 ], [ -1, %.thread165 ], [ -2, %.thread174.thread ]
+  %.0 = phi i32 [ %.0103.lcssa, %96 ], [ %.0103.lcssa, %86 ], [ %spec.store.select232, %176 ], [ %spec.store.select232, %175 ], [ -1, %6 ], [ -2, %178 ], [ -2, %.thread174 ], [ -1, %.thread165 ], [ -2, %.thread174.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

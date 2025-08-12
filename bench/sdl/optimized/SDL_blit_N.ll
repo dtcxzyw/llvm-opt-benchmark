@@ -223,8 +223,8 @@ define hidden ptr @SDL_CalculateBlitN(ptr noundef readonly captures(none) %0) lo
 131:                                              ; preds = %124
   %switch.selectcmp = icmp eq i8 %102, 2
   %switch.select = select i1 %switch.selectcmp, ptr @Blit2to2MaskAlpha, ptr @BlitNtoN
-  %switch.selectcmp104 = icmp eq i8 %102, 4
-  %switch.select105 = select i1 %switch.selectcmp104, ptr @Blit4to4MaskAlpha, ptr %switch.select
+  %switch.selectcmp103 = icmp eq i8 %102, 4
+  %switch.select104 = select i1 %switch.selectcmp103, ptr @Blit4to4MaskAlpha, ptr %switch.select
   br label %.thread
 
 132:                                              ; preds = %118, %112, %106, %101
@@ -259,7 +259,7 @@ define hidden ptr @SDL_CalculateBlitN(ptr noundef readonly captures(none) %0) lo
   br label %.thread
 
 .thread:                                          ; preds = %131, %22, %132, %10, %143, %138, %14, %126, %._crit_edge, %1, %146
-  %.079 = phi ptr [ @BlitNtoNKey, %146 ], [ null, %1 ], [ null, %14 ], [ %99, %._crit_edge ], [ %SDL_BlitCopy.BlitNtoNCopyAlpha, %126 ], [ %spec.select, %132 ], [ @Blit2to2Key, %138 ], [ @BlitNtoNKeyCopyAlpha, %143 ], [ null, %10 ], [ null, %22 ], [ %switch.select105, %131 ]
+  %.079 = phi ptr [ @BlitNtoNKey, %146 ], [ null, %1 ], [ null, %14 ], [ %99, %._crit_edge ], [ %SDL_BlitCopy.BlitNtoNCopyAlpha, %126 ], [ %spec.select, %132 ], [ @Blit2to2Key, %138 ], [ @BlitNtoNKeyCopyAlpha, %143 ], [ null, %10 ], [ null, %22 ], [ %switch.select104, %131 ]
   ret ptr %.079
 }
 
