@@ -4148,8 +4148,8 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$http..header..map..ValueIter$LT$T$
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %8, %49
-  %or.cond = select i1 %47, i1 %50, i1 false
-  br i1 %or.cond, label %56, label %52
+  %or.cond21 = select i1 %47, i1 %50, i1 false
+  br i1 %or.cond21, label %56, label %52
 
 51:                                               ; preds = %6
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %8, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.87) #20

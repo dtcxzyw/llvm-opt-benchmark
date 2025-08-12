@@ -8002,7 +8002,7 @@ define internal fastcc void @_dt_focus_cdf22_wtf(ptr noundef captures(none) %0, 
   br i1 %254, label %255, label %276
 
 255:                                              ; preds = %._crit_edge199
-  %256 = sub nsw i32 %.1.lcssa, %6
+  %256 = sub nuw nsw i32 %.1.lcssa, %6
   %257 = mul nsw i32 %256, %2
   %258 = trunc nuw nsw i64 %indvars.iv217 to i32
   %259 = add nsw i32 %257, %258

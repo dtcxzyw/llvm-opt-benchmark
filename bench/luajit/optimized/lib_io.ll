@@ -941,7 +941,7 @@ io_file_readall.exit:                             ; preds = %79, %66, %io_file_r
   br label %131
 
 131:                                              ; preds = %128, %127
-  %132 = sub nsw i32 %.048, %1
+  %132 = sub nuw nsw i32 %.048, %1
   br label %133
 
 133:                                              ; preds = %131, %125

@@ -1212,10 +1212,10 @@ define dso_local noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) loc
   %11 = trunc nuw i64 %spec.store.select.i to i32
   %12 = add nsw i32 %11, -1
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %12, i1 true)
-  %14 = sub nsw i32 29, %13
+  %14 = sub nuw nsw i32 29, %13
   %15 = lshr i32 %12, %14
   %16 = shl nuw nsw i32 %13, 2
-  %reass.sub4 = sub i32 %15, %16
+  %reass.sub4 = sub nsw i32 %15, %16
   %17 = add i32 %reass.sub4, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -1553,10 +1553,10 @@ zend_mm_alloc_small.exit12:                       ; preds = %zend_mm_get_next_fr
   %102 = trunc nuw i64 %spec.store.select.i to i32
   %103 = add nsw i32 %102, -1
   %104 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %103, i1 true)
-  %105 = sub nsw i32 29, %104
+  %105 = sub nuw nsw i32 29, %104
   %106 = lshr i32 %103, %105
   %107 = shl nuw nsw i32 %104, 2
-  %reass.sub = sub i32 %106, %107
+  %reass.sub = sub nsw i32 %106, %107
   %108 = add i32 %reass.sub, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -2127,10 +2127,10 @@ zend_mm_alloc_small.exit12:                       ; preds = %zend_mm_get_next_fr
   %104 = trunc nuw i64 %spec.store.select.i to i32
   %105 = add nsw i32 %104, -1
   %106 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %105, i1 true)
-  %107 = sub nsw i32 29, %106
+  %107 = sub nuw nsw i32 29, %106
   %108 = lshr i32 %105, %107
   %109 = shl nuw nsw i32 %106, 2
-  %reass.sub = sub i32 %108, %109
+  %reass.sub = sub nsw i32 %108, %109
   %110 = add i32 %reass.sub, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -6499,10 +6499,10 @@ define dso_local noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #10 {
   %17 = trunc nuw i64 %spec.store.select.i to i32
   %18 = add nsw i32 %17, -1
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %18, i1 true)
-  %20 = sub nsw i32 29, %19
+  %20 = sub nuw nsw i32 29, %19
   %21 = lshr i32 %18, %20
   %22 = shl nuw nsw i32 %19, 2
-  %reass.sub5 = sub i32 %21, %22
+  %reass.sub5 = sub nsw i32 %21, %22
   %23 = add i32 %reass.sub5, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -6864,10 +6864,10 @@ zend_mm_alloc_small.exit14:                       ; preds = %zend_mm_get_next_fr
   %108 = trunc nuw i64 %spec.store.select.i to i32
   %109 = add nsw i32 %108, -1
   %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %109, i1 true)
-  %111 = sub nsw i32 29, %110
+  %111 = sub nuw nsw i32 29, %110
   %112 = lshr i32 %109, %111
   %113 = shl nuw nsw i32 %110, 2
-  %reass.sub = sub i32 %112, %113
+  %reass.sub = sub nsw i32 %112, %113
   %114 = add i32 %reass.sub, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -7450,10 +7450,10 @@ zend_mm_alloc_small.exit14:                       ; preds = %zend_mm_get_next_fr
   %110 = trunc nuw i64 %spec.store.select.i to i32
   %111 = add nsw i32 %110, -1
   %112 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %111, i1 true)
-  %113 = sub nsw i32 29, %112
+  %113 = sub nuw nsw i32 29, %112
   %114 = lshr i32 %111, %113
   %115 = shl nuw nsw i32 %112, 2
-  %reass.sub = sub i32 %114, %115
+  %reass.sub = sub nsw i32 %114, %115
   %116 = add i32 %reass.sub, 104
   br label %zend_mm_small_size_to_bin.exit
 
@@ -9046,10 +9046,10 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   %15 = trunc nuw i64 %spec.store.select.i to i32
   %16 = add nsw i32 %15, -1
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 64, -2) %16, i1 true)
-  %18 = sub nsw i32 29, %17
+  %18 = sub nuw nsw i32 29, %17
   %19 = lshr i32 %16, %18
   %20 = shl nuw nsw i32 %17, 2
-  %reass.sub18 = sub i32 %19, %20
+  %reass.sub18 = sub nsw i32 %19, %20
   %21 = add i32 %reass.sub18, 104
   br label %zend_mm_small_size_to_bin.exit
 

@@ -27207,7 +27207,7 @@ define void @"_ZN100_$LT$terminal..terminal_settings..TerminalSettings$u20$as$u2
 
 22:                                               ; preds = %21
   %23 = icmp eq i64 %.sroa.13.0.us.i, 2
-  br i1 %23, label %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i, label %24
+  br i1 %23, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, label %24
 
 24:                                               ; preds = %22
   %trunc.i.i.i.i.i.i.i.i.i.i.i.us.i = trunc nuw i64 %.sroa.13.0.us.i to i1
@@ -27220,23 +27220,19 @@ define void @"_ZN100_$LT$terminal..terminal_settings..TerminalSettings$u20$as$u2
 _ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i: ; preds = %25, %24
   %.sroa.16.1.us.i = phi ptr [ %.sroa.16.0.us.i, %24 ], [ null, %25 ]
   %27 = icmp eq ptr %.sroa.19.0.us.i, null
-  br i1 %27, label %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i, label %34
+  br i1 %27, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, label %34
 
-_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i, %22
+_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i: ; preds = %22, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i
   %.sroa.16.2.us.i = phi ptr [ %.sroa.16.0.us.i, %22 ], [ %.sroa.16.1.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i ]
   %.sroa.19.2.us.i = phi ptr [ %.sroa.19.0.us.i, %22 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.i.i.i.i.i.i.i.i.us.i ]
-  %trunc.i.i.i.i.i.i.i.i.i.us.i = trunc nuw i64 %.sroa.9.0.us.i to i1
-  br i1 %trunc.i.i.i.i.i.i.i.i.i.us.i, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.thread7.i.i.i.i.i.us.i
-
-_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i
   %28 = icmp eq ptr %.sroa.11.0.us.i, null
   br i1 %28, label %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.thread7.i.i.i.i.i.us.i, label %34
 
-_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.thread7.i.i.i.i.i.us.i: ; preds = %21, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i
-  %.sroa.16.3.us.i = phi ptr [ %.sroa.16.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.16.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i ], [ %.sroa.16.0.us.i, %21 ]
-  %.sroa.13.3.us.i = phi i64 [ 2, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i ], [ %.sroa.13.0.us.i, %21 ]
-  %.sroa.11.2.us.i = phi ptr [ null, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.11.0.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i ], [ %.sroa.11.0.us.i, %21 ]
-  %.sroa.19.3.us.i = phi ptr [ %.sroa.19.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.19.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17heea6b91c5cb214b7E.exit.thread.i.i.i.i.i.i.i.i.us.i ], [ %.sroa.19.0.us.i, %21 ]
+_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.thread7.i.i.i.i.i.us.i: ; preds = %21, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i
+  %.sroa.16.3.us.i = phi ptr [ %.sroa.16.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.16.0.us.i, %21 ]
+  %.sroa.13.3.us.i = phi i64 [ 2, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.13.0.us.i, %21 ]
+  %.sroa.11.2.us.i = phi ptr [ null, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.11.0.us.i, %21 ]
+  %.sroa.19.3.us.i = phi ptr [ %.sroa.19.2.us.i, %_ZN4core3ops8function6FnOnce9call_once17hca1659c1c53b20d8E.exit.i.i.i.i.i.us.i ], [ %.sroa.19.0.us.i, %21 ]
   %29 = icmp eq ptr %.sroa.21.0.us.i, %20
   br i1 %29, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8bd13d29aef1be2E.exit.i", label %30
 

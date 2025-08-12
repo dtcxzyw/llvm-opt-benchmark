@@ -32434,7 +32434,7 @@ select.unfold:                                    ; preds = %.thread430
 
 176:                                              ; preds = %174
   %177 = icmp eq i64 %.sroa.9306.0, 2
-  br i1 %177, label %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i, label %178
+  br i1 %177, label %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i, label %178
 
 178:                                              ; preds = %176
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.9306.0 to i1
@@ -32447,23 +32447,19 @@ select.unfold:                                    ; preds = %.thread430
 _ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.i.i.i.i: ; preds = %178, %179
   %.sroa.13.1 = phi ptr [ %.sroa.13.0, %178 ], [ null, %179 ]
   %181 = icmp eq ptr %.sroa.18.0, null
-  br i1 %181, label %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h855ee54ac2fdf2c9E.exit"
+  br i1 %181, label %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h855ee54ac2fdf2c9E.exit"
 
-_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.i.i.i.i, %176
+_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i: ; preds = %176, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.i.i.i.i
   %.sroa.18.2 = phi ptr [ %.sroa.18.0, %176 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.i.i.i.i ]
   %.sroa.13.2 = phi ptr [ %.sroa.13.0, %176 ], [ %.sroa.13.1, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.i.i.i.i ]
-  %trunc.i.i.i.i.i = trunc nuw i64 %.sroa.0304.0 to i1
-  br i1 %trunc.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i, label %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.thread7.i
-
-_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i
   %182 = icmp eq ptr %.sroa.6305.0, null
   br i1 %182, label %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.thread7.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h855ee54ac2fdf2c9E.exit"
 
-_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.thread7.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i, %174, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i
-  %.sroa.18.3.ph = phi ptr [ %.sroa.18.2, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i ], [ %.sroa.18.0, %174 ], [ %.sroa.18.2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
-  %.sroa.13.3.ph = phi ptr [ %.sroa.13.2, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i ], [ %.sroa.13.0, %174 ], [ %.sroa.13.2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
-  %.sroa.9306.3.ph = phi i64 [ 2, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i ], [ %.sroa.9306.0, %174 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
-  %.sroa.6305.2.ph = phi ptr [ %.sroa.6305.0, %_ZN4core3ops8function6FnOnce9call_once17hf324d6b56aa4634bE.exit.thread.i.i.i.i ], [ %.sroa.6305.0, %174 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
+_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.thread7.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i, %174
+  %.sroa.18.3.ph = phi ptr [ %.sroa.18.0, %174 ], [ %.sroa.18.2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
+  %.sroa.13.3.ph = phi ptr [ %.sroa.13.0, %174 ], [ %.sroa.13.2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
+  %.sroa.9306.3.ph = phi i64 [ %.sroa.9306.0, %174 ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
+  %.sroa.6305.2.ph = phi ptr [ %.sroa.6305.0, %174 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17h84730f1812be2765E.exit.i ]
   %183 = icmp eq ptr %.sroa.21.0, %162
   br i1 %183, label %187, label %184
 

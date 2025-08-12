@@ -237,7 +237,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.PemToDer.9 = private unnamed_addr constant [45 x ptr] [ptr @.str.1, ptr @.str.11, ptr poison, ptr @.str.3, ptr poison, ptr @.str.7, ptr @.str.1, ptr @.str.19, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.19, ptr @.str.11, ptr @.str.23, ptr @.str.13, ptr @.str.23, ptr @.str.1, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.15, ptr @.str.17, ptr poison, ptr @.str.15, ptr @.str.5, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr @.str.1, ptr poison, ptr @.str.9], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @SetASNLength(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @SetASNLength(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %.preheader
 
@@ -3423,7 +3423,7 @@ SetLength.exit:                                   ; preds = %.lr.ph.split.us.pre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @SetLength(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @SetLength(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %.preheader
 
@@ -6315,7 +6315,7 @@ SetOctetString.exit440:                           ; preds = %.thread.i.i.i.i427.
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetOctetString(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetOctetString(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
 
@@ -6397,7 +6397,7 @@ SetHeader.exit:                                   ; preds = %3, %7, %15, %.threa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetSequence(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetSequence(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
 
@@ -11611,7 +11611,7 @@ define i32 @DecodeToKey(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @SetLengthEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @SetLengthEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -11695,7 +11695,7 @@ SetLength.exit:                                   ; preds = %.loopexit.loopexit3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetHeader(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetHeader(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %.thread
 
@@ -11787,7 +11787,7 @@ SetLengthEx.exit:                                 ; preds = %5, %8, %10, %18, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetSequenceEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetSequenceEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %4, label %.thread.i
 
@@ -11879,7 +11879,7 @@ SetHeader.exit:                                   ; preds = %4, %7, %9, %17, %.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetOctetStringEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetOctetStringEx(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
   %.not = icmp eq i8 %2, 0
   %.not.i.i7 = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -11978,7 +11978,7 @@ SetHeader.exit:                                   ; preds = %5, %4, %SetOctetStr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetSet(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetSet(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %.thread.i
 
@@ -12060,7 +12060,7 @@ SetHeader.exit:                                   ; preds = %3, %7, %15, %.threa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetImplicit(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i8 noundef zeroext %4) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetImplicit(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i8 noundef zeroext %4) local_unnamed_addr #9 {
   %6 = icmp eq i8 %0, 4
   %7 = icmp ne i8 %4, 0
   %or.cond = and i1 %6, %7
@@ -12171,7 +12171,7 @@ SetHeader.exit:                                   ; preds = %17, %20, %22, %30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetExplicit(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
+define range(i32 2, 1) i32 @SetExplicit(i8 noundef zeroext %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %5, label %.thread.i
 

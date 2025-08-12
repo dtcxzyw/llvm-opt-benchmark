@@ -66819,7 +66819,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h6cc23b8d4d19e2e5E.exit: ; pred
 
 69:                                               ; preds = %68
   %70 = icmp eq i64 %.sroa.18.0, 2
-  br i1 %70, label %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i, label %71
+  br i1 %70, label %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i, label %71
 
 71:                                               ; preds = %69
   %trunc.i.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.18.0 to i1
@@ -66832,23 +66832,19 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h6cc23b8d4d19e2e5E.exit: ; pred
 _ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i: ; preds = %71, %72
   %.sroa.22.1 = phi ptr [ %.sroa.22.0, %71 ], [ null, %72 ]
   %74 = icmp eq ptr %.sroa.27.0, null
-  br i1 %74, label %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i, label %80
+  br i1 %74, label %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i, label %80
 
-_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i, %69
+_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i: ; preds = %69, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i
   %.sroa.27.2 = phi ptr [ %.sroa.27.0, %69 ], [ null, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i ]
   %.sroa.22.2 = phi ptr [ %.sroa.22.0, %69 ], [ %.sroa.22.1, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.i.i.i.i.i.i.i ]
-  %trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.12380.0 to i1
-  br i1 %trunc.i.i.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i
-
-_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i
   %75 = icmp eq ptr %.sroa.15.0, null
   br i1 %75, label %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i, label %80
 
-_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i: ; preds = %68, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i
-  %.sroa.27.3 = phi ptr [ %.sroa.27.2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.27.2, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.27.0, %68 ]
-  %.sroa.22.3 = phi ptr [ %.sroa.22.2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.22.2, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.22.0, %68 ]
-  %.sroa.18.3 = phi i64 [ 2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ 2, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.18.0, %68 ]
-  %.sroa.15.2 = phi ptr [ null, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.15.0, %_ZN4core3ops8function6FnOnce9call_once17h11a711a583036792E.exit.thread.i.i.i.i.i.i.i ], [ %.sroa.15.0, %68 ]
+_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.thread7.i.i.i.i: ; preds = %68, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i
+  %.sroa.27.3 = phi ptr [ %.sroa.27.2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.27.0, %68 ]
+  %.sroa.22.3 = phi ptr [ %.sroa.22.2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.22.0, %68 ]
+  %.sroa.18.3 = phi i64 [ 2, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.18.0, %68 ]
+  %.sroa.15.2 = phi ptr [ null, %_ZN4core3ops8function6FnOnce9call_once17hf13ff93e4924036cE.exit.i.i.i.i ], [ %.sroa.15.0, %68 ]
   %76 = icmp eq ptr %.sroa.30.0, %53
   br i1 %76, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h735fde7d1a90be5bE.exit", label %77
 
