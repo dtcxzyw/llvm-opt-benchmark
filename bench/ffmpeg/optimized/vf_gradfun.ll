@@ -35,12 +35,12 @@ define void @ff_gradfun_filter_line_c(ptr noundef writeonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.025 = phi ptr [ %2, %.lr.ph.preheader ], [ %33, %.lr.ph ]
+  %.024 = phi ptr [ %2, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 7
-  %12 = load i16, ptr %.025, align 2, !tbaa !7
+  %12 = load i16, ptr %.024, align 2, !tbaa !7
   %13 = zext i16 %12 to i32
   %14 = sub nsw i32 %13, %11
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)

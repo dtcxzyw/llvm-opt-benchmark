@@ -1697,17 +1697,17 @@ define internal void @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %.035.lcssa = phi ptr [ %1, %5 ], [ %47, %16 ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %48, %16 ]
   %13 = icmp ult ptr %.0.lcssa, %4
-  br i1 %13, label %.lr.ph59, label %._crit_edge
+  br i1 %13, label %.lr.ph54, label %._crit_edge
 
-.lr.ph59:                                         ; preds = %.preheader
+.lr.ph54:                                         ; preds = %.preheader
   %14 = sext i32 %2 to i64
   %15 = sext i32 %3 to i64
   br label %50
 
 16:                                               ; preds = %.lr.ph, %16
-  %.055 = phi ptr [ %0, %.lr.ph ], [ %48, %16 ]
-  %.03554 = phi ptr [ %1, %.lr.ph ], [ %47, %16 ]
-  %17 = load float, ptr %.03554, align 4, !tbaa !38
+  %.050 = phi ptr [ %0, %.lr.ph ], [ %48, %16 ]
+  %.03549 = phi ptr [ %1, %.lr.ph ], [ %47, %16 ]
+  %17 = load float, ptr %.03549, align 4, !tbaa !38
   %18 = fmul nsz float %17, 1.280000e+02
   %19 = tail call i64 @llvm.lrint.i64.f32(float %18)
   %20 = trunc i64 %19 to i32
@@ -1717,7 +1717,7 @@ define internal void @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %.0.i = trunc nuw i32 %.0.i50 to i8
   store i8 %.0.i, ptr %.055, align 1, !tbaa !29
   %23 = getelementptr inbounds i8, ptr %.03554, i64 %11
-  %24 = getelementptr inbounds i8, ptr %.055, i64 %12
+  %24 = getelementptr inbounds i8, ptr %.050, i64 %12
   %25 = load float, ptr %23, align 4, !tbaa !38
   %26 = fmul nsz float %25, 1.280000e+02
   %27 = tail call i64 @llvm.lrint.i64.f32(float %26)
@@ -1735,8 +1735,8 @@ define internal void @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %36 = trunc i64 %35 to i32
   %37 = add i32 %36, 128
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %.0.i4252 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
-  %.0.i42 = trunc nuw i32 %.0.i4252 to i8
+  %37 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
+  %38 = trunc nuw i32 %37 to i8
   store i8 %.0.i42, ptr %32, align 1, !tbaa !29
   %39 = getelementptr inbounds i8, ptr %31, i64 %11
   %40 = getelementptr inbounds i8, ptr %32, i64 %12
@@ -1751,10 +1751,10 @@ define internal void @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   store i8 %.0.i45, ptr %40, align 1, !tbaa !29
   %47 = getelementptr inbounds i8, ptr %39, i64 %11
   %48 = getelementptr inbounds i8, ptr %40, i64 %12
-  %49 = icmp ult ptr %48, %9
-  br i1 %49, label %16, label %.preheader, !llvm.loop !74
+  %.not.i43 = icmp ult ptr %48, %9
+  br i1 %.not.i43, label %16, label %.preheader, !llvm.loop !74
 
-50:                                               ; preds = %.lr.ph59, %50
+50:; preds = %.lr.ph59, %50
   %.158 = phi ptr [ %.0.lcssa, %.lr.ph59 ], [ %58, %50 ]
   %.13657 = phi ptr [ %.035.lcssa, %.lr.ph59 ], [ %57, %50 ]
   %51 = load float, ptr %.13657, align 4, !tbaa !38
@@ -1771,7 +1771,7 @@ define internal void @conv_AV_SAMPLE_FMT_FLT_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %59 = icmp ult ptr %58, %4
   br i1 %59, label %50, label %._crit_edge, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %50, %.preheader
+._crit_edge:; preds = %50, %.preheader
   ret void
 }
 
@@ -2183,17 +2183,17 @@ define internal void @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %.035.lcssa = phi ptr [ %1, %5 ], [ %47, %16 ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %48, %16 ]
   %13 = icmp ult ptr %.0.lcssa, %4
-  br i1 %13, label %.lr.ph59, label %._crit_edge
+  br i1 %13, label %.lr.ph54, label %._crit_edge
 
-.lr.ph59:                                         ; preds = %.preheader
+.lr.ph54:                                         ; preds = %.preheader
   %14 = sext i32 %2 to i64
   %15 = sext i32 %3 to i64
   br label %50
 
 16:                                               ; preds = %.lr.ph, %16
-  %.055 = phi ptr [ %0, %.lr.ph ], [ %48, %16 ]
-  %.03554 = phi ptr [ %1, %.lr.ph ], [ %47, %16 ]
-  %17 = load double, ptr %.03554, align 8, !tbaa !42
+  %.050 = phi ptr [ %0, %.lr.ph ], [ %48, %16 ]
+  %.03549 = phi ptr [ %1, %.lr.ph ], [ %47, %16 ]
+  %17 = load double, ptr %.03549, align 8, !tbaa !42
   %18 = fmul nsz double %17, 1.280000e+02
   %19 = tail call i64 @llvm.lrint.i64.f64(double %18)
   %20 = trunc i64 %19 to i32
@@ -2203,7 +2203,7 @@ define internal void @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %.0.i = trunc nuw i32 %.0.i50 to i8
   store i8 %.0.i, ptr %.055, align 1, !tbaa !29
   %23 = getelementptr inbounds i8, ptr %.03554, i64 %11
-  %24 = getelementptr inbounds i8, ptr %.055, i64 %12
+  %24 = getelementptr inbounds i8, ptr %.050, i64 %12
   %25 = load double, ptr %23, align 8, !tbaa !42
   %26 = fmul nsz double %25, 1.280000e+02
   %27 = tail call i64 @llvm.lrint.i64.f64(double %26)
@@ -2221,8 +2221,8 @@ define internal void @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %36 = trunc i64 %35 to i32
   %37 = add i32 %36, 128
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %.0.i4252 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
-  %.0.i42 = trunc nuw i32 %.0.i4252 to i8
+  %37 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
+  %38 = trunc nuw i32 %37 to i8
   store i8 %.0.i42, ptr %32, align 1, !tbaa !29
   %39 = getelementptr inbounds i8, ptr %31, i64 %11
   %40 = getelementptr inbounds i8, ptr %32, i64 %12
@@ -2237,10 +2237,10 @@ define internal void @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   store i8 %.0.i45, ptr %40, align 1, !tbaa !29
   %47 = getelementptr inbounds i8, ptr %39, i64 %11
   %48 = getelementptr inbounds i8, ptr %40, i64 %12
-  %49 = icmp ult ptr %48, %9
-  br i1 %49, label %16, label %.preheader, !llvm.loop !86
+  %.not.i43 = icmp ult ptr %48, %9
+  br i1 %.not.i43, label %16, label %.preheader, !llvm.loop !86
 
-50:                                               ; preds = %.lr.ph59, %50
+50:; preds = %.lr.ph59, %50
   %.158 = phi ptr [ %.0.lcssa, %.lr.ph59 ], [ %58, %50 ]
   %.13657 = phi ptr [ %.035.lcssa, %.lr.ph59 ], [ %57, %50 ]
   %51 = load double, ptr %.13657, align 8, !tbaa !42
@@ -2257,7 +2257,7 @@ define internal void @conv_AV_SAMPLE_FMT_DBL_to_AV_SAMPLE_FMT_U8(ptr noundef wri
   %59 = icmp ult ptr %58, %4
   br i1 %59, label %50, label %._crit_edge, !llvm.loop !87
 
-._crit_edge:                                      ; preds = %50, %.preheader
+._crit_edge:; preds = %50, %.preheader
   ret void
 }
 

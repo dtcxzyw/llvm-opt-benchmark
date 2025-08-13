@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #5
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %59, label %9
+  br i1 %8, label %61, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -44,7 +44,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = icmp eq i32 %21, 8
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %38
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -63,50 +63,50 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %.0.i3136.i = tail call i32 @llvm.umin.i32(i32 %35, i32 255)
   br label %config_input.exit
 
-36:                                               ; preds = %9
+38:                                               ; preds = %9
   %notmask.i = shl nsw i32 -1, %21
-  %37 = xor i32 %notmask.i, -1
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  store i32 %37, ptr %38, align 4, !tbaa !39
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %40 = load double, ptr %39, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %42 = load double, ptr %41, align 8, !tbaa !38
-  %43 = fadd nsz double %40, %42
-  %44 = uitofp nneg i32 %37 to double
-  %45 = fmul nsz double %43, %44
-  %46 = fptosi double %45 to i32
-  %47 = icmp slt i32 %46, 0
-  %..i.i = tail call i32 @llvm.smin.i32(i32 %46, i32 %37)
-  %.0.i32.i = select i1 %47, i32 0, i32 %..i.i
-  %48 = fsub nsz double %40, %42
-  %49 = fmul nsz double %48, %44
-  %50 = fptosi double %49 to i32
-  %51 = icmp slt i32 %50, 0
-  %..i33.i = tail call i32 @llvm.smin.i32(i32 %50, i32 %37)
-  %.0.i34.i = select i1 %51, i32 0, i32 %..i33.i
+  %39 = xor i32 %notmask.i, -1
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 44
+  store i32 %39, ptr %40, align 4, !tbaa !39
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %42 = load double, ptr %41, align 8, !tbaa !35
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %44 = load double, ptr %43, align 8, !tbaa !38
+  %45 = fadd nsz double %42, %44
+  %46 = uitofp nneg i32 %39 to double
+  %47 = fmul nsz double %45, %46
+  %48 = fptosi double %47 to i32
+  %49 = icmp slt i32 %48, 0
+  %..i.i = tail call i32 @llvm.smin.i32(i32 %48, i32 %39)
+  %.0.i32.i = select i1 %49, i32 0, i32 %..i.i
+  %50 = fsub nsz double %42, %44
+  %51 = fmul nsz double %50, %46
+  %52 = fptosi double %51 to i32
+  %53 = icmp slt i32 %52, 0
+  %..i33.i = tail call i32 @llvm.smin.i32(i32 %52, i32 %39)
+  %.0.i34.i = select i1 %53, i32 0, i32 %..i33.i
   br label %config_input.exit
 
-config_input.exit:                                ; preds = %23, %36
-  %.sink38.i = phi double [ %44, %36 ], [ 2.550000e+02, %23 ]
-  %.0.i32.sink.i = phi i32 [ %.0.i32.i, %36 ], [ %.0.i35.i, %23 ]
-  %.0.i34.sink.i = phi i32 [ %.0.i34.i, %36 ], [ %.0.i3136.i, %23 ]
-  %do_lumakey_slice16.sink.i = phi ptr [ @do_lumakey_slice16, %36 ], [ @do_lumakey_slice8, %23 ]
-  %52 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %53 = load double, ptr %52, align 8, !tbaa !40
-  %54 = fmul nsz double %.sink38.i, %53
-  %.sink.i = fptosi double %54 to i32
-  %55 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 %.0.i32.sink.i, ptr %55, align 8, !tbaa !41
-  %56 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i32 %.0.i34.sink.i, ptr %56, align 4, !tbaa !42
-  %57 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr %do_lumakey_slice16.sink.i, ptr %57, align 8, !tbaa !43
-  %58 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i32 %.sink.i, ptr %58, align 8, !tbaa !44
-  br label %59
+config_input.exit:                                ; preds = %23, %38
+  %.sink36.i = phi double [ %46, %38 ], [ 2.550000e+02, %23 ]
+  %.0.i32.sink.i = phi i32 [ %.0.i32.i, %38 ], [ %.0.i35.i, %23 ]
+  %.0.i34.sink.i = phi i32 [ %.0.i34.i, %38 ], [ %.0.i3136.i, %23 ]
+  %do_lumakey_slice16.sink.i = phi ptr [ @do_lumakey_slice16, %38 ], [ @do_lumakey_slice8, %23 ]
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %55 = load double, ptr %54, align 8, !tbaa !40
+  %56 = fmul nsz double %.sink36.i, %55
+  %.sink.i = fptosi double %56 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i32 %.0.i32.sink.i, ptr %57, align 8, !tbaa !41
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 36
+  store i32 %.0.i34.sink.i, ptr %58, align 4, !tbaa !42
+  %59 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store ptr %do_lumakey_slice16.sink.i, ptr %59, align 8, !tbaa !43
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i32 %.sink.i, ptr %60, align 8, !tbaa !44
+  br label %61
 
-59:                                               ; preds = %6, %config_input.exit
+61:                                               ; preds = %6, %config_input.exit
   %.0 = phi i32 [ 0, %config_input.exit ], [ %7, %6 ]
   ret i32 %.0
 }
@@ -168,49 +168,49 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %23 = fptosi double %22 to i32
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %.0.i3136 = tail call i32 @llvm.umin.i32(i32 %24, i32 255)
-  br label %41
+  br label %43
 
-25:                                               ; preds = %1
+25:; preds = %1
   %notmask = shl nsw i32 -1, %10
-  %26 = xor i32 %notmask, -1
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i32 %26, ptr %27, align 4, !tbaa !39
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %29 = load double, ptr %28, align 8, !tbaa !35
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %31 = load double, ptr %30, align 8, !tbaa !38
-  %32 = fadd nsz double %29, %31
-  %33 = uitofp nneg i32 %26 to double
-  %34 = fmul nsz double %32, %33
-  %35 = fptosi double %34 to i32
-  %36 = icmp slt i32 %35, 0
-  %..i = tail call i32 @llvm.smin.i32(i32 %35, i32 %26)
-  %.0.i32 = select i1 %36, i32 0, i32 %..i
-  %37 = fsub nsz double %29, %31
-  %38 = fmul nsz double %37, %33
-  %39 = fptosi double %38 to i32
-  %40 = icmp slt i32 %39, 0
-  %..i33 = tail call i32 @llvm.smin.i32(i32 %39, i32 %26)
-  %.0.i34 = select i1 %40, i32 0, i32 %..i33
-  br label %41
+  %28 = xor i32 %notmask, -1
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  store i32 %28, ptr %29, align 4, !tbaa !39
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = load double, ptr %30, align 8, !tbaa !35
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %33 = load double, ptr %32, align 8, !tbaa !38
+  %34 = fadd nsz double %31, %33
+  %35 = uitofp nneg i32 %28 to double
+  %36 = fmul nsz double %34, %35
+  %37 = fptosi double %36 to i32
+  %38 = icmp slt i32 %37, 0
+  %..i = tail call i32 @llvm.smin.i32(i32 %37, i32 %28)
+  %.0.i32 = select i1 %38, i32 0, i32 %..i
+  %39 = fsub nsz double %31, %33
+  %40 = fmul nsz double %39, %35
+  %41 = fptosi double %40 to i32
+  %42 = icmp slt i32 %41, 0
+  %..i33 = tail call i32 @llvm.smin.i32(i32 %41, i32 %28)
+  %.0.i34 = select i1 %42, i32 0, i32 %..i33
+  br label %43
 
-41:                                               ; preds = %25, %12
-  %.sink38 = phi double [ %33, %25 ], [ 2.550000e+02, %12 ]
+43:                                               ; preds = %25, %12
+  %.sink36 = phi double [ %35, %25 ], [ 2.550000e+02, %12 ]
   %.0.i32.sink = phi i32 [ %.0.i32, %25 ], [ %.0.i35, %12 ]
   %.0.i34.sink = phi i32 [ %.0.i34, %25 ], [ %.0.i3136, %12 ]
   %do_lumakey_slice16.sink = phi ptr [ @do_lumakey_slice16, %25 ], [ @do_lumakey_slice8, %12 ]
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %43 = load double, ptr %42, align 8, !tbaa !40
-  %44 = fmul nsz double %43, %.sink38
-  %.sink = fptosi double %44 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %.0.i32.sink, ptr %45, align 8, !tbaa !41
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 %.0.i34.sink, ptr %46, align 4, !tbaa !42
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %do_lumakey_slice16.sink, ptr %47, align 8, !tbaa !43
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %.sink, ptr %48, align 8, !tbaa !44
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %45 = load double, ptr %44, align 8, !tbaa !40
+  %46 = fmul nsz double %45, %.sink36
+  %.sink = fptosi double %46 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %.0.i32.sink, ptr %47, align 8, !tbaa !41
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 %.0.i34.sink, ptr %48, align 4, !tbaa !42
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %do_lumakey_slice16.sink, ptr %49, align 8, !tbaa !43
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 %.sink, ptr %50, align 8, !tbaa !44
   ret i32 0
 }
 

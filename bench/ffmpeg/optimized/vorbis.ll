@@ -428,13 +428,13 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %12 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %.0.i
   %13 = load float, ptr %12, align 4, !tbaa !32
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw float, ptr %4, i64 %14
-  store float %13, ptr %15, align 4, !tbaa !32
+  %14 = getelementptr inbounds nuw float, ptr %4, i64 %14
+  store float %13, ptr %14, align 4, !tbaa !32
   %16 = shl nuw nsw i32 %9, 1
   %.not = icmp sgt i32 %16, %7
   br i1 %.not, label %48, label %17
 
-17:                                               ; preds = %5
+17:; preds = %5
   %18 = add nsw i32 %2, -1
   %19 = sext i32 %18 to i64
   %20 = sub nsw i64 %14, %19
@@ -442,11 +442,11 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %22 = icmp slt i64 %20, -1
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %17
+.lr.ph.i:; preds = %17
   %23 = sub nsw i32 %9, %7
   br label %24
 
-24:                                               ; preds = %36, %.lr.ph.i
+24:; preds = %36, %.lr.ph.i
   %.046.i = phi i32 [ %8, %.lr.ph.i ], [ %.1.i, %36 ]
   %.02745.i = phi i64 [ %20, %.lr.ph.i ], [ %.128.i, %36 ]
   %.02944.i = phi i32 [ %1, %.lr.ph.i ], [ %.130.i, %36 ]
@@ -455,7 +455,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %._crit_edge49.i
 
-._crit_edge49.i:                                  ; preds = %24
+._crit_edge49.i:; preds = %24
   %.pre.i = tail call i32 @llvm.smax.i32(i32 %.02944.i, i32 0)
   %.pre50.i = tail call i32 @llvm.umin.i32(i32 %.pre.i, i32 255)
   %.pre51.i = zext nneg i32 %.pre50.i to i64
@@ -463,37 +463,37 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !32
   br label %36
 
-28:                                               ; preds = %24
-  %29 = add nsw i32 %23, %26
+28:; preds = %24
+  %32 = add nsw i32 %23, %26
   %30 = add i32 %.02944.i, %10
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %.0.i4042.i = tail call i32 @llvm.umin.i32(i32 %31, i32 255)
-  %.0.i40.i = zext nneg i32 %.0.i4042.i to i64
-  %32 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %.0.i40.i
+  %34 = zext nneg i32 %.0.i4042.i to i64
+  %32 = getelementptr inbounds nuw [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %34
   %33 = load float, ptr %32, align 4, !tbaa !32
   %34 = add nsw i64 %.02745.i, 2
   %35 = getelementptr inbounds float, ptr %21, i64 %25
   store float %33, ptr %35, align 4, !tbaa !32
   br label %36
 
-36:                                               ; preds = %28, %._crit_edge49.i
+36:; preds = %28, %._crit_edge49.i
   %37 = phi float [ %.pre, %._crit_edge49.i ], [ %33, %28 ]
   %.130.i = phi i32 [ %.02944.i, %._crit_edge49.i ], [ %30, %28 ]
-  %.128.i = phi i64 [ %25, %._crit_edge49.i ], [ %34, %28 ]
-  %.1.i = phi i32 [ %26, %._crit_edge49.i ], [ %29, %28 ]
-  %38 = getelementptr inbounds float, ptr %21, i64 %.128.i
+  %.pre-phi.i = phi i64 [ %25, %._crit_edge49.i ], [ %34, %28 ]
+  %.130.i = phi i32 [ %26, %._crit_edge49.i ], [ %32, %28 ]
+  %38 = getelementptr inbounds float, ptr %21, i64 %.pre-phi.i
   store float %37, ptr %38, align 4, !tbaa !32
-  %39 = icmp slt i64 %.128.i, -1
+  %.not.i35.i = icmp slt i64 %.128.i, -1
   br i1 %39, label %24, label %._crit_edge.i, !llvm.loop !34
 
-._crit_edge.i:                                    ; preds = %36, %17
+._crit_edge.i:     ; preds = %36, %17
   %.029.lcssa.i = phi i32 [ %1, %17 ], [ %.130.i, %36 ]
   %.027.lcssa.i = phi i64 [ %20, %17 ], [ %.128.i, %36 ]
   %.0.lcssa.i = phi i32 [ %8, %17 ], [ %.1.i, %36 ]
   %40 = icmp slt i64 %.027.lcssa.i, 0
   br i1 %40, label %41, label %render_line_unrolled.exit
 
-41:                                               ; preds = %._crit_edge.i
+41:  ; preds = %._crit_edge.i
   %42 = add nsw i32 %.0.lcssa.i, %9
   %43 = icmp slt i32 %42, 0
   %44 = select i1 %43, i32 0, i32 %10
@@ -506,31 +506,31 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   store float %47, ptr %21, align 4, !tbaa !32
   br label %render_line_unrolled.exit
 
-48:                                               ; preds = %5
-  %49 = sdiv i32 %6, %7
-  %50 = tail call i32 @llvm.abs.i32(i32 %49, i1 true)
-  %51 = mul nsw i32 %50, %7
-  %52 = sub nsw i32 %9, %51
-  %53 = add nuw nsw i32 %0, 1
-  %54 = icmp samesign ult i32 %53, %2
-  br i1 %54, label %.lr.ph.preheader, label %render_line_unrolled.exit
+57:                                               ; preds = %5
+  %58 = sdiv i32 %6, %7
+  %59 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
+  %60 = mul nsw i32 %59, %7
+  %61 = sub nsw i32 %9, %60
+  %62 = add nuw nsw i32 %0, 1
+  %63 = icmp samesign ult i32 %62, %2
+  br i1 %63, label %.lr.ph.preheader, label %render_line_unrolled.exit
 
-.lr.ph.preheader:                                 ; preds = %48
-  %55 = add nuw nsw i64 %14, 1
+.lr.ph.preheader:                                 ; preds = %57
+  %64 = add nuw nsw i64 %14, 1
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %55, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.057 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %.04356 = phi i32 [ %1, %.lr.ph.preheader ], [ %.144, %.lr.ph ]
-  %56 = add nsw i32 %.04356, %49
-  %57 = add nsw i32 %.057, %52
-  %58 = icmp sgt i32 %57, -1
-  %59 = select i1 %58, i32 %10, i32 0
-  %.144 = add nsw i32 %56, %59
-  %60 = select i1 %58, i32 %7, i32 0
-  %.1 = sub nsw i32 %57, %60
+  %indvars.iv = phi i64 [ %64, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.055 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
+  %.04354 = phi i32 [ %1, %.lr.ph.preheader ], [ %.144, %.lr.ph ]
+  %65 = add nsw i32 %.04354, %58
+  %66 = add nsw i32 %.055, %61
+  %67 = icmp sgt i32 %66, -1
+  %68 = select i1 %67, i32 %10, i32 0
+  %.144 = add nsw i32 %65, %68
+  %69 = select i1 %67, i32 %7, i32 0
+  %.1 = sub nsw i32 %66, %69
   %61 = tail call i32 @llvm.smax.i32(i32 %.144, i32 0)
   %.0.i5355 = tail call i32 @llvm.umin.i32(i32 %61, i32 255)
   %.0.i53 = zext nneg i32 %.0.i5355 to i64
@@ -542,7 +542,7 @@ define internal fastcc void @render_line(i32 noundef range(i32 0, 65536) %0, i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %render_line_unrolled.exit, label %.lr.ph, !llvm.loop !35
 
-render_line_unrolled.exit:                        ; preds = %.lr.ph, %48, %41, %._crit_edge.i
+render_line_unrolled.exit:                        ; preds = %.lr.ph, %57, %41, %._crit_edge.i
   ret void
 }
 

@@ -12863,9 +12863,9 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %.06.i = tail call i32 @llvm.umin.i32(i32 %193, i32 255)
   %.0.i = trunc nuw i32 %.06.i to i8
   store i8 %.0.i, ptr %.0201220, align 1, !tbaa !21
-  %194 = sub nsw i32 %186, %178
-  %195 = ashr i32 %194, 17
-  %196 = tail call i32 @llvm.smax.i32(i32 %195, i32 0)
+  %196 = sub nsw i32 %186, %178
+  %197 = ashr i32 %196, 17
+  %196 = tail call i32 @llvm.smax.i32(i32 %197, i32 0)
   %.06.i203 = tail call i32 @llvm.umin.i32(i32 %196, i32 255)
   %.0.i204 = trunc nuw i32 %.06.i203 to i8
   %197 = getelementptr inbounds nuw i8, ptr %.0201220, i64 7
@@ -12914,11 +12914,11 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   store i8 %.0.i216, ptr %221, align 1, !tbaa !21
   %222 = add nuw nsw i32 %.1222, 1
   %223 = getelementptr inbounds nuw i8, ptr %.1200221, i64 32
-  %224 = getelementptr inbounds i8, ptr %.0201220, i64 %5
+  %225 = getelementptr inbounds i8, ptr %.0201220, i64 %5
   %exitcond223.not = icmp eq i32 %222, 8
   br i1 %exitcond223.not, label %225, label %133, !llvm.loop !172
 
-225:                                              ; preds = %133
+225:; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

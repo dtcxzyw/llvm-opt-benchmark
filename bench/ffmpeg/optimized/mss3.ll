@@ -2497,15 +2497,15 @@ define internal fastcc void @decode_haar_block(ptr noundef captures(none) %0, pt
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 2340
   %28 = zext nneg i32 %4 to i64
   %29 = zext nneg i32 %7 to i64
-  br label %.preheader110
+  br label %.preheader106
 
-.preheader110:                                    ; preds = %6, %292
-  %.0118 = phi i32 [ 0, %6 ], [ %294, %292 ]
-  %.079117 = phi ptr [ %5, %6 ], [ %293, %292 ]
-  %30 = icmp samesign ult i32 %.0118, %7
+.preheader106:                                    ; preds = %6, %292
+  %.0114 = phi i32 [ 0, %6 ], [ %294, %292 ]
+  %.079113 = phi ptr [ %5, %6 ], [ %293, %292 ]
+  %30 = icmp samesign ult i32 %.0114, %7
   br label %31
 
-31:                                               ; preds = %.preheader110, %model256_update.exit
+31:                                               ; preds = %.preheader106, %model256_update.exit
   %indvars.iv = phi i64 [ 0, %.preheader110 ], [ %indvars.iv.next, %model256_update.exit ]
   %32 = icmp samesign ult i64 %indvars.iv, %29
   %or.cond = select i1 %32, i1 %30, i1 false
@@ -3067,10 +3067,10 @@ rac_get_bits.exit.i:                              ; preds = %282, %254
 
 model256_update.exit:                             ; preds = %286, %rac_get_model_sym.exit, %._crit_edge59.i, %rac_get_model256_sym.exit
   %.0.i95.sink = phi i32 [ %.0.lcssa.i, %rac_get_model256_sym.exit ], [ %.0.lcssa.i, %._crit_edge59.i ], [ 0, %rac_get_model_sym.exit ], [ %spec.select.i, %286 ]
-  %288 = getelementptr inbounds nuw i32, ptr %.079117, i64 %indvars.iv
+  %288 = getelementptr inbounds nuw i32, ptr %.079113, i64 %indvars.iv
   store i32 %.0.i95.sink, ptr %288, align 4, !tbaa !56
   %289 = load i32, ptr %8, align 4, !tbaa !106
-  %290 = getelementptr inbounds nuw i32, ptr %.079117, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw i32, ptr %.079113, i64 %indvars.iv
   %291 = mul nsw i32 %.0.i95.sink, %289
   store i32 %291, ptr %290, align 4, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3078,10 +3078,10 @@ model256_update.exit:                             ; preds = %286, %rac_get_model
   br i1 %exitcond.not, label %292, label %31, !llvm.loop !118
 
 292:                                              ; preds = %model256_update.exit
-  %293 = getelementptr inbounds nuw i32, ptr %.079117, i64 %28
-  %294 = add nuw nsw i32 %.0118, 1
-  %exitcond130.not = icmp eq i32 %294, %4
-  br i1 %exitcond130.not, label %.preheader.lr.ph, label %.preheader110, !llvm.loop !119
+  %293 = getelementptr inbounds nuw i32, ptr %.079113, i64 %28
+  %294 = add nuw nsw i32 %.0114, 1
+  %exitcond126.not = icmp eq i32 %294, %4
+  br i1 %exitcond126.not, label %.preheader.lr.ph, label %.preheader106, !llvm.loop !119
 
 .preheader.lr.ph:                                 ; preds = %292
   %295 = mul nuw nsw i32 %4, %4
@@ -3096,25 +3096,25 @@ model256_update.exit:                             ; preds = %286, %rac_get_model
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %328
-  %.1122 = phi i32 [ 0, %.preheader.lr.ph ], [ %331, %328 ]
-  %.078121 = phi ptr [ %2, %.preheader.lr.ph ], [ %330, %328 ]
-  %.180120 = phi ptr [ %298, %.preheader.lr.ph ], [ %329, %328 ]
-  %303 = getelementptr i8, ptr %.078121, i64 %3
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %.180120, i64 %29
-  %invariant.gep144 = getelementptr inbounds nuw i32, ptr %.180120, i64 %302
-  %invariant.gep146 = getelementptr inbounds nuw i32, ptr %.180120, i64 %301
+  %.1118 = phi i32 [ 0, %.preheader.lr.ph ], [ %331, %328 ]
+  %.078117 = phi ptr [ %2, %.preheader.lr.ph ], [ %330, %328 ]
+  %.180116 = phi ptr [ %298, %.preheader.lr.ph ], [ %329, %328 ]
+  %303 = getelementptr i8, ptr %.078117, i64 %3
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %.180116, i64 %29
+  %invariant.gep140 = getelementptr inbounds nuw i32, ptr %.180116, i64 %302
+  %invariant.gep142 = getelementptr inbounds nuw i32, ptr %.180116, i64 %301
   br label %304
 
 304:                                              ; preds = %.preheader, %304
-  %indvars.iv131 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next132, %304 ]
-  %305 = getelementptr inbounds nuw i32, ptr %.180120, i64 %indvars.iv131
+  %indvars.iv127 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next132, %304 ]
+  %305 = getelementptr inbounds nuw i32, ptr %.180116, i64 %indvars.iv127
   %306 = load i32, ptr %305, align 4, !tbaa !56
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv131
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv127
   %307 = load i32, ptr %gep, align 4, !tbaa !56
-  %gep145 = getelementptr inbounds nuw i32, ptr %invariant.gep144, i64 %indvars.iv131
-  %308 = load i32, ptr %gep145, align 4, !tbaa !56
-  %gep147 = getelementptr inbounds nuw i32, ptr %invariant.gep146, i64 %indvars.iv131
-  %309 = load i32, ptr %gep147, align 4, !tbaa !56
+  %gep141 = getelementptr inbounds nuw i32, ptr %invariant.gep140, i64 %indvars.iv127
+  %308 = load i32, ptr %gep141, align 4, !tbaa !56
+  %gep143 = getelementptr inbounds nuw i32, ptr %invariant.gep142, i64 %indvars.iv127
+  %309 = load i32, ptr %gep143, align 4, !tbaa !56
   %310 = sub nsw i32 %306, %307
   %311 = sub nsw i32 %308, %309
   %312 = add nsw i32 %307, %306
@@ -3145,13 +3145,13 @@ model256_update.exit:                             ; preds = %286, %rac_get_model
   %.0.i92 = trunc nuw i32 %.0.i92109 to i8
   %327 = getelementptr i8, ptr %303, i64 %323
   store i8 %.0.i92, ptr %327, align 1, !tbaa !49
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next132, %29
-  br i1 %exitcond136.not, label %328, label %304, !llvm.loop !120
+  %328 = add nuw nsw i64 %indvars.iv131, 1
+  %.not.i90 = icmp eq i64 %328, %29
+  br i1 %.not.i90, label %328, label %304, !llvm.loop !120
 
-328:                                              ; preds = %304
+328:; preds = %304
   %329 = getelementptr inbounds nuw i32, ptr %.180120, i64 %28
-  %330 = getelementptr inbounds i8, ptr %.078121, i64 %300
+  %331 = getelementptr inbounds i8, ptr %.078121, i64 %300
   %331 = add nuw nsw i32 %.1122, 1
   %exitcond137.not = icmp eq i32 %331, %7
   br i1 %exitcond137.not, label %._crit_edge, label %.preheader, !llvm.loop !121

@@ -188,9 +188,9 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %26
-  %indvars.iv25 = phi i64 [ 0, %3 ], [ %indvars.iv.next26, %26 ]
-  %4 = mul nsw i64 %1, %indvars.iv25
+.preheader:                                       ; preds = %3, %28
+  %indvars.iv22 = phi i64 [ 0, %3 ], [ %indvars.iv.next23, %26 ]
+  %4 = mul nsw i64 %1, %indvars.iv22
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -215,29 +215,29 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   %.0.i1617 = tail call i32 @llvm.umin.i32(i32 %20, i32 255)
   %.0.i16 = trunc nuw i32 %.0.i1617 to i8
   store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %21 = add nsw i32 %17, %16
-  %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %22 = add nsw i32 %17, %16
+  %22 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
   %.0.i1318 = tail call i32 @llvm.umin.i32(i32 %22, i32 255)
   %.0.i13 = trunc nuw i32 %.0.i1318 to i8
   store i8 %.0.i13, ptr %9, align 1, !tbaa !23
-  %23 = add nuw nsw i32 %8, %11
-  %reass.sub = sub nsw i32 %16, %23
+  %25 = add nuw nsw i32 %8, %11
+  %reass.sub = sub nsw i32 %16, %25
   %24 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -256)
   %25 = add nsw i32 %24, 256
   %.0.i19 = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
-  %.0.i = trunc nuw i32 %.0.i19 to i8
+  %27 = trunc nuw i32 %.0.i19 to i8
   store i8 %.0.i, ptr %12, align 1, !tbaa !23
   store i8 %13, ptr %14, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %26, label %5, !llvm.loop !29
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !29
 
-26:                                               ; preds = %5
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 4
-  br i1 %exitcond28.not, label %27, label %.preheader, !llvm.loop !30
+28:                                               ; preds = %5
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 4
+  br i1 %exitcond25.not, label %29, label %.preheader, !llvm.loop !30
 
-27:                                               ; preds = %26
+29:                                               ; preds = %28
   ret i32 16
 }
 
@@ -246,9 +246,9 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %26
-  %indvars.iv26 = phi i64 [ 0, %3 ], [ %indvars.iv.next27, %26 ]
-  %4 = mul nsw i64 %1, %indvars.iv26
+.preheader:                                       ; preds = %3, %29
+  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %26 ]
+  %4 = mul nsw i64 %1, %indvars.iv23
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -278,28 +278,28 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   %.0.i1620 = tail call i32 @llvm.umin.i32(i32 %20, i32 255)
   %.0.i16 = trunc nuw i32 %.0.i1620 to i8
   store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %21 = add nsw i32 %.sext19, %14
-  %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %22 = add nsw i32 %.sext19, %14
+  %22 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
   %.0.i1321 = tail call i32 @llvm.umin.i32(i32 %22, i32 255)
   %.0.i13 = trunc nuw i32 %.0.i1321 to i8
   store i8 %.0.i13, ptr %8, align 1, !tbaa !23
-  %23 = add nsw i32 %.sext, %.sext19
-  %24 = sub nsw i32 %14, %23
-  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
+  %25 = add nsw i32 %.sext, %.sext19
+  %26 = sub nsw i32 %14, %25
+  %25 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %.0.i22 = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
-  %.0.i = trunc nuw i32 %.0.i22 to i8
+  %27 = trunc nuw i32 %.0.i22 to i8
   store i8 %.0.i, ptr %10, align 1, !tbaa !23
   store i8 -1, ptr %12, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %26, label %5, !llvm.loop !31
+  br i1 %exitcond.not, label %29, label %5, !llvm.loop !31
 
-26:                                               ; preds = %5
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond29.not = icmp eq i64 %indvars.iv.next27, 4
-  br i1 %exitcond29.not, label %27, label %.preheader, !llvm.loop !32
+29:                                               ; preds = %5
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
+  br i1 %exitcond26.not, label %30, label %.preheader, !llvm.loop !32
 
-27:                                               ; preds = %26
+30:                                               ; preds = %29
   ret i32 16
 }
 

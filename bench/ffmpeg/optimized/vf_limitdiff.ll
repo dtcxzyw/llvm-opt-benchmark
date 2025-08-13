@@ -652,10 +652,10 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
   %.0.i = trunc nuw i32 %.0.i44 to i8
   br label %31
 
-31:                                               ; preds = %24, %11, %25
+31:; preds = %24, %11, %25
   %.sink = phi i8 [ %.0.i, %25 ], [ %13, %11 ], [ %16, %24 ]
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.sink, ptr %32, align 1, !tbaa !88
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  store i8 %.sink, ptr %33, align 1, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !89

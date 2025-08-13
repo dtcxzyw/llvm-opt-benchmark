@@ -99,64 +99,64 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %35 = fsub nsz float 1.000000e+00, %34
   %36 = fmul nsz float %32, %35
   %37 = icmp slt i32 %18, %21
-  br i1 %37, label %.lr.ph130, label %._crit_edge131
+  br i1 %37, label %.lr.ph126, label %._crit_edge127
 
-.lr.ph130:                                        ; preds = %4
+.lr.ph126:                                        ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load i32, ptr %39, align 8, !tbaa !47
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph130.split.preheader, label %._crit_edge131
+  br i1 %43, label %.lr.ph126.split.preheader, label %._crit_edge127
 
-.lr.ph130.split.preheader:                        ; preds = %.lr.ph130
+.lr.ph126.split.preheader:                        ; preds = %.lr.ph126
   %44 = sext i32 %14 to i64
   %45 = sext i32 %12 to i64
   %46 = sext i32 %10 to i64
   %47 = sext i32 %8 to i64
-  br label %.lr.ph130.split
+  br label %.lr.ph126.split
 
-.lr.ph130.split:                                  ; preds = %.lr.ph130.split.preheader, %._crit_edge
-  %48 = phi i32 [ %105, %._crit_edge ], [ %42, %.lr.ph130.split.preheader ]
-  %.0106128 = phi i32 [ %106, %._crit_edge ], [ %18, %.lr.ph130.split.preheader ]
+.lr.ph126.split:                                  ; preds = %.lr.ph126.split.preheader, %._crit_edge
+  %48 = phi i32 [ %106, %._crit_edge ], [ %42, %.lr.ph130.split.preheader ]
+  %.0106124 = phi i32 [ %107, %._crit_edge ], [ %18, %.lr.ph130.split.preheader ]
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph130.split
+.lr.ph.preheader:                                 ; preds = %.lr.ph126.split
   %50 = load ptr, ptr %1, align 8, !tbaa !48
   %51 = load i32, ptr %38, align 8, !tbaa !38
-  %52 = mul nsw i32 %51, %.0106128
+  %52 = mul nsw i32 %51, %.0106124
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %50, i64 %53
   %invariant.gep = getelementptr i8, ptr %54, i64 %47
-  %invariant.gep134 = getelementptr i8, ptr %54, i64 %46
-  %invariant.gep136 = getelementptr i8, ptr %54, i64 %45
-  %invariant.gep138 = getelementptr i8, ptr %54, i64 %44
+  %invariant.gep130 = getelementptr i8, ptr %54, i64 %46
+  %invariant.gep132 = getelementptr i8, ptr %54, i64 %45
+  %invariant.gep134 = getelementptr i8, ptr %54, i64 %44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %101
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
   %55 = shl nsw i64 %indvars.iv, 2
   %gep = getelementptr i8, ptr %invariant.gep, i64 %55
   %56 = load i8, ptr %gep, align 1, !tbaa !49
   %57 = uitofp i8 %56 to float
   %58 = fdiv nsz float %57, 2.550000e+02
-  %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %55
-  %59 = load i8, ptr %gep135, align 1, !tbaa !49
+  %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %55
+  %59 = load i8, ptr %gep131, align 1, !tbaa !49
   %60 = uitofp i8 %59 to float
   %61 = fdiv nsz float %60, 2.550000e+02
-  %gep137 = getelementptr i8, ptr %invariant.gep136, i64 %55
-  %62 = load i8, ptr %gep137, align 1, !tbaa !49
+  %gep133 = getelementptr i8, ptr %invariant.gep132, i64 %55
+  %62 = load i8, ptr %gep133, align 1, !tbaa !49
   %63 = uitofp i8 %62 to float
   %64 = fdiv nsz float %63, 2.550000e+02
   %65 = load i32, ptr %40, align 4, !tbaa !50
   %.not = icmp eq i32 %65, 0
   %. = select i1 %.not, float %64, float %61
-  %.145 = select i1 %.not, float %61, float %64
+  %.141 = select i1 %.not, float %61, float %64
   %66 = fmul nsz float %36, %.
   %67 = tail call nsz float @llvm.fmuladd.f32(float %58, float %31, float %66)
-  %68 = fsub nsz float %.145, %67
+  %68 = fsub nsz float %.141, %67
   %69 = fcmp nsz ogt float %68, 0.000000e+00
   %70 = select nsz i1 %69, float %68, float 0.000000e+00
   %71 = tail call nsz float @llvm.fmuladd.f32(float %70, float %25, float %58)
@@ -191,7 +191,7 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   store i8 %.0.i119, ptr %gep137, align 1, !tbaa !49
   %95 = load i32, ptr %41, align 8, !tbaa !51
   %.not113 = icmp eq i32 %95, 0
-  br i1 %.not113, label %101, label %96
+  br i1 %.not113, label %102, label %96
 
 96:                                               ; preds = %.lr.ph
   %97 = fsub nsz float 1.000000e+00, %70
@@ -204,20 +204,20 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   store i8 %.0.i122, ptr %gep139, align 1, !tbaa !49
   br label %101
 
-101:                                              ; preds = %96, %.lr.ph
+102:                                              ; preds = %96, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = load i32, ptr %39, align 8, !tbaa !47
-  %103 = sext i32 %102 to i64
-  %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  %103 = load i32, ptr %39, align 8, !tbaa !47
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next, %104
+  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %101, %.lr.ph130.split
-  %105 = phi i32 [ %48, %.lr.ph130.split ], [ %102, %101 ]
-  %106 = add nsw i32 %.0106128, 1
-  %exitcond.not = icmp eq i32 %106, %21
-  br i1 %exitcond.not, label %._crit_edge131, label %.lr.ph130.split, !llvm.loop !54
+._crit_edge:                                      ; preds = %102, %.lr.ph126.split
+  %106 = phi i32 [ %48, %.lr.ph130.split ], [ %103, %101 ]
+  %107 = add nsw i32 %.0106124, 1
+  %exitcond.not = icmp eq i32 %107, %21
+  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !54
 
-._crit_edge131:                                   ; preds = %._crit_edge, %.lr.ph130, %4
+._crit_edge127:                                   ; preds = %._crit_edge, %.lr.ph126, %4
   ret i32 0
 }
 

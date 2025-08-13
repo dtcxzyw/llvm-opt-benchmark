@@ -1339,7 +1339,7 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
   %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = sext i32 %21 to i64
   %23 = icmp slt i32 %16, %19
-  br i1 %23, label %.preheader.lr.ph, label %._crit_edge160
+  br i1 %23, label %.preheader.lr.ph, label %._crit_edge157
 
 .preheader.lr.ph:                                 ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1367,7 +1367,7 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  br i1 %27, label %.preheader.us.preheader, label %._crit_edge160
+  br i1 %27, label %.preheader.us.preheader, label %._crit_edge157
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %43 = load ptr, ptr %1, align 8, !tbaa !72
@@ -1391,21 +1391,21 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.089159.us = phi ptr [ %174, %._crit_edge.us ], [ %50, %.preheader.us.preheader ]
-  %.090158.us = phi ptr [ %175, %._crit_edge.us ], [ %54, %.preheader.us.preheader ]
-  %.091157.us = phi ptr [ %176, %._crit_edge.us ], [ %58, %.preheader.us.preheader ]
-  %.092156.us = phi i32 [ %177, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
+  %.089156.us = phi ptr [ %171, %._crit_edge.us ], [ %50, %.preheader.us.preheader ]
+  %.090155.us = phi ptr [ %172, %._crit_edge.us ], [ %54, %.preheader.us.preheader ]
+  %.091154.us = phi ptr [ %173, %._crit_edge.us ], [ %58, %.preheader.us.preheader ]
+  %.092153.us = phi i32 [ %174, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
   br label %61
 
 61:                                               ; preds = %.preheader.us, %172
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %172 ]
-  %62 = getelementptr inbounds i8, ptr %.089159.us, i64 %indvars.iv
+  %62 = getelementptr inbounds i8, ptr %.089156.us, i64 %indvars.iv
   %63 = load i8, ptr %62, align 1, !tbaa !73
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %.090158.us, i64 %indvars.iv
+  %65 = getelementptr inbounds i8, ptr %.090155.us, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1, !tbaa !73
   %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %.091157.us, i64 %indvars.iv
+  %68 = getelementptr inbounds i8, ptr %.091154.us, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1, !tbaa !73
   %70 = zext i8 %69 to i32
   %71 = tail call i32 @llvm.umin.i32(i32 %64, i32 %67)
@@ -1545,7 +1545,7 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
   %171 = trunc nuw i32 %170 to i8
   br label %172
 
-172:                                              ; preds = %108, %61
+172:  ; preds = %108, %61
   %.0149.us = phi i8 [ %63, %61 ], [ %165, %108 ]
   %.0148.us = phi i8 [ %66, %61 ], [ %168, %108 ]
   %.0147.us = phi i8 [ %69, %61 ], [ %171, %108 ]
@@ -1553,18 +1553,18 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
   store i8 %.0148.us, ptr %65, align 1, !tbaa !73
   store i8 %.0147.us, ptr %68, align 1, !tbaa !73
   %indvars.iv.next = add nsw i64 %indvars.iv, %59
-  %173 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %173, label %61, label %._crit_edge.us, !llvm.loop !74
+  %170 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %170, label %61, label %._crit_edge.us, !llvm.loop !74
 
 ._crit_edge.us:                                   ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %.089159.us, i64 %22
-  %175 = getelementptr inbounds i8, ptr %.090158.us, i64 %22
-  %176 = getelementptr inbounds i8, ptr %.091157.us, i64 %22
-  %177 = add nsw i32 %.092156.us, 1
-  %exitcond.not = icmp eq i32 %177, %19
-  br i1 %exitcond.not, label %._crit_edge160, label %.preheader.us, !llvm.loop !75
+  %171 = getelementptr inbounds i8, ptr %.089156.us, i64 %22
+  %172 = getelementptr inbounds i8, ptr %.090155.us, i64 %22
+  %173 = getelementptr inbounds i8, ptr %.091154.us, i64 %22
+  %174 = add nsw i32 %.092153.us, 1
+  %exitcond.not = icmp eq i32 %174, %19
+  br i1 %exitcond.not, label %._crit_edge157, label %.preheader.us, !llvm.loop !75
 
-._crit_edge160:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
+._crit_edge157:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
 }
 
@@ -1590,7 +1590,7 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
   %22 = sext i32 %21 to i64
   %23 = lshr i64 %22, 1
   %24 = icmp slt i32 %16, %19
-  br i1 %24, label %.preheader.lr.ph, label %._crit_edge160
+  br i1 %24, label %.preheader.lr.ph, label %._crit_edge157
 
 .preheader.lr.ph:                                 ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1618,7 +1618,7 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  br i1 %28, label %.preheader.us.preheader, label %._crit_edge160
+  br i1 %28, label %.preheader.us.preheader, label %._crit_edge157
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %44 = load ptr, ptr %1, align 8, !tbaa !72
@@ -1642,21 +1642,21 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.089159.us = phi ptr [ %178, %._crit_edge.us ], [ %51, %.preheader.us.preheader ]
-  %.090158.us = phi ptr [ %179, %._crit_edge.us ], [ %55, %.preheader.us.preheader ]
-  %.091157.us = phi ptr [ %180, %._crit_edge.us ], [ %59, %.preheader.us.preheader ]
-  %.092156.us = phi i32 [ %181, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
+  %.089156.us = phi ptr [ %175, %._crit_edge.us ], [ %51, %.preheader.us.preheader ]
+  %.090155.us = phi ptr [ %176, %._crit_edge.us ], [ %55, %.preheader.us.preheader ]
+  %.091154.us = phi ptr [ %177, %._crit_edge.us ], [ %59, %.preheader.us.preheader ]
+  %.092153.us = phi i32 [ %178, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
   br label %62
 
 62:                                               ; preds = %.preheader.us, %176
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %176 ]
-  %63 = getelementptr inbounds i16, ptr %.089159.us, i64 %indvars.iv
+  %63 = getelementptr inbounds i16, ptr %.089156.us, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !77
   %65 = zext i16 %64 to i32
-  %66 = getelementptr inbounds i16, ptr %.090158.us, i64 %indvars.iv
+  %66 = getelementptr inbounds i16, ptr %.090155.us, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2, !tbaa !77
   %68 = zext i16 %67 to i32
-  %69 = getelementptr inbounds i16, ptr %.091157.us, i64 %indvars.iv
+  %69 = getelementptr inbounds i16, ptr %.091154.us, i64 %indvars.iv
   %70 = load i16, ptr %69, align 2, !tbaa !77
   %71 = zext i16 %70 to i32
   %72 = tail call i32 @llvm.umin.i32(i32 %65, i32 %68)
@@ -1799,7 +1799,7 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
   %175 = trunc nuw i32 %174 to i16
   br label %176
 
-176:                                              ; preds = %109, %62
+176: ; preds = %109, %62
   %.0149.us = phi i16 [ %64, %62 ], [ %169, %109 ]
   %.0148.us = phi i16 [ %67, %62 ], [ %172, %109 ]
   %.0147.us = phi i16 [ %70, %62 ], [ %175, %109 ]
@@ -1807,18 +1807,18 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
   store i16 %.0148.us, ptr %66, align 2, !tbaa !77
   store i16 %.0147.us, ptr %69, align 2, !tbaa !77
   %indvars.iv.next = add nsw i64 %indvars.iv, %60
-  %177 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %177, label %62, label %._crit_edge.us, !llvm.loop !79
+  %174 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %174, label %62, label %._crit_edge.us, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %176
-  %178 = getelementptr inbounds nuw i16, ptr %.089159.us, i64 %23
-  %179 = getelementptr inbounds nuw i16, ptr %.090158.us, i64 %23
-  %180 = getelementptr inbounds nuw i16, ptr %.091157.us, i64 %23
-  %181 = add nsw i32 %.092156.us, 1
-  %exitcond.not = icmp eq i32 %181, %19
-  br i1 %exitcond.not, label %._crit_edge160, label %.preheader.us, !llvm.loop !80
+  %175 = getelementptr inbounds nuw i16, ptr %.089156.us, i64 %23
+  %176 = getelementptr inbounds nuw i16, ptr %.090155.us, i64 %23
+  %177 = getelementptr inbounds nuw i16, ptr %.091154.us, i64 %23
+  %178 = add nsw i32 %.092153.us, 1
+  %exitcond.not = icmp eq i32 %178, %19
+  br i1 %exitcond.not, label %._crit_edge157, label %.preheader.us, !llvm.loop !80
 
-._crit_edge160:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
+._crit_edge157:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
 }
 

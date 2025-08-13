@@ -333,7 +333,7 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   %38 = load float, ptr %37, align 8, !tbaa !40
   %39 = fsub nsz float %38, %33
   %40 = icmp slt i32 %18, %21
-  br i1 %40, label %.preheader.lr.ph, label %._crit_edge89
+  br i1 %40, label %.preheader.lr.ph, label %._crit_edge87
 
 .preheader.lr.ph:                                 ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -344,7 +344,7 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   %46 = icmp sgt i32 %14, 0
   %47 = sext i32 %45 to i64
   %48 = mul nsw i64 %43, %47
-  br i1 %46, label %.preheader.us.preheader, label %._crit_edge89
+  br i1 %46, label %.preheader.us.preheader, label %._crit_edge87
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %49 = load ptr, ptr %1, align 8, !tbaa !65
@@ -366,24 +366,24 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.088.us = phi ptr [ %92, %._crit_edge.us ], [ %53, %.preheader.us.preheader ]
-  %.07587.us = phi ptr [ %93, %._crit_edge.us ], [ %58, %.preheader.us.preheader ]
-  %.07686.us = phi ptr [ %94, %._crit_edge.us ], [ %62, %.preheader.us.preheader ]
-  %.07785.us = phi i32 [ %95, %._crit_edge.us ], [ %18, %.preheader.us.preheader ]
+  %.086.us = phi ptr [ %94, %._crit_edge.us ], [ %53, %.preheader.us.preheader ]
+  %.07585.us = phi ptr [ %95, %._crit_edge.us ], [ %58, %.preheader.us.preheader ]
+  %.07684.us = phi ptr [ %96, %._crit_edge.us ], [ %62, %.preheader.us.preheader ]
+  %.07783.us = phi i32 [ %97, %._crit_edge.us ], [ %18, %.preheader.us.preheader ]
   br label %64
 
 64:                                               ; preds = %.preheader.us, %64
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %64 ]
   %65 = mul nsw i64 %indvars.iv, %63
-  %66 = getelementptr inbounds i8, ptr %.088.us, i64 %65
+  %66 = getelementptr inbounds i8, ptr %.086.us, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !66
   %68 = uitofp i8 %67 to float
   %69 = fmul nsz float %10, %68
-  %70 = getelementptr inbounds nuw i8, ptr %.07587.us, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i8, ptr %.07585.us, i64 %indvars.iv
   %71 = load i8, ptr %70, align 1, !tbaa !66
   %72 = uitofp i8 %71 to float
   %73 = tail call nsz float @llvm.fmuladd.f32(float %72, float %10, float -5.000000e-01)
-  %74 = getelementptr inbounds nuw i8, ptr %.07686.us, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %.07684.us, i64 %indvars.iv
   %75 = load i8, ptr %74, align 1, !tbaa !66
   %76 = uitofp i8 %75 to float
   %77 = tail call nsz float @llvm.fmuladd.f32(float %76, float %10, float -5.000000e-01)
@@ -400,10 +400,10 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   %.0.i82.us = tail call i32 @llvm.umin.i32(i32 %87, i32 255)
   %.0.i.us = trunc nuw i32 %.0.i82.us to i8
   store i8 %.0.i.us, ptr %70, align 1, !tbaa !66
-  %88 = fadd nsz float %83, 5.000000e-01
-  %89 = fmul nsz float %8, %88
-  %90 = fptosi float %89 to i32
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %89 = fadd nsz float %83, 5.000000e-01
+  %90 = fmul nsz float %8, %89
+  %91 = fptosi float %90 to i32
+  %91 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
   %.0.i8183.us = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %.0.i81.us = trunc nuw i32 %.0.i8183.us to i8
   store i8 %.0.i81.us, ptr %74, align 1, !tbaa !66
@@ -412,14 +412,14 @@ define internal noundef i32 @colorcorrect_slice8(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !67
 
 ._crit_edge.us:                                   ; preds = %64
-  %92 = getelementptr inbounds i8, ptr %.088.us, i64 %48
-  %93 = getelementptr inbounds i8, ptr %.07587.us, i64 %24
-  %94 = getelementptr inbounds i8, ptr %.07686.us, i64 %27
-  %95 = add nsw i32 %.07785.us, 1
-  %exitcond92.not = icmp eq i32 %95, %21
-  br i1 %exitcond92.not, label %._crit_edge89, label %.preheader.us, !llvm.loop !68
+  %94 = getelementptr inbounds i8, ptr %.086.us, i64 %48
+  %95 = getelementptr inbounds i8, ptr %.07585.us, i64 %24
+  %96 = getelementptr inbounds i8, ptr %.07684.us, i64 %27
+  %97 = add nsw i32 %.07783.us, 1
+  %exitcond90.not = icmp eq i32 %97, %21
+  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !68
 
-._crit_edge89:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
+._crit_edge87:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
 }
 

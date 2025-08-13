@@ -102,15 +102,15 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   store i16 %80, ptr %17, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader22, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader21, label %4, !llvm.loop !11
 
-.preheader21:                                     ; preds = %.preheader22
+.preheader20:                                     ; preds = %.preheader21
   %81 = sext i32 %1 to i64
   br label %.preheader
 
-.preheader22:                                     ; preds = %4, %.preheader22
-  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.preheader22 ], [ 0, %4 ]
-  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv29
+.preheader21:                                     ; preds = %4, %.preheader21
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.preheader22 ], [ 0, %4 ]
+  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 80
   %84 = load i16, ptr %83, align 2, !tbaa !9
   %85 = sext i16 %84 to i32
@@ -211,37 +211,37 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   %173 = lshr i32 %172, 6
   %174 = trunc i32 %173 to i16
   store i16 %174, ptr %95, align 2, !tbaa !9
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %exitcond32.not = icmp eq i64 %indvars.iv.next30, 8
-  br i1 %exitcond32.not, label %.preheader21, label %.preheader22, !llvm.loop !13
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
+  br i1 %exitcond31.not, label %.preheader20, label %.preheader21, !llvm.loop !13
 
-.preheader:                                       ; preds = %.preheader21, %179
-  %indvars.iv37 = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next38, %179 ]
-  %.01926 = phi ptr [ %0, %.preheader21 ], [ %180, %179 ]
-  %.idx41 = shl nuw nsw i64 %indvars.iv37, 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx41
+.preheader:                                       ; preds = %.preheader20, %180
+  %indvars.iv36 = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next37, %179 ]
+  %.01925 = phi ptr [ %0, %.preheader21 ], [ %181, %179 ]
+  %.idx40 = shl nuw nsw i64 %indvars.iv36, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx40
   br label %175
 
 175:                                              ; preds = %.preheader, %175
-  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %175 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv33
+  %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %175 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv32
   %176 = load i16, ptr %gep, align 2, !tbaa !9
   %177 = tail call i16 @llvm.smax.i16(i16 %176, i16 0)
   %.0.i20 = tail call i16 @llvm.umin.i16(i16 %177, i16 255)
   %.0.i = trunc nuw i16 %.0.i20 to i8
   %178 = getelementptr inbounds nuw i8, ptr %.01926, i64 %indvars.iv33
   store i8 %.0.i, ptr %178, align 1, !tbaa !14
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
   br i1 %exitcond36.not, label %179, label %175, !llvm.loop !15
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %.01926, i64 %81
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 8
-  br i1 %exitcond40.not, label %181, label %.preheader, !llvm.loop !16
+180:                                              ; preds = %175
+  %181 = getelementptr inbounds i8, ptr %.01925, i64 %81
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
+  br i1 %exitcond39.not, label %182, label %.preheader, !llvm.loop !16
 
-181:                                              ; preds = %179
+182:                                              ; preds = %180
   ret void
 }
 

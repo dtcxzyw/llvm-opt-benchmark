@@ -19,19 +19,19 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
-  %.024.lver.orig = phi ptr [ %35, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %.01623.lver.orig = phi i32 [ %36, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %4 = getelementptr inbounds i8, ptr %.024.lver.orig, i64 -2
+  %.022.lver.orig = phi ptr [ %35, %.ph.lver.orig ], [ %0, %.lver.check ]
+  %.01621.lver.orig = phi i32 [ %36, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %4 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 -2
   %5 = load i8, ptr %4, align 1, !tbaa !10
   %6 = zext i8 %5 to i32
-  %7 = load i8, ptr %.024.lver.orig, align 1, !tbaa !10
+  %7 = load i8, ptr %.022.lver.orig, align 1, !tbaa !10
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %.024.lver.orig, i64 -1
+  %9 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !10
   %11 = zext i8 %10 to i32
   %12 = sub nsw i32 %8, %11
   %13 = mul nsw i32 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %.024.lver.orig, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.022.lver.orig, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %6, 4
@@ -53,8 +53,8 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
   %.0.i20.lver.orig = tail call i32 @llvm.umin.i32(i32 %32, i32 255)
   %.0.i.lver.orig = trunc nuw i32 %.0.i20.lver.orig to i8
   store i8 %.0.i.lver.orig, ptr %9, align 1, !tbaa !10
-  %33 = sub nsw i32 %8, %30
-  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %34 = sub nsw i32 %8, %30
+  %34 = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
   %.0.i1921.lver.orig = tail call i32 @llvm.umin.i32(i32 %34, i32 255)
   %.0.i19.lver.orig = trunc nuw i32 %.0.i1921.lver.orig to i8
   store i8 %.0.i19.lver.orig, ptr %.024.lver.orig, align 1, !tbaa !10
@@ -66,18 +66,18 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 -1
   %load_initial = load i8, ptr %scevgep, align 1
-  br label %37
+  br label %39
 
-37:                                               ; preds = %.ph, %37
+39:                                               ; preds = %.ph, %39
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i19, %37 ]
-  %.024 = phi ptr [ %0, %.ph ], [ %68, %37 ]
-  %.01623 = phi i32 [ 0, %.ph ], [ %69, %37 ]
-  %38 = getelementptr inbounds i8, ptr %.024, i64 -2
-  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %.022 = phi ptr [ %0, %.ph ], [ %68, %37 ]
+  %.01621 = phi i32 [ 0, %.ph ], [ %69, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.022, i64 -2
+  %41 = load i8, ptr %40, align 1, !tbaa !10
   %40 = zext i8 %39 to i32
   %41 = load i8, ptr %.024, align 1, !tbaa !10
   %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %.024, i64 -1
+  %43 = getelementptr inbounds i8, ptr %.022, i64 -1
   %44 = zext i8 %store_forwarded to i32
   %45 = sub nsw i32 %42, %44
   %46 = mul nsw i32 %45, 3
@@ -111,9 +111,9 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
   %68 = getelementptr inbounds nuw i8, ptr %.024, i64 %1
   %69 = add nuw nsw i32 %.01623, 1
   %exitcond.not = icmp eq i32 %69, 12
-  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.ph.lver.orig, %37
+.loopexit:; preds = %.ph.lver.orig, %37
   ret void
 }
 
@@ -126,19 +126,19 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   br label %7
 
 7:                                                ; preds = %3, %7
-  %.028 = phi ptr [ %0, %3 ], [ %41, %7 ]
-  %.02027 = phi i32 [ 0, %3 ], [ %42, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.028, i64 %4
+  %.026 = phi ptr [ %0, %3 ], [ %41, %7 ]
+  %.02025 = phi i32 [ 0, %3 ], [ %42, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.026, i64 %4
   %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = zext i8 %9 to i32
-  %11 = load i8, ptr %.028, align 1, !tbaa !10
+  %11 = load i8, ptr %.026, align 1, !tbaa !10
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %.028, i64 %5
+  %13 = getelementptr inbounds i8, ptr %.026, i64 %5
   %14 = load i8, ptr %13, align 1, !tbaa !10
   %15 = zext i8 %14 to i32
   %16 = sub nsw i32 %12, %15
   %17 = mul nsw i32 %16, 3
-  %18 = getelementptr inbounds i8, ptr %.028, i64 %1
+  %18 = getelementptr inbounds i8, ptr %.026, i64 %1
   %19 = load i8, ptr %18, align 1, !tbaa !10
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %10, 4
@@ -160,10 +160,10 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   %.0.i24 = tail call i32 @llvm.umin.i32(i32 %36, i32 255)
   %.0.i = trunc nuw i32 %.0.i24 to i8
   store i8 %.0.i, ptr %13, align 1, !tbaa !10
-  %37 = load i8, ptr %.028, align 1, !tbaa !10
-  %38 = zext i8 %37 to i32
-  %39 = sub nsw i32 %38, %34
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %38 = load i8, ptr %.026, align 1, !tbaa !10
+  %39 = zext i8 %38 to i32
+  %40 = sub nsw i32 %39, %34
+  %40 = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
   %.0.i2325 = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
   %.0.i23 = trunc nuw i32 %.0.i2325 to i8
   store i8 %.0.i23, ptr %.028, align 1, !tbaa !10
@@ -172,7 +172,7 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   %exitcond.not = icmp eq i32 %42, 12
   br i1 %exitcond.not, label %43, label %7, !llvm.loop !13
 
-43:                                               ; preds = %7
+43:; preds = %7
   ret void
 }
 

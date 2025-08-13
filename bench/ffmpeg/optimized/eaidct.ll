@@ -106,8 +106,8 @@ define void @ff_ea_idct_put_c(ptr noundef writeonly captures(none) %0, i64 nound
   br label %ea_idct_col.exit
 
 ea_idct_col.exit:                                 ; preds = %38, %41
-  %.sink129 = phi i16 [ %39, %38 ], [ %87, %41 ]
-  %.sink128 = phi i16 [ %39, %38 ], [ %85, %41 ]
+  %.sink121 = phi i16 [ %39, %38 ], [ %87, %41 ]
+  %.sink120 = phi i16 [ %39, %38 ], [ %85, %41 ]
   %.sink = phi i16 [ %39, %38 ], [ %83, %41 ]
   %.sink88.i = phi i64 [ 48, %38 ], [ 112, %41 ]
   %.sink86.i = phi i16 [ %39, %38 ], [ %89, %41 ]
@@ -115,9 +115,9 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %.sink84.i = phi i16 [ %39, %38 ], [ %74, %41 ]
   %.sink.i = phi i16 [ %39, %38 ], [ %71, %41 ]
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i16 %.sink129, ptr %90, align 2, !tbaa !4
+  store i16 %.sink121, ptr %90, align 2, !tbaa !4
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i16 %.sink128, ptr %91, align 2, !tbaa !4
+  store i16 %.sink120, ptr %91, align 2, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i16 %.sink, ptr %92, align 2, !tbaa !4
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink88.i
@@ -132,8 +132,8 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !8
 
 .preheader:                                       ; preds = %ea_idct_col.exit, %.preheader
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.preheader ], [ 0, %ea_idct_col.exit ]
-  %96 = shl nuw nsw i64 %indvars.iv124, 3
+  %indvars.iv116 = phi i64 [ %indvars.iv.next125, %.preheader ], [ 0, %ea_idct_col.exit ]
+  %96 = shl nuw nsw i64 %indvars.iv116, 3
   %97 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !4
@@ -221,9 +221,9 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %168 = ashr i32 %167, 4
   %169 = tail call i32 @llvm.smax.i32(i32 %168, i32 0)
   %.0.i100114 = tail call i32 @llvm.umin.i32(i32 %169, i32 255)
-  %.0.i100 = trunc nuw i32 %.0.i100114 to i8
+  %169 = trunc nuw i32 %.0.i100114 to i8
   %170 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  store i8 %.0.i100, ptr %170, align 1, !tbaa !10
+  store i8 %169, ptr %170, align 1, !tbaa !10
   %171 = sub nsw i32 %157, %144
   %172 = ashr i32 %171, 4
   %173 = tail call i32 @llvm.smax.i32(i32 %172, i32 0)
@@ -249,7 +249,7 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 8
   br i1 %exitcond127.not, label %183, label %.preheader, !llvm.loop !11
 
-183:                                              ; preds = %.preheader
+191:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

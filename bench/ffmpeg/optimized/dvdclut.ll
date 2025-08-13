@@ -19,13 +19,13 @@ define i32 @ff_dvdclut_palette_extradata_cat(ptr noundef readonly captures(none)
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %3
-  call void @av_bprint_init(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 137) #5
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str) #5
+  call void @av_bprint_init(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 137) #4
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str) #4
   br label %8
 
 6:                                                ; preds = %8
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #5
-  %7 = call i32 @ff_bprint_to_codecpar_extradata(ptr noundef %2, ptr noundef nonnull %4) #5
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #4
+  %7 = call i32 @ff_bprint_to_codecpar_extradata(ptr noundef %2, ptr noundef nonnull %4) #4
   br label %12
 
 8:                                                ; preds = %5, %8
@@ -34,7 +34,7 @@ define i32 @ff_dvdclut_palette_extradata_cat(ptr noundef readonly captures(none)
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %.not8 = icmp eq i64 %indvars.iv, 15
   %11 = select i1 %.not8, ptr @.str.3, ptr @.str.2
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i32 noundef %10, ptr noundef nonnull %11) #5
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i32 noundef %10, ptr noundef nonnull %11) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %6, label %8, !llvm.loop !8

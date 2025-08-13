@@ -201,11 +201,11 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
-  %indvars.iv48.lver.orig = phi i64 [ %indvars.iv.next49.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %.046.lver.orig = phi ptr [ %84, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %35 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv48.lver.orig
+  %indvars.iv44.lver.orig = phi i64 [ %indvars.iv.next49.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %.042.lver.orig = phi ptr [ %84, %.ph.lver.orig ], [ %0, %.lver.check ]
+  %35 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv44.lver.orig
   %36 = load i32, ptr %35, align 4, !tbaa !14
-  %37 = or disjoint i64 %indvars.iv48.lver.orig, 8
+  %37 = or disjoint i64 %indvars.iv44.lver.orig, 8
   %38 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !14
   %40 = add nsw i32 %39, %36
@@ -214,11 +214,11 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %43 = sub nsw i32 %36, %39
   %44 = mul nsw i32 %43, 13
   %45 = add nsw i32 %44, 512
-  %46 = or disjoint i64 %indvars.iv48.lver.orig, 4
+  %46 = or disjoint i64 %indvars.iv44.lver.orig, 4
   %47 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !14
   %49 = mul nsw i32 %48, 7
-  %50 = or disjoint i64 %indvars.iv48.lver.orig, 12
+  %50 = or disjoint i64 %indvars.iv44.lver.orig, 12
   %51 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %.neg.lver.orig = mul i32 %52, -17
@@ -226,7 +226,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %54 = mul nsw i32 %48, 17
   %55 = mul nsw i32 %52, 7
   %56 = add nsw i32 %55, %54
-  %57 = load i8, ptr %.046.lver.orig, align 1, !tbaa !21
+  %57 = load i8, ptr %.042.lver.orig, align 1, !tbaa !21
   %58 = zext i8 %57 to i32
   %59 = add nsw i32 %56, %42
   %60 = ashr i32 %59, 10
@@ -240,12 +240,12 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %65 = zext i8 %64 to i32
   %66 = add nsw i32 %53, %45
   %67 = ashr i32 %66, 10
-  %68 = add nsw i32 %67, %65
-  %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  %67 = add nsw i32 %67, %65
+  %69 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
   %.0.i3341.lver.orig = tail call i32 @llvm.umin.i32(i32 %69, i32 255)
   %.0.i33.lver.orig = trunc nuw i32 %.0.i3341.lver.orig to i8
   store i8 %.0.i33.lver.orig, ptr %63, align 1, !tbaa !21
-  %70 = getelementptr inbounds nuw i8, ptr %.046.lver.orig, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.042.lver.orig, i64 2
   %71 = load i8, ptr %70, align 1, !tbaa !21
   %72 = zext i8 %71 to i32
   %73 = sub nsw i32 %45, %53
@@ -266,45 +266,45 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %.0.i39.lver.orig = trunc nuw i32 %.0.i3943.lver.orig to i8
   store i8 %.0.i39.lver.orig, ptr %77, align 1, !tbaa !21
   %84 = getelementptr inbounds i8, ptr %.046.lver.orig, i64 %1
-  %indvars.iv.next49.lver.orig = add nuw nsw i64 %indvars.iv48.lver.orig, 1
-  %exitcond51.not.lver.orig = icmp eq i64 %indvars.iv.next49.lver.orig, 4
-  br i1 %exitcond51.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !22
+  %85 = add nuw nsw i64 %indvars.iv48.lver.orig, 1
+  %.not.i37.lver.orig = icmp eq i64 %85, 4
+  br i1 %.not.i37.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !22
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
   %load_initial = load i8, ptr %scevgep, align 1
-  br label %85
+  br label %89
 
-85:                                               ; preds = %.ph, %85
+89:                                               ; preds = %.ph, %89
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i39, %85 ]
-  %indvars.iv48 = phi i64 [ 0, %.ph ], [ %indvars.iv.next49, %85 ]
-  %.046 = phi ptr [ %0, %.ph ], [ %134, %85 ]
-  %86 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv48
-  %87 = load i32, ptr %86, align 4, !tbaa !14
-  %88 = or disjoint i64 %indvars.iv48, 8
-  %89 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !14
-  %91 = add nsw i32 %90, %87
-  %92 = mul nsw i32 %91, 13
-  %93 = add nsw i32 %92, 512
-  %94 = sub nsw i32 %87, %90
-  %95 = mul nsw i32 %94, 13
-  %96 = add nsw i32 %95, 512
-  %97 = or disjoint i64 %indvars.iv48, 4
+  %indvars.iv44 = phi i64 [ 0, %.ph ], [ %indvars.iv.next49, %85 ]
+  %.042 = phi ptr [ %0, %.ph ], [ %134, %85 ]
+  %90 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv44
+  %91 = load i32, ptr %90, align 4, !tbaa !14
+  %92 = or disjoint i64 %indvars.iv44, 8
+  %93 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !14
+  %95 = add nsw i32 %94, %91
+  %96 = mul nsw i32 %95, 13
+  %97 = add nsw i32 %96, 512
+  %98 = sub nsw i32 %91, %94
+  %99 = mul nsw i32 %98, 13
+  %100 = add nsw i32 %99, 512
+  %101 = or disjoint i64 %indvars.iv44, 4
   %98 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !14
   %100 = mul nsw i32 %99, 7
   %101 = or disjoint i64 %indvars.iv48, 12
   %102 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !14
-  %.neg = mul i32 %103, -17
-  %104 = add i32 %.neg, %100
+  %104 = mul i32 %103, -17
+  %104 = add i32 %104, %100
   %105 = mul nsw i32 %99, 17
   %106 = mul nsw i32 %103, 7
   %107 = add nsw i32 %106, %105
   %108 = load i8, ptr %.046, align 1, !tbaa !21
   %109 = zext i8 %108 to i32
-  %110 = add nsw i32 %107, %93
+  %110 = add nsw i32 %107, %97
   %111 = ashr i32 %110, 10
   %112 = add nsw i32 %111, %109
   %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
@@ -323,7 +323,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   store i8 %.0.i33, ptr %114, align 1, !tbaa !21
   %121 = getelementptr inbounds nuw i8, ptr %.046, i64 2
   %122 = zext i8 %store_forwarded to i32
-  %123 = sub nsw i32 %96, %104
+  %123 = sub nsw i32 %100, %104
   %124 = ashr i32 %123, 10
   %125 = add nsw i32 %124, %122
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
@@ -340,12 +340,12 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %.0.i3943 = tail call i32 @llvm.umin.i32(i32 %133, i32 255)
   %.0.i39 = trunc nuw i32 %.0.i3943 to i8
   store i8 %.0.i39, ptr %127, align 1, !tbaa !21
-  %134 = getelementptr inbounds nuw i8, ptr %.046, i64 %1
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %134 = getelementptr inbounds nuw i8, ptr %.042, i64 %1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
   br i1 %exitcond51.not, label %.loopexit, label %85, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.ph.lver.orig, %85
+.loopexit:                                        ; preds = %.ph.lver.orig, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -357,14 +357,14 @@ define internal void @rv34_idct_dc_add_c(ptr noundef captures(none) %0, i64 noun
   %6 = ashr i32 %5, 10
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %13
-  %.01116 = phi i32 [ 0, %3 ], [ %15, %13 ]
-  %.01215 = phi ptr [ %0, %3 ], [ %14, %13 ]
+.preheader:                                       ; preds = %3, %14
+  %.01115 = phi i32 [ 0, %3 ], [ %16, %13 ]
+  %.01214 = phi ptr [ %0, %3 ], [ %15, %13 ]
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.01215, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %.01214, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !21
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %6, %10
@@ -374,15 +374,15 @@ define internal void @rv34_idct_dc_add_c(ptr noundef captures(none) %0, i64 noun
   store i8 %.0.i, ptr %8, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !23
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !23
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %.01215, i64 %1
-  %15 = add nuw nsw i32 %.01116, 1
-  %exitcond18.not = icmp eq i32 %15, 4
-  br i1 %exitcond18.not, label %16, label %.preheader, !llvm.loop !24
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds i8, ptr %.01214, i64 %1
+  %16 = add nuw nsw i32 %.01115, 1
+  %exitcond17.not = icmp eq i32 %16, 4
+  br i1 %exitcond17.not, label %17, label %.preheader, !llvm.loop !24
 
-16:                                               ; preds = %13
+17:                                               ; preds = %14
   ret void
 }
 

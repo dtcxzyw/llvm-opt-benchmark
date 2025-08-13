@@ -1420,7 +1420,7 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %38 = shl nuw i32 %37, 1
   %39 = add nsw i32 %20, %38
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
-  %.0.i129135 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %39 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
   %41 = sub nsw i32 %0, %.0.i122
   %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
   %43 = shl nuw i32 %42, 1
@@ -1429,17 +1429,17 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %.0.i132136 = tail call i32 @llvm.umin.i32(i32 %45, i32 65535)
   %46 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
   %47 = zext i16 %46 to i32
-  %48 = tail call i32 @llvm.umin.i32(i32 %.0.i129135, i32 %.0.i132136)
-  %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %47)
+  %45 = tail call i32 @llvm.umin.i32(i32 %39, i32 %.0.i132136)
+  %49 = tail call i32 @llvm.umin.i32(i32 %45, i32 %47)
   %50 = icmp eq i32 %49, %.0.i132136
   br i1 %50, label %55, label %51
 
-51:                                               ; preds = %9
+51:; preds = %9
   %52 = icmp eq i32 %49, %.0.i126134
   br i1 %52, label %55, label %53
 
-53:                                               ; preds = %51
-  %54 = icmp eq i32 %49, %.0.i129135
+53:; preds = %51
+  %54 = icmp eq i32 %49, %39
   %. = select i1 %54, i32 %.0.i120, i32 %.0.i
   br label %55
 
@@ -1551,7 +1551,7 @@ define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %38 = shl i32 %20, 1
   %39 = add nsw i32 %37, %38
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
-  %.0.i129135 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %39 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
   %41 = sub nsw i32 %0, %.0.i122
   %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
   %43 = shl i32 %21, 1
@@ -1560,17 +1560,17 @@ define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %.0.i132136 = tail call i32 @llvm.umin.i32(i32 %45, i32 65535)
   %46 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
   %47 = zext i16 %46 to i32
-  %48 = tail call i32 @llvm.umin.i32(i32 %.0.i129135, i32 %.0.i132136)
+  %45 = tail call i32 @llvm.umin.i32(i32 %39, i32 %.0.i132136)
   %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %47)
   %50 = icmp eq i32 %49, %.0.i132136
   br i1 %50, label %55, label %51
 
-51:                                               ; preds = %9
+51:; preds = %9
   %52 = icmp eq i32 %49, %.0.i126134
   br i1 %52, label %55, label %53
 
-53:                                               ; preds = %51
-  %54 = icmp eq i32 %49, %.0.i129135
+53:; preds = %51
+  %54 = icmp eq i32 %49, %39
   %. = select i1 %54, i32 %.0.i120, i32 %.0.i
   br label %55
 

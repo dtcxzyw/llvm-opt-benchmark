@@ -1376,10 +1376,10 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   br label %17
 
 17:                                               ; preds = %4, %._crit_edge
-  %indvars.iv37 = phi i64 [ 0, %4 ], [ %indvars.iv.next38, %._crit_edge ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv37
+  %indvars.iv36 = phi i64 [ 0, %4 ], [ %indvars.iv.next37, %._crit_edge ]
+  %18 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv36
   %19 = load i32, ptr %18, align 4, !tbaa !40
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv37
+  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv36
   %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = sext i32 %21 to i64
   %23 = sext i32 %19 to i64
@@ -1390,15 +1390,15 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   %28 = mul nsw i64 %24, %15
   %29 = sdiv i64 %28, %13
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv37
+  %31 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv36
   %32 = load ptr, ptr %31, align 8, !tbaa !81
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv37
+  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv36
   %34 = load ptr, ptr %33, align 8, !tbaa !81
   %35 = icmp ult i32 %27, %30
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %36 = getelementptr inbounds nuw [3 x double], ptr %16, i64 0, i64 %indvars.iv37
+  %36 = getelementptr inbounds nuw [3 x double], ptr %16, i64 0, i64 %indvars.iv36
   %37 = and i64 %26, 4294967295
   %wide.trip.count = and i64 %29, 4294967295
   br label %38
@@ -1423,11 +1423,11 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %38, %17
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
-  br i1 %exitcond40.not, label %49, label %17, !llvm.loop !99
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
+  br i1 %exitcond39.not, label %50, label %17, !llvm.loop !99
 
-49:                                               ; preds = %._crit_edge
+50:                                               ; preds = %._crit_edge
   ret i32 0
 }
 
