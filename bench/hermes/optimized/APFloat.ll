@@ -8275,7 +8275,7 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh6detail9IEEEFloat14bitcastToAPIntEv(ptr noalias sret(%"class.llvh::APInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %words.i94 = alloca [2 x i64], align 16
+  %words.i93 = alloca [2 x i64], align 16
   %words.i = alloca [2 x i64], align 16
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, @_ZN4llvhL11semIEEEhalfE
@@ -8351,27 +8351,27 @@ if.then4:                                         ; preds = %if.end
   %category.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 18
   %bf.load.i.i.i.i2 = load i8, ptr %category.i.i.i.i1, align 2, !noalias !51
   %bf.clear.i.i.i.i3 = and i8 %bf.load.i.i.i.i2, 6
-  %8 = icmp ne i8 %bf.clear.i.i.i.i3, 0
+  %9 = icmp ne i8 %bf.clear.i.i.i.i3, 0
   %bf.clear.i.i.i4 = and i8 %bf.load.i.i.i.i2, 7
   %cmp.i.i.i5 = icmp ne i8 %bf.clear.i.i.i4, 3
-  %9 = and i1 %8, %cmp.i.i.i5
-  br i1 %9, label %if.then.i25, label %if.else.i6
+  %10 = and i1 %9, %cmp.i.i.i5
+  br i1 %10, label %if.then.i23, label %if.else.i6
 
-if.then.i25:                                      ; preds = %if.then4
-  %exponent.i26 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i16, ptr %exponent.i26, align 8, !noalias !51
-  %conv.i27 = sext i16 %10 to i32
-  %add.i28 = add nsw i32 %conv.i27, 127
-  %significand.i.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %11 = load ptr, ptr %significand.i.i.i31, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %conv3.i33 = trunc i64 %12 to i32
-  %cmp.i34 = icmp eq i32 %add.i28, 1
-  br i1 %cmp.i34, label %land.lhs.true.i35, label %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit
+if.then.i23:                                      ; preds = %if.then4
+  %exponent.i24 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %11 = load i16, ptr %exponent.i24, align 8, !noalias !51
+  %conv.i25 = sext i16 %11 to i32
+  %add.i26 = add nsw i32 %conv.i25, 127
+  %significand.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %12 = load ptr, ptr %significand.i.i.i29, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %conv3.i31 = trunc i64 %13 to i32
+  %cmp.i32 = icmp eq i32 %add.i26, 1
+  br i1 %cmp.i32, label %land.lhs.true.i33, label %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit
 
-land.lhs.true.i35:                                ; preds = %if.then.i25
-  %and.i36 = lshr i32 %conv3.i33, 23
-  %and.lobit.i37 = and i32 %and.i36, 1
+land.lhs.true.i33:                                ; preds = %if.then.i23
+  %and.i34 = lshr i32 %conv3.i31, 23
+  %and.lobit.i35 = and i32 %and.i34, 1
   br label %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit
 
 if.else.i6:                                       ; preds = %if.then4
@@ -8383,27 +8383,27 @@ if.else.i6:                                       ; preds = %if.then4
 if.then13.i7:                                     ; preds = %if.else.i6
   br label %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit
 
-if.else14.i19:                                    ; preds = %if.else.i6
-  %significand.i.i6.i22 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %13 = load ptr, ptr %significand.i.i6.i22, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %conv16.i24 = trunc i64 %14 to i32
+if.else14.i17:                                    ; preds = %if.else.i6
+  %significand.i.i6.i20 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %14 = load ptr, ptr %significand.i.i6.i20, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %conv16.i22 = trunc i64 %15 to i32
   br label %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit
 
-_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit: ; preds = %if.then.i25, %land.lhs.true.i35, %if.else.i6, %if.then13.i7, %if.else14.i19
-  %myexponent.0.i8 = phi i32 [ %add.i28, %if.then.i25 ], [ 255, %if.then13.i7 ], [ 255, %if.else14.i19 ], [ %and.lobit.i37, %land.lhs.true.i35 ], [ 0, %if.else.i6 ]
-  %mysignificand.0.i9 = phi i32 [ %conv3.i33, %if.then.i25 ], [ 0, %if.then13.i7 ], [ %conv16.i24, %if.else14.i19 ], [ %conv3.i33, %land.lhs.true.i35 ], [ 0, %if.else.i6 ]
+_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit: ; preds = %if.then.i23, %land.lhs.true.i33, %if.else.i6, %if.then13.i7, %if.else14.i17
+  %myexponent.0.i8 = phi i32 [ %add.i26, %if.then.i25 ], [ 255, %if.then13.i7 ], [ 255, %if.else14.i19 ], [ %and.lobit.i35, %land.lhs.true.i35 ], [ 0, %if.else.i6 ]
+  %mysignificand.0.i9 = phi i32 [ %conv3.i31, %if.then.i25 ], [ 0, %if.then13.i7 ], [ %conv16.i22, %if.else14.i19 ], [ %conv3.i31, %land.lhs.true.i35 ], [ 0, %if.else.i6 ]
   %bf.clear21.i10 = and i8 %bf.load.i.i.i.i2, 8
   %bf.cast22.i11 = zext nneg i8 %bf.clear21.i10 to i32
   %shl.i12 = shl nuw i32 %bf.cast22.i11, 28
   %and24.i13 = shl i32 %myexponent.0.i8, 23
   %shl25.i14 = and i32 %and24.i13, 2139095040
-  %or.i15 = or disjoint i32 %shl25.i14, %shl.i12
-  %and26.i16 = and i32 %mysignificand.0.i9, 8388607
-  %or27.i17 = or disjoint i32 %or.i15, %and26.i16
-  %conv28.i = zext i32 %or27.i17 to i64
-  %BitWidth.i.i18 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 32, ptr %BitWidth.i.i18, align 8, !alias.scope !51
+  %or.i = or disjoint i32 %shl25.i14, %shl.i12
+  %and26.i15 = and i32 %mysignificand.0.i9, 8388607
+  %or27.i = or disjoint i32 %or.i, %and26.i15
+  %conv28.i = zext i32 %or27.i to i64
+  %BitWidth.i.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i32 32, ptr %BitWidth.i.i16, align 8, !alias.scope !51
   store i64 %conv28.i, ptr %agg.result, align 8, !alias.scope !51
   br label %return
 
@@ -8413,60 +8413,60 @@ if.end5:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %category.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %bf.load.i.i.i.i39 = load i8, ptr %category.i.i.i.i38, align 2, !noalias !54
-  %bf.clear.i.i.i.i40 = and i8 %bf.load.i.i.i.i39, 6
-  %15 = icmp ne i8 %bf.clear.i.i.i.i40, 0
-  %bf.clear.i.i.i41 = and i8 %bf.load.i.i.i.i39, 7
-  %cmp.i.i.i42 = icmp ne i8 %bf.clear.i.i.i41, 3
-  %16 = and i1 %15, %cmp.i.i.i42
-  br i1 %16, label %if.then.i59, label %if.else.i43
+  %category.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %this, i64 18
+  %bf.load.i.i.i.i37 = load i8, ptr %category.i.i.i.i36, align 2, !noalias !54
+  %bf.clear.i.i.i.i38 = and i8 %bf.load.i.i.i.i37, 6
+  %16 = icmp ne i8 %bf.clear.i.i.i.i38, 0
+  %bf.clear.i.i.i39 = and i8 %bf.load.i.i.i.i37, 7
+  %cmp.i.i.i40 = icmp ne i8 %bf.clear.i.i.i39, 3
+  %17 = and i1 %16, %cmp.i.i.i40
+  br i1 %17, label %if.then.i58, label %if.else.i41
 
-if.then.i59:                                      ; preds = %if.then8
-  %exponent.i60 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %17 = load i16, ptr %exponent.i60, align 8, !noalias !54
-  %conv.i61 = sext i16 %17 to i64
-  %add.i62 = add nsw i64 %conv.i61, 1023
-  %significand.i.i.i65 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %18 = load ptr, ptr %significand.i.i.i65, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %cmp.i67 = icmp eq i64 %add.i62, 1
-  br i1 %cmp.i67, label %land.lhs.true.i68, label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
+if.then.i58:                                      ; preds = %if.then8
+  %exponent.i59 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %18 = load i16, ptr %exponent.i59, align 8, !noalias !54
+  %conv.i60 = sext i16 %18 to i64
+  %add.i61 = add nsw i64 %conv.i60, 1023
+  %significand.i.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %19 = load ptr, ptr %significand.i.i.i64, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %cmp.i66 = icmp eq i64 %add.i61, 1
+  br i1 %cmp.i66, label %land.lhs.true.i67, label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
 
-land.lhs.true.i68:                                ; preds = %if.then.i59
-  %and.i69 = lshr i64 %19, 52
-  %and.lobit.i70 = and i64 %and.i69, 1
+land.lhs.true.i67:                                ; preds = %if.then.i58
+  %and.i68 = lshr i64 %20, 52
+  %and.lobit.i69 = and i64 %and.i68, 1
   br label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
 
-if.else.i43:                                      ; preds = %if.then8
-  switch i8 %bf.clear.i.i.i41, label %if.else14.i54 [
+if.else.i41:                                      ; preds = %if.then8
+  switch i8 %bf.clear.i.i.i39, label %if.else14.i54 [
     i8 3, label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
-    i8 0, label %if.then13.i44
+    i8 0, label %if.then13.i42
   ]
 
-if.then13.i44:                                    ; preds = %if.else.i43
+if.then13.i42:                                    ; preds = %if.else.i41
   br label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
 
-if.else14.i54:                                    ; preds = %if.else.i43
-  %significand.i.i6.i57 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %20 = load ptr, ptr %significand.i.i6.i57, align 8
-  %21 = ptrtoint ptr %20 to i64
+if.else14.i53:                                    ; preds = %if.else.i41
+  %significand.i.i6.i56 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %21 = load ptr, ptr %significand.i.i6.i56, align 8
+  %22 = ptrtoint ptr %21 to i64
   br label %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit
 
-_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit: ; preds = %if.then.i59, %land.lhs.true.i68, %if.else.i43, %if.then13.i44, %if.else14.i54
-  %myexponent.0.i45 = phi i64 [ %add.i62, %if.then.i59 ], [ 2047, %if.then13.i44 ], [ 2047, %if.else14.i54 ], [ %and.lobit.i70, %land.lhs.true.i68 ], [ 0, %if.else.i43 ]
-  %mysignificand.0.i46 = phi i64 [ %19, %if.then.i59 ], [ 0, %if.then13.i44 ], [ %21, %if.else14.i54 ], [ %19, %land.lhs.true.i68 ], [ 0, %if.else.i43 ]
-  %bf.lshr.i = lshr i8 %bf.load.i.i.i.i39, 3
-  %conv23.i = zext nneg i8 %bf.lshr.i to i64
-  %shl.i47 = shl i64 %conv23.i, 63
-  %and24.i48 = shl i64 %myexponent.0.i45, 52
-  %shl25.i49 = and i64 %and24.i48, 9218868437227405312
-  %or.i50 = or disjoint i64 %shl25.i49, %shl.i47
-  %and26.i51 = and i64 %mysignificand.0.i46, 4503599627370495
-  %or27.i52 = or disjoint i64 %or.i50, %and26.i51
-  %BitWidth.i.i53 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 64, ptr %BitWidth.i.i53, align 8, !alias.scope !54
-  store i64 %or27.i52, ptr %agg.result, align 8, !alias.scope !54
+_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit: ; preds = %if.then.i58, %land.lhs.true.i67, %if.else.i41, %if.then13.i42, %if.else14.i53
+  %myexponent.0.i43 = phi i64 [ %add.i61, %if.then.i59 ], [ 2047, %if.then13.i44 ], [ 2047, %if.else14.i54 ], [ %and.lobit.i69, %land.lhs.true.i68 ], [ 0, %if.else.i43 ]
+  %mysignificand.0.i44 = phi i64 [ %20, %if.then.i59 ], [ 0, %if.then13.i44 ], [ %22, %if.else14.i54 ], [ %20, %land.lhs.true.i68 ], [ 0, %if.else.i43 ]
+  %bf.lshr.i45 = lshr i8 %bf.load.i.i.i.i37, 3
+  %conv23.i = zext nneg i8 %bf.lshr.i45 to i64
+  %shl.i46 = shl i64 %conv23.i, 63
+  %and24.i47 = shl i64 %myexponent.0.i43, 52
+  %shl25.i48 = and i64 %and24.i47, 9218868437227405312
+  %or.i49 = or disjoint i64 %shl25.i48, %shl.i46
+  %and26.i50 = and i64 %mysignificand.0.i44, 4503599627370495
+  %or27.i51 = or disjoint i64 %or.i49, %and26.i50
+  %BitWidth.i.i52 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i32 64, ptr %BitWidth.i.i52, align 8, !alias.scope !54
+  store i64 %or27.i51, ptr %agg.result, align 8, !alias.scope !54
   br label %return
 
 if.end9:                                          ; preds = %if.end5
@@ -8475,63 +8475,63 @@ if.end9:                                          ; preds = %if.end5
 
 if.then12:                                        ; preds = %if.end9
   call void @llvm.lifetime.start.p0(ptr nonnull %words.i)
-  %category.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %bf.load.i.i.i.i72 = load i8, ptr %category.i.i.i.i71, align 2, !noalias !57
-  %bf.clear.i.i.i.i73 = and i8 %bf.load.i.i.i.i72, 6
-  %22 = icmp ne i8 %bf.clear.i.i.i.i73, 0
-  %bf.clear.i.i.i74 = and i8 %bf.load.i.i.i.i72, 7
-  %cmp.i.i.i75 = icmp ne i8 %bf.clear.i.i.i74, 3
-  %23 = and i1 %22, %cmp.i.i.i75
-  br i1 %23, label %if.then.i82, label %if.else.i76
+  %category.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %this, i64 18
+  %bf.load.i.i.i.i71 = load i8, ptr %category.i.i.i.i70, align 2, !noalias !57
+  %bf.clear.i.i.i.i72 = and i8 %bf.load.i.i.i.i71, 6
+  %23 = icmp ne i8 %bf.clear.i.i.i.i72, 0
+  %bf.clear.i.i.i73 = and i8 %bf.load.i.i.i.i71, 7
+  %cmp.i.i.i74 = icmp ne i8 %bf.clear.i.i.i73, 3
+  %24 = and i1 %23, %cmp.i.i.i74
+  br i1 %24, label %if.then.i81, label %if.else.i75
 
-if.then.i82:                                      ; preds = %if.then12
-  %exponent.i83 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %24 = load i16, ptr %exponent.i83, align 8, !noalias !57
-  %conv.i84 = sext i16 %24 to i64
-  %add.i85 = add nsw i64 %conv.i84, 16383
-  %significand.i.i.i88 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %25 = load ptr, ptr %significand.i.i.i88, align 8, !noalias !57
-  %26 = load i64, ptr %25, align 8, !noalias !57
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i64, ptr %arrayidx5.i, align 8, !noalias !57
-  %cmp.i90 = icmp eq i64 %add.i85, 1
-  br i1 %cmp.i90, label %land.lhs.true.i91, label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
+if.then.i81:                                      ; preds = %if.then12
+  %exponent.i82 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %25 = load i16, ptr %exponent.i82, align 8, !noalias !57
+  %conv.i83 = sext i16 %25 to i64
+  %add.i84 = add nsw i64 %conv.i83, 16383
+  %significand.i.i.i87 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %26 = load ptr, ptr %significand.i.i.i87, align 8, !noalias !57
+  %27 = load i64, ptr %26, align 8, !noalias !57
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i64, ptr %arrayidx5.i, align 8, !noalias !57
+  %cmp.i89 = icmp eq i64 %add.i84, 1
+  br i1 %cmp.i89, label %land.lhs.true.i90, label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
 
-land.lhs.true.i91:                                ; preds = %if.then.i82
-  %and.i92 = lshr i64 %27, 48
-  %and.lobit.i93 = and i64 %and.i92, 1
+land.lhs.true.i90:                                ; preds = %if.then.i81
+  %and.i91 = lshr i64 %28, 48
+  %and.lobit.i92 = and i64 %and.i91, 1
   br label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
 
-if.else.i76:                                      ; preds = %if.then12
-  switch i8 %bf.clear.i.i.i74, label %if.else16.i [
+if.else.i75:                                      ; preds = %if.then12
+  switch i8 %bf.clear.i.i.i73, label %if.else16.i [
     i8 3, label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
     i8 0, label %if.then15.i
   ]
 
-if.then15.i:                                      ; preds = %if.else.i76
+if.then15.i:                                      ; preds = %if.else.i75
   br label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
 
-if.else16.i:                                      ; preds = %if.else.i76
+if.else16.i:                                      ; preds = %if.else.i75
   %significand.i.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %28 = load ptr, ptr %significand.i.i10.i, align 8, !noalias !57
-  %29 = load i64, ptr %28, align 8, !noalias !57
-  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i64, ptr %arrayidx20.i, align 8, !noalias !57
+  %29 = load ptr, ptr %significand.i.i10.i, align 8, !noalias !57
+  %30 = load i64, ptr %29, align 8, !noalias !57
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i64, ptr %arrayidx20.i, align 8, !noalias !57
   br label %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit
 
-_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit: ; preds = %if.then.i82, %land.lhs.true.i91, %if.else.i76, %if.then15.i, %if.else16.i
-  %myexponent.0.i77 = phi i64 [ %add.i85, %if.then.i82 ], [ 32767, %if.then15.i ], [ 32767, %if.else16.i ], [ %and.lobit.i93, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
-  %mysignificand.0.i78 = phi i64 [ %26, %if.then.i82 ], [ 0, %if.then15.i ], [ %29, %if.else16.i ], [ %26, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
-  %mysignificand2.0.i = phi i64 [ %27, %if.then.i82 ], [ 0, %if.then15.i ], [ %30, %if.else16.i ], [ %27, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
-  store i64 %mysignificand.0.i78, ptr %words.i, align 16, !noalias !57
-  %bf.lshr.i79 = lshr i8 %bf.load.i.i.i.i72, 3
-  %conv29.i = zext nneg i8 %bf.lshr.i79 to i64
-  %shl.i80 = shl i64 %conv29.i, 63
-  %and30.i = shl i64 %myexponent.0.i77, 48
+_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit: ; preds = %if.then.i81, %land.lhs.true.i90, %if.else.i75, %if.then15.i, %if.else16.i
+  %myexponent.0.i76 = phi i64 [ %add.i84, %if.then.i82 ], [ 32767, %if.then15.i ], [ 32767, %if.else16.i ], [ %and.lobit.i92, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
+  %mysignificand.0.i77 = phi i64 [ %27, %if.then.i82 ], [ 0, %if.then15.i ], [ %30, %if.else16.i ], [ %27, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
+  %mysignificand2.0.i = phi i64 [ %28, %if.then.i82 ], [ 0, %if.then15.i ], [ %31, %if.else16.i ], [ %28, %land.lhs.true.i91 ], [ 0, %if.else.i76 ]
+  store i64 %mysignificand.0.i77, ptr %words.i, align 16, !noalias !57
+  %bf.lshr.i78 = lshr i8 %bf.load.i.i.i.i71, 3
+  %conv29.i = zext nneg i8 %bf.lshr.i78 to i64
+  %shl.i79 = shl i64 %conv29.i, 63
+  %and30.i = shl i64 %myexponent.0.i76, 48
   %shl31.i = and i64 %and30.i, 9223090561878065152
-  %or.i81 = or disjoint i64 %shl31.i, %shl.i80
+  %or.i80 = or disjoint i64 %shl31.i, %shl.i79
   %and32.i = and i64 %mysignificand2.0.i, 281474976710655
-  %or33.i = or disjoint i64 %or.i81, %and32.i
+  %or33.i = or disjoint i64 %or.i80, %and32.i
   %arrayidx34.i = getelementptr inbounds nuw i8, ptr %words.i, i64 8
   store i64 %or33.i, ptr %arrayidx34.i, align 8, !noalias !57
   call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, i32 noundef 128, ptr nonnull %words.i, i64 2) #26
@@ -8547,67 +8547,67 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  call void @llvm.lifetime.start.p0(ptr nonnull %words.i94)
-  %category.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %this, i64 18
-  %bf.load.i.i.i.i96 = load i8, ptr %category.i.i.i.i95, align 2, !noalias !60
-  %bf.clear.i.i.i.i97 = and i8 %bf.load.i.i.i.i96, 6
-  %31 = icmp ne i8 %bf.clear.i.i.i.i97, 0
-  %bf.clear.i.i.i98 = and i8 %bf.load.i.i.i.i96, 7
-  %cmp.i.i.i99 = icmp ne i8 %bf.clear.i.i.i98, 3
-  %32 = and i1 %31, %cmp.i.i.i99
-  br i1 %32, label %if.then.i111, label %if.else.i100
+  call void @llvm.lifetime.start.p0(ptr nonnull %words.i93)
+  %category.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %this, i64 18
+  %bf.load.i.i.i.i95 = load i8, ptr %category.i.i.i.i94, align 2, !noalias !60
+  %bf.clear.i.i.i.i96 = and i8 %bf.load.i.i.i.i95, 6
+  %32 = icmp ne i8 %bf.clear.i.i.i.i96, 0
+  %bf.clear.i.i.i97 = and i8 %bf.load.i.i.i.i95, 7
+  %cmp.i.i.i98 = icmp ne i8 %bf.clear.i.i.i97, 3
+  %33 = and i1 %32, %cmp.i.i.i98
+  br i1 %33, label %if.then.i111, label %if.else.i99
 
 if.then.i111:                                     ; preds = %if.end17
   %exponent.i112 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %33 = load i16, ptr %exponent.i112, align 8, !noalias !60
-  %conv.i113 = sext i16 %33 to i64
+  %34 = load i16, ptr %exponent.i112, align 8, !noalias !60
+  %conv.i113 = sext i16 %34 to i64
   %add.i114 = add nsw i64 %conv.i113, 16383
   %precision.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = load i32, ptr %precision.i.i.i.i115, align 4, !noalias !60
-  %35 = add i32 %34, -64
-  %cmp.i.i3.i116 = icmp ult i32 %35, -128
+  %35 = load i32, ptr %precision.i.i.i.i115, align 4, !noalias !60
+  %36 = add i32 %35, -64
+  %cmp.i.i3.i116 = icmp ult i32 %36, -128
   %significand.i.i.i117 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %36 = load ptr, ptr %significand.i.i.i117, align 8, !noalias !60
-  %retval.0.i.i.i118 = select i1 %cmp.i.i3.i116, ptr %36, ptr %significand.i.i.i117
-  %37 = load i64, ptr %retval.0.i.i.i118, align 8, !noalias !60
+  %37 = load ptr, ptr %significand.i.i.i117, align 8, !noalias !60
+  %retval.0.i.i.i118 = select i1 %cmp.i.i3.i116, ptr %37, ptr %significand.i.i.i117
+  %38 = load i64, ptr %retval.0.i.i.i118, align 8, !noalias !60
   %cmp.i119 = icmp eq i64 %add.i114, 1
-  %.lobit.i = lshr i64 %37, 63
-  %38 = and i64 %add.i114, 32767
-  %39 = select i1 %cmp.i119, i64 %.lobit.i, i64 %38
+  %.lobit.i = lshr i64 %38, 63
+  %39 = and i64 %add.i114, 32767
+  %40 = select i1 %cmp.i119, i64 %.lobit.i, i64 %39
   br label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
 
-if.else.i100:                                     ; preds = %if.end17
-  switch i8 %bf.clear.i.i.i98, label %if.else14.i106 [
+if.else.i99:                                      ; preds = %if.end17
+  switch i8 %bf.clear.i.i.i97, label %if.else14.i106 [
     i8 3, label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
-    i8 0, label %if.then13.i101
+    i8 0, label %if.then13.i100
   ]
 
-if.then13.i101:                                   ; preds = %if.else.i100
+if.then13.i100:                                   ; preds = %if.else.i99
   br label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
 
-if.else14.i106:                                   ; preds = %if.else.i100
+if.else14.i106:                                   ; preds = %if.else.i99
   %precision.i.i.i4.i107 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %40 = load i32, ptr %precision.i.i.i4.i107, align 4, !noalias !60
-  %41 = add i32 %40, -64
-  %cmp.i.i5.i108 = icmp ult i32 %41, -128
+  %41 = load i32, ptr %precision.i.i.i4.i107, align 4, !noalias !60
+  %42 = add i32 %41, -64
+  %cmp.i.i5.i108 = icmp ult i32 %42, -128
   %significand.i.i6.i109 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %42 = load ptr, ptr %significand.i.i6.i109, align 8, !noalias !60
-  %retval.0.i.i7.i110 = select i1 %cmp.i.i5.i108, ptr %42, ptr %significand.i.i6.i109
-  %43 = load i64, ptr %retval.0.i.i7.i110, align 8, !noalias !60
+  %43 = load ptr, ptr %significand.i.i6.i109, align 8, !noalias !60
+  %retval.0.i.i7.i110 = select i1 %cmp.i.i5.i108, ptr %43, ptr %significand.i.i6.i109
+  %44 = load i64, ptr %retval.0.i.i7.i110, align 8, !noalias !60
   br label %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit
 
-_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit: ; preds = %if.then.i111, %if.else.i100, %if.then13.i101, %if.else14.i106
-  %myexponent.0.i102 = phi i64 [ 32767, %if.then13.i101 ], [ 32767, %if.else14.i106 ], [ 0, %if.else.i100 ], [ %39, %if.then.i111 ]
-  %mysignificand.0.i103 = phi i64 [ -9223372036854775808, %if.then13.i101 ], [ %43, %if.else14.i106 ], [ 0, %if.else.i100 ], [ %37, %if.then.i111 ]
-  store i64 %mysignificand.0.i103, ptr %words.i94, align 16, !noalias !60
-  %bf.clear22.i = and i8 %bf.load.i.i.i.i96, 8
+_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit: ; preds = %if.then.i111, %if.else.i99, %if.then13.i100, %if.else14.i106
+  %myexponent.0.i101 = phi i64 [ 32767, %if.then13.i101 ], [ 32767, %if.else14.i106 ], [ 0, %if.else.i100 ], [ %40, %if.then.i111 ]
+  %mysignificand.0.i102 = phi i64 [ -9223372036854775808, %if.then13.i101 ], [ %44, %if.else14.i106 ], [ 0, %if.else.i100 ], [ %38, %if.then.i111 ]
+  store i64 %mysignificand.0.i102, ptr %words.i93, align 16, !noalias !60
+  %bf.clear22.i = and i8 %bf.load.i.i.i.i95, 8
   %conv25.i = zext nneg i8 %bf.clear22.i to i64
   %shl.i104 = shl nuw nsw i64 %conv25.i, 12
-  %or.i105 = add nuw nsw i64 %myexponent.0.i102, %shl.i104
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %words.i94, i64 8
+  %or.i105 = add nuw nsw i64 %myexponent.0.i101, %shl.i104
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %words.i93, i64 8
   store i64 %or.i105, ptr %arrayidx27.i, align 8, !noalias !60
-  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, i32 noundef 80, ptr nonnull %words.i94, i64 2) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %words.i94)
+  call void @_ZN4llvh5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %agg.result, i32 noundef 80, ptr nonnull %words.i93, i64 2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %words.i93)
   br label %return
 
 return:                                           ; preds = %_ZNK4llvh6detail9IEEEFloat34convertF80LongDoubleAPFloatToAPIntEv.exit, %if.then16, %_ZNK4llvh6detail9IEEEFloat30convertQuadrupleAPFloatToAPIntEv.exit, %_ZNK4llvh6detail9IEEEFloat27convertDoubleAPFloatToAPIntEv.exit, %_ZNK4llvh6detail9IEEEFloat26convertFloatAPFloatToAPIntEv.exit, %_ZNK4llvh6detail9IEEEFloat25convertHalfAPFloatToAPIntEv.exit

@@ -35488,11 +35488,11 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %40, %43
   %.sroa.2.0.insert.shift.i = zext i16 %63 to i32
   br i1 %60, label %64, label %68
 
-64:                                               ; preds = %58
+63:                                               ; preds = %58
   %.tr.i = zext i16 %61 to i32
-  %65 = shl nuw nsw i32 %.tr.i, 3
-  %66 = and i16 %61, 31744
-  %.sroa.3.0.insert.ext.i = zext nneg i16 %66 to i32
+  %64 = shl nuw nsw i32 %.tr.i, 3
+  %65 = and i16 %61, 31744
+  %.sroa.3.0.insert.ext.i = zext nneg i16 %65 to i32
   %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %.sroa.3.0.insert.ext.i, 9
   %.sroa.0.0.insert.ext.i = and i32 %65, 248
   %67 = or disjoint i32 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
@@ -35503,12 +35503,12 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %40, %43
   %70 = and i16 %69, 248
   %.sroa.0.0.insert.ext.i36 = zext nneg i16 %70 to i32
   %.tr.i37 = zext i16 %61 to i32
-  %71 = shl i32 %.tr.i37, 19
+  %70 = shl i32 %.tr.i37, 19
   %72 = or disjoint i32 %71, %.sroa.0.0.insert.ext.i36
   br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %64
-  %.pn = phi i32 [ %67, %64 ], [ %72, %68 ]
+.sink.split:                                      ; preds = %68, %63
+  %.sroa.2.0.insert.insert.i.sink = phi i32 [ %67, %64 ], [ %72, %68 ]
   %.sroa.2.0.insert.insert.i.sink = or disjoint i32 %.pn, %.sroa.2.0.insert.shift.i
   %.sroa.0.0.insert.insert.i = or i32 %.sroa.2.0.insert.insert.i.sink, -16777216
   %73 = load ptr, ptr %.sroa.044.050, align 8

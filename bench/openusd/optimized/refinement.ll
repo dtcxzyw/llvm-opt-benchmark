@@ -4496,15 +4496,15 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentFac
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %64
 
-64:                                               ; preds = %103, %.lr.ph.i4
-  %65 = phi ptr [ %59, %.lr.ph.i4 ], [ %104, %103 ]
+64:                                               ; preds = %105, %.lr.ph.i4
+  %65 = phi ptr [ %59, %.lr.ph.i4 ], [ %106, %103 ]
   %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %103 ]
   %.sroa.0.022.i = phi i16 [ 0, %.lr.ph.i4 ], [ %.sroa.0.1.i, %103 ]
   %66 = load ptr, ptr %63, align 8
   %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i5
   %68 = load i32, ptr %67, align 4
   %.not20.i = icmp eq i32 %68, -1
-  br i1 %.not20.i, label %103, label %69
+  br i1 %.not20.i, label %105, label %69
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 240
@@ -4534,9 +4534,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentFac
   %93 = and i8 %73, 12
   %94 = icmp eq i8 %93, 0
   %95 = select i1 %94, i16 128, i16 512
-  %.masked.i = or disjoint i16 %90, %95
-  %96 = or disjoint i16 %.masked.i, %92
-  %97 = or i16 %96, %75
+  %96 = or disjoint i16 %90, %95
+  %97 = or disjoint i16 %96, %92
+  %.masked.i = or i16 %97, %75
   %98 = load ptr, ptr %2, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 432
   %100 = sext i32 %68 to i64
@@ -4544,107 +4544,107 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentFac
   %102 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %101, i64 %100
   store i16 %97, ptr %102, align 2
   %.pre.i = load ptr, ptr %58, align 8
-  br label %103
+  br label %105
 
-103:                                              ; preds = %69, %64
-  %104 = phi ptr [ %.pre.i, %69 ], [ %65, %64 ]
+105:                                              ; preds = %69, %64
+  %106 = phi ptr [ %.pre.i, %69 ], [ %65, %64 ]
   %.sroa.0.1.i = phi i16 [ %97, %69 ], [ %.sroa.0.022.i, %64 ]
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i5, 1
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %106 = load i32, ptr %105, align 4
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next.i7, %107
-  br i1 %108, label %64, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit, !llvm.loop !76
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %108 = load i32, ptr %107, align 4
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next.i7, %109
+  br i1 %110, label %64, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit, !llvm.loop !76
 
-_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit: ; preds = %103, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentFacesEv.exit
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph.i8, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit
+_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit: ; preds = %105, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentFacesEv.exit
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %.lr.ph.i8, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit
 
 .lr.ph.i8:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %113 = load i32, ptr %112, align 4
-  %114 = add nsw i32 %113, %110
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %116 = sext i32 %113 to i64
-  %117 = sext i32 %114 to i64
-  br label %118
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %115 = load i32, ptr %114, align 4
+  %116 = add nsw i32 %115, %112
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %118 = sext i32 %115 to i64
+  %119 = sext i32 %116 to i64
+  br label %120
 
-118:                                              ; preds = %118, %.lr.ph.i8
-  %indvars.iv.i9 = phi i64 [ %116, %.lr.ph.i8 ], [ %indvars.iv.next.i10, %118 ]
-  %119 = load ptr, ptr %58, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 432
-  %121 = load ptr, ptr %115, align 8
-  %122 = getelementptr inbounds i32, ptr %121, i64 %indvars.iv.i9
-  %123 = load i32, ptr %122, align 4
-  %124 = sext i32 %123 to i64
-  %125 = load ptr, ptr %120, align 8
-  %126 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %125, i64 %124
-  %127 = load ptr, ptr %2, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 432
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %129, i64 %indvars.iv.i9
-  %131 = load i16, ptr %126, align 2
-  store i16 %131, ptr %130, align 2
-  %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 432
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %134, i64 %indvars.iv.i9
-  %136 = load i16, ptr %135, align 2
-  %137 = and i16 %136, -4097
-  store i16 %137, ptr %135, align 2
+120:                                              ; preds = %120, %.lr.ph.i8
+  %indvars.iv.i9 = phi i64 [ %118, %.lr.ph.i8 ], [ %indvars.iv.next.i10, %118 ]
+  %121 = load ptr, ptr %58, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 432
+  %123 = load ptr, ptr %117, align 8
+  %124 = getelementptr inbounds i32, ptr %123, i64 %indvars.iv.i9
+  %125 = load i32, ptr %124, align 4
+  %126 = sext i32 %125 to i64
+  %127 = load ptr, ptr %122, align 8
+  %128 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %127, i64 %126
+  %129 = load ptr, ptr %2, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 432
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %131, i64 %indvars.iv.i9
+  %133 = load i16, ptr %128, align 2
+  store i16 %133, ptr %132, align 2
+  %134 = load ptr, ptr %2, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 432
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %136, i64 %indvars.iv.i9
+  %138 = load i16, ptr %137, align 2
+  %139 = and i16 %138, -4097
+  store i16 %139, ptr %137, align 2
   %indvars.iv.next.i10 = add nsw i64 %indvars.iv.i9, 1
-  %138 = icmp slt i64 %indvars.iv.next.i10, %117
-  br i1 %138, label %118, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit, !llvm.loop !77
+  %140 = icmp slt i64 %indvars.iv.next.i10, %119
+  br i1 %140, label %120, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit, !llvm.loop !77
 
-_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit: ; preds = %118, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %140 = load i8, ptr %139, align 4
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %.loopexit, label %.preheader
+_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit: ; preds = %120, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTagsFromParentEdgesEv.exit
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %142 = load i8, ptr %141, align 4
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit
-  %142 = load ptr, ptr %2, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.lr.ph, label %.loopexit
+  %144 = load ptr, ptr %2, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  br label %147
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  br label %149
 
-147:                                              ; preds = %.lr.ph, %159
-  %148 = phi ptr [ %142, %.lr.ph ], [ %160, %159 ]
+149:                                              ; preds = %.lr.ph, %161
+  %150 = phi ptr [ %144, %.lr.ph ], [ %162, %159 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
-  %149 = load ptr, ptr %146, align 8
-  %150 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %149, i64 %indvars.iv
-  %151 = load i8, ptr %150, align 1
-  %152 = and i8 %151, 1
-  %.not = icmp eq i8 %152, 0
-  br i1 %.not, label %159, label %153
+  %151 = load ptr, ptr %148, align 8
+  %152 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %151, i64 %indvars.iv
+  %153 = load i8, ptr %152, align 1
+  %154 = and i8 %153, 1
+  %.not = icmp eq i8 %154, 0
+  br i1 %.not, label %161, label %155
 
-153:                                              ; preds = %147
-  %154 = getelementptr inbounds nuw i8, ptr %148, i64 432
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %155, i64 %indvars.iv
-  %157 = load i16, ptr %156, align 2
-  %158 = or i16 %157, 2048
-  store i16 %158, ptr %156, align 2
+155:                                              ; preds = %149
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 432
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %157, i64 %indvars.iv
+  %159 = load i16, ptr %158, align 2
+  %160 = or i16 %159, 2048
+  store i16 %160, ptr %158, align 2
   %.pre = load ptr, ptr %2, align 8
-  br label %159
+  br label %161
 
-159:                                              ; preds = %147, %153
-  %160 = phi ptr [ %148, %147 ], [ %.pre, %153 ]
+161:                                              ; preds = %149, %155
+  %162 = phi ptr [ %150, %147 ], [ %.pre, %153 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i32, ptr %161, align 8
-  %163 = sext i32 %162 to i64
-  %164 = icmp slt i64 %indvars.iv.next, %163
-  br i1 %164, label %147, label %.loopexit, !llvm.loop !78
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load i32, ptr %163, align 8
+  %165 = sext i32 %164 to i64
+  %166 = icmp slt i64 %indvars.iv.next, %165
+  br i1 %166, label %149, label %.loopexit, !llvm.loop !78
 
-.loopexit:                                        ; preds = %159, %.preheader, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit
+.loopexit:                                        ; preds = %161, %.preheader, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement36populateVertexTagsFromParentVerticesEv.exit
   ret void
 }
 
@@ -4967,15 +4967,15 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTags
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
-9:                                                ; preds = %.lr.ph, %48
-  %10 = phi ptr [ %3, %.lr.ph ], [ %49, %48 ]
+9:                                                ; preds = %.lr.ph, %50
+  %10 = phi ptr [ %3, %.lr.ph ], [ %51, %48 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %.sroa.0.022 = phi i16 [ 0, %.lr.ph ], [ %.sroa.0.1, %48 ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.not20 = icmp eq i32 %13, -1
-  br i1 %.not20, label %48, label %14
+  br i1 %.not20, label %50, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 240
@@ -5005,29 +5005,29 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateVertexTags
   %38 = and i8 %18, 12
   %39 = icmp eq i8 %38, 0
   %40 = select i1 %39, i16 128, i16 512
-  %.masked = or disjoint i16 %35, %40
-  %41 = or disjoint i16 %.masked, %37
-  %42 = or i16 %41, %20
+  %41 = or disjoint i16 %35, %40
+  %42 = or disjoint i16 %41, %37
+  %.masked = or i16 %42, %20
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 432
   %45 = sext i32 %13 to i64
   %46 = load ptr, ptr %44, align 8
   %47 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %46, i64 %45
-  store i16 %42, ptr %47, align 2
+  store i16 %.masked, ptr %47, align 2
   %.pre = load ptr, ptr %2, align 8
-  br label %48
+  br label %50
 
-48:                                               ; preds = %9, %14
-  %49 = phi ptr [ %.pre, %14 ], [ %10, %9 ]
+50:                                               ; preds = %9, %14
+  %51 = phi ptr [ %.pre, %14 ], [ %10, %9 ]
   %.sroa.0.1 = phi i16 [ %42, %14 ], [ %.sroa.0.022, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %9, label %._crit_edge, !llvm.loop !76
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next, %54
+  br i1 %55, label %9, label %._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %48, %1
+._crit_edge:                                      ; preds = %50, %1
   ret void
 }
 

@@ -4416,7 +4416,7 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -4430,8 +4430,8 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   %49 = icmp eq i32 %6, 14
   br i1 %49, label %50, label %54
 
-50:                                               ; preds = %2
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
+53:                                               ; preds = %2
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %53 = load i32, ptr %51, align 4
   store i32 %53, ptr %52, align 8
@@ -4443,9 +4443,9 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   %57 = and i32 %56, -2147483648
   %58 = or disjoint i32 %57, 520093696
   store i32 %58, ptr %55, align 8
-  br label %59
+  br label %72
 
-59:                                               ; preds = %54, %50
+72:                                               ; preds = %54, %50
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, ptr noundef nonnull align 8 dereferenceable(80) %60, i64 80, i1 false)
@@ -4468,14 +4468,14 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   %72 = load ptr, ptr %62, align 8
   br label %73
 
-73:                                               ; preds = %64, %69
+76:                                               ; preds = %64, %69
   %.pn = phi ptr [ %72, %69 ], [ %63, %64 ]
   %storemerge.in = getelementptr inbounds nuw i8, ptr %.pn, i64 104
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %41, align 8
-  %74 = load ptr, ptr %62, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %77 = load ptr, ptr %62, align 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef nonnull align 8 dereferenceable(40) ptr %77(ptr noundef nonnull align 8 dereferenceable(152) %74) #14
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -4484,18 +4484,18 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   store ptr %81, ptr %42, align 8
   br label %82
 
-82:                                               ; preds = %73, %59
+82:; preds = %73, %59
   %83 = load i16, ptr %9, align 8
   %84 = and i16 %83, 4096
   %.not60 = icmp eq i16 %84, 0
   br i1 %.not60, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread, label %85
 
-85:                                               ; preds = %82
+85:; preds = %82
   %86 = load ptr, ptr %44, align 8
   %.not51 = icmp eq ptr %86, null
   br i1 %.not51, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread, label %87
 
-87:                                               ; preds = %85
+87:; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -4503,11 +4503,11 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ERKNS_11TPublicTypeE(ptr noundef no
   %92 = icmp eq ptr %91, null
   br i1 %92, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
 
-_ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %93, align 8
+  %94 = load ptr, ptr %93, align 8
   %97 = ptrtoint ptr %95 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
@@ -4516,7 +4516,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %87
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
 
-103:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
+103:; preds = %90
   %104 = load i32, ptr %96, align 8
   %105 = load i32, ptr %1, align 8
   %106 = icmp eq i32 %105, 1
@@ -4524,100 +4524,100 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %87
   %or.cond = and i1 %107, %106
   br i1 %or.cond, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, label %108
 
-108:                                              ; preds = %103
+106:                                              ; preds = %103
   %109 = icmp eq i32 %105, 9
   %110 = icmp eq i32 %104, 8
   %or.cond3 = and i1 %110, %109
   br i1 %or.cond3, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, label %111
 
-111:                                              ; preds = %108
+111:; preds = %108
   %or.cond5 = and i1 %107, %109
   br i1 %or.cond5, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, label %112
 
-112:                                              ; preds = %111
+112:; preds = %111
   %113 = icmp eq i32 %105, 8
   %or.cond7 = and i1 %110, %113
   br i1 %or.cond7, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, label %114
 
-114:                                              ; preds = %112
+114:; preds = %112
   %or.cond9 = and i1 %107, %113
   br i1 %or.cond9, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
 
-_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split: ; preds = %114, %112, %111, %108, %103
+_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split: ; preds = %114, %112, %111, %106, %103
   %.sink65 = phi i32 [ 3, %103 ], [ 5, %108 ], [ 7, %111 ], [ 4, %112 ], [ 6, %114 ]
-  %115 = load i32, ptr %3, align 8
-  %116 = and i32 %115, -256
-  %117 = or disjoint i32 %116, %.sink65
-  store i32 %117, ptr %3, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %119 = load i64, ptr %118, align 8
-  %120 = and i64 %119, -234881025
-  store i64 %120, ptr %118, align 8
+  %118 = load i32, ptr %3, align 8
+  %119 = and i32 %118, -256
+  %120 = or disjoint i32 %119, %.sink65
+  store i32 %120, ptr %3, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %122 = load i64, ptr %121, align 8
+  %123 = and i64 %122, -234881025
+  store i64 %123, ptr %121, align 8
   br label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
 
 _ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread: ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread.sink.split, %87, %114, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit, %85, %82
-  %121 = load i16, ptr %9, align 8
-  %122 = and i16 %121, 8192
-  %.not61 = icmp eq i16 %122, 0
-  br i1 %.not61, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %123
+  %124 = load i16, ptr %9, align 8
+  %125 = and i16 %124, 8192
+  %.not61 = icmp eq i16 %125, 0
+  br i1 %.not61, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %126
 
-123:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
-  %124 = load ptr, ptr %44, align 8
-  %.not52 = icmp eq ptr %124, null
-  br i1 %.not52, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %125
+126:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
+  %127 = load ptr, ptr %44, align 8
+  %.not52 = icmp eq ptr %127, null
+  br i1 %.not52, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %128
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54
 
-_ZNK7glslang11TArraySizes10getNumDimsEv.exit54:   ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = load ptr, ptr %131, align 8
-  %135 = ptrtoint ptr %133 to i64
-  %136 = ptrtoint ptr %134 to i64
-  %137 = sub i64 %135, %136
-  %138 = lshr exact i64 %137, 4
-  %139 = trunc i64 %138 to i32
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %141, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
+_ZNK7glslang11TArraySizes10getNumDimsEv.exit54:   ; preds = %128
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %134, align 8
+  %138 = ptrtoint ptr %136 to i64
+  %139 = ptrtoint ptr %137 to i64
+  %140 = sub i64 %138, %139
+  %141 = lshr exact i64 %140, 4
+  %142 = trunc i64 %141 to i32
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %144, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
 
-141:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54
-  %142 = load i32, ptr %124, align 8
-  %143 = load i32, ptr %3, align 8
-  %144 = and i32 %142, 255
-  %145 = and i32 %143, -256
-  %146 = or disjoint i32 %145, %144
-  store i32 %146, ptr %3, align 8
-  %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
-  %149 = load ptr, ptr %148, align 8
-  %150 = tail call noundef i32 %149(ptr noundef nonnull align 8 dereferenceable(152) %0) #14
-  %151 = icmp eq i32 %150, 22
-  br i1 %151, label %152, label %156
+144:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54
+  %145 = load i32, ptr %127, align 8
+  %146 = load i32, ptr %3, align 8
+  %147 = and i32 %145, 255
+  %148 = and i32 %146, -256
+  %149 = or disjoint i32 %148, %147
+  store i32 %149, ptr %3, align 8
+  %150 = load ptr, ptr %0, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 56
+  %152 = load ptr, ptr %151, align 8
+  %153 = tail call noundef i32 %149(ptr noundef nonnull align 8 dereferenceable(152) %0) #14
+  %154 = icmp eq i32 %153, 22
+  br i1 %154, label %152, label %156
 
-152:                                              ; preds = %141
-  %153 = load ptr, ptr %44, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr %46, align 8
+159:                                              ; preds = %144
+  %160 = load ptr, ptr %44, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load ptr, ptr %161, align 8
+  store ptr %162, ptr %46, align 8
   br label %156
 
-156:                                              ; preds = %152, %141
+156:; preds = %152, %141
   %157 = load ptr, ptr %44, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = load ptr, ptr %160, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %168 = load ptr, ptr %167, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %_ZNK7glslang11TArraySizes10getNumDimsEv.exit56
 
-_ZNK7glslang11TArraySizes10getNumDimsEv.exit56:   ; preds = %156
+_ZNK7glslang11TArraySizes10getNumDimsEv.exit56:; preds = %156
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %165 = load ptr, ptr %164, align 8
@@ -4629,13 +4629,13 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit56:   ; preds = %156
   %171 = icmp eq i64 %170, 64
   br i1 %171, label %172, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
 
-172:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit56
+172:; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit56
   %173 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %174 = load i32, ptr %173, align 8
-  %175 = load i32, ptr %3, align 8
+  %184 = load i32, ptr %3, align 8
   %176 = shl i32 %174, 23
   %177 = and i32 %176, 58720256
-  %178 = and i32 %175, -125829121
+  %178 = and i32 %184, -125829121
   %179 = or disjoint i32 %177, %178
   %180 = or disjoint i32 %179, 67108864
   store i32 %180, ptr %3, align 8
@@ -4655,47 +4655,47 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit56:   ; preds = %156
   %194 = icmp eq i64 %192, 16
   br i1 %194, label %195, label %196
 
-195:                                              ; preds = %172
+195:; preds = %172
   store ptr null, ptr %184, align 8
   br label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
 
-196:                                              ; preds = %172
-  %197 = icmp eq ptr %188, %189
-  br i1 %197, label %198, label %207
+199:                                              ; preds = %172
+  %200 = icmp eq ptr %188, %189
+  br i1 %200, label %201, label %210
 
-198:                                              ; preds = %196
-  %199 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  %200 = load ptr, ptr %199, align 8
-  %201 = ptrtoint ptr %200 to i64
-  %202 = sub i64 %201, %190
-  %203 = ashr exact i64 %202, 4
-  %204 = xor i64 %193, 576460752303423487
-  %205 = icmp ule i64 %203, %204
-  tail call void @llvm.assume(i1 %205)
-  %.not27.i.i.not.i.i = icmp eq i64 %202, -16
-  br i1 %.not27.i.i.not.i.i, label %_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i, label %206
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %203 = load ptr, ptr %202, align 8
+  %204 = ptrtoint ptr %203 to i64
+  %205 = sub i64 %204, %190
+  %206 = ashr exact i64 %205, 4
+  %207 = xor i64 %193, 576460752303423487
+  %208 = icmp ule i64 %206, %207
+  tail call void @llvm.assume(i1 %208)
+  %.not27.i.i.not.i.i = icmp eq i64 %205, -16
+  br i1 %.not27.i.i.not.i.i, label %_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i, label %209
 
-_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i: ; preds = %198
+_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i: ; preds = %201
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18446744073709551600) %188, i8 0, i64 -16, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %188, i64 -16
   store ptr %scevgep.i.i.i.i.i, ptr %187, align 8
   br label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
 
-206:                                              ; preds = %198
+209:                                              ; preds = %201
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.51) #16
   unreachable
 
-207:                                              ; preds = %196
-  %208 = getelementptr i8, ptr %189, i64 %192
-  %209 = getelementptr i8, ptr %208, i64 -16
-  %.not.i4.i.i.i = icmp eq ptr %188, %209
-  br i1 %.not.i4.i.i.i, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %210
+210:                                              ; preds = %199
+  %211 = getelementptr i8, ptr %189, i64 %192
+  %212 = getelementptr i8, ptr %211, i64 -16
+  %.not.i4.i.i.i = icmp eq ptr %188, %212
+  br i1 %.not.i4.i.i.i, label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit, label %213
 
-210:                                              ; preds = %207
-  store ptr %209, ptr %187, align 8
+213:                                              ; preds = %210
+  store ptr %212, ptr %187, align 8
   br label %_ZN7glslang11TArraySizes14removeLastSizeEv.exit
 
-_ZN7glslang11TArraySizes14removeLastSizeEv.exit:  ; preds = %156, %125, %210, %207, %_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i, %195, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit56, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54, %123, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
+_ZN7glslang11TArraySizes14removeLastSizeEv.exit:  ; preds = %156, %125, %210, %207, %_ZSt27__uninitialized_default_n_aIPN7glslang10TArraySizeEmNS0_14pool_allocatorIS1_EEET_S5_T0_RT1_.exit.i.i.i.i, %195, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit56, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit54, %126, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread
   ret void
 }
 

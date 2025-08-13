@@ -4245,7 +4245,7 @@ encode_putfh.exit:                                ; preds = %21, %25
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 136
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 9223372036854775807
-  br i1 %62, label %69, label %63
+  br i1 %62, label %70, label %63
 
 63:                                               ; preds = %35
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 128
@@ -4255,15 +4255,15 @@ encode_putfh.exit:                                ; preds = %21, %25
   %68 = tail call i64 @llvm.bswap.i64(i64 %67)
   br label %69
 
-69:                                               ; preds = %63, %35
-  %70 = phi i64 [ %68, %63 ], [ -1, %35 ]
-  store i64 %70, ptr %58, align 1
-  %71 = getelementptr i8, ptr %32, i64 24
-  %72 = load i8, ptr %38, align 8
-  %73 = and i8 %72, 8
+70:                                               ; preds = %63, %35
+  %71 = phi i64 [ %68, %63 ], [ -1, %35 ]
+  store i64 %71, ptr %58, align 1
+  %72 = getelementptr i8, ptr %32, i64 24
+  %73 = load i8, ptr %38, align 8
+  %73 = and i8 %73, 8
   %74 = zext nneg i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 21
-  store i32 %75, ptr %71, align 4
+  store i32 %75, ptr %72, align 4
   %76 = load i8, ptr %38, align 8
   %77 = and i8 %76, 8
   %78 = icmp eq i8 %77, 0
@@ -4273,199 +4273,199 @@ encode_putfh.exit:                                ; preds = %21, %25
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %92, label %83
+  br i1 %82, label %92, label %85
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %91, label %89, !prof !6
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %81, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %88 = load i32, ptr %87, align 8
+  %89 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %93, label %91, !prof !6
 
-89:                                               ; preds = %83
-  %90 = tail call i32 @llvm.bswap.i32(i32 %86)
-  store i32 %90, ptr %87, align 4
-  br label %97
+91:                                               ; preds = %85
+  %92 = tail call i32 @llvm.bswap.i32(i32 %88)
+  store i32 %92, ptr %89, align 4
+  br label %99
 
-91:                                               ; preds = %83
+93:                                               ; preds = %85
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %97
+  br label %99
 
-92:                                               ; preds = %79
-  %93 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %96, label %95, !prof !6
+94:                                               ; preds = %79
+  %95 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %98, label %97, !prof !6
 
-95:                                               ; preds = %92
-  store i32 0, ptr %93, align 4
-  br label %97
+97:                                               ; preds = %94
+  store i32 0, ptr %95, align 4
+  br label %99
 
-96:                                               ; preds = %92
+98:                                               ; preds = %94
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %97
+  br label %99
 
-97:                                               ; preds = %96, %95, %91, %89
-  %98 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #12
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %103, label %100, !prof !6
+99:                                               ; preds = %98, %97, %93, %91
+  %100 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #12
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %105, label %102, !prof !6
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %102 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef nonnull %98, ptr noundef nonnull %101, i32 noundef 16) #12
-  br label %104
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %104 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef nonnull %100, ptr noundef nonnull %103, i32 noundef 16) #12
+  br label %106
 
-103:                                              ; preds = %97
+105:                                              ; preds = %99
   tail call void asm sideeffect "1516: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1516b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1516) #12, !srcloc !42
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 973, i32 2307, i64 12) #12, !srcloc !43
   tail call void asm sideeffect "1517: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1517b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1517) #12, !srcloc !44
-  br label %104
+  br label %106
 
-104:                                              ; preds = %103, %100
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %117, label %108
+106:                                              ; preds = %105, %102
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %119, label %110
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %106, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %111 = load i32, ptr %110, align 8
-  %112 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %116, label %114, !prof !6
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %108, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %113 = load i32, ptr %112, align 8
+  %114 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %118, label %116, !prof !6
 
-114:                                              ; preds = %108
-  %115 = tail call i32 @llvm.bswap.i32(i32 %111)
-  store i32 %115, ptr %112, align 4
-  br label %122
+116:                                              ; preds = %110
+  %117 = tail call i32 @llvm.bswap.i32(i32 %113)
+  store i32 %117, ptr %114, align 4
+  br label %124
 
-116:                                              ; preds = %108
+118:                                              ; preds = %110
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %122
+  br label %124
 
-117:                                              ; preds = %104
-  %118 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %121, label %120, !prof !6
+119:                                              ; preds = %106
+  %120 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %123, label %122, !prof !6
 
-120:                                              ; preds = %117
-  store i32 0, ptr %118, align 4
-  br label %122
+122:                                              ; preds = %119
+  store i32 0, ptr %120, align 4
+  br label %124
 
-121:                                              ; preds = %117
+123:                                              ; preds = %119
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %122
+  br label %124
 
-122:                                              ; preds = %121, %120, %116, %114
-  %123 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #12
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %126, !prof !6
+124:                                              ; preds = %123, %122, %118, %116
+  %125 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #12
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %127, label %128, !prof !6
 
-125:                                              ; preds = %122
+127:                                              ; preds = %124
   tail call void asm sideeffect "1515: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1515b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1515) #12, !srcloc !45
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 967, i32 0, i64 12) #12, !srcloc !46
   unreachable
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %128 = load i64, ptr %127, align 8
-  %129 = tail call i64 @llvm.bswap.i64(i64 %128)
-  store i64 %129, ptr %123, align 1
-  %130 = getelementptr i8, ptr %123, i64 8
-  %131 = getelementptr i8, ptr %123, i64 12
-  store i32 335544320, ptr %130, align 4
-  %132 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef %131, ptr noundef nonnull @.str.75, i32 noundef 8) #12
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %134 = load i32, ptr %133, align 8
-  %135 = tail call i32 @llvm.bswap.i32(i32 %134)
-  %136 = getelementptr i8, ptr %132, i64 4
-  store i32 %135, ptr %132, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %138 = load i64, ptr %137, align 8
-  %139 = tail call i64 @llvm.bswap.i64(i64 %138)
-  store i64 %139, ptr %136, align 4
-  br label %165
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %130 = load i64, ptr %129, align 8
+  %131 = tail call i64 @llvm.bswap.i64(i64 %130)
+  store i64 %131, ptr %125, align 1
+  %132 = getelementptr i8, ptr %125, i64 8
+  %133 = getelementptr i8, ptr %125, i64 12
+  store i32 335544320, ptr %132, align 4
+  %134 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef %133, ptr noundef nonnull @.str.75, i32 noundef 8) #12
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %136 = load i32, ptr %135, align 8
+  %137 = tail call i32 @llvm.bswap.i32(i32 %136)
+  %138 = getelementptr i8, ptr %134, i64 4
+  store i32 %137, ptr %134, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %140 = load i64, ptr %139, align 8
+  %141 = tail call i64 @llvm.bswap.i64(i64 %140)
+  store i64 %141, ptr %138, align 4
+  br label %167
 
-140:                                              ; preds = %69
-  %141 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #12
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %146, label %143, !prof !6
+142:                                              ; preds = %70
+  %143 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #12
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %148, label %145, !prof !6
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %145 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef nonnull %141, ptr noundef nonnull %144, i32 noundef 16) #12
-  br label %147
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %147 = tail call ptr @xdr_encode_opaque_fixed(ptr noundef nonnull %143, ptr noundef nonnull %146, i32 noundef 16) #12
+  br label %149
 
-146:                                              ; preds = %140
+148:                                              ; preds = %142
   tail call void asm sideeffect "1516: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1516b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1516) #12, !srcloc !42
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 973, i32 2307, i64 12) #12, !srcloc !43
   tail call void asm sideeffect "1517: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1517b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1517) #12, !srcloc !44
-  br label %147
+  br label %149
 
-147:                                              ; preds = %146, %143
-  %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %160, label %151
+149:                                              ; preds = %148, %145
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %151 = load ptr, ptr %150, align 8
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %162, label %153
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %149, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load i32, ptr %153, align 8
-  %155 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %159, label %157, !prof !6
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %151, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load i32, ptr %155, align 8
+  %157 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %161, label %159, !prof !6
 
-157:                                              ; preds = %151
-  %158 = tail call i32 @llvm.bswap.i32(i32 %154)
-  store i32 %158, ptr %155, align 4
-  br label %165
+159:                                              ; preds = %153
+  %160 = tail call i32 @llvm.bswap.i32(i32 %156)
+  store i32 %160, ptr %157, align 4
+  br label %167
 
-159:                                              ; preds = %151
+161:                                              ; preds = %153
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %165
+  br label %167
 
-160:                                              ; preds = %147
-  %161 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %164, label %163, !prof !6
+162:                                              ; preds = %149
+  %163 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #12
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %166, label %165, !prof !6
 
-163:                                              ; preds = %160
-  store i32 0, ptr %161, align 4
-  br label %165
+165:                                              ; preds = %162
+  store i32 0, ptr %163, align 4
+  br label %167
 
-164:                                              ; preds = %160
+166:                                              ; preds = %162
   tail call void asm sideeffect "1520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1520) #12, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 983, i32 2307, i64 12) #12, !srcloc !37
   tail call void asm sideeffect "1521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1521) #12, !srcloc !38
-  br label %165
+  br label %167
 
-165:                                              ; preds = %164, %163, %159, %157, %126
-  %166 = icmp ugt i32 %31, 8
-  br i1 %166, label %167, label %168, !prof !6
+167:                                              ; preds = %166, %165, %161, %159, %128
+  %168 = icmp ugt i32 %31, 8
+  br i1 %168, label %169, label %170, !prof !6
 
-167:                                              ; preds = %165
+169:                                              ; preds = %167
   tail call void asm sideeffect "1528: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1528) #12, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1059, i32 2307, i64 12) #12, !srcloc !48
   tail call void asm sideeffect "1529: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1529) #12, !srcloc !49
-  br label %168
+  br label %170
 
-168:                                              ; preds = %167, %165
-  %169 = tail call i32 @llvm.bswap.i32(i32 %31)
-  %170 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %171 = load ptr, ptr %170, align 8
-  store i32 %169, ptr %171, align 4
+170:                                              ; preds = %169, %167
+  %171 = tail call i32 @llvm.bswap.i32(i32 %31)
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %173 = load ptr, ptr %172, align 8
+  store i32 %170, ptr %173, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

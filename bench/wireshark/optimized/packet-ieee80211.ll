@@ -17161,19 +17161,19 @@ switch.lookup317:                                 ; preds = %319
   %or.cond.i.i.i = and i1 %500, %499
   br i1 %or.cond.i.i.i, label %get_mimo_na.exit.i.i, label %501
 
-501:                                              ; preds = %._crit_edge.i160.i
+501:; preds = %._crit_edge.i160.i
   %502 = icmp eq i8 %474, 2
   %or.cond5.i.i.i = and i1 %502, %499
   br i1 %or.cond5.i.i.i, label %get_mimo_na.exit.i.i, label %503
 
-503:                                              ; preds = %501
+503:; preds = %501
   %504 = icmp eq i8 %498, 3
   %or.cond8.i.i.i = and i1 %500, %504
   br i1 %or.cond8.i.i.i, label %get_mimo_na.exit.i.i, label %505
 
-505:                                              ; preds = %503
-  %or.cond11.i.i.i = and i1 %502, %504
-  br i1 %or.cond11.i.i.i, label %get_mimo_na.exit.i.i, label %506
+510:                                              ; preds = %503
+  %or.cond23.i.i.i = and i1 %502, %504
+  br i1 %or.cond23.i.i.i, label %get_mimo_na.exit.i.i, label %506
 
 506:                                              ; preds = %505
   %507 = icmp eq i8 %474, 3
@@ -17202,8 +17202,8 @@ switch.lookup317:                                 ; preds = %319
 get_mimo_na.exit.i.i:                             ; preds = %512, %511, %510, %508, %506, %505, %503, %501, %._crit_edge.i160.i
   %.0.i.i164.i = phi i32 [ 2, %._crit_edge.i160.i ], [ 2, %501 ], [ 4, %503 ], [ 6, %505 ], [ 6, %506 ], [ 6, %508 ], [ 10, %510 ], [ 12, %511 ], [ %..i.i.i, %512 ]
   %switch.tableidx324 = add nsw i8 %switch.masked320, -1
-  %514 = icmp ult i8 %switch.tableidx324, 4
-  br i1 %514, label %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_compressed_beamforming_feedback_report.exit.i
+  %513 = icmp ult i8 %switch.tableidx324, 4
+  br i1 %513, label %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_compressed_beamforming_feedback_report.exit.i
 
 add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split: ; preds = %get_mimo_na.exit.i.i
   %.not35.i.i = icmp eq i8 %495, 0

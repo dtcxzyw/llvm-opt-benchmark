@@ -401,7 +401,7 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 768
   %7 = tail call ptr @inet_twsk_alloc(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %1) #8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %136, label %9
+  br i1 %8, label %137, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -540,59 +540,59 @@ define dso_local void @tcp_time_wait(ptr noundef %0, i32 noundef %1, i32 noundef
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #8
           to label %129 [label %115], !srcloc !7
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %117 = load ptr, ptr %116, align 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call ptr %118(ptr noundef %0, ptr noundef %0) #8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %129, label %121
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %118 = load ptr, ptr %117, align 16
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call ptr %118(ptr noundef %0, ptr noundef %0) #8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %130, label %122
 
-121:                                              ; preds = %115
-  %122 = tail call dereferenceable_or_null(136) ptr @kmemdup(ptr noundef nonnull %119, i64 noundef 136, i32 noundef 2080) #9
-  store ptr %122, ptr %114, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %129, label %124
+122:                                              ; preds = %116
+  %123 = tail call dereferenceable_or_null(136) ptr @kmemdup(ptr noundef nonnull %120, i64 noundef 136, i32 noundef 2080) #9
+  store ptr %123, ptr %114, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %130, label %125
 
-124:                                              ; preds = %121
-  %125 = tail call zeroext i1 @static_key_fast_inc_not_disabled(ptr noundef nonnull @tcp_md5_needed) #8
-  br i1 %125, label %126, label %127
+125:                                              ; preds = %122
+  %126 = tail call zeroext i1 @static_key_fast_inc_not_disabled(ptr noundef nonnull @tcp_md5_needed) #8
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %124
+127:                                              ; preds = %125
   tail call void @tcp_md5_add_sigpool() #8
-  br label %129
+  br label %130
 
-127:                                              ; preds = %124
+128:                                              ; preds = %125
   tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #8, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 283, i32 2307, i64 12) #8, !srcloc !9
   tail call void asm sideeffect "940: nop\0A\09.pushsection .discard.instr_end\0A\09.long 940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 940) #8, !srcloc !10
-  %128 = load ptr, ptr %114, align 8
-  tail call void @kfree(ptr noundef %128) #8
+  %129 = load ptr, ptr %114, align 8
+  tail call void @kfree(ptr noundef %129) #8
   store ptr null, ptr %114, align 8
-  br label %129
+  br label %130
 
-129:                                              ; preds = %127, %126, %121, %115, %113
-  %130 = tail call i32 @llvm.smax.i32(i32 %14, i32 %2)
-  %131 = icmp eq i32 %1, 6
-  %132 = select i1 %131, i32 60000, i32 %130
-  %133 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
+130:                                              ; preds = %128, %127, %122, %116, %113
+  %131 = tail call i32 @llvm.smax.i32(i32 %14, i32 %2)
+  %132 = icmp eq i32 %1, 6
+  %133 = select i1 %132, i32 60000, i32 %131
+  %134 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  tail call void @__inet_twsk_schedule(ptr noundef nonnull %7, i32 noundef %132, i1 noundef zeroext false) #8
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 832
-  %135 = load ptr, ptr %134, align 64
-  tail call void @inet_twsk_hashdance(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %135) #8
-  tail call void @__local_bh_enable_ip(i64 noundef %133, i32 noundef 512) #8
-  br label %140
+  tail call void @__inet_twsk_schedule(ptr noundef nonnull %7, i32 noundef %133, i1 noundef zeroext false) #8
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 832
+  %136 = load ptr, ptr %135, align 64
+  tail call void @inet_twsk_hashdance(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %136) #8
+  tail call void @__local_bh_enable_ip(i64 noundef %134, i32 noundef 512) #8
+  br label %141
 
-136:                                              ; preds = %3
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr i8, ptr %138, i64 584
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %139, ptr elementtype(i64) %139) #8, !srcloc !14
-  br label %140
+137:                                              ; preds = %3
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr i8, ptr %139, i64 584
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %140, ptr elementtype(i64) %140) #8, !srcloc !14
+  br label %141
 
-140:                                              ; preds = %136, %129
+141:                                              ; preds = %137, %130
   tail call void @tcp_update_metrics(ptr noundef %0) #8
   tail call void @tcp_done(ptr noundef %0) #8
   ret void

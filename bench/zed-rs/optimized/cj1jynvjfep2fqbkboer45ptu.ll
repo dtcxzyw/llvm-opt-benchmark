@@ -94150,7 +94150,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr20set_e
 13:                                               ; preds = %24, %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %69
 
 15:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18440)
@@ -94257,11 +94257,11 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr20set_e
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = icmp eq i64 %.sroa.021.0.copyload, 0
-  br i1 %50, label %65, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17"
+  br i1 %50, label %69, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17": ; preds = %48
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.5.0.copyload, i64 noundef %.sroa.021.0.copyload, i64 noundef 1) #50, !noalias !18465
-  br label %65
+  br label %69
 
 51:                                               ; preds = %41
   %.sroa.04.0.copyload = load i32, ptr %.sroa.5.0.copyload, align 1
@@ -94282,34 +94282,34 @@ define hidden void @_ZN4gpui8platform5linux3x116window17X11WindowStatePtr20set_e
   %.sroa.5.0.insert.ext.i = zext nneg i32 %53 to i64
   %.sroa.5.0.insert.shift.i = shl nuw nsw i64 %.sroa.5.0.insert.ext.i, 28
   %.sroa.5.0.insert.insert.i = or disjoint i64 %.sroa.6.0.insert.insert.i, %.sroa.5.0.insert.shift.i
-  %56 = shl i32 %.sroa.04.0.copyload, 21
-  %57 = and i32 %56, 16777216
-  %.sroa.4.0.insert.shift.i = zext nneg i32 %57 to i64
+  %60 = shl i32 %.sroa.04.0.copyload, 21
+  %61 = and i32 %60, 16777216
+  %.sroa.4.0.insert.shift.i = zext nneg i32 %61 to i64
   %.sroa.4.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %.sroa.4.0.insert.shift.i
-  %58 = shl i32 %.sroa.04.0.copyload, 14
-  %59 = shl i32 %.sroa.04.0.copyload, 7
-  %60 = and i32 %58, 65536
-  %.sroa.3.0.insert.shift.masked.i = zext nneg i32 %60 to i64
+  %62 = shl i32 %.sroa.04.0.copyload, 14
+  %63 = shl i32 %.sroa.04.0.copyload, 7
+  %64 = and i32 %62, 65536
+  %.sroa.3.0.insert.shift.masked.i = zext nneg i32 %64 to i64
   %.sroa.2.0.insert.mask.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %.sroa.3.0.insert.shift.masked.i
-  %61 = and i32 %59, 256
-  %.sroa.2.0.insert.shift.masked.i = zext nneg i32 %61 to i64
+  %65 = and i32 %63, 256
+  %.sroa.2.0.insert.shift.masked.i = zext nneg i32 %65 to i64
   %.sroa.0.0.insert.mask.i = or disjoint i64 %.sroa.2.0.insert.mask.i, %.sroa.2.0.insert.shift.masked.i
   %.sroa.0.0.insert.insert.i = or i64 %.sroa.0.0.insert.mask.i, %.sroa.0.0.insert.ext.i
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 2544
-  store i64 %.sroa.0.0.insert.insert.i, ptr %62, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 2544
+  store i64 %.sroa.0.0.insert.insert.i, ptr %66, align 8
   br label %45
 
 "_ZN4core3ptr71drop_in_place$LT$x11rb_protocol..protocol..xproto..GetPropertyReply$GT$17h93ea28e9df5f7593E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i", %45
-  %63 = load i64, ptr %2, align 8, !noalias !18474, !noundef !9
-  %64 = add i64 %63, 1
-  store i64 %64, ptr %2, align 8, !noalias !18474
+  %67 = load i64, ptr %2, align 8, !noalias !18474, !noundef !9
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %2, align 8, !noalias !18474
   ret void
 
-65:                                               ; preds = %13, %19, %33, %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17"
+69:                                               ; preds = %13, %19, %33, %48, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17"
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %20, %19 ], [ %34, %33 ], [ %49, %48 ], [ %49, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i17" ]
-  %66 = load i64, ptr %2, align 8, !noalias !18481, !noundef !9
-  %67 = add i64 %66, 1
-  store i64 %67, ptr %2, align 8, !noalias !18481
+  %70 = load i64, ptr %2, align 8, !noalias !18481, !noundef !9
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %2, align 8, !noalias !18481
   resume { ptr, i32 } %.pn
 }
 

@@ -172905,7 +172905,7 @@ define hidden range(i40 0, 16908288) i40 @_ZN4gpui8platform5linux3x115event20mod
   %7 = and i8 %2, 64
   %.sroa.4.0.insert.ext = zext nneg i8 %7 to i40
   %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 18
-  %.sroa.3.0.insert.ext = zext nneg i8 %6 to i40
+  %.sroa.4.0.insert.ext = zext nneg i8 %6 to i40
   %.sroa.3.0.insert.shift = shl nuw nsw i40 %.sroa.3.0.insert.ext, 16
   %.sroa.3.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
   %.sroa.2.0.insert.ext = zext nneg i8 %5 to i40
@@ -172928,7 +172928,7 @@ define hidden range(i40 0, 16908288) i40 @_ZN4gpui8platform5linux3x115event26mod
   %9 = and i8 %4, 64
   %.sroa.4.0.insert.ext = zext nneg i8 %9 to i40
   %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 18
-  %.sroa.3.0.insert.ext = zext nneg i8 %8 to i40
+  %.sroa.4.0.insert.ext = zext nneg i8 %8 to i40
   %.sroa.3.0.insert.shift = shl nuw nsw i40 %.sroa.3.0.insert.ext, 16
   %.sroa.3.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
   %.sroa.2.0.insert.ext = zext nneg i8 %7 to i40

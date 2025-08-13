@@ -2716,16 +2716,16 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
 17:                                               ; preds = %2
   %.sroa.4.0.i = and i32 %7, -2147483648
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %.0.i) #28
-  store i64 %18, ptr %6, align 8
+  %19 = tail call i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %.0.i) #28
+  store i64 %19, ptr %6, align 8
   %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i to i64
   %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 9
-  %19 = call ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
+  %20 = call ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit: ; preds = %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit.i, %17
-  %.sroa.07.1.i = phi ptr [ %16, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %19, %17 ]
+  %.sroa.07.1.i = phi ptr [ %16, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.07.1.i
 }
@@ -11971,7 +11971,7 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
   switch i8 %12, label %37 [
     i8 0, label %41
     i8 14, label %13
-    i8 13, label %41
+    i8 13, label %51
     i8 10, label %15
     i8 9, label %17
     i8 12, label %24
@@ -11980,35 +11980,35 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
     i8 7, label %35
   ]
 
-13:                                               ; preds = %2
-  %14 = or disjoint i32 %10, 65536
-  br label %41
-
 15:                                               ; preds = %2
   %16 = or disjoint i32 %10, 65536
-  br label %17
+  br label %51
 
-17:                                               ; preds = %15, %2
-  %.sroa.2.1 = phi i32 [ %16, %15 ], [ %10, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !100
-  %.not38 = icmp eq i32 %19, 0
+17:                                               ; preds = %2
+  %18 = or disjoint i32 %10, 65536
+  br label %19
+
+19:                                               ; preds = %17, %2
+  %.sroa.2.1 = phi i32 [ %18, %15 ], [ %10, %2 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !100
+  %22 = icmp eq i32 %21, 0
   %.sroa.2.1.mask = and i32 %.sroa.2.1, 1048576
-  %20 = select i1 %.not38, i32 %.sroa.2.1.mask, i32 1048576
+  %20 = select i1 %22, i32 %.sroa.2.1.mask, i32 1048576
   %21 = and i32 %.sroa.2.1, -1048578
   %22 = or disjoint i32 %21, %20
   %23 = or disjoint i32 %22, 1
   br label %41
 
-24:                                               ; preds = %2
-  %25 = or disjoint i32 %10, 65536
-  br label %26
+30:                                               ; preds = %2
+  %31 = or disjoint i32 %10, 65536
+  br label %32
 
-26:                                               ; preds = %24, %2
-  %.sroa.2.2 = phi i32 [ %25, %24 ], [ %10, %2 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !100
-  %.not = icmp eq i32 %28, 0
+32:                                               ; preds = %30, %2
+  %.sroa.2.2 = phi i32 [ %31, %24 ], [ %10, %2 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !100
+  %35 = icmp eq i32 %34, 0
   %.sroa.2.2.mask = and i32 %.sroa.2.2, 1048576
   %29 = select i1 %.not, i32 %.sroa.2.2.mask, i32 1048576
   %30 = and i32 %.sroa.2.2, -1048579
@@ -12016,37 +12016,37 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
   %32 = or disjoint i32 %31, 2
   br label %41
 
-33:                                               ; preds = %2
-  %34 = or disjoint i32 %10, 65536
-  br label %35
+43:                                               ; preds = %2
+  %44 = or disjoint i32 %10, 65536
+  br label %45
 
-35:                                               ; preds = %33, %2
-  %.sroa.2.3 = phi i32 [ %34, %33 ], [ %10, %2 ]
-  %36 = or i32 %.sroa.2.3, 3
-  br label %41
+45:                                               ; preds = %43, %2
+  %.sroa.2.3 = phi i32 [ %44, %33 ], [ %10, %2 ]
+  %46 = or i32 %.sroa.2.3, 3
+  br label %51
 
-37:                                               ; preds = %2
+47:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.10)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !40
-  %38 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
-  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %38)
-          to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %39
+  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
+  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %48)
+          to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %49
 
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %50
 
-_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %37
+_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %47
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %41
+  br label %51
 
-41:                                               ; preds = %2, %13, %2, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit, %35, %26, %17
-  %.sroa.2.4 = phi i32 [ %10, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit ], [ %23, %17 ], [ %32, %26 ], [ %36, %35 ], [ %10, %2 ], [ %14, %13 ], [ %10, %2 ]
+51:                                               ; preds = %2, %15, %2, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit, %45, %32, %19
+  %.sroa.2.4 = phi i32 [ %10, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit ], [ %23, %17 ], [ %32, %26 ], [ %46, %35 ], [ %10, %2 ], [ %16, %13 ], [ %10, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

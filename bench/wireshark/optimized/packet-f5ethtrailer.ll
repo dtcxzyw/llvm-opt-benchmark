@@ -2720,7 +2720,7 @@ dissect_dpt_trailer.exit.i:                       ; preds = %dissect_low_trailer
   %724 = load i8, ptr %723, align 1
   %725 = and i8 %724, 1
   %726 = icmp eq i8 %725, 0
-  br i1 %726, label %727, label %753
+  br i1 %726, label %727, label %754
 
 727:                                              ; preds = %722
   %728 = getelementptr inbounds nuw i8, ptr %60, i64 36
@@ -2762,74 +2762,74 @@ dissect_dpt_trailer.exit.i:                       ; preds = %dissect_low_trailer
 
 752:                                              ; preds = %749
   call fastcc void @perform_analysis(ptr noundef %.0.i)
-  br label %753
+  br label %754
 
-753:                                              ; preds = %752, %749, %722
-  %754 = icmp eq ptr %.0.i, null
-  br i1 %754, label %render_analysis.exit.i, label %755
+754:                                              ; preds = %752, %749, %722
+  %755 = icmp eq ptr %.0.i, null
+  br i1 %755, label %render_analysis.exit.i, label %756
 
-755:                                              ; preds = %753
-  %756 = load i8, ptr %723, align 1
-  %757 = and i8 %756, 8
-  %758 = icmp eq i8 %757, 0
-  br i1 %758, label %render_analysis.exit.i, label %759
+756:                                              ; preds = %754
+  %757 = load i8, ptr %723, align 1
+  %758 = and i8 %757, 8
+  %759 = icmp eq i8 %758, 0
+  br i1 %759, label %render_analysis.exit.i, label %760
 
-759:                                              ; preds = %755
-  %760 = load i32, ptr @hf_analysis, align 4
-  %761 = call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %760, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i.i141.i = icmp eq ptr %761, null
-  br i1 %.not.i.i141.i, label %proto_item_set_generated.exit.i.i, label %762
+760:                                              ; preds = %756
+  %761 = load i32, ptr @hf_analysis, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %761, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %.not.i.i141.i = icmp eq ptr %762, null
+  br i1 %.not.i.i141.i, label %proto_item_set_generated.exit.i.i, label %763
 
-762:                                              ; preds = %759
-  %763 = getelementptr inbounds nuw i8, ptr %761, i64 40
-  %764 = load ptr, ptr %763, align 8
-  %.not5.i.i.i = icmp eq ptr %764, null
-  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %765
+763:                                              ; preds = %760
+  %764 = getelementptr inbounds nuw i8, ptr %762, i64 40
+  %765 = load ptr, ptr %764, align 8
+  %.not5.i.i.i = icmp eq ptr %765, null
+  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %766
 
-765:                                              ; preds = %762
-  %766 = getelementptr inbounds nuw i8, ptr %764, i64 28
-  %767 = load i32, ptr %766, align 4
-  %768 = or i32 %767, 2
-  store i32 %768, ptr %766, align 4
+766:                                              ; preds = %763
+  %767 = getelementptr inbounds nuw i8, ptr %765, i64 28
+  %768 = load i32, ptr %767, align 4
+  %769 = or i32 %768, 2
+  store i32 %769, ptr %767, align 4
   br label %proto_item_set_generated.exit.i.i
 
-proto_item_set_generated.exit.i.i:                ; preds = %765, %762, %759
-  %769 = load i8, ptr %723, align 1
-  %770 = and i8 %769, 2
-  %.not.i.i = icmp eq i8 %770, 0
-  br i1 %.not.i.i, label %773, label %771
+proto_item_set_generated.exit.i.i:                ; preds = %766, %763, %760
+  %770 = load i8, ptr %723, align 1
+  %771 = and i8 %770, 2
+  %.not.i.i = icmp eq i8 %771, 0
+  br i1 %.not.i.i, label %774, label %772
 
-771:                                              ; preds = %proto_item_set_generated.exit.i.i
-  %772 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %761, ptr noundef nonnull @ei_f5eth_flowreuse)
+772:                                              ; preds = %proto_item_set_generated.exit.i.i
+  %773 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %762, ptr noundef nonnull @ei_f5eth_flowreuse)
   %.pre.i.i = load i8, ptr %723, align 1
-  br label %773
+  br label %774
 
-773:                                              ; preds = %771, %proto_item_set_generated.exit.i.i
-  %774 = phi i8 [ %.pre.i.i, %771 ], [ %769, %proto_item_set_generated.exit.i.i ]
-  %775 = and i8 %774, 4
-  %.not11.i.i = icmp eq i8 %775, 0
-  br i1 %.not11.i.i, label %render_analysis.exit.i, label %776
+774:                                              ; preds = %772, %proto_item_set_generated.exit.i.i
+  %775 = phi i8 [ %.pre.i.i, %771 ], [ %770, %proto_item_set_generated.exit.i.i ]
+  %776 = and i8 %775, 4
+  %.not11.i.i = icmp eq i8 %776, 0
+  br i1 %.not11.i.i, label %render_analysis.exit.i, label %777
 
-776:                                              ; preds = %773
-  %777 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %761, ptr noundef nonnull @ei_f5eth_flowlost)
+777:                                              ; preds = %774
+  %778 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %762, ptr noundef nonnull @ei_f5eth_flowlost)
   br label %render_analysis.exit.i
 
-render_analysis.exit.i:                           ; preds = %776, %773, %755, %753, %dissect_dpt_trailer.exit.i
-  %778 = getelementptr inbounds nuw i8, ptr %60, i64 36
-  %779 = load i8, ptr %778, align 4
-  %780 = and i8 %779, 1
-  %.not137.i = icmp eq i8 %780, 0
-  br i1 %.not137.i, label %dissect_f5ethtrailer.exit, label %781
+render_analysis.exit.i:                           ; preds = %777, %774, %756, %754, %dissect_dpt_trailer.exit.i
+  %779 = getelementptr inbounds nuw i8, ptr %60, i64 36
+  %780 = load i8, ptr %779, align 4
+  %781 = and i8 %780, 1
+  %.not137.i = icmp eq i8 %781, 0
+  br i1 %.not137.i, label %dissect_f5ethtrailer.exit, label %782
 
-781:                                              ; preds = %render_analysis.exit.i
-  %782 = load i32, ptr @tap_f5ethtrailer, align 4
-  call void @tap_queue_packet(i32 noundef %782, ptr noundef %1, ptr noundef %60)
+782:                                              ; preds = %render_analysis.exit.i
+  %783 = load i32, ptr @tap_f5ethtrailer, align 4
+  call void @tap_queue_packet(i32 noundef %783, ptr noundef %1, ptr noundef %60)
   br label %dissect_f5ethtrailer.exit
 
-dissect_f5ethtrailer.exit:                        ; preds = %51, %54, %4, %.critedge.i, %24, %33, %render_analysis.exit.i, %781
+dissect_f5ethtrailer.exit:                        ; preds = %51, %54, %4, %.critedge.i, %24, %33, %render_analysis.exit.i, %782
   %.0109.i = phi i32 [ 0, %4 ], [ 0, %.critedge.i ], [ 0, %24 ], [ %.0111.i, %781 ], [ %.0111.i, %render_analysis.exit.i ], [ 0, %33 ], [ 0, %54 ], [ 0, %51 ]
-  %783 = icmp sgt i32 %.0109.i, 0
-  ret i1 %783
+  %784 = icmp sgt i32 %.0109.i, 0
+  ret i1 %784
 }
 
 ; Function Attrs: null_pointer_is_valid
