@@ -879,18 +879,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = icmp eq i64 %1, 16
-  br i1 %9, label %10, label %155
+  br i1 %9, label %10, label %153
 
 10:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !16
   %11 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 16) #11
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %155
+  br i1 %12, label %13, label %153
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %4, align 4
   %15 = icmp ugt i32 %14, 8191
-  br i1 %15, label %155, label %16
+  br i1 %15, label %153, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -904,7 +904,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %23 = and i8 %18, 32
   %24 = icmp eq i8 %23, 0
   %25 = or i1 %22, %24
-  br i1 %25, label %155, label %26
+  br i1 %25, label %153, label %26
 
 26:                                               ; preds = %21, %16
   %27 = icmp eq i32 %2, 0
@@ -916,7 +916,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %33, 0
   %35 = select i1 %31, i1 true, i1 %34
-  br i1 %35, label %36, label %88
+  br i1 %35, label %36, label %86
 
 36:                                               ; preds = %26
   %37 = icmp eq i32 %29, 0
@@ -925,181 +925,179 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %40 = and i8 %18, 127
   %41 = icmp eq i8 %40, 40
   %42 = and i1 %41, %39
-  br i1 %42, label %88, label %43
+  br i1 %42, label %86, label %43
 
 43:                                               ; preds = %36
   %44 = and i8 %18, 1
   %45 = lshr i32 %29, 16
   %46 = and i32 %45, 255
-  %47 = lshr i8 %18, 2
-  %48 = and i8 %47, 2
-  %49 = shl i8 %18, 1
-  %50 = and i8 %49, 12
-  %51 = or disjoint i8 %48, %50
-  %52 = xor i8 %51, 3
-  %53 = zext nneg i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %46, %54
-  %56 = lshr i8 %18, 5
-  %57 = xor i8 %56, -1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 15
-  %60 = and i32 %33, 983040
-  %61 = lshr i8 %18, 6
-  %62 = and i8 %61, 1
-  %63 = zext nneg i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 20
-  %65 = zext nneg i8 %44 to i32
-  %66 = shl nuw nsw i32 %65, 22
-  %67 = lshr i8 %18, 4
-  %68 = zext nneg i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 23
-  %70 = and i32 %59, 32768
-  %71 = or disjoint i32 %55, %70
-  %72 = or disjoint i32 %71, %60
-  %73 = or disjoint i32 %72, %64
-  %74 = or disjoint i32 %73, %66
-  %75 = or i32 %74, %69
-  %76 = and i32 %29, -16777216
-  %77 = and i32 %75, 14651391
-  %78 = or disjoint i32 %76, %77
-  %79 = or disjoint i32 %78, 28672
-  %80 = and i32 %79, -3145729
-  %81 = select i1 %27, i32 %79, i32 %80
-  %82 = zext i32 %81 to i64
-  %83 = shl nuw i64 %82, 32
-  %84 = shl i32 %29, 16
-  %85 = zext i32 %84 to i64
-  %86 = and i32 %33, 65535
-  %87 = zext nneg i32 %86 to i64
-  br label %88
+  %47 = and i8 %18, 8
+  %48 = shl i8 %18, 3
+  %49 = and i8 %48, 48
+  %50 = or disjoint i8 %49, %47
+  %51 = xor i8 %50, 12
+  %52 = zext nneg i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 6
+  %54 = or disjoint i32 %46, %53
+  %55 = lshr i8 %18, 5
+  %56 = xor i8 %55, -1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw nsw i32 %57, 15
+  %59 = and i32 %33, 983040
+  %60 = and i8 %18, 64
+  %61 = zext nneg i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 14
+  %63 = zext nneg i8 %44 to i32
+  %64 = shl nuw nsw i32 %63, 22
+  %65 = lshr i8 %18, 4
+  %66 = zext nneg i8 %65 to i32
+  %67 = shl nuw nsw i32 %66, 23
+  %68 = and i32 %58, 32768
+  %69 = or disjoint i32 %54, %68
+  %70 = or disjoint i32 %69, %59
+  %71 = or disjoint i32 %70, %62
+  %72 = or disjoint i32 %71, %64
+  %73 = or i32 %72, %67
+  %74 = and i32 %29, -16777216
+  %75 = and i32 %73, 14651391
+  %76 = or disjoint i32 %74, %75
+  %77 = or disjoint i32 %76, 28672
+  %78 = and i32 %77, -3145729
+  %79 = select i1 %27, i32 %77, i32 %78
+  %80 = zext i32 %79 to i64
+  %81 = shl nuw i64 %80, 32
+  %82 = shl i32 %29, 16
+  %83 = zext i32 %82 to i64
+  %84 = and i32 %33, 65535
+  %85 = zext nneg i32 %84 to i64
+  br label %86
 
-88:                                               ; preds = %43, %36, %26
-  %89 = phi i64 [ 0, %26 ], [ %83, %43 ], [ 0, %36 ]
-  %90 = phi i64 [ 0, %26 ], [ %85, %43 ], [ 0, %36 ]
-  %91 = phi i64 [ 0, %26 ], [ %87, %43 ], [ 0, %36 ]
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 1008
-  %93 = call i32 @down_write_killable(ptr noundef nonnull %92) #11
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %155
+86:                                               ; preds = %43, %36, %26
+  %87 = phi i64 [ 0, %26 ], [ %81, %43 ], [ 0, %36 ]
+  %88 = phi i64 [ 0, %26 ], [ %83, %43 ], [ 0, %36 ]
+  %89 = phi i64 [ 0, %26 ], [ %85, %43 ], [ 0, %36 ]
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 1008
+  %91 = call i32 @down_write_killable(ptr noundef nonnull %90) #11
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %153
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 1048
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %102, label %99
+93:                                               ; preds = %86
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 1048
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %100, label %97
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %101 = load i32, ptr %100, align 8
-  br label %102
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %99 = load i32, ptr %98, align 8
+  br label %100
 
-102:                                              ; preds = %99, %95
-  %103 = phi i32 [ %101, %99 ], [ 0, %95 ]
-  %104 = load i32, ptr %4, align 4
-  %105 = add i32 %104, 1
-  %106 = call i32 @llvm.umax.i32(i32 %105, i32 %103)
-  %107 = icmp ugt i32 %106, 8192
-  br i1 %107, label %.thread, label %108
+100:                                              ; preds = %97, %93
+  %101 = phi i32 [ %99, %97 ], [ 0, %93 ]
+  %102 = load i32, ptr %4, align 4
+  %103 = add i32 %102, 1
+  %104 = call i32 @llvm.umax.i32(i32 %103, i32 %101)
+  %105 = icmp ugt i32 %104, 8192
+  br i1 %105, label %.thread, label %106
 
-108:                                              ; preds = %102
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
-  %110 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %109, i32 noundef 4197568, i64 noundef 16) #13
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %.thread, label %112
+106:                                              ; preds = %100
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
+  %108 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %107, i32 noundef 4197568, i64 noundef 16) #13
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %.thread, label %110
 
-112:                                              ; preds = %108
-  %113 = icmp samesign ugt i32 %106, 512
-  br i1 %113, label %114, label %118
+110:                                              ; preds = %106
+  %111 = icmp samesign ugt i32 %104, 512
+  br i1 %111, label %112, label %116
 
-114:                                              ; preds = %112
-  %115 = shl nuw nsw i32 %106, 3
-  %116 = zext nneg i32 %115 to i64
-  %117 = call noalias ptr @__vmalloc(i64 noundef %116, i32 noundef 4197824) #14
-  br label %121
+112:                                              ; preds = %110
+  %113 = shl nuw nsw i32 %104, 3
+  %114 = zext nneg i32 %113 to i64
+  %115 = call noalias ptr @__vmalloc(i64 noundef %114, i32 noundef 4197824) #14
+  br label %119
 
-118:                                              ; preds = %112
-  %119 = call i64 @get_zeroed_page(i32 noundef 4197568) #11
-  %120 = inttoptr i64 %119 to ptr
-  br label %121
+116:                                              ; preds = %110
+  %117 = call i64 @get_zeroed_page(i32 noundef 4197568) #11
+  %118 = inttoptr i64 %117 to ptr
+  br label %119
 
-121:                                              ; preds = %118, %114
-  %122 = phi ptr [ %120, %118 ], [ %117, %114 ]
-  store ptr %122, ptr %110, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %125
+119:                                              ; preds = %116, %112
+  %120 = phi ptr [ %118, %116 ], [ %115, %112 ]
+  store ptr %120, ptr %108, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %123
 
-124:                                              ; preds = %121
-  call void @kfree(ptr noundef nonnull %110) #11
+122:                                              ; preds = %119
+  call void @kfree(ptr noundef nonnull %108) #11
   br label %.thread
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 -1, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store i32 %106, ptr %127, align 8
-  br i1 %98, label %128, label %.thread5
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  store i32 -1, ptr %124, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store i32 %104, ptr %125, align 8
+  br i1 %96, label %126, label %.thread5
 
-128:                                              ; preds = %125
-  %129 = load i32, ptr %4, align 4
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr %struct.desc_struct, ptr %122, i64 %130
-  %132 = or disjoint i64 %90, %89
-  %133 = or i64 %132, %91
-  store i64 %133, ptr %131, align 1
-  %134 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef 0)
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %153, label %150
+126:                                              ; preds = %123
+  %127 = load i32, ptr %4, align 4
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr %struct.desc_struct, ptr %120, i64 %128
+  %130 = or disjoint i64 %88, %87
+  %131 = or i64 %130, %89
+  store i64 %131, ptr %129, align 1
+  %132 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %108, i32 noundef 0)
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %151, label %148
 
-.thread5:                                         ; preds = %125
-  %136 = load ptr, ptr %97, align 8
-  %137 = shl i32 %103, 3
+.thread5:                                         ; preds = %123
+  %134 = load ptr, ptr %95, align 8
+  %135 = shl i32 %101, 3
+  %136 = zext i32 %135 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %134, i64 %136, i1 false)
+  %137 = load i32, ptr %4, align 4
   %138 = zext i32 %137 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %136, i64 %138, i1 false)
-  %139 = load i32, ptr %4, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr %struct.desc_struct, ptr %122, i64 %140
-  %142 = or disjoint i64 %90, %89
-  %143 = or i64 %142, %91
-  store i64 %143, ptr %141, align 1
-  %144 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp eq i32 %145, 0
-  %147 = zext i1 %146 to i32
-  %148 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef %147)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %153, label %.thread6
+  %139 = getelementptr %struct.desc_struct, ptr %120, i64 %138
+  %140 = or disjoint i64 %88, %87
+  %141 = or i64 %140, %89
+  store i64 %141, ptr %139, align 1
+  %142 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %143, 0
+  %145 = zext i1 %144 to i32
+  %146 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %108, i32 noundef %145)
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %151, label %.thread6
 
 .thread6:                                         ; preds = %.thread5
   call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #11, !srcloc !52
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 650, i32 2307, i64 12) #11, !srcloc !53
   call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_end\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #11, !srcloc !54
-  br label %151
+  br label %149
 
-150:                                              ; preds = %128
+148:                                              ; preds = %126
   call fastcc void @free_ldt_pgtables(ptr noundef %8)
-  br label %151
+  br label %149
 
-151:                                              ; preds = %150, %.thread6
-  %152 = phi i32 [ %134, %150 ], [ %148, %.thread6 ]
-  call fastcc void @free_ldt_struct(ptr noundef nonnull %110)
+149:                                              ; preds = %148, %.thread6
+  %150 = phi i32 [ %132, %148 ], [ %146, %.thread6 ]
+  call fastcc void @free_ldt_struct(ptr noundef nonnull %108)
   br label %.thread
 
-153:                                              ; preds = %.thread5, %128
-  call fastcc void @install_ldt(ptr noundef %8, ptr noundef nonnull %110)
-  call fastcc void @unmap_ldt_struct(ptr noundef %8, ptr noundef %97)
-  call fastcc void @free_ldt_struct(ptr noundef %97)
+151:                                              ; preds = %.thread5, %126
+  call fastcc void @install_ldt(ptr noundef %8, ptr noundef nonnull %108)
+  call fastcc void @unmap_ldt_struct(ptr noundef %8, ptr noundef %95)
+  call fastcc void @free_ldt_struct(ptr noundef %95)
   br label %.thread
 
-.thread:                                          ; preds = %108, %102, %124, %153, %151
-  %154 = phi i32 [ %152, %151 ], [ 0, %153 ], [ -12, %124 ], [ -12, %102 ], [ -12, %108 ]
-  call void @up_write(ptr noundef nonnull %92) #11
-  br label %155
+.thread:                                          ; preds = %106, %100, %122, %151, %149
+  %152 = phi i32 [ %150, %149 ], [ 0, %151 ], [ -12, %122 ], [ -12, %100 ], [ -12, %106 ]
+  call void @up_write(ptr noundef nonnull %90) #11
+  br label %153
 
-155:                                              ; preds = %.thread, %88, %21, %13, %10, %3
-  %156 = phi i32 [ -4, %88 ], [ -22, %3 ], [ -14, %10 ], [ -22, %13 ], [ -22, %21 ], [ %154, %.thread ]
+153:                                              ; preds = %.thread, %86, %21, %13, %10, %3
+  %154 = phi i32 [ -4, %86 ], [ -22, %3 ], [ -14, %10 ], [ -22, %13 ], [ -22, %21 ], [ %152, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %156
+  ret i32 %154
 }
 
 ; Function Attrs: null_pointer_is_valid

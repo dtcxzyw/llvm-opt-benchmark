@@ -28055,23 +28055,23 @@ if.then3:                                         ; preds = %_ZNK7openvdb5v11_04
   br i1 %visitVoxels, label %for.body, label %if.end11
 
 for.body:                                         ; preds = %if.then3, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
-  %this_bbox.sroa.0.sroa.8.168 = phi i32 [ %13, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.0.sroa.0.167 = phi i32 [ %12, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.35.166 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
-  %this_bbox.sroa.29.165 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.0.sroa.8.168 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.0.sroa.0.167 = phi i32 [ %13, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.35.166 = phi i32 [ %18, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.29.165 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %iter.sroa.1.064 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %add.i.i.i, %if.then3 ]
-  %this_bbox.sroa.21.163 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
-  %this_bbox.sroa.14.162 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.21.163 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.14.162 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
   %shr.i = lshr i32 %iter.sroa.1.064, 6
-  %and.i = lshr i32 %iter.sroa.1.064, 3
-  %shr1.i = and i32 %and.i, 7
   %and3.i = and i32 %iter.sroa.1.064, 7
-  %12 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.167)
-  %13 = tail call i32 @llvm.smin.i32(i32 %shr1.i, i32 %this_bbox.sroa.0.sroa.8.168)
-  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.162)
-  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.163, i32 %shr.i)
-  %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.165, i32 %shr1.i)
-  %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.166, i32 %and3.i)
+  %shr1.i = lshr i32 %iter.sroa.1.064, 3
+  %12 = and i32 %shr1.i, 7
+  %13 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.167)
+  %14 = tail call i32 @llvm.smin.i32(i32 %12, i32 %this_bbox.sroa.0.sroa.8.168)
+  %15 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.162)
+  %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.163, i32 %shr.i)
+  %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.165, i32 %12)
+  %18 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.166, i32 %and3.i)
   %add.i.i.i7 = add i32 %iter.sroa.1.064, 1
   %shr.i.i.i.i = lshr i32 %add.i.i.i7, 6
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i7, 511
@@ -28081,16 +28081,16 @@ if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i7, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
   %arrayidx.i.i.i.i8 = getelementptr inbounds nuw [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i.i.i.i
-  %18 = load i64, ptr %arrayidx.i.i.i.i8, align 8
+  %19 = load i64, ptr %arrayidx.i.i.i.i8, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
-  %and2.i.i.i.i = and i64 %18, %shl.i.i.i.i
+  %and2.i.i.i.i = and i64 %19, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end4.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %shl6.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
-  %and7.i.i.i.i = and i64 %18, %shl6.i.i.i.i
+  %and7.i.i.i.i = and i64 %19, %shl6.i.i.i.i
   %tobool8.not15.i.i.i.i = icmp eq i64 %and7.i.i.i.i, 0
   br i1 %tobool8.not15.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -28102,21 +28102,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i64], ptr %mValueMask.i, i64 0, i64 %indvars.iv.next.i.i.i.i
-  %19 = load i64, ptr %arrayidx12.i.i.i.i, align 8
-  %tobool8.not.i.i.i.i = icmp eq i64 %19, 0
+  %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
+  %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !266
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
-  %20 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %20, %cond.false.loopexit.i.i.i.i ]
-  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %19, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %21, %cond.false.loopexit.i.i.i.i ]
+  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %20, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %22
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %23
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit: ; preds = %if.end.i.i.i.i, %cond.false.i.i.i.i
@@ -28125,12 +28125,12 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %cmp.i.i.i4.not, label %for.end, label %for.body, !llvm.loop !267
 
 for.end:                                          ; preds = %for.body, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit, %land.rhs.i.i.i.i
-  %add.i.i = add nsw i32 %12, %this_bbox.sroa.0.sroa.0.0.extract.trunc
-  %add6.i.i = add nsw i32 %13, %this_bbox.sroa.0.sroa.8.0.extract.trunc
-  %add10.i.i = add nsw i32 %14, %2
-  %add.i2.i = add nsw i32 %15, %this_bbox.sroa.0.sroa.0.0.extract.trunc
-  %add6.i5.i = add nsw i32 %16, %this_bbox.sroa.0.sroa.8.0.extract.trunc
-  %add10.i8.i = add nsw i32 %17, %2
+  %add.i.i = add nsw i32 %13, %this_bbox.sroa.0.sroa.0.0.extract.trunc
+  %add6.i.i = add nsw i32 %14, %this_bbox.sroa.0.sroa.8.0.extract.trunc
+  %add10.i.i = add nsw i32 %15, %2
+  %add.i2.i = add nsw i32 %16, %this_bbox.sroa.0.sroa.0.0.extract.trunc
+  %add6.i5.i = add nsw i32 %17, %this_bbox.sroa.0.sroa.8.0.extract.trunc
+  %add10.i8.i = add nsw i32 %18, %2
   br label %if.end11
 
 if.end11:                                         ; preds = %for.end, %if.then3
@@ -28140,18 +28140,18 @@ if.end11:                                         ; preds = %for.end, %if.then3
   %this_bbox.sroa.35.0 = phi i32 [ %add10.i8.i, %for.end ], [ %add7.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.0.sroa.0.0 = phi i32 [ %add.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.0.0.extract.trunc, %if.then3 ]
   %this_bbox.sroa.0.sroa.8.0 = phi i32 [ %add6.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.8.0.extract.trunc, %if.then3 ]
-  %23 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.0.0, i32 %3)
-  store i32 %23, ptr %bbox, align 4
-  %24 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.8.0, i32 %4)
-  store i32 %24, ptr %arrayidx.i.i.i5.i.i, align 4
-  %25 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.14.0, i32 %5)
-  store i32 %25, ptr %arrayidx.i.i.i7.i.i, align 4
-  %26 = tail call i32 @llvm.smax.i32(i32 %6, i32 %this_bbox.sroa.21.0)
-  store i32 %26, ptr %mMax.i, align 4
-  %27 = tail call i32 @llvm.smax.i32(i32 %7, i32 %this_bbox.sroa.29.0)
-  store i32 %27, ptr %arrayidx.i.i.i.i4.i, align 4
-  %28 = tail call i32 @llvm.smax.i32(i32 %8, i32 %this_bbox.sroa.35.0)
-  store i32 %28, ptr %arrayidx.i.i.i6.i8.i, align 4
+  %24 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.0.0, i32 %3)
+  store i32 %24, ptr %bbox, align 4
+  %25 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.8.0, i32 %4)
+  store i32 %25, ptr %arrayidx.i.i.i5.i.i, align 4
+  %26 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.14.0, i32 %5)
+  store i32 %26, ptr %arrayidx.i.i.i7.i.i, align 4
+  %27 = tail call i32 @llvm.smax.i32(i32 %6, i32 %this_bbox.sroa.21.0)
+  store i32 %27, ptr %mMax.i, align 4
+  %28 = tail call i32 @llvm.smax.i32(i32 %7, i32 %this_bbox.sroa.29.0)
+  store i32 %28, ptr %arrayidx.i.i.i.i4.i, align 4
+  %29 = tail call i32 @llvm.smax.i32(i32 %8, i32 %this_bbox.sroa.35.0)
+  store i32 %29, ptr %arrayidx.i.i.i6.i8.i, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %for.inc.i.i.i, %entry, %if.end11, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE13cbeginValueOnEv.exit
@@ -100150,18 +100150,18 @@ cond.true:                                        ; preds = %entry
   %mMaskIter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mMaskIter.i.i, align 8
   %shr.i.i.i = lshr i32 %0, 6
-  %and.i.i.i = lshr i32 %0, 3
-  %shr1.i.i.i = and i32 %and.i.i.i, 7
   %and3.i.i.i = and i32 %0, 7
+  %shr1.i.i.i = lshr i32 %0, 3
+  %1 = and i32 %shr1.i.i.i, 7
   %mOrigin.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
-  %1 = load i32, ptr %mOrigin.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %1, %shr.i.i.i
+  %2 = load i32, ptr %mOrigin.i.i.i, align 8
+  %add.i.i.i = add nsw i32 %2, %shr.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
-  %2 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %add6.i.i.i = add nsw i32 %2, %shr1.i.i.i
+  %3 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
+  %add6.i.i.i = add nsw i32 %3, %1
   %arrayidx.i.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
-  %3 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
-  %add10.i.i.i = add nsw i32 %3, %and3.i.i.i
+  %4 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
+  %add10.i.i.i = add nsw i32 %4, %and3.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %add6.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i1.i.i = zext i32 %add.i.i.i to i64
@@ -100172,22 +100172,22 @@ cond.true.i:                                      ; preds = %entry
   %mNext = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext)
   %mMaskIter.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %5 = lshr i32 %4, 5
-  %shl.i.i.i.i = and i32 %5, 134217720
-  %6 = lshr i32 %4, 1
-  %shl5.i.i.i.i = and i32 %6, 120
-  %and3.i.i.i.i = shl i32 %4, 3
+  %5 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %6 = lshr i32 %5, 5
+  %shl.i.i.i.i = and i32 %6, 134217720
+  %7 = lshr i32 %5, 1
+  %shl5.i.i.i.i = and i32 %7, 120
+  %and3.i.i.i.i = shl i32 %5, 3
   %shl9.i.i.i.i = and i32 %and3.i.i.i.i, 120
   %mOrigin.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33792
-  %7 = load i32, ptr %mOrigin.i.i.i.i, align 8
-  %add.i.i.i.i = add nsw i32 %shl.i.i.i.i, %7
+  %8 = load i32, ptr %mOrigin.i.i.i.i, align 8
+  %add.i.i.i.i = add nsw i32 %shl.i.i.i.i, %8
   %arrayidx.i.i.i.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33796
-  %8 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i, align 4
-  %add6.i.i.i.i = add nsw i32 %8, %shl5.i.i.i.i
+  %9 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i, align 4
+  %add6.i.i.i.i = add nsw i32 %9, %shl5.i.i.i.i
   %arrayidx.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33800
-  %9 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i, align 8
-  %add10.i.i.i.i = add nsw i32 %9, %shl9.i.i.i.i
+  %10 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i, align 8
+  %add10.i.i.i.i = add nsw i32 %10, %shl9.i.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %add6.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
@@ -100198,22 +100198,22 @@ cond.true.i.i:                                    ; preds = %entry
   %mNext.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %10 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %11 = lshr i32 %10, 3
-  %shl.i.i.i.i.i = and i32 %11, 536870784
-  %12 = shl i32 %10, 2
-  %shl5.i.i.i.i.i = and i32 %12, 3968
-  %and3.i.i.i.i.i = shl i32 %10, 7
+  %11 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %12 = lshr i32 %11, 3
+  %shl.i.i.i.i.i = and i32 %12, 536870784
+  %13 = shl i32 %11, 2
+  %shl5.i.i.i.i.i = and i32 %13, 3968
+  %and3.i.i.i.i.i = shl i32 %11, 7
   %shl9.i.i.i.i.i = and i32 %and3.i.i.i.i.i, 3968
   %mOrigin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270336
-  %13 = load i32, ptr %mOrigin.i.i.i.i.i, align 8
-  %add.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i, %13
+  %14 = load i32, ptr %mOrigin.i.i.i.i.i, align 8
+  %add.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i, %14
   %arrayidx.i.i.i.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270340
-  %14 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i.i, align 4
-  %add6.i.i.i.i.i = add nsw i32 %14, %shl5.i.i.i.i.i
+  %15 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i.i, align 4
+  %add6.i.i.i.i.i = add nsw i32 %15, %shl5.i.i.i.i.i
   %arrayidx.i.i.i4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270344
-  %15 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i.i, align 8
-  %add10.i.i.i.i.i = add nsw i32 %15, %shl9.i.i.i.i.i
+  %16 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i.i, align 8
+  %add10.i.i.i.i.i = add nsw i32 %16, %shl9.i.i.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i.i = zext i32 %add6.i.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
@@ -100222,10 +100222,10 @@ cond.true.i.i:                                    ; preds = %entry
 
 cond.true.i.i.i:                                  ; preds = %entry
   %mIter.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %16 = load ptr, ptr %mIter.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %17 = load ptr, ptr %mIter.i.i.i.i, align 8
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %retval.sroa.2.0.first.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %retval.sroa.2.0.first.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   %retval.sroa.2.0.copyload.i.i.i.i = load i32, ptr %retval.sroa.2.0.first.sroa_idx.i.i.i.i, align 8
   br label %cond.end
 
@@ -149963,23 +149963,23 @@ if.then3:                                         ; preds = %_ZNK7openvdb5v11_04
   br i1 %visitVoxels, label %for.body, label %if.end11
 
 for.body:                                         ; preds = %if.then3, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
-  %this_bbox.sroa.0.sroa.8.168 = phi i32 [ %13, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.0.sroa.0.167 = phi i32 [ %12, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.35.166 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
-  %this_bbox.sroa.29.165 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.0.sroa.8.168 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.0.sroa.0.167 = phi i32 [ %13, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.35.166 = phi i32 [ %18, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.29.165 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %iter.sroa.1.064 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %if.then3 ]
-  %this_bbox.sroa.21.163 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
-  %this_bbox.sroa.14.162 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
+  %this_bbox.sroa.21.163 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.14.162 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
   %shr.i = lshr i32 %iter.sroa.1.064, 6
-  %and.i = lshr i32 %iter.sroa.1.064, 3
-  %shr1.i = and i32 %and.i, 7
   %and3.i = and i32 %iter.sroa.1.064, 7
-  %12 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.167)
-  %13 = tail call i32 @llvm.smin.i32(i32 %shr1.i, i32 %this_bbox.sroa.0.sroa.8.168)
-  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.162)
-  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.163, i32 %shr.i)
-  %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.165, i32 %shr1.i)
-  %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.166, i32 %and3.i)
+  %shr1.i = lshr i32 %iter.sroa.1.064, 3
+  %12 = and i32 %shr1.i, 7
+  %13 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.167)
+  %14 = tail call i32 @llvm.smin.i32(i32 %12, i32 %this_bbox.sroa.0.sroa.8.168)
+  %15 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.162)
+  %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.163, i32 %shr.i)
+  %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.165, i32 %12)
+  %18 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.166, i32 %and3.i)
   %add.i.i.i7 = add i32 %iter.sroa.1.064, 1
   %shr.i.i.i.i = lshr i32 %add.i.i.i7, 6
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i.i7, 511
@@ -149989,16 +149989,16 @@ if.end.i.i.i.i:                                   ; preds = %for.body
   %and.i.i.i.i = and i32 %add.i.i.i7, 63
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
   %arrayidx.i.i.i.i8 = getelementptr inbounds nuw [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i.i.i.i
-  %18 = load i64, ptr %arrayidx.i.i.i.i8, align 8
+  %19 = load i64, ptr %arrayidx.i.i.i.i8, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
-  %and2.i.i.i.i = and i64 %18, %shl.i.i.i.i
+  %and2.i.i.i.i = and i64 %19, %shl.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end4.i.i.i.i, label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %shl6.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i
-  %and7.i.i.i.i = and i64 %18, %shl6.i.i.i.i
+  %and7.i.i.i.i = and i64 %19, %shl6.i.i.i.i
   %tobool8.not15.i.i.i.i = icmp eq i64 %and7.i.i.i.i, 0
   br i1 %tobool8.not15.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -150010,21 +150010,21 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end4.i.i.i.i, %w
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [8 x i64], ptr %mValueMask.i, i64 0, i64 %indvars.iv.next.i.i.i.i
-  %19 = load i64, ptr %arrayidx12.i.i.i.i, align 8
-  %tobool8.not.i.i.i.i = icmp eq i64 %19, 0
+  %20 = load i64, ptr %arrayidx12.i.i.i.i, align 8
+  %tobool8.not.i.i.i.i = icmp eq i64 %20, 0
   br i1 %tobool8.not.i.i.i.i, label %land.rhs.i.i.i.i, label %cond.false.loopexit.i.i.i.i, !llvm.loop !266
 
 cond.false.loopexit.i.i.i.i:                      ; preds = %while.body.i.i.i.i
-  %20 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.i to i32
   br label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.false.loopexit.i.i.i.i, %if.end4.i.i.i.i
-  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %20, %cond.false.loopexit.i.i.i.i ]
-  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %19, %cond.false.loopexit.i.i.i.i ]
+  %n.0.lcssa.i.i.i.i = phi i32 [ %shr.i.i.i.i, %if.end4.i.i.i.i ], [ %21, %cond.false.loopexit.i.i.i.i ]
+  %b.0.lcssa.i.i.i.i = phi i64 [ %and7.i.i.i.i, %if.end4.i.i.i.i ], [ %20, %cond.false.loopexit.i.i.i.i ]
   %shl14.i.i.i.i = shl nuw nsw i32 %n.0.lcssa.i.i.i.i, 6
-  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %22
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %b.0.lcssa.i.i.i.i, i1 true)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %add.i.i.i.i9 = or disjoint i32 %shl14.i.i.i.i, %23
   br label %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit
 
 _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit: ; preds = %if.end.i.i.i.i, %cond.false.i.i.i.i
@@ -150033,12 +150033,12 @@ _ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3
   br i1 %cmp.i.i.i4.not, label %for.end, label %for.body, !llvm.loop !2255
 
 for.end:                                          ; preds = %for.body, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit, %land.rhs.i.i.i.i
-  %add.i.i = add nsw i32 %12, %this_bbox.sroa.0.sroa.0.0.extract.trunc
-  %add6.i.i = add nsw i32 %13, %this_bbox.sroa.0.sroa.8.0.extract.trunc
-  %add10.i.i = add nsw i32 %14, %2
-  %add.i2.i = add nsw i32 %15, %this_bbox.sroa.0.sroa.0.0.extract.trunc
-  %add6.i5.i = add nsw i32 %16, %this_bbox.sroa.0.sroa.8.0.extract.trunc
-  %add10.i8.i = add nsw i32 %17, %2
+  %add.i.i = add nsw i32 %13, %this_bbox.sroa.0.sroa.0.0.extract.trunc
+  %add6.i.i = add nsw i32 %14, %this_bbox.sroa.0.sroa.8.0.extract.trunc
+  %add10.i.i = add nsw i32 %15, %2
+  %add.i2.i = add nsw i32 %16, %this_bbox.sroa.0.sroa.0.0.extract.trunc
+  %add6.i5.i = add nsw i32 %17, %this_bbox.sroa.0.sroa.8.0.extract.trunc
+  %add10.i8.i = add nsw i32 %18, %2
   br label %if.end11
 
 if.end11:                                         ; preds = %for.end, %if.then3
@@ -150048,18 +150048,18 @@ if.end11:                                         ; preds = %for.end, %if.then3
   %this_bbox.sroa.35.0 = phi i32 [ %add10.i8.i, %for.end ], [ %add7.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.0.sroa.0.0 = phi i32 [ %add.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.0.0.extract.trunc, %if.then3 ]
   %this_bbox.sroa.0.sroa.8.0 = phi i32 [ %add6.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.8.0.extract.trunc, %if.then3 ]
-  %23 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.0.0, i32 %3)
-  store i32 %23, ptr %bbox, align 4
-  %24 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.8.0, i32 %4)
-  store i32 %24, ptr %arrayidx.i.i.i5.i.i, align 4
-  %25 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.14.0, i32 %5)
-  store i32 %25, ptr %arrayidx.i.i.i7.i.i, align 4
-  %26 = tail call i32 @llvm.smax.i32(i32 %6, i32 %this_bbox.sroa.21.0)
-  store i32 %26, ptr %mMax.i, align 4
-  %27 = tail call i32 @llvm.smax.i32(i32 %7, i32 %this_bbox.sroa.29.0)
-  store i32 %27, ptr %arrayidx.i.i.i.i4.i, align 4
-  %28 = tail call i32 @llvm.smax.i32(i32 %8, i32 %this_bbox.sroa.35.0)
-  store i32 %28, ptr %arrayidx.i.i.i6.i8.i, align 4
+  %24 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.0.0, i32 %3)
+  store i32 %24, ptr %bbox, align 4
+  %25 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.0.sroa.8.0, i32 %4)
+  store i32 %25, ptr %arrayidx.i.i.i5.i.i, align 4
+  %26 = tail call i32 @llvm.smin.i32(i32 %this_bbox.sroa.14.0, i32 %5)
+  store i32 %26, ptr %arrayidx.i.i.i7.i.i, align 4
+  %27 = tail call i32 @llvm.smax.i32(i32 %6, i32 %this_bbox.sroa.21.0)
+  store i32 %27, ptr %mMax.i, align 4
+  %28 = tail call i32 @llvm.smax.i32(i32 %7, i32 %this_bbox.sroa.29.0)
+  store i32 %28, ptr %arrayidx.i.i.i.i4.i, align 4
+  %29 = tail call i32 @llvm.smax.i32(i32 %8, i32 %this_bbox.sroa.35.0)
+  store i32 %29, ptr %arrayidx.i.i.i6.i8.i, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %for.inc.i.i.i, %entry, %if.end11, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE13cbeginValueOnEv.exit
@@ -218790,18 +218790,18 @@ cond.true:                                        ; preds = %entry
   %mMaskIter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mMaskIter.i.i, align 8
   %shr.i.i.i = lshr i32 %0, 6
-  %and.i.i.i = lshr i32 %0, 3
-  %shr1.i.i.i = and i32 %and.i.i.i, 7
   %and3.i.i.i = and i32 %0, 7
+  %shr1.i.i.i = lshr i32 %0, 3
+  %1 = and i32 %shr1.i.i.i, 7
   %mOrigin.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
-  %1 = load i32, ptr %mOrigin.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %1, %shr.i.i.i
+  %2 = load i32, ptr %mOrigin.i.i.i, align 8
+  %add.i.i.i = add nsw i32 %2, %shr.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
-  %2 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %add6.i.i.i = add nsw i32 %2, %shr1.i.i.i
+  %3 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
+  %add6.i.i.i = add nsw i32 %3, %1
   %arrayidx.i.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
-  %3 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
-  %add10.i.i.i = add nsw i32 %3, %and3.i.i.i
+  %4 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
+  %add10.i.i.i = add nsw i32 %4, %and3.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %add6.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i1.i.i = zext i32 %add.i.i.i to i64
@@ -218812,22 +218812,22 @@ cond.true.i:                                      ; preds = %entry
   %mNext = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(88) %mNext)
   %mMaskIter.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %5 = lshr i32 %4, 5
-  %shl.i.i.i.i = and i32 %5, 134217720
-  %6 = lshr i32 %4, 1
-  %shl5.i.i.i.i = and i32 %6, 120
-  %and3.i.i.i.i = shl i32 %4, 3
+  %5 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %6 = lshr i32 %5, 5
+  %shl.i.i.i.i = and i32 %6, 134217720
+  %7 = lshr i32 %5, 1
+  %shl5.i.i.i.i = and i32 %7, 120
+  %and3.i.i.i.i = shl i32 %5, 3
   %shl9.i.i.i.i = and i32 %and3.i.i.i.i, 120
   %mOrigin.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33792
-  %7 = load i32, ptr %mOrigin.i.i.i.i, align 8
-  %add.i.i.i.i = add nsw i32 %shl.i.i.i.i, %7
+  %8 = load i32, ptr %mOrigin.i.i.i.i, align 8
+  %add.i.i.i.i = add nsw i32 %shl.i.i.i.i, %8
   %arrayidx.i.i.i.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33796
-  %8 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i, align 4
-  %add6.i.i.i.i = add nsw i32 %8, %shl5.i.i.i.i
+  %9 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i, align 4
+  %add6.i.i.i.i = add nsw i32 %9, %shl5.i.i.i.i
   %arrayidx.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 33800
-  %9 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i, align 8
-  %add10.i.i.i.i = add nsw i32 %9, %shl9.i.i.i.i
+  %10 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i, align 8
+  %add10.i.i.i.i = add nsw i32 %10, %shl9.i.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i = zext i32 %add6.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %add.i.i.i.i to i64
@@ -218838,22 +218838,22 @@ cond.true.i.i:                                    ; preds = %entry
   %mNext.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(56) %mNext.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %10 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %11 = lshr i32 %10, 3
-  %shl.i.i.i.i.i = and i32 %11, 536870784
-  %12 = shl i32 %10, 2
-  %shl5.i.i.i.i.i = and i32 %12, 3968
-  %and3.i.i.i.i.i = shl i32 %10, 7
+  %11 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %12 = lshr i32 %11, 3
+  %shl.i.i.i.i.i = and i32 %12, 536870784
+  %13 = shl i32 %11, 2
+  %shl5.i.i.i.i.i = and i32 %13, 3968
+  %and3.i.i.i.i.i = shl i32 %11, 7
   %shl9.i.i.i.i.i = and i32 %and3.i.i.i.i.i, 3968
   %mOrigin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270336
-  %13 = load i32, ptr %mOrigin.i.i.i.i.i, align 8
-  %add.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i, %13
+  %14 = load i32, ptr %mOrigin.i.i.i.i.i, align 8
+  %add.i.i.i.i.i = add nsw i32 %shl.i.i.i.i.i, %14
   %arrayidx.i.i.i.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270340
-  %14 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i.i, align 4
-  %add6.i.i.i.i.i = add nsw i32 %14, %shl5.i.i.i.i.i
+  %15 = load i32, ptr %arrayidx.i.i.i.i2.i.i.i.i, align 4
+  %add6.i.i.i.i.i = add nsw i32 %15, %shl5.i.i.i.i.i
   %arrayidx.i.i.i4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 270344
-  %15 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i.i, align 8
-  %add10.i.i.i.i.i = add nsw i32 %15, %shl9.i.i.i.i.i
+  %16 = load i32, ptr %arrayidx.i.i.i4.i.i.i.i.i, align 8
+  %add10.i.i.i.i.i = add nsw i32 %16, %shl9.i.i.i.i.i
   %retval.sroa.2.0.insert.ext.i.i.i.i.i = zext i32 %add6.i.i.i.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
@@ -218862,10 +218862,10 @@ cond.true.i.i:                                    ; preds = %entry
 
 cond.true.i.i.i:                                  ; preds = %entry
   %mIter.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %16 = load ptr, ptr %mIter.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %17 = load ptr, ptr %mIter.i.i.i.i, align 8
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %retval.sroa.2.0.first.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %retval.sroa.2.0.first.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   %retval.sroa.2.0.copyload.i.i.i.i = load i32, ptr %retval.sroa.2.0.first.sroa_idx.i.i.i.i, align 8
   br label %cond.end
 

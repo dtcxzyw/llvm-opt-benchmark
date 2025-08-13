@@ -142,7 +142,7 @@ decode_check_sum.exit:                            ; preds = %3
   store i32 %7, ptr %2, align 8
   %8 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %0, ptr noundef nonnull @.str.101, i64 noundef 8) #9
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %567
+  br i1 %.not, label %9, label %566
 
 9:                                                ; preds = %decode_check_sum.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -941,116 +941,115 @@ decode_lf_string.exit.sink.split.i.i:             ; preds = %426, %419, %412
   %484 = getelementptr inbounds nuw i8, ptr %399, i64 63
   %485 = load i8, ptr %484, align 1
   %486 = zext i8 %485 to i32
-  %487 = lshr i8 %478, 4
-  %488 = and i8 %487, 3
-  %489 = zext nneg i8 %488 to i32
-  %490 = shl nuw nsw i32 %489, 8
-  %491 = or disjoint i32 %490, %486
-  %492 = getelementptr inbounds nuw i8, ptr %434, i64 12
-  store i32 %491, ptr %492, align 4
-  %493 = getelementptr inbounds nuw i8, ptr %399, i64 64
-  %494 = load i8, ptr %493, align 1
-  %495 = lshr i8 %494, 4
-  %496 = shl i8 %478, 2
-  %497 = and i8 %496, 48
-  %498 = or disjoint i8 %495, %497
-  %499 = zext nneg i8 %498 to i32
-  %500 = getelementptr inbounds nuw i8, ptr %434, i64 32
-  store i32 %499, ptr %500, align 4
-  %501 = and i8 %494, 15
-  %502 = shl i8 %478, 4
-  %503 = and i8 %502, 48
-  %504 = or disjoint i8 %501, %503
-  %505 = zext nneg i8 %504 to i32
-  %506 = getelementptr inbounds nuw i8, ptr %434, i64 28
-  store i32 %505, ptr %506, align 4
-  %507 = getelementptr inbounds nuw i8, ptr %399, i64 66
-  %508 = load i8, ptr %507, align 1
-  %509 = zext i8 %508 to i32
-  %510 = getelementptr inbounds nuw i8, ptr %399, i64 68
-  %511 = load i8, ptr %510, align 1
-  %512 = lshr i8 %511, 4
-  %513 = zext nneg i8 %512 to i32
-  %514 = shl nuw nsw i32 %513, 8
-  %515 = or disjoint i32 %514, %509
-  %516 = getelementptr inbounds nuw i8, ptr %434, i64 36
-  store i32 %515, ptr %516, align 4
-  %517 = getelementptr inbounds nuw i8, ptr %399, i64 67
-  %518 = load i8, ptr %517, align 1
-  %519 = zext i8 %518 to i32
-  %520 = and i8 %511, 15
-  %521 = zext nneg i8 %520 to i32
-  %522 = shl nuw nsw i32 %521, 8
-  %523 = or disjoint i32 %522, %519
-  %524 = getelementptr inbounds nuw i8, ptr %434, i64 40
-  store i32 %523, ptr %524, align 4
-  %525 = getelementptr inbounds nuw i8, ptr %399, i64 69
-  %526 = load i8, ptr %525, align 1
-  %527 = zext i8 %526 to i32
-  %528 = getelementptr inbounds nuw i8, ptr %434, i64 44
-  store i32 %527, ptr %528, align 4
-  %529 = getelementptr inbounds nuw i8, ptr %399, i64 70
-  %530 = load i8, ptr %529, align 1
-  %531 = zext i8 %530 to i32
-  %532 = getelementptr inbounds nuw i8, ptr %434, i64 48
-  store i32 %531, ptr %532, align 4
-  %533 = getelementptr inbounds nuw i8, ptr %399, i64 71
-  %534 = load i8, ptr %533, align 1
-  %535 = lshr i8 %534, 7
-  %536 = zext nneg i8 %535 to i32
-  %537 = getelementptr inbounds nuw i8, ptr %434, i64 52
-  store i32 %536, ptr %537, align 4
-  %538 = zext i8 %534 to i32
-  %539 = lshr i32 %538, 4
-  %540 = and i32 %539, 6
-  %541 = and i32 %538, 1
-  %542 = or disjoint i32 %540, %541
-  %543 = zext nneg i32 %542 to i64
-  %544 = getelementptr inbounds nuw [8 x i32], ptr @__const.decode_detailed_timing.stereo, i64 0, i64 %543
-  %545 = load i32, ptr %544, align 4
-  %546 = getelementptr inbounds nuw i8, ptr %434, i64 56
-  store i32 %545, ptr %546, align 4
-  %547 = and i32 %539, 1
-  %548 = getelementptr inbounds nuw i8, ptr %434, i64 60
-  store i32 %547, ptr %548, align 4
-  %.not.i.i = icmp eq i32 %547, 0
-  br i1 %.not.i.i, label %556, label %549
+  %487 = and i8 %478, 48
+  %488 = zext nneg i8 %487 to i32
+  %489 = shl nuw nsw i32 %488, 4
+  %490 = or disjoint i32 %489, %486
+  %491 = getelementptr inbounds nuw i8, ptr %434, i64 12
+  store i32 %490, ptr %491, align 4
+  %492 = getelementptr inbounds nuw i8, ptr %399, i64 64
+  %493 = load i8, ptr %492, align 1
+  %494 = lshr i8 %493, 4
+  %495 = shl i8 %478, 2
+  %496 = and i8 %495, 48
+  %497 = or disjoint i8 %494, %496
+  %498 = zext nneg i8 %497 to i32
+  %499 = getelementptr inbounds nuw i8, ptr %434, i64 32
+  store i32 %498, ptr %499, align 4
+  %500 = and i8 %493, 15
+  %501 = shl i8 %478, 4
+  %502 = and i8 %501, 48
+  %503 = or disjoint i8 %500, %502
+  %504 = zext nneg i8 %503 to i32
+  %505 = getelementptr inbounds nuw i8, ptr %434, i64 28
+  store i32 %504, ptr %505, align 4
+  %506 = getelementptr inbounds nuw i8, ptr %399, i64 66
+  %507 = load i8, ptr %506, align 1
+  %508 = zext i8 %507 to i32
+  %509 = getelementptr inbounds nuw i8, ptr %399, i64 68
+  %510 = load i8, ptr %509, align 1
+  %511 = lshr i8 %510, 4
+  %512 = zext nneg i8 %511 to i32
+  %513 = shl nuw nsw i32 %512, 8
+  %514 = or disjoint i32 %513, %508
+  %515 = getelementptr inbounds nuw i8, ptr %434, i64 36
+  store i32 %514, ptr %515, align 4
+  %516 = getelementptr inbounds nuw i8, ptr %399, i64 67
+  %517 = load i8, ptr %516, align 1
+  %518 = zext i8 %517 to i32
+  %519 = and i8 %510, 15
+  %520 = zext nneg i8 %519 to i32
+  %521 = shl nuw nsw i32 %520, 8
+  %522 = or disjoint i32 %521, %518
+  %523 = getelementptr inbounds nuw i8, ptr %434, i64 40
+  store i32 %522, ptr %523, align 4
+  %524 = getelementptr inbounds nuw i8, ptr %399, i64 69
+  %525 = load i8, ptr %524, align 1
+  %526 = zext i8 %525 to i32
+  %527 = getelementptr inbounds nuw i8, ptr %434, i64 44
+  store i32 %526, ptr %527, align 4
+  %528 = getelementptr inbounds nuw i8, ptr %399, i64 70
+  %529 = load i8, ptr %528, align 1
+  %530 = zext i8 %529 to i32
+  %531 = getelementptr inbounds nuw i8, ptr %434, i64 48
+  store i32 %530, ptr %531, align 4
+  %532 = getelementptr inbounds nuw i8, ptr %399, i64 71
+  %533 = load i8, ptr %532, align 1
+  %534 = lshr i8 %533, 7
+  %535 = zext nneg i8 %534 to i32
+  %536 = getelementptr inbounds nuw i8, ptr %434, i64 52
+  store i32 %535, ptr %536, align 4
+  %537 = zext i8 %533 to i32
+  %538 = lshr i32 %537, 4
+  %539 = and i32 %538, 6
+  %540 = and i32 %537, 1
+  %541 = or disjoint i32 %539, %540
+  %542 = zext nneg i32 %541 to i64
+  %543 = getelementptr inbounds nuw [8 x i32], ptr @__const.decode_detailed_timing.stereo, i64 0, i64 %542
+  %544 = load i32, ptr %543, align 4
+  %545 = getelementptr inbounds nuw i8, ptr %434, i64 56
+  store i32 %544, ptr %545, align 4
+  %546 = and i32 %538, 1
+  %547 = getelementptr inbounds nuw i8, ptr %434, i64 60
+  store i32 %546, ptr %547, align 4
+  %.not.i.i = icmp eq i32 %546, 0
+  br i1 %.not.i.i, label %555, label %548
 
-549:                                              ; preds = %431
-  %550 = and i32 %538, 8
-  %.not64.i.i = icmp eq i32 %550, 0
-  %.lobit.i.i = lshr exact i32 %550, 3
-  %551 = xor i32 %.lobit.i.i, 1
-  %552 = lshr i32 %538, 2
-  %553 = and i32 %552, 1
-  %554 = xor i32 %553, 1
-  %.sink69.i.i = select i1 %.not64.i.i, i32 %553, i32 0
-  %.sink.i.i = select i1 %.not64.i.i, i32 0, i32 %554
-  %555 = getelementptr inbounds nuw i8, ptr %434, i64 72
-  store i32 %.sink.i.i, ptr %555, align 4
+548:                                              ; preds = %431
+  %549 = and i32 %537, 8
+  %.not64.i.i = icmp eq i32 %549, 0
+  %.lobit.i.i = lshr exact i32 %549, 3
+  %550 = xor i32 %.lobit.i.i, 1
+  %551 = lshr i32 %537, 2
+  %552 = and i32 %551, 1
+  %553 = xor i32 %552, 1
+  %.sink69.i.i = select i1 %.not64.i.i, i32 %552, i32 0
+  %.sink.i.i = select i1 %.not64.i.i, i32 0, i32 %553
+  %554 = getelementptr inbounds nuw i8, ptr %434, i64 72
+  store i32 %.sink.i.i, ptr %554, align 4
   br label %decode_detailed_timing.exit.i
 
-556:                                              ; preds = %431
-  %557 = lshr i32 %538, 3
-  %558 = and i32 %557, 1
-  %559 = lshr i32 %538, 2
-  %560 = and i32 %559, 1
-  %561 = lshr i32 %538, 1
-  %.pre = and i32 %561, 1
+555:                                              ; preds = %431
+  %556 = lshr i32 %537, 3
+  %557 = and i32 %556, 1
+  %558 = lshr i32 %537, 2
+  %559 = and i32 %558, 1
+  %560 = lshr i32 %537, 1
+  %.pre = and i32 %560, 1
   br label %decode_detailed_timing.exit.i
 
-decode_detailed_timing.exit.i:                    ; preds = %556, %549
-  %.lobit68.i.i.pre-phi = phi i32 [ %.pre, %556 ], [ %541, %549 ]
-  %.sink.i29 = phi i32 [ %558, %556 ], [ %551, %549 ]
-  %.sink69.i.sink.i = phi i32 [ %560, %556 ], [ %.sink69.i.i, %549 ]
-  %.sink72.i.i = phi i64 [ 72, %556 ], [ 76, %549 ]
-  %562 = getelementptr inbounds nuw i8, ptr %434, i64 64
-  store i32 %.sink.i29, ptr %562, align 4
-  %563 = getelementptr inbounds nuw i8, ptr %434, i64 68
-  store i32 %.sink69.i.sink.i, ptr %563, align 4
-  %564 = xor i32 %.lobit68.i.i.pre-phi, 1
-  %565 = getelementptr inbounds nuw i8, ptr %434, i64 %.sink72.i.i
-  store i32 %564, ptr %565, align 4
+decode_detailed_timing.exit.i:                    ; preds = %555, %548
+  %.lobit68.i.i.pre-phi = phi i32 [ %.pre, %555 ], [ %540, %548 ]
+  %.sink.i29 = phi i32 [ %557, %555 ], [ %550, %548 ]
+  %.sink69.i.sink.i = phi i32 [ %559, %555 ], [ %.sink69.i.i, %548 ]
+  %.sink72.i.i = phi i64 [ 72, %555 ], [ 76, %548 ]
+  %561 = getelementptr inbounds nuw i8, ptr %434, i64 64
+  store i32 %.sink.i29, ptr %561, align 4
+  %562 = getelementptr inbounds nuw i8, ptr %434, i64 68
+  store i32 %.sink69.i.sink.i, ptr %562, align 4
+  %563 = xor i32 %.lobit68.i.i.pre-phi, 1
+  %564 = getelementptr inbounds nuw i8, ptr %434, i64 %.sink72.i.i
+  store i32 %563, ptr %564, align 4
   br label %decode_display_descriptor.exit.i
 
 decode_display_descriptor.exit.i:                 ; preds = %430, %423, %416, %decode_detailed_timing.exit.i, %decode_lf_string.exit.sink.split.i.i, %407
@@ -1060,16 +1059,16 @@ decode_display_descriptor.exit.i:                 ; preds = %430, %423, %416, %d
   br i1 %exitcond.not.i31, label %decode_descriptors.exit, label %397, !llvm.loop !10
 
 decode_descriptors.exit:                          ; preds = %decode_display_descriptor.exit.i
-  %566 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  store i32 %.1.i, ptr %566, align 8
-  br label %568
+  %565 = getelementptr inbounds nuw i8, ptr %2, i64 584
+  store i32 %.1.i, ptr %565, align 8
+  br label %567
 
-567:                                              ; preds = %decode_check_sum.exit
+566:                                              ; preds = %decode_check_sum.exit
   tail call void @SDL_free_REAL(ptr noundef nonnull %2) #9
-  br label %568
+  br label %567
 
-568:                                              ; preds = %decode_descriptors.exit, %567
-  %.0 = phi ptr [ %2, %decode_descriptors.exit ], [ null, %567 ]
+567:                                              ; preds = %decode_descriptors.exit, %566
+  %.0 = phi ptr [ %2, %decode_descriptors.exit ], [ null, %566 ]
   ret ptr %.0
 }
 

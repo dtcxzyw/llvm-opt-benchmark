@@ -17198,17 +17198,17 @@ for.body:                                         ; preds = %entry, %for.body
   %5 = shl i64 %indvars.iv, 21
   %6 = and i64 %5, 16777216
   %or541 = or disjoint i64 %or340, %6
-  %7 = shl i64 %indvars.iv, 28
-  %shl.i17 = and i64 %7, 4294967296
+  %conv.i16 = shl i64 %indvars.iv, 28
+  %shl.i17 = and i64 %conv.i16, 4294967296
   %or7 = or disjoint i64 %shl.i17, %or541
-  %8 = shl i64 %indvars.iv, 35
-  %shl.i19 = and i64 %8, 1099511627776
+  %conv.i18 = shl i64 %indvars.iv, 35
+  %shl.i19 = and i64 %conv.i18, 1099511627776
   %or9 = or disjoint i64 %or7, %shl.i19
-  %9 = shl i64 %indvars.iv, 42
-  %shl.i21 = and i64 %9, 281474976710656
+  %conv.i20 = shl i64 %indvars.iv, 42
+  %shl.i21 = and i64 %conv.i20, 281474976710656
   %or11 = or disjoint i64 %or9, %shl.i21
-  %10 = shl i64 %indvars.iv, 49
-  %conv.i22 = and i64 %10, -72057594037927936
+  %7 = shl i64 %indvars.iv, 49
+  %conv.i22 = and i64 %7, -72057594037927936
   %or13 = or disjoint i64 %or11, %conv.i22
   %arrayidx = getelementptr inbounds nuw [256 x i64], ptr @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_114bitsToBytesMapE, i64 0, i64 %indvars.iv
   store i64 %or13, ptr %arrayidx, align 8
@@ -17224,36 +17224,36 @@ for.end:                                          ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.end
-  %11 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %8 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i: ; preds = %invoke.cont
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %8, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
+  %9 = load ptr, ptr %vfn.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   br label %_ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i, %invoke.cont
   ret void
 
 lpad:                                             ; preds = %for.end
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i27 = icmp eq ptr %14, null
+  %11 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i27 = icmp eq ptr %11, null
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit36, label %_ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i28
 
 _ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i28: ; preds = %lpad
-  %vtable.i.i29 = load ptr, ptr %14, align 8
+  %vtable.i.i29 = load ptr, ptr %11, align 8
   %vfn.i.i30 = getelementptr inbounds nuw i8, ptr %vtable.i.i29, i64 8
-  %15 = load ptr, ptr %vfn.i.i30, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
+  %12 = load ptr, ptr %vfn.i.i30, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %_ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit36
 
 _ZNSt10unique_ptrIN8facebook5velox10serializer6presto17PrestoVectorSerdeESt14default_deleteIS4_EED2Ev.exit36: ; preds = %_ZNKSt14default_deleteIN8facebook5velox11VectorSerdeEEclEPS2_.exit.i28, %lpad
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %10
 }
 
 declare void @_ZN8facebook5velox19registerVectorSerdeESt10unique_ptrINS0_11VectorSerdeESt14default_deleteIS2_EE(ptr noundef) local_unnamed_addr #3

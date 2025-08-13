@@ -20458,10 +20458,9 @@ define dso_local range(i64 0, 4294967360) i64 @_ZN4llvm12CmpPredicate3getEPKNS_7
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
-  %7 = lshr i8 %6, 1
-  %.lobit.i = and i8 %7, 1
-  %8 = zext nneg i8 %.lobit.i to i64
-  %9 = shl nuw nsw i64 %8, 32
+  %7 = and i8 %6, 2
+  %8 = zext nneg i8 %7 to i64
+  %9 = shl nuw nsw i64 %8, 31
   br label %10
 
 10:                                               ; preds = %1, %4
@@ -20574,9 +20573,9 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm12CmpPredicate10getSwappe
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
-  %7 = lshr i8 %6, 1
+  %7 = and i8 %6, 2
   %8 = zext nneg i8 %7 to i64
-  %9 = shl nuw nsw i64 %8, 32
+  %9 = shl nuw nsw i64 %8, 31
   br label %_ZN4llvm12CmpPredicate3getEPKNS_7CmpInstE.exit
 
 _ZN4llvm12CmpPredicate3getEPKNS_7CmpInstE.exit:   ; preds = %1, %4
@@ -20586,33 +20585,34 @@ _ZN4llvm12CmpPredicate3getEPKNS_7CmpInstE.exit:   ; preds = %1, %4
   %.sroa.0.sroa.0.1.in.i = and i16 %.sroa.0.sroa.0.1.in.in.i, 63
   %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i16 %.sroa.0.sroa.0.1.in.i to i64
   %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.sroa.3.1.i, %.sroa.0.sroa.0.0.insert.ext.i
-  switch i16 %.sroa.0.sroa.0.1.in.i, label %10 [
-    i16 32, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 33, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 38, label %11
-    i16 40, label %12
-    i16 39, label %13
-    i16 41, label %14
-    i16 34, label %15
-    i16 36, label %16
-    i16 35, label %17
-    i16 37, label %18
-    i16 0, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 15, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 1, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 6, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 9, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 14, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 7, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 8, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
-    i16 2, label %19
-    i16 4, label %20
-    i16 3, label %21
-    i16 5, label %22
-    i16 10, label %23
-    i16 12, label %24
-    i16 11, label %25
-    i16 13, label %26
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i to i32
+  switch i32 %.sroa.0.0.extract.trunc.i, label %10 [
+    i32 32, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 33, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 38, label %11
+    i32 40, label %12
+    i32 39, label %13
+    i32 41, label %14
+    i32 34, label %15
+    i32 36, label %16
+    i32 35, label %17
+    i32 37, label %18
+    i32 0, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 15, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 1, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 6, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 9, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 14, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 7, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 8, label %_ZN4llvm12CmpPredicate10getSwappedES0_.exit
+    i32 2, label %19
+    i32 4, label %20
+    i32 3, label %21
+    i32 5, label %22
+    i32 10, label %23
+    i32 12, label %24
+    i32 11, label %25
+    i32 13, label %26
   ]
 
 10:                                               ; preds = %_ZN4llvm12CmpPredicate3getEPKNS_7CmpInstE.exit

@@ -1287,19 +1287,18 @@ _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT
   br label %_ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 
 18:                                               ; preds = %2
-  %19 = lshr i32 %7, 23
-  %.sroa.4.0.i = and i32 %19, 256
+  %.sroa.4.0.i = and i32 %7, -2147483648
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %8) #21
-  store i64 %20, ptr %6, align 8
-  %.sroa.4.0.insert.ext.i = zext nneg i32 %.sroa.4.0.i to i64
-  %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 32
-  %21 = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
+  %19 = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %8) #21
+  store i64 %19, ptr %6, align 8
+  %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i to i64
+  %.sroa.4.0.insert.shift.i = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 9
+  %20 = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 %.sroa.4.0.insert.shift.i, ptr null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 
 _ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit: ; preds = %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i, %18
-  %.sroa.06.1.i = phi ptr [ %17, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %21, %18 ]
+  %.sroa.06.1.i = phi ptr [ %17, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i ], [ %20, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.06.1.i
 }
@@ -14108,90 +14107,84 @@ define linkonce_odr hidden i64 @_ZN3fmt3v106detail21parse_float_type_specIcEENS1
   %2 = alloca %"class.fmt::v10::format_error", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i16, ptr %3, align 1
-  %5 = lshr i16 %4, 7
-  %.lobit = and i16 %5, 1
-  %6 = zext nneg i16 %.lobit to i32
-  %7 = shl nuw nsw i32 %6, 19
-  %8 = lshr i16 %4, 8
-  %.lobit34 = and i16 %8, 1
-  %9 = zext nneg i16 %.lobit34 to i32
-  %10 = shl nuw nsw i32 %9, 17
-  %11 = or disjoint i32 %7, %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 4, !tbaa !74
-  switch i8 %13, label %46 [
-    i8 0, label %50
-    i8 14, label %14
-    i8 13, label %50
-    i8 10, label %16
-    i8 9, label %18
-    i8 12, label %29
-    i8 11, label %31
-    i8 8, label %42
-    i8 7, label %44
+  %.lobit = and i16 %4, 128
+  %5 = zext nneg i16 %.lobit to i32
+  %6 = shl nuw nsw i32 %5, 12
+  %.lobit34 = and i16 %4, 256
+  %7 = zext nneg i16 %.lobit34 to i32
+  %8 = shl nuw nsw i32 %7, 9
+  %9 = or disjoint i32 %6, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i8, ptr %10, align 4, !tbaa !74
+  switch i8 %11, label %36 [
+    i8 0, label %40
+    i8 14, label %12
+    i8 13, label %40
+    i8 10, label %14
+    i8 9, label %16
+    i8 12, label %23
+    i8 11, label %25
+    i8 8, label %32
+    i8 7, label %34
   ]
 
+12:                                               ; preds = %1
+  %13 = or disjoint i32 %9, 65536
+  br label %40
+
 14:                                               ; preds = %1
-  %15 = or disjoint i32 %11, 65536
-  br label %50
+  %15 = or disjoint i32 %9, 65536
+  br label %16
 
-16:                                               ; preds = %1
-  %17 = or disjoint i32 %11, 65536
-  br label %18
+16:                                               ; preds = %14, %1
+  %.sroa.2.1 = phi i32 [ %15, %14 ], [ %9, %1 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !73
+  %.not37 = icmp eq i32 %18, 0
+  %.sroa.2.1.mask = and i32 %.sroa.2.1, 524288
+  %19 = select i1 %.not37, i32 %.sroa.2.1.mask, i32 524288
+  %20 = and i32 %.sroa.2.1, -524290
+  %21 = or disjoint i32 %20, %19
+  %22 = or disjoint i32 %21, 1
+  br label %40
 
-18:                                               ; preds = %16, %1
-  %.sroa.2.1 = phi i32 [ %17, %16 ], [ %11, %1 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !73
-  %21 = icmp ne i32 %20, 0
-  %22 = zext i1 %21 to i16
-  %23 = or i16 %.lobit, %22
-  %24 = zext nneg i16 %23 to i32
-  %25 = shl nuw nsw i32 %24, 19
-  %26 = and i32 %.sroa.2.1, -524290
-  %27 = or disjoint i32 %25, %26
-  %28 = or disjoint i32 %27, 1
-  br label %50
+23:                                               ; preds = %1
+  %24 = or disjoint i32 %9, 65536
+  br label %25
 
-29:                                               ; preds = %1
-  %30 = or disjoint i32 %11, 65536
-  br label %31
+25:                                               ; preds = %23, %1
+  %.sroa.2.2 = phi i32 [ %24, %23 ], [ %9, %1 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !73
+  %.not = icmp eq i32 %27, 0
+  %.sroa.2.2.mask = and i32 %.sroa.2.2, 524288
+  %28 = select i1 %.not, i32 %.sroa.2.2.mask, i32 524288
+  %29 = and i32 %.sroa.2.2, -524291
+  %30 = or disjoint i32 %29, %28
+  %31 = or disjoint i32 %30, 2
+  br label %40
 
-31:                                               ; preds = %29, %1
-  %.sroa.2.2 = phi i32 [ %30, %29 ], [ %11, %1 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !73
-  %34 = icmp ne i32 %33, 0
-  %35 = zext i1 %34 to i16
-  %36 = or i16 %.lobit, %35
-  %37 = zext nneg i16 %36 to i32
-  %38 = shl nuw nsw i32 %37, 19
-  %39 = and i32 %.sroa.2.2, -524291
-  %40 = or disjoint i32 %38, %39
-  %41 = or disjoint i32 %40, 2
-  br label %50
+32:                                               ; preds = %1
+  %33 = or disjoint i32 %9, 65536
+  br label %34
 
-42:                                               ; preds = %1
-  %43 = or disjoint i32 %11, 65536
-  br label %44
+34:                                               ; preds = %32, %1
+  %.sroa.2.3 = phi i32 [ %33, %32 ], [ %9, %1 ]
+  %35 = or i32 %.sroa.2.3, 3
+  br label %40
 
-44:                                               ; preds = %42, %1
-  %.sroa.2.3 = phi i32 [ %43, %42 ], [ %11, %1 ]
-  %45 = or i32 %.sroa.2.3, 3
-  br label %50
-
-46:                                               ; preds = %1
+36:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.10) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %2, align 8, !tbaa !11
-  %47 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
-  %48 = load ptr, ptr @stderr, align 8, !tbaa !51
-  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef %47) #25
+  %37 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !51
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef %37) #25
   call void @_ZSt9terminatev() #23
   unreachable
 
-50:                                               ; preds = %1, %14, %1, %44, %31, %18
-  %.sroa.2.4 = phi i32 [ %28, %18 ], [ %41, %31 ], [ %45, %44 ], [ %11, %1 ], [ %15, %14 ], [ %11, %1 ]
+40:                                               ; preds = %1, %12, %1, %34, %25, %16
+  %.sroa.2.4 = phi i32 [ %22, %16 ], [ %31, %25 ], [ %35, %34 ], [ %9, %1 ], [ %13, %12 ], [ %9, %1 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

@@ -716,7 +716,7 @@ _RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5_8BufWrite9wr
   %106 = load i64, ptr %96, align 8, !alias.scope !58, !noundef !7
   %107 = add i64 %106, 3
   store i64 %107, ptr %96, align 8, !alias.scope !58
-  br label %162
+  br label %159
 
 _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread: ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit.thread.thread216, %.thread194.thread, %84, %.thread194.thread220, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25
   %.sroa.0.0.copyload = load i32, ptr %0, align 1
@@ -793,67 +793,64 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   %.sroa.0130.sroa.0.0 = zext nneg i8 %narrow to i64
   %147 = and i8 %144, 2
   %.not204 = icmp eq i8 %147, 0
-  %148 = lshr i8 %141, 1
-  %.lobit = and i8 %148, 1
-  %149 = zext nneg i8 %.lobit to i64
-  %150 = shl nuw nsw i64 %149, 8
-  %.sroa.0130.sroa.6.1 = select i1 %.not204, i64 512, i64 %150
-  %151 = and i8 %144, 4
-  %.not206 = icmp eq i8 %151, 0
-  br i1 %.not206, label %154, label %152
+  %.lobit = and i8 %141, 2
+  %148 = zext nneg i8 %.lobit to i64
+  %149 = shl nuw nsw i64 %148, 7
+  %.sroa.0130.sroa.6.1 = select i1 %.not204, i64 512, i64 %149
+  %150 = and i8 %144, 4
+  %.not206 = icmp eq i8 %150, 0
+  br i1 %.not206, label %152, label %151
 
-152:                                              ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201
-  %153 = lshr i8 %141, 2
-  %.lobit205 = and i8 %153, 1
+151:                                              ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201
+  %.lobit205 = and i8 %141, 4
   %.sroa.0130.sroa.11.0.insert.shift159 = and i64 %.sroa.065.sroa.13.0, -16777216
   %.sroa.0130.sroa.8.0.insert.ext151 = zext nneg i8 %.lobit205 to i64
-  %.sroa.0130.sroa.8.0.insert.shift152 = shl nuw nsw i64 %.sroa.0130.sroa.8.0.insert.ext151, 16
+  %.sroa.0130.sroa.8.0.insert.shift152 = shl nuw nsw i64 %.sroa.0130.sroa.8.0.insert.ext151, 14
   %.sroa.0130.sroa.8.0.insert.insert154 = or disjoint i64 %.sroa.0130.sroa.8.0.insert.shift152, %.sroa.0130.sroa.11.0.insert.shift159
-  %.sroa.0130.sroa.6.0.insert.insert148 = or disjoint i64 %.sroa.0130.sroa.8.0.insert.insert154, %.sroa.0130.sroa.6.1
+  %.sroa.0130.sroa.6.0.insert.insert148 = or disjoint i64 %.sroa.0130.sroa.6.1, %.sroa.0130.sroa.8.0.insert.insert154
   %.sroa.0130.sroa.0.0.insert.insert142 = or disjoint i64 %.sroa.0130.sroa.6.0.insert.insert148, %.sroa.0130.sroa.0.0
-  br label %155
+  br label %153
 
-154:                                              ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201
+152:                                              ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201
   %.sroa.0130.sroa.8.0.insert.insert = or i64 %.sroa.0130.sroa.6.1, %.sroa.065.sroa.13.0
   %.sroa.0130.sroa.6.0.insert.insert = or i64 %.sroa.0130.sroa.8.0.insert.insert, %.sroa.0130.sroa.0.0
   %.sroa.0130.sroa.0.0.insert.insert = or i64 %.sroa.0130.sroa.6.0.insert.insert, 131072
-  br label %155
+  br label %153
 
-155:                                              ; preds = %154, %152
-  %.sroa.0165.sroa.4.0.in.in = phi i64 [ %.sroa.0130.sroa.6.0.insert.insert148, %152 ], [ %.sroa.0130.sroa.8.0.insert.insert, %154 ]
-  %.sroa.0165.sroa.0.sroa.0.0.in = phi i64 [ %.sroa.0130.sroa.0.0.insert.insert142, %152 ], [ %.sroa.0130.sroa.0.0.insert.insert, %154 ]
+153:                                              ; preds = %152, %151
+  %.sroa.0165.sroa.4.0.in.in = phi i64 [ %.sroa.0130.sroa.6.0.insert.insert148, %151 ], [ %.sroa.0130.sroa.8.0.insert.insert, %152 ]
+  %.sroa.0165.sroa.0.sroa.0.0.in = phi i64 [ %.sroa.0130.sroa.0.0.insert.insert142, %151 ], [ %.sroa.0130.sroa.0.0.insert.insert, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %156 = and i8 %144, 8
-  %.not208 = icmp eq i8 %156, 0
-  br i1 %.not208, label %159, label %157
+  %154 = and i8 %144, 8
+  %.not208 = icmp eq i8 %154, 0
+  br i1 %.not208, label %156, label %155
 
-157:                                              ; preds = %155
+155:                                              ; preds = %153
   %.sroa.0165.sroa.5.0.in = and i64 %.sroa.0165.sroa.4.0.in.in, -4294967296
-  %158 = lshr i8 %141, 3
-  %.lobit207 = and i8 %158, 1
+  %.lobit207 = and i8 %141, 8
   %.sroa.0165.sroa.4.0.insert.ext176 = zext nneg i8 %.lobit207 to i64
-  %.sroa.0165.sroa.4.0.insert.shift177 = shl nuw nsw i64 %.sroa.0165.sroa.4.0.insert.ext176, 24
+  %.sroa.0165.sroa.4.0.insert.shift177 = shl nuw nsw i64 %.sroa.0165.sroa.4.0.insert.ext176, 21
   %.sroa.0165.sroa.4.0.insert.insert179 = or disjoint i64 %.sroa.0165.sroa.5.0.in, %.sroa.0165.sroa.4.0.insert.shift177
   %.sroa.0165.sroa.0.0.insert.ext171 = and i64 %.sroa.0165.sroa.0.sroa.0.0.in, 16777215
   %.sroa.0165.sroa.0.0.insert.insert173 = or disjoint i64 %.sroa.0165.sroa.4.0.insert.insert179, %.sroa.0165.sroa.0.0.insert.ext171
-  br label %160
+  br label %157
 
-159:                                              ; preds = %155
+156:                                              ; preds = %153
   %.sroa.0165.sroa.4.0.insert.insert = and i64 %.sroa.0165.sroa.4.0.in.in, -16777216
   %.sroa.0165.sroa.0.0.insert.ext = and i64 %.sroa.0165.sroa.0.sroa.0.0.in, 16777215
   %.sroa.0165.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0165.sroa.0.0.insert.ext, %.sroa.0165.sroa.4.0.insert.insert
-  br label %160
+  br label %157
 
-160:                                              ; preds = %159, %157
-  %.sroa.0165.sroa.0.0.insert.insert173.sink = phi i64 [ %.sroa.0165.sroa.0.0.insert.insert, %159 ], [ %.sroa.0165.sroa.0.0.insert.insert173, %157 ]
+157:                                              ; preds = %156, %155
+  %.sroa.0165.sroa.0.0.insert.insert173.sink = phi i64 [ %.sroa.0165.sroa.0.0.insert.insert, %156 ], [ %.sroa.0165.sroa.0.0.insert.insert173, %155 ]
   store i64 %.sroa.0165.sroa.0.0.insert.insert173.sink, ptr %4, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.sroa.1571.1, ptr %161, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %.sroa.1571.1, ptr %158, align 8
   call void @_RNvXs8_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5AttrsNtB5_8BufWrite9write_buf(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %162
+  br label %159
 
-162:                                              ; preds = %160, %_RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5_8BufWrite9write_buf.exit
+159:                                              ; preds = %157, %_RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5_8BufWrite9write_buf.exit
   ret void
 }
 

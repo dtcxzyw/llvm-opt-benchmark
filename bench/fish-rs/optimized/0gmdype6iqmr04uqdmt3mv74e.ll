@@ -37347,10 +37347,9 @@ define range(i40 0, 4328521728) i40 @_ZN4fish12input_common10parse_mask17hd6c02a
   %.sroa.22.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.22.0.insert.shift
   %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.22.0.insert.insert, %.sroa.01.0.insert.ext
   %5 = trunc i32 %0 to i8
-  %6 = lshr i8 %5, 6
-  %7 = and i8 %6, 1
-  %.sroa.2.0.insert.ext = zext nneg i8 %7 to i40
-  %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 32
+  %6 = and i8 %5, 64
+  %.sroa.2.0.insert.ext = zext nneg i8 %6 to i40
+  %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 26
   %.sroa.0.0.insert.ext = zext nneg i32 %.sroa.01.0.insert.insert to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert

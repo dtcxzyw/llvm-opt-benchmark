@@ -208,10 +208,10 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
   %10 = getelementptr [3 x %struct.desc_struct], ptr %5, i64 0, i64 %9
   br label %11
 
-11:                                               ; preds = %95, %7
-  %12 = phi i32 [ %15, %95 ], [ %3, %7 ]
-  %13 = phi ptr [ %96, %95 ], [ %2, %7 ]
-  %14 = phi ptr [ %97, %95 ], [ %10, %7 ]
+11:                                               ; preds = %92, %7
+  %12 = phi i32 [ %15, %92 ], [ %3, %7 ]
+  %13 = phi ptr [ %93, %92 ], [ %2, %7 ]
+  %14 = phi ptr [ %94, %92 ], [ %10, %7 ]
   %15 = add nsw i32 %12, -1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = load i32, ptr %16, align 4
@@ -233,7 +233,7 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
 
 26:                                               ; preds = %22, %22
   store i64 0, ptr %14, align 1
-  br label %95
+  br label %92
 
 ._crit_edge:                                      ; preds = %22, %11
   %27 = phi i32 [ %20, %11 ], [ 0, %22 ]
@@ -274,95 +274,92 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
   %58 = or i32 %57, 28672
   store i32 %58, ptr %36, align 1
   %59 = load i8, ptr %40, align 4
-  %60 = lshr i8 %59, 5
-  %61 = and i8 %60, 1
-  %62 = xor i8 %61, 1
-  %63 = zext nneg i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 15
-  %65 = and i32 %58, -32769
-  %66 = or disjoint i32 %65, %64
-  store i32 %66, ptr %36, align 1
-  %67 = load i32, ptr %28, align 4
-  %68 = and i32 %67, 983040
-  %69 = and i32 %66, -983041
-  %70 = or disjoint i32 %69, %68
-  store i32 %70, ptr %36, align 1
-  %71 = load i8, ptr %40, align 4
-  %72 = lshr i8 %71, 6
-  %73 = and i8 %72, 1
-  %74 = zext nneg i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 20
-  %76 = and i32 %70, -1048577
-  %77 = or disjoint i32 %76, %75
-  store i32 %77, ptr %36, align 1
-  %78 = load i8, ptr %40, align 4
-  %79 = and i8 %78, 1
-  %80 = zext nneg i8 %79 to i32
-  %81 = shl nuw nsw i32 %80, 22
-  %82 = and i32 %77, -4194305
-  %83 = or disjoint i32 %82, %81
-  store i32 %83, ptr %36, align 1
-  %84 = load i8, ptr %40, align 4
-  %85 = lshr i8 %84, 4
-  %86 = and i8 %85, 1
-  %87 = zext nneg i8 %86 to i32
-  %88 = shl nuw nsw i32 %87, 23
-  %89 = and i32 %83, -8388609
-  %90 = or disjoint i32 %89, %88
-  store i32 %90, ptr %36, align 1
-  %91 = load i32, ptr %16, align 4
-  %92 = and i32 %91, -16777216
-  %93 = and i32 %90, 14680063
-  %94 = or disjoint i32 %93, %92
-  store i32 %94, ptr %36, align 1
-  br label %95
+  %60 = and i8 %59, 32
+  %61 = xor i8 %60, 32
+  %62 = zext nneg i8 %61 to i32
+  %63 = shl nuw nsw i32 %62, 10
+  %64 = and i32 %58, -32769
+  %65 = or disjoint i32 %64, %63
+  store i32 %65, ptr %36, align 1
+  %66 = load i32, ptr %28, align 4
+  %67 = and i32 %66, 983040
+  %68 = and i32 %65, -983041
+  %69 = or disjoint i32 %68, %67
+  store i32 %69, ptr %36, align 1
+  %70 = load i8, ptr %40, align 4
+  %71 = and i8 %70, 64
+  %72 = zext nneg i8 %71 to i32
+  %73 = shl nuw nsw i32 %72, 14
+  %74 = and i32 %69, -1048577
+  %75 = or disjoint i32 %74, %73
+  store i32 %75, ptr %36, align 1
+  %76 = load i8, ptr %40, align 4
+  %77 = and i8 %76, 1
+  %78 = zext nneg i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 22
+  %80 = and i32 %75, -4194305
+  %81 = or disjoint i32 %80, %79
+  store i32 %81, ptr %36, align 1
+  %82 = load i8, ptr %40, align 4
+  %83 = and i8 %82, 16
+  %84 = zext nneg i8 %83 to i32
+  %85 = shl nuw nsw i32 %84, 19
+  %86 = and i32 %81, -8388609
+  %87 = or disjoint i32 %86, %85
+  store i32 %87, ptr %36, align 1
+  %88 = load i32, ptr %16, align 4
+  %89 = and i32 %88, -16777216
+  %90 = and i32 %87, 14680063
+  %91 = or disjoint i32 %90, %89
+  store i32 %91, ptr %36, align 1
+  br label %92
 
-95:                                               ; preds = %._crit_edge, %26
-  %96 = getelementptr i8, ptr %13, i64 16
-  %97 = getelementptr i8, ptr %14, i64 8
-  %98 = icmp samesign ugt i32 %12, 1
-  br i1 %98, label %11, label %.loopexit1, !llvm.loop !22
+92:                                               ; preds = %._crit_edge, %26
+  %93 = getelementptr i8, ptr %13, i64 16
+  %94 = getelementptr i8, ptr %14, i64 8
+  %95 = icmp samesign ugt i32 %12, 1
+  br i1 %95, label %11, label %.loopexit1, !llvm.loop !22
 
-.loopexit1:                                       ; preds = %95, %4
-  %99 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
-  %100 = inttoptr i64 %99 to ptr
-  %101 = icmp eq ptr %0, %100
-  br i1 %101, label %102, label %.loopexit
+.loopexit1:                                       ; preds = %92, %4
+  %96 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
+  %97 = inttoptr i64 %96 to ptr
+  %98 = icmp eq ptr %0, %97
+  br i1 %98, label %99, label %.loopexit
 
-102:                                              ; preds = %.loopexit1
-  %103 = zext i32 %6 to i64
-  %104 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %103
-  %105 = load i64, ptr %104, align 8
-  %106 = add i64 %105, ptrtoint (ptr @gdt_page to i64)
-  %107 = inttoptr i64 %106 to ptr
-  br label %108
+99:                                               ; preds = %.loopexit1
+  %100 = zext i32 %6 to i64
+  %101 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %100
+  %102 = load i64, ptr %101, align 8
+  %103 = add i64 %102, ptrtoint (ptr @gdt_page to i64)
+  %104 = inttoptr i64 %103 to ptr
+  br label %105
 
-108:                                              ; preds = %108, %102
-  %109 = phi i64 [ 0, %102 ], [ %114, %108 ]
-  %110 = getelementptr %struct.desc_struct, ptr %107, i64 %109
-  %111 = getelementptr i8, ptr %110, i64 96
-  %112 = getelementptr [3 x %struct.desc_struct], ptr %5, i64 0, i64 %109
-  %113 = load i64, ptr %112, align 8
-  store i64 %113, ptr %111, align 1
-  %114 = add nuw nsw i64 %109, 1
-  %115 = icmp eq i64 %114, 3
-  br i1 %115, label %.loopexit, label %108, !llvm.loop !23
+105:                                              ; preds = %105, %99
+  %106 = phi i64 [ 0, %99 ], [ %111, %105 ]
+  %107 = getelementptr %struct.desc_struct, ptr %104, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 96
+  %109 = getelementptr [3 x %struct.desc_struct], ptr %5, i64 0, i64 %106
+  %110 = load i64, ptr %109, align 8
+  store i64 %110, ptr %108, align 1
+  %111 = add nuw nsw i64 %106, 1
+  %112 = icmp eq i64 %111, 3
+  br i1 %112, label %.loopexit, label %105, !llvm.loop !23
 
-.loopexit:                                        ; preds = %108, %.loopexit1
+.loopexit:                                        ; preds = %105, %.loopexit1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !24
-  %116 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !25
-  %117 = icmp ult i8 %116, 2
-  tail call void @llvm.assume(i1 %117)
-  %118 = icmp eq i8 %116, 0
-  br i1 %118, label %122, label %119, !prof !26
+  %113 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !25
+  %114 = icmp ult i8 %113, 2
+  tail call void @llvm.assume(i1 %114)
+  %115 = icmp eq i8 %113, 0
+  br i1 %115, label %119, label %116, !prof !26
 
-119:                                              ; preds = %.loopexit
-  %120 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %121 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %120) #12, !srcloc !27
-  tail call void @llvm.write_register.i64(metadata !0, i64 %121)
-  br label %122
+116:                                              ; preds = %.loopexit
+  %117 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %118 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %117) #12, !srcloc !27
+  tail call void @llvm.write_register.i64(metadata !0, i64 %118)
+  br label %119
 
-122:                                              ; preds = %119, %.loopexit
+119:                                              ; preds = %116, %.loopexit
   ret void
 }
 

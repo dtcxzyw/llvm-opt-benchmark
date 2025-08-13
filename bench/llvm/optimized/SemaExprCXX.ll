@@ -28249,7 +28249,7 @@ define dso_local void @_ZN5clang4Sema25AnalyzeDeleteExprMismatchEPKNS_13CXXDelet
   %7 = load ptr, ptr %6, align 8, !tbaa !2149
   %8 = tail call noundef zeroext i8 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 6753, i32 0, ptr noundef nonnull align 8 dereferenceable(15248) %5) #31
   %9 = icmp eq i8 %8, 1
-  br i1 %9, label %112, label %10
+  br i1 %9, label %111, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -28407,55 +28407,54 @@ _ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CX
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i6 = load i32, ptr %91, align 4, !tbaa !739
   %92 = load i32, ptr %1, align 8
-  %93 = lshr i32 %92, 20
-  %94 = and i32 %93, 1
-  %.sroa.2.0.insert.ext.i = zext nneg i32 %94 to i64
-  %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
+  %93 = and i32 %92, 1048576
+  %.sroa.2.0.insert.ext.i = zext nneg i32 %93 to i64
+  %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 12
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i6 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %96 = load i32, ptr %95, align 8, !tbaa !716
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %98 = load i32, ptr %97, align 4, !tbaa !717
-  %.not.i.i.not.i = icmp ult i32 %96, %98
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit, label %99, !prof !1480
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %95 = load i32, ptr %94, align 8, !tbaa !716
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %97 = load i32, ptr %96, align 4, !tbaa !717
+  %.not.i.i.not.i = icmp ult i32 %95, %97
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit, label %98, !prof !1480
 
-99:                                               ; preds = %88
-  %100 = zext i32 %96 to i64
-  %101 = add nuw nsw i64 %100, 1
-  %102 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull %102, i64 noundef %101, i64 noundef 8) #27
-  %.pre.i = load i32, ptr %95, align 8, !tbaa !716
+98:                                               ; preds = %88
+  %99 = zext i32 %95 to i64
+  %100 = add nuw nsw i64 %99, 1
+  %101 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull %101, i64 noundef %100, i64 noundef 8) #27
+  %.pre.i = load i32, ptr %94, align 8, !tbaa !716
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit: ; preds = %88, %99
-  %103 = phi i32 [ %96, %88 ], [ %.pre.i, %99 ]
-  %104 = load ptr, ptr %90, align 8, !tbaa !715
-  %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw %"struct.std::pair.1777", ptr %104, i64 %105
-  store i64 %.sroa.0.0.insert.insert.i, ptr %106, align 1
-  %107 = load i32, ptr %95, align 8, !tbaa !716
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %95, align 8, !tbaa !716
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit: ; preds = %88, %98
+  %102 = phi i32 [ %95, %88 ], [ %.pre.i, %98 ]
+  %103 = load ptr, ptr %90, align 8, !tbaa !715
+  %104 = zext i32 %102 to i64
+  %105 = getelementptr inbounds nuw %"struct.std::pair.1777", ptr %103, i64 %104
+  store i64 %.sroa.0.0.insert.insert.i, ptr %105, align 1
+  %106 = load i32, ptr %94, align 8, !tbaa !716
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %94, align 8, !tbaa !716
   br label %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread
 
 default.unreachable:                              ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit
   unreachable
 
 _ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread: ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit, %10, %27, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEbELb1EE9push_backES4_.exit, %86
-  %109 = load ptr, ptr %11, align 8, !tbaa !715
-  %110 = icmp eq ptr %109, %12
-  br i1 %110, label %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit, label %111
+  %108 = load ptr, ptr %11, align 8, !tbaa !715
+  %109 = icmp eq ptr %108, %12
+  br i1 %109, label %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit, label %110
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread
-  call void @free(ptr noundef %109) #27
+110:                                              ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread
+  call void @free(ptr noundef %108) #27
   br label %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit
 
-_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread, %111
+_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector17analyzeDeleteExprEPKN5clang13CXXDeleteExprE.exit.thread, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %112
+  br label %111
 
-112:                                              ; preds = %2, %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit
+111:                                              ; preds = %2, %_ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit
   ret void
 }
 

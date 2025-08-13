@@ -17152,61 +17152,61 @@ switch.lookup317:                                 ; preds = %319
   br i1 %exitcond.not.i159.i, label %._crit_edge.i160.i, label %.lr.ph.i158.i, !llvm.loop !13
 
 ._crit_edge.i160.i:                               ; preds = %.lr.ph.i158.i
-  %495 = lshr i8 %472, 2
-  %496 = and i8 %495, 3
-  %497 = add nuw nsw i8 %496, 1
-  %498 = icmp eq i8 %497, 2
-  %499 = icmp eq i8 %473, 0
-  %or.cond.i.i.i = and i1 %499, %498
-  br i1 %or.cond.i.i.i, label %get_mimo_na.exit.i.i, label %500
+  %495 = and i8 %472, 16
+  %496 = lshr i8 %472, 2
+  %497 = and i8 %496, 3
+  %498 = add nuw nsw i8 %497, 1
+  %499 = icmp eq i8 %498, 2
+  %500 = icmp eq i8 %473, 0
+  %or.cond.i.i.i = and i1 %500, %499
+  br i1 %or.cond.i.i.i, label %get_mimo_na.exit.i.i, label %501
 
-500:                                              ; preds = %._crit_edge.i160.i
-  %501 = icmp eq i8 %474, 2
-  %or.cond5.i.i.i = and i1 %501, %498
-  br i1 %or.cond5.i.i.i, label %get_mimo_na.exit.i.i, label %502
+501:                                              ; preds = %._crit_edge.i160.i
+  %502 = icmp eq i8 %474, 2
+  %or.cond5.i.i.i = and i1 %502, %499
+  br i1 %or.cond5.i.i.i, label %get_mimo_na.exit.i.i, label %503
 
-502:                                              ; preds = %500
-  %503 = icmp eq i8 %497, 3
-  %or.cond8.i.i.i = and i1 %499, %503
-  br i1 %or.cond8.i.i.i, label %get_mimo_na.exit.i.i, label %504
+503:                                              ; preds = %501
+  %504 = icmp eq i8 %498, 3
+  %or.cond8.i.i.i = and i1 %500, %504
+  br i1 %or.cond8.i.i.i, label %get_mimo_na.exit.i.i, label %505
 
-504:                                              ; preds = %502
-  %or.cond11.i.i.i = and i1 %501, %503
-  br i1 %or.cond11.i.i.i, label %get_mimo_na.exit.i.i, label %505
+505:                                              ; preds = %503
+  %or.cond11.i.i.i = and i1 %502, %504
+  br i1 %or.cond11.i.i.i, label %get_mimo_na.exit.i.i, label %506
 
-505:                                              ; preds = %504
-  %506 = icmp eq i8 %474, 3
-  %or.cond14.i.i.i = and i1 %506, %503
-  br i1 %or.cond14.i.i.i, label %get_mimo_na.exit.i.i, label %507
+506:                                              ; preds = %505
+  %507 = icmp eq i8 %474, 3
+  %or.cond14.i.i.i = and i1 %507, %504
+  br i1 %or.cond14.i.i.i, label %get_mimo_na.exit.i.i, label %508
 
-507:                                              ; preds = %505
-  %508 = icmp eq i8 %497, 4
-  %or.cond17.i.i.i = and i1 %499, %508
-  br i1 %or.cond17.i.i.i, label %get_mimo_na.exit.i.i, label %509
+508:                                              ; preds = %506
+  %509 = icmp eq i8 %498, 4
+  %or.cond17.i.i.i = and i1 %500, %509
+  br i1 %or.cond17.i.i.i, label %get_mimo_na.exit.i.i, label %510
 
-509:                                              ; preds = %507
-  %or.cond20.i.i.i = and i1 %501, %508
-  br i1 %or.cond20.i.i.i, label %get_mimo_na.exit.i.i, label %510
-
-510:                                              ; preds = %509
-  %or.cond23.i.i.i = and i1 %506, %508
-  br i1 %or.cond23.i.i.i, label %get_mimo_na.exit.i.i, label %511
+510:                                              ; preds = %508
+  %or.cond20.i.i.i = and i1 %502, %509
+  br i1 %or.cond20.i.i.i, label %get_mimo_na.exit.i.i, label %511
 
 511:                                              ; preds = %510
-  %512 = icmp eq i8 %474, 4
-  %or.cond26.i.i.i = and i1 %512, %508
+  %or.cond23.i.i.i = and i1 %507, %509
+  br i1 %or.cond23.i.i.i, label %get_mimo_na.exit.i.i, label %512
+
+512:                                              ; preds = %511
+  %513 = icmp eq i8 %474, 4
+  %or.cond26.i.i.i = and i1 %513, %509
   %..i.i.i = select i1 %or.cond26.i.i.i, i32 12, i32 0
   br label %get_mimo_na.exit.i.i
 
-get_mimo_na.exit.i.i:                             ; preds = %511, %510, %509, %507, %505, %504, %502, %500, %._crit_edge.i160.i
-  %.0.i.i164.i = phi i32 [ 2, %._crit_edge.i160.i ], [ 2, %500 ], [ 4, %502 ], [ 6, %504 ], [ 6, %505 ], [ 6, %507 ], [ 10, %509 ], [ 12, %510 ], [ %..i.i.i, %511 ]
+get_mimo_na.exit.i.i:                             ; preds = %512, %511, %510, %508, %506, %505, %503, %501, %._crit_edge.i160.i
+  %.0.i.i164.i = phi i32 [ 2, %._crit_edge.i160.i ], [ 2, %501 ], [ 4, %503 ], [ 6, %505 ], [ 6, %506 ], [ 6, %508 ], [ 10, %510 ], [ 12, %511 ], [ %..i.i.i, %512 ]
   %switch.tableidx324 = add nsw i8 %switch.masked320, -1
-  %513 = icmp ult i8 %switch.tableidx324, 4
-  br i1 %513, label %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_compressed_beamforming_feedback_report.exit.i
+  %514 = icmp ult i8 %switch.tableidx324, 4
+  br i1 %514, label %add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split, label %add_mimo_compressed_beamforming_feedback_report.exit.i
 
 add_mimo_compressed_beamforming_feedback_report.exit.i.sink.split: ; preds = %get_mimo_na.exit.i.i
-  %514 = and i8 %472, 16
-  %.not35.i.i = icmp eq i8 %514, 0
+  %.not35.i.i = icmp eq i8 %495, 0
   %switch.table.add_ff_action.230.switch.table.add_ff_action.229 = select i1 %.not35.i.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
   %515 = zext nneg i8 %switch.tableidx324 to i64
   %switch.gep325 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.add_ff_action.230.switch.table.add_ff_action.229, i64 0, i64 %515
