@@ -20171,8 +20171,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp7_fade_frame(ptr noundef
   %33 = getelementptr inbounds nuw [5 x %struct.VP8Frame], ptr %28, i64 0, i64 %indvars.iv.i
   %.not.i = icmp eq ptr %33, %30
   %.not22.i = icmp eq ptr %33, %17
-  %or.cond57 = or i1 %.not.i, %.not22.i
-  br i1 %or.cond57, label %36, label %34
+  %or.cond56 = or i1 %.not.i, %.not22.i
+  br i1 %or.cond56, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %31, align 8, !tbaa !135
@@ -20288,50 +20288,48 @@ copy_chroma.exit:                                 ; preds = %._crit_edge.us.i, %
   %90 = load i32, ptr %89, align 8, !tbaa !89
   %91 = sext i32 %90 to i64
   %.not.i48 = icmp eq i16 %13, 0
-  %.not25.i49 = icmp eq i16 %9, 0
-  %or.cond.i = or i1 %.not25.i49, %.not.i48
+  %.not26.i = icmp eq i16 %9, 0
+  %or.cond.i = or i1 %.not26.i, %.not.i48
   br i1 %or.cond.i, label %.critedge, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %copy_chroma.exit
-  %wide.trip.count31.i = zext nneg i32 %15 to i64
+  %wide.trip.count32.i = zext nneg i32 %15 to i64
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %._crit_edge.us.i53, %.lr.ph.us.preheader.i
-  %indvars.iv28.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next29.i, %._crit_edge.us.i53 ]
-  %92 = mul nsw i64 %indvars.iv28.i, %91
+.lr.ph.us.i:                                      ; preds = %._crit_edge.us.i52, %.lr.ph.us.preheader.i
+  %indvars.iv29.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next30.i, %._crit_edge.us.i52 ]
+  %92 = mul nsw i64 %indvars.iv29.i, %91
   %93 = getelementptr inbounds i8, ptr %88, i64 %92
-  %94 = mul nsw i64 %indvars.iv28.i, %87
+  %94 = mul nsw i64 %indvars.iv29.i, %87
   %95 = getelementptr inbounds i8, ptr %84, i64 %94
   br label %96
 
 96:                                               ; preds = %96, %.lr.ph.us.i
-  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i51, %96 ]
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv.i50
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i50, %96 ]
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv.i49
   %98 = load i8, ptr %97, align 1, !tbaa !56
   %99 = zext i8 %98 to i32
   %100 = mul nsw i32 %2, %99
   %101 = ashr i32 %100, 8
   %102 = add nsw i32 %1, %99
   %103 = add nsw i32 %102, %101
-  %.not.i.us.i = icmp ult i32 %103, 256
-  %isnotneg.i.us.i = icmp sgt i32 %103, -1
-  %104 = sext i1 %isnotneg.i.us.i to i8
-  %105 = trunc nuw i32 %103 to i8
-  %.0.i.us.i = select i1 %.not.i.us.i, i8 %105, i8 %104
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv.i50
-  store i8 %.0.i.us.i, ptr %106, align 1, !tbaa !56
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
-  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i
-  br i1 %exitcond.not.i52, label %._crit_edge.us.i53, label %96, !llvm.loop !272
+  %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
+  %.0.i20.us.i = tail call i32 @llvm.umin.i32(i32 %104, i32 255)
+  %.0.i.us.i = trunc nuw i32 %.0.i20.us.i to i8
+  %105 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv.i49
+  store i8 %.0.i.us.i, ptr %105, align 1, !tbaa !56
+  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
+  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i
+  br i1 %exitcond.not.i51, label %._crit_edge.us.i52, label %96, !llvm.loop !272
 
-._crit_edge.us.i53:                               ; preds = %96
-  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %.critedge, label %.lr.ph.us.i, !llvm.loop !273
+._crit_edge.us.i52:                               ; preds = %96
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
+  br i1 %exitcond33.not.i, label %.critedge, label %.lr.ph.us.i, !llvm.loop !273
 
-.critedge:                                        ; preds = %._crit_edge.us.i53, %copy_chroma.exit, %vp8_find_free_buffer.exit, %61, %3, %21
-  %.3 = phi i32 [ -1094995529, %21 ], [ 0, %3 ], [ %46, %vp8_find_free_buffer.exit ], [ %.0.i, %61 ], [ 0, %copy_chroma.exit ], [ 0, %._crit_edge.us.i53 ]
+.critedge:                                        ; preds = %._crit_edge.us.i52, %copy_chroma.exit, %vp8_find_free_buffer.exit, %61, %3, %21
+  %.3 = phi i32 [ -1094995529, %21 ], [ 0, %3 ], [ %46, %vp8_find_free_buffer.exit ], [ %.0.i, %61 ], [ 0, %copy_chroma.exit ], [ 0, %._crit_edge.us.i52 ]
   ret i32 %.3
 }
 

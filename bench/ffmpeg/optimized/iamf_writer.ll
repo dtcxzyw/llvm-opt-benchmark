@@ -2742,11 +2742,8 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %av_iamf_param_defin
   %115 = sext i32 %114 to i64
   %116 = call i64 @av_rescale(i64 noundef %112, i64 noundef 256, i64 noundef %115) #10
   %117 = trunc i64 %116 to i32
-  %.not.i = icmp ult i32 %117, 256
-  %isnotneg.i = icmp sgt i32 %117, -1
-  %118 = sext i1 %isnotneg.i to i32
-  %.0.i = select i1 %.not.i, i32 %117, i32 %118
-  %119 = and i32 %.0.i, 255
+  %118 = call i32 @llvm.smax.i32(i32 %117, i32 0)
+  %119 = call i32 @llvm.umin.i32(i32 %118, i32 255)
   call void @avio_w8(ptr noundef %109, i32 noundef %119) #9
   br label %.critedge
 

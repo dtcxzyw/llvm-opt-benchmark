@@ -35,12 +35,12 @@ define void @ff_gradfun_filter_line_c(ptr noundef writeonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.024 = phi ptr [ %2, %.lr.ph.preheader ], [ %34, %.lr.ph ]
+  %.025 = phi ptr [ %2, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 7
-  %12 = load i16, ptr %.024, align 2, !tbaa !7
+  %12 = load i16, ptr %.025, align 2, !tbaa !7
   %13 = zext i16 %12 to i32
   %14 = sub nsw i32 %13, %11
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
@@ -58,15 +58,13 @@ define void @ff_gradfun_filter_line_c(ptr noundef writeonly captures(none) %0, p
   %27 = add nuw nsw i32 %11, %26
   %28 = add nsw i32 %27, %22
   %29 = ashr i32 %28, 7
-  %.not.i = icmp ult i32 %29, 256
-  %isnotneg.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i to i8
-  %31 = trunc nuw i32 %29 to i8
-  %.0.i = select i1 %.not.i, i8 %31, i8 %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %32, align 1, !tbaa !4
-  %33 = and i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw i16, ptr %.024, i64 %33
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i23 = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
+  %.0.i = trunc nuw i32 %.0.i23 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %31, align 1, !tbaa !4
+  %32 = and i64 %indvars.iv, 1
+  %33 = getelementptr inbounds nuw i16, ptr %.025, i64 %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9

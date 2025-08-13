@@ -618,11 +618,11 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
 
-._crit_edge:                                      ; preds = %32, %8
+._crit_edge:                                      ; preds = %31, %8
   ret void
 
-11:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+11:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !88
   %14 = zext i8 %13 to i32
@@ -636,28 +636,26 @@ define internal void @limitdiff8(ptr noundef readonly captures(none) %0, ptr nou
   %22 = sub nsw i32 %14, %21
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
   %.not = icmp sgt i32 %23, %4
-  br i1 %.not, label %24, label %32
+  br i1 %.not, label %24, label %31
 
 24:                                               ; preds = %11
   %.not43 = icmp slt i32 %23, %5
-  br i1 %.not43, label %25, label %32
+  br i1 %.not43, label %25, label %31
 
 25:                                               ; preds = %24
   %26 = sub nsw i32 %5, %23
   %27 = mul nsw i32 %26, %18
   %28 = sdiv i32 %27, %10
   %29 = add nsw i32 %28, %17
-  %.not.i = icmp ult i32 %29, 256
-  %isnotneg.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i to i8
-  %31 = trunc nuw i32 %29 to i8
-  %.0.i = select i1 %.not.i, i8 %31, i8 %30
-  br label %32
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i44 = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
+  %.0.i = trunc nuw i32 %.0.i44 to i8
+  br label %31
 
-32:                                               ; preds = %24, %11, %25
+31:                                               ; preds = %24, %11, %25
   %.sink = phi i8 [ %.0.i, %25 ], [ %13, %11 ], [ %16, %24 ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.sink, ptr %33, align 1, !tbaa !88
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  store i8 %.sink, ptr %32, align 1, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !89
@@ -733,6 +731,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

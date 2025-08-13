@@ -19,19 +19,19 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
-  %.022.lver.orig = phi ptr [ %37, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %.01621.lver.orig = phi i32 [ %38, %.ph.lver.orig ], [ 0, %.lver.check ]
-  %4 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 -2
+  %.024.lver.orig = phi ptr [ %35, %.ph.lver.orig ], [ %0, %.lver.check ]
+  %.01623.lver.orig = phi i32 [ %36, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %4 = getelementptr inbounds i8, ptr %.024.lver.orig, i64 -2
   %5 = load i8, ptr %4, align 1, !tbaa !10
   %6 = zext i8 %5 to i32
-  %7 = load i8, ptr %.022.lver.orig, align 1, !tbaa !10
+  %7 = load i8, ptr %.024.lver.orig, align 1, !tbaa !10
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 -1
+  %9 = getelementptr inbounds i8, ptr %.024.lver.orig, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !10
   %11 = zext i8 %10 to i32
   %12 = sub nsw i32 %8, %11
   %13 = mul nsw i32 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %.022.lver.orig, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.024.lver.orig, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %6, 4
@@ -49,79 +49,71 @@ define internal void @vp5_edge_filter_hor(ptr noundef captures(none) %0, i64 nou
   %29 = sub i32 %28, %27
   %30 = xor i32 %29, %21
   %31 = add nsw i32 %30, %11
-  %.not.i.lver.orig = icmp ult i32 %31, 256
-  %isnotneg.i.lver.orig = icmp sgt i32 %31, -1
-  %32 = sext i1 %isnotneg.i.lver.orig to i8
-  %33 = trunc nuw i32 %31 to i8
-  %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %33, i8 %32
+  %32 = tail call i32 @llvm.smax.i32(i32 %31, i32 0)
+  %.0.i20.lver.orig = tail call i32 @llvm.umin.i32(i32 %32, i32 255)
+  %.0.i.lver.orig = trunc nuw i32 %.0.i20.lver.orig to i8
   store i8 %.0.i.lver.orig, ptr %9, align 1, !tbaa !10
-  %34 = sub nsw i32 %8, %30
-  %.not.i17.lver.orig = icmp ult i32 %34, 256
-  %isnotneg.i18.lver.orig = icmp sgt i32 %34, -1
-  %35 = sext i1 %isnotneg.i18.lver.orig to i8
-  %36 = trunc nuw i32 %34 to i8
-  %.0.i19.lver.orig = select i1 %.not.i17.lver.orig, i8 %36, i8 %35
-  store i8 %.0.i19.lver.orig, ptr %.022.lver.orig, align 1, !tbaa !10
-  %37 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 %1
-  %38 = add nuw nsw i32 %.01621.lver.orig, 1
-  %exitcond.not.lver.orig = icmp eq i32 %38, 12
+  %33 = sub nsw i32 %8, %30
+  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %.0.i1921.lver.orig = tail call i32 @llvm.umin.i32(i32 %34, i32 255)
+  %.0.i19.lver.orig = trunc nuw i32 %.0.i1921.lver.orig to i8
+  store i8 %.0.i19.lver.orig, ptr %.024.lver.orig, align 1, !tbaa !10
+  %35 = getelementptr inbounds i8, ptr %.024.lver.orig, i64 %1
+  %36 = add nuw nsw i32 %.01623.lver.orig, 1
+  %exitcond.not.lver.orig = icmp eq i32 %36, 12
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !11
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 -1
   %load_initial = load i8, ptr %scevgep, align 1
-  br label %39
+  br label %37
 
-39:                                               ; preds = %.ph, %39
-  %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i19, %39 ]
-  %.022 = phi ptr [ %0, %.ph ], [ %72, %39 ]
-  %.01621 = phi i32 [ 0, %.ph ], [ %73, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.022, i64 -2
-  %41 = load i8, ptr %40, align 1, !tbaa !10
+37:                                               ; preds = %.ph, %37
+  %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i19, %37 ]
+  %.024 = phi ptr [ %0, %.ph ], [ %68, %37 ]
+  %.01623 = phi i32 [ 0, %.ph ], [ %69, %37 ]
+  %38 = getelementptr inbounds i8, ptr %.024, i64 -2
+  %39 = load i8, ptr %38, align 1, !tbaa !10
+  %40 = zext i8 %39 to i32
+  %41 = load i8, ptr %.024, align 1, !tbaa !10
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %.022, align 1, !tbaa !10
-  %44 = zext i8 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %.022, i64 -1
-  %46 = zext i8 %store_forwarded to i32
-  %47 = sub nsw i32 %44, %46
-  %48 = mul nsw i32 %47, 3
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !10
-  %51 = zext i8 %50 to i32
-  %52 = add nuw nsw i32 %42, 4
-  %53 = sub nsw i32 %52, %51
-  %54 = add nsw i32 %53, %48
-  %55 = ashr i32 %54, 3
-  %56 = ashr i32 %54, 31
-  %57 = xor i32 %56, %55
-  %58 = sub nsw i32 %57, %56
-  %59 = icmp slt i32 %58, %3
-  %60 = select i1 %59, i32 %58, i32 0
-  %61 = sub nsw i32 %60, %2
-  %62 = tail call i32 @llvm.abs.i32(i32 %61, i1 true)
-  %63 = add i32 %56, %2
-  %64 = sub i32 %63, %62
-  %65 = xor i32 %64, %56
-  %66 = add nsw i32 %65, %46
-  %.not.i = icmp ult i32 %66, 256
-  %isnotneg.i = icmp sgt i32 %66, -1
-  %67 = sext i1 %isnotneg.i to i8
-  %68 = trunc nuw i32 %66 to i8
-  %.0.i = select i1 %.not.i, i8 %68, i8 %67
-  store i8 %.0.i, ptr %45, align 1, !tbaa !10
-  %69 = sub nsw i32 %44, %65
-  %.not.i17 = icmp ult i32 %69, 256
-  %isnotneg.i18 = icmp sgt i32 %69, -1
-  %70 = sext i1 %isnotneg.i18 to i8
-  %71 = trunc nuw i32 %69 to i8
-  %.0.i19 = select i1 %.not.i17, i8 %71, i8 %70
-  store i8 %.0.i19, ptr %.022, align 1, !tbaa !10
-  %72 = getelementptr inbounds nuw i8, ptr %.022, i64 %1
-  %73 = add nuw nsw i32 %.01621, 1
-  %exitcond.not = icmp eq i32 %73, 12
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !11
+  %43 = getelementptr inbounds i8, ptr %.024, i64 -1
+  %44 = zext i8 %store_forwarded to i32
+  %45 = sub nsw i32 %42, %44
+  %46 = mul nsw i32 %45, 3
+  %47 = getelementptr inbounds nuw i8, ptr %.024, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !10
+  %49 = zext i8 %48 to i32
+  %50 = add nuw nsw i32 %40, 4
+  %51 = sub nsw i32 %50, %49
+  %52 = add nsw i32 %51, %46
+  %53 = ashr i32 %52, 3
+  %54 = ashr i32 %52, 31
+  %55 = xor i32 %54, %53
+  %56 = sub nsw i32 %55, %54
+  %57 = icmp slt i32 %56, %3
+  %58 = select i1 %57, i32 %56, i32 0
+  %59 = sub nsw i32 %58, %2
+  %60 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
+  %61 = add i32 %54, %2
+  %62 = sub i32 %61, %60
+  %63 = xor i32 %62, %54
+  %64 = add nsw i32 %63, %44
+  %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %.0.i20 = tail call i32 @llvm.umin.i32(i32 %65, i32 255)
+  %.0.i = trunc nuw i32 %.0.i20 to i8
+  store i8 %.0.i, ptr %43, align 1, !tbaa !10
+  %66 = sub nsw i32 %42, %63
+  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
+  %.0.i1921 = tail call i32 @llvm.umin.i32(i32 %67, i32 255)
+  %.0.i19 = trunc nuw i32 %.0.i1921 to i8
+  store i8 %.0.i19, ptr %.024, align 1, !tbaa !10
+  %68 = getelementptr inbounds nuw i8, ptr %.024, i64 %1
+  %69 = add nuw nsw i32 %.01623, 1
+  %exitcond.not = icmp eq i32 %69, 12
+  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.ph.lver.orig, %39
+.loopexit:                                        ; preds = %.ph.lver.orig, %37
   ret void
 }
 
@@ -134,19 +126,19 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   br label %7
 
 7:                                                ; preds = %3, %7
-  %.026 = phi ptr [ %0, %3 ], [ %43, %7 ]
-  %.02025 = phi i32 [ 0, %3 ], [ %44, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.026, i64 %4
+  %.028 = phi ptr [ %0, %3 ], [ %41, %7 ]
+  %.02027 = phi i32 [ 0, %3 ], [ %42, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.028, i64 %4
   %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = zext i8 %9 to i32
-  %11 = load i8, ptr %.026, align 1, !tbaa !10
+  %11 = load i8, ptr %.028, align 1, !tbaa !10
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %.026, i64 %5
+  %13 = getelementptr inbounds i8, ptr %.028, i64 %5
   %14 = load i8, ptr %13, align 1, !tbaa !10
   %15 = zext i8 %14 to i32
   %16 = sub nsw i32 %12, %15
   %17 = mul nsw i32 %16, 3
-  %18 = getelementptr inbounds i8, ptr %.026, i64 %1
+  %18 = getelementptr inbounds i8, ptr %.028, i64 %1
   %19 = load i8, ptr %18, align 1, !tbaa !10
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %10, 4
@@ -164,27 +156,23 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   %33 = sub i32 %32, %31
   %34 = xor i32 %33, %25
   %35 = add nsw i32 %34, %15
-  %.not.i = icmp ult i32 %35, 256
-  %isnotneg.i = icmp sgt i32 %35, -1
-  %36 = sext i1 %isnotneg.i to i8
-  %37 = trunc nuw i32 %35 to i8
-  %.0.i = select i1 %.not.i, i8 %37, i8 %36
+  %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 0)
+  %.0.i24 = tail call i32 @llvm.umin.i32(i32 %36, i32 255)
+  %.0.i = trunc nuw i32 %.0.i24 to i8
   store i8 %.0.i, ptr %13, align 1, !tbaa !10
-  %38 = load i8, ptr %.026, align 1, !tbaa !10
-  %39 = zext i8 %38 to i32
-  %40 = sub nsw i32 %39, %34
-  %.not.i21 = icmp ult i32 %40, 256
-  %isnotneg.i22 = icmp sgt i32 %40, -1
-  %41 = sext i1 %isnotneg.i22 to i8
-  %42 = trunc nuw i32 %40 to i8
-  %.0.i23 = select i1 %.not.i21, i8 %42, i8 %41
-  store i8 %.0.i23, ptr %.026, align 1, !tbaa !10
-  %43 = getelementptr inbounds nuw i8, ptr %.026, i64 1
-  %44 = add nuw nsw i32 %.02025, 1
-  %exitcond.not = icmp eq i32 %44, 12
-  br i1 %exitcond.not, label %45, label %7, !llvm.loop !13
+  %37 = load i8, ptr %.028, align 1, !tbaa !10
+  %38 = zext i8 %37 to i32
+  %39 = sub nsw i32 %38, %34
+  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %.0.i2325 = tail call i32 @llvm.umin.i32(i32 %40, i32 255)
+  %.0.i23 = trunc nuw i32 %.0.i2325 to i8
+  store i8 %.0.i23, ptr %.028, align 1, !tbaa !10
+  %41 = getelementptr inbounds nuw i8, ptr %.028, i64 1
+  %42 = add nuw nsw i32 %.02027, 1
+  %exitcond.not = icmp eq i32 %42, 12
+  br i1 %exitcond.not, label %43, label %7, !llvm.loop !13
 
-45:                                               ; preds = %7
+43:                                               ; preds = %7
   ret void
 }
 
@@ -199,6 +187,12 @@ declare void @ff_vp6_filter_diag4_c(ptr noundef, ptr noundef, i64 noundef, ptr n
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

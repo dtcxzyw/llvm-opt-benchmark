@@ -1359,50 +1359,47 @@ define internal void @blend_grainextract_8bit(ptr noundef readonly captures(none
   %14 = icmp sgt i64 %7, 0
   %15 = icmp sgt i64 %6, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader.us, label %._crit_edge39
+  br i1 %or.cond, label %.preheader.us, label %._crit_edge40
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge.us ], [ 0, %10 ]
-  %.03037.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03136.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.03235.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %._crit_edge.us ], [ 0, %10 ]
+  %.03038.us = phi ptr [ %32, %._crit_edge.us ], [ %4, %10 ]
+  %.03137.us = phi ptr [ %34, %._crit_edge.us ], [ %2, %10 ]
+  %.03236.us = phi ptr [ %33, %._crit_edge.us ], [ %0, %10 ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03235.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %.03236.us, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !90
   %19 = zext i8 %18 to i32
   %20 = uitofp i8 %18 to float
   %21 = add nuw nsw i32 %19, 128
-  %22 = getelementptr inbounds nuw i8, ptr %.03136.us, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %.03137.us, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !90
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 %21, %24
-  %.not.i.us = icmp ult i32 %25, 256
-  %isnotneg.i.us = icmp sgt i32 %25, -1
-  %26 = sext i1 %isnotneg.i.us to i32
-  %.0.i.us = select i1 %.not.i.us, i32 %25, i32 %26
-  %27 = and i32 %.0.i.us, 255
-  %28 = sub nsw i32 %27, %19
-  %29 = sitofp i32 %28 to float
-  %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %20)
-  %31 = fptoui float %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %.03037.us, i64 %indvars.iv
-  store i8 %31, ptr %32, align 1, !tbaa !90
+  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
+  %.0.i34.us = tail call i32 @llvm.umin.i32(i32 %26, i32 255)
+  %27 = sub nsw i32 %.0.i34.us, %19
+  %28 = sitofp i32 %27 to float
+  %29 = tail call nsz float @llvm.fmuladd.f32(float %28, float %13, float %20)
+  %30 = fptoui float %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %.03038.us, i64 %indvars.iv
+  store i8 %30, ptr %31, align 1, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !107
 
 ._crit_edge.us:                                   ; preds = %16
-  %33 = getelementptr inbounds i8, ptr %.03037.us, i64 %5
-  %34 = getelementptr inbounds i8, ptr %.03235.us, i64 %1
-  %35 = getelementptr inbounds i8, ptr %.03136.us, i64 %3
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, %7
-  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !108
+  %32 = getelementptr inbounds i8, ptr %.03038.us, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.03236.us, i64 %1
+  %34 = getelementptr inbounds i8, ptr %.03137.us, i64 %3
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, %7
+  br i1 %exitcond47.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !108
 
-._crit_edge39:                                    ; preds = %._crit_edge.us, %10
+._crit_edge40:                                    ; preds = %._crit_edge.us, %10
   ret void
 }
 
@@ -2002,22 +1999,22 @@ define internal void @blend_linearlight_8bit(ptr noundef readonly captures(none)
   %14 = icmp sgt i64 %7, 0
   %15 = icmp sgt i64 %6, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader.us, label %._crit_edge46
+  br i1 %or.cond, label %.preheader.us, label %._crit_edge47
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %._crit_edge.us ], [ 0, %10 ]
-  %.03644.us = phi ptr [ %38, %._crit_edge.us ], [ %4, %10 ]
-  %.03743.us = phi ptr [ %40, %._crit_edge.us ], [ %2, %10 ]
-  %.03842.us = phi ptr [ %39, %._crit_edge.us ], [ %0, %10 ]
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %._crit_edge.us ], [ 0, %10 ]
+  %.03645.us = phi ptr [ %37, %._crit_edge.us ], [ %4, %10 ]
+  %.03744.us = phi ptr [ %39, %._crit_edge.us ], [ %2, %10 ]
+  %.03843.us = phi ptr [ %38, %._crit_edge.us ], [ %0, %10 ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03842.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %.03843.us, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !90
   %19 = zext i8 %18 to i32
   %20 = uitofp i8 %18 to float
-  %21 = getelementptr inbounds nuw i8, ptr %.03743.us, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %.03744.us, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !90
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %19, 1
@@ -2027,30 +2024,27 @@ define internal void @blend_linearlight_8bit(ptr noundef readonly captures(none)
   %28 = add nsw i32 %27, %23
   %29 = icmp slt i8 %22, 0
   %30 = select i1 %29, i32 %28, i32 %26
-  %.not.i.us = icmp ult i32 %30, 256
-  %isnotneg.i.us = icmp sgt i32 %30, -1
-  %31 = sext i1 %isnotneg.i.us to i32
-  %.0.i.us = select i1 %.not.i.us, i32 %30, i32 %31
-  %32 = and i32 %.0.i.us, 255
-  %33 = sub nsw i32 %32, %19
-  %34 = sitofp i32 %33 to float
-  %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %13, float %20)
-  %36 = fptoui float %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %.03644.us, i64 %indvars.iv
-  store i8 %36, ptr %37, align 1, !tbaa !90
+  %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
+  %.0.i41.us = tail call i32 @llvm.umin.i32(i32 %31, i32 255)
+  %32 = sub nsw i32 %.0.i41.us, %19
+  %33 = sitofp i32 %32 to float
+  %34 = tail call nsz float @llvm.fmuladd.f32(float %33, float %13, float %20)
+  %35 = fptoui float %34 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %.03645.us, i64 %indvars.iv
+  store i8 %35, ptr %36, align 1, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !129
 
 ._crit_edge.us:                                   ; preds = %16
-  %38 = getelementptr inbounds i8, ptr %.03644.us, i64 %5
-  %39 = getelementptr inbounds i8, ptr %.03842.us, i64 %1
-  %40 = getelementptr inbounds i8, ptr %.03743.us, i64 %3
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, %7
-  br i1 %exitcond53.not, label %._crit_edge46, label %.preheader.us, !llvm.loop !130
+  %37 = getelementptr inbounds i8, ptr %.03645.us, i64 %5
+  %38 = getelementptr inbounds i8, ptr %.03843.us, i64 %1
+  %39 = getelementptr inbounds i8, ptr %.03744.us, i64 %3
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next52, %7
+  br i1 %exitcond54.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !130
 
-._crit_edge46:                                    ; preds = %._crit_edge.us, %10
+._crit_edge47:                                    ; preds = %._crit_edge.us, %10
   ret void
 }
 
@@ -2114,23 +2108,23 @@ define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none)
   %14 = icmp sgt i64 %7, 0
   %15 = icmp sgt i64 %6, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader.us, label %._crit_edge39
+  br i1 %or.cond, label %.preheader.us, label %._crit_edge40
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge.us ], [ 0, %10 ]
-  %.03037.us = phi ptr [ %37, %._crit_edge.us ], [ %4, %10 ]
-  %.03136.us = phi ptr [ %39, %._crit_edge.us ], [ %2, %10 ]
-  %.03235.us = phi ptr [ %38, %._crit_edge.us ], [ %0, %10 ]
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %._crit_edge.us ], [ 0, %10 ]
+  %.03038.us = phi ptr [ %36, %._crit_edge.us ], [ %4, %10 ]
+  %.03137.us = phi ptr [ %38, %._crit_edge.us ], [ %2, %10 ]
+  %.03236.us = phi ptr [ %37, %._crit_edge.us ], [ %0, %10 ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03235.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %.03236.us, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !90
   %19 = zext i8 %18 to i32
   %20 = uitofp i8 %18 to float
   %21 = add nsw i32 %19, -128
-  %22 = getelementptr inbounds nuw i8, ptr %.03136.us, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %.03137.us, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !90
   %24 = zext i8 %23 to i32
   %25 = mul nsw i32 %21, %24
@@ -2138,30 +2132,27 @@ define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none)
   %27 = fmul nsz float %26, 3.125000e-02
   %28 = fadd nsz float %27, 1.280000e+02
   %29 = fptosi float %28 to i32
-  %.not.i.us = icmp ult i32 %29, 256
-  %isnotneg.i.us = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i.us to i32
-  %.0.i.us = select i1 %.not.i.us, i32 %29, i32 %30
-  %31 = and i32 %.0.i.us, 255
-  %32 = sub nsw i32 %31, %19
-  %33 = sitofp i32 %32 to float
-  %34 = tail call nsz float @llvm.fmuladd.f32(float %33, float %13, float %20)
-  %35 = fptoui float %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %.03037.us, i64 %indvars.iv
-  store i8 %35, ptr %36, align 1, !tbaa !90
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i34.us = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
+  %31 = sub nsw i32 %.0.i34.us, %19
+  %32 = sitofp i32 %31 to float
+  %33 = tail call nsz float @llvm.fmuladd.f32(float %32, float %13, float %20)
+  %34 = fptoui float %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %.03038.us, i64 %indvars.iv
+  store i8 %34, ptr %35, align 1, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !133
 
 ._crit_edge.us:                                   ; preds = %16
-  %37 = getelementptr inbounds i8, ptr %.03037.us, i64 %5
-  %38 = getelementptr inbounds i8, ptr %.03235.us, i64 %1
-  %39 = getelementptr inbounds i8, ptr %.03136.us, i64 %3
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, %7
-  br i1 %exitcond46.not, label %._crit_edge39, label %.preheader.us, !llvm.loop !134
+  %36 = getelementptr inbounds i8, ptr %.03038.us, i64 %5
+  %37 = getelementptr inbounds i8, ptr %.03236.us, i64 %1
+  %38 = getelementptr inbounds i8, ptr %.03137.us, i64 %3
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, %7
+  br i1 %exitcond47.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !134
 
-._crit_edge39:                                    ; preds = %._crit_edge.us, %10
+._crit_edge40:                                    ; preds = %._crit_edge.us, %10
   ret void
 }
 
@@ -2871,22 +2862,22 @@ define internal void @blend_softdifference_8bit(ptr noundef readonly captures(no
   %14 = icmp sgt i64 %7, 0
   %15 = icmp sgt i64 %6, 0
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %.preheader.us, label %._crit_edge60
+  br i1 %or.cond, label %.preheader.us, label %._crit_edge61
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %._crit_edge.us ], [ 0, %10 ]
-  %.04658.us = phi ptr [ %46, %._crit_edge.us ], [ %4, %10 ]
-  %.04757.us = phi ptr [ %48, %._crit_edge.us ], [ %2, %10 ]
-  %.04856.us = phi ptr [ %47, %._crit_edge.us ], [ %0, %10 ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %._crit_edge.us ], [ 0, %10 ]
+  %.04659.us = phi ptr [ %45, %._crit_edge.us ], [ %4, %10 ]
+  %.04758.us = phi ptr [ %47, %._crit_edge.us ], [ %2, %10 ]
+  %.04857.us = phi ptr [ %46, %._crit_edge.us ], [ %0, %10 ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %.thread.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %.thread.us ]
-  %17 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %.04857.us, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !90
   %19 = zext i8 %18 to i32
   %20 = uitofp i8 %18 to float
-  %21 = getelementptr inbounds nuw i8, ptr %.04757.us, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %.04758.us, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !90
   %23 = zext i8 %22 to i32
   %24 = icmp ugt i8 %18, %22
@@ -2912,34 +2903,31 @@ define internal void @blend_softdifference_8bit(ptr noundef readonly captures(no
 36:                                               ; preds = %31, %27
   %37 = phi i32 [ %35, %31 ], [ %30, %27 ]
   %.fr.us = freeze i32 %37
-  %.not.i.us = icmp ult i32 %.fr.us, 256
-  %isnotneg.i.us = icmp sgt i32 %.fr.us, -1
-  %38 = sext i1 %isnotneg.i.us to i32
-  %spec.select.us = select i1 %.not.i.us, i32 %.fr.us, i32 %38
-  %39 = and i32 %spec.select.us, 255
+  %38 = tail call i32 @llvm.smax.i32(i32 %.fr.us, i32 0)
+  %spec.select55.us = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
   br label %.thread.us
 
 .thread.us:                                       ; preds = %36, %25
-  %40 = phi i32 [ 0, %25 ], [ %39, %36 ]
-  %41 = sub nsw i32 %40, %19
-  %42 = sitofp i32 %41 to float
-  %43 = tail call nsz float @llvm.fmuladd.f32(float %42, float %13, float %20)
-  %44 = fptoui float %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %.04658.us, i64 %indvars.iv
-  store i8 %44, ptr %45, align 1, !tbaa !90
+  %39 = phi i32 [ 0, %25 ], [ %spec.select55.us, %36 ]
+  %40 = sub nsw i32 %39, %19
+  %41 = sitofp i32 %40 to float
+  %42 = tail call nsz float @llvm.fmuladd.f32(float %41, float %13, float %20)
+  %43 = fptoui float %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %.04659.us, i64 %indvars.iv
+  store i8 %43, ptr %44, align 1, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !159
 
 ._crit_edge.us:                                   ; preds = %.thread.us
-  %46 = getelementptr inbounds i8, ptr %.04658.us, i64 %5
-  %47 = getelementptr inbounds i8, ptr %.04856.us, i64 %1
-  %48 = getelementptr inbounds i8, ptr %.04757.us, i64 %3
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next65, %7
-  br i1 %exitcond67.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !160
+  %45 = getelementptr inbounds i8, ptr %.04659.us, i64 %5
+  %46 = getelementptr inbounds i8, ptr %.04857.us, i64 %1
+  %47 = getelementptr inbounds i8, ptr %.04758.us, i64 %3
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next66, %7
+  br i1 %exitcond68.not, label %._crit_edge61, label %.preheader.us, !llvm.loop !160
 
-._crit_edge60:                                    ; preds = %._crit_edge.us, %10
+._crit_edge61:                                    ; preds = %._crit_edge.us, %10
   ret void
 }
 
@@ -17686,10 +17674,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #11
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #11

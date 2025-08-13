@@ -27,26 +27,26 @@ define internal void @mss2_blit_wmv9_c(ptr noundef writeonly captures(none) %0, 
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %12 = phi i32 [ %58, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.0.i21.us = phi ptr [ %51, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
-  %.050.i20.us = phi ptr [ %52, %._crit_edge.us ], [ %2, %.preheader.us.preheader ]
-  %.055.i19.us = phi ptr [ %56, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
-  %.056.i18.us = phi ptr [ %57, %._crit_edge.us ], [ %5, %.preheader.us.preheader ]
+  %12 = phi i32 [ %55, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0.i24.us = phi ptr [ %48, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.050.i23.us = phi ptr [ %49, %._crit_edge.us ], [ %2, %.preheader.us.preheader ]
+  %.055.i22.us = phi ptr [ %53, %._crit_edge.us ], [ %4, %.preheader.us.preheader ]
+  %.056.i21.us = phi ptr [ %54, %._crit_edge.us ], [ %5, %.preheader.us.preheader ]
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
-  %indvars.iv23 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next24, %13 ]
+  %indvars.iv26 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next27, %13 ]
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %13 ]
-  %.053.i16.us = phi i32 [ 0, %.preheader.us ], [ %50, %13 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.050.i20.us, i64 %indvars.iv23
+  %.053.i19.us = phi i32 [ 0, %.preheader.us ], [ %47, %13 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.050.i23.us, i64 %indvars.iv26
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %16 = zext i8 %15 to i32
-  %17 = zext nneg i32 %.053.i16.us to i64
-  %18 = getelementptr inbounds nuw i8, ptr %.055.i19.us, i64 %17
+  %17 = zext nneg i32 %.053.i19.us to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.055.i22.us, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = zext i8 %19 to i32
   %21 = add nsw i32 %20, -128
-  %22 = getelementptr inbounds nuw i8, ptr %.056.i18.us, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr %.056.i21.us, i64 %17
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %24, -128
@@ -54,56 +54,50 @@ define internal void @mss2_blit_wmv9_c(ptr noundef writeonly captures(none) %0, 
   %27 = add nsw i32 %26, 32768
   %28 = ashr i32 %27, 16
   %29 = add nsw i32 %28, %16
-  %.not.i12.us = icmp ult i32 %29, 256
-  %isnotneg.i13.us = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i13.us to i8
-  %31 = trunc nuw i32 %29 to i8
-  %.0.i14.us = select i1 %.not.i12.us, i8 %31, i8 %30
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i21.us, i64 %indvars.iv
-  store i8 %.0.i14.us, ptr %32, align 1, !tbaa !12
-  %33 = mul nsw i32 %21, -22554
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i1415.us = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
+  %.0.i14.us = trunc nuw i32 %.0.i1415.us to i8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i24.us, i64 %indvars.iv
+  store i8 %.0.i14.us, ptr %31, align 1, !tbaa !12
+  %32 = mul nsw i32 %21, -22554
   %.neg.i.us = mul nsw i32 %25, -46802
-  %34 = add nsw i32 %33, 32768
-  %35 = add nsw i32 %34, %.neg.i.us
-  %36 = ashr i32 %35, 16
-  %37 = add nsw i32 %36, %16
-  %.not.i9.us = icmp ult i32 %37, 256
-  %isnotneg.i10.us = icmp sgt i32 %37, -1
-  %38 = sext i1 %isnotneg.i10.us to i8
-  %39 = trunc nuw i32 %37 to i8
-  %.0.i11.us = select i1 %.not.i9.us, i8 %39, i8 %38
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 %.0.i11.us, ptr %40, align 1, !tbaa !12
-  %41 = mul nsw i32 %21, 116130
-  %42 = add nsw i32 %41, 32768
-  %43 = ashr i32 %42, 16
-  %44 = add nsw i32 %43, %16
-  %.not.i.us = icmp ult i32 %44, 256
-  %isnotneg.i.us = icmp sgt i32 %44, -1
-  %45 = sext i1 %isnotneg.i.us to i8
-  %46 = trunc nuw i32 %44 to i8
-  %.0.i8.us = select i1 %.not.i.us, i8 %46, i8 %45
-  %47 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store i8 %.0.i8.us, ptr %47, align 1, !tbaa !12
-  %48 = trunc nuw nsw i64 %indvars.iv23 to i32
-  %49 = and i32 %48, 1
-  %50 = add nuw nsw i32 %.053.i16.us, %49
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %33 = add nsw i32 %32, 32768
+  %34 = add nsw i32 %33, %.neg.i.us
+  %35 = ashr i32 %34, 16
+  %36 = add nsw i32 %35, %16
+  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
+  %.0.i1116.us = tail call i32 @llvm.umin.i32(i32 %37, i32 255)
+  %.0.i11.us = trunc nuw i32 %.0.i1116.us to i8
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 %.0.i11.us, ptr %38, align 1, !tbaa !12
+  %39 = mul nsw i32 %21, 116130
+  %40 = add nsw i32 %39, 32768
+  %41 = ashr i32 %40, 16
+  %42 = add nsw i32 %41, %16
+  %43 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
+  %.0.i817.us = tail call i32 @llvm.umin.i32(i32 %43, i32 255)
+  %.0.i8.us = trunc nuw i32 %.0.i817.us to i8
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  store i8 %.0.i8.us, ptr %44, align 1, !tbaa !12
+  %45 = trunc nuw nsw i64 %indvars.iv26 to i32
+  %46 = and i32 %45, 1
+  %47 = add nuw nsw i32 %.053.i19.us, %46
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %exitcond.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %13
-  %51 = getelementptr inbounds i8, ptr %.0.i21.us, i64 %1
-  %52 = getelementptr inbounds i8, ptr %.050.i20.us, i64 %3
-  %53 = and i32 %12, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = mul nuw nsw i64 %6, %54
-  %56 = getelementptr inbounds i8, ptr %.055.i19.us, i64 %55
-  %57 = getelementptr inbounds i8, ptr %.056.i18.us, i64 %55
-  %58 = add nuw nsw i32 %12, 1
-  %exitcond28.not = icmp eq i32 %58, %8
-  br i1 %exitcond28.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !15
+  %48 = getelementptr inbounds i8, ptr %.0.i24.us, i64 %1
+  %49 = getelementptr inbounds i8, ptr %.050.i23.us, i64 %3
+  %50 = and i32 %12, 1
+  %51 = zext nneg i32 %50 to i64
+  %52 = mul nuw nsw i64 %6, %51
+  %53 = getelementptr inbounds i8, ptr %.055.i22.us, i64 %52
+  %54 = getelementptr inbounds i8, ptr %.056.i21.us, i64 %52
+  %55 = add nuw nsw i32 %12, 1
+  %exitcond31.not = icmp eq i32 %55, %8
+  br i1 %exitcond31.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !15
 
 mss2_blit_wmv9_template.exit:                     ; preds = %._crit_edge.us, %9
   ret void
@@ -121,34 +115,34 @@ define internal void @mss2_blit_wmv9_masked_c(ptr noundef writeonly captures(non
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %15 = phi i32 [ %68, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.0.i25.us = phi ptr [ %61, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
-  %.049.i24.us = phi ptr [ %60, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
-  %.050.i23.us = phi ptr [ %62, %._crit_edge.us ], [ %5, %.preheader.us.preheader ]
-  %.055.i22.us = phi ptr [ %66, %._crit_edge.us ], [ %7, %.preheader.us.preheader ]
-  %.056.i21.us = phi ptr [ %67, %._crit_edge.us ], [ %8, %.preheader.us.preheader ]
+  %15 = phi i32 [ %65, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0.i28.us = phi ptr [ %58, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.049.i27.us = phi ptr [ %57, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.050.i26.us = phi ptr [ %59, %._crit_edge.us ], [ %5, %.preheader.us.preheader ]
+  %.055.i25.us = phi ptr [ %63, %._crit_edge.us ], [ %7, %.preheader.us.preheader ]
+  %.056.i24.us = phi ptr [ %64, %._crit_edge.us ], [ %8, %.preheader.us.preheader ]
   br label %16
 
-16:                                               ; preds = %.preheader.us, %56
-  %indvars.iv27 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next28, %56 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %56 ]
-  %.053.i19.us = phi i32 [ 0, %.preheader.us ], [ %59, %56 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.049.i24.us, i64 %indvars.iv27
+16:                                               ; preds = %.preheader.us, %53
+  %indvars.iv30 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next31, %53 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %53 ]
+  %.053.i22.us = phi i32 [ 0, %.preheader.us ], [ %56, %53 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.049.i27.us, i64 %indvars.iv30
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = zext i8 %18 to i32
   %20 = icmp eq i32 %2, %19
-  br i1 %20, label %21, label %56
+  br i1 %20, label %21, label %53
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %.050.i23.us, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw i8, ptr %.050.i26.us, i64 %indvars.iv30
   %23 = load i8, ptr %22, align 1, !tbaa !12
   %24 = zext i8 %23 to i32
-  %25 = zext nneg i32 %.053.i19.us to i64
-  %26 = getelementptr inbounds nuw i8, ptr %.055.i22.us, i64 %25
+  %25 = zext nneg i32 %.053.i22.us to i64
+  %26 = getelementptr inbounds nuw i8, ptr %.055.i25.us, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = zext i8 %27 to i32
   %29 = add nsw i32 %28, -128
-  %30 = getelementptr inbounds nuw i8, ptr %.056.i21.us, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr %.056.i24.us, i64 %25
   %31 = load i8, ptr %30, align 1, !tbaa !12
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -128
@@ -156,60 +150,54 @@ define internal void @mss2_blit_wmv9_masked_c(ptr noundef writeonly captures(non
   %35 = add nsw i32 %34, 32768
   %36 = ashr i32 %35, 16
   %37 = add nsw i32 %36, %24
-  %.not.i15.us = icmp ult i32 %37, 256
-  %isnotneg.i16.us = icmp sgt i32 %37, -1
-  %38 = sext i1 %isnotneg.i16.us to i8
-  %39 = trunc nuw i32 %37 to i8
-  %.0.i17.us = select i1 %.not.i15.us, i8 %39, i8 %38
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i25.us, i64 %indvars.iv
-  store i8 %.0.i17.us, ptr %40, align 1, !tbaa !12
-  %41 = mul nsw i32 %29, -22554
+  %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
+  %.0.i1718.us = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
+  %.0.i17.us = trunc nuw i32 %.0.i1718.us to i8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i28.us, i64 %indvars.iv
+  store i8 %.0.i17.us, ptr %39, align 1, !tbaa !12
+  %40 = mul nsw i32 %29, -22554
   %.neg.i.us = mul nsw i32 %33, -46802
-  %42 = add nsw i32 %41, 32768
-  %43 = add nsw i32 %42, %.neg.i.us
-  %44 = ashr i32 %43, 16
-  %45 = add nsw i32 %44, %24
-  %.not.i12.us = icmp ult i32 %45, 256
-  %isnotneg.i13.us = icmp sgt i32 %45, -1
-  %46 = sext i1 %isnotneg.i13.us to i8
-  %47 = trunc nuw i32 %45 to i8
-  %.0.i14.us = select i1 %.not.i12.us, i8 %47, i8 %46
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %.0.i14.us, ptr %48, align 1, !tbaa !12
-  %49 = mul nsw i32 %29, 116130
-  %50 = add nsw i32 %49, 32768
-  %51 = ashr i32 %50, 16
-  %52 = add nsw i32 %51, %24
-  %.not.i.us = icmp ult i32 %52, 256
-  %isnotneg.i.us = icmp sgt i32 %52, -1
-  %53 = sext i1 %isnotneg.i.us to i8
-  %54 = trunc nuw i32 %52 to i8
-  %.0.i11.us = select i1 %.not.i.us, i8 %54, i8 %53
-  %55 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  store i8 %.0.i11.us, ptr %55, align 1, !tbaa !12
-  br label %56
+  %41 = add nsw i32 %40, 32768
+  %42 = add nsw i32 %41, %.neg.i.us
+  %43 = ashr i32 %42, 16
+  %44 = add nsw i32 %43, %24
+  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %.0.i1419.us = tail call i32 @llvm.umin.i32(i32 %45, i32 255)
+  %.0.i14.us = trunc nuw i32 %.0.i1419.us to i8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 %.0.i14.us, ptr %46, align 1, !tbaa !12
+  %47 = mul nsw i32 %29, 116130
+  %48 = add nsw i32 %47, 32768
+  %49 = ashr i32 %48, 16
+  %50 = add nsw i32 %49, %24
+  %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
+  %.0.i1120.us = tail call i32 @llvm.umin.i32(i32 %51, i32 255)
+  %.0.i11.us = trunc nuw i32 %.0.i1120.us to i8
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  store i8 %.0.i11.us, ptr %52, align 1, !tbaa !12
+  br label %53
 
-56:                                               ; preds = %21, %16
-  %57 = trunc nuw nsw i64 %indvars.iv27 to i32
-  %58 = and i32 %57, 1
-  %59 = add nuw nsw i32 %.053.i19.us, %58
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+53:                                               ; preds = %21, %16
+  %54 = trunc nuw nsw i64 %indvars.iv30 to i32
+  %55 = and i32 %54, 1
+  %56 = add nuw nsw i32 %.053.i22.us, %55
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !13
 
-._crit_edge.us:                                   ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %.049.i24.us, i64 %4
-  %61 = getelementptr inbounds i8, ptr %.0.i25.us, i64 %1
-  %62 = getelementptr inbounds i8, ptr %.050.i23.us, i64 %6
-  %63 = and i32 %15, 1
-  %64 = zext nneg i32 %63 to i64
-  %65 = mul nuw nsw i64 %9, %64
-  %66 = getelementptr inbounds i8, ptr %.055.i22.us, i64 %65
-  %67 = getelementptr inbounds i8, ptr %.056.i21.us, i64 %65
-  %68 = add nuw nsw i32 %15, 1
-  %exitcond32.not = icmp eq i32 %68, %11
-  br i1 %exitcond32.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !17
+._crit_edge.us:                                   ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %.049.i27.us, i64 %4
+  %58 = getelementptr inbounds i8, ptr %.0.i28.us, i64 %1
+  %59 = getelementptr inbounds i8, ptr %.050.i26.us, i64 %6
+  %60 = and i32 %15, 1
+  %61 = zext nneg i32 %60 to i64
+  %62 = mul nuw nsw i64 %9, %61
+  %63 = getelementptr inbounds i8, ptr %.055.i25.us, i64 %62
+  %64 = getelementptr inbounds i8, ptr %.056.i24.us, i64 %62
+  %65 = add nuw nsw i32 %15, 1
+  %exitcond35.not = icmp eq i32 %65, %11
+  br i1 %exitcond35.not, label %mss2_blit_wmv9_template.exit, label %.preheader.us, !llvm.loop !17
 
 mss2_blit_wmv9_template.exit:                     ; preds = %._crit_edge.us, %12
   ret void
@@ -443,9 +431,16 @@ define internal void @upsample_plane_c(ptr noundef captures(none) %0, i64 nounde
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #3
+
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

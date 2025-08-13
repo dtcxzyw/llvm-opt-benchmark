@@ -106,8 +106,8 @@ define void @ff_ea_idct_put_c(ptr noundef writeonly captures(none) %0, i64 nound
   br label %ea_idct_col.exit
 
 ea_idct_col.exit:                                 ; preds = %38, %41
-  %.sink121 = phi i16 [ %39, %38 ], [ %87, %41 ]
-  %.sink120 = phi i16 [ %39, %38 ], [ %85, %41 ]
+  %.sink129 = phi i16 [ %39, %38 ], [ %87, %41 ]
+  %.sink128 = phi i16 [ %39, %38 ], [ %85, %41 ]
   %.sink = phi i16 [ %39, %38 ], [ %83, %41 ]
   %.sink88.i = phi i64 [ 48, %38 ], [ 112, %41 ]
   %.sink86.i = phi i16 [ %39, %38 ], [ %89, %41 ]
@@ -115,9 +115,9 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %.sink84.i = phi i16 [ %39, %38 ], [ %74, %41 ]
   %.sink.i = phi i16 [ %39, %38 ], [ %71, %41 ]
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i16 %.sink121, ptr %90, align 2, !tbaa !4
+  store i16 %.sink129, ptr %90, align 2, !tbaa !4
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i16 %.sink120, ptr %91, align 2, !tbaa !4
+  store i16 %.sink128, ptr %91, align 2, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i16 %.sink, ptr %92, align 2, !tbaa !4
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink88.i
@@ -132,8 +132,8 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !8
 
 .preheader:                                       ; preds = %ea_idct_col.exit, %.preheader
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %ea_idct_col.exit ]
-  %96 = shl nuw nsw i64 %indvars.iv116, 3
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.preheader ], [ 0, %ea_idct_col.exit ]
+  %96 = shl nuw nsw i64 %indvars.iv124, 3
   %97 = getelementptr inbounds nuw [64 x i16], ptr %4, i64 0, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !4
@@ -187,85 +187,69 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   %146 = add nsw i32 %145, %129
   %147 = add nsw i32 %146, %135
   %148 = ashr i32 %147, 4
-  %.not.i = icmp ult i32 %148, 256
-  %isnotneg.i = icmp sgt i32 %148, -1
-  %149 = sext i1 %isnotneg.i to i8
-  %150 = trunc nuw i32 %148 to i8
-  %.0.i = select i1 %.not.i, i8 %150, i8 %149
-  %151 = mul nsw i64 %1, %indvars.iv116
-  %152 = getelementptr inbounds i8, ptr %0, i64 %151
-  store i8 %.0.i, ptr %152, align 1, !tbaa !10
-  %153 = add nsw i32 %130, %123
-  %154 = add nsw i32 %153, %139
-  %155 = ashr i32 %154, 4
-  %.not.i89 = icmp ult i32 %155, 256
-  %isnotneg.i90 = icmp sgt i32 %155, -1
-  %156 = sext i1 %isnotneg.i90 to i8
-  %157 = trunc nuw i32 %155 to i8
-  %.0.i91 = select i1 %.not.i89, i8 %157, i8 %156
-  %158 = getelementptr inbounds nuw i8, ptr %152, i64 1
-  store i8 %.0.i91, ptr %158, align 1, !tbaa !10
-  %159 = sub nsw i32 %130, %123
-  %160 = add nsw i32 %159, %144
-  %161 = ashr i32 %160, 4
-  %.not.i92 = icmp ult i32 %161, 256
-  %isnotneg.i93 = icmp sgt i32 %161, -1
-  %162 = sext i1 %isnotneg.i93 to i8
-  %163 = trunc nuw i32 %161 to i8
-  %.0.i94 = select i1 %.not.i92, i8 %163, i8 %162
-  %164 = getelementptr inbounds nuw i8, ptr %152, i64 2
-  store i8 %.0.i94, ptr %164, align 1, !tbaa !10
-  %165 = sub nsw i32 %129, %145
-  %166 = add nsw i32 %165, %143
-  %167 = ashr i32 %166, 4
-  %.not.i95 = icmp ult i32 %167, 256
-  %isnotneg.i96 = icmp sgt i32 %167, -1
-  %168 = sext i1 %isnotneg.i96 to i8
-  %169 = trunc nuw i32 %167 to i8
-  %.0.i97 = select i1 %.not.i95, i8 %169, i8 %168
-  %170 = getelementptr inbounds nuw i8, ptr %152, i64 3
-  store i8 %.0.i97, ptr %170, align 1, !tbaa !10
-  %171 = sub nsw i32 %165, %143
+  %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
+  %.0.i110 = tail call i32 @llvm.umin.i32(i32 %149, i32 255)
+  %.0.i = trunc nuw i32 %.0.i110 to i8
+  %150 = mul nsw i64 %1, %indvars.iv124
+  %151 = getelementptr inbounds i8, ptr %0, i64 %150
+  store i8 %.0.i, ptr %151, align 1, !tbaa !10
+  %152 = add nsw i32 %130, %123
+  %153 = add nsw i32 %152, %139
+  %154 = ashr i32 %153, 4
+  %155 = tail call i32 @llvm.smax.i32(i32 %154, i32 0)
+  %.0.i91111 = tail call i32 @llvm.umin.i32(i32 %155, i32 255)
+  %.0.i91 = trunc nuw i32 %.0.i91111 to i8
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 1
+  store i8 %.0.i91, ptr %156, align 1, !tbaa !10
+  %157 = sub nsw i32 %130, %123
+  %158 = add nsw i32 %157, %144
+  %159 = ashr i32 %158, 4
+  %160 = tail call i32 @llvm.smax.i32(i32 %159, i32 0)
+  %.0.i94112 = tail call i32 @llvm.umin.i32(i32 %160, i32 255)
+  %.0.i94 = trunc nuw i32 %.0.i94112 to i8
+  %161 = getelementptr inbounds nuw i8, ptr %151, i64 2
+  store i8 %.0.i94, ptr %161, align 1, !tbaa !10
+  %162 = sub nsw i32 %129, %145
+  %163 = add nsw i32 %162, %143
+  %164 = ashr i32 %163, 4
+  %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
+  %.0.i97113 = tail call i32 @llvm.umin.i32(i32 %165, i32 255)
+  %.0.i97 = trunc nuw i32 %.0.i97113 to i8
+  %166 = getelementptr inbounds nuw i8, ptr %151, i64 3
+  store i8 %.0.i97, ptr %166, align 1, !tbaa !10
+  %167 = sub nsw i32 %162, %143
+  %168 = ashr i32 %167, 4
+  %169 = tail call i32 @llvm.smax.i32(i32 %168, i32 0)
+  %.0.i100114 = tail call i32 @llvm.umin.i32(i32 %169, i32 255)
+  %.0.i100 = trunc nuw i32 %.0.i100114 to i8
+  %170 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store i8 %.0.i100, ptr %170, align 1, !tbaa !10
+  %171 = sub nsw i32 %157, %144
   %172 = ashr i32 %171, 4
-  %.not.i98 = icmp ult i32 %172, 256
-  %isnotneg.i99 = icmp sgt i32 %172, -1
-  %173 = sext i1 %isnotneg.i99 to i8
-  %174 = trunc nuw i32 %172 to i8
-  %.0.i100 = select i1 %.not.i98, i8 %174, i8 %173
-  %175 = getelementptr inbounds nuw i8, ptr %152, i64 4
-  store i8 %.0.i100, ptr %175, align 1, !tbaa !10
-  %176 = sub nsw i32 %159, %144
-  %177 = ashr i32 %176, 4
-  %.not.i101 = icmp ult i32 %177, 256
-  %isnotneg.i102 = icmp sgt i32 %177, -1
-  %178 = sext i1 %isnotneg.i102 to i8
-  %179 = trunc nuw i32 %177 to i8
-  %.0.i103 = select i1 %.not.i101, i8 %179, i8 %178
-  %180 = getelementptr inbounds nuw i8, ptr %152, i64 5
-  store i8 %.0.i103, ptr %180, align 1, !tbaa !10
-  %181 = sub nsw i32 %153, %139
-  %182 = ashr i32 %181, 4
-  %.not.i104 = icmp ult i32 %182, 256
-  %isnotneg.i105 = icmp sgt i32 %182, -1
-  %183 = sext i1 %isnotneg.i105 to i8
-  %184 = trunc nuw i32 %182 to i8
-  %.0.i106 = select i1 %.not.i104, i8 %184, i8 %183
-  %185 = getelementptr inbounds nuw i8, ptr %152, i64 6
-  store i8 %.0.i106, ptr %185, align 1, !tbaa !10
-  %186 = sub nsw i32 %146, %135
-  %187 = ashr i32 %186, 4
-  %.not.i107 = icmp ult i32 %187, 256
-  %isnotneg.i108 = icmp sgt i32 %187, -1
-  %188 = sext i1 %isnotneg.i108 to i8
-  %189 = trunc nuw i32 %187 to i8
-  %.0.i109 = select i1 %.not.i107, i8 %189, i8 %188
-  %190 = getelementptr inbounds nuw i8, ptr %152, i64 7
-  store i8 %.0.i109, ptr %190, align 1, !tbaa !10
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next117, 8
-  br i1 %exitcond119.not, label %191, label %.preheader, !llvm.loop !11
+  %173 = tail call i32 @llvm.smax.i32(i32 %172, i32 0)
+  %.0.i103115 = tail call i32 @llvm.umin.i32(i32 %173, i32 255)
+  %.0.i103 = trunc nuw i32 %.0.i103115 to i8
+  %174 = getelementptr inbounds nuw i8, ptr %151, i64 5
+  store i8 %.0.i103, ptr %174, align 1, !tbaa !10
+  %175 = sub nsw i32 %152, %139
+  %176 = ashr i32 %175, 4
+  %177 = tail call i32 @llvm.smax.i32(i32 %176, i32 0)
+  %.0.i106116 = tail call i32 @llvm.umin.i32(i32 %177, i32 255)
+  %.0.i106 = trunc nuw i32 %.0.i106116 to i8
+  %178 = getelementptr inbounds nuw i8, ptr %151, i64 6
+  store i8 %.0.i106, ptr %178, align 1, !tbaa !10
+  %179 = sub nsw i32 %146, %135
+  %180 = ashr i32 %179, 4
+  %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 0)
+  %.0.i109117 = tail call i32 @llvm.umin.i32(i32 %181, i32 255)
+  %.0.i109 = trunc nuw i32 %.0.i109117 to i8
+  %182 = getelementptr inbounds nuw i8, ptr %151, i64 7
+  store i8 %.0.i109, ptr %182, align 1, !tbaa !10
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next125, 8
+  br i1 %exitcond127.not, label %183, label %.preheader, !llvm.loop !11
 
-191:                                              ; preds = %.preheader
+183:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -276,8 +260,15 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #2
+
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

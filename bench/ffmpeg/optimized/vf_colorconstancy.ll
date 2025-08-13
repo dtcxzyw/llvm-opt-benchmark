@@ -1376,10 +1376,10 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   br label %17
 
 17:                                               ; preds = %4, %._crit_edge
-  %indvars.iv36 = phi i64 [ 0, %4 ], [ %indvars.iv.next37, %._crit_edge ]
-  %18 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv36
+  %indvars.iv37 = phi i64 [ 0, %4 ], [ %indvars.iv.next38, %._crit_edge ]
+  %18 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv37
   %19 = load i32, ptr %18, align 4, !tbaa !40
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv36
+  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv37
   %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = sext i32 %21 to i64
   %23 = sext i32 %19 to i64
@@ -1390,15 +1390,15 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   %28 = mul nsw i64 %24, %15
   %29 = sdiv i64 %28, %13
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv36
+  %31 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv37
   %32 = load ptr, ptr %31, align 8, !tbaa !81
-  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv36
+  %33 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv37
   %34 = load ptr, ptr %33, align 8, !tbaa !81
   %35 = icmp ult i32 %27, %30
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %36 = getelementptr inbounds nuw [3 x double], ptr %16, i64 0, i64 %indvars.iv36
+  %36 = getelementptr inbounds nuw [3 x double], ptr %16, i64 0, i64 %indvars.iv37
   %37 = and i64 %26, 4294967295
   %wide.trip.count = and i64 %29, 4294967295
   br label %38
@@ -1413,23 +1413,21 @@ define internal noundef i32 @diagonal_transformation(ptr noundef readonly captur
   %44 = fdiv nsz double %41, %43
   %45 = fadd nsz double %44, 5.000000e-01
   %46 = fptosi double %45 to i32
-  %.not.i = icmp ult i32 %46, 256
-  %isnotneg.i = icmp sgt i32 %46, -1
-  %47 = sext i1 %isnotneg.i to i8
-  %48 = trunc nuw i32 %46 to i8
-  %.0.i = select i1 %.not.i, i8 %48, i8 %47
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
-  store i8 %.0.i, ptr %49, align 1, !tbaa !83
+  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
+  %.0.i33 = tail call i32 @llvm.umin.i32(i32 %47, i32 255)
+  %.0.i = trunc nuw i32 %.0.i33 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
+  store i8 %.0.i, ptr %48, align 1, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %38, %17
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
-  br i1 %exitcond39.not, label %50, label %17, !llvm.loop !99
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
+  br i1 %exitcond40.not, label %49, label %17, !llvm.loop !99
 
-50:                                               ; preds = %._crit_edge
+49:                                               ; preds = %._crit_edge
   ret i32 0
 }
 
@@ -1457,6 +1455,12 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

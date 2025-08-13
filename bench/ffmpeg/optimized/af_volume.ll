@@ -787,13 +787,11 @@ define internal void @scale_samples_u8(ptr noundef writeonly captures(none) %0, 
   %14 = lshr i64 %13, 8
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 128
-  %.not.i = icmp ult i32 %16, 256
-  %isnotneg.i = icmp sgt i32 %16, -1
-  %17 = sext i1 %isnotneg.i to i8
-  %18 = trunc nuw i32 %16 to i8
-  %.0.i = select i1 %.not.i, i8 %18, i8 %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %19, align 1, !tbaa !81
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
+  %.0.i7 = tail call i32 @llvm.umin.i32(i32 %17, i32 255)
+  %.0.i = trunc nuw i32 %.0.i7 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %18, align 1, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !83
@@ -1004,6 +1002,9 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

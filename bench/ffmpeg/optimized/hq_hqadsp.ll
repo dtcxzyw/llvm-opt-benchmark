@@ -102,15 +102,15 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   store i16 %80, ptr %17, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader21, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader22, label %4, !llvm.loop !11
 
-.preheader20:                                     ; preds = %.preheader21
+.preheader21:                                     ; preds = %.preheader22
   %81 = sext i32 %1 to i64
   br label %.preheader
 
-.preheader21:                                     ; preds = %4, %.preheader21
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.preheader21 ], [ 0, %4 ]
-  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28
+.preheader22:                                     ; preds = %4, %.preheader22
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.preheader22 ], [ 0, %4 ]
+  %82 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv29
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 80
   %84 = load i16, ptr %83, align 2, !tbaa !9
   %85 = sext i16 %84 to i32
@@ -211,44 +211,49 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   %173 = lshr i32 %172, 6
   %174 = trunc i32 %173 to i16
   store i16 %174, ptr %95, align 2, !tbaa !9
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
-  br i1 %exitcond31.not, label %.preheader20, label %.preheader21, !llvm.loop !13
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond32.not = icmp eq i64 %indvars.iv.next30, 8
+  br i1 %exitcond32.not, label %.preheader21, label %.preheader22, !llvm.loop !13
 
-.preheader:                                       ; preds = %.preheader20, %180
-  %indvars.iv36 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next37, %180 ]
-  %.01925 = phi ptr [ %0, %.preheader20 ], [ %181, %180 ]
-  %.idx40 = shl nuw nsw i64 %indvars.iv36, 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx40
+.preheader:                                       ; preds = %.preheader21, %179
+  %indvars.iv37 = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next38, %179 ]
+  %.01926 = phi ptr [ %0, %.preheader21 ], [ %180, %179 ]
+  %.idx41 = shl nuw nsw i64 %indvars.iv37, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx41
   br label %175
 
 175:                                              ; preds = %.preheader, %175
-  %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %175 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv32
+  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %175 ]
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv33
   %176 = load i16, ptr %gep, align 2, !tbaa !9
-  %.not.i = icmp ult i16 %176, 256
-  %isnotneg.i = icmp sgt i16 %176, -1
-  %177 = sext i1 %isnotneg.i to i8
-  %178 = trunc i16 %176 to i8
-  %.0.i = select i1 %.not.i, i8 %178, i8 %177
-  %179 = getelementptr inbounds nuw i8, ptr %.01925, i64 %indvars.iv32
-  store i8 %.0.i, ptr %179, align 1, !tbaa !14
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond35.not, label %180, label %175, !llvm.loop !15
+  %177 = tail call i16 @llvm.smax.i16(i16 %176, i16 0)
+  %.0.i20 = tail call i16 @llvm.umin.i16(i16 %177, i16 255)
+  %.0.i = trunc nuw i16 %.0.i20 to i8
+  %178 = getelementptr inbounds nuw i8, ptr %.01926, i64 %indvars.iv33
+  store i8 %.0.i, ptr %178, align 1, !tbaa !14
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 8
+  br i1 %exitcond36.not, label %179, label %175, !llvm.loop !15
 
-180:                                              ; preds = %175
-  %181 = getelementptr inbounds i8, ptr %.01925, i64 %81
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %182, label %.preheader, !llvm.loop !16
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds i8, ptr %.01926, i64 %81
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 8
+  br i1 %exitcond40.not, label %181, label %.preheader, !llvm.loop !16
 
-182:                                              ; preds = %180
+181:                                              ; preds = %179
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smax.i16(i16, i16) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #2
+
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -2389,11 +2389,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv86.i = phi i64 [ %99, %.lr.ph.us.preheader.i ], [ %indvars.iv.next87.i, %._crit_edge.us.i ]
-  %indvars.iv84.i = phi i64 [ %97, %.lr.ph.us.preheader.i ], [ %indvars.iv.next85.i, %._crit_edge.us.i ]
-  %.06679.us.i = phi i32 [ 0, %.lr.ph.us.preheader.i ], [ %111, %._crit_edge.us.i ]
-  %101 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv86.i
-  %102 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv84.i
+  %indvars.iv87.i = phi i64 [ %99, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %._crit_edge.us.i ]
+  %indvars.iv85.i = phi i64 [ %97, %.lr.ph.us.preheader.i ], [ %indvars.iv.next86.i, %._crit_edge.us.i ]
+  %.06680.us.i = phi i32 [ 0, %.lr.ph.us.preheader.i ], [ %110, %._crit_edge.us.i ]
+  %101 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv87.i
+  %102 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv85.i
   br label %103
 
 103:                                              ; preds = %103, %.lr.ph.us.i
@@ -2402,23 +2402,21 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
   %105 = load i8, ptr %104, align 1, !tbaa !29
   %106 = zext i8 %105 to i32
   %107 = add nsw i32 %9, %106
-  %.not.i.us.i = icmp ult i32 %107, 256
-  %isnotneg.i.us.i = icmp sgt i32 %107, -1
-  %108 = sext i1 %isnotneg.i.us.i to i8
-  %109 = trunc nuw i32 %107 to i8
-  %.0.i.us.i = select i1 %.not.i.us.i, i8 %109, i8 %108
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv.i24
-  store i8 %.0.i.us.i, ptr %110, align 1, !tbaa !29
+  %108 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)
+  %.0.i78.us.i = tail call i32 @llvm.umin.i32(i32 %108, i32 255)
+  %.0.i.us.i = trunc nuw i32 %.0.i78.us.i to i8
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv.i24
+  store i8 %.0.i.us.i, ptr %109, align 1, !tbaa !29
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i
   br i1 %exitcond.not.i26, label %._crit_edge.us.i, label %103, !llvm.loop !115
 
 ._crit_edge.us.i:                                 ; preds = %103
-  %indvars.iv.next87.i = add nsw i64 %indvars.iv86.i, %100
-  %indvars.iv.next85.i = add nsw i64 %indvars.iv84.i, %98
-  %111 = add nuw nsw i32 %.06679.us.i, 1
-  %exitcond91.not.i = icmp eq i32 %111, %8
-  br i1 %exitcond91.not.i, label %copy_block.exit, label %.lr.ph.us.i, !llvm.loop !116
+  %indvars.iv.next88.i = add nsw i64 %indvars.iv87.i, %100
+  %indvars.iv.next86.i = add nsw i64 %indvars.iv85.i, %98
+  %110 = add nuw nsw i32 %.06680.us.i, 1
+  %exitcond92.not.i = icmp eq i32 %110, %8
+  br i1 %exitcond92.not.i, label %copy_block.exit, label %.lr.ph.us.i, !llvm.loop !116
 
 copy_block.exit:                                  ; preds = %._crit_edge.us.i, %57, %.preheader.i, %86, %80, %61, %35, %25, %19, %15
   %.0 = phi i32 [ -1094995529, %25 ], [ -1094995529, %19 ], [ -1094995529, %15 ], [ 0, %35 ], [ -1094995529, %86 ], [ -1094995529, %80 ], [ -1094995529, %61 ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %._crit_edge.us.i ]

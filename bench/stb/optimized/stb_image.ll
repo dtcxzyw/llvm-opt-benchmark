@@ -12613,11 +12613,9 @@ stbi__jpeg_get_bit.exit190.thread:                ; preds = %311, %332, %317, %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i8 @stbi__clamp(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i32 %0, 255
-  %3 = trunc nuw i32 %0 to i8
-  %4 = icmp sgt i32 %0, -1
-  %spec.select = sext i1 %4 to i8
-  %.0 = select i1 %2, i8 %spec.select, i8 %3
+  %2 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %.06 = tail call i32 @llvm.umin.i32(i32 %2, i32 255)
+  %.0 = trunc nuw i32 %.06 to i8
   ret i8 %.0
 }
 
@@ -12799,9 +12797,9 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !171
 
 133:                                              ; preds = %.preheader, %133
-  %.1222 = phi i32 [ 0, %.preheader ], [ %238, %133 ]
-  %.1200221 = phi ptr [ %4, %.preheader ], [ %239, %133 ]
-  %.0201220 = phi ptr [ %0, %.preheader ], [ %240, %133 ]
+  %.1222 = phi i32 [ 0, %.preheader ], [ %222, %133 ]
+  %.1200221 = phi ptr [ %4, %.preheader ], [ %223, %133 ]
+  %.0201220 = phi ptr [ %0, %.preheader ], [ %224, %133 ]
   %134 = getelementptr inbounds nuw i8, ptr %.1200221, i64 8
   %135 = load i32, ptr %134, align 4, !tbaa !23
   %136 = getelementptr inbounds nuw i8, ptr %.1200221, i64 24
@@ -12861,82 +12859,66 @@ define void @stbi__idct_block(ptr noundef writeonly captures(none) %0, i32 nound
   %190 = add nsw i32 %151, 16842752
   %191 = add nsw i32 %178, %186
   %192 = ashr i32 %191, 17
-  %193 = icmp ugt i32 %192, 255
-  %194 = trunc nuw i32 %192 to i8
-  %195 = icmp sgt i32 %192, -1
-  %spec.select.i = sext i1 %195 to i8
-  %.0.i = select i1 %193, i8 %spec.select.i, i8 %194
+  %193 = tail call i32 @llvm.smax.i32(i32 %192, i32 0)
+  %.06.i = tail call i32 @llvm.umin.i32(i32 %193, i32 255)
+  %.0.i = trunc nuw i32 %.06.i to i8
   store i8 %.0.i, ptr %.0201220, align 1, !tbaa !21
-  %196 = sub nsw i32 %186, %178
-  %197 = ashr i32 %196, 17
-  %198 = icmp ugt i32 %197, 255
-  %199 = trunc nuw i32 %197 to i8
-  %200 = icmp sgt i32 %197, -1
-  %spec.select.i203 = sext i1 %200 to i8
-  %.0.i204 = select i1 %198, i8 %spec.select.i203, i8 %199
-  %201 = getelementptr inbounds nuw i8, ptr %.0201220, i64 7
-  store i8 %.0.i204, ptr %201, align 1, !tbaa !21
-  %202 = add nsw i32 %180, %188
+  %194 = sub nsw i32 %186, %178
+  %195 = ashr i32 %194, 17
+  %196 = tail call i32 @llvm.smax.i32(i32 %195, i32 0)
+  %.06.i203 = tail call i32 @llvm.umin.i32(i32 %196, i32 255)
+  %.0.i204 = trunc nuw i32 %.06.i203 to i8
+  %197 = getelementptr inbounds nuw i8, ptr %.0201220, i64 7
+  store i8 %.0.i204, ptr %197, align 1, !tbaa !21
+  %198 = add nsw i32 %180, %188
+  %199 = ashr i32 %198, 17
+  %200 = tail call i32 @llvm.smax.i32(i32 %199, i32 0)
+  %.06.i205 = tail call i32 @llvm.umin.i32(i32 %200, i32 255)
+  %.0.i206 = trunc nuw i32 %.06.i205 to i8
+  %201 = getelementptr inbounds nuw i8, ptr %.0201220, i64 1
+  store i8 %.0.i206, ptr %201, align 1, !tbaa !21
+  %202 = sub nsw i32 %188, %180
   %203 = ashr i32 %202, 17
-  %204 = icmp ugt i32 %203, 255
-  %205 = trunc nuw i32 %203 to i8
-  %206 = icmp sgt i32 %203, -1
-  %spec.select.i205 = sext i1 %206 to i8
-  %.0.i206 = select i1 %204, i8 %spec.select.i205, i8 %205
-  %207 = getelementptr inbounds nuw i8, ptr %.0201220, i64 1
-  store i8 %.0.i206, ptr %207, align 1, !tbaa !21
-  %208 = sub nsw i32 %188, %180
-  %209 = ashr i32 %208, 17
-  %210 = icmp ugt i32 %209, 255
-  %211 = trunc nuw i32 %209 to i8
-  %212 = icmp sgt i32 %209, -1
-  %spec.select.i207 = sext i1 %212 to i8
-  %.0.i208 = select i1 %210, i8 %spec.select.i207, i8 %211
-  %213 = getelementptr inbounds nuw i8, ptr %.0201220, i64 6
-  store i8 %.0.i208, ptr %213, align 1, !tbaa !21
-  %214 = add nsw i32 %182, %189
+  %204 = tail call i32 @llvm.smax.i32(i32 %203, i32 0)
+  %.06.i207 = tail call i32 @llvm.umin.i32(i32 %204, i32 255)
+  %.0.i208 = trunc nuw i32 %.06.i207 to i8
+  %205 = getelementptr inbounds nuw i8, ptr %.0201220, i64 6
+  store i8 %.0.i208, ptr %205, align 1, !tbaa !21
+  %206 = add nsw i32 %182, %189
+  %207 = ashr i32 %206, 17
+  %208 = tail call i32 @llvm.smax.i32(i32 %207, i32 0)
+  %.06.i209 = tail call i32 @llvm.umin.i32(i32 %208, i32 255)
+  %.0.i210 = trunc nuw i32 %.06.i209 to i8
+  %209 = getelementptr inbounds nuw i8, ptr %.0201220, i64 2
+  store i8 %.0.i210, ptr %209, align 1, !tbaa !21
+  %210 = sub nsw i32 %189, %182
+  %211 = ashr i32 %210, 17
+  %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 0)
+  %.06.i211 = tail call i32 @llvm.umin.i32(i32 %212, i32 255)
+  %.0.i212 = trunc nuw i32 %.06.i211 to i8
+  %213 = getelementptr inbounds nuw i8, ptr %.0201220, i64 5
+  store i8 %.0.i212, ptr %213, align 1, !tbaa !21
+  %214 = add nsw i32 %184, %190
   %215 = ashr i32 %214, 17
-  %216 = icmp ugt i32 %215, 255
-  %217 = trunc nuw i32 %215 to i8
-  %218 = icmp sgt i32 %215, -1
-  %spec.select.i209 = sext i1 %218 to i8
-  %.0.i210 = select i1 %216, i8 %spec.select.i209, i8 %217
-  %219 = getelementptr inbounds nuw i8, ptr %.0201220, i64 2
-  store i8 %.0.i210, ptr %219, align 1, !tbaa !21
-  %220 = sub nsw i32 %189, %182
-  %221 = ashr i32 %220, 17
-  %222 = icmp ugt i32 %221, 255
-  %223 = trunc nuw i32 %221 to i8
-  %224 = icmp sgt i32 %221, -1
-  %spec.select.i211 = sext i1 %224 to i8
-  %.0.i212 = select i1 %222, i8 %spec.select.i211, i8 %223
-  %225 = getelementptr inbounds nuw i8, ptr %.0201220, i64 5
-  store i8 %.0.i212, ptr %225, align 1, !tbaa !21
-  %226 = add nsw i32 %184, %190
-  %227 = ashr i32 %226, 17
-  %228 = icmp ugt i32 %227, 255
-  %229 = trunc nuw i32 %227 to i8
-  %230 = icmp sgt i32 %227, -1
-  %spec.select.i213 = sext i1 %230 to i8
-  %.0.i214 = select i1 %228, i8 %spec.select.i213, i8 %229
-  %231 = getelementptr inbounds nuw i8, ptr %.0201220, i64 3
-  store i8 %.0.i214, ptr %231, align 1, !tbaa !21
-  %232 = sub nsw i32 %190, %184
-  %233 = ashr i32 %232, 17
-  %234 = icmp ugt i32 %233, 255
-  %235 = trunc nuw i32 %233 to i8
-  %236 = icmp sgt i32 %233, -1
-  %spec.select.i215 = sext i1 %236 to i8
-  %.0.i216 = select i1 %234, i8 %spec.select.i215, i8 %235
-  %237 = getelementptr inbounds nuw i8, ptr %.0201220, i64 4
-  store i8 %.0.i216, ptr %237, align 1, !tbaa !21
-  %238 = add nuw nsw i32 %.1222, 1
-  %239 = getelementptr inbounds nuw i8, ptr %.1200221, i64 32
-  %240 = getelementptr inbounds i8, ptr %.0201220, i64 %5
-  %exitcond223.not = icmp eq i32 %238, 8
-  br i1 %exitcond223.not, label %241, label %133, !llvm.loop !172
+  %216 = tail call i32 @llvm.smax.i32(i32 %215, i32 0)
+  %.06.i213 = tail call i32 @llvm.umin.i32(i32 %216, i32 255)
+  %.0.i214 = trunc nuw i32 %.06.i213 to i8
+  %217 = getelementptr inbounds nuw i8, ptr %.0201220, i64 3
+  store i8 %.0.i214, ptr %217, align 1, !tbaa !21
+  %218 = sub nsw i32 %190, %184
+  %219 = ashr i32 %218, 17
+  %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 0)
+  %.06.i215 = tail call i32 @llvm.umin.i32(i32 %220, i32 255)
+  %.0.i216 = trunc nuw i32 %.06.i215 to i8
+  %221 = getelementptr inbounds nuw i8, ptr %.0201220, i64 4
+  store i8 %.0.i216, ptr %221, align 1, !tbaa !21
+  %222 = add nuw nsw i32 %.1222, 1
+  %223 = getelementptr inbounds nuw i8, ptr %.1200221, i64 32
+  %224 = getelementptr inbounds i8, ptr %.0201220, i64 %5
+  %exitcond223.not = icmp eq i32 %222, 8
+  br i1 %exitcond223.not, label %225, label %133, !llvm.loop !172
 
-241:                                              ; preds = %133
+225:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

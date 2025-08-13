@@ -223,14 +223,14 @@ thread-pre-split:                                 ; preds = %50, %4
   br label %91
 
 91:                                               ; preds = %91, %80
-  %.023.i = phi ptr [ %82, %80 ], [ %115, %91 ]
-  %.01422.i = phi i8 [ %90, %80 ], [ %.0.i19.i, %91 ]
-  %.01521.i = phi ptr [ %87, %80 ], [ %93, %91 ]
-  %.01620.i = phi i32 [ %spec.select, %80 ], [ %92, %91 ]
-  %92 = add nsw i32 %.01620.i, -1
-  %93 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 1
-  %94 = load i8, ptr %.01521.i, align 1, !tbaa !41
-  %95 = zext i8 %.01422.i to i32
+  %.025.i = phi ptr [ %82, %80 ], [ %112, %91 ]
+  %.01424.i = phi i8 [ %90, %80 ], [ %.0.i19.i, %91 ]
+  %.01523.i = phi ptr [ %87, %80 ], [ %93, %91 ]
+  %.01622.i = phi i32 [ %spec.select, %80 ], [ %92, %91 ]
+  %92 = add nsw i32 %.01622.i, -1
+  %93 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 1
+  %94 = load i8, ptr %.01523.i, align 1, !tbaa !41
+  %95 = zext i8 %.01424.i to i32
   %96 = zext i8 %94 to i32
   %97 = and i32 %96, 15
   %98 = zext nneg i32 %97 to i64
@@ -238,27 +238,22 @@ thread-pre-split:                                 ; preds = %50, %4
   %100 = load i8, ptr %99, align 1, !tbaa !41
   %101 = sext i8 %100 to i32
   %102 = add nsw i32 %101, %95
-  %.not.i.i = icmp ult i32 %102, 256
-  %isnotneg.i.i = icmp sgt i32 %102, -1
-  %103 = sext i1 %isnotneg.i.i to i8
-  %104 = trunc nuw i32 %102 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %104, i8 %103
-  %105 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
-  store i8 %.0.i.i, ptr %.023.i, align 1, !tbaa !41
-  %106 = zext i8 %.0.i.i to i32
-  %107 = lshr i32 %96, 4
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %89, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !41
-  %111 = sext i8 %110 to i32
-  %112 = add nsw i32 %106, %111
-  %.not.i17.i = icmp ult i32 %112, 256
-  %isnotneg.i18.i = icmp sgt i32 %112, -1
-  %113 = sext i1 %isnotneg.i18.i to i8
-  %114 = trunc nuw i32 %112 to i8
-  %.0.i19.i = select i1 %.not.i17.i, i8 %114, i8 %113
-  %115 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
-  store i8 %.0.i19.i, ptr %105, align 1, !tbaa !41
+  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
+  %.0.i20.i = tail call i32 @llvm.umin.i32(i32 %103, i32 255)
+  %.0.i.i = trunc nuw i32 %.0.i20.i to i8
+  %104 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
+  store i8 %.0.i.i, ptr %.025.i, align 1, !tbaa !41
+  %105 = lshr i32 %96, 4
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 %106
+  %108 = load i8, ptr %107, align 1, !tbaa !41
+  %109 = sext i8 %108 to i32
+  %110 = add nsw i32 %.0.i20.i, %109
+  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %.0.i1921.i = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
+  %.0.i19.i = trunc nuw i32 %.0.i1921.i to i8
+  %112 = getelementptr inbounds nuw i8, ptr %.025.i, i64 2
+  store i8 %.0.i19.i, ptr %104, align 1, !tbaa !41
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %delta_decode.exit, label %91, !llvm.loop !50
 
@@ -269,20 +264,20 @@ delta_decode.exit:                                ; preds = %91
   br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %delta_decode.exit, %.preheader
-  %116 = load i32, ptr %66, align 4, !tbaa !42
-  %117 = add nsw i32 %116, %spec.select
-  store i32 %117, ptr %66, align 4, !tbaa !42
+  %113 = load i32, ptr %66, align 4, !tbaa !42
+  %114 = add nsw i32 %113, %spec.select
+  store i32 %114, ptr %66, align 4, !tbaa !42
   store i32 1, ptr %2, align 4, !tbaa !44
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %119 = load i64, ptr %118, align 8, !tbaa !53
-  %120 = icmp eq i64 %119, 0
-  %121 = select i1 %120, i32 2, i32 0
-  %122 = add nuw nsw i32 %121, %spec.select
-  %123 = mul nsw i32 %122, %8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %116 = load i64, ptr %115, align 8, !tbaa !53
+  %117 = icmp eq i64 %116, 0
+  %118 = select i1 %117, i32 2, i32 0
+  %119 = add nuw nsw i32 %118, %spec.select
+  %120 = mul nsw i32 %119, %8
   br label %.thread
 
 .thread:                                          ; preds = %40, %49, %24, %73, %._crit_edge, %70, %62
-  %.1 = phi i32 [ %72, %70 ], [ %123, %._crit_edge ], [ -1094995529, %62 ], [ %76, %73 ], [ -12, %40 ], [ -12, %49 ], [ -1094995529, %24 ]
+  %.1 = phi i32 [ %72, %70 ], [ %120, %._crit_edge ], [ -1094995529, %62 ], [ %76, %73 ], [ -12, %40 ], [ -12, %49 ], [ -1094995529, %24 ]
   ret i32 %.1
 }
 
@@ -311,6 +306,12 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

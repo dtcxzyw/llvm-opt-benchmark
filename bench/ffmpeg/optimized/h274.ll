@@ -702,11 +702,9 @@ generate.exit.us:                                 ; preds = %.preheader127.us.lv
   %392 = load i8, ptr %391, align 1, !tbaa !9
   %393 = sext i8 %392 to i32
   %394 = add nsw i32 %393, %390
-  %.not.i.i.us = icmp ult i32 %394, 256
-  %isnotneg.i.i.us = icmp sgt i32 %394, -1
-  %395 = sext i1 %isnotneg.i.i.us to i8
-  %396 = trunc nuw i32 %394 to i8
-  %.0.i.i.us = select i1 %.not.i.i.us, i8 %396, i8 %395
+  %395 = tail call i32 @llvm.smax.i32(i32 %394, i32 0)
+  %.0.i8.i.us = tail call i32 @llvm.umin.i32(i32 %395, i32 255)
+  %.0.i.i.us = trunc nuw i32 %.0.i8.i.us to i8
   store i8 %.0.i.i.us, ptr %391, align 1, !tbaa !9
   %indvars.iv.next.i120.us = add nuw nsw i64 %indvars.iv.i119.us, 1
   %exitcond.not.i121.us = icmp eq i64 %indvars.iv.next.i120.us, %wide.trip.count.i
@@ -747,6 +745,9 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #5

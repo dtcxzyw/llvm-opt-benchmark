@@ -188,9 +188,9 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %28
-  %indvars.iv22 = phi i64 [ 0, %3 ], [ %indvars.iv.next23, %28 ]
-  %4 = mul nsw i64 %1, %indvars.iv22
+.preheader:                                       ; preds = %3, %26
+  %indvars.iv25 = phi i64 [ 0, %3 ], [ %indvars.iv.next26, %26 ]
+  %4 = mul nsw i64 %1, %indvars.iv25
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -211,38 +211,33 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   %17 = add nsw i32 %11, -128
   %18 = sub nsw i32 %8, %11
   %19 = add nsw i32 %18, %16
-  %.not.i14 = icmp ult i32 %19, 256
-  %isnotneg.i15 = icmp sgt i32 %19, -1
-  %20 = sext i1 %isnotneg.i15 to i8
-  %21 = trunc nuw i32 %19 to i8
-  %.0.i16 = select i1 %.not.i14, i8 %21, i8 %20
+  %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
+  %.0.i1617 = tail call i32 @llvm.umin.i32(i32 %20, i32 255)
+  %.0.i16 = trunc nuw i32 %.0.i1617 to i8
   store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %22 = add nsw i32 %17, %16
-  %.not.i11 = icmp ult i32 %22, 256
-  %isnotneg.i12 = icmp sgt i32 %22, -1
-  %23 = sext i1 %isnotneg.i12 to i8
-  %24 = trunc nuw i32 %22 to i8
-  %.0.i13 = select i1 %.not.i11, i8 %24, i8 %23
+  %21 = add nsw i32 %17, %16
+  %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %.0.i1318 = tail call i32 @llvm.umin.i32(i32 %22, i32 255)
+  %.0.i13 = trunc nuw i32 %.0.i1318 to i8
   store i8 %.0.i13, ptr %9, align 1, !tbaa !23
-  %25 = add nuw nsw i32 %8, %11
-  %reass.sub = sub nsw i32 %16, %25
-  %.not.i = icmp ugt i32 %reass.sub, -257
-  %isnotneg.i = icmp sgt i32 %reass.sub, -257
-  %26 = sext i1 %isnotneg.i to i8
-  %27 = trunc i32 %reass.sub to i8
-  %.0.i = select i1 %.not.i, i8 %27, i8 %26
+  %23 = add nuw nsw i32 %8, %11
+  %reass.sub = sub nsw i32 %16, %23
+  %24 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -256)
+  %25 = add nsw i32 %24, 256
+  %.0.i19 = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
+  %.0.i = trunc nuw i32 %.0.i19 to i8
   store i8 %.0.i, ptr %12, align 1, !tbaa !23
   store i8 %13, ptr %14, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !29
+  br i1 %exitcond.not, label %26, label %5, !llvm.loop !29
 
-28:                                               ; preds = %5
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 4
-  br i1 %exitcond25.not, label %29, label %.preheader, !llvm.loop !30
+26:                                               ; preds = %5
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 4
+  br i1 %exitcond28.not, label %27, label %.preheader, !llvm.loop !30
 
-29:                                               ; preds = %28
+27:                                               ; preds = %26
   ret i32 16
 }
 
@@ -251,9 +246,9 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %29
-  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %29 ]
-  %4 = mul nsw i64 %1, %indvars.iv23
+.preheader:                                       ; preds = %3, %26
+  %indvars.iv26 = phi i64 [ 0, %3 ], [ %indvars.iv.next27, %26 ]
+  %4 = mul nsw i64 %1, %indvars.iv26
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -279,38 +274,32 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   %.sext19 = sext i8 %17 to i32
   %18 = add nsw i32 %.sext, %14
   %19 = sub nsw i32 %18, %.sext19
-  %.not.i14 = icmp ult i32 %19, 256
-  %isnotneg.i15 = icmp sgt i32 %19, -1
-  %20 = sext i1 %isnotneg.i15 to i8
-  %21 = trunc nuw i32 %19 to i8
-  %.0.i16 = select i1 %.not.i14, i8 %21, i8 %20
+  %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
+  %.0.i1620 = tail call i32 @llvm.umin.i32(i32 %20, i32 255)
+  %.0.i16 = trunc nuw i32 %.0.i1620 to i8
   store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %22 = add nsw i32 %.sext19, %14
-  %.not.i11 = icmp ult i32 %22, 256
-  %isnotneg.i12 = icmp sgt i32 %22, -1
-  %23 = sext i1 %isnotneg.i12 to i8
-  %24 = trunc nuw i32 %22 to i8
-  %.0.i13 = select i1 %.not.i11, i8 %24, i8 %23
+  %21 = add nsw i32 %.sext19, %14
+  %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %.0.i1321 = tail call i32 @llvm.umin.i32(i32 %22, i32 255)
+  %.0.i13 = trunc nuw i32 %.0.i1321 to i8
   store i8 %.0.i13, ptr %8, align 1, !tbaa !23
-  %25 = add nsw i32 %.sext, %.sext19
-  %26 = sub nsw i32 %14, %25
-  %.not.i = icmp ult i32 %26, 256
-  %isnotneg.i = icmp sgt i32 %26, -1
-  %27 = sext i1 %isnotneg.i to i8
-  %28 = trunc nuw i32 %26 to i8
-  %.0.i = select i1 %.not.i, i8 %28, i8 %27
+  %23 = add nsw i32 %.sext, %.sext19
+  %24 = sub nsw i32 %14, %23
+  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
+  %.0.i22 = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
+  %.0.i = trunc nuw i32 %.0.i22 to i8
   store i8 %.0.i, ptr %10, align 1, !tbaa !23
   store i8 -1, ptr %12, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %29, label %5, !llvm.loop !31
+  br i1 %exitcond.not, label %26, label %5, !llvm.loop !31
 
-29:                                               ; preds = %5
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %30, label %.preheader, !llvm.loop !32
+26:                                               ; preds = %5
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
+  %exitcond29.not = icmp eq i64 %indvars.iv.next27, 4
+  br i1 %exitcond29.not, label %27, label %.preheader, !llvm.loop !32
 
-30:                                               ; preds = %29
+27:                                               ; preds = %26
   ret i32 16
 }
 
@@ -1514,6 +1503,12 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #6

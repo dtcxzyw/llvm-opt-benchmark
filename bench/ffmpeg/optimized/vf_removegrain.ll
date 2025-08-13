@@ -1385,10 +1385,10 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %15 = tail call i32 @llvm.smin.i32(i32 %3, i32 %6)
   %16 = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
   %17 = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %18 = sub nsw i32 %10, %11
-  %19 = sub nsw i32 %12, %13
-  %20 = sub nsw i32 %14, %15
-  %21 = sub nsw i32 %16, %17
+  %18 = sub i32 %10, %11
+  %19 = sub i32 %12, %13
+  %20 = sub i32 %14, %15
+  %21 = sub i32 %16, %17
   %22 = icmp slt i32 %0, %11
   %..i = tail call i32 @llvm.smin.i32(i32 %0, i32 %10)
   %.0.i = select i1 %22, i32 %11, i32 %..i
@@ -1404,58 +1404,47 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %26 = sub nsw i32 %0, %.0.i
   %27 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %28 = shl nuw i32 %27, 1
-  %29 = add nsw i32 %28, %18
-  %.not.i = icmp ult i32 %29, 65536
-  %isnotneg.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i to i16
-  %31 = trunc nuw i32 %29 to i16
-  %.0.i123 = select i1 %.not.i, i16 %31, i16 %30
-  %32 = sub nsw i32 %0, %.0.i118
-  %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %34 = shl nuw i32 %33, 1
-  %35 = add nsw i32 %34, %19
-  %.not.i124 = icmp ult i32 %35, 65536
-  %isnotneg.i125 = icmp sgt i32 %35, -1
-  %36 = sext i1 %isnotneg.i125 to i16
-  %37 = trunc nuw i32 %35 to i16
-  %.0.i126 = select i1 %.not.i124, i16 %37, i16 %36
-  %38 = sub nsw i32 %0, %.0.i120
-  %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = shl nuw i32 %39, 1
-  %41 = add nsw i32 %40, %20
-  %.not.i127 = icmp ult i32 %41, 65536
-  %isnotneg.i128 = icmp sgt i32 %41, -1
-  %42 = sext i1 %isnotneg.i128 to i32
-  %.0.i129 = select i1 %.not.i127, i32 %41, i32 %42
-  %43 = and i32 %.0.i129, 65535
-  %44 = sub nsw i32 %0, %.0.i122
-  %45 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
-  %46 = shl nuw i32 %45, 1
-  %47 = add nsw i32 %46, %21
-  %.not.i130 = icmp ult i32 %47, 65536
-  %isnotneg.i131 = icmp sgt i32 %47, -1
-  %48 = sext i1 %isnotneg.i131 to i32
-  %.0.i132 = select i1 %.not.i130, i32 %47, i32 %48
-  %49 = and i32 %.0.i132, 65535
-  %50 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
-  %51 = zext i16 %50 to i32
-  %52 = tail call i32 @llvm.umin.i32(i32 %43, i32 %49)
-  %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 %51)
-  %54 = icmp eq i32 %53, %49
-  br i1 %54, label %60, label %55
+  %29 = add nsw i32 %18, %28
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i123133 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
+  %.0.i123 = trunc nuw i32 %.0.i123133 to i16
+  %31 = sub nsw i32 %0, %.0.i118
+  %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
+  %33 = shl nuw i32 %32, 1
+  %34 = add nsw i32 %19, %33
+  %35 = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
+  %.0.i126134 = tail call i32 @llvm.umin.i32(i32 %35, i32 65535)
+  %.0.i126 = trunc nuw i32 %.0.i126134 to i16
+  %36 = sub nsw i32 %0, %.0.i120
+  %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
+  %38 = shl nuw i32 %37, 1
+  %39 = add nsw i32 %20, %38
+  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %.0.i129135 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %41 = sub nsw i32 %0, %.0.i122
+  %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %43 = shl nuw i32 %42, 1
+  %44 = add nsw i32 %21, %43
+  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %.0.i132136 = tail call i32 @llvm.umin.i32(i32 %45, i32 65535)
+  %46 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
+  %47 = zext i16 %46 to i32
+  %48 = tail call i32 @llvm.umin.i32(i32 %.0.i129135, i32 %.0.i132136)
+  %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %47)
+  %50 = icmp eq i32 %49, %.0.i132136
+  br i1 %50, label %55, label %51
 
-55:                                               ; preds = %9
-  %56 = zext i16 %.0.i126 to i32
-  %57 = icmp eq i32 %53, %56
-  br i1 %57, label %60, label %58
+51:                                               ; preds = %9
+  %52 = icmp eq i32 %49, %.0.i126134
+  br i1 %52, label %55, label %53
 
-58:                                               ; preds = %55
-  %59 = icmp eq i32 %53, %43
-  %. = select i1 %59, i32 %.0.i120, i32 %.0.i
-  br label %60
+53:                                               ; preds = %51
+  %54 = icmp eq i32 %49, %.0.i129135
+  %. = select i1 %54, i32 %.0.i120, i32 %.0.i
+  br label %55
 
-60:                                               ; preds = %58, %55, %9
-  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %55 ], [ %., %58 ]
+55:                                               ; preds = %53, %51, %9
+  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %51 ], [ %., %53 ]
   ret i32 %.0
 }
 
@@ -1547,57 +1536,46 @@ define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %27 = tail call i32 @llvm.abs.i32(i32 %26, i1 true)
   %28 = shl i32 %18, 1
   %29 = add nsw i32 %27, %28
-  %.not.i = icmp ult i32 %29, 65536
-  %isnotneg.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i to i16
-  %31 = trunc nuw i32 %29 to i16
-  %.0.i123 = select i1 %.not.i, i16 %31, i16 %30
-  %32 = sub nsw i32 %0, %.0.i118
-  %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %34 = shl i32 %19, 1
-  %35 = add nsw i32 %33, %34
-  %.not.i124 = icmp ult i32 %35, 65536
-  %isnotneg.i125 = icmp sgt i32 %35, -1
-  %36 = sext i1 %isnotneg.i125 to i16
-  %37 = trunc nuw i32 %35 to i16
-  %.0.i126 = select i1 %.not.i124, i16 %37, i16 %36
-  %38 = sub nsw i32 %0, %.0.i120
-  %39 = tail call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %40 = shl i32 %20, 1
-  %41 = add nsw i32 %39, %40
-  %.not.i127 = icmp ult i32 %41, 65536
-  %isnotneg.i128 = icmp sgt i32 %41, -1
-  %42 = sext i1 %isnotneg.i128 to i32
-  %.0.i129 = select i1 %.not.i127, i32 %41, i32 %42
-  %43 = and i32 %.0.i129, 65535
-  %44 = sub nsw i32 %0, %.0.i122
-  %45 = tail call i32 @llvm.abs.i32(i32 %44, i1 true)
-  %46 = shl i32 %21, 1
-  %47 = add nsw i32 %45, %46
-  %.not.i130 = icmp ult i32 %47, 65536
-  %isnotneg.i131 = icmp sgt i32 %47, -1
-  %48 = sext i1 %isnotneg.i131 to i32
-  %.0.i132 = select i1 %.not.i130, i32 %47, i32 %48
-  %49 = and i32 %.0.i132, 65535
-  %50 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
-  %51 = zext i16 %50 to i32
-  %52 = tail call i32 @llvm.umin.i32(i32 %43, i32 %49)
-  %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 %51)
-  %54 = icmp eq i32 %53, %49
-  br i1 %54, label %60, label %55
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %.0.i123133 = tail call i32 @llvm.umin.i32(i32 %30, i32 65535)
+  %.0.i123 = trunc nuw i32 %.0.i123133 to i16
+  %31 = sub nsw i32 %0, %.0.i118
+  %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
+  %33 = shl i32 %19, 1
+  %34 = add nsw i32 %32, %33
+  %35 = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
+  %.0.i126134 = tail call i32 @llvm.umin.i32(i32 %35, i32 65535)
+  %.0.i126 = trunc nuw i32 %.0.i126134 to i16
+  %36 = sub nsw i32 %0, %.0.i120
+  %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
+  %38 = shl i32 %20, 1
+  %39 = add nsw i32 %37, %38
+  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %.0.i129135 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
+  %41 = sub nsw i32 %0, %.0.i122
+  %42 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %43 = shl i32 %21, 1
+  %44 = add nsw i32 %42, %43
+  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %.0.i132136 = tail call i32 @llvm.umin.i32(i32 %45, i32 65535)
+  %46 = tail call i16 @llvm.umin.i16(i16 %.0.i123, i16 %.0.i126)
+  %47 = zext i16 %46 to i32
+  %48 = tail call i32 @llvm.umin.i32(i32 %.0.i129135, i32 %.0.i132136)
+  %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %47)
+  %50 = icmp eq i32 %49, %.0.i132136
+  br i1 %50, label %55, label %51
 
-55:                                               ; preds = %9
-  %56 = zext i16 %.0.i126 to i32
-  %57 = icmp eq i32 %53, %56
-  br i1 %57, label %60, label %58
+51:                                               ; preds = %9
+  %52 = icmp eq i32 %49, %.0.i126134
+  br i1 %52, label %55, label %53
 
-58:                                               ; preds = %55
-  %59 = icmp eq i32 %53, %43
-  %. = select i1 %59, i32 %.0.i120, i32 %.0.i
-  br label %60
+53:                                               ; preds = %51
+  %54 = icmp eq i32 %49, %.0.i129135
+  %. = select i1 %54, i32 %.0.i120, i32 %.0.i
+  br label %55
 
-60:                                               ; preds = %58, %55, %9
-  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %55 ], [ %., %58 ]
+55:                                               ; preds = %53, %51, %9
+  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %51 ], [ %., %53 ]
   ret i32 %.0
 }
 

@@ -1091,17 +1091,17 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @filter_row(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 %6, i32 noundef %7, i32 %8, i32 %9, i32 %10) #5 {
   %12 = icmp sgt i32 %1, 0
-  br i1 %12, label %.preheader.lr.ph, label %._crit_edge23
+  br i1 %12, label %.preheader.lr.ph, label %._crit_edge24
 
 .preheader.lr.ph:                                 ; preds = %11
-  %.not19 = icmp slt i32 %7, 0
-  br i1 %.not19, label %.preheader.lr.ph.split.us, label %.preheader.preheader
+  %.not20 = icmp slt i32 %7, 0
+  br i1 %.not20, label %.preheader.lr.ph.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %13 = shl nuw i32 %7, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %14 = or disjoint i32 %smax, 1
-  %wide.trip.count29 = zext nneg i32 %1 to i64
+  %wide.trip.count30 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %.preheader
 
@@ -1109,52 +1109,48 @@ define internal void @filter_row(ptr noundef writeonly captures(none) %0, i32 no
   %15 = tail call nsz float @llvm.fmuladd.f32(float %2, float 0.000000e+00, float %3)
   %16 = fadd nsz float %15, 5.000000e-01
   %17 = fptosi float %16 to i32
-  %.not.i.us = icmp ult i32 %17, 256
-  %isnotneg.i.us = icmp sgt i32 %17, -1
-  %18 = sext i1 %isnotneg.i.us to i8
-  %19 = trunc nuw i32 %17 to i8
-  %.0.i.us = select i1 %.not.i.us, i8 %19, i8 %18
-  %20 = zext nneg i32 %1 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %.0.i.us, i64 %20, i1 false), !tbaa !82
-  br label %._crit_edge23
+  %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
+  %.0.i19.us = tail call i32 @llvm.umin.i32(i32 %18, i32 255)
+  %.0.i.us = trunc nuw i32 %.0.i19.us to i8
+  %19 = zext nneg i32 %1 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %.0.i.us, i64 %19, i1 false), !tbaa !82
+  br label %._crit_edge24
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv26 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next27, %._crit_edge ]
-  br label %21
+  %indvars.iv27 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next28, %._crit_edge ]
+  br label %20
 
-21:                                               ; preds = %.preheader, %21
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %.021 = phi i32 [ 0, %.preheader ], [ %30, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !46
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv26
-  %25 = load i8, ptr %24, align 1, !tbaa !82
-  %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !39
-  %29 = mul nsw i32 %28, %26
-  %30 = add nsw i32 %29, %.021
+20:                                               ; preds = %.preheader, %20
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
+  %.022 = phi i32 [ 0, %.preheader ], [ %29, %20 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv27
+  %24 = load i8, ptr %23, align 1, !tbaa !82
+  %25 = zext i8 %24 to i32
+  %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4, !tbaa !39
+  %28 = mul nsw i32 %27, %25
+  %29 = add nsw i32 %28, %.022
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %21
-  %31 = sitofp i32 %30 to float
-  %32 = tail call nsz float @llvm.fmuladd.f32(float %31, float %2, float %3)
-  %33 = fadd nsz float %32, 5.000000e-01
-  %34 = fptosi float %33 to i32
-  %.not.i = icmp ult i32 %34, 256
-  %isnotneg.i = icmp sgt i32 %34, -1
-  %35 = sext i1 %isnotneg.i to i8
-  %36 = trunc nuw i32 %34 to i8
-  %.0.i = select i1 %.not.i, i8 %36, i8 %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv26
-  store i8 %.0.i, ptr %37, align 1, !tbaa !82
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge23, label %.preheader, !llvm.loop !84
+._crit_edge:                                      ; preds = %20
+  %30 = sitofp i32 %29 to float
+  %31 = tail call nsz float @llvm.fmuladd.f32(float %30, float %2, float %3)
+  %32 = fadd nsz float %31, 5.000000e-01
+  %33 = fptosi float %32 to i32
+  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %.0.i19 = tail call i32 @llvm.umin.i32(i32 %34, i32 255)
+  %.0.i = trunc nuw i32 %.0.i19 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv27
+  store i8 %.0.i, ptr %35, align 1, !tbaa !82
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %._crit_edge24, label %.preheader, !llvm.loop !84
 
-._crit_edge23:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split.us, %11
+._crit_edge24:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split.us, %11
   ret void
 }
 
@@ -1205,115 +1201,111 @@ define internal void @filter_column(ptr noundef writeonly captures(none) %0, i32
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %.not32 = icmp slt i32 %7, 0
+  %.not33 = icmp slt i32 %7, 0
   %14 = sext i32 %8 to i64
-  br i1 %.not32, label %.preheader30.us, label %.preheader.lr.ph.preheader
+  br i1 %.not33, label %.preheader31.us, label %.preheader.lr.ph.preheader
 
 .preheader.lr.ph.preheader:                       ; preds = %.lr.ph
   %15 = shl nuw i32 %7, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %16 = or disjoint i32 %smax, 1
   %17 = sext i32 %9 to i64
-  %wide.trip.count50 = zext nneg i32 %1 to i64
+  %wide.trip.count51 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %.preheader.lr.ph
 
-.preheader30.us:                                  ; preds = %.lr.ph, %18
-  %.02836.us = phi i32 [ %20, %18 ], [ 0, %.lr.ph ]
-  %.02935.us = phi ptr [ %19, %18 ], [ %0, %.lr.ph ]
+.preheader31.us:                                  ; preds = %.lr.ph, %18
+  %.02837.us = phi i32 [ %20, %18 ], [ 0, %.lr.ph ]
+  %.02936.us = phi ptr [ %19, %18 ], [ %0, %.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   br label %21
 
 18:                                               ; preds = %21
-  %19 = getelementptr inbounds i8, ptr %.02935.us, i64 %14
-  %20 = add nuw nsw i32 %.02836.us, 1
-  %exitcond56.not = icmp eq i32 %20, %1
-  br i1 %exitcond56.not, label %._crit_edge, label %.preheader30.us, !llvm.loop !86
+  %19 = getelementptr inbounds i8, ptr %.02936.us, i64 %14
+  %20 = add nuw nsw i32 %.02837.us, 1
+  %exitcond57.not = icmp eq i32 %20, %1
+  br i1 %exitcond57.not, label %._crit_edge, label %.preheader31.us, !llvm.loop !86
 
-21:                                               ; preds = %.preheader30.us, %21
-  %indvars.iv52 = phi i64 [ 0, %.preheader30.us ], [ %indvars.iv.next53, %21 ]
-  %22 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv52
+21:                                               ; preds = %.preheader31.us, %21
+  %indvars.iv53 = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next54, %21 ]
+  %22 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv53
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %24 = sitofp i32 %23 to float
   %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %2, float %3)
   %26 = fadd nsz float %25, 5.000000e-01
   %27 = fptosi float %26 to i32
   store i32 %27, ptr %22, align 4, !tbaa !39
-  %.not.i.us = icmp ult i32 %27, 256
-  %isnotneg.i.us = icmp sgt i32 %27, -1
-  %28 = sext i1 %isnotneg.i.us to i8
-  %29 = trunc nuw i32 %27 to i8
-  %.0.i.us = select i1 %.not.i.us, i8 %29, i8 %28
-  %30 = getelementptr inbounds nuw i8, ptr %.02935.us, i64 %indvars.iv52
-  store i8 %.0.i.us, ptr %30, align 1, !tbaa !82
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next53, 16
-  br i1 %exitcond55.not, label %18, label %21, !llvm.loop !88
+  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
+  %.0.i30.us = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %.0.i.us = trunc nuw i32 %.0.i30.us to i8
+  %29 = getelementptr inbounds nuw i8, ptr %.02936.us, i64 %indvars.iv53
+  store i8 %.0.i.us, ptr %29, align 1, !tbaa !82
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next54, 16
+  br i1 %exitcond56.not, label %18, label %21, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %44, %18, %11
+._crit_edge:                                      ; preds = %43, %18, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-.preheader.lr.ph:                                 ; preds = %.preheader.lr.ph.preheader, %44
-  %indvars.iv47 = phi i64 [ 0, %.preheader.lr.ph.preheader ], [ %indvars.iv.next48, %44 ]
-  %.02935 = phi ptr [ %0, %.preheader.lr.ph.preheader ], [ %45, %44 ]
+.preheader.lr.ph:                                 ; preds = %.preheader.lr.ph.preheader, %43
+  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph.preheader ], [ %indvars.iv.next49, %43 ]
+  %.02936 = phi ptr [ %0, %.preheader.lr.ph.preheader ], [ %44, %43 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %31 = mul nsw i64 %indvars.iv47, %17
+  %30 = mul nsw i64 %indvars.iv48, %17
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %36
-  %indvars.iv39 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next40, %36 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv39
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv39
-  %35 = load i32, ptr %34, align 4, !tbaa !39
-  %invariant.gep = getelementptr i8, ptr %33, i64 %31
-  br label %37
+.preheader:                                       ; preds = %.preheader.lr.ph, %35
+  %indvars.iv40 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next41, %35 ]
+  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv40
+  %32 = load ptr, ptr %31, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv40
+  %34 = load i32, ptr %33, align 4, !tbaa !39
+  %invariant.gep = getelementptr i8, ptr %32, i64 %30
+  br label %36
 
-36:                                               ; preds = %37
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count
-  br i1 %exitcond42.not, label %..preheader30_crit_edge, label %.preheader, !llvm.loop !89
+35:                                               ; preds = %36
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
+  br i1 %exitcond43.not, label %..preheader31_crit_edge, label %.preheader, !llvm.loop !89
 
-37:                                               ; preds = %.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
+36:                                               ; preds = %.preheader, %36
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %36 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %38 = load i8, ptr %gep, align 1, !tbaa !82
-  %39 = zext i8 %38 to i32
-  %40 = mul nsw i32 %35, %39
-  %41 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4, !tbaa !39
-  %43 = add nsw i32 %42, %40
-  store i32 %43, ptr %41, align 4, !tbaa !39
+  %37 = load i8, ptr %gep, align 1, !tbaa !82
+  %38 = zext i8 %37 to i32
+  %39 = mul nsw i32 %34, %38
+  %40 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 4, !tbaa !39
+  %42 = add nsw i32 %41, %39
+  store i32 %42, ptr %40, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %36, label %37, !llvm.loop !90
+  br i1 %exitcond.not, label %35, label %36, !llvm.loop !90
 
-44:                                               ; preds = %..preheader30_crit_edge
-  %45 = getelementptr inbounds i8, ptr %.02935, i64 %14
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %.preheader.lr.ph, !llvm.loop !91
+43:                                               ; preds = %..preheader31_crit_edge
+  %44 = getelementptr inbounds i8, ptr %.02936, i64 %14
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
+  br i1 %exitcond52.not, label %._crit_edge, label %.preheader.lr.ph, !llvm.loop !91
 
-..preheader30_crit_edge:                          ; preds = %36, %..preheader30_crit_edge
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %..preheader30_crit_edge ], [ 0, %36 ]
-  %46 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv43
-  %47 = load i32, ptr %46, align 4, !tbaa !39
-  %48 = sitofp i32 %47 to float
-  %49 = tail call nsz float @llvm.fmuladd.f32(float %48, float %2, float %3)
-  %50 = fadd nsz float %49, 5.000000e-01
-  %51 = fptosi float %50 to i32
-  store i32 %51, ptr %46, align 4, !tbaa !39
-  %.not.i = icmp ult i32 %51, 256
-  %isnotneg.i = icmp sgt i32 %51, -1
-  %52 = sext i1 %isnotneg.i to i8
-  %53 = trunc nuw i32 %51 to i8
-  %.0.i = select i1 %.not.i, i8 %53, i8 %52
-  %54 = getelementptr inbounds nuw i8, ptr %.02935, i64 %indvars.iv43
-  store i8 %.0.i, ptr %54, align 1, !tbaa !82
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next44, 16
-  br i1 %exitcond46.not, label %44, label %..preheader30_crit_edge, !llvm.loop !88
+..preheader31_crit_edge:                          ; preds = %35, %..preheader31_crit_edge
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %..preheader31_crit_edge ], [ 0, %35 ]
+  %45 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv44
+  %46 = load i32, ptr %45, align 4, !tbaa !39
+  %47 = sitofp i32 %46 to float
+  %48 = tail call nsz float @llvm.fmuladd.f32(float %47, float %2, float %3)
+  %49 = fadd nsz float %48, 5.000000e-01
+  %50 = fptosi float %49 to i32
+  store i32 %50, ptr %45, align 4, !tbaa !39
+  %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
+  %.0.i30 = tail call i32 @llvm.umin.i32(i32 %51, i32 255)
+  %.0.i = trunc nuw i32 %.0.i30 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %.02936, i64 %indvars.iv44
+  store i8 %.0.i, ptr %52, align 1, !tbaa !82
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 16
+  br i1 %exitcond47.not, label %43, label %..preheader31_crit_edge, !llvm.loop !88
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -1448,13 +1440,11 @@ define internal void @filter_3x3(ptr noundef writeonly captures(none) %0, i32 no
   %93 = tail call nsz float @llvm.fmuladd.f32(float %92, float %2, float %3)
   %94 = fadd nsz float %93, 5.000000e-01
   %95 = fptosi float %94 to i32
-  %.not.i = icmp ult i32 %95, 256
-  %isnotneg.i = icmp sgt i32 %95, -1
-  %96 = sext i1 %isnotneg.i to i8
-  %97 = trunc nuw i32 %95 to i8
-  %.0.i = select i1 %.not.i, i8 %97, i8 %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %98, align 1, !tbaa !82
+  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %.0.i44 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
+  %.0.i = trunc nuw i32 %.0.i44 to i8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %97, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !93
@@ -1518,21 +1508,21 @@ define internal void @filter_5x5(ptr noundef writeonly captures(none) %0, i32 no
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %23
-  %indvars.iv22 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next23, %23 ]
+  %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %23 ]
   br label %13
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %.019 = phi i32 [ 0, %.preheader ], [ %22, %13 ]
+  %.020 = phi i32 [ 0, %.preheader ], [ %22, %13 ]
   %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !46
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv23
   %17 = load i8, ptr %16, align 1, !tbaa !82
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !39
   %21 = mul nsw i32 %20, %18
-  %22 = add nsw i32 %21, %.019
+  %22 = add nsw i32 %21, %.020
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %23, label %13, !llvm.loop !95
@@ -1542,16 +1532,14 @@ define internal void @filter_5x5(ptr noundef writeonly captures(none) %0, i32 no
   %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %2, float %3)
   %26 = fadd nsz float %25, 5.000000e-01
   %27 = fptosi float %26 to i32
-  %.not.i = icmp ult i32 %27, 256
-  %isnotneg.i = icmp sgt i32 %27, -1
-  %28 = sext i1 %isnotneg.i to i8
-  %29 = trunc nuw i32 %27 to i8
-  %.0.i = select i1 %.not.i, i8 %29, i8 %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv22
-  store i8 %.0.i, ptr %30, align 1, !tbaa !82
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count
-  br i1 %exitcond25.not, label %._crit_edge, label %.preheader, !llvm.loop !96
+  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
+  %.0.i18 = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %.0.i = trunc nuw i32 %.0.i18 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv23
+  store i8 %.0.i, ptr %29, align 1, !tbaa !82
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count
+  br i1 %exitcond26.not, label %._crit_edge, label %.preheader, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %23, %11
   ret void
@@ -1612,21 +1600,21 @@ define internal void @filter_7x7(ptr noundef writeonly captures(none) %0, i32 no
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %23
-  %indvars.iv22 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next23, %23 ]
+  %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %23 ]
   br label %13
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %.019 = phi i32 [ 0, %.preheader ], [ %22, %13 ]
+  %.020 = phi i32 [ 0, %.preheader ], [ %22, %13 ]
   %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !46
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv23
   %17 = load i8, ptr %16, align 1, !tbaa !82
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !39
   %21 = mul nsw i32 %20, %18
-  %22 = add nsw i32 %21, %.019
+  %22 = add nsw i32 %21, %.020
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 49
   br i1 %exitcond.not, label %23, label %13, !llvm.loop !98
@@ -1636,16 +1624,14 @@ define internal void @filter_7x7(ptr noundef writeonly captures(none) %0, i32 no
   %25 = tail call nsz float @llvm.fmuladd.f32(float %24, float %2, float %3)
   %26 = fadd nsz float %25, 5.000000e-01
   %27 = fptosi float %26 to i32
-  %.not.i = icmp ult i32 %27, 256
-  %isnotneg.i = icmp sgt i32 %27, -1
-  %28 = sext i1 %isnotneg.i to i8
-  %29 = trunc nuw i32 %27 to i8
-  %.0.i = select i1 %.not.i, i8 %29, i8 %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv22
-  store i8 %.0.i, ptr %30, align 1, !tbaa !82
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count
-  br i1 %exitcond25.not, label %._crit_edge, label %.preheader, !llvm.loop !99
+  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
+  %.0.i18 = tail call i32 @llvm.umin.i32(i32 %28, i32 255)
+  %.0.i = trunc nuw i32 %.0.i18 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv23
+  store i8 %.0.i, ptr %29, align 1, !tbaa !82
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count
+  br i1 %exitcond26.not, label %._crit_edge, label %.preheader, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %23, %11
   ret void
@@ -1763,13 +1749,11 @@ define internal void @filter_prewitt(ptr noundef writeonly captures(none) %0, i3
   %66 = tail call nsz float @llvm.sqrt.f32(float %65)
   %67 = tail call nsz float @llvm.fmuladd.f32(float %66, float %2, float %3)
   %68 = fptosi float %67 to i32
-  %.not.i = icmp ult i32 %68, 256
-  %isnotneg.i = icmp sgt i32 %68, -1
-  %69 = sext i1 %isnotneg.i to i8
-  %70 = trunc nuw i32 %68 to i8
-  %.0.i = select i1 %.not.i, i8 %70, i8 %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %71, align 1, !tbaa !82
+  %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  %.0.i42 = tail call i32 @llvm.umin.i32(i32 %69, i32 255)
+  %.0.i = trunc nuw i32 %.0.i42 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %70, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
@@ -1817,13 +1801,11 @@ define internal void @filter_roberts(ptr noundef writeonly captures(none) %0, i3
   %39 = tail call nsz float @llvm.sqrt.f32(float %38)
   %40 = tail call nsz float @llvm.fmuladd.f32(float %39, float %2, float %3)
   %41 = fptosi float %40 to i32
-  %.not.i = icmp ult i32 %41, 256
-  %isnotneg.i = icmp sgt i32 %41, -1
-  %42 = sext i1 %isnotneg.i to i8
-  %43 = trunc nuw i32 %41 to i8
-  %.0.i = select i1 %.not.i, i8 %43, i8 %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %44, align 1, !tbaa !82
+  %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
+  %.0.i18 = tail call i32 @llvm.umin.i32(i32 %42, i32 255)
+  %.0.i = trunc nuw i32 %.0.i18 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %43, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !102
@@ -1946,13 +1928,11 @@ define internal void @filter_kirsch(ptr noundef writeonly captures(none) %0, i32
   %113 = uitofp nneg i32 %112 to float
   %114 = tail call nsz float @llvm.fmuladd.f32(float %113, float %2, float %3)
   %115 = fptosi float %114 to i32
-  %.not.i = icmp ult i32 %115, 256
-  %isnotneg.i = icmp sgt i32 %115, -1
-  %116 = sext i1 %isnotneg.i to i8
-  %117 = trunc nuw i32 %115 to i8
-  %.0.i = select i1 %.not.i, i8 %117, i8 %116
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %118, align 1, !tbaa !82
+  %116 = tail call i32 @llvm.smax.i32(i32 %115, i32 0)
+  %.0.i173 = tail call i32 @llvm.umin.i32(i32 %116, i32 255)
+  %.0.i = trunc nuw i32 %.0.i173 to i8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %117, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
@@ -2009,11 +1989,11 @@ define internal void @filter_scharr(ptr noundef writeonly captures(none) %0, i32
   %47 = mul nuw nsw i32 %46, 47
   %reass.add = sub nsw i32 %40, %37
   %reass.mul = mul nsw i32 %reass.add, 47
-  %reass.add45 = sub nsw i32 %43, %34
-  %reass.mul46 = mul nsw i32 %reass.add45, 162
+  %reass.add46 = sub nsw i32 %43, %34
+  %reass.mul47 = mul nsw i32 %reass.add46, 162
   %48 = add nsw i32 %47, %31
   %49 = add nsw i32 %48, %reass.mul
-  %50 = add nsw i32 %49, %reass.mul46
+  %50 = add nsw i32 %49, %reass.mul47
   %51 = sitofp i32 %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1, !tbaa !82
@@ -2021,12 +2001,12 @@ define internal void @filter_scharr(ptr noundef writeonly captures(none) %0, i32
   %55 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !82
   %57 = zext i8 %56 to i32
-  %reass.add48 = sub nsw i32 %57, %54
-  %reass.mul49 = mul nsw i32 %reass.add48, 162
-  %reass.add51 = sub nsw i32 %37, %40
-  %reass.mul52 = mul nsw i32 %reass.add51, 47
-  %58 = add nsw i32 %48, %reass.mul52
-  %59 = add nsw i32 %58, %reass.mul49
+  %reass.add49 = sub nsw i32 %57, %54
+  %reass.mul50 = mul nsw i32 %reass.add49, 162
+  %reass.add52 = sub nsw i32 %37, %40
+  %reass.mul53 = mul nsw i32 %reass.add52, 47
+  %58 = add nsw i32 %48, %reass.mul53
+  %59 = add nsw i32 %58, %reass.mul50
   %60 = sitofp i32 %59 to float
   %61 = fmul nsz float %51, 3.906250e-03
   %62 = fmul nsz float %60, 3.906250e-03
@@ -2035,13 +2015,11 @@ define internal void @filter_scharr(ptr noundef writeonly captures(none) %0, i32
   %65 = tail call nsz float @llvm.sqrt.f32(float %64)
   %66 = tail call nsz float @llvm.fmuladd.f32(float %65, float %2, float %3)
   %67 = fptosi float %66 to i32
-  %.not.i = icmp ult i32 %67, 256
-  %isnotneg.i = icmp sgt i32 %67, -1
-  %68 = sext i1 %isnotneg.i to i8
-  %69 = trunc nuw i32 %67 to i8
-  %.0.i = select i1 %.not.i, i8 %69, i8 %68
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %70, align 1, !tbaa !82
+  %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
+  %.0.i44 = tail call i32 @llvm.umin.i32(i32 %68, i32 255)
+  %.0.i = trunc nuw i32 %.0.i44 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %69, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
@@ -2880,25 +2858,23 @@ define internal void @filter_sobel(ptr noundef writeonly captures(none) %0, i32 
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %55 = load i8, ptr %54, align 1, !tbaa !82
   %56 = zext i8 %55 to i32
-  %reass.add49 = sub nsw i32 %56, %53
-  %reass.mul50 = shl nsw i32 %reass.add49, 1
+  %reass.add50 = sub nsw i32 %56, %53
+  %reass.mul51 = shl nsw i32 %reass.add50, 1
   %57 = add nuw nsw i32 %30, %39
   %58 = sub nsw i32 %36, %57
   %59 = add nsw i32 %58, %45
-  %60 = add nsw i32 %59, %reass.mul50
+  %60 = add nsw i32 %59, %reass.mul51
   %61 = sitofp i32 %60 to float
   %62 = fmul nsz float %61, %61
   %63 = tail call nsz float @llvm.fmuladd.f32(float %50, float %50, float %62)
   %64 = tail call nsz float @llvm.sqrt.f32(float %63)
   %65 = tail call nsz float @llvm.fmuladd.f32(float %64, float %2, float %3)
   %66 = fptosi float %65 to i32
-  %.not.i = icmp ult i32 %66, 256
-  %isnotneg.i = icmp sgt i32 %66, -1
-  %67 = sext i1 %isnotneg.i to i8
-  %68 = trunc nuw i32 %66 to i8
-  %.0.i = select i1 %.not.i, i8 %68, i8 %67
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %69, align 1, !tbaa !82
+  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
+  %.0.i42 = tail call i32 @llvm.umin.i32(i32 %67, i32 255)
+  %.0.i = trunc nuw i32 %.0.i42 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %68, align 1, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
@@ -3012,6 +2988,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -491,44 +491,42 @@ define internal noundef i32 @deflicker8(ptr readnone captures(none) %0, ptr noun
   %9 = icmp sgt i32 %6, 0
   %10 = icmp sgt i32 %5, 0
   %or.cond = and i1 %9, %10
-  br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge21
+  br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge22
 
 .preheader.us.preheader:                          ; preds = %8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.020.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.01519.us = phi ptr [ %21, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
-  %.01618.us = phi ptr [ %20, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.021.us = phi i32 [ %21, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.01520.us = phi ptr [ %20, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
+  %.01619.us = phi ptr [ %19, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
   br label %11
 
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.01519.us, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %.01520.us, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !69
   %14 = uitofp i8 %13 to float
   %15 = fmul nsz float %7, %14
   %16 = fptosi float %15 to i32
-  %.not.i.us = icmp ult i32 %16, 256
-  %isnotneg.i.us = icmp sgt i32 %16, -1
-  %17 = sext i1 %isnotneg.i.us to i8
-  %18 = trunc nuw i32 %16 to i8
-  %.0.i.us = select i1 %.not.i.us, i8 %18, i8 %17
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.us, i64 %indvars.iv
-  store i8 %.0.i.us, ptr %19, align 1, !tbaa !69
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
+  %.0.i17.us = tail call i32 @llvm.umin.i32(i32 %17, i32 255)
+  %.0.i.us = trunc nuw i32 %.0.i17.us to i8
+  %18 = getelementptr inbounds nuw i8, ptr %.01619.us, i64 %indvars.iv
+  store i8 %.0.i.us, ptr %18, align 1, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %.01618.us, i64 %4
-  %21 = getelementptr inbounds i8, ptr %.01519.us, i64 %2
-  %22 = add nuw nsw i32 %.020.us, 1
-  %exitcond24.not = icmp eq i32 %22, %6
-  br i1 %exitcond24.not, label %._crit_edge21, label %.preheader.us, !llvm.loop !71
+  %19 = getelementptr inbounds i8, ptr %.01619.us, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01520.us, i64 %2
+  %21 = add nuw nsw i32 %.021.us, 1
+  %exitcond25.not = icmp eq i32 %21, %6
+  br i1 %exitcond25.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !71
 
-._crit_edge21:                                    ; preds = %._crit_edge.us, %8
+._crit_edge22:                                    ; preds = %._crit_edge.us, %8
   ret i32 0
 }
 
@@ -1395,7 +1393,13 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
