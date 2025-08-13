@@ -6714,7 +6714,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %3, %5
   %16 = icmp eq ptr %1, %15
   br i1 %16, label %tcg_gen_mov_i64.exit4, label %17
 
-17:                                               ; preds = %tcg_gen_mov_i64.exit
+18:                                               ; preds = %tcg_gen_mov_i64.exit
   %18 = ptrtoint ptr %2 to i64
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %20 = load ptr, ptr %19, align 8
@@ -6727,7 +6727,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %3, %5
   %27 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %23, i64 noundef %26)
   br label %tcg_gen_mov_i64.exit4
 
-tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %17
+tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %18
   ret void
 }
 
@@ -6753,7 +6753,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %3, %5
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %tcg_gen_mov_i64.exit4, label %17
 
-17:                                               ; preds = %tcg_gen_mov_i64.exit
+18:                                               ; preds = %tcg_gen_mov_i64.exit
   %18 = ptrtoint ptr %0 to i64
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %20 = load ptr, ptr %19, align 8
@@ -6766,7 +6766,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %3, %5
   %27 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %23, i64 noundef %26)
   br label %tcg_gen_mov_i64.exit4
 
-tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %17
+tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %18
   ret void
 }
 

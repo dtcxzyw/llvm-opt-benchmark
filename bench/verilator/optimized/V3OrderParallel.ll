@@ -21470,7 +21470,7 @@ _ZL12siblingScorePK9SiblingMC.exit:               ; preds = %5, %22
   %.sroa.speculated6.i = tail call i32 @llvm.umax.i32(i32 %9, i32 %11)
   %30 = add i32 %.sroa.speculated.i, %.sroa.speculated6.i
   %31 = add i32 %30, %.0.i.i
-  br label %98
+  br label %102
 
 32:                                               ; preds = %1
   %33 = getelementptr inbounds i8, ptr %0, i64 -72
@@ -21501,26 +21501,26 @@ _ZL12siblingScorePK9SiblingMC.exit:               ; preds = %5, %22
 47:                                               ; preds = %44, %42
   %48 = phi ptr [ %41, %42 ], [ %45, %44 ]
   %49 = getelementptr i8, ptr %48, i64 -152
-  %.not11.i.i = icmp eq ptr %49, %33
+  %.not11.i.i = icmp eq ptr %49, %35
   br i1 %.not11.i.i, label %50, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i
 
-50:                                               ; preds = %47
+50:  ; preds = %51
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !72
   %.not.i.i13.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i13.i.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i, label %53
 
-53:                                               ; preds = %50
+53: ; preds = %50
   %54 = load ptr, ptr %52, align 8, !tbaa !72
   %.not.i14.i.i = icmp eq ptr %54, null
   br i1 %.not.i14.i.i, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i
 
 _ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i: ; preds = %53
   store ptr null, ptr %51, align 8, !tbaa !72
-  %55 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %52)
-  store ptr %55, ptr %51, align 8, !tbaa !72
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %51, ptr %56, align 8, !tbaa !75
+  %57 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %52)
+  store ptr %57, ptr %51, align 8, !tbaa !72
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store ptr %51, ptr %58, align 8, !tbaa !75
   %.pre.i.i.i = load ptr, ptr %40, align 8, !tbaa !72
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   %.pre2.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
@@ -21529,33 +21529,33 @@ _ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i: ; preds = %53
 
 _ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i, %53, %47
   %.0.i1526.sink.i.i = phi ptr [ %48, %47 ], [ %.pre2.i.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i ], [ %52, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i.i, i64 32
-  %58 = load i32, ptr %57, align 8, !tbaa !463
-  %59 = tail call i32 @llvm.umax.i32(i32 %39, i32 %58)
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i.i, i64 32
+  %60 = load i32, ptr %59, align 8, !tbaa !463
+  %61 = tail call i32 @llvm.umax.i32(i32 %39, i32 %60)
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
 
 _ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i, %50, %32
-  %.0.i.i4 = phi i32 [ %39, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i ], [ %39, %32 ], [ %39, %50 ], [ %59, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %37, i64 176
-  %61 = load ptr, ptr %60, align 8, !tbaa !72
-  %.not.i.i.i11.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i11.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i, label %62
+  %.0.i.i4 = phi i32 [ %39, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i.i ], [ %39, %32 ], [ %39, %50 ], [ %61, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i.i ]
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 176
+  %63 = load ptr, ptr %62, align 8, !tbaa !72
+  %.not.i.i.i11.i = icmp eq ptr %63, null
+  br i1 %.not.i.i.i11.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i, label %64
 
-62:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
-  %63 = load ptr, ptr %61, align 8, !tbaa !72
-  %.not.i.i12.i = icmp eq ptr %63, null
-  br i1 %.not.i.i12.i, label %67, label %64
+64:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
+  %65 = load ptr, ptr %63, align 8, !tbaa !72
+  %.not.i.i12.i = icmp eq ptr %65, null
+  br i1 %.not.i.i12.i, label %67, label %66
 
-64:                                               ; preds = %62
-  store ptr null, ptr %60, align 8, !tbaa !72
-  %65 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %61)
-  store ptr %65, ptr %60, align 8, !tbaa !72
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %60, ptr %66, align 8, !tbaa !75
+66:                                               ; preds = %64
+  store ptr null, ptr %62, align 8, !tbaa !72
+  %67 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %63)
+  store ptr %67, ptr %62, align 8, !tbaa !72
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store ptr %62, ptr %68, align 8, !tbaa !75
   br label %67
 
-67:                                               ; preds = %64, %62
-  %68 = phi ptr [ %61, %62 ], [ %65, %64 ]
+77:                                               ; preds = %64, %62
+  %68 = phi ptr [ %61, %62 ], [ %67, %64 ]
   %69 = getelementptr i8, ptr %68, i64 -112
   %.not11.i13.i = icmp eq ptr %69, %33
   br i1 %.not11.i13.i, label %70, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i
@@ -21571,58 +21571,58 @@ _ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
   %.not.i14.i18.i = icmp eq ptr %74, null
   br i1 %.not.i14.i18.i, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i
 
-_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i: ; preds = %73
-  store ptr null, ptr %71, align 8, !tbaa !72
-  %75 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %72)
-  store ptr %75, ptr %71, align 8, !tbaa !72
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr %71, ptr %76, align 8, !tbaa !75
-  %.pre.i.i20.i = load ptr, ptr %60, align 8, !tbaa !72
+_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i: ; preds = %77
+  store ptr null, ptr %75, align 8, !tbaa !72
+  %79 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %76)
+  store ptr %79, ptr %75, align 8, !tbaa !72
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  store ptr %75, ptr %80, align 8, !tbaa !75
+  %.pre.i.i20.i = load ptr, ptr %62, align 8, !tbaa !72
   %.phi.trans.insert.i.i21.i = getelementptr inbounds nuw i8, ptr %.pre.i.i20.i, i64 8
   %.pre2.i.i22.i = load ptr, ptr %.phi.trans.insert.i.i21.i, align 8, !tbaa !72
   %.not12.i23.i = icmp eq ptr %.pre2.i.i22.i, null
   br i1 %.not12.i23.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i
 
-_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i, %73, %67
-  %.0.i1526.sink.i15.i = phi ptr [ %68, %67 ], [ %.pre2.i.i22.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i ], [ %72, %73 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i15.i, i64 32
-  %78 = load i32, ptr %77, align 8, !tbaa !463
+_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i, %77, %67
+  %.0.i1526.sink.i15.i = phi ptr [ %72, %67 ], [ %.pre2.i.i22.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i ], [ %76, %77 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i15.i, i64 32
+  %82 = load i32, ptr %81, align 8, !tbaa !463
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i
 
-_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i, %70, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
-  %.0.i16.i = phi i32 [ 0, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i ], [ 0, %70 ], [ %78, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %35, i64 104
-  %80 = load i32, ptr %79, align 4, !tbaa !71
-  %81 = getelementptr inbounds nuw i8, ptr %37, i64 96
-  %82 = load i32, ptr %81, align 8, !tbaa !70
-  %83 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %84 = load i32, ptr %83, align 8, !tbaa !70
-  %85 = add i32 %84, %82
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %_ZL9edgeScorePK9MTaskEdge.exit, label %87
+_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i, %74, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i
+  %.0.i16.i = phi i32 [ 0, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i19.i ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit.i ], [ 0, %74 ], [ %82, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i14.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %35, i64 104
+  %84 = load i32, ptr %83, align 4, !tbaa !71
+  %85 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %86 = load i32, ptr %85, align 8, !tbaa !70
+  %87 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %88 = load i32, ptr %87, align 8, !tbaa !70
+  %89 = add i32 %88, %86
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %_ZL9edgeScorePK9MTaskEdge.exit, label %91
 
-87:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i
-  %88 = uitofp i32 %85 to double
-  %89 = tail call double @log(double noundef %88) #31, !tbaa !71
-  %90 = fmul double %89, 2.000000e+01
-  %91 = tail call double @llvm.ceil.f64(double %90)
-  %92 = fdiv double %91, 2.000000e+01
-  %93 = tail call double @exp(double noundef %92) #31, !tbaa !71
-  %94 = fptoui double %93 to i32
+91:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i
+  %92 = uitofp i32 %89 to double
+  %93 = tail call double @log(double noundef %92) #31, !tbaa !71
+  %94 = fmul double %93, 2.000000e+01
+  %95 = tail call double @llvm.ceil.f64(double %94)
+  %96 = fdiv double %95, 2.000000e+01
+  %97 = tail call double @exp(double noundef %96) #31, !tbaa !71
+  %98 = fptoui double %97 to i32
   br label %_ZL9edgeScorePK9MTaskEdge.exit
 
-_ZL9edgeScorePK9MTaskEdge.exit:                   ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i, %87
-  %.0.i25.i = phi i32 [ %94, %87 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i ]
-  %.sroa.speculated.i5 = tail call i32 @llvm.umax.i32(i32 %.0.i16.i, i32 %80)
-  %95 = add i32 %.0.i.i4, 1
-  %96 = add i32 %95, %.sroa.speculated.i5
-  %97 = add i32 %96, %.0.i25.i
-  br label %98
+_ZL9edgeScorePK9MTaskEdge.exit:                   ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i, %91
+  %.0.i25.i = phi i32 [ %98, %91 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit.i ]
+  %.sroa.speculated.i5 = tail call i32 @llvm.umax.i32(i32 %.0.i16.i, i32 %84)
+  %99 = add i32 %.0.i.i4, 1
+  %100 = add i32 %99, %.sroa.speculated.i5
+  %101 = add i32 %100, %.0.i25.i
+  br label %102
 
-98:                                               ; preds = %_ZL9edgeScorePK9MTaskEdge.exit, %_ZL12siblingScorePK9SiblingMC.exit
-  %.sink = phi i32 [ %97, %_ZL9edgeScorePK9MTaskEdge.exit ], [ %31, %_ZL12siblingScorePK9SiblingMC.exit ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink, ptr %99, align 8, !tbaa !561
+102:                                              ; preds = %_ZL9edgeScorePK9MTaskEdge.exit, %_ZL12siblingScorePK9SiblingMC.exit
+  %.sink = phi i32 [ %101, %_ZL9edgeScorePK9MTaskEdge.exit ], [ %31, %_ZL12siblingScorePK9SiblingMC.exit ]
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.sink, ptr %103, align 8, !tbaa !561
   ret void
 }
 
@@ -24333,13 +24333,13 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativ
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i8 } @_ZN11Contraction5newCpILN8GraphWay2enE0EEENS_5NewCpEP10LogicMTaskS5_P9MTaskEdge(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %55, label %5
+  br i1 %.not, label %59, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %9, label %32
+  br i1 %8, label %9, label %34
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 100
@@ -24368,165 +24368,165 @@ define linkonce_odr dso_local { i64, i8 } @_ZN11Contraction5newCpILN8GraphWay2en
   %.not11.i = icmp eq ptr %21, %3
   br i1 %.not11.i, label %22, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !72
-  %.not.i.i13.i = icmp eq ptr %24, null
-  br i1 %.not.i.i13.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %25
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !72
+  %.not.i.i13.i = icmp eq ptr %26, null
+  br i1 %.not.i.i13.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %27
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %24, align 8, !tbaa !72
-  %.not.i14.i = icmp eq ptr %26, null
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %26, align 8, !tbaa !72
+  %.not.i14.i = icmp eq ptr %28, null
   br i1 %.not.i14.i, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i
 
-_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i:   ; preds = %25
-  store ptr null, ptr %23, align 8, !tbaa !72
-  %27 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %24)
-  store ptr %27, ptr %23, align 8, !tbaa !72
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %23, ptr %28, align 8, !tbaa !75
+_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i:   ; preds = %27
+  store ptr null, ptr %25, align 8, !tbaa !72
+  %29 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %26)
+  store ptr %29, ptr %25, align 8, !tbaa !72
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %25, ptr %30, align 8, !tbaa !75
   %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !72
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   %.pre2.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
   %.not12.i = icmp eq ptr %.pre2.i.i, null
   br i1 %.not12.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i
 
-_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %25, %19
-  %.0.i1526.sink.i = phi ptr [ %20, %19 ], [ %.pre2.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %24, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i, i64 32
-  %30 = load i32, ptr %29, align 8, !tbaa !463
-  %31 = tail call i32 @llvm.umax.i32(i32 %11, i32 %30)
+_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %27, %19
+  %.0.i1526.sink.i = phi ptr [ %20, %19 ], [ %.pre2.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %26, %25 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i, i64 32
+  %32 = load i32, ptr %31, align 8, !tbaa !463
+  %33 = tail call i32 @llvm.umax.i32(i32 %11, i32 %32)
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
 
-32:                                               ; preds = %5
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %34 = load i32, ptr %33, align 4, !tbaa !71
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %36 = load ptr, ptr %35, align 8, !tbaa !72
-  %.not.i.i.i34 = icmp eq ptr %36, null
-  br i1 %.not.i.i.i34, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %37
+34:                                               ; preds = %5
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %36 = load i32, ptr %35, align 4, !tbaa !71
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %38 = load ptr, ptr %37, align 8, !tbaa !72
+  %.not.i.i.i34 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i34, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %39
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %36, align 8, !tbaa !72
-  %.not.i.i35 = icmp eq ptr %38, null
-  br i1 %.not.i.i35, label %42, label %39
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %38, align 8, !tbaa !72
+  %.not.i.i35 = icmp eq ptr %40, null
+  br i1 %.not.i.i35, label %44, label %41
 
-39:                                               ; preds = %37
-  store ptr null, ptr %35, align 8, !tbaa !72
-  %40 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %36)
-  store ptr %40, ptr %35, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %35, ptr %41, align 8, !tbaa !75
-  br label %42
+41:                                               ; preds = %39
+  store ptr null, ptr %37, align 8, !tbaa !72
+  %42 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %38)
+  store ptr %42, ptr %37, align 8, !tbaa !72
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store ptr %37, ptr %43, align 8, !tbaa !75
+  br label %44
 
-42:                                               ; preds = %39, %37
-  %43 = phi ptr [ %36, %37 ], [ %40, %39 ]
-  %44 = getelementptr i8, ptr %43, i64 -152
+44:                                               ; preds = %41, %39
+  %45 = phi ptr [ %38, %37 ], [ %42, %39 ]
+  %44 = getelementptr i8, ptr %45, i64 -152
   %.not11.i36 = icmp eq ptr %44, %3
   br i1 %.not11.i36, label %45, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !72
-  %.not.i.i13.i40 = icmp eq ptr %47, null
-  br i1 %.not.i.i13.i40, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %48
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !72
+  %.not.i.i13.i40 = icmp eq ptr %51, null
+  br i1 %.not.i.i13.i40, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %52
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %47, align 8, !tbaa !72
-  %.not.i14.i41 = icmp eq ptr %49, null
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %51, align 8, !tbaa !72
+  %.not.i14.i41 = icmp eq ptr %53, null
   br i1 %.not.i14.i41, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42
 
-_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42: ; preds = %48
-  store ptr null, ptr %46, align 8, !tbaa !72
-  %50 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %47)
-  store ptr %50, ptr %46, align 8, !tbaa !72
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %46, ptr %51, align 8, !tbaa !75
-  %.pre.i.i43 = load ptr, ptr %35, align 8, !tbaa !72
+_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42: ; preds = %52
+  store ptr null, ptr %50, align 8, !tbaa !72
+  %54 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %51)
+  store ptr %54, ptr %50, align 8, !tbaa !72
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store ptr %50, ptr %55, align 8, !tbaa !75
+  %.pre.i.i43 = load ptr, ptr %37, align 8, !tbaa !72
   %.phi.trans.insert.i.i44 = getelementptr inbounds nuw i8, ptr %.pre.i.i43, i64 8
   %.pre2.i.i45 = load ptr, ptr %.phi.trans.insert.i.i44, align 8, !tbaa !72
   %.not12.i46 = icmp eq ptr %.pre2.i.i45, null
   br i1 %.not12.i46, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37
 
-_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %48, %42
-  %.0.i1526.sink.i38 = phi ptr [ %43, %42 ], [ %.pre2.i.i45, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %47, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i38, i64 32
-  %53 = load i32, ptr %52, align 8, !tbaa !463
-  %54 = tail call i32 @llvm.umax.i32(i32 %34, i32 %53)
+_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %52, %44
+  %.0.i1526.sink.i38 = phi ptr [ %45, %42 ], [ %.pre2.i.i45, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %51, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i38, i64 32
+  %57 = load i32, ptr %56, align 8, !tbaa !463
+  %58 = tail call i32 @llvm.umax.i32(i32 %36, i32 %57)
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
 
-55:                                               ; preds = %4
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %57 = load i32, ptr %56, align 4, !tbaa !71
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %59 = load i32, ptr %58, align 4, !tbaa !71
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %57, i32 %59)
-  br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
-
-_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %45, %32, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %22, %9, %55
-  %.0 = phi i32 [ %.sroa.speculated, %55 ], [ %11, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %11, %9 ], [ %11, %22 ], [ %31, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i ], [ %34, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %34, %32 ], [ %34, %45 ], [ %54, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37 ]
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 100
+59:                                               ; preds = %4
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %61 = load i32, ptr %60, align 4, !tbaa !71
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %63 = load i32, ptr %62, align 8, !tbaa !70
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %_ZNK10LogicMTask8stepCostEv.exit, label %65
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %63 = load i32, ptr %62, align 4, !tbaa !71
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %61, i32 %63)
+  br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
 
-65:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
-  %66 = uitofp i32 %63 to double
-  %67 = tail call double @log(double noundef %66) #31, !tbaa !71
-  %68 = fmul double %67, 2.000000e+01
-  %69 = tail call double @llvm.ceil.f64(double %68)
-  %70 = fdiv double %69, 2.000000e+01
-  %71 = tail call double @exp(double noundef %70) #31, !tbaa !71
-  %72 = fptoui double %71 to i32
-  %.pre = load i32, ptr %62, align 8, !tbaa !70
+_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %49, %34, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %24, %9, %59
+  %.0 = phi i32 [ %.sroa.speculated, %55 ], [ %11, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %11, %9 ], [ %11, %22 ], [ %33, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i ], [ %36, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %36, %32 ], [ %36, %45 ], [ %58, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37 ]
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %65 = load i32, ptr %64, align 4, !tbaa !71
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %67 = load i32, ptr %66, align 8, !tbaa !70
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK10LogicMTask8stepCostEv.exit, label %69
+
+69:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit
+  %70 = uitofp i32 %67 to double
+  %71 = tail call double @log(double noundef %70) #31, !tbaa !71
+  %72 = fmul double %71, 2.000000e+01
+  %73 = tail call double @llvm.ceil.f64(double %72)
+  %74 = fdiv double %73, 2.000000e+01
+  %75 = tail call double @exp(double noundef %74) #31, !tbaa !71
+  %76 = fptoui double %75 to i32
+  %.pre = load i32, ptr %66, align 8, !tbaa !70
   br label %_ZNK10LogicMTask8stepCostEv.exit
 
-_ZNK10LogicMTask8stepCostEv.exit:                 ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, %65
-  %73 = phi i32 [ %.pre, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit ]
-  %.0.i.i = phi i32 [ %72, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit ]
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %75 = load i32, ptr %74, align 8, !tbaa !70
-  %76 = add i32 %75, %73
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %_ZN10LogicMTask8stepCostEj.exit, label %78
+_ZNK10LogicMTask8stepCostEv.exit:                 ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit, %69
+  %77 = phi i32 [ %.pre, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit ]
+  %.0.i.i = phi i32 [ %76, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE0EEEjPK11V3GraphEdge.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %79 = load i32, ptr %78, align 8, !tbaa !70
+  %80 = add i32 %79, %77
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %_ZN10LogicMTask8stepCostEj.exit, label %82
 
-78:                                               ; preds = %_ZNK10LogicMTask8stepCostEv.exit
-  %79 = uitofp i32 %76 to double
-  %80 = tail call double @log(double noundef %79) #31, !tbaa !71
-  %81 = fmul double %80, 2.000000e+01
-  %82 = tail call double @llvm.ceil.f64(double %81)
-  %83 = fdiv double %82, 2.000000e+01
-  %84 = tail call double @exp(double noundef %83) #31, !tbaa !71
-  %85 = fptoui double %84 to i32
+82:                                               ; preds = %_ZNK10LogicMTask8stepCostEv.exit
+  %83 = uitofp i32 %80 to double
+  %84 = tail call double @log(double noundef %83) #31, !tbaa !71
+  %85 = fmul double %84, 2.000000e+01
+  %86 = tail call double @llvm.ceil.f64(double %85)
+  %87 = fdiv double %86, 2.000000e+01
+  %88 = tail call double @exp(double noundef %87) #31, !tbaa !71
+  %89 = fptoui double %88 to i32
   br label %_ZN10LogicMTask8stepCostEj.exit
 
-_ZN10LogicMTask8stepCostEj.exit:                  ; preds = %_ZNK10LogicMTask8stepCostEv.exit, %78
-  %.0.i50 = phi i32 [ %85, %78 ], [ 0, %_ZNK10LogicMTask8stepCostEv.exit ]
-  %86 = add i32 %.0.i.i, %61
-  %87 = add i32 %.0.i50, %.0
-  %88 = icmp ugt i32 %87, %86
-  %89 = zext i1 %88 to i8
-  %.sroa.230.0.insert.ext = zext i32 %87 to i64
+_ZN10LogicMTask8stepCostEj.exit:                  ; preds = %_ZNK10LogicMTask8stepCostEv.exit, %82
+  %.0.i50 = phi i32 [ %89, %82 ], [ 0, %_ZNK10LogicMTask8stepCostEv.exit ]
+  %90 = add i32 %.0.i.i, %65
+  %91 = add i32 %.0.i50, %.0
+  %92 = icmp ugt i32 %91, %90
+  %93 = zext i1 %92 to i8
+  %.sroa.230.0.insert.ext = zext i32 %91 to i64
   %.sroa.230.0.insert.shift = shl nuw i64 %.sroa.230.0.insert.ext, 32
   %.sroa.029.0.insert.ext = zext i32 %.0 to i64
   %.sroa.029.0.insert.insert = or disjoint i64 %.sroa.230.0.insert.shift, %.sroa.029.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.029.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %89, 1
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %93, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i8 } @_ZN11Contraction5newCpILN8GraphWay2enE1EEENS_5NewCpEP10LogicMTaskS5_P9MTaskEdge(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %55, label %5
+  br i1 %.not, label %59, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %9, label %32
+  br i1 %8, label %9, label %34
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -24555,152 +24555,152 @@ define linkonce_odr dso_local { i64, i8 } @_ZN11Contraction5newCpILN8GraphWay2en
   %.not11.i = icmp eq ptr %21, %3
   br i1 %.not11.i, label %22, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !72
-  %.not.i.i13.i = icmp eq ptr %24, null
-  br i1 %.not.i.i13.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %25
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !72
+  %.not.i.i13.i = icmp eq ptr %26, null
+  br i1 %.not.i.i13.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %27
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %24, align 8, !tbaa !72
-  %.not.i14.i = icmp eq ptr %26, null
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %26, align 8, !tbaa !72
+  %.not.i14.i = icmp eq ptr %28, null
   br i1 %.not.i14.i, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i
 
-_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i:   ; preds = %25
-  store ptr null, ptr %23, align 8, !tbaa !72
-  %27 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %24)
-  store ptr %27, ptr %23, align 8, !tbaa !72
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %23, ptr %28, align 8, !tbaa !75
+_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i:   ; preds = %27
+  store ptr null, ptr %25, align 8, !tbaa !72
+  %29 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %26)
+  store ptr %29, ptr %25, align 8, !tbaa !72
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %25, ptr %30, align 8, !tbaa !75
   %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !72
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   %.pre2.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
   %.not12.i = icmp eq ptr %.pre2.i.i, null
   br i1 %.not12.i, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i
 
-_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %25, %19
-  %.0.i1526.sink.i = phi ptr [ %20, %19 ], [ %.pre2.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %24, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i, i64 32
-  %30 = load i32, ptr %29, align 8, !tbaa !463
-  %31 = tail call i32 @llvm.umax.i32(i32 %11, i32 %30)
+_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %27, %19
+  %.0.i1526.sink.i = phi ptr [ %20, %19 ], [ %.pre2.i.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %26, %25 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i, i64 32
+  %32 = load i32, ptr %31, align 8, !tbaa !463
+  %33 = tail call i32 @llvm.umax.i32(i32 %11, i32 %32)
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
 
-32:                                               ; preds = %5
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %34 = load i32, ptr %33, align 4, !tbaa !71
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %36 = load ptr, ptr %35, align 8, !tbaa !72
-  %.not.i.i.i34 = icmp eq ptr %36, null
-  br i1 %.not.i.i.i34, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %37
+34:                                               ; preds = %5
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %36 = load i32, ptr %35, align 4, !tbaa !71
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %38 = load ptr, ptr %37, align 8, !tbaa !72
+  %.not.i.i.i34 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i34, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %39
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %36, align 8, !tbaa !72
-  %.not.i.i35 = icmp eq ptr %38, null
-  br i1 %.not.i.i35, label %42, label %39
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %38, align 8, !tbaa !72
+  %.not.i.i35 = icmp eq ptr %40, null
+  br i1 %.not.i.i35, label %44, label %41
 
-39:                                               ; preds = %37
-  store ptr null, ptr %35, align 8, !tbaa !72
-  %40 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %36)
-  store ptr %40, ptr %35, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %35, ptr %41, align 8, !tbaa !75
-  br label %42
+41:                                               ; preds = %39
+  store ptr null, ptr %37, align 8, !tbaa !72
+  %42 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %38)
+  store ptr %42, ptr %37, align 8, !tbaa !72
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store ptr %37, ptr %43, align 8, !tbaa !75
+  br label %44
 
-42:                                               ; preds = %39, %37
-  %43 = phi ptr [ %36, %37 ], [ %40, %39 ]
-  %44 = getelementptr i8, ptr %43, i64 -112
+44:                                               ; preds = %41, %39
+  %45 = phi ptr [ %38, %37 ], [ %42, %39 ]
+  %44 = getelementptr i8, ptr %45, i64 -112
   %.not11.i36 = icmp eq ptr %44, %3
   br i1 %.not11.i36, label %45, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !72
-  %.not.i.i13.i40 = icmp eq ptr %47, null
-  br i1 %.not.i.i13.i40, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %48
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !72
+  %.not.i.i13.i40 = icmp eq ptr %51, null
+  br i1 %.not.i.i13.i40, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %52
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %47, align 8, !tbaa !72
-  %.not.i14.i41 = icmp eq ptr %49, null
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %51, align 8, !tbaa !72
+  %.not.i14.i41 = icmp eq ptr %53, null
   br i1 %.not.i14.i41, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, label %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42
 
-_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42: ; preds = %48
-  store ptr null, ptr %46, align 8, !tbaa !72
-  %50 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %47)
-  store ptr %50, ptr %46, align 8, !tbaa !72
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %46, ptr %51, align 8, !tbaa !75
-  %.pre.i.i43 = load ptr, ptr %35, align 8, !tbaa !72
+_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42: ; preds = %52
+  store ptr null, ptr %50, align 8, !tbaa !72
+  %54 = tail call noundef ptr @_ZN11PairingHeapI7EdgeKeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %51)
+  store ptr %54, ptr %50, align 8, !tbaa !72
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store ptr %50, ptr %55, align 8, !tbaa !75
+  %.pre.i.i43 = load ptr, ptr %37, align 8, !tbaa !72
   %.phi.trans.insert.i.i44 = getelementptr inbounds nuw i8, ptr %.pre.i.i43, i64 8
   %.pre2.i.i45 = load ptr, ptr %.phi.trans.insert.i.i44, align 8, !tbaa !72
   %.not12.i46 = icmp eq ptr %.pre2.i.i45, null
   br i1 %.not12.i46, label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, label %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37
 
-_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %48, %42
-  %.0.i1526.sink.i38 = phi ptr [ %43, %42 ], [ %.pre2.i.i45, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %47, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i38, i64 32
-  %53 = load i32, ptr %52, align 8, !tbaa !463
-  %54 = tail call i32 @llvm.umax.i32(i32 %34, i32 %53)
+_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37: ; preds = %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %52, %44
+  %.0.i1526.sink.i38 = phi ptr [ %45, %42 ], [ %.pre2.i.i45, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %51, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i1526.sink.i38, i64 32
+  %57 = load i32, ptr %56, align 8, !tbaa !463
+  %58 = tail call i32 @llvm.umax.i32(i32 %36, i32 %57)
   br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
 
-55:                                               ; preds = %4
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %57 = load i32, ptr %56, align 4, !tbaa !71
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %59 = load i32, ptr %58, align 4, !tbaa !71
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %57, i32 %59)
-  br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
-
-_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %45, %32, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %22, %9, %55
-  %.0 = phi i32 [ %.sroa.speculated, %55 ], [ %11, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %11, %9 ], [ %11, %22 ], [ %31, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i ], [ %34, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %34, %32 ], [ %34, %45 ], [ %54, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37 ]
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 104
+59:                                               ; preds = %4
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %61 = load i32, ptr %60, align 4, !tbaa !71
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %63 = load i32, ptr %62, align 8, !tbaa !70
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %_ZNK10LogicMTask8stepCostEv.exit, label %65
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %63 = load i32, ptr %62, align 4, !tbaa !71
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %61, i32 %63)
+  br label %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
 
-65:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
-  %66 = uitofp i32 %63 to double
-  %67 = tail call double @log(double noundef %66) #31, !tbaa !71
-  %68 = fmul double %67, 2.000000e+01
-  %69 = tail call double @llvm.ceil.f64(double %68)
-  %70 = fdiv double %69, 2.000000e+01
-  %71 = tail call double @exp(double noundef %70) #31, !tbaa !71
-  %72 = fptoui double %71 to i32
-  %.pre = load i32, ptr %62, align 8, !tbaa !70
+_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit: ; preds = %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42, %49, %34, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i, %24, %9, %59
+  %.0 = phi i32 [ %.sroa.speculated, %55 ], [ %11, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i ], [ %11, %9 ], [ %11, %22 ], [ %33, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i ], [ %36, %_ZNK11PairingHeapI7EdgeKeyE9secondMaxEv.exit.i42 ], [ %36, %32 ], [ %36, %45 ], [ %58, %_ZNK11PairingHeapI7EdgeKeyE3maxEv.exit.sink.split.i37 ]
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %65 = load i32, ptr %64, align 4, !tbaa !71
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %67 = load i32, ptr %66, align 8, !tbaa !70
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZNK10LogicMTask8stepCostEv.exit, label %69
+
+69:                                               ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit
+  %70 = uitofp i32 %67 to double
+  %71 = tail call double @log(double noundef %70) #31, !tbaa !71
+  %72 = fmul double %71, 2.000000e+01
+  %73 = tail call double @llvm.ceil.f64(double %72)
+  %74 = fdiv double %73, 2.000000e+01
+  %75 = tail call double @exp(double noundef %74) #31, !tbaa !71
+  %76 = fptoui double %75 to i32
+  %.pre = load i32, ptr %66, align 8, !tbaa !70
   br label %_ZNK10LogicMTask8stepCostEv.exit
 
-_ZNK10LogicMTask8stepCostEv.exit:                 ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, %65
-  %73 = phi i32 [ %.pre, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit ]
-  %.0.i.i = phi i32 [ %72, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit ]
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %75 = load i32, ptr %74, align 8, !tbaa !70
-  %76 = add i32 %75, %73
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %_ZN10LogicMTask8stepCostEj.exit, label %78
+_ZNK10LogicMTask8stepCostEv.exit:                 ; preds = %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit, %69
+  %77 = phi i32 [ %.pre, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit ]
+  %.0.i.i = phi i32 [ %76, %65 ], [ 0, %_ZNK10LogicMTask19critPathCostWithoutILN8GraphWay2enE1EEEjPK11V3GraphEdge.exit ]
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %79 = load i32, ptr %78, align 8, !tbaa !70
+  %80 = add i32 %79, %77
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %_ZN10LogicMTask8stepCostEj.exit, label %82
 
-78:                                               ; preds = %_ZNK10LogicMTask8stepCostEv.exit
-  %79 = uitofp i32 %76 to double
-  %80 = tail call double @log(double noundef %79) #31, !tbaa !71
-  %81 = fmul double %80, 2.000000e+01
-  %82 = tail call double @llvm.ceil.f64(double %81)
-  %83 = fdiv double %82, 2.000000e+01
-  %84 = tail call double @exp(double noundef %83) #31, !tbaa !71
-  %85 = fptoui double %84 to i32
+82:                                               ; preds = %_ZNK10LogicMTask8stepCostEv.exit
+  %83 = uitofp i32 %80 to double
+  %84 = tail call double @log(double noundef %83) #31, !tbaa !71
+  %85 = fmul double %84, 2.000000e+01
+  %86 = tail call double @llvm.ceil.f64(double %85)
+  %87 = fdiv double %86, 2.000000e+01
+  %88 = tail call double @exp(double noundef %87) #31, !tbaa !71
+  %89 = fptoui double %88 to i32
   br label %_ZN10LogicMTask8stepCostEj.exit
 
-_ZN10LogicMTask8stepCostEj.exit:                  ; preds = %_ZNK10LogicMTask8stepCostEv.exit, %78
-  %.0.i50 = phi i32 [ %85, %78 ], [ 0, %_ZNK10LogicMTask8stepCostEv.exit ]
-  %86 = add i32 %.0.i.i, %61
-  %87 = add i32 %.0.i50, %.0
-  %88 = icmp ugt i32 %87, %86
-  %89 = zext i1 %88 to i8
-  %.sroa.230.0.insert.ext = zext i32 %87 to i64
+_ZN10LogicMTask8stepCostEj.exit:                  ; preds = %_ZNK10LogicMTask8stepCostEv.exit, %82
+  %.0.i50 = phi i32 [ %89, %82 ], [ 0, %_ZNK10LogicMTask8stepCostEv.exit ]
+  %90 = add i32 %.0.i.i, %65
+  %91 = add i32 %.0.i50, %.0
+  %92 = icmp ugt i32 %91, %90
+  %93 = zext i1 %92 to i8
+  %.sroa.230.0.insert.ext = zext i32 %91 to i64
   %.sroa.230.0.insert.shift = shl nuw i64 %.sroa.230.0.insert.ext, 32
   %.sroa.029.0.insert.ext = zext i32 %.0 to i64
   %.sroa.029.0.insert.insert = or disjoint i64 %.sroa.230.0.insert.shift, %.sroa.029.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.029.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %89, 1
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %93, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
