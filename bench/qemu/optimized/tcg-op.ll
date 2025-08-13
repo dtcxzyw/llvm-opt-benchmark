@@ -6695,11 +6695,7 @@ tcg_gen_extract2_i64.exit:                        ; preds = %19, %32
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_extr_i128_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, %2
-  br i1 %4, label %.tcg_gen_mov_i64.exit_crit_edge, label %5
-
-.tcg_gen_mov_i64.exit_crit_edge:                  ; preds = %3
-  %.pre = ptrtoint ptr %2 to i64
-  br label %tcg_gen_mov_i64.exit
+  br i1 %4, label %tcg_gen_mov_i64.exit, label %5
 
 5:                                                ; preds = %3
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -6713,36 +6709,32 @@ define dso_local void @tcg_gen_extr_i128_i64(ptr noundef %0, ptr noundef %1, ptr
   %14 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %10, i64 noundef %13)
   br label %tcg_gen_mov_i64.exit
 
-tcg_gen_mov_i64.exit:                             ; preds = %.tcg_gen_mov_i64.exit_crit_edge, %5
-  %.pre-phi = phi i64 [ %.pre, %.tcg_gen_mov_i64.exit_crit_edge ], [ %11, %5 ]
-  %15 = add nuw nsw i64 %.pre-phi, 56
-  %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %1, %16
-  br i1 %17, label %tcg_gen_mov_i64.exit4, label %18
+tcg_gen_mov_i64.exit:                             ; preds = %3, %5
+  %15 = getelementptr i8, ptr %2, i64 56
+  %16 = icmp eq ptr %1, %15
+  br i1 %16, label %tcg_gen_mov_i64.exit4, label %17
 
-18:                                               ; preds = %tcg_gen_mov_i64.exit
+17:                                               ; preds = %tcg_gen_mov_i64.exit
+  %18 = ptrtoint ptr %2 to i64
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %1 to i64
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = ptrtoint ptr %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %15
-  %25 = ptrtoint ptr %24 to i64
-  %26 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %23, i64 noundef %25)
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %18
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %26 = ptrtoint ptr %25 to i64
+  %27 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %23, i64 noundef %26)
   br label %tcg_gen_mov_i64.exit4
 
-tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %18
+tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %17
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_concat_i64_i128(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.tcg_gen_mov_i64.exit_crit_edge, label %5
-
-.tcg_gen_mov_i64.exit_crit_edge:                  ; preds = %3
-  %.pre = ptrtoint ptr %0 to i64
-  br label %tcg_gen_mov_i64.exit
+  br i1 %4, label %tcg_gen_mov_i64.exit, label %5
 
 5:                                                ; preds = %3
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -6756,25 +6748,25 @@ define dso_local void @tcg_gen_concat_i64_i128(ptr noundef %0, ptr noundef %1, p
   %14 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %10, i64 noundef %13)
   br label %tcg_gen_mov_i64.exit
 
-tcg_gen_mov_i64.exit:                             ; preds = %.tcg_gen_mov_i64.exit_crit_edge, %5
-  %.pre-phi = phi i64 [ %.pre, %.tcg_gen_mov_i64.exit_crit_edge ], [ %8, %5 ]
-  %15 = add nuw nsw i64 %.pre-phi, 56
-  %16 = inttoptr i64 %15 to ptr
-  %17 = icmp eq ptr %2, %16
-  br i1 %17, label %tcg_gen_mov_i64.exit4, label %18
+tcg_gen_mov_i64.exit:                             ; preds = %3, %5
+  %15 = getelementptr i8, ptr %0, i64 56
+  %16 = icmp eq ptr %15, %2
+  br i1 %16, label %tcg_gen_mov_i64.exit4, label %17
 
-18:                                               ; preds = %tcg_gen_mov_i64.exit
+17:                                               ; preds = %tcg_gen_mov_i64.exit
+  %18 = ptrtoint ptr %0 to i64
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %15
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %2 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
-  %25 = ptrtoint ptr %24 to i64
-  %26 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %22, i64 noundef %25)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %23 = ptrtoint ptr %22 to i64
+  %24 = ptrtoint ptr %2 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
+  %26 = ptrtoint ptr %25 to i64
+  %27 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %23, i64 noundef %26)
   br label %tcg_gen_mov_i64.exit4
 
-tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %18
+tcg_gen_mov_i64.exit4:                            ; preds = %tcg_gen_mov_i64.exit, %17
   ret void
 }
 
