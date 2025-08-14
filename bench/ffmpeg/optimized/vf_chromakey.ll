@@ -439,9 +439,9 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
   %12 = load i16, ptr %11, align 4, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 14
   %14 = load i16, ptr %13, align 2, !tbaa !55
-  br label %118
+  br label %119
 
-.preheader48:                                     ; preds = %118
+.preheader48:                                     ; preds = %119
   %15 = mul nsw i32 %.fr, %2
   %16 = sdiv i32 %15, %3
   %17 = add nsw i32 %2, 1
@@ -496,7 +496,6 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
 
 53:                                               ; preds = %.preheader47.us, %do_chromakey_pixel16.exit.us
   %indvars.iv70 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next71, %do_chromakey_pixel16.exit.us ]
-  %invariant.op = add nsw i64 %indvars.iv70, -1
   br label %.preheader.us
 
 54:                                               ; preds = %.split.us55
@@ -558,54 +557,54 @@ do_chromakey_pixel16.exit.us:                     ; preds = %80, %77
 
 .preheader.split.us58:                            ; preds = %.preheader.us, %get_pixel16_uv.exit.us57
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %get_pixel16_uv.exit.us57 ], [ 0, %.preheader.us ]
-  %.reass = add i64 %indvars.iv62, %invariant.op
-  %or.cond = icmp ult i64 %.reass, %48
-  br i1 %or.cond, label %88, label %get_pixel16_uv.exit.us57
+  %88 = add nuw nsw i64 %indvars.iv62, %indvars.iv70
+  %89 = add nsw i64 %88, -1
+  %or.cond = icmp ult i64 %89, %48
+  br i1 %or.cond, label %90, label %get_pixel16_uv.exit.us57
 
-88:                                               ; preds = %.preheader.split.us58
-  %89 = add nuw nsw i64 %indvars.iv62, %indvars.iv70
-  %90 = add nuw nsw i64 %indvars.iv62, %114
-  %91 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %90
-  %92 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %90
-  %93 = trunc i64 %89 to i32
-  %94 = add i32 %93, -1
-  %95 = lshr i32 %94, %37
-  %96 = load ptr, ptr %24, align 8, !tbaa !61
-  %97 = load i32, ptr %25, align 4, !tbaa !62
-  %98 = mul nsw i32 %97, %116
-  %99 = shl nuw nsw i32 %95, 1
-  %100 = add nsw i32 %98, %99
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %96, i64 %101
-  %103 = load i16, ptr %102, align 1, !tbaa !54
-  store i16 %103, ptr %92, align 2, !tbaa !55
-  %104 = load ptr, ptr %26, align 8, !tbaa !61
-  %105 = load i32, ptr %27, align 8, !tbaa !62
-  %106 = mul nsw i32 %105, %116
-  %107 = add nsw i32 %106, %99
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %104, i64 %108
-  %110 = load i16, ptr %109, align 1, !tbaa !54
-  store i16 %110, ptr %91, align 2, !tbaa !55
+90:                                               ; preds = %.preheader.split.us58
+  %91 = add nuw nsw i64 %indvars.iv62, %115
+  %92 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %91
+  %93 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %91
+  %94 = trunc i64 %88 to i32
+  %95 = add i32 %94, -1
+  %96 = lshr i32 %95, %37
+  %97 = load ptr, ptr %24, align 8, !tbaa !61
+  %98 = load i32, ptr %25, align 4, !tbaa !62
+  %99 = mul nsw i32 %98, %117
+  %100 = shl nuw nsw i32 %96, 1
+  %101 = add nsw i32 %99, %100
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i8, ptr %97, i64 %102
+  %104 = load i16, ptr %103, align 1, !tbaa !54
+  store i16 %104, ptr %93, align 2, !tbaa !55
+  %105 = load ptr, ptr %26, align 8, !tbaa !61
+  %106 = load i32, ptr %27, align 8, !tbaa !62
+  %107 = mul nsw i32 %106, %117
+  %108 = add nsw i32 %107, %100
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %105, i64 %109
+  %111 = load i16, ptr %110, align 1, !tbaa !54
+  store i16 %111, ptr %92, align 2, !tbaa !55
   br label %get_pixel16_uv.exit.us57
 
-get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.split.us58
+get_pixel16_uv.exit.us57:                         ; preds = %90, %.preheader.split.us58
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
   br i1 %exitcond65.not, label %.split.us55, label %.preheader.split.us58, !llvm.loop !74
 
 .preheader.us:                                    ; preds = %.split.us55, %53
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.split.us55 ], [ 0, %53 ]
-  %111 = add nsw i64 %indvars.iv66, %indvars.iv74
-  %.fr79 = freeze i64 %111
-  %112 = trunc i64 %.fr79 to i32
-  %113 = add nsw i32 %112, -1
-  %114 = mul nuw nsw i64 %indvars.iv66, 3
-  %115 = icmp sgt i32 %112, 0
-  %.not.i.us = icmp sge i32 %.fr, %112
-  %116 = lshr i32 %113, %38
-  %117 = and i1 %.not.i.us, %115
-  br i1 %117, label %.preheader.split.us58, label %.split.us55
+  %112 = add nsw i64 %indvars.iv66, %indvars.iv74
+  %.fr79 = freeze i64 %112
+  %113 = trunc i64 %.fr79 to i32
+  %114 = add nsw i32 %113, -1
+  %115 = mul nuw nsw i64 %indvars.iv66, 3
+  %116 = icmp sgt i32 %113, 0
+  %.not.i.us = icmp sge i32 %.fr, %113
+  %117 = lshr i32 %114, %38
+  %118 = and i1 %.not.i.us, %116
+  br i1 %118, label %.preheader.split.us58, label %.split.us55
 
 .split.us55:                                      ; preds = %get_pixel16_uv.exit.us57, %.preheader.us
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -617,15 +616,15 @@ get_pixel16_uv.exit.us57:                         ; preds = %88, %.preheader.spl
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge54, label %.preheader47.us, !llvm.loop !76
 
-118:                                              ; preds = %4, %118
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %118 ]
-  %119 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %indvars.iv
-  store i16 %12, ptr %119, align 2, !tbaa !55
-  %120 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %indvars.iv
-  store i16 %14, ptr %120, align 2, !tbaa !55
+119:                                              ; preds = %4, %119
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %119 ]
+  %120 = getelementptr inbounds nuw [9 x i16], ptr %5, i64 0, i64 %indvars.iv
+  store i16 %12, ptr %120, align 2, !tbaa !55
+  %121 = getelementptr inbounds nuw [9 x i16], ptr %6, i64 0, i64 %indvars.iv
+  store i16 %14, ptr %121, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.preheader48, label %118, !llvm.loop !78
+  br i1 %exitcond.not, label %.preheader48, label %119, !llvm.loop !78
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %.preheader47.lr.ph, %.preheader48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

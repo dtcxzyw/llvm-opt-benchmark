@@ -680,8 +680,8 @@ php_sprintf_get_argnum.exit234:                   ; preds = %php_sprintf_getnumb
   %234 = select i1 %.not.i.i229, i64 0, i64 %.neg.i.i230
   %.11367 = select i1 %.not.i.i229, ptr %218, ptr %229
   %235 = getelementptr inbounds nuw i8, ptr %.11367, i64 1
-  %.11.reass = add i64 %.5352, -2
-  %236 = add i64 %.11.reass, %234
+  %.11 = add i64 %.5352, -2
+  %236 = add i64 %.11, %234
   %237 = add nsw i32 %.0.i.i233, -1
   br label %240
 
@@ -828,8 +828,8 @@ php_sprintf_get_argnum.exit246:                   ; preds = %php_sprintf_getnumb
   %298 = select i1 %.not.i.i241, i64 0, i64 %.neg.i.i242
   %.14370 = select i1 %.not.i.i241, ptr %282, ptr %293
   %299 = getelementptr inbounds nuw i8, ptr %.14370, i64 1
-  %.14.reass = add i64 %.7354, -3
-  %300 = add i64 %.14.reass, %298
+  %.14 = add i64 %.7354, -3
+  %300 = add i64 %.14, %298
   %301 = add nsw i32 %.0.i.i245, -1
   br label %304
 

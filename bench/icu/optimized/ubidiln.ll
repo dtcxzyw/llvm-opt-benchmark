@@ -2161,12 +2161,11 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 .preheader171.outer:                              ; preds = %132, %141
   %.0128.ph = phi i32 [ %142, %141 ], [ 0, %132 ]
   %.0.ph = phi i32 [ %.0, %141 ], [ %46, %132 ]
-  %invariant.op = add i32 %.0128.ph, 1
   br label %.preheader171
 
 143:                                              ; preds = %.preheader171
-  %.off.reass = add i32 %.0, %invariant.op
-  %144 = icmp ult i32 %.off.reass, 3
+  %.off = add i32 %136, 1
+  %144 = icmp ult i32 %.off, 3
   br i1 %144, label %.loopexit, label %145
 
 145:                                              ; preds = %143

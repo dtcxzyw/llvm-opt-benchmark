@@ -17756,7 +17756,6 @@ define void @_Z38putUpdateGroupAtomsInSamePeriodicImageRK12gmx_domdec_tRK10gmx_m
   %26 = phi ptr [ %.pre, %.preheader76.lr.ph ], [ %37, %_ZNK3gmx17RangePartitioning9fullRangeEv.exit ]
   %.1109 = phi i32 [ %.045114, %.preheader76.lr.ph ], [ %42, %_ZNK3gmx17RangePartitioning9fullRangeEv.exit ]
   %.046108 = phi i32 [ 0, %.preheader76.lr.ph ], [ %43, %_ZNK3gmx17RangePartitioning9fullRangeEv.exit ]
-  %invariant.op = add i32 %.1109, 1
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %25 to i64
   %29 = sub i64 %27, %28
@@ -17810,22 +17809,22 @@ _ZNK3gmx17RangePartitioning9fullRangeEv.exit:     ; preds = %._crit_edge106
   unreachable
 
 _ZNK3gmx17RangePartitioning5blockEi.exit:         ; preds = %.lr.ph105
-  %54 = add nsw i32 %52, %.1109
-  %.044101.reass = add i32 %50, %invariant.op
-  %55 = icmp slt i32 %.044101.reass, %54
-  br i1 %55, label %.preheader75.lr.ph, label %._crit_edge103
+  %54 = add nsw i32 %50, %.1109
+  %55 = add nsw i32 %52, %.1109
+  %.044101 = add nsw i32 %54, 1
+  %56 = icmp slt i32 %.044101, %55
+  br i1 %56, label %.preheader75.lr.ph, label %._crit_edge103
 
 .preheader75.lr.ph:                               ; preds = %_ZNK3gmx17RangePartitioning5blockEi.exit
-  %56 = add nsw i32 %50, %.1109
-  %57 = sext i32 %56 to i64
+  %57 = sext i32 %54 to i64
   %58 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %3, i64 %57
-  %59 = sext i32 %.044101.reass to i64
+  %59 = sext i32 %.044101 to i64
   br label %.preheader75
 
 .loopexit:                                        ; preds = %._crit_edge
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next122 to i32
-  %exitcond.not = icmp eq i32 %54, %lftr.wideiv
+  %exitcond.not = icmp eq i32 %55, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge103.loopexit, label %.preheader75, !llvm.loop !906
 
 .preheader75:                                     ; preds = %.preheader75.lr.ph, %.loopexit

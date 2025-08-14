@@ -3598,7 +3598,7 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 8:                                                ; preds = %5
   %9 = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #29
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %87, label %.preheader
+  br i1 %10, label %90, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = add nsw i32 %3, -1
@@ -3610,15 +3610,14 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 .lr.ph:                                           ; preds = %.preheader
   %15 = icmp eq i32 %3, 1
   %16 = zext nneg i32 %3 to i64
-  %invariant.op = add nsw i64 %16, -1
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %42
-  %.06081.us = phi ptr [ %.1.us, %42 ], [ %9, %.lr.ph ]
-  %.06180.us = phi i64 [ %43, %42 ], [ 0, %.lr.ph ]
-  %.06379.us = phi i64 [ %.164.us, %42 ], [ 0, %.lr.ph ]
-  %.06578.us = phi i32 [ %.166.us, %42 ], [ 5, %.lr.ph ]
-  %.06777.us = phi i32 [ %.168.us, %42 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %43
+  %.06081.us = phi ptr [ %.1.us, %43 ], [ %9, %.lr.ph ]
+  %.06180.us = phi i64 [ %44, %43 ], [ 0, %.lr.ph ]
+  %.06379.us = phi i64 [ %.164.us, %43 ], [ 0, %.lr.ph ]
+  %.06578.us = phi i32 [ %.166.us, %43 ], [ 5, %.lr.ph ]
+  %.06777.us = phi i32 [ %.168.us, %43 ], [ 0, %.lr.ph ]
   %17 = add nsw i32 %.06777.us, 2
   %18 = icmp slt i32 %.06578.us, %17
   br i1 %18, label %19, label %25
@@ -3634,7 +3633,7 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 25:                                               ; preds = %19, %.lr.ph.split.us
   %.166.us = phi i32 [ %20, %19 ], [ %.06578.us, %.lr.ph.split.us ]
   %.1.us = phi ptr [ %23, %19 ], [ %.06081.us, %.lr.ph.split.us ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.06180.us
+  %26 = getelementptr inbounds i8, ptr %0, i64 %.06180.us
   %27 = load i8, ptr %26, align 1, !tbaa !13
   %28 = load i8, ptr %2, align 1, !tbaa !13
   %29 = icmp eq i8 %27, %28
@@ -3643,7 +3642,7 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 30:                                               ; preds = %25
   %bcmp.us = tail call i32 @bcmp(ptr nonnull %26, ptr nonnull %2, i64 %16)
   %31 = icmp eq i32 %bcmp.us, 0
-  br i1 %31, label %32, label %42
+  br i1 %31, label %32, label %43
 
 32:                                               ; preds = %30, %25
   %33 = getelementptr inbounds i8, ptr %0, i64 %.06379.us
@@ -3657,88 +3656,90 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 
 39:                                               ; preds = %32
   %40 = add nsw i32 %.06777.us, 1
-  %41 = add nuw nsw i64 %.06180.us, %16
-  br label %42
+  %41 = add nsw i64 %.06180.us, %16
+  %42 = add nsw i64 %41, -1
+  br label %43
 
-42:                                               ; preds = %39, %30
+43:                                               ; preds = %39, %30
   %.168.us = phi i32 [ %40, %39 ], [ %.06777.us, %30 ]
   %.164.us = phi i64 [ %41, %39 ], [ %.06379.us, %30 ]
-  %43 = add nuw nsw i64 %.06180.us, 1
-  %exitcond.not = icmp eq i64 %43, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  %.162.us = phi i64 [ %42, %39 ], [ %.06180.us, %30 ]
+  %44 = add nsw i64 %.162.us, 1
+  %45 = icmp slt i64 %44, %13
+  br i1 %45, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !30
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %65
-  %.06081 = phi ptr [ %.1, %65 ], [ %9, %.lr.ph ]
-  %.06180 = phi i64 [ %66, %65 ], [ 0, %.lr.ph ]
-  %.06379 = phi i64 [ %.164, %65 ], [ 0, %.lr.ph ]
-  %.06578 = phi i32 [ %.166, %65 ], [ 5, %.lr.ph ]
-  %.06777 = phi i32 [ %.168, %65 ], [ 0, %.lr.ph ]
-  %44 = add nsw i32 %.06777, 2
-  %45 = icmp slt i32 %.06578, %44
-  br i1 %45, label %46, label %52
+.lr.ph.split:                                     ; preds = %.lr.ph, %68
+  %.06081 = phi ptr [ %.1, %68 ], [ %9, %.lr.ph ]
+  %.06180 = phi i64 [ %69, %68 ], [ 0, %.lr.ph ]
+  %.06379 = phi i64 [ %.164, %68 ], [ 0, %.lr.ph ]
+  %.06578 = phi i32 [ %.166, %68 ], [ 5, %.lr.ph ]
+  %.06777 = phi i32 [ %.168, %68 ], [ 0, %.lr.ph ]
+  %46 = add nsw i32 %.06777, 2
+  %47 = icmp slt i32 %.06578, %46
+  br i1 %47, label %48, label %54
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = shl nsw i32 %.06578, 1
-  %48 = sext i32 %47 to i64
-  %49 = shl nsw i64 %48, 3
-  %50 = tail call ptr @zrealloc(ptr noundef %.06081, i64 noundef %49) #28
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %52
+48:                                               ; preds = %.lr.ph.split
+  %49 = shl nsw i32 %.06578, 1
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 3
+  %52 = tail call ptr @zrealloc(ptr noundef %.06081, i64 noundef %51) #28
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.loopexit, label %54
 
-52:                                               ; preds = %46, %.lr.ph.split
-  %.166 = phi i32 [ %47, %46 ], [ %.06578, %.lr.ph.split ]
-  %.1 = phi ptr [ %50, %46 ], [ %.06081, %.lr.ph.split ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 %.06180
-  %bcmp = tail call i32 @bcmp(ptr %53, ptr %2, i64 %16)
-  %54 = icmp eq i32 %bcmp, 0
-  br i1 %54, label %55, label %65
+54:                                               ; preds = %48, %.lr.ph.split
+  %.166 = phi i32 [ %49, %48 ], [ %.06578, %.lr.ph.split ]
+  %.1 = phi ptr [ %52, %48 ], [ %.06081, %.lr.ph.split ]
+  %55 = getelementptr inbounds i8, ptr %0, i64 %.06180
+  %bcmp = tail call i32 @bcmp(ptr %55, ptr %2, i64 %16)
+  %56 = icmp eq i32 %bcmp, 0
+  br i1 %56, label %57, label %68
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 %.06379
-  %57 = sub nsw i64 %.06180, %.06379
-  %58 = tail call ptr @_sdsnewlen(ptr noundef readonly %56, i64 noundef %57, i32 noundef 0)
-  %59 = sext i32 %.06777 to i64
-  %60 = getelementptr inbounds ptr, ptr %.1, i64 %59
-  store ptr %58, ptr %60, align 8, !tbaa !6
-  %61 = icmp eq ptr %58, null
-  br i1 %61, label %.loopexit, label %62
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %0, i64 %.06379
+  %59 = sub nsw i64 %.06180, %.06379
+  %60 = tail call ptr @_sdsnewlen(ptr noundef readonly %58, i64 noundef %59, i32 noundef 0)
+  %61 = sext i32 %.06777 to i64
+  %62 = getelementptr inbounds ptr, ptr %.1, i64 %61
+  store ptr %60, ptr %62, align 8, !tbaa !6
+  %63 = icmp eq ptr %60, null
+  br i1 %63, label %.loopexit, label %64
 
-62:                                               ; preds = %55
-  %63 = add nsw i32 %.06777, 1
-  %64 = add nsw i64 %.06180, %16
-  %.reass = add i64 %.06180, %invariant.op
-  br label %65
+64:                                               ; preds = %57
+  %65 = add nsw i32 %.06777, 1
+  %66 = add nsw i64 %.06180, %16
+  %67 = add nsw i64 %66, -1
+  br label %68
 
-65:                                               ; preds = %52, %62
-  %.168 = phi i32 [ %63, %62 ], [ %.06777, %52 ]
-  %.164 = phi i64 [ %64, %62 ], [ %.06379, %52 ]
-  %.162 = phi i64 [ %.reass, %62 ], [ %.06180, %52 ]
-  %66 = add nsw i64 %.162, 1
-  %67 = icmp slt i64 %66, %13
-  br i1 %67, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
+68:                                               ; preds = %54, %64
+  %.168 = phi i32 [ %65, %64 ], [ %.06777, %54 ]
+  %.164 = phi i64 [ %66, %64 ], [ %.06379, %54 ]
+  %.162 = phi i64 [ %67, %64 ], [ %.06180, %54 ]
+  %69 = add nsw i64 %.162, 1
+  %70 = icmp slt i64 %69, %13
+  br i1 %70, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %65, %42, %.preheader
-  %.067.lcssa = phi i32 [ 0, %.preheader ], [ %.168.us, %42 ], [ %.168, %65 ]
-  %.063.lcssa = phi i64 [ 0, %.preheader ], [ %.164.us, %42 ], [ %.164, %65 ]
-  %.060.lcssa = phi ptr [ %9, %.preheader ], [ %.1.us, %42 ], [ %.1, %65 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 %.063.lcssa
-  %69 = sub nsw i64 %1, %.063.lcssa
-  %70 = tail call ptr @_sdsnewlen(ptr noundef readonly %68, i64 noundef %69, i32 noundef 0)
-  %71 = sext i32 %.067.lcssa to i64
-  %72 = getelementptr inbounds ptr, ptr %.060.lcssa, i64 %71
-  store ptr %70, ptr %72, align 8, !tbaa !6
-  %73 = icmp eq ptr %70, null
-  br i1 %73, label %.loopexit, label %74
+._crit_edge:                                      ; preds = %68, %43, %.preheader
+  %.067.lcssa = phi i32 [ 0, %.preheader ], [ %.168.us, %43 ], [ %.168, %68 ]
+  %.063.lcssa = phi i64 [ 0, %.preheader ], [ %.164.us, %43 ], [ %.164, %68 ]
+  %.060.lcssa = phi ptr [ %9, %.preheader ], [ %.1.us, %43 ], [ %.1, %68 ]
+  %71 = getelementptr inbounds i8, ptr %0, i64 %.063.lcssa
+  %72 = sub nsw i64 %1, %.063.lcssa
+  %73 = tail call ptr @_sdsnewlen(ptr noundef readonly %71, i64 noundef %72, i32 noundef 0)
+  %74 = sext i32 %.067.lcssa to i64
+  %75 = getelementptr inbounds ptr, ptr %.060.lcssa, i64 %74
+  store ptr %73, ptr %75, align 8, !tbaa !6
+  %76 = icmp eq ptr %73, null
+  br i1 %76, label %.loopexit, label %77
 
-74:                                               ; preds = %._crit_edge
-  %75 = add nsw i32 %.067.lcssa, 1
+77:                                               ; preds = %._crit_edge
+  %78 = add nsw i32 %.067.lcssa, 1
   br label %.sink.split
 
-.loopexit:                                        ; preds = %55, %46, %32, %19, %._crit_edge
-  %.06776 = phi i32 [ %.067.lcssa, %._crit_edge ], [ %.06777.us, %19 ], [ %.06777.us, %32 ], [ %.06777, %46 ], [ %.06777, %55 ]
-  %.3 = phi ptr [ %.060.lcssa, %._crit_edge ], [ %.1.us, %32 ], [ %.06081.us, %19 ], [ %.1, %55 ], [ %.06081, %46 ]
-  %76 = icmp sgt i32 %.06776, 0
-  br i1 %76, label %.lr.ph90.preheader, label %._crit_edge91
+.loopexit:                                        ; preds = %57, %48, %32, %19, %._crit_edge
+  %.06776 = phi i32 [ %.067.lcssa, %._crit_edge ], [ %.06777.us, %19 ], [ %.06777.us, %32 ], [ %.06777, %48 ], [ %.06777, %57 ]
+  %.3 = phi ptr [ %.060.lcssa, %._crit_edge ], [ %.1.us, %32 ], [ %.06081.us, %19 ], [ %.1, %57 ], [ %.06081, %48 ]
+  %79 = icmp sgt i32 %.06776, 0
+  br i1 %79, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %.06776 to i64
@@ -3746,46 +3747,46 @@ define dso_local ptr @sdssplitlen(ptr noundef readonly captures(address) %0, i64
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %sdsfree.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next, %sdsfree.exit ]
-  %77 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8, !tbaa !6
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %sdsfree.exit, label %80
+  %80 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv
+  %81 = load ptr, ptr %80, align 8, !tbaa !6
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %sdsfree.exit, label %83
 
-80:                                               ; preds = %.lr.ph90
-  %81 = getelementptr inbounds i8, ptr %78, i64 -1
-  %82 = load i8, ptr %81, align 1, !tbaa !13
-  %83 = and i8 %82, 7
-  %84 = icmp samesign ult i8 %83, 5
-  br i1 %84, label %switch.lookup, label %sdsHdrSize.exit.i
+83:                                               ; preds = %.lr.ph90
+  %84 = getelementptr inbounds i8, ptr %81, i64 -1
+  %85 = load i8, ptr %84, align 1, !tbaa !13
+  %86 = and i8 %85, 7
+  %87 = icmp samesign ult i8 %86, 5
+  br i1 %87, label %switch.lookup, label %sdsHdrSize.exit.i
 
-switch.lookup:                                    ; preds = %80
-  %85 = zext nneg i8 %83 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %85
+switch.lookup:                                    ; preds = %83
+  %88 = zext nneg i8 %86 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %88
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
-sdsHdrSize.exit.i:                                ; preds = %80, %switch.lookup
-  %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %80 ]
-  %86 = getelementptr inbounds i8, ptr %78, i64 %.0.i.neg.i
-  tail call void @zfree(ptr noundef nonnull %86) #25
+sdsHdrSize.exit.i:                                ; preds = %83, %switch.lookup
+  %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %83 ]
+  %89 = getelementptr inbounds i8, ptr %81, i64 %.0.i.neg.i
+  tail call void @zfree(ptr noundef nonnull %89) #25
   br label %sdsfree.exit
 
 sdsfree.exit:                                     ; preds = %.lr.ph90, %sdsHdrSize.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond98.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !33
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !33
 
 ._crit_edge91:                                    ; preds = %sdsfree.exit, %.loopexit
   tail call void @zfree(ptr noundef %.3) #25
   br label %.sink.split
 
-.sink.split:                                      ; preds = %5, %74, %._crit_edge91
-  %.sink = phi i32 [ 0, %._crit_edge91 ], [ %75, %74 ], [ 0, %5 ]
-  %.058.ph = phi ptr [ null, %._crit_edge91 ], [ %.060.lcssa, %74 ], [ null, %5 ]
+.sink.split:                                      ; preds = %5, %77, %._crit_edge91
+  %.sink = phi i32 [ 0, %._crit_edge91 ], [ %78, %77 ], [ 0, %5 ]
+  %.058.ph = phi ptr [ null, %._crit_edge91 ], [ %.060.lcssa, %77 ], [ null, %5 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !16
-  br label %87
+  br label %90
 
-87:                                               ; preds = %.sink.split, %8
+90:                                               ; preds = %.sink.split, %8
   %.058 = phi ptr [ null, %8 ], [ %.058.ph, %.sink.split ]
   ret ptr %.058
 }

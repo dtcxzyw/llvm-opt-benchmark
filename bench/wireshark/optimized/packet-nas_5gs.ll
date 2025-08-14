@@ -7391,12 +7391,10 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_ext_ladn_info(ptr noundef %0,
 .lr.ph:                                           ; preds = %7
   %10 = icmp ugt i32 %4, 100
   %11 = and i32 %4, 65535
-  %invariant.op = add nuw nsw i32 %11, 1
-  %invariant.op43 = add nuw nsw i32 %11, 2
   br label %12
 
 12:                                               ; preds = %.lr.ph, %de_nas_5gs_cmn_dnn.exit
-  %.042 = phi i32 [ %3, %.lr.ph ], [ %35, %de_nas_5gs_cmn_dnn.exit ]
+  %.042 = phi i32 [ %3, %.lr.ph ], [ %37, %de_nas_5gs_cmn_dnn.exit ]
   %.03941 = phi i32 [ 1, %.lr.ph ], [ %14, %de_nas_5gs_cmn_dnn.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7415,33 +7413,33 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_ext_ladn_info(ptr noundef %0,
   br label %de_nas_5gs_cmn_dnn.exit
 
 de_nas_5gs_cmn_dnn.exit:                          ; preds = %12, %21
-  %.reass = add i32 %.042, %invariant.op
-  %23 = load i32, ptr @hf_nas_5gs_mm_length, align 4
-  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %23, ptr noundef %0, i32 noundef %.reass, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %.reass44 = add i32 %.042, %invariant.op43
-  %25 = load i32, ptr %9, align 4
-  %26 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %15, ptr poison, i32 noundef %.reass44, i32 noundef %25, ptr poison, i32 poison)
-  %27 = zext i16 %26 to i32
-  %28 = add i32 %.reass44, %27
-  %29 = load i32, ptr @hf_nas_5gs_mm_length, align 4
-  %30 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %31 = add i32 %28, 1
-  %32 = load i32, ptr %9, align 4
-  %33 = call zeroext i16 @de_nas_5gs_mm_5gs_ta_id_list(ptr noundef %0, ptr noundef %15, ptr noundef %2, i32 noundef %31, i32 noundef %32, ptr poison, i32 poison)
-  %34 = zext i16 %33 to i32
-  %35 = add i32 %31, %34
-  %36 = load ptr, ptr %8, align 8
-  %37 = sub i32 %35, %.042
-  call void @proto_item_set_len(ptr noundef %36, i32 noundef %37)
+  %23 = add i32 %18, %11
+  %24 = load i32, ptr @hf_nas_5gs_mm_length, align 4
+  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %26 = add i32 %23, 1
+  %27 = load i32, ptr %9, align 4
+  %28 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %15, ptr poison, i32 noundef %26, i32 noundef %27, ptr poison, i32 poison)
+  %29 = zext i16 %28 to i32
+  %30 = add i32 %26, %29
+  %31 = load i32, ptr @hf_nas_5gs_mm_length, align 4
+  %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %33 = add i32 %30, 1
+  %34 = load i32, ptr %9, align 4
+  %35 = call zeroext i16 @de_nas_5gs_mm_5gs_ta_id_list(ptr noundef %0, ptr noundef %15, ptr noundef %2, i32 noundef %33, i32 noundef %34, ptr poison, i32 poison)
+  %36 = zext i16 %35 to i32
+  %37 = add i32 %33, %36
+  %38 = load ptr, ptr %8, align 8
+  %39 = sub i32 %37, %.042
+  call void @proto_item_set_len(ptr noundef %38, i32 noundef %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %38 = sub i32 %35, %3
-  %39 = icmp ult i32 %38, %4
-  br i1 %39, label %12, label %._crit_edge, !llvm.loop !48
+  %40 = sub i32 %37, %3
+  %41 = icmp ult i32 %40, %4
+  br i1 %41, label %12, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %de_nas_5gs_cmn_dnn.exit, %7
-  %40 = trunc i32 %4 to i16
-  ret i16 %40
+  %42 = trunc i32 %4 to i16
+  ret i16 %42
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

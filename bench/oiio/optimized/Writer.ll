@@ -1262,50 +1262,42 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb0EEEiP9OutSt
 
 34:                                               ; preds = %.lr.ph.split.us
   %35 = add nuw i32 %.04758.us, 1
-  %exitcond67.not = icmp eq i32 %35, %4
-  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !64
+  %exitcond70.not = icmp eq i32 %35, %4
+  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !64
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  %invariant.op = add i32 %14, %9
-  %36 = mul i32 %invariant.op, %4
-  br label %37
+.lr.ph.split:                                     ; preds = %.lr.ph, %50
+  %.059 = phi i32 [ %44, %50 ], [ 0, %.lr.ph ]
+  %.04758 = phi i32 [ %51, %50 ], [ 0, %.lr.ph ]
+  %36 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
+  %37 = add i32 %.059, %14
+  %38 = load ptr, ptr %0, align 8, !tbaa !12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %23)
+  %42 = icmp eq i64 %41, %23
+  br i1 %42, label %43, label %.loopexit.sink.split
 
-37:                                               ; preds = %.lr.ph.split, %51
-  %.059 = phi i32 [ 0, %.lr.ph.split ], [ %.reass, %51 ]
-  %.04758 = phi i32 [ 0, %.lr.ph.split ], [ %52, %51 ]
-  %38 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
-  %39 = load ptr, ptr %0, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %23)
-  %43 = icmp eq i64 %42, %23
-  br i1 %43, label %45, label %.split
+43:                                               ; preds = %.lr.ph.split
+  %44 = add nsw i32 %37, %9
+  %45 = load ptr, ptr %0, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %10, i64 noundef %24)
+  %49 = icmp eq i64 %48, %24
+  br i1 %49, label %50, label %.loopexit.sink.split
 
-.split:                                           ; preds = %37
-  %44 = add i32 %.059, %14
-  br label %.loopexit.sink.split
+50:                                               ; preds = %43
+  %51 = add nuw i32 %.04758, 1
+  %exitcond.not = icmp eq i32 %51, %4
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !66
 
-45:                                               ; preds = %37
-  %.reass = add i32 %.059, %invariant.op
-  %46 = load ptr, ptr %0, align 8, !tbaa !12
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %10, i64 noundef %24)
-  %50 = icmp eq i64 %49, %24
-  br i1 %50, label %51, label %.loopexit.sink.split
-
-51:                                               ; preds = %45
-  %52 = add nuw i32 %.04758, 1
-  %exitcond.not = icmp eq i32 %52, %4
-  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !66
-
-.loopexit.sink.split:                             ; preds = %45, %.lr.ph.split.us, %.split
-  %.1.ph = phi i32 [ %44, %.split ], [ %28, %.lr.ph.split.us ], [ %.reass, %45 ]
+.loopexit.sink.split:                             ; preds = %43, %.lr.ph.split, %.lr.ph.split.us
+  %.1.ph = phi i32 [ %28, %.lr.ph.split.us ], [ %37, %.lr.ph.split ], [ %44, %43 ]
   store i8 0, ptr %11, align 1, !tbaa !51
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %34, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %26, %34 ], [ %36, %51 ]
+.loopexit:                                        ; preds = %50, %34, %.loopexit.sink.split, %._crit_edge
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %26, %34 ], [ %44, %50 ]
   tail call void @_ZdaPv(ptr noundef nonnull %22) #19
   ret i32 %.1
 }
@@ -2685,7 +2677,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph, %43
   br i1 %exitcond.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, !llvm.loop !83
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.i.i.i14.i.preheader.us.preheader, label %.lr.ph.split.split
+  br i1 %.not, label %.lr.ph.i.i.i14.i.preheader.us.preheader, label %.lr.ph.i.i.i14.i.preheader
 
 .lr.ph.i.i.i14.i.preheader.us.preheader:          ; preds = %.lr.ph.split
   %45 = mul i32 %5, %4
@@ -2711,8 +2703,8 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph, %43
 
 53:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
   %54 = add nuw i32 %.04759.us66, 1
-  %exitcond86.not = icmp eq i32 %54, %4
-  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph.i.i.i14.i.preheader.us, !llvm.loop !84
+  %exitcond89.not = icmp eq i32 %54, %4
+  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph.i.i.i14.i.preheader.us, !llvm.loop !84
 
 _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i.i.i14.i.us
   %55 = add i32 %.060.us65, %26
@@ -2723,41 +2715,33 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i
   %60 = icmp eq i64 %59, %25
   br i1 %60, label %53, label %.loopexit.sink.split
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.op = add i32 %9, %26
-  %61 = mul i32 %invariant.op, %4
-  br label %.lr.ph.i.i.i14.i.preheader
-
-.lr.ph.i.i.i14.i.preheader:                       ; preds = %.lr.ph.split.split, %79
-  %.060 = phi i32 [ 0, %.lr.ph.split.split ], [ %.reass, %79 ]
-  %.04759 = phi i32 [ 0, %.lr.ph.split.split ], [ %80, %79 ]
-  %62 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
+.lr.ph.i.i.i14.i.preheader:                       ; preds = %.lr.ph.split, %79
+  %.060 = phi i32 [ %73, %79 ], [ 0, %.lr.ph.split ]
+  %.04759 = phi i32 [ %80, %79 ], [ 0, %.lr.ph.split ]
+  %61 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
   br label %.lr.ph.i.i.i14.i
 
 .lr.ph.i.i.i14.i:                                 ; preds = %.lr.ph.i.i.i14.i.preheader, %.lr.ph.i.i.i14.i
-  %.06.i.i.i15.i = phi i64 [ %66, %.lr.ph.i.i.i14.i ], [ 0, %.lr.ph.i.i.i14.i.preheader ]
-  %63 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i15.i
-  %64 = load i16, ptr %63, align 2, !tbaa !9
-  %65 = tail call noundef i16 @llvm.bswap.i16(i16 %64)
-  store i16 %65, ptr %63, align 2, !tbaa !9
-  %66 = add nuw i64 %.06.i.i.i15.i, 1
-  %exitcond.not.i.i.i16.i = icmp eq i64 %66, %24
+  %.06.i.i.i15.i = phi i64 [ %65, %.lr.ph.i.i.i14.i ], [ 0, %.lr.ph.i.i.i14.i.preheader ]
+  %62 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i15.i
+  %63 = load i16, ptr %62, align 2, !tbaa !9
+  %64 = tail call noundef i16 @llvm.bswap.i16(i16 %63)
+  store i16 %64, ptr %62, align 2, !tbaa !9
+  %65 = add nuw i64 %.06.i.i.i15.i, 1
+  %exitcond.not.i.i.i16.i = icmp eq i64 %65, %24
   br i1 %exitcond.not.i.i.i16.i, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, label %.lr.ph.i.i.i14.i, !llvm.loop !11
 
 _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.i14.i
+  %66 = add i32 %.060, %26
   %67 = load ptr, ptr %0, align 8, !tbaa !12
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %25)
   %71 = icmp eq i64 %70, %25
-  br i1 %71, label %73, label %.split.split
+  br i1 %71, label %72, label %.loopexit.sink.split
 
-.split.split:                                     ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
-  %72 = add i32 %.060, %26
-  br label %.loopexit.sink.split
-
-73:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
-  %.reass = add i32 %.060, %invariant.op
+72:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
+  %73 = add nsw i32 %66, %9
   %74 = load ptr, ptr %0, align 8, !tbaa !12
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -2765,18 +2749,18 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.
   %78 = icmp eq i64 %77, %27
   br i1 %78, label %79, label %.loopexit.sink.split
 
-79:                                               ; preds = %73
+79:                                               ; preds = %72
   %80 = add nuw i32 %.04759, 1
-  %exitcond85.not = icmp eq i32 %80, %4
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph.i.i.i14.i.preheader, !llvm.loop !85
+  %exitcond88.not = icmp eq i32 %80, %4
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph.i.i.i14.i.preheader, !llvm.loop !85
 
-.loopexit.sink.split:                             ; preds = %36, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %73, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us, %.split.split
-  %.1.ph = phi i32 [ %72, %.split.split ], [ %55, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %.reass, %73 ], [ %29, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %37, %36 ]
+.loopexit.sink.split:                             ; preds = %36, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %72, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
+  %.1.ph = phi i32 [ %55, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %66, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %73, %72 ], [ %29, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %37, %36 ]
   store i8 0, ptr %11, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %79, %53, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %47, %53 ], [ %61, %79 ], [ %.2.ph.us, %43 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %47, %53 ], [ %73, %79 ], [ %.2.ph.us, %43 ]
   tail call void @_ZdaPv(ptr noundef nonnull %23) #19
   ret i32 %.1
 }
@@ -2841,7 +2825,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph, %41
   br i1 %exitcond.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, !llvm.loop !86
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not, label %.lr.ph.i.i.i19.i.preheader.us.preheader, label %.lr.ph.split.split
+  br i1 %.not, label %.lr.ph.i.i.i19.i.preheader.us.preheader, label %.lr.ph.i.i.i19.i.preheader
 
 .lr.ph.i.i.i19.i.preheader.us.preheader:          ; preds = %.lr.ph.split
   %43 = mul i32 %5, %4
@@ -2867,8 +2851,8 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph, %41
 
 51:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
   %52 = add nuw i32 %.04658.us65, 1
-  %exitcond85.not = icmp eq i32 %52, %4
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph.i.i.i19.i.preheader.us, !llvm.loop !87
+  %exitcond88.not = icmp eq i32 %52, %4
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph.i.i.i19.i.preheader.us, !llvm.loop !87
 
 _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i.i.i19.i.us
   %53 = add i32 %.059.us64, %24
@@ -2879,41 +2863,33 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i
   %58 = icmp eq i64 %57, %23
   br i1 %58, label %51, label %.loopexit.sink.split
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.op = add i32 %8, %24
-  %59 = mul i32 %invariant.op, %4
-  br label %.lr.ph.i.i.i19.i.preheader
-
-.lr.ph.i.i.i19.i.preheader:                       ; preds = %.lr.ph.split.split, %77
-  %.059 = phi i32 [ 0, %.lr.ph.split.split ], [ %.reass, %77 ]
-  %.04658 = phi i32 [ 0, %.lr.ph.split.split ], [ %78, %77 ]
-  %60 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
+.lr.ph.i.i.i19.i.preheader:                       ; preds = %.lr.ph.split, %77
+  %.059 = phi i32 [ %71, %77 ], [ 0, %.lr.ph.split ]
+  %.04658 = phi i32 [ %78, %77 ], [ 0, %.lr.ph.split ]
+  %59 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
   br label %.lr.ph.i.i.i19.i
 
 .lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i.i.i19.i.preheader, %.lr.ph.i.i.i19.i
-  %.06.i.i.i20.i = phi i64 [ %64, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i.i.i19.i.preheader ]
-  %61 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i
-  %62 = load i32, ptr %61, align 4, !tbaa !3
-  %63 = tail call noundef i32 @llvm.bswap.i32(i32 %62)
-  store i32 %63, ptr %61, align 4, !tbaa !3
-  %64 = add nuw i64 %.06.i.i.i20.i, 1
-  %exitcond.not.i.i.i21.i = icmp eq i64 %64, %22
+  %.06.i.i.i20.i = phi i64 [ %63, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i.i.i19.i.preheader ]
+  %60 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i
+  %61 = load i32, ptr %60, align 4, !tbaa !3
+  %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
+  store i32 %62, ptr %60, align 4, !tbaa !3
+  %63 = add nuw i64 %.06.i.i.i20.i, 1
+  %exitcond.not.i.i.i21.i = icmp eq i64 %63, %22
   br i1 %exitcond.not.i.i.i21.i, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, label %.lr.ph.i.i.i19.i, !llvm.loop !7
 
 _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.i19.i
+  %64 = add i32 %.059, %24
   %65 = load ptr, ptr %0, align 8, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %23)
   %69 = icmp eq i64 %68, %23
-  br i1 %69, label %71, label %.split.split
+  br i1 %69, label %70, label %.loopexit.sink.split
 
-.split.split:                                     ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
-  %70 = add i32 %.059, %24
-  br label %.loopexit.sink.split
-
-71:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
-  %.reass = add i32 %.059, %invariant.op
+70:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit
+  %71 = add nsw i32 %64, %8
   %72 = load ptr, ptr %0, align 8, !tbaa !12
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
@@ -2921,18 +2897,18 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit: ; preds = %.lr.ph.i.i.
   %76 = icmp eq i64 %75, %25
   br i1 %76, label %77, label %.loopexit.sink.split
 
-77:                                               ; preds = %71
+77:                                               ; preds = %70
   %78 = add nuw i32 %.04658, 1
-  %exitcond84.not = icmp eq i32 %78, %4
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.i.i.i19.i.preheader, !llvm.loop !88
+  %exitcond87.not = icmp eq i32 %78, %4
+  br i1 %exitcond87.not, label %.loopexit, label %.lr.ph.i.i.i19.i.preheader, !llvm.loop !88
 
-.loopexit.sink.split:                             ; preds = %34, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %71, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us, %.split.split
-  %.1.ph = phi i32 [ %70, %.split.split ], [ %53, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %.reass, %71 ], [ %27, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %35, %34 ]
+.loopexit.sink.split:                             ; preds = %34, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %70, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us
+  %.1.ph = phi i32 [ %53, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us ], [ %64, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit ], [ %71, %70 ], [ %27, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %35, %34 ]
   store i8 0, ptr %10, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %77, %51, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %45, %51 ], [ %59, %77 ], [ %.2.ph.us, %41 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %45, %51 ], [ %71, %77 ], [ %.2.ph.us, %41 ]
   tail call void @_ZdaPv(ptr noundef nonnull %21) #19
   ret i32 %.1
 }
@@ -3160,11 +3136,11 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph.i.i.i19.i.
 48:                                               ; preds = %41, %40
   %.2.ph.us = phi i32 [ %30, %40 ], [ %42, %41 ]
   %49 = add nuw i32 %.04657.us, 1
-  %exitcond85.not = icmp eq i32 %49, %4
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !93
+  %exitcond88.not = icmp eq i32 %49, %4
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !93
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63.preheader, label %.lr.ph.split.split
+  br i1 %.not, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63.preheader, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit
 
 _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63.preheader: ; preds = %.lr.ph.split
   %50 = mul i32 %5, %4
@@ -3186,31 +3162,23 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63: ; preds = %_ZN3dpx16Endian
 
 60:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63
   %61 = add nuw i32 %.04657.us65, 1
-  %exitcond84.not = icmp eq i32 %61, %4
-  br i1 %exitcond84.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63, !llvm.loop !94
+  %exitcond87.not = icmp eq i32 %61, %4
+  br i1 %exitcond87.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63, !llvm.loop !94
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %invariant.op = add i32 %8, %24
-  %62 = mul i32 %invariant.op, %4
-  br label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit
-
-_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit:  ; preds = %.lr.ph.split.split, %76
-  %.058 = phi i32 [ 0, %.lr.ph.split.split ], [ %.reass, %76 ]
-  %.04657 = phi i32 [ 0, %.lr.ph.split.split ], [ %77, %76 ]
-  %63 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
+_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit:  ; preds = %.lr.ph.split, %76
+  %.058 = phi i32 [ %70, %76 ], [ 0, %.lr.ph.split ]
+  %.04657 = phi i32 [ %77, %76 ], [ 0, %.lr.ph.split ]
+  %62 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %1)
+  %63 = add i32 %.058, %24
   %64 = load ptr, ptr %0, align 8, !tbaa !12
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef i64 %66(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %23)
   %68 = icmp eq i64 %67, %23
-  br i1 %68, label %70, label %.split.split
+  br i1 %68, label %69, label %.loopexit.sink.split
 
-.split.split:                                     ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit
-  %69 = add i32 %.058, %24
-  br label %.loopexit.sink.split
-
-70:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit
-  %.reass = add i32 %.058, %invariant.op
+69:                                               ; preds = %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit
+  %70 = add nsw i32 %63, %8
   %71 = load ptr, ptr %0, align 8, !tbaa !12
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
@@ -3218,18 +3186,18 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit:  ; preds = %.lr.ph.split.split,
   %75 = icmp eq i64 %74, %28
   br i1 %75, label %76, label %.loopexit.sink.split
 
-76:                                               ; preds = %70
+76:                                               ; preds = %69
   %77 = add nuw i32 %.04657, 1
   %exitcond.not = icmp eq i32 %77, %4
   br i1 %exitcond.not, label %.loopexit, label %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit, !llvm.loop !95
 
-.loopexit.sink.split:                             ; preds = %70, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63, %41, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us, %.split.split
-  %.1.ph = phi i32 [ %69, %.split.split ], [ %30, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %42, %41 ], [ %54, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63 ], [ %.reass, %70 ]
+.loopexit.sink.split:                             ; preds = %69, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63, %41, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us
+  %.1.ph = phi i32 [ %30, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us ], [ %42, %41 ], [ %54, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us63 ], [ %63, %_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit ], [ %70, %69 ]
   store i8 0, ptr %10, align 1, !tbaa !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %60, %48, %.loopexit.sink.split, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %.2.ph.us, %48 ], [ %52, %60 ], [ %62, %76 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.1.ph, %.loopexit.sink.split ], [ %.2.ph.us, %48 ], [ %52, %60 ], [ %70, %76 ]
   tail call void @_ZdaPv(ptr noundef nonnull %21) #19
   ret i32 %.1
 }

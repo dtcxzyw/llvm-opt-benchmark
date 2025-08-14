@@ -4486,7 +4486,6 @@ define internal void @gtk3_paint_box(i32 noundef %0, i32 noundef %1, i32 noundef
   %.1 = or disjoint i32 %spec.select, %17
   %18 = and i32 %8, 1024
   %.not59 = icmp eq i32 %18, 0
-  %invariant.op = or disjoint i32 %.1, 64
   %19 = sitofp i32 %4 to double
   %20 = sitofp i32 %5 to double
   %21 = sitofp i32 %6 to double
@@ -4555,6 +4554,7 @@ switch.lookup:                                    ; preds = %gtk3_set_direction.
 
 get_gtk_flags.exit:                               ; preds = %switch.lookup, %gtk3_set_direction.exit
   %.0.i = phi i32 [ 0, %gtk3_set_direction.exit ], [ %switch.load, %switch.lookup ]
+  %.2 = or i32 %.1, %.0.i
   br i1 %.not59, label %47, label %45
 
 45:                                               ; preds = %get_gtk_flags.exit
@@ -4566,46 +4566,46 @@ get_gtk_flags.exit:                               ; preds = %switch.lookup, %gtk
   %48 = load ptr, ptr @fp_gtk_style_context_has_class, align 8
   %49 = tail call i32 %48(ptr noundef %44, ptr noundef nonnull @.str.298) #19
   %.not60 = icmp eq i32 %49, 0
-  %spec.select62.v = select i1 %.not60, i32 %.1, i32 %invariant.op
-  %spec.select62 = or i32 %spec.select62.v, %.0.i
-  %50 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
-  tail call void %50(ptr noundef %44, i32 noundef %spec.select62) #19
-  %51 = load ptr, ptr @fp_gtk_render_background, align 8
-  %52 = load ptr, ptr @cr, align 8
-  tail call void %51(ptr noundef %44, ptr noundef %52, double noundef %19, double noundef %20, double noundef %21, double noundef %22) #19
-  br i1 %.not61, label %56, label %53
+  %50 = or disjoint i32 %.2, 64
+  %spec.select62 = select i1 %.not60, i32 %.2, i32 %50
+  %51 = load ptr, ptr @fp_gtk_style_context_set_state, align 8
+  tail call void %51(ptr noundef %44, i32 noundef %spec.select62) #19
+  %52 = load ptr, ptr @fp_gtk_render_background, align 8
+  %53 = load ptr, ptr @cr, align 8
+  tail call void %52(ptr noundef %44, ptr noundef %53, double noundef %19, double noundef %20, double noundef %21, double noundef %22) #19
+  br i1 %.not61, label %57, label %54
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr @fp_gtk_render_frame, align 8
-  %55 = load ptr, ptr @cr, align 8
-  tail call void %54(ptr noundef %44, ptr noundef %55, double noundef %19, double noundef %20, double noundef %21, double noundef %22) #19
-  br label %56
+54:                                               ; preds = %47
+  %55 = load ptr, ptr @fp_gtk_render_frame, align 8
+  %56 = load ptr, ptr @cr, align 8
+  tail call void %55(ptr noundef %44, ptr noundef %56, double noundef %19, double noundef %20, double noundef %21, double noundef %22) #19
+  br label %57
 
-56:                                               ; preds = %53, %47
+57:                                               ; preds = %54, %47
   %.b.i = load i1, ptr @gtk3_version_3_20, align 4
   %fp_g_object_unref.val.i = load ptr, ptr @fp_g_object_unref, align 8
   %fp_gtk_style_context_restore.val.i = load ptr, ptr @fp_gtk_style_context_restore, align 8
-  %57 = select i1 %.b.i, ptr %fp_g_object_unref.val.i, ptr %fp_gtk_style_context_restore.val.i
-  tail call void %57(ptr noundef %44) #19
-  %58 = load ptr, ptr @gtk3_widget, align 8
-  %59 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
-  tail call void %59(ptr noundef %58, i32 noundef 1) #19
-  %60 = load ptr, ptr @fp_gtk_widget_get_parent, align 8
-  %61 = tail call ptr %60(ptr noundef %58) #19
-  %.not.i65 = icmp eq ptr %61, null
-  br i1 %.not.i65, label %gtk3_set_direction.exit66, label %62
+  %58 = select i1 %.b.i, ptr %fp_g_object_unref.val.i, ptr %fp_gtk_style_context_restore.val.i
+  tail call void %58(ptr noundef %44) #19
+  %59 = load ptr, ptr @gtk3_widget, align 8
+  %60 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
+  tail call void %60(ptr noundef %59, i32 noundef 1) #19
+  %61 = load ptr, ptr @fp_gtk_widget_get_parent, align 8
+  %62 = tail call ptr %61(ptr noundef %59) #19
+  %.not.i65 = icmp eq ptr %62, null
+  br i1 %.not.i65, label %gtk3_set_direction.exit66, label %63
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
-  tail call void %63(ptr noundef nonnull %61, i32 noundef 1) #19
+63:                                               ; preds = %57
+  %64 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
+  tail call void %64(ptr noundef nonnull %62, i32 noundef 1) #19
   br label %gtk3_set_direction.exit66
 
-gtk3_set_direction.exit66:                        ; preds = %56, %62
-  %64 = icmp ne ptr %.tr69, null
-  %or.cond9 = and i1 %or.cond7, %64
-  br i1 %or.cond9, label %tailrecurse, label %65
+gtk3_set_direction.exit66:                        ; preds = %57, %63
+  %65 = icmp ne ptr %.tr69, null
+  %or.cond9 = and i1 %or.cond7, %65
+  br i1 %or.cond9, label %tailrecurse, label %66
 
-65:                                               ; preds = %gtk3_set_direction.exit66
+66:                                               ; preds = %gtk3_set_direction.exit66
   ret void
 }
 

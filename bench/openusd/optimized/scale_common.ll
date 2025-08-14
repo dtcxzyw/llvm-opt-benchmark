@@ -296,14 +296,13 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @ScaleCols_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
-  %invariant.op = shl i32 %4, 1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.021 = phi i32 [ %19, %.lr.ph ], [ 0, %5 ]
-  %.01720 = phi ptr [ %18, %.lr.ph ], [ %0, %5 ]
-  %.01819 = phi i32 [ %.reass, %.lr.ph ], [ %3, %5 ]
+  %.021 = phi i32 [ %20, %.lr.ph ], [ 0, %5 ]
+  %.01720 = phi ptr [ %19, %.lr.ph ], [ %0, %5 ]
+  %.01819 = phi i32 [ %18, %.lr.ph ], [ %3, %5 ]
   %8 = ashr i32 %.01819, 16
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
@@ -316,42 +315,41 @@ define hidden void @ScaleCols_C(ptr noundef writeonly captures(none) %0, ptr nou
   %16 = load i8, ptr %15, align 1
   %17 = getelementptr inbounds nuw i8, ptr %.01720, i64 1
   store i8 %16, ptr %17, align 1
-  %.reass = add i32 %.01819, %invariant.op
-  %18 = getelementptr inbounds nuw i8, ptr %.01720, i64 2
-  %19 = add nuw nsw i32 %.021, 2
-  %20 = icmp slt i32 %19, %6
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %18 = add nsw i32 %12, %4
+  %19 = getelementptr inbounds nuw i8, ptr %.01720, i64 2
+  %20 = add nuw nsw i32 %.021, 2
+  %21 = icmp slt i32 %20, %6
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.018.lcssa = phi i32 [ %3, %5 ], [ %.reass, %.lr.ph ]
-  %.017.lcssa = phi ptr [ %0, %5 ], [ %18, %.lr.ph ]
-  %21 = and i32 %2, 1
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %27, label %22
+  %.018.lcssa = phi i32 [ %3, %5 ], [ %18, %.lr.ph ]
+  %.017.lcssa = phi ptr [ %0, %5 ], [ %19, %.lr.ph ]
+  %22 = and i32 %2, 1
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %28, label %23
 
-22:                                               ; preds = %._crit_edge
-  %23 = ashr i32 %.018.lcssa, 16
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %1, i64 %24
-  %26 = load i8, ptr %25, align 1
-  store i8 %26, ptr %.017.lcssa, align 1
-  br label %27
+23:                                               ; preds = %._crit_edge
+  %24 = ashr i32 %.018.lcssa, 16
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %1, i64 %25
+  %27 = load i8, ptr %26, align 1
+  store i8 %27, ptr %.017.lcssa, align 1
+  br label %28
 
-27:                                               ; preds = %22, %._crit_edge
+28:                                               ; preds = %23, %._crit_edge
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
-  %invariant.op = shl i32 %4, 1
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.021 = phi i32 [ %19, %.lr.ph ], [ 0, %5 ]
-  %.01720 = phi ptr [ %18, %.lr.ph ], [ %0, %5 ]
-  %.01819 = phi i32 [ %.reass, %.lr.ph ], [ %3, %5 ]
+  %.021 = phi i32 [ %20, %.lr.ph ], [ 0, %5 ]
+  %.01720 = phi ptr [ %19, %.lr.ph ], [ %0, %5 ]
+  %.01819 = phi i32 [ %18, %.lr.ph ], [ %3, %5 ]
   %8 = ashr i32 %.01819, 16
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i16, ptr %1, i64 %9
@@ -364,28 +362,28 @@ define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr 
   %16 = load i16, ptr %15, align 2
   %17 = getelementptr inbounds nuw i8, ptr %.01720, i64 2
   store i16 %16, ptr %17, align 2
-  %.reass = add i32 %.01819, %invariant.op
-  %18 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
-  %19 = add nuw nsw i32 %.021, 2
-  %20 = icmp slt i32 %19, %6
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %18 = add nsw i32 %12, %4
+  %19 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
+  %20 = add nuw nsw i32 %.021, 2
+  %21 = icmp slt i32 %20, %6
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.018.lcssa = phi i32 [ %3, %5 ], [ %.reass, %.lr.ph ]
-  %.017.lcssa = phi ptr [ %0, %5 ], [ %18, %.lr.ph ]
-  %21 = and i32 %2, 1
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %27, label %22
+  %.018.lcssa = phi i32 [ %3, %5 ], [ %18, %.lr.ph ]
+  %.017.lcssa = phi ptr [ %0, %5 ], [ %19, %.lr.ph ]
+  %22 = and i32 %2, 1
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %28, label %23
 
-22:                                               ; preds = %._crit_edge
-  %23 = ashr i32 %.018.lcssa, 16
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %1, i64 %24
-  %26 = load i16, ptr %25, align 2
-  store i16 %26, ptr %.017.lcssa, align 2
-  br label %27
+23:                                               ; preds = %._crit_edge
+  %24 = ashr i32 %.018.lcssa, 16
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %27 = load i16, ptr %26, align 2
+  store i16 %27, ptr %.017.lcssa, align 2
+  br label %28
 
-27:                                               ; preds = %22, %._crit_edge
+28:                                               ; preds = %23, %._crit_edge
   ret void
 }
 

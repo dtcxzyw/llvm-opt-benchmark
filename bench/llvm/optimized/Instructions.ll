@@ -15259,7 +15259,6 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %12, %.sink.split.i.
   %indvars.iv132 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next133, %49 ]
   %.074125.us = phi i32 [ undef, %.preheader.us.preheader ], [ %spec.select.us, %49 ]
   %33 = trunc nuw i64 %indvars.iv132 to i32
-  %invariant.op.us = add i32 %2, %33
   br label %51
 
 34:                                               ; preds = %._crit_edge.us
@@ -15281,11 +15280,11 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %12, %.sink.split.i.
   br label %45
 
 43:                                               ; preds = %34
-  %44 = sub i32 %38, %72
+  %44 = sub i32 %38, %73
   br label %45
 
 45:                                               ; preds = %43, %41, %40, %._crit_edge.us
-  %.0.us = phi i32 [ %44, %43 ], [ %42, %41 ], [ 0, %40 ], [ %74, %._crit_edge.us ]
+  %.0.us = phi i32 [ %44, %43 ], [ %42, %41 ], [ 0, %40 ], [ %75, %._crit_edge.us ]
   %46 = icmp sgt i32 %.0.us, -1
   %47 = add i32 %.0.us, %8
   %48 = icmp ule i32 %47, %3
@@ -15306,69 +15305,69 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %12, %.sink.split.i.
   %52 = trunc nuw i64 %indvars.iv to i32
   %53 = mul i32 %2, %52
   %54 = add i32 %53, %33
-  %.reass.us = add i32 %53, %invariant.op.us
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %0, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !108
-  %58 = zext i32 %.reass.us to i64
-  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !108
-  %61 = icmp sgt i32 %57, -1
-  %62 = icmp sgt i32 %60, -1
-  %or.cond.us = select i1 %61, i1 %62, i1 false
-  %63 = add nuw nsw i32 %57, 1
-  %.not85.us = icmp ne i32 %63, %60
+  %55 = add i32 %54, %2
+  %56 = zext i32 %54 to i64
+  %57 = getelementptr inbounds nuw i32, ptr %0, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !108
+  %59 = zext i32 %55 to i64
+  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !108
+  %62 = icmp sgt i32 %58, -1
+  %63 = icmp sgt i32 %61, -1
+  %or.cond.us = select i1 %62, i1 %63, i1 false
+  %64 = add nuw nsw i32 %58, 1
+  %.not85.us = icmp ne i32 %64, %61
   %or.cond88.not.us = select i1 %or.cond.us, i1 %.not85.us, i1 false
-  br i1 %or.cond88.not.us, label %.critedge, label %64
+  br i1 %or.cond88.not.us, label %.critedge, label %65
 
-64:                                               ; preds = %51
-  %65 = icmp slt i32 %60, 0
-  %or.cond3.us = select i1 %61, i1 %65, i1 false
-  %spec.select.us = select i1 %or.cond3.us, i32 %57, i32 %.175119.us
+65:                                               ; preds = %51
+  %66 = icmp slt i32 %61, 0
+  %or.cond3.us = select i1 %62, i1 %66, i1 false
+  %spec.select.us = select i1 %or.cond3.us, i32 %58, i32 %.175119.us
   %spec.select89.us = select i1 %or.cond3.us, i32 1, i32 %.069120.us
-  %66 = icmp ne i32 %spec.select89.us, 0
-  %67 = icmp slt i32 %57, 0
-  %or.cond5.us = and i1 %67, %66
-  br i1 %or.cond5.us, label %68, label %select.unfold.us
+  %67 = icmp ne i32 %spec.select89.us, 0
+  %68 = icmp slt i32 %58, 0
+  %or.cond5.us = and i1 %68, %67
+  br i1 %or.cond5.us, label %69, label %select.unfold.us
 
-68:                                               ; preds = %64
-  %69 = add i32 %spec.select89.us, 1
-  %70 = add i32 %69, %spec.select.us
-  %.not86.us = icmp ne i32 %70, %60
-  %or.cond91.not.us = select i1 %62, i1 %.not86.us, i1 false
+69:                                               ; preds = %65
+  %70 = add i32 %spec.select89.us, 1
+  %71 = add i32 %70, %spec.select.us
+  %.not86.us = icmp ne i32 %71, %61
+  %or.cond91.not.us = select i1 %63, i1 %.not86.us, i1 false
   br i1 %or.cond91.not.us, label %.critedge, label %select.unfold.us
 
-select.unfold.us:                                 ; preds = %68, %64
-  %.271.ph.us = phi i32 [ %spec.select89.us, %64 ], [ %69, %68 ]
+select.unfold.us:                                 ; preds = %69, %65
+  %.271.ph.us = phi i32 [ %spec.select89.us, %65 ], [ %70, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %71, label %51, label %._crit_edge.us, !llvm.loop !329
+  %72 = icmp samesign ult i64 %indvars.iv.next, %32
+  br i1 %72, label %51, label %._crit_edge.us, !llvm.loop !329
 
 ._crit_edge.us:                                   ; preds = %select.unfold.us
-  %72 = trunc nuw i64 %indvars.iv.next to i32
-  %73 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv132
-  %74 = load i32, ptr %73, align 4, !tbaa !108
-  %75 = icmp sgt i32 %74, -1
-  br i1 %75, label %45, label %34
+  %73 = trunc nuw i64 %indvars.iv.next to i32
+  %74 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv132
+  %75 = load i32, ptr %74, align 4, !tbaa !108
+  %76 = icmp sgt i32 %75, -1
+  br i1 %76, label %45, label %34
 
-.preheader:                                       ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %79
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %79 ], [ 0, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ]
-  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv135
-  %77 = load i32, ptr %76, align 4, !tbaa !108
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
-  %78 = add i32 %spec.select, %8
-  %.not146.not = icmp ule i32 %78, %3
-  br i1 %.not146.not, label %79, label %.critedge
+.preheader:                                       ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %80
+  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %80 ], [ 0, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ]
+  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv135
+  %78 = load i32, ptr %77, align 4, !tbaa !108
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %79 = add i32 %spec.select, %8
+  %.not147.not = icmp ule i32 %79, %3
+  br i1 %.not147.not, label %80, label %.critedge
 
-79:                                               ; preds = %.preheader
-  %80 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv135
-  store i32 %spec.select, ptr %80, align 4, !tbaa !108
+80:                                               ; preds = %.preheader
+  %81 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv135
+  store i32 %spec.select, ptr %81, align 4, !tbaa !108
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next136, %13
   br i1 %exitcond140.not, label %.critedge, label %.preheader, !llvm.loop !330
 
-.critedge:                                        ; preds = %49, %45, %68, %51, %79, %.preheader, %9, %5
-  %.063 = phi i1 [ false, %5 ], [ false, %9 ], [ %.not146.not, %.preheader ], [ %.not146.not, %79 ], [ false, %51 ], [ false, %68 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
+.critedge:                                        ; preds = %49, %45, %69, %51, %80, %.preheader, %9, %5
+  %.063 = phi i1 [ false, %5 ], [ false, %9 ], [ %.not147.not, %.preheader ], [ %.not147.not, %80 ], [ false, %51 ], [ false, %69 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
   ret i1 %.063
 }
 
@@ -15448,7 +15447,7 @@ _ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread.us: ; preds = %.lr.
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread
-  %storemerge23 = phi i32 [ %28, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread ], [ %3, %.lr.ph ]
+  %storemerge23 = phi i32 [ %29, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread ], [ %3, %.lr.ph ]
   %.not4457.i = icmp eq i32 %storemerge23, 0
   br i1 %.not4457.i, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread, label %.preheader.preheader.i
 
@@ -15460,65 +15459,63 @@ _ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread.us: ; preds = %.lr.
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.preheader.i
   %indvars.iv67.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next68.i, %._crit_edge.i ]
   %.03062.i = phi i32 [ -1, %.preheader.preheader.i ], [ %.434.i, %._crit_edge.i ]
-  %11 = trunc nsw i64 %indvars.iv67.i to i32
-  %invariant.op.i = add i32 %storemerge23, %11
   %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, %10
-  %invariant.gep.i = getelementptr i32, ptr %0, i64 %indvars.iv67.i
-  br label %12
+  br label %11
 
-12:                                               ; preds = %select.unfold.i, %.preheader.i
+11:                                               ; preds = %select.unfold.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %.23259.i = phi i32 [ %.03062.i, %.preheader.i ], [ %.434.i, %select.unfold.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %13 = load i32, ptr %gep.i, align 4, !tbaa !108
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %select.unfold.i, label %15
+  %12 = add nsw i64 %indvars.iv.i, %indvars.iv67.i
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !108
+  %15 = icmp slt i32 %14, 0
+  br i1 %15, label %select.unfold.i, label %16
 
-15:                                               ; preds = %12
-  %16 = zext nneg i32 %13 to i64
-  %17 = icmp sle i64 %indvars.iv67.i, %16
-  %.not45.i = icmp sgt i64 %indvars.iv.next68.i, %16
-  %or.cond.i = select i1 %17, i1 %.not45.i, i1 false
-  br i1 %or.cond.i, label %18, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread
+16:                                               ; preds = %11
+  %17 = zext nneg i32 %14 to i64
+  %18 = icmp sle i64 %indvars.iv67.i, %17
+  %.not45.i = icmp sgt i64 %indvars.iv.next68.i, %17
+  %or.cond.i = select i1 %18, i1 %.not45.i, i1 false
+  br i1 %or.cond.i, label %19, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread
 
-18:                                               ; preds = %15
-  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.neg.reass.i = add i32 %invariant.op.i, %19
-  %20 = sub i32 %.neg.reass.i, %13
-  %21 = srem i32 %20, %storemerge23
-  %22 = icmp slt i32 %.23259.i, 0
-  %.not46.i = icmp eq i32 %21, %.23259.i
-  %or.cond47.i = or i1 %22, %.not46.i
+19:                                               ; preds = %16
+  %20 = trunc nsw i64 %12 to i32
+  %.neg.i = add i32 %storemerge23, %20
+  %21 = sub i32 %.neg.i, %14
+  %22 = srem i32 %21, %storemerge23
+  %23 = icmp slt i32 %.23259.i, 0
+  %.not46.i = icmp eq i32 %22, %.23259.i
+  %or.cond47.i = or i1 %23, %.not46.i
   br i1 %or.cond47.i, label %select.unfold.i, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread
 
-select.unfold.i:                                  ; preds = %18, %12
-  %.434.i = phi i32 [ %.23259.i, %12 ], [ %21, %18 ]
+select.unfold.i:                                  ; preds = %19, %11
+  %.434.i = phi i32 [ %.23259.i, %11 ], [ %22, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = icmp eq i64 %indvars.iv.next.i, %zext.i
-  br i1 %23, label %._crit_edge.i, label %12, !llvm.loop !334
+  %24 = icmp eq i64 %indvars.iv.next.i, %zext.i
+  br i1 %24, label %._crit_edge.i, label %11, !llvm.loop !334
 
 ._crit_edge.i:                                    ; preds = %select.unfold.i
-  %24 = trunc nsw i64 %indvars.iv.next68.i to i32
-  %.not.i = icmp eq i32 %24, %8
+  %25 = trunc nsw i64 %indvars.iv.next68.i to i32
+  %.not.i = icmp eq i32 %25, %8
   br i1 %.not.i, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit, label %.preheader.i, !llvm.loop !335
 
 _ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit: ; preds = %._crit_edge.i
-  %25 = icmp slt i32 %.434.i, 0
-  br i1 %25, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread, label %26
+  %26 = icmp slt i32 %.434.i, 0
+  br i1 %26, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread, label %27
 
-26:                                               ; preds = %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit
-  %27 = mul i32 %.434.i, %2
-  store i32 %27, ptr %6, align 4, !tbaa !108
+27:                                               ; preds = %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit
+  %28 = mul i32 %.434.i, %2
+  store i32 %28, ptr %6, align 4, !tbaa !108
   br label %.loopexit
 
-_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread: ; preds = %15, %18, %.lr.ph.split, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit
-  %28 = shl i32 %storemerge23, 1
-  store i32 %28, ptr %5, align 4, !tbaa !108
-  %.not.not = icmp ugt i32 %28, %4
+_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread: ; preds = %16, %19, %.lr.ph.split, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit
+  %29 = shl i32 %storemerge23, 1
+  store i32 %29, ptr %5, align 4, !tbaa !108
+  %.not.not = icmp ugt i32 %29, %4
   br i1 %.not.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !336
 
-.loopexit:                                        ; preds = %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread, %7, %..loopexit_crit_edge.split.us, %26
-  %.not21 = phi i1 [ true, %26 ], [ false, %7 ], [ false, %..loopexit_crit_edge.split.us ], [ false, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread ]
+.loopexit:                                        ; preds = %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread, %7, %..loopexit_crit_edge.split.us, %27
+  %.not21 = phi i1 [ true, %27 ], [ false, %7 ], [ false, %..loopexit_crit_edge.split.us ], [ false, %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread ]
   ret i1 %.not21
 }
 

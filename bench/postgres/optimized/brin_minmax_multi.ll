@@ -3567,7 +3567,7 @@ define internal fastcc void @range_deduplicate_values(ptr noundef %0) unnamed_ad
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %48, label %8
+  br i1 %7, label %49, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3585,62 +3585,61 @@ define internal fastcc void @range_deduplicate_values(ptr noundef %0) unnamed_ad
   %19 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %18
   %20 = sext i32 %6 to i64
   call void @qsort_arg(ptr noundef nonnull %19, i64 noundef %20, i64 noundef 8, ptr noundef nonnull @compare_values, ptr noundef nonnull %2) #12
-  %invariant.op = add i32 %16, -1
   %21 = load i32, ptr %5, align 8
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %8, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 1, %8 ]
-  %.03032 = phi i32 [ %.1, %44 ], [ 1, %8 ]
+.lr.ph:                                           ; preds = %8, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 1, %8 ]
+  %.03032 = phi i32 [ %.1, %45 ], [ 1, %8 ]
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = add i32 %16, %23
-  %.reass = add i32 %invariant.op, %23
-  %25 = sext i32 %.reass to i64
-  %26 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %25
-  %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %27
-  %29 = load ptr, ptr %2, align 8
-  %30 = load i32, ptr %11, align 8
-  %31 = load i64, ptr %26, align 8
-  %32 = load i64, ptr %28, align 8
-  %33 = call i64 @FunctionCall2Coll(ptr noundef %29, i32 noundef %30, i64 noundef %31, i64 noundef %32) #12
-  %.not.i = icmp eq i64 %33, 0
+  %25 = add i32 %24, -1
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %26
+  %28 = sext i32 %24 to i64
+  %29 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %28
+  %30 = load ptr, ptr %2, align 8
+  %31 = load i32, ptr %11, align 8
+  %32 = load i64, ptr %27, align 8
+  %33 = load i64, ptr %29, align 8
+  %34 = call i64 @FunctionCall2Coll(ptr noundef %30, i32 noundef %31, i64 noundef %32, i64 noundef %33) #12
+  %.not.i = icmp eq i64 %34, 0
   br i1 %.not.i, label %compare_values.exit, label %compare_values.exit.thread
 
 compare_values.exit:                              ; preds = %.lr.ph
-  %34 = load ptr, ptr %2, align 8
-  %35 = load i32, ptr %11, align 8
-  %36 = load i64, ptr %28, align 8
-  %37 = load i64, ptr %26, align 8
-  %38 = call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %35, i64 noundef %36, i64 noundef %37) #12
-  %.not13.i.not = icmp eq i64 %38, 0
-  br i1 %.not13.i.not, label %44, label %compare_values.exit.thread
+  %35 = load ptr, ptr %2, align 8
+  %36 = load i32, ptr %11, align 8
+  %37 = load i64, ptr %29, align 8
+  %38 = load i64, ptr %27, align 8
+  %39 = call i64 @FunctionCall2Coll(ptr noundef %35, i32 noundef %36, i64 noundef %37, i64 noundef %38) #12
+  %.not13.i.not = icmp eq i64 %39, 0
+  br i1 %.not13.i.not, label %45, label %compare_values.exit.thread
 
 compare_values.exit.thread:                       ; preds = %.lr.ph, %compare_values.exit
-  %39 = load i64, ptr %28, align 8
-  %40 = add i32 %.03032, %16
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %41
-  store i64 %39, ptr %42, align 8
-  %43 = add i32 %.03032, 1
-  br label %44
+  %40 = load i64, ptr %29, align 8
+  %41 = add i32 %.03032, %16
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds [0 x i64], ptr %17, i64 0, i64 %42
+  store i64 %40, ptr %43, align 8
+  %44 = add i32 %.03032, 1
+  br label %45
 
-44:                                               ; preds = %compare_values.exit, %compare_values.exit.thread
-  %.1 = phi i32 [ %.03032, %compare_values.exit ], [ %43, %compare_values.exit.thread ]
+45:                                               ; preds = %compare_values.exit, %compare_values.exit.thread
+  %.1 = phi i32 [ %.03032, %compare_values.exit ], [ %44, %compare_values.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load i32, ptr %5, align 8
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  %46 = load i32, ptr %5, align 8
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next, %47
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %44, %8
-  %.030.lcssa = phi i32 [ 1, %8 ], [ %.1, %44 ]
+._crit_edge:                                      ; preds = %45, %8
+  %.030.lcssa = phi i32 [ 1, %8 ], [ %.1, %45 ]
   store i32 %.030.lcssa, ptr %5, align 8
   store i32 %.030.lcssa, ptr %3, align 4
-  br label %48
+  br label %49
 
-48:                                               ; preds = %1, %._crit_edge
+49:                                               ; preds = %1, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

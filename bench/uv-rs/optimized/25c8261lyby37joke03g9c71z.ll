@@ -11836,13 +11836,13 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  br label %152
+  br label %153
 
 78:                                               ; preds = %.noexc15, %.noexc14, %.noexc, %18
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$procfs_core..cpuinfo..CpuInfo$GT$17hc16f86374580b6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9) #56
-          to label %155 unwind label %153
+          to label %156 unwind label %154
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h87c520ce428418d4E.exit.i.i"
   %80 = getelementptr inbounds i8, ptr %62, i64 -16
@@ -11963,7 +11963,7 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
 
 ._crit_edge.i.i18:                                ; preds = %138, %.preheader.i.i
   %.sroa.014.1.lcssa.i.i = phi i8 [ %.sroa.014.0.lcssa.i.i, %.preheader.i.i ], [ %.sroa.014.5.i.i, %138 ]
-  %.lcssa.i.i = phi i1 [ %98, %.preheader.i.i ], [ %141, %138 ]
+  %.lcssa.i.i = phi i1 [ %98, %.preheader.i.i ], [ %142, %138 ]
   %125 = add i64 %83, -18
   %126 = getelementptr inbounds i8, ptr %81, i64 %125
   %.val3.i67.i.i = load <16 x i8>, ptr %126, align 1, !alias.scope !2502, !noalias !2506
@@ -11974,7 +11974,7 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %narrow.i69.i.i = select <16 x i1> %128, <16 x i1> %129, <16 x i1> zeroinitializer
   %130 = bitcast <16 x i1> %narrow.i69.i.i to i16
   %131 = icmp eq i16 %130, 0
-  br i1 %131, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit", label %145
+  br i1 %131, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit", label %146
 
 .lr.ph55.i.i:                                     ; preds = %.preheader.i.i, %138
   %.sroa.06.154.i.i = phi i64 [ %139, %138 ], [ %.sroa.06.0.lcssa.i.i, %.preheader.i.i ]
@@ -11987,59 +11987,59 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %narrow.i72.i.i = select <16 x i1> %134, <16 x i1> %135, <16 x i1> zeroinitializer
   %136 = bitcast <16 x i1> %narrow.i72.i.i to i16
   %137 = icmp eq i16 %136, 0
-  br i1 %137, label %138, label %142
+  br i1 %137, label %138, label %143
 
-138:                                              ; preds = %142, %.lr.ph55.i.i
-  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph55.i.i ], [ %144, %142 ]
+138:                                              ; preds = %143, %.lr.ph55.i.i
+  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph55.i.i ], [ %145, %143 ]
   %139 = add i64 %.sroa.06.154.i.i, 16
-  %.reass.i.i = add i64 %.sroa.06.154.i.i, 34
-  %140 = icmp uge i64 %.reass.i.i, %83
-  %141 = trunc nuw i8 %.sroa.014.5.i.i to i1
-  %or.cond3.i.i = select i1 %140, i1 true, i1 %141
+  %140 = add i64 %.sroa.06.154.i.i, 34
+  %141 = icmp uge i64 %140, %83
+  %142 = trunc nuw i8 %.sroa.014.5.i.i to i1
+  %or.cond3.i.i = select i1 %141, i1 true, i1 %142
   br i1 %or.cond3.i.i, label %._crit_edge.i.i18, label %.lr.ph55.i.i
 
-142:                                              ; preds = %.lr.ph55.i.i
-  %143 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %.sroa.06.154.i.i, i16 noundef %136, i1 noundef zeroext false)
-  %144 = zext i1 %143 to i8
+143:                                              ; preds = %.lr.ph55.i.i
+  %144 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %.sroa.06.154.i.i, i16 noundef %136, i1 noundef zeroext false)
+  %145 = zext i1 %144 to i8
   br label %138
 
-145:                                              ; preds = %._crit_edge.i.i18
-  %146 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %125, i16 noundef %130, i1 noundef zeroext %.lcssa.i.i)
-  %147 = or i1 %.lcssa.i.i, %146
-  %148 = zext i1 %147 to i8
+146:                                              ; preds = %._crit_edge.i.i18
+  %147 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %125, i16 noundef %130, i1 noundef zeroext %.lcssa.i.i)
+  %148 = or i1 %.lcssa.i.i, %147
+  %149 = zext i1 %148 to i8
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit.thread": ; preds = %._crit_edge.i.i, %.critedge.backedge.us.i.i.i, %85, %13, %86, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit"
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %149, align 1
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %150, align 1
   store i8 0, ptr %0, align 8
   call void @"_ZN4core3ptr50drop_in_place$LT$procfs_core..cpuinfo..CpuInfo$GT$17hc16f86374580b6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
-  br label %152
+  br label %153
 
-"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit": ; preds = %._crit_edge.i.i18, %145
-  %.sroa.014.4.i.i = phi i8 [ %.sroa.014.1.lcssa.i.i, %._crit_edge.i.i18 ], [ %148, %145 ]
+"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit": ; preds = %._crit_edge.i.i18, %146
+  %.sroa.014.4.i.i = phi i8 [ %.sroa.014.1.lcssa.i.i, %._crit_edge.i.i18 ], [ %149, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2502
-  %150 = trunc nuw i8 %.sroa.014.4.i.i to i1
-  br i1 %150, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit.thread", label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit.thread"
+  %151 = trunc nuw i8 %.sroa.014.4.i.i to i1
+  br i1 %151, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit.thread", label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit.thread"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit.thread": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h04183a36f389c1cbE.exit.us.i.i.i", %.lr.ph.split.us.i.i.i, %86, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit"
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %151, align 1
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %152, align 1
   store i8 0, ptr %0, align 8
   call void @"_ZN4core3ptr50drop_in_place$LT$procfs_core..cpuinfo..CpuInfo$GT$17hc16f86374580b6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
-  br label %152
+  br label %153
 
-152:                                              ; preds = %75, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit.thread", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit.thread"
+153:                                              ; preds = %75, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit.thread", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd135ea7d2a9940d9E.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-153:                                              ; preds = %78
-  %154 = landingpad { ptr, i32 }
+154:                                              ; preds = %78
+  %155 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #55
   unreachable
 
-155:                                              ; preds = %78
+156:                                              ; preds = %78
   resume { ptr, i32 } %79
 }
 

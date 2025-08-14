@@ -1618,10 +1618,6 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %or.cond3147.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond3147.i, label %._crit_edge.i, label %.lr.ph149.i
 
-.lr.ph149.i:                                      ; preds = %.preheader.i
-  %invariant.op.i = add nuw nsw i64 %1, 31
-  br label %80
-
 .lr.ph.i:                                         ; preds = %31, %54
   %.065145.i = phi i64 [ %55, %54 ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !307
@@ -1677,9 +1673,9 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %70 = zext i1 %69 to i8
   br label %63
 
-._crit_edge.i:                                    ; preds = %88, %.preheader.i
-  %.168.lcssa.i = phi i8 [ %.067.lcssa.i, %.preheader.i ], [ %.5.i, %88 ]
-  %.lcssa.i = phi i1 [ %43, %.preheader.i ], [ %91, %88 ]
+._crit_edge.i:                                    ; preds = %87, %.preheader.i
+  %.168.lcssa.i = phi i8 [ %.067.lcssa.i, %.preheader.i ], [ %.5.i, %87 ]
+  %.lcssa.i = phi i1 [ %43, %.preheader.i ], [ %91, %87 ]
   %71 = sub i64 %3, %17
   %72 = add i64 %71, -16
   %73 = getelementptr inbounds i8, ptr %2, i64 %72
@@ -1693,32 +1689,32 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %95, label %96
 
-80:                                               ; preds = %88, %.lr.ph149.i
-  %.166148.i = phi i64 [ %.065.lcssa.i, %.lr.ph149.i ], [ %89, %88 ]
-  %81 = getelementptr inbounds i8, ptr %2, i64 %.166148.i
-  %.0.copyload.i86.i = load <16 x i8>, ptr %81, align 1, !alias.scope !296, !noalias !314
-  %82 = getelementptr inbounds i8, ptr %81, i64 %23
-  %.0.copyload2.i87.i = load <16 x i8>, ptr %82, align 1, !alias.scope !296, !noalias !314
-  %83 = icmp eq <16 x i8> %.0.copyload.i86.i, %34
-  %84 = icmp eq <16 x i8> %.0.copyload2.i87.i, %35
-  %85 = and <16 x i1> %83, %84
-  %86 = bitcast <16 x i1> %85 to i16
-  %87 = icmp eq i16 %86, 0
-  br i1 %87, label %88, label %92
+.lr.ph149.i:                                      ; preds = %.preheader.i, %87
+  %.166148.i = phi i64 [ %88, %87 ], [ %.065.lcssa.i, %.preheader.i ]
+  %80 = getelementptr inbounds i8, ptr %2, i64 %.166148.i
+  %.0.copyload.i86.i = load <16 x i8>, ptr %80, align 1, !alias.scope !296, !noalias !314
+  %81 = getelementptr inbounds i8, ptr %80, i64 %23
+  %.0.copyload2.i87.i = load <16 x i8>, ptr %81, align 1, !alias.scope !296, !noalias !314
+  %82 = icmp eq <16 x i8> %.0.copyload.i86.i, %34
+  %83 = icmp eq <16 x i8> %.0.copyload2.i87.i, %35
+  %84 = and <16 x i1> %82, %83
+  %85 = bitcast <16 x i1> %84 to i16
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %87, label %92
 
-88:                                               ; preds = %92, %80
-  %.5.i = phi i8 [ 0, %80 ], [ %94, %92 ]
-  %89 = add i64 %.166148.i, 16
-  %.reass.i = add i64 %invariant.op.i, %.166148.i
-  %90 = icmp uge i64 %.reass.i, %3
+87:                                               ; preds = %92, %.lr.ph149.i
+  %.5.i = phi i8 [ 0, %.lr.ph149.i ], [ %94, %92 ]
+  %88 = add i64 %.166148.i, 16
+  %89 = add i64 %88, %29
+  %90 = icmp uge i64 %89, %3
   %91 = trunc nuw i8 %.5.i to i1
   %or.cond3.i = select i1 %90, i1 true, i1 %91
-  br i1 %or.cond3.i, label %._crit_edge.i, label %80
+  br i1 %or.cond3.i, label %._crit_edge.i, label %.lr.ph149.i
 
-92:                                               ; preds = %80
-  %93 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf2398ba4c8047c4aE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.166148.i, i16 noundef %86, i1 noundef zeroext false)
+92:                                               ; preds = %.lr.ph149.i
+  %93 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf2398ba4c8047c4aE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %.166148.i, i16 noundef %85, i1 noundef zeroext false)
   %94 = zext i1 %93 to i8
-  br label %88
+  br label %87
 
 95:                                               ; preds = %96, %._crit_edge.i
   %.4.i = phi i8 [ %.168.lcssa.i, %._crit_edge.i ], [ %99, %96 ]

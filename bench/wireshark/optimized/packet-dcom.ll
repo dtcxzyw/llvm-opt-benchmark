@@ -2403,7 +2403,6 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %.not, label %9, label %.preheader75
 
 .preheader75:                                     ; preds = %6
-  %invariant.op = add i32 %1, 1
   %.not87 = icmp ult i32 %2, 2
   br i1 %.not87, label %.loopexit76, label %.lr.ph
 
@@ -2415,113 +2414,113 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1582, ptr noundef nonnull @.str.336) #16
   unreachable
 
-10:                                               ; preds = %.lr.ph, %28
-  %.078 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
+10:                                               ; preds = %.lr.ph, %29
+  %.078 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
   %11 = add i32 %.078, %1
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %11)
-  %.reass = add i32 %.078, %invariant.op
-  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass)
-  %14 = icmp eq i8 %12, 0
-  %15 = icmp eq i8 %13, 0
-  %or.cond = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond, label %16, label %18
+  %13 = add i32 %11, 1
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %13)
+  %15 = icmp eq i8 %12, 0
+  %16 = icmp eq i8 %14, 0
+  %or.cond = select i1 %15, i1 %16, i1 false
+  br i1 %or.cond, label %17, label %19
 
-16:                                               ; preds = %10
-  %17 = add i32 %.078, 2
+17:                                               ; preds = %10
+  %18 = add i32 %.078, 2
   br label %.loopexit76
 
-18:                                               ; preds = %10
-  %19 = zext i8 %12 to i64
-  %20 = getelementptr i16, ptr %8, i64 %19
-  %21 = load i16, ptr %20, align 2
-  %22 = and i16 %21, 64
-  %23 = icmp eq i16 %22, 0
-  %24 = icmp ne i8 %12, 10
-  %25 = icmp ne i8 %12, 13
-  %.not72 = and i1 %24, %25
-  %or.cond8.not69 = select i1 %23, i1 %.not72, i1 false
-  %26 = icmp ne i8 %13, 0
-  %or.cond11 = select i1 %or.cond8.not69, i1 true, i1 %26
-  br i1 %or.cond11, label %27, label %28
+19:                                               ; preds = %10
+  %20 = zext i8 %12 to i64
+  %21 = getelementptr i16, ptr %8, i64 %20
+  %22 = load i16, ptr %21, align 2
+  %23 = and i16 %22, 64
+  %24 = icmp eq i16 %23, 0
+  %25 = icmp ne i8 %12, 10
+  %26 = icmp ne i8 %12, 13
+  %.not72 = and i1 %25, %26
+  %or.cond8.not69 = select i1 %24, i1 %.not72, i1 false
+  %27 = icmp ne i8 %14, 0
+  %or.cond11 = select i1 %or.cond8.not69, i1 true, i1 %27
+  br i1 %or.cond11, label %28, label %29
 
-27:                                               ; preds = %18
+28:                                               ; preds = %19
   store i8 0, ptr %5, align 1
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %18
-  %29 = add i32 %.078, 2
-  %30 = icmp ult i32 %29, %7
-  br i1 %30, label %10, label %.loopexit76, !llvm.loop !16
+29:                                               ; preds = %28, %19
+  %30 = add i32 %.078, 2
+  %31 = icmp ult i32 %30, %7
+  br i1 %31, label %10, label %.loopexit76, !llvm.loop !16
 
-.loopexit76:                                      ; preds = %28, %.preheader75, %16
-  %.1 = phi i32 [ %17, %16 ], [ 0, %.preheader75 ], [ %29, %28 ]
-  %31 = load i8, ptr %5, align 1, !range !11, !noundef !12
-  %32 = trunc nuw i8 %31 to i1
-  %33 = add i32 %4, -2
-  %34 = icmp ne i32 %.1, 0
-  %35 = icmp ne i32 %33, 0
-  %36 = and i1 %34, %35
-  br i1 %32, label %.preheader, label %.preheader73
+.loopexit76:                                      ; preds = %29, %.preheader75, %17
+  %.1 = phi i32 [ %18, %17 ], [ 0, %.preheader75 ], [ %30, %29 ]
+  %32 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %33 = trunc nuw i8 %32 to i1
+  %34 = add i32 %4, -2
+  %35 = icmp ne i32 %.1, 0
+  %36 = icmp ne i32 %34, 0
+  %37 = and i1 %35, %36
+  br i1 %33, label %.preheader, label %.preheader73
 
 .preheader73:                                     ; preds = %.loopexit76
-  br i1 %36, label %.lr.ph81, label %.loopexit
+  br i1 %37, label %.lr.ph81, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit76
-  br i1 %36, label %.lr.ph85.preheader, label %.loopexit
+  br i1 %37, label %.lr.ph85.preheader, label %.loopexit
 
 .lr.ph85.preheader:                               ; preds = %.preheader
-  %37 = zext i32 %33 to i64
+  %38 = zext i32 %34 to i64
   br label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next, %.lr.ph85 ]
-  %.06483 = phi i32 [ 0, %.lr.ph85.preheader ], [ %41, %.lr.ph85 ]
-  %38 = add i32 %.06483, %1
-  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %38)
-  %40 = getelementptr i8, ptr %3, i64 %indvars.iv
-  store i8 %39, ptr %40, align 1
-  %41 = add nuw i32 %.06483, 2
+  %.06483 = phi i32 [ 0, %.lr.ph85.preheader ], [ %42, %.lr.ph85 ]
+  %39 = add i32 %.06483, %1
+  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %39)
+  %41 = getelementptr i8, ptr %3, i64 %indvars.iv
+  store i8 %40, ptr %41, align 1
+  %42 = add nuw i32 %.06483, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i32 %41, %.1
-  %43 = icmp samesign ult i64 %indvars.iv.next, %37
-  %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph85, label %.loopexit.loopexit, !llvm.loop !17
+  %43 = icmp ult i32 %42, %.1
+  %44 = icmp samesign ult i64 %indvars.iv.next, %38
+  %45 = select i1 %43, i1 %44, i1 false
+  br i1 %45, label %.lr.ph85, label %.loopexit.loopexit, !llvm.loop !17
 
 .lr.ph81:                                         ; preds = %.preheader73, %.lr.ph81
-  %.280 = phi i32 [ %52, %.lr.ph81 ], [ 0, %.preheader73 ]
-  %.16579 = phi i32 [ %51, %.lr.ph81 ], [ 0, %.preheader73 ]
-  %45 = zext i32 %.280 to i64
-  %46 = getelementptr i8, ptr %3, i64 %45
-  %47 = add i32 %.16579, %1
-  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
-  %49 = zext i8 %48 to i32
-  %50 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %46, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.337, i32 noundef %49)
-  %51 = add nuw i32 %.16579, 1
-  %52 = add i32 %.280, 2
-  %53 = icmp ult i32 %51, %.1
-  %54 = icmp ult i32 %52, %33
-  %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph81, label %.loopexit, !llvm.loop !18
+  %.280 = phi i32 [ %53, %.lr.ph81 ], [ 0, %.preheader73 ]
+  %.16579 = phi i32 [ %52, %.lr.ph81 ], [ 0, %.preheader73 ]
+  %46 = zext i32 %.280 to i64
+  %47 = getelementptr i8, ptr %3, i64 %46
+  %48 = add i32 %.16579, %1
+  %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %48)
+  %50 = zext i8 %49 to i32
+  %51 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %47, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.337, i32 noundef %50)
+  %52 = add nuw i32 %.16579, 1
+  %53 = add i32 %.280, 2
+  %54 = icmp ult i32 %52, %.1
+  %55 = icmp ult i32 %53, %34
+  %56 = select i1 %54, i1 %55, i1 false
+  br i1 %56, label %.lr.ph81, label %.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.lr.ph85
-  %56 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph81, %.loopexit.loopexit, %.preheader73, %.preheader
-  %.163 = phi i32 [ 0, %.preheader ], [ 0, %.preheader73 ], [ %56, %.loopexit.loopexit ], [ %52, %.lr.ph81 ]
-  %57 = icmp ult i32 %.163, %4
-  br i1 %57, label %59, label %58
+  %.163 = phi i32 [ 0, %.preheader ], [ 0, %.preheader73 ], [ %57, %.loopexit.loopexit ], [ %53, %.lr.ph81 ]
+  %58 = icmp ult i32 %.163, %4
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %.loopexit
+59:                                               ; preds = %.loopexit
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 1626, ptr noundef nonnull @.str.338) #16
   unreachable
 
-59:                                               ; preds = %.loopexit
-  %60 = zext i32 %.163 to i64
-  %61 = getelementptr i8, ptr %3, i64 %60
-  store i8 0, ptr %61, align 1
-  %62 = add i32 %.1, %1
-  ret i32 %62
+60:                                               ; preds = %.loopexit
+  %61 = zext i32 %.163 to i64
+  %62 = getelementptr i8, ptr %3, i64 %61
+  store i8 0, ptr %62, align 1
+  %63 = add i32 %.1, %1
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -440,37 +440,35 @@ switch.lookup:                                    ; preds = %.loopexit, %3
 
 35:                                               ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
-  %invariant.op = add i32 %12, %switch.load148
   %36 = sext i32 %switch.load146 to i64
-  br label %37
+  %37 = sext i32 %switch.load148 to i64
+  br label %38
 
-37:                                               ; preds = %35, %91
+38:                                               ; preds = %35, %91
   %indvars.iv135 = phi i64 [ %switch.load, %35 ], [ %indvars.iv.next136, %91 ]
   %indvars.iv = phi i64 [ %switch.load150, %35 ], [ %indvars.iv.next, %91 ]
   %.2105128 = phi i32 [ %.0103131, %35 ], [ %.3106, %91 ]
   %.0115127 = phi i32 [ 0, %35 ], [ %92, %91 ]
-  %38 = add nsw i64 %indvars.iv135, %19
-  %39 = getelementptr inbounds [1024 x [128 x i8]], ptr %16, i64 0, i64 %38
-  %40 = add nsw i64 %indvars.iv, %18
-  %41 = trunc nsw i64 %40 to i32
-  %42 = ashr i32 %41, 3
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [128 x i8], ptr %39, i64 0, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !7
-  %46 = zext i8 %45 to i32
-  %47 = trunc nuw nsw i64 %indvars.iv to i32
-  %48 = and i32 %47, 7
-  %49 = shl nuw nsw i32 1, %48
-  %50 = and i32 %49, %46
-  %.not123 = icmp eq i32 %50, 0
-  br i1 %.not123, label %91, label %51
+  %39 = add nsw i64 %indvars.iv135, %19
+  %40 = getelementptr inbounds [1024 x [128 x i8]], ptr %16, i64 0, i64 %39
+  %41 = add nsw i64 %indvars.iv, %18
+  %42 = trunc nsw i64 %41 to i32
+  %43 = ashr i32 %42, 3
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds [128 x i8], ptr %40, i64 0, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !7
+  %47 = zext i8 %46 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  %49 = and i32 %48, 7
+  %50 = shl nuw nsw i32 1, %49
+  %51 = and i32 %50, %47
+  %.not123 = icmp eq i32 %51, 0
+  br i1 %.not123, label %91, label %52
 
-51:                                               ; preds = %37
-  %52 = trunc nuw nsw i64 %indvars.iv135 to i32
-  %.reass = add i32 %invariant.op, %52
-  %53 = sext i32 %.reass to i64
+52:                                               ; preds = %38
+  %53 = add nsw i64 %39, %37
   %54 = getelementptr inbounds [1024 x [128 x i8]], ptr %16, i64 0, i64 %53
-  %55 = add nsw i64 %40, %36
+  %55 = add nsw i64 %41, %36
   %56 = trunc nsw i64 %55 to i32
   %57 = ashr i32 %56, 3
   %58 = sext i32 %57 to i64
@@ -483,9 +481,9 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   %.not124 = icmp eq i32 %64, 0
   br i1 %.not124, label %91, label %65
 
-65:                                               ; preds = %51
-  %66 = getelementptr inbounds [1024 x [1024 x i16]], ptr %17, i64 0, i64 %38
-  %67 = getelementptr inbounds [1024 x i16], ptr %66, i64 0, i64 %40
+65:                                               ; preds = %52
+  %66 = getelementptr inbounds [1024 x [1024 x i16]], ptr %17, i64 0, i64 %39
+  %67 = getelementptr inbounds [1024 x i16], ptr %66, i64 0, i64 %41
   %68 = load i16, ptr %67, align 2, !tbaa !3
   %69 = getelementptr inbounds [1024 x [1024 x i16]], ptr %17, i64 0, i64 %53
   %70 = getelementptr inbounds [1024 x i16], ptr %69, i64 0, i64 %55
@@ -515,13 +513,13 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   %90 = add nsw i32 %.2105128, 1
   br label %91
 
-91:                                               ; preds = %65, %84, %51, %37
-  %.3106 = phi i32 [ %.2105128, %51 ], [ %.2105128, %37 ], [ %90, %84 ], [ %.2105128, %65 ]
+91:                                               ; preds = %65, %84, %52, %38
+  %.3106 = phi i32 [ %.2105128, %52 ], [ %.2105128, %38 ], [ %90, %84 ], [ %.2105128, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %switch.load154
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, %switch.load152
   %92 = add nuw nsw i32 %.0115127, 1
   %exitcond.not = icmp eq i32 %92, 32
-  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !29
 
 .loopexit:                                        ; preds = %91, %switch.lookup, %28, %30, %33
   %.1104 = phi i32 [ %.0103131, %switch.lookup ], [ %.0103131, %28 ], [ %.0103131, %30 ], [ %.0103131, %33 ], [ %.3106, %91 ]

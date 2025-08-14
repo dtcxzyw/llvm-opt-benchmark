@@ -946,43 +946,43 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   br i1 %128, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %123, %.lr.ph125
-  %.092123 = phi i32 [ %133, %.lr.ph125 ], [ 0, %123 ]
+  %.092123 = phi i32 [ %134, %.lr.ph125 ], [ 0, %123 ]
   %129 = add i32 %.092123, 1
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw i32, ptr %126, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !30
-  %.reass = add i32 %.092123, 2
-  %133 = add i32 %.reass, %132
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %126, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !30
-  %137 = icmp eq i32 %2, %136
-  br i1 %137, label %._crit_edge126, label %.lr.ph125
+  %133 = add i32 %.092123, 2
+  %134 = add i32 %133, %132
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw i32, ptr %126, i64 %135
+  %137 = load i32, ptr %136, align 4, !tbaa !30
+  %138 = icmp eq i32 %2, %137
+  br i1 %138, label %._crit_edge126, label %.lr.ph125
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %123
-  %.092.lcssa = phi i32 [ 0, %123 ], [ %133, %.lr.ph125 ]
-  %138 = add i32 %.092.lcssa, 1
-  %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %126, i64 %139
-  %141 = load i32, ptr %140, align 4, !tbaa !30
-  %.not132 = icmp eq i32 %141, 0
+  %.092.lcssa = phi i32 [ 0, %123 ], [ %134, %.lr.ph125 ]
+  %139 = add i32 %.092.lcssa, 1
+  %140 = zext i32 %139 to i64
+  %141 = getelementptr inbounds nuw i32, ptr %126, i64 %140
+  %142 = load i32, ptr %141, align 4, !tbaa !30
+  %.not132 = icmp eq i32 %142, 0
   br i1 %.not132, label %.loopexit, label %.lr.ph131.preheader
 
 .lr.ph131.preheader:                              ; preds = %._crit_edge126
-  %142 = add i32 %.092.lcssa, 2
+  %143 = add i32 %.092.lcssa, 2
   br label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
-  %.091129 = phi i32 [ %148, %.lr.ph131 ], [ 0, %.lr.ph131.preheader ]
-  %.1128 = phi i32 [ %149, %.lr.ph131 ], [ %142, %.lr.ph131.preheader ]
-  %143 = load ptr, ptr %125, align 8, !tbaa !56
-  %144 = zext i32 %.1128 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %144
-  %146 = load i32, ptr %145, align 4, !tbaa !30
-  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.120, i32 noundef %146) #7
-  %148 = add nuw i32 %.091129, 1
-  %149 = add i32 %.1128, 1
-  %exitcond.not = icmp eq i32 %148, %141
+  %.091129 = phi i32 [ %149, %.lr.ph131 ], [ 0, %.lr.ph131.preheader ]
+  %.1128 = phi i32 [ %150, %.lr.ph131 ], [ %143, %.lr.ph131.preheader ]
+  %144 = load ptr, ptr %125, align 8, !tbaa !56
+  %145 = zext i32 %.1128 to i64
+  %146 = getelementptr inbounds nuw i32, ptr %144, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !30
+  %148 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.120, i32 noundef %147) #7
+  %149 = add nuw i32 %.091129, 1
+  %150 = add i32 %.1128, 1
+  %exitcond.not = icmp eq i32 %149, %142
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph131
 
 .loopexit.loopexit:                               ; preds = %.lr.ph131
@@ -990,18 +990,18 @@ define internal fastcc void @ir_dump_cfg_block(ptr noundef readonly captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge126, %120
-  %150 = phi i32 [ %.pre134, %.loopexit.loopexit ], [ %121, %._crit_edge126 ], [ %121, %120 ]
-  %151 = and i32 %150, 32
-  %.not112 = icmp eq i32 %151, 0
-  br i1 %.not112, label %154, label %152
+  %151 = phi i32 [ %.pre134, %.loopexit.loopexit ], [ %121, %._crit_edge126 ], [ %121, %120 ]
+  %152 = and i32 %151, 32
+  %.not112 = icmp eq i32 %152, 0
+  br i1 %.not112, label %155, label %153
 
-152:                                              ; preds = %.loopexit
-  %153 = getelementptr i8, ptr %3, i64 12
-  %.val = load i32, ptr %153, align 4, !tbaa !45
+153:                                              ; preds = %.loopexit
+  %154 = getelementptr i8, ptr %3, i64 12
+  %.val = load i32, ptr %154, align 4, !tbaa !45
   tail call fastcc void @ir_dump_dessa_moves(ptr noundef %0, i32 noundef %2, i32 %.val, ptr noundef %1)
-  br label %154
+  br label %155
 
-154:                                              ; preds = %152, %.loopexit
+155:                                              ; preds = %153, %.loopexit
   ret void
 }
 

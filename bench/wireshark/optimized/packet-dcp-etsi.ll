@@ -542,7 +542,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ._crit_edge:                                      ; preds = %47, %48
   %57 = icmp ugt i32 %19, 1
-  br i1 %57, label %58, label %194
+  br i1 %57, label %58, label %195
 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -569,7 +569,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %73 = icmp ne i32 %19, %72
   %74 = zext i16 %13 to i32
   %75 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef %1, i32 noundef %74, ptr noundef null, i32 noundef %16, i32 noundef %64, i1 noundef zeroext %73)
-  br i1 %.not, label %76, label %183
+  br i1 %.not, label %76, label %184
 
 76:                                               ; preds = %70
   %77 = icmp ugt i32 %19, 262144
@@ -763,13 +763,12 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
 .lr.ph.i.i.i:                                     ; preds = %rs_deinterleave.exit.i.i
   %156 = zext nneg i16 %.0113 to i64
   %157 = zext nneg i16 %.0113 to i32
-  %invariant.op.i.i.i = add nuw nsw i32 %157, 48
   br label %158
 
 158:                                              ; preds = %177, %.lr.ph.i.i.i
-  %.02025.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %178, %177 ]
-  %.02124.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.reass.i.i.i, %177 ]
-  %.02223.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %179, %177 ]
+  %.02025.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %179, %177 ]
+  %.02124.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %178, %177 ]
+  %.02223.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %180, %177 ]
   %159 = zext i32 %.02025.i.i.i to i64
   %160 = getelementptr i8, ptr %141, i64 %159
   %161 = zext i32 %.02124.i.i.i to i64
@@ -792,86 +791,86 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   br i1 %176, label %177, label %rs_correct_data.exit.i.i
 
 177:                                              ; preds = %158
-  %.reass.i.i.i = add i32 %invariant.op.i.i.i, %.02124.i.i.i
-  %178 = add i32 %.02025.i.i.i, %157
-  %179 = add nuw nsw i32 %.02223.i.i.i, 1
-  %exitcond.not.i160.i.i = icmp eq i32 %179, %83
+  %178 = add i32 %168, 48
+  %179 = add i32 %.02025.i.i.i, %157
+  %180 = add nuw nsw i32 %.02223.i.i.i, 1
+  %exitcond.not.i160.i.i = icmp eq i32 %180, %83
   br i1 %exitcond.not.i160.i.i, label %rs_correct_data.exit.i.i, label %158, !llvm.loop !23
 
 rs_correct_data.exit.i.i:                         ; preds = %177, %158, %rs_deinterleave.exit.i.i
   %.lcssa.i.i.i = phi i64 [ 1, %rs_deinterleave.exit.i.i ], [ 1, %177 ], [ 0, %158 ]
-  %180 = load i32, ptr @hf_edcp_rs_ok, align 4
-  %181 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %180, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, i32 noundef 2, i64 noundef %.lcssa.i.i.i)
-  %182 = tail call ptr @tvb_new_child_real_data(ptr noundef %154, ptr noundef %141, i32 noundef %81, i32 noundef %81)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %182, ptr noundef nonnull @.str.133)
+  %181 = load i32, ptr @hf_edcp_rs_ok, align 4
+  %182 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %181, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, i32 noundef 2, i64 noundef %.lcssa.i.i.i)
+  %183 = tail call ptr @tvb_new_child_real_data(ptr noundef %154, ptr noundef %141, i32 noundef %81, i32 noundef %81)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @.str.133)
   br label %dissect_pft_fec_detailed.exit.i
 
-183:                                              ; preds = %70
-  %184 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef %75, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10)
+184:                                              ; preds = %70
+  %185 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef %75, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10)
   br label %dissect_pft_fec_detailed.exit.i
 
-dissect_pft_fec_detailed.exit.i:                  ; preds = %183, %rs_correct_data.exit.i.i
-  %.0.i = phi ptr [ %184, %183 ], [ %182, %rs_correct_data.exit.i.i ]
+dissect_pft_fec_detailed.exit.i:                  ; preds = %184, %rs_correct_data.exit.i.i
+  %.0.i = phi ptr [ %185, %184 ], [ %183, %rs_correct_data.exit.i.i ]
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dissect_pft_fec_detailed.exit.thread.i, label %dissect_pft_fec_detailed.exit.thread44.i
 
 dissect_pft_fec_detailed.exit.thread44.i:         ; preds = %dissect_pft_fec_detailed.exit.i, %130
   %.047.i = phi ptr [ %.0.i, %dissect_pft_fec_detailed.exit.i ], [ %129, %130 ]
-  %185 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.124)
-  br label %188
+  %186 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.124)
+  br label %189
 
 dissect_pft_fec_detailed.exit.thread.i:           ; preds = %dissect_pft_fec_detailed.exit.i, %.critedge.i.i, %._crit_edge184.i.i, %123, %117, %._crit_edge184.thread.i.i, %.loopexit.i.i, %78
-  %186 = load ptr, ptr %5, align 8
-  br i1 %73, label %187, label %.thread50.i
+  %187 = load ptr, ptr %5, align 8
+  br i1 %73, label %188, label %.thread50.i
 
 .thread50.i:                                      ; preds = %dissect_pft_fec_detailed.exit.thread.i
-  tail call void @col_append_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.125)
+  tail call void @col_append_str(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.125)
+  br label %193
+
+188:                                              ; preds = %dissect_pft_fec_detailed.exit.thread.i
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.126, i32 noundef %16)
+  br label %189
+
+189:                                              ; preds = %188, %dissect_pft_fec_detailed.exit.thread44.i
+  %.042.i = phi ptr [ null, %188 ], [ %.047.i, %dissect_pft_fec_detailed.exit.thread44.i ]
+  br i1 %71, label %190, label %192
+
+190:                                              ; preds = %189
+  %191 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %191, i32 noundef 25, ptr noundef nonnull @.str.127)
   br label %192
 
-187:                                              ; preds = %dissect_pft_fec_detailed.exit.thread.i
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.126, i32 noundef %16)
-  br label %188
+192:                                              ; preds = %190, %189
+  br i1 %73, label %dissect_pft_fragmented.exit, label %193
 
-188:                                              ; preds = %187, %dissect_pft_fec_detailed.exit.thread44.i
-  %.042.i = phi ptr [ null, %187 ], [ %.047.i, %dissect_pft_fec_detailed.exit.thread44.i ]
-  br i1 %71, label %189, label %191
-
-189:                                              ; preds = %188
-  %190 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %190, i32 noundef 25, ptr noundef nonnull @.str.127)
-  br label %191
-
-191:                                              ; preds = %189, %188
-  br i1 %73, label %dissect_pft_fragmented.exit, label %192
-
-192:                                              ; preds = %191, %.thread50.i
-  %.0424952.i = phi ptr [ null, %.thread50.i ], [ %.042.i, %191 ]
-  %193 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.128)
+193:                                              ; preds = %192, %.thread50.i
+  %.0424952.i = phi ptr [ null, %.thread50.i ], [ %.042.i, %192 ]
+  %194 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %194, i32 noundef 25, ptr noundef nonnull @.str.128)
   br label %dissect_pft_fragmented.exit
 
-dissect_pft_fragmented.exit:                      ; preds = %192, %191, %69
-  %.0110 = phi ptr [ null, %69 ], [ %.0424952.i, %192 ], [ %.042.i, %191 ]
+dissect_pft_fragmented.exit:                      ; preds = %193, %192, %69
+  %.0110 = phi ptr [ null, %69 ], [ %.0424952.i, %193 ], [ %.042.i, %192 ]
   store i8 %60, ptr %59, align 8
-  br label %196
+  br label %197
 
-194:                                              ; preds = %._crit_edge
-  %195 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.pre)
-  br label %196
+195:                                              ; preds = %._crit_edge
+  %196 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.pre)
+  br label %197
 
-196:                                              ; preds = %194, %dissect_pft_fragmented.exit
-  %.1111 = phi ptr [ %.0110, %dissect_pft_fragmented.exit ], [ %195, %194 ]
+197:                                              ; preds = %195, %dissect_pft_fragmented.exit
+  %.1111 = phi ptr [ %.0110, %dissect_pft_fragmented.exit ], [ %196, %195 ]
   %.not118 = icmp eq ptr %.1111, null
-  br i1 %.not118, label %199, label %197
+  br i1 %.not118, label %200, label %198
 
-197:                                              ; preds = %196
-  %198 = tail call i32 @dissect_af(ptr noundef nonnull %.1111, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %199
+198:                                              ; preds = %197
+  %199 = tail call i32 @dissect_af(ptr noundef nonnull %.1111, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %200
 
-199:                                              ; preds = %197, %196
-  %200 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %200
+200:                                              ; preds = %198, %197
+  %201 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %201
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

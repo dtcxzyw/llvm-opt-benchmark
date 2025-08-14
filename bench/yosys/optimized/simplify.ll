@@ -49651,18 +49651,18 @@ define internal fastcc noundef i32 @_ZN5YosysL18size_packed_structEPNS_3AST7AstN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !50, !noalias !570
-  %invariant.op = add i32 %1, -1
   %9 = load ptr, ptr %6, align 8, !tbaa !50, !noalias !573
   %.not159203 = icmp eq ptr %8, %9
-  br i1 %.not159203, label %._crit_edge210, label %.lr.ph209
+  %.pre236 = add i32 %1, -1
+  br i1 %.not159203, label %._crit_edge209, label %.lr.ph208
 
-._crit_edge210:                                   ; preds = %249, %2
-  %.089.lcssa = phi i32 [ -1, %2 ], [ %.190, %249 ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %249 ]
+._crit_edge209:                                   ; preds = %250, %2
+  %.089.lcssa = phi i32 [ -1, %2 ], [ %.190, %250 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %250 ]
   %10 = select i1 %5, i32 %.089.lcssa, i32 %.0.lcssa
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %1, ptr %11, align 8, !tbaa !129
-  %12 = add i32 %invariant.op, %10
+  %12 = add i32 %.pre236, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %12, ptr %13, align 4, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -49675,7 +49675,7 @@ define internal fastcc noundef i32 @_ZN5YosysL18size_packed_structEPNS_3AST7AstN
   %.not.i.i = icmp eq ptr %17, %19
   br i1 %.not.i.i, label %22, label %20
 
-20:                                               ; preds = %._crit_edge210
+20:                                               ; preds = %._crit_edge209
   store i32 0, ptr %17, align 4, !tbaa !64
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %10, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !64
@@ -49685,7 +49685,7 @@ define internal fastcc noundef i32 @_ZN5YosysL18size_packed_structEPNS_3AST7AstN
   store ptr %21, ptr %16, align 8, !tbaa !305
   br label %_ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit
 
-22:                                               ; preds = %._crit_edge210
+22:                                               ; preds = %._crit_edge209
   %23 = load ptr, ptr %15, align 8, !tbaa !304
   %24 = ptrtoint ptr %17 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -49740,10 +49740,10 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE17_M_realloc_insertIJS3_EE
 _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit: ; preds = %20, %_ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   ret i32 %10
 
-.lr.ph209:                                        ; preds = %2, %249
-  %.0206 = phi i32 [ %.1, %249 ], [ 0, %2 ]
-  %.089205 = phi i32 [ %.190, %249 ], [ -1, %2 ]
-  %.sroa.0158.0204 = phi ptr [ %42, %249 ], [ %8, %2 ]
+.lr.ph208:                                        ; preds = %2, %250
+  %.0206 = phi i32 [ %.1, %250 ], [ 0, %2 ]
+  %.089205 = phi i32 [ %.190, %250 ], [ -1, %2 ]
+  %.sroa.0158.0204 = phi ptr [ %42, %250 ], [ %8, %2 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.0158.0204, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -49752,12 +49752,12 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit: ; pr
   %switch = icmp eq i32 %46, 110
   br i1 %switch, label %47, label %50
 
-47:                                               ; preds = %.lr.ph209
+47:                                               ; preds = %.lr.ph208
   %48 = add nsw i32 %.0206, %1
   %49 = tail call fastcc noundef i32 @_ZN5YosysL18size_packed_structEPNS_3AST7AstNodeEi(ptr noundef nonnull %43, i32 noundef %48)
-  br label %240
+  br label %241
 
-50:                                               ; preds = %.lr.ph209
+50:                                               ; preds = %.lr.ph208
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !54
@@ -49911,22 +49911,22 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit107: ;
   unreachable
 
 128:                                              ; preds = %_ZN5YosysL11range_widthEPNS_3AST7AstNodeES2_.exit, %124
-  %.sink257 = phi ptr [ %126, %124 ], [ %59, %_ZN5YosysL11range_widthEPNS_3AST7AstNodeES2_.exit ]
+  %.sink258 = phi ptr [ %126, %124 ], [ %59, %_ZN5YosysL11range_widthEPNS_3AST7AstNodeES2_.exit ]
   %.2 = phi i32 [ %.192, %124 ], [ %74, %_ZN5YosysL11range_widthEPNS_3AST7AstNodeES2_.exit ]
-  %129 = tail call fastcc noundef i32 @_ZN5YosysL13add_dimensionEPNS_3AST7AstNodeES2_(ptr noundef nonnull %43, ptr noundef %.sink257)
+  %129 = tail call fastcc noundef i32 @_ZN5YosysL13add_dimensionEPNS_3AST7AstNodeES2_(ptr noundef nonnull %43, ptr noundef %.sink258)
   %130 = load ptr, ptr %51, align 8, !tbaa !50
   %131 = load ptr, ptr %52, align 8, !tbaa !50
   %.not162198 = icmp eq ptr %130, %131
   br i1 %.not162198, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, label %.lr.ph201
 
 ._crit_edge202:                                   ; preds = %137
-  %.pre235 = load ptr, ptr %51, align 8, !tbaa !55
-  %.pre236 = load ptr, ptr %52, align 8, !tbaa !54
-  %132 = icmp eq ptr %.pre236, %.pre235
+  %.pre234 = load ptr, ptr %51, align 8, !tbaa !55
+  %.pre235 = load ptr, ptr %52, align 8, !tbaa !54
+  %132 = icmp eq ptr %.pre235, %.pre234
   br i1 %132, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, label %133
 
 133:                                              ; preds = %._crit_edge202
-  store ptr %.pre235, ptr %52, align 8, !tbaa !54
+  store ptr %.pre234, ptr %52, align 8, !tbaa !54
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit
 
 .lr.ph201:                                        ; preds = %128, %137
@@ -49969,11 +49969,11 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit107: ;
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5YosysL13add_dimensionEPNS_3AST7AstNodeES2_.exit
   %.pre = load ptr, ptr %51, align 8, !tbaa !50
-  %.pre232 = load ptr, ptr %52, align 8, !tbaa !50
+  %.pre231 = load ptr, ptr %52, align 8, !tbaa !50
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %141
-  %149 = phi ptr [ %53, %141 ], [ %.pre232, %._crit_edge.loopexit ]
+  %149 = phi ptr [ %53, %141 ], [ %.pre231, %._crit_edge.loopexit ]
   %150 = phi ptr [ %54, %141 ], [ %.pre, %._crit_edge.loopexit ]
   %.4.lcssa = phi i32 [ 1, %141 ], [ %191, %._crit_edge.loopexit ]
   %.not161193 = icmp eq ptr %150, %149
@@ -50077,13 +50077,13 @@ _ZN5YosysL13add_dimensionEPNS_3AST7AstNodeES2_.exit: ; preds = %169, %_ZNSt6vect
   br i1 %.not160, label %._crit_edge.loopexit, label %151
 
 ._crit_edge197:                                   ; preds = %198
-  %.pre233 = load ptr, ptr %51, align 8, !tbaa !55
-  %.pre234 = load ptr, ptr %52, align 8, !tbaa !54
-  %193 = icmp eq ptr %.pre234, %.pre233
+  %.pre232 = load ptr, ptr %51, align 8, !tbaa !55
+  %.pre233 = load ptr, ptr %52, align 8, !tbaa !54
+  %193 = icmp eq ptr %.pre233, %.pre232
   br i1 %193, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, label %194
 
 194:                                              ; preds = %._crit_edge197
-  store ptr %.pre233, ptr %52, align 8, !tbaa !54
+  store ptr %.pre232, ptr %52, align 8, !tbaa !54
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit
 
 .lr.ph196:                                        ; preds = %._crit_edge, %198
@@ -50188,47 +50188,47 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE17_M_realloc_insertIJS3_EE
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %._crit_edge, %128, %_ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i117, %209, %194, %._crit_edge197, %133, %._crit_edge202, %231
   %.3 = phi i32 [ %235, %231 ], [ %.2, %._crit_edge202 ], [ %.2, %133 ], [ %.4.lcssa, %._crit_edge197 ], [ %.4.lcssa, %194 ], [ 1, %209 ], [ 1, %_ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i117 ], [ %.2, %128 ], [ %.4.lcssa, %._crit_edge ]
-  %236 = select i1 %5, i32 0, i32 %.0206
-  %.sink231 = add nsw i32 %1, %236
-  %.reass = select i1 %5, i32 0, i32 %.0206
-  %invariant.op.pn = add i32 %invariant.op, %.reass
-  %.sink = add i32 %invariant.op.pn, %.3
-  %237 = getelementptr inbounds nuw i8, ptr %43, i64 160
-  store i32 %.sink231, ptr %237, align 8, !tbaa !129
-  %238 = getelementptr inbounds nuw i8, ptr %43, i64 156
-  store i32 %.sink, ptr %238, align 4, !tbaa !128
-  %239 = getelementptr inbounds nuw i8, ptr %43, i64 144
-  store i8 1, ptr %239, align 8, !tbaa !168
-  br label %240
+  %236 = add nsw i32 %.0206, %1
+  %237 = add i32 %236, -1
+  %.sink230 = select i1 %5, i32 %1, i32 %236
+  %.pn237 = select i1 %5, i32 %.pre236, i32 %237
+  %.sink = add i32 %.pn237, %.3
+  %238 = getelementptr inbounds nuw i8, ptr %43, i64 160
+  store i32 %.sink230, ptr %238, align 8, !tbaa !129
+  %239 = getelementptr inbounds nuw i8, ptr %43, i64 156
+  store i32 %.sink, ptr %239, align 4, !tbaa !128
+  %240 = getelementptr inbounds nuw i8, ptr %43, i64 144
+  store i8 1, ptr %240, align 8, !tbaa !168
+  br label %241
 
-240:                                              ; preds = %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, %47
+241:                                              ; preds = %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, %47
   %.091 = phi i32 [ %49, %47 ], [ %.3, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit ]
-  br i1 %5, label %241, label %247
+  br i1 %5, label %242, label %248
 
-241:                                              ; preds = %240
-  %242 = icmp eq i32 %.089205, -1
-  br i1 %242, label %249, label %243
+242:                                              ; preds = %241
+  %243 = icmp eq i32 %.089205, -1
+  br i1 %243, label %250, label %244
 
-243:                                              ; preds = %241
+244:                                              ; preds = %242
   %.not99 = icmp eq i32 %.089205, %.091
-  br i1 %.not99, label %249, label %244
+  br i1 %.not99, label %250, label %245
 
-244:                                              ; preds = %243
-  %245 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %246 = load ptr, ptr %245, align 8, !tbaa !91
-  tail call void (ptr, ptr, ...) @_ZNK5Yosys3AST7AstNode11input_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(284) %43, ptr noundef nonnull @.str.242, ptr noundef %246, i32 noundef %.091, i32 noundef %.089205) #39
+245:                                              ; preds = %244
+  %246 = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %247 = load ptr, ptr %246, align 8, !tbaa !91
+  tail call void (ptr, ptr, ...) @_ZNK5Yosys3AST7AstNode11input_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(284) %43, ptr noundef nonnull @.str.242, ptr noundef %247, i32 noundef %.091, i32 noundef %.089205) #39
   unreachable
 
-247:                                              ; preds = %240
-  %248 = add nsw i32 %.091, %.0206
-  br label %249
+248:                                              ; preds = %241
+  %249 = add nsw i32 %.091, %.0206
+  br label %250
 
-249:                                              ; preds = %241, %243, %247
-  %.190 = phi i32 [ %.089205, %243 ], [ %.089205, %247 ], [ %.091, %241 ]
-  %.1 = phi i32 [ %.0206, %243 ], [ %248, %247 ], [ %.0206, %241 ]
-  %250 = load ptr, ptr %6, align 8, !tbaa !50, !noalias !573
-  %.not159 = icmp eq ptr %42, %250
-  br i1 %.not159, label %._crit_edge210, label %.lr.ph209, !llvm.loop !577
+250:                                              ; preds = %242, %244, %248
+  %.190 = phi i32 [ %.089205, %244 ], [ %.089205, %248 ], [ %.091, %242 ]
+  %.1 = phi i32 [ %.0206, %244 ], [ %249, %248 ], [ %.0206, %242 ]
+  %251 = load ptr, ptr %6, align 8, !tbaa !50, !noalias !573
+  %.not159 = icmp eq ptr %42, %251
+  br i1 %.not159, label %._crit_edge209, label %.lr.ph208, !llvm.loop !577
 }
 
 ; Function Attrs: mustprogress uwtable

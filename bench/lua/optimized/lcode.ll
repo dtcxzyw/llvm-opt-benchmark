@@ -302,10 +302,8 @@ define hidden void @luaK_patchlist(ptr noundef readonly captures(none) %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
-  %invariant.op = add i32 %4, 16777215
-  %invariant.op20 = add i32 %2, 16777215
-  %.not22 = icmp eq i32 %1, -1
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %1, -1
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.val = load ptr, ptr %0, align 8, !tbaa !44
@@ -316,17 +314,17 @@ define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0
   %8 = and i32 %7, 32640
   br label %9
 
-9:                                                ; preds = %.lr.ph, %55
-  %.023 = phi i32 [ %1, %.lr.ph ], [ %17, %55 ]
-  %10 = sext i32 %.023 to i64
+9:                                                ; preds = %.lr.ph, %fixjump.exit17
+  %.021 = phi i32 [ %1, %.lr.ph ], [ %17, %fixjump.exit17 ]
+  %10 = sext i32 %.021 to i64
   %11 = getelementptr inbounds i32, ptr %.val.val, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !53
   %13 = lshr i32 %12, 7
   %14 = add nsw i32 %13, -16777215
   %15 = icmp eq i32 %14, -1
-  %16 = add nuw nsw i32 %.023, 1
+  %16 = add nuw nsw i32 %.021, 1
   %17 = add nsw i32 %16, %14
-  %18 = icmp sgt i32 %.023, 0
+  %18 = icmp sgt i32 %.021, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %9
@@ -374,51 +372,48 @@ getjumpcontrol.exit.i:                            ; preds = %27, %19
 42:                                               ; preds = %37, %34
   %storemerge.i = phi i32 [ %41, %37 ], [ %36, %34 ]
   store i32 %storemerge.i, ptr %.0.i.i, align 4, !tbaa !53
-  %43 = sub i32 %.023, %invariant.op20
-  %or.cond.i = icmp ugt i32 %43, -33554433
-  br i1 %or.cond.i, label %fixjump.exit, label %44
+  %.neg.i = xor i32 %.021, -1
+  %43 = add i32 %2, %.neg.i
+  %44 = add i32 %43, 16777215
+  %or.cond.i = icmp ult i32 %44, 33554432
+  br i1 %or.cond.i, label %fixjump.exit, label %45
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !27
-  tail call void @luaX_syntaxerror(ptr noundef %46, ptr noundef nonnull @.str.4) #12
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !27
+  tail call void @luaX_syntaxerror(ptr noundef %47, ptr noundef nonnull @.str.4) #12
   unreachable
 
 fixjump.exit:                                     ; preds = %42
-  %.neg.i = xor i32 %.023, -1
-  %47 = add i32 %2, %.neg.i
   %48 = load i32, ptr %11, align 4, !tbaa !53
-  br label %55
+  br label %fixjump.exit17
 
 49:                                               ; preds = %getjumpcontrol.exit.i
-  %50 = sub i32 %.023, %invariant.op
-  %or.cond.i16 = icmp ugt i32 %50, -33554433
-  br i1 %or.cond.i16, label %fixjump.exit17, label %51
+  %.neg.i15 = xor i32 %.021, -1
+  %50 = add i32 %4, %.neg.i15
+  %51 = add i32 %50, 16777215
+  %or.cond.i16 = icmp ult i32 %51, 33554432
+  br i1 %or.cond.i16, label %fixjump.exit17, label %52
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !27
-  tail call void @luaX_syntaxerror(ptr noundef %53, ptr noundef nonnull @.str.4) #12
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !27
+  tail call void @luaX_syntaxerror(ptr noundef %54, ptr noundef nonnull @.str.4) #12
   unreachable
 
-fixjump.exit17:                                   ; preds = %49
-  %.neg.i15 = xor i32 %.023, -1
-  %54 = add i32 %4, %.neg.i15
-  br label %55
-
-55:                                               ; preds = %fixjump.exit17, %fixjump.exit
-  %.sink27 = phi i32 [ %12, %fixjump.exit17 ], [ %48, %fixjump.exit ]
-  %.sink26 = phi i32 [ %54, %fixjump.exit17 ], [ %47, %fixjump.exit ]
-  %56 = and i32 %.sink27, 127
-  %57 = shl i32 %.sink26, 7
-  %58 = add i32 %57, 2147483520
-  %59 = or disjoint i32 %56, %58
-  store i32 %59, ptr %11, align 4, !tbaa !53
-  %.not28 = icmp eq i32 %17, -1
-  %.not = select i1 %15, i1 true, i1 %.not28
+fixjump.exit17:                                   ; preds = %49, %fixjump.exit
+  %.sink25 = phi i32 [ %48, %fixjump.exit ], [ %12, %49 ]
+  %.sink24 = phi i32 [ %43, %fixjump.exit ], [ %50, %49 ]
+  %55 = and i32 %.sink25, 127
+  %56 = shl i32 %.sink24, 7
+  %57 = add i32 %56, 2147483520
+  %58 = or disjoint i32 %55, %57
+  store i32 %58, ptr %11, align 4, !tbaa !53
+  %.not26 = icmp eq i32 %17, -1
+  %.not = select i1 %15, i1 true, i1 %.not26
   br i1 %.not, label %._crit_edge, label %9
 
-._crit_edge:                                      ; preds = %55, %5
+._crit_edge:                                      ; preds = %fixjump.exit17, %5
   ret void
 }
 

@@ -903,9 +903,9 @@ refreshMultiLine.exit:                            ; preds = %234, %243
   %261 = load i64, ptr %260, align 8, !tbaa !19
   %262 = add i64 %259, %251
   %.not38.i = icmp ult i64 %262, %261
-  br i1 %.not38.i, label %.preheader36.i, label %.lr.ph.i2
+  br i1 %.not38.i, label %.preheader36.i, label %.lr.ph.preheader.i2
 
-.lr.ph.i2:                                        ; preds = %249
+.lr.ph.preheader.i2:                              ; preds = %249
   %263 = add i64 %262, -1
   %264 = add i64 %261, -1
   %umin.i = tail call i64 @llvm.umin.i64(i64 %263, i64 %264)
@@ -915,13 +915,13 @@ refreshMultiLine.exit:                            ; preds = %234, %243
   %267 = add i64 %266, %umin.i
   br label %.preheader36.i
 
-.preheader36.i:                                   ; preds = %.lr.ph.i2, %249
-  %.025.lcssa.i = phi ptr [ %255, %249 ], [ %scevgep.i, %.lr.ph.i2 ]
-  %.024.lcssa.i = phi i64 [ %257, %249 ], [ %267, %.lr.ph.i2 ]
-  %.lcssa37.i = phi i64 [ %262, %249 ], [ %umin.i, %.lr.ph.i2 ]
+.preheader36.i:                                   ; preds = %.lr.ph.preheader.i2, %249
+  %.025.lcssa.i = phi ptr [ %255, %249 ], [ %scevgep.i, %.lr.ph.preheader.i2 ]
+  %.024.lcssa.i = phi i64 [ %257, %249 ], [ %267, %.lr.ph.preheader.i2 ]
+  %.lcssa37.i = phi i64 [ %262, %249 ], [ %umin.i, %.lr.ph.preheader.i2 ]
   %268 = add i64 %.024.lcssa.i, %251
-  %umin56.i = tail call i64 @llvm.umin.i64(i64 %261, i64 %268)
-  %269 = sub i64 %umin56.i, %251
+  %umin57.i = tail call i64 @llvm.umin.i64(i64 %261, i64 %268)
+  %269 = sub i64 %umin57.i, %251
   store ptr null, ptr %3, align 8, !tbaa !22
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %270, align 8, !tbaa !24

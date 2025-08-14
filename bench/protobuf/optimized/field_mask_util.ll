@@ -4554,7 +4554,6 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
 if.then:                                          ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE10transfer_nEmmmPSR_PSP_.exit
   %right.val40 = load i8, ptr %0, align 1
   %add38 = add i8 %right.val40, 1
-  %invariant.op = add i8 %to_move, -1
   %cmp.not1 = icmp eq i8 %add38, 0
   br i1 %cmp.not1, label %for.cond56.preheader, label %for.body.lr.ph
 
@@ -4576,40 +4575,42 @@ for.body60.lr.ph:                                 ; preds = %for.cond56.preheade
   br label %for.body60
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %5, %for.body.lr.ph ], [ %7, %for.body ]
-  %7 = add nsw i64 %indvars.iv, -1
-  %8 = trunc nuw i64 %indvars.iv to i8
-  %conv47.reass = add i8 %invariant.op, %8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i, i64 %7
-  %9 = load ptr, ptr %arrayidx.i, align 8
-  %idxprom.i.i.i.i = zext i8 %conv47.reass to i64
+  %indvars.iv = phi i64 [ %5, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %7 = trunc nuw i64 %indvars.iv to i8
+  %sub44 = add i8 %7, -1
+  %conv47 = add i8 %sub44, %to_move
+  %idxprom.i = zext i8 %sub44 to i64
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  %idxprom.i.i.i.i = zext i8 %conv47 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i, i64 %idxprom.i.i.i.i
-  store ptr %9, ptr %arrayidx.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %9, i64 8
-  store i8 %conv47.reass, ptr %add.ptr.i.i.i.i.i, align 1
-  store ptr %right, ptr %9, align 8
-  %10 = and i64 %7, 255
-  %cmp.not = icmp eq i64 %10, 0
+  store ptr %8, ptr %arrayidx.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %8, i64 8
+  store i8 %conv47, ptr %add.ptr.i.i.i.i.i, align 1
+  store ptr %right, ptr %8, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %9 = and i64 %indvars.iv.next, 255
+  %cmp.not = icmp eq i64 %9, 0
   br i1 %cmp.not, label %for.cond56.preheader, label %for.body, !llvm.loop !113
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.body60
-  %indvars.iv7 = phi i64 [ 1, %for.body60.lr.ph ], [ %indvars.iv.next8, %for.body60 ]
-  %11 = add nsw i64 %indvars.iv7, -1
+  %indvars.iv6 = phi i64 [ 1, %for.body60.lr.ph ], [ %indvars.iv.next7, %for.body60 ]
+  %10 = add nsw i64 %indvars.iv6, -1
   %this.val39 = load i8, ptr %3, align 1
-  %12 = trunc nuw i64 %indvars.iv7 to i8
-  %sub67 = sub i8 %12, %to_move
+  %11 = trunc nuw i64 %indvars.iv6 to i8
+  %sub67 = sub i8 %11, %to_move
   %add69 = add i8 %sub67, %this.val39
   %idxprom.i73 = zext i8 %add69 to i64
   %arrayidx.i74 = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i72, i64 %idxprom.i73
-  %13 = load ptr, ptr %arrayidx.i74, align 8
-  %arrayidx.i.i.i.i77 = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i.i.i.i75, i64 %11
-  store ptr %13, ptr %arrayidx.i.i.i.i77, align 8
-  %add.ptr.i.i.i.i.i78 = getelementptr i8, ptr %13, i64 8
-  %14 = trunc nuw i64 %11 to i8
-  store i8 %14, ptr %add.ptr.i.i.i.i.i78, align 1
-  store ptr %right, ptr %13, align 8
-  %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
-  %exitcond = icmp eq i64 %indvars.iv.next8, %wide.trip.count
+  %12 = load ptr, ptr %arrayidx.i74, align 8
+  %arrayidx.i.i.i.i77 = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i.i.i.i75, i64 %10
+  store ptr %12, ptr %arrayidx.i.i.i.i77, align 8
+  %add.ptr.i.i.i.i.i78 = getelementptr i8, ptr %12, i64 8
+  %13 = trunc nuw i64 %10 to i8
+  store i8 %13, ptr %add.ptr.i.i.i.i.i78, align 1
+  store ptr %right, ptr %12, align 8
+  %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
+  %exitcond = icmp eq i64 %indvars.iv.next7, %wide.trip.count
   br i1 %exitcond, label %if.end, label %for.body60, !llvm.loop !114
 
 if.end:                                           ; preds = %for.body60, %for.cond56.preheader, %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE10transfer_nEmmmPSR_PSP_.exit

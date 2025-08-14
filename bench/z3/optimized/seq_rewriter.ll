@@ -79343,7 +79343,7 @@ _ZNK8seq_util3str7is_unitEPK4expr.exit118:        ; preds = %128
 .critedge110.preheader:                           ; preds = %.critedge108, %.critedge108.preheader
   %.not101207 = icmp ult i32 %.0.i.i, %.0.i.i113
   %139 = sub i32 %.0.i.i113, %.0.i.i
-  br i1 %.not101207, label %.lr.ph.i126.preheader, label %.lr.ph212.preheader
+  br i1 %.not101207, label %.lr.ph209, label %.lr.ph212.preheader
 
 .lr.ph.i119:                                      ; preds = %.lr.ph.i119.preheader, %.critedge108
   %indvars.iv = phi i64 [ 1, %.lr.ph.i119.preheader ], [ %indvars.iv.next, %.critedge108 ]
@@ -79393,12 +79393,12 @@ _ZNK8seq_util3str7is_unitEPK4expr.exit118:        ; preds = %128
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge110.preheader, label %.lr.ph.i119, !llvm.loop !794
 
-.lr.ph.i126.preheader:                            ; preds = %.critedge110.preheader, %"_ZZNK12seq_rewriter11non_overlapERK10ref_vectorI4expr11ast_managerES5_ENK3$_0clEjjj.exit136"
+.lr.ph209:                                        ; preds = %.critedge110.preheader, %"_ZZNK12seq_rewriter11non_overlapERK10ref_vectorI4expr11ast_managerES5_ENK3$_0clEjjj.exit136"
   %.068208 = phi i32 [ %183, %"_ZZNK12seq_rewriter11non_overlapERK10ref_vectorI4expr11ast_managerES5_ENK3$_0clEjjj.exit136" ], [ 0, %.critedge110.preheader ]
   br label %.lr.ph.i126
 
-.lr.ph.i126:                                      ; preds = %.lr.ph.i126.preheader, %.noexc135
-  %indvars.iv.i127 = phi i64 [ %indvars.iv.next.i131, %.noexc135 ], [ 0, %.lr.ph.i126.preheader ]
+.lr.ph.i126:                                      ; preds = %.lr.ph209, %.noexc135
+  %indvars.iv.i127 = phi i64 [ %indvars.iv.next.i131, %.noexc135 ], [ 0, %.lr.ph209 ]
   %161 = load ptr, ptr %0, align 8, !tbaa !85
   %162 = load ptr, ptr %19, align 8, !tbaa !89
   %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.i127
@@ -79441,7 +79441,7 @@ _ZNK8seq_util3str7is_unitEPK4expr.exit118:        ; preds = %128
 "_ZZNK12seq_rewriter11non_overlapERK10ref_vectorI4expr11ast_managerES5_ENK3$_0clEjjj.exit136": ; preds = %.noexc134
   %183 = add i32 %.068208, 1
   %exitcond228.not = icmp eq i32 %183, %139
-  br i1 %exitcond228.not, label %.lr.ph212.preheader, label %.lr.ph.i126.preheader, !llvm.loop !795
+  br i1 %exitcond228.not, label %.lr.ph212.preheader, label %.lr.ph209, !llvm.loop !795
 
 .lr.ph212.preheader:                              ; preds = %"_ZZNK12seq_rewriter11non_overlapERK10ref_vectorI4expr11ast_managerES5_ENK3$_0clEjjj.exit136", %.critedge110.preheader
   br label %.lr.ph212

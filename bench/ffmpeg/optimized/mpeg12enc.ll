@@ -218,18 +218,17 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %10 = trunc i64 %indvars.iv35 to i32
   %11 = sub i32 64, %10
   %12 = select i1 %9, i32 %11, i32 %8
-  %invariant.op = add i32 %12, -1
   %13 = icmp slt i32 %12, 128
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv35
   br label %14
 
-14:                                               ; preds = %.preheader, %38
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
+14:                                               ; preds = %.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = sext i8 %16 to i32
   %18 = icmp sgt i32 %12, %17
-  br i1 %18, label %31, label %19
+  br i1 %18, label %32, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
@@ -241,45 +240,45 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
 
 .thread31:                                        ; preds = %19
   %25 = load i16, ptr %5, align 2, !tbaa !7
-  br label %33
+  br label %34
 
 26:                                               ; preds = %19
-  %.reass = add i32 %invariant.op, %22
-  %27 = sext i32 %.reass to i64
-  %28 = getelementptr inbounds [2 x i16], ptr %2, i64 %27, i64 1
-  %29 = load i16, ptr %28, align 2, !tbaa !7
-  %30 = add i16 %29, 1
-  br label %38
+  %27 = add nsw i32 %23, -1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [2 x i16], ptr %2, i64 %28, i64 1
+  %30 = load i16, ptr %29, align 2, !tbaa !7
+  %31 = add i16 %30, 1
+  br label %39
 
-31:                                               ; preds = %14
-  %32 = load i16, ptr %5, align 2, !tbaa !7
-  br i1 %13, label %33, label %36
+32:                                               ; preds = %14
+  %33 = load i16, ptr %5, align 2, !tbaa !7
+  br i1 %13, label %34, label %37
 
-33:                                               ; preds = %.thread31, %31
-  %34 = phi i16 [ %25, %.thread31 ], [ %32, %31 ]
-  %35 = add i16 %34, 14
-  br label %38
+34:                                               ; preds = %.thread31, %32
+  %35 = phi i16 [ %25, %.thread31 ], [ %33, %32 ]
+  %36 = add i16 %35, 14
+  br label %39
 
-36:                                               ; preds = %31
-  %37 = add i16 %32, 22
-  br label %38
+37:                                               ; preds = %32
+  %38 = add i16 %33, 22
+  br label %39
 
-38:                                               ; preds = %33, %36, %26
-  %.026 = phi i16 [ %30, %26 ], [ %35, %33 ], [ %37, %36 ]
-  %39 = trunc i16 %.026 to i8
-  %40 = shl nuw nsw i64 %indvars.iv, 7
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %40
-  store i8 %39, ptr %gep, align 1, !tbaa !4
+39:                                               ; preds = %34, %37, %26
+  %.026 = phi i16 [ %31, %26 ], [ %36, %34 ], [ %38, %37 ]
+  %40 = trunc i16 %.026 to i8
+  %41 = shl nuw nsw i64 %indvars.iv, 7
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %41
+  store i8 %40, ptr %gep, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !9
 
-.loopexit:                                        ; preds = %38, %6
+.loopexit:                                        ; preds = %39, %6
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 128
-  br i1 %exitcond38.not, label %41, label %6, !llvm.loop !11
+  br i1 %exitcond38.not, label %42, label %6, !llvm.loop !11
 
-41:                                               ; preds = %.loopexit
+42:                                               ; preds = %.loopexit
   ret void
 }
 

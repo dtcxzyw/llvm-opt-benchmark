@@ -734,12 +734,11 @@ define hidden i64 @repeatNextMatchRange(ptr noundef readonly captures(none) %0, 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %invariant.op = add i64 %8, %11
   %12 = add i64 %3, 1
   %wide.trip.count = zext i8 %7 to i64
   br label %14
 
-13:                                               ; preds = %19
+13:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %14
@@ -749,20 +748,20 @@ define hidden i64 @repeatNextMatchRange(ptr noundef readonly captures(none) %0, 
   %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %16 = load i16, ptr %15, align 1
   %17 = zext i16 %16 to i64
-  %.reass = add i64 %invariant.op, %17
-  %18 = icmp ult i64 %3, %.reass
-  br i1 %18, label %.thread, label %19
+  %18 = add i64 %8, %17
+  %19 = add i64 %18, %11
+  %20 = icmp ult i64 %3, %19
+  br i1 %20, label %.thread, label %21
 
-19:                                               ; preds = %14
-  %20 = add i64 %8, %17
-  %21 = load i32, ptr %5, align 4
-  %22 = zext i32 %21 to i64
-  %23 = add i64 %20, %22
-  %.not29 = icmp ult i64 %3, %23
+21:                                               ; preds = %14
+  %22 = load i32, ptr %5, align 4
+  %23 = zext i32 %22 to i64
+  %24 = add i64 %18, %23
+  %.not29 = icmp ult i64 %3, %24
   br i1 %.not29, label %.thread, label %13
 
-.thread:                                          ; preds = %19, %13, %14, %4
-  %spec.select = phi i64 [ 0, %4 ], [ %.reass, %14 ], [ 0, %13 ], [ %12, %19 ]
+.thread:                                          ; preds = %21, %13, %14, %4
+  %spec.select = phi i64 [ 0, %4 ], [ %19, %14 ], [ 0, %13 ], [ %12, %21 ]
   ret i64 %spec.select
 }
 

@@ -709,17 +709,16 @@ define internal range(i64 0, -1) i64 @diff1st(i32 noundef %0, i32 noundef %1, pt
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.083.us = phi i64 [ %49, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.07382.us = phi i32 [ %54, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.083.us = phi i64 [ %50, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.07382.us = phi i32 [ %55, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   %7 = mul i32 %.07382.us, %4
   %8 = or disjoint i32 %.07382.us, 1
   %9 = mul i32 %8, %4
-  %invariant.op.us = add i32 %9, 1
   br label %10
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %.181.us = phi i64 [ %.083.us, %.preheader.us ], [ %49, %10 ]
+  %.181.us = phi i64 [ %.083.us, %.preheader.us ], [ %50, %10 ]
   %11 = trunc nuw i64 %indvars.iv to i32
   %12 = add i32 %7, %11
   %13 = zext i32 %12 to i64
@@ -736,55 +735,55 @@ define internal range(i64 0, -1) i64 @diff1st(i32 noundef %0, i32 noundef %1, pt
   %24 = getelementptr inbounds nuw i16, ptr %2, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !74
   %26 = sext i16 %25 to i32
-  %.reass.us = add i32 %invariant.op.us, %11
-  %27 = zext i32 %.reass.us to i64
-  %28 = getelementptr inbounds nuw i16, ptr %2, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !74
-  %30 = sext i16 %29 to i32
-  %31 = getelementptr inbounds nuw i16, ptr %3, i64 %13
-  %32 = load i16, ptr %31, align 2, !tbaa !74
-  %33 = sext i16 %32 to i32
-  %34 = getelementptr inbounds nuw i16, ptr %3, i64 %18
-  %35 = load i16, ptr %34, align 2, !tbaa !74
-  %36 = sext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %23
-  %38 = load i16, ptr %37, align 2, !tbaa !74
-  %39 = sext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i16, ptr %3, i64 %27
-  %41 = load i16, ptr %40, align 2, !tbaa !74
-  %42 = sext i16 %41 to i32
+  %27 = add i32 %22, 1
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i16, ptr %2, i64 %28
+  %30 = load i16, ptr %29, align 2, !tbaa !74
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds nuw i16, ptr %3, i64 %13
+  %33 = load i16, ptr %32, align 2, !tbaa !74
+  %34 = sext i16 %33 to i32
+  %35 = getelementptr inbounds nuw i16, ptr %3, i64 %18
+  %36 = load i16, ptr %35, align 2, !tbaa !74
+  %37 = sext i16 %36 to i32
+  %38 = getelementptr inbounds nuw i16, ptr %3, i64 %23
+  %39 = load i16, ptr %38, align 2, !tbaa !74
+  %40 = sext i16 %39 to i32
+  %41 = getelementptr inbounds nuw i16, ptr %3, i64 %28
+  %42 = load i16, ptr %41, align 2, !tbaa !74
+  %43 = sext i16 %42 to i32
   %.neg75.us = add nsw i32 %21, %16
   %.neg77.us = add nsw i32 %.neg75.us, %26
-  %.neg79.us = add nsw i32 %.neg77.us, %30
-  %43 = add nsw i32 %33, %36
-  %44 = add nsw i32 %43, %39
-  %45 = add nsw i32 %44, %42
-  %46 = sub nsw i32 %.neg79.us, %45
-  %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
-  %48 = zext nneg i32 %47 to i64
-  %49 = add i64 %.181.us, %48
-  store i16 %15, ptr %31, align 2, !tbaa !74
-  %50 = load i16, ptr %24, align 2, !tbaa !74
-  store i16 %50, ptr %37, align 2, !tbaa !74
-  %51 = load i16, ptr %19, align 2, !tbaa !74
-  store i16 %51, ptr %34, align 2, !tbaa !74
-  %52 = load i16, ptr %28, align 2, !tbaa !74
-  store i16 %52, ptr %40, align 2, !tbaa !74
+  %.neg79.us = add nsw i32 %.neg77.us, %31
+  %44 = add nsw i32 %34, %37
+  %45 = add nsw i32 %44, %40
+  %46 = add nsw i32 %45, %43
+  %47 = sub nsw i32 %.neg79.us, %46
+  %48 = tail call i32 @llvm.abs.i32(i32 %47, i1 true)
+  %49 = zext nneg i32 %48 to i64
+  %50 = add i64 %.181.us, %49
+  store i16 %15, ptr %32, align 2, !tbaa !74
+  %51 = load i16, ptr %24, align 2, !tbaa !74
+  store i16 %51, ptr %38, align 2, !tbaa !74
+  %52 = load i16, ptr %19, align 2, !tbaa !74
+  store i16 %52, ptr %35, align 2, !tbaa !74
+  %53 = load i16, ptr %29, align 2, !tbaa !74
+  store i16 %53, ptr %41, align 2, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %53 = icmp samesign ult i64 %indvars.iv.next, %6
-  br i1 %53, label %10, label %._crit_edge.us, !llvm.loop !79
+  %54 = icmp samesign ult i64 %indvars.iv.next, %6
+  br i1 %54, label %10, label %._crit_edge.us, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %10
-  %54 = add nuw i32 %.07382.us, 2
-  %55 = icmp ult i32 %54, %1
-  br i1 %55, label %.preheader.us, label %._crit_edge84.loopexit87, !llvm.loop !80
+  %55 = add nuw i32 %.07382.us, 2
+  %56 = icmp ult i32 %55, %1
+  br i1 %56, label %.preheader.us, label %._crit_edge84.loopexit87, !llvm.loop !80
 
 ._crit_edge84.loopexit87:                         ; preds = %._crit_edge.us
-  %56 = shl i64 %49, 1
+  %57 = shl i64 %50, 1
   br label %._crit_edge84
 
 ._crit_edge84:                                    ; preds = %._crit_edge84.loopexit87, %5
-  %.0.lcssa = phi i64 [ 0, %5 ], [ %56, %._crit_edge84.loopexit87 ]
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %57, %._crit_edge84.loopexit87 ]
   ret i64 %.0.lcssa
 }
 
@@ -800,17 +799,16 @@ define internal range(i64 0, -1) i64 @diff2nd(i32 noundef %0, i32 noundef %1, pt
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.0125.us = phi i64 [ %70, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.0121124.us = phi i32 [ %79, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0125.us = phi i64 [ %71, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0121124.us = phi i32 [ %80, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   %8 = mul i32 %.0121124.us, %5
   %9 = or disjoint i32 %.0121124.us, 1
   %10 = mul i32 %9, %5
-  %invariant.op.us = add i32 %10, 1
   br label %11
 
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
-  %.1123.us = phi i64 [ %.0125.us, %.preheader.us ], [ %70, %11 ]
+  %.1123.us = phi i64 [ %.0125.us, %.preheader.us ], [ %71, %11 ]
   %12 = trunc nuw i64 %indvars.iv to i32
   %13 = add i32 %8, %12
   %14 = zext i32 %13 to i64
@@ -829,78 +827,78 @@ define internal range(i64 0, -1) i64 @diff2nd(i32 noundef %0, i32 noundef %1, pt
   %27 = load i16, ptr %26, align 2, !tbaa !74
   %28 = sext i16 %27 to i32
   %29 = add nsw i32 %23, %28
-  %.reass.us = add i32 %invariant.op.us, %12
-  %30 = zext i32 %.reass.us to i64
-  %31 = getelementptr inbounds nuw i16, ptr %2, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !74
-  %33 = sext i16 %32 to i32
-  %34 = add nsw i32 %29, %33
-  %35 = getelementptr inbounds nuw i16, ptr %3, i64 %14
-  %36 = load i16, ptr %35, align 2, !tbaa !74
-  %37 = sext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i16, ptr %3, i64 %19
-  %39 = load i16, ptr %38, align 2, !tbaa !74
-  %40 = sext i16 %39 to i32
-  %41 = add nsw i32 %40, %37
-  %42 = getelementptr inbounds nuw i16, ptr %3, i64 %25
-  %43 = load i16, ptr %42, align 2, !tbaa !74
-  %44 = sext i16 %43 to i32
-  %45 = add nsw i32 %41, %44
-  %46 = getelementptr inbounds nuw i16, ptr %3, i64 %30
-  %47 = load i16, ptr %46, align 2, !tbaa !74
-  %48 = sext i16 %47 to i32
-  %49 = add nsw i32 %45, %48
-  %50 = getelementptr inbounds nuw i16, ptr %4, i64 %14
-  %51 = load i16, ptr %50, align 2, !tbaa !74
-  %52 = sext i16 %51 to i32
-  %53 = getelementptr inbounds nuw i16, ptr %4, i64 %19
-  %54 = load i16, ptr %53, align 2, !tbaa !74
-  %55 = sext i16 %54 to i32
-  %56 = getelementptr inbounds nuw i16, ptr %4, i64 %25
-  %57 = load i16, ptr %56, align 2, !tbaa !74
-  %58 = sext i16 %57 to i32
-  %59 = getelementptr inbounds nuw i16, ptr %4, i64 %30
-  %60 = load i16, ptr %59, align 2, !tbaa !74
-  %61 = sext i16 %60 to i32
-  %62 = add nsw i32 %34, %52
-  %63 = shl nsw i32 %49, 1
-  %64 = sub nsw i32 %62, %63
-  %65 = add nsw i32 %64, %55
-  %66 = add nsw i32 %65, %58
-  %67 = add nsw i32 %66, %61
-  %68 = tail call i32 @llvm.abs.i32(i32 %67, i1 true)
-  %69 = zext nneg i32 %68 to i64
-  %70 = add i64 %.1123.us, %69
-  store i16 %36, ptr %50, align 2, !tbaa !74
-  %71 = load i16, ptr %42, align 2, !tbaa !74
-  store i16 %71, ptr %56, align 2, !tbaa !74
-  %72 = load i16, ptr %38, align 2, !tbaa !74
-  store i16 %72, ptr %53, align 2, !tbaa !74
-  %73 = load i16, ptr %46, align 2, !tbaa !74
-  store i16 %73, ptr %59, align 2, !tbaa !74
-  %74 = load i16, ptr %15, align 2, !tbaa !74
-  store i16 %74, ptr %35, align 2, !tbaa !74
-  %75 = load i16, ptr %26, align 2, !tbaa !74
-  store i16 %75, ptr %42, align 2, !tbaa !74
-  %76 = load i16, ptr %20, align 2, !tbaa !74
-  store i16 %76, ptr %38, align 2, !tbaa !74
-  %77 = load i16, ptr %31, align 2, !tbaa !74
-  store i16 %77, ptr %46, align 2, !tbaa !74
+  %30 = add i32 %24, 1
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i16, ptr %2, i64 %31
+  %33 = load i16, ptr %32, align 2, !tbaa !74
+  %34 = sext i16 %33 to i32
+  %35 = add nsw i32 %29, %34
+  %36 = getelementptr inbounds nuw i16, ptr %3, i64 %14
+  %37 = load i16, ptr %36, align 2, !tbaa !74
+  %38 = sext i16 %37 to i32
+  %39 = getelementptr inbounds nuw i16, ptr %3, i64 %19
+  %40 = load i16, ptr %39, align 2, !tbaa !74
+  %41 = sext i16 %40 to i32
+  %42 = add nsw i32 %41, %38
+  %43 = getelementptr inbounds nuw i16, ptr %3, i64 %25
+  %44 = load i16, ptr %43, align 2, !tbaa !74
+  %45 = sext i16 %44 to i32
+  %46 = add nsw i32 %42, %45
+  %47 = getelementptr inbounds nuw i16, ptr %3, i64 %31
+  %48 = load i16, ptr %47, align 2, !tbaa !74
+  %49 = sext i16 %48 to i32
+  %50 = add nsw i32 %46, %49
+  %51 = getelementptr inbounds nuw i16, ptr %4, i64 %14
+  %52 = load i16, ptr %51, align 2, !tbaa !74
+  %53 = sext i16 %52 to i32
+  %54 = getelementptr inbounds nuw i16, ptr %4, i64 %19
+  %55 = load i16, ptr %54, align 2, !tbaa !74
+  %56 = sext i16 %55 to i32
+  %57 = getelementptr inbounds nuw i16, ptr %4, i64 %25
+  %58 = load i16, ptr %57, align 2, !tbaa !74
+  %59 = sext i16 %58 to i32
+  %60 = getelementptr inbounds nuw i16, ptr %4, i64 %31
+  %61 = load i16, ptr %60, align 2, !tbaa !74
+  %62 = sext i16 %61 to i32
+  %63 = add nsw i32 %35, %53
+  %64 = shl nsw i32 %50, 1
+  %65 = sub nsw i32 %63, %64
+  %66 = add nsw i32 %65, %56
+  %67 = add nsw i32 %66, %59
+  %68 = add nsw i32 %67, %62
+  %69 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
+  %70 = zext nneg i32 %69 to i64
+  %71 = add i64 %.1123.us, %70
+  store i16 %37, ptr %51, align 2, !tbaa !74
+  %72 = load i16, ptr %43, align 2, !tbaa !74
+  store i16 %72, ptr %57, align 2, !tbaa !74
+  %73 = load i16, ptr %39, align 2, !tbaa !74
+  store i16 %73, ptr %54, align 2, !tbaa !74
+  %74 = load i16, ptr %47, align 2, !tbaa !74
+  store i16 %74, ptr %60, align 2, !tbaa !74
+  %75 = load i16, ptr %15, align 2, !tbaa !74
+  store i16 %75, ptr %36, align 2, !tbaa !74
+  %76 = load i16, ptr %26, align 2, !tbaa !74
+  store i16 %76, ptr %43, align 2, !tbaa !74
+  %77 = load i16, ptr %20, align 2, !tbaa !74
+  store i16 %77, ptr %39, align 2, !tbaa !74
+  %78 = load i16, ptr %32, align 2, !tbaa !74
+  store i16 %78, ptr %47, align 2, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %78 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %78, label %11, label %._crit_edge.us, !llvm.loop !81
+  %79 = icmp samesign ult i64 %indvars.iv.next, %7
+  br i1 %79, label %11, label %._crit_edge.us, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %11
-  %79 = add nuw i32 %.0121124.us, 2
-  %80 = icmp ult i32 %79, %1
-  br i1 %80, label %.preheader.us, label %._crit_edge126.loopexit129, !llvm.loop !82
+  %80 = add nuw i32 %.0121124.us, 2
+  %81 = icmp ult i32 %80, %1
+  br i1 %81, label %.preheader.us, label %._crit_edge126.loopexit129, !llvm.loop !82
 
 ._crit_edge126.loopexit129:                       ; preds = %._crit_edge.us
-  %81 = shl i64 %70, 1
+  %82 = shl i64 %71, 1
   br label %._crit_edge126
 
 ._crit_edge126:                                   ; preds = %._crit_edge126.loopexit129, %6
-  %.0.lcssa = phi i64 [ 0, %6 ], [ %81, %._crit_edge126.loopexit129 ]
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %82, %._crit_edge126.loopexit129 ]
   ret i64 %.0.lcssa
 }
 

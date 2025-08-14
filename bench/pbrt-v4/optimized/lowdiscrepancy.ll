@@ -804,7 +804,6 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   %68 = or i32 %67, 1
   %69 = mul i32 %68, 1765145193
   %invariant.gep = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %62
-  %invariant.op = xor i32 %65, %64
   br label %70
 
 70:                                               ; preds = %.lr.ph31.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
@@ -813,44 +812,44 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   br label %72
 
 72:                                               ; preds = %72, %70
-  %.0.i.us = phi i32 [ %71, %70 ], [ %99, %72 ]
+  %.0.i.us = phi i32 [ %71, %70 ], [ %100, %72 ]
   %73 = xor i32 %.0.i.us, %63
   %74 = mul i32 %73, -512718531
   %75 = xor i32 %74, %64
   %76 = and i32 %75, %48
   %77 = lshr i32 %76, 4
-  %.reass.reass = xor i32 %77, %invariant.op
-  %78 = xor i32 %.reass.reass, %74
-  %79 = mul i32 %78, 153742143
-  %80 = xor i32 %79, %66
-  %81 = and i32 %80, %48
-  %82 = lshr i32 %81, 1
-  %83 = xor i32 %82, %80
-  %84 = mul i32 %69, %83
-  %85 = and i32 %84, %48
-  %86 = lshr i32 %85, 11
-  %87 = xor i32 %86, %84
-  %88 = mul i32 %87, 1960620803
-  %89 = and i32 %88, %48
-  %90 = lshr i32 %89, 2
-  %91 = xor i32 %90, %88
-  %92 = mul i32 %91, -1638916925
-  %93 = and i32 %92, %48
-  %94 = lshr i32 %93, 2
-  %95 = xor i32 %94, %92
-  %96 = mul i32 %95, -933190689
-  %97 = and i32 %96, %48
-  %98 = lshr i32 %97, 5
-  %99 = xor i32 %98, %97
-  %.not.i.us = icmp ult i32 %99, %1
+  %78 = xor i32 %65, %77
+  %79 = xor i32 %78, %75
+  %80 = mul i32 %79, 153742143
+  %81 = xor i32 %80, %66
+  %82 = and i32 %81, %48
+  %83 = lshr i32 %82, 1
+  %84 = xor i32 %83, %81
+  %85 = mul i32 %69, %84
+  %86 = and i32 %85, %48
+  %87 = lshr i32 %86, 11
+  %88 = xor i32 %87, %85
+  %89 = mul i32 %88, 1960620803
+  %90 = and i32 %89, %48
+  %91 = lshr i32 %90, 2
+  %92 = xor i32 %91, %89
+  %93 = mul i32 %92, -1638916925
+  %94 = and i32 %93, %48
+  %95 = lshr i32 %94, 2
+  %96 = xor i32 %95, %93
+  %97 = mul i32 %96, -933190689
+  %98 = and i32 %97, %48
+  %99 = lshr i32 %98, 5
+  %100 = xor i32 %99, %98
+  %.not.i.us = icmp ult i32 %100, %1
   br i1 %.not.i.us, label %_ZN4pbrt18PermutationElementEjjj.exit.us, label %72, !llvm.loop !55
 
 _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %72
-  %100 = add i32 %99, %63
-  %101 = urem i32 %100, %1
-  %102 = trunc i32 %101 to i16
+  %101 = add i32 %100, %63
+  %102 = urem i32 %101, %1
+  %103 = trunc i32 %102 to i16
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
-  store i16 %102, ptr %gep, align 2, !tbaa !56
+  store i16 %103, ptr %gep, align 2, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext.i
   br i1 %exitcond.not, label %._crit_edge32.us, label %70, !llvm.loop !58

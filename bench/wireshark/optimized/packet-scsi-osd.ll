@@ -4267,10 +4267,10 @@ dissect_osd_attribute_data_in.exit:               ; preds = %89, %90, %91, %94, 
   %129 = load i32, ptr @hf_scsi_osd_user_object_id, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef %.1127, i32 noundef 8, i32 noundef 0)
   %131 = add i32 %.1127, 8
-  %.reass = add i32 %.1127, 4
-  %132 = zext i32 %.reass to i64
-  %133 = icmp samesign ugt i64 %spec.select123, %132
-  br i1 %133, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  %132 = add i32 %.1127, 4
+  %133 = zext i32 %132 to i64
+  %134 = icmp samesign ugt i64 %spec.select123, %133
+  br i1 %134, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %127, %dissect_osd_attribute_data_in.exit, %88
   ret void

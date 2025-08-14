@@ -4321,7 +4321,7 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr noundef 
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
-  br i1 %6, label %173, label %7
+  br i1 %6, label %178, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -4409,7 +4409,7 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr noundef 
     i8 2, label %89
     i8 3, label %121
     i8 4, label %144
-    i8 7, label %169
+    i8 7, label %174
     i8 6, label %148
   ]
 
@@ -4553,41 +4553,41 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr noundef 
   br i1 %.not.i60, label %dissect_zcl_rssi_location_device_config_response.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %148, %.lr.ph.i
-  %154 = phi i32 [ %.reass64, %.lr.ph.i ], [ 10, %148 ]
-  %.036.i = phi i8 [ %168, %.lr.ph.i ], [ 0, %148 ]
+  %154 = phi i32 [ %172, %.lr.ph.i ], [ 10, %148 ]
+  %.036.i = phi i8 [ %173, %.lr.ph.i ], [ 0, %148 ]
   %155 = load i32, ptr @hf_zbee_zcl_rssi_location_neighbour_add, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 8, i32 noundef -2147483648)
   %157 = add i32 %154, 8
   %158 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate1, align 4
   %159 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 2, i32 noundef -2147483648)
-  %.reass = add i32 %154, 10
-  %160 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate2, align 4
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %160, ptr noundef %0, i32 noundef %.reass, i32 noundef 2, i32 noundef -2147483648)
-  %.reass61 = add i32 %154, 12
-  %162 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate3, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %162, ptr noundef %0, i32 noundef %.reass61, i32 noundef 2, i32 noundef -2147483648)
-  %.reass62 = add i32 %154, 14
-  %164 = load i32, ptr @hf_zbee_zcl_rssi_location_rssi, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %164, ptr noundef %0, i32 noundef %.reass62, i32 noundef 1, i32 noundef -2147483648)
-  %.reass63 = add i32 %154, 15
-  %166 = load i32, ptr @hf_zbee_zcl_rssi_location_number_rssi_meas, align 4
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %166, ptr noundef %0, i32 noundef %.reass63, i32 noundef 1, i32 noundef -2147483648)
-  %.reass64 = add i32 %154, 16
-  %168 = add nuw i8 %.036.i, 1
-  %exitcond.not.i = icmp eq i8 %168, %151
+  %160 = add i32 %154, 10
+  %161 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate2, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 2, i32 noundef -2147483648)
+  %163 = add i32 %154, 12
+  %164 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate3, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 2, i32 noundef -2147483648)
+  %166 = add i32 %154, 14
+  %167 = load i32, ptr @hf_zbee_zcl_rssi_location_rssi, align 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef -2147483648)
+  %169 = add i32 %154, 15
+  %170 = load i32, ptr @hf_zbee_zcl_rssi_location_number_rssi_meas, align 4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef -2147483648)
+  %172 = add i32 %154, 16
+  %173 = add nuw i8 %.036.i, 1
+  %exitcond.not.i = icmp eq i8 %173, %151
   br i1 %exitcond.not.i, label %dissect_zcl_rssi_location_device_config_response.exit, label %.lr.ph.i, !llvm.loop !12
 
-169:                                              ; preds = %45
-  %170 = load i32, ptr @hf_zbee_zcl_rssi_location_request_add, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %170, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648)
+174:                                              ; preds = %45
+  %175 = load i32, ptr @hf_zbee_zcl_rssi_location_request_add, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %175, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
-dissect_zcl_rssi_location_device_config_response.exit: ; preds = %.lr.ph.i, %148, %138, %135, %111, %103, %69, %64, %53, %48, %37, %45, %169, %144, %17, %25, %36, %35, %34, %33, %30, %29, %28
-  %172 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %173
+dissect_zcl_rssi_location_device_config_response.exit: ; preds = %.lr.ph.i, %148, %138, %135, %111, %103, %69, %64, %53, %48, %37, %45, %174, %144, %17, %25, %36, %35, %34, %33, %30, %29, %28
+  %177 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %178
 
-173:                                              ; preds = %4, %dissect_zcl_rssi_location_device_config_response.exit
-  %.0 = phi i32 [ %172, %dissect_zcl_rssi_location_device_config_response.exit ], [ 0, %4 ]
+178:                                              ; preds = %4, %dissect_zcl_rssi_location_device_config_response.exit
+  %.0 = phi i32 [ %177, %dissect_zcl_rssi_location_device_config_response.exit ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -29314,10 +29314,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbtt__run_charstringPK
   %.sroa.266.0.copyload = load i64, ptr %.sroa.266.0..sroa_idx, align 8
   %9 = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %.sroa.065.0.copyload, i64 %.sroa.266.0.copyload, i32 noundef %1)
   %10 = extractvalue { ptr, i64 } %9, 1
-  %.sroa.10.8.extract.trunc474 = trunc i64 %10 to i32
-  %.sroa.10.12.extract.shift406475 = lshr i64 %10, 32
-  %.sroa.10.12.extract.trunc407476 = trunc nuw i64 %.sroa.10.12.extract.shift406475 to i32
-  %11 = icmp slt i32 %.sroa.10.8.extract.trunc474, %.sroa.10.12.extract.trunc407476
+  %.sroa.10.8.extract.trunc473 = trunc i64 %10 to i32
+  %.sroa.10.12.extract.shift406474 = lshr i64 %10, 32
+  %.sroa.10.12.extract.trunc407475 = trunc nuw i64 %.sroa.10.12.extract.shift406474 to i32
+  %11 = icmp slt i32 %.sroa.10.8.extract.trunc473, %.sroa.10.12.extract.trunc407475
   br i1 %11, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph, label %.critedge
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph:     ; preds = %3
@@ -29353,23 +29353,23 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph:     ; preds = %3
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph, %.thread
-  %.0232486 = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.1233443, %.thread ]
-  %.0234485 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.2236442, %.thread ]
-  %.0239484 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.1240441, %.thread ]
-  %.0241481 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %803, %.thread ]
-  %.0248480 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.2250440, %.thread ]
-  %.sroa.073.0479 = phi ptr [ %.sroa.073.0.copyload, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.073.2439, %.thread ]
-  %.sroa.0.0478 = phi ptr [ %12, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.0.1438, %.thread ]
-  %.sroa.10.0477 = phi i64 [ %10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.10.1437, %.thread ]
-  %37 = add i64 %.sroa.10.0477, 1
+  %.0232485 = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.1233443, %.thread ]
+  %.0234484 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.2236442, %.thread ]
+  %.0239483 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.1240441, %.thread ]
+  %.0241480 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %804, %.thread ]
+  %.0248479 = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.2250440, %.thread ]
+  %.sroa.073.0478 = phi ptr [ %.sroa.073.0.copyload, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.073.2439, %.thread ]
+  %.sroa.0.0477 = phi ptr [ %12, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.0.1438, %.thread ]
+  %.sroa.10.0476 = phi i64 [ %10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.lr.ph ], [ %.sroa.10.1437, %.thread ]
+  %37 = add i64 %.sroa.10.0476, 1
   %.sroa.10.8.insert.ext = and i64 %37, 4294967295
-  %.sroa.10.8.insert.mask357 = and i64 %.sroa.10.0477, -4294967296
+  %.sroa.10.8.insert.mask357 = and i64 %.sroa.10.0476, -4294967296
   %.sroa.10.8.insert.insert358 = or disjoint i64 %.sroa.10.8.insert.ext, %.sroa.10.8.insert.mask357
-  %sext = shl i64 %.sroa.10.0477, 32
+  %sext = shl i64 %.sroa.10.0476, 32
   %38 = ashr exact i64 %sext, 32
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %38
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !23
-  switch i8 %40, label %717 [
+  switch i8 %40, label %718 [
     i8 19, label %41
     i8 20, label %41
     i8 1, label %51
@@ -29385,33 +29385,33 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
     i8 31, label %234
     i8 30, label %236
     i8 8, label %288
-    i8 24, label %309
-    i8 25, label %382
-    i8 26, label %460
-    i8 27, label %460
-    i8 10, label %489
-    i8 29, label %554
-    i8 11, label %591
-    i8 14, label %597
-    i8 12, label %644
+    i8 24, label %310
+    i8 25, label %383
+    i8 26, label %461
+    i8 27, label %461
+    i8 10, label %490
+    i8 29, label %555
+    i8 11, label %592
+    i8 14, label %598
+    i8 12, label %645
   ]
 
 41:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %.not274 = icmp eq i32 %.0232486, 0
+  %.not274 = icmp eq i32 %.0232485, 0
   br i1 %.not274, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = sdiv i32 %.0241481, 2
-  %44 = add nsw i32 %.0234485, %43
+  %43 = sdiv i32 %.0241480, 2
+  %44 = add nsw i32 %.0234484, %43
   br label %45
 
 45:                                               ; preds = %42, %41
-  %.1235 = phi i32 [ %44, %42 ], [ %.0234485, %41 ]
+  %.1235 = phi i32 [ %44, %42 ], [ %.0234484, %41 ]
   %46 = add nsw i32 %.1235, 7
   %47 = sdiv i32 %46, 8
   %.sroa.10.8.extract.trunc360 = trunc i64 %37 to i32
   %48 = add nsw i32 %47, %.sroa.10.8.extract.trunc360
-  %.sroa.10.12.extract.shift412 = lshr i64 %.sroa.10.0477, 32
+  %.sroa.10.12.extract.shift412 = lshr i64 %.sroa.10.0476, 32
   %.sroa.10.12.extract.trunc413 = trunc nuw i64 %.sroa.10.12.extract.shift412 to i32
   %49 = icmp slt i32 %48, 0
   %50 = tail call i32 @llvm.smin.i32(i32 %48, i32 %.sroa.10.12.extract.trunc413)
@@ -29421,20 +29421,20 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
   br label %.thread
 
 51:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %52 = sdiv i32 %.0241481, 2
-  %53 = add nsw i32 %.0234485, %52
+  %52 = sdiv i32 %.0241480, 2
+  %53 = add nsw i32 %.0234484, %52
   br label %.thread
 
 54:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %55 = icmp slt i32 %.0241481, 2
+  %55 = icmp slt i32 %.0241480, 2
   br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %54
-  %57 = add nsw i32 %.0241481, -2
+  %57 = add nsw i32 %.0241480, -2
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !3
-  %61 = add nsw i32 %.0241481, -1
+  %61 = add nsw i32 %.0241480, -1
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !3
@@ -29442,11 +29442,11 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
   br label %.thread
 
 65:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %66 = icmp slt i32 %.0241481, 1
+  %66 = icmp slt i32 %.0241480, 1
   br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %65
-  %68 = add nsw i32 %.0241481, -1
+  %68 = add nsw i32 %.0241480, -1
   %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !3
@@ -29454,11 +29454,11 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
   br label %.thread
 
 72:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %73 = icmp slt i32 %.0241481, 1
+  %73 = icmp slt i32 %.0241480, 1
   br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %72
-  %75 = add nsw i32 %.0241481, -1
+  %75 = add nsw i32 %.0241480, -1
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !3
@@ -29466,17 +29466,17 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit:           ; preds = %_ZL15stbtt__buf_get
   br label %.thread
 
 79:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %80 = icmp slt i32 %.0241481, 2
+  %80 = icmp slt i32 %.0241480, 2
   br i1 %80, label %.critedge, label %.preheader448.preheader
 
 .preheader448.preheader:                          ; preds = %79
-  %81 = zext nneg i32 %.0241481 to i64
+  %81 = zext nneg i32 %.0241480 to i64
   br label %.preheader448
 
 .preheader448:                                    ; preds = %.preheader448.preheader, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit
-  %indvars.iv541 = phi i64 [ 0, %.preheader448.preheader ], [ %indvars.iv.next542, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ]
-  %82 = or disjoint i64 %indvars.iv541, 1
-  %83 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv541
+  %indvars.iv534 = phi i64 [ 0, %.preheader448.preheader ], [ %indvars.iv.next535, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ]
+  %82 = or disjoint i64 %indvars.iv534, 1
+  %83 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv534
   %84 = load float, ptr %83, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %82
   %86 = load float, ptr %85, align 4, !tbaa !3
@@ -29573,22 +29573,22 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit: ; preds = %_ZL19stbtt__track_v
   %128 = phi i32 [ %.pre.i, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i ], [ %120, %118 ]
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
-  %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 2
-  %130 = or disjoint i64 %indvars.iv.next542, 1
+  %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 2
+  %130 = or disjoint i64 %indvars.iv.next535, 1
   %131 = icmp samesign ult i64 %130, %81
   br i1 %131, label %.preheader448, label %.thread, !llvm.loop !600
 
 132:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %133 = icmp slt i32 %.0241481, 1
+  %133 = icmp slt i32 %.0241480, 1
   br i1 %133, label %.critedge, label %185
 
 134:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %135 = icmp slt i32 %.0241481, 1
+  %135 = icmp slt i32 %.0241480, 1
   br i1 %135, label %.critedge, label %136
 
 136:                                              ; preds = %134, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293
   %.2246 = phi i32 [ %233, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293 ], [ 0, %134 ]
-  %.not273 = icmp slt i32 %.2246, %.0241481
+  %.not273 = icmp slt i32 %.2246, %.0241480
   br i1 %.not273, label %137, label %.thread
 
 137:                                              ; preds = %136
@@ -29693,7 +29693,7 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit284: ; preds = %_ZL19stbtt__trac
 
 185:                                              ; preds = %132, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit284
   %.1245 = phi i32 [ 0, %132 ], [ %184, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit284 ]
-  %.not272 = icmp slt i32 %.1245, %.0241481
+  %.not272 = icmp slt i32 %.1245, %.0241480
   br i1 %.not272, label %186, label %.thread
 
 186:                                              ; preds = %185
@@ -29797,17 +29797,17 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293: ; preds = %_ZL19stbtt__trac
   br label %136, !llvm.loop !601
 
 234:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %235 = icmp slt i32 %.0241481, 4
+  %235 = icmp slt i32 %.0241480, 4
   br i1 %235, label %.critedge, label %263
 
 236:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %237 = icmp slt i32 %.0241481, 4
+  %237 = icmp slt i32 %.0241480, 4
   br i1 %237, label %.critedge, label %238
 
-238:                                              ; preds = %236, %._crit_edge545
-  %.4 = phi i32 [ %279, %._crit_edge545 ], [ 0, %236 ]
+238:                                              ; preds = %236, %._crit_edge538
+  %.4 = phi i32 [ %279, %._crit_edge538 ], [ 0, %236 ]
   %239 = add nsw i32 %.4, 3
-  %.not271 = icmp slt i32 %239, %.0241481
+  %.not271 = icmp slt i32 %239, %.0241480
   br i1 %.not271, label %240, label %.thread
 
 240:                                              ; preds = %238
@@ -29825,26 +29825,26 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293: ; preds = %_ZL19stbtt__trac
   %252 = sext i32 %239 to i64
   %253 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %252
   %254 = load float, ptr %253, align 4, !tbaa !3
-  %255 = sub nsw i32 %.0241481, %.4
+  %255 = sub nsw i32 %.0241480, %.4
   %256 = icmp eq i32 %255, 5
   %257 = add nsw i32 %.4, 4
-  br i1 %256, label %258, label %._crit_edge544
+  br i1 %256, label %258, label %._crit_edge537
 
 258:                                              ; preds = %240
   %259 = sext i32 %257 to i64
   %260 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %259
   %261 = load float, ptr %260, align 4, !tbaa !3
-  br label %._crit_edge544
+  br label %._crit_edge537
 
-._crit_edge544:                                   ; preds = %240, %258
+._crit_edge537:                                   ; preds = %240, %258
   %262 = phi float [ %261, %258 ], [ 0.000000e+00, %240 ]
   tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef 0.000000e+00, float noundef %243, float noundef %247, float noundef %251, float noundef %254, float noundef %262)
   br label %263
 
-263:                                              ; preds = %234, %._crit_edge544
-  %.3247 = phi i32 [ 0, %234 ], [ %257, %._crit_edge544 ]
+263:                                              ; preds = %234, %._crit_edge537
+  %.3247 = phi i32 [ 0, %234 ], [ %257, %._crit_edge537 ]
   %264 = add nsw i32 %.3247, 3
-  %.not270 = icmp slt i32 %264, %.0241481
+  %.not270 = icmp slt i32 %264, %.0241480
   br i1 %.not270, label %265, label %.thread
 
 265:                                              ; preds = %263
@@ -29859,18 +29859,18 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293: ; preds = %_ZL19stbtt__trac
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %274
   %276 = load float, ptr %275, align 4, !tbaa !3
-  %277 = sub nsw i32 %.0241481, %.3247
+  %277 = sub nsw i32 %.0241480, %.3247
   %278 = icmp eq i32 %277, 5
   %279 = add nsw i32 %.3247, 4
-  br i1 %278, label %280, label %._crit_edge545
+  br i1 %278, label %280, label %._crit_edge538
 
 280:                                              ; preds = %265
   %281 = sext i32 %279 to i64
   %282 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %281
   %283 = load float, ptr %282, align 4, !tbaa !3
-  br label %._crit_edge545
+  br label %._crit_edge538
 
-._crit_edge545:                                   ; preds = %265, %280
+._crit_edge538:                                   ; preds = %265, %280
   %284 = phi float [ %283, %280 ], [ 0.000000e+00, %265 ]
   %285 = sext i32 %264 to i64
   %286 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %285
@@ -29879,1107 +29879,1106 @@ _ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit293: ; preds = %_ZL19stbtt__trac
   br label %238, !llvm.loop !602
 
 288:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %289 = icmp slt i32 %.0241481, 6
+  %289 = icmp slt i32 %.0241480, 6
   br i1 %289, label %.critedge, label %.preheader449.preheader
 
 .preheader449.preheader:                          ; preds = %288
-  %290 = zext nneg i32 %.0241481 to i64
+  %290 = zext nneg i32 %.0241480 to i64
   br label %.preheader449
 
 .preheader449:                                    ; preds = %.preheader449.preheader, %.preheader449
-  %indvars.iv535 = phi i64 [ 0, %.preheader449.preheader ], [ %indvars.iv.next536, %.preheader449 ]
-  %indvars.iv533 = phi i64 [ 5, %.preheader449.preheader ], [ %indvars.iv.next534, %.preheader449 ]
-  %291 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv535
-  %292 = load float, ptr %291, align 8, !tbaa !3
-  %293 = or disjoint i64 %indvars.iv535, 1
-  %294 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %293
-  %295 = load float, ptr %294, align 4, !tbaa !3
-  %296 = add nuw nsw i64 %indvars.iv535, 2
-  %297 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %296
-  %298 = load float, ptr %297, align 8, !tbaa !3
-  %299 = add nuw nsw i64 %indvars.iv535, 3
-  %300 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %299
-  %301 = load float, ptr %300, align 4, !tbaa !3
-  %302 = add nuw nsw i64 %indvars.iv535, 4
-  %303 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %302
-  %304 = load float, ptr %303, align 8, !tbaa !3
-  %305 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv533
-  %306 = load float, ptr %305, align 4, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %292, float noundef %295, float noundef %298, float noundef %301, float noundef %304, float noundef %306)
-  %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 6
-  %307 = add nuw nsw i64 %indvars.iv535, 11
-  %308 = icmp samesign ult i64 %307, %290
-  %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 6
-  br i1 %308, label %.preheader449, label %.thread, !llvm.loop !603
+  %indvars.iv531 = phi i64 [ 0, %.preheader449.preheader ], [ %indvars.iv.next532, %.preheader449 ]
+  %291 = add nuw nsw i64 %indvars.iv531, 5
+  %292 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv531
+  %293 = load float, ptr %292, align 8, !tbaa !3
+  %294 = or disjoint i64 %indvars.iv531, 1
+  %295 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %294
+  %296 = load float, ptr %295, align 4, !tbaa !3
+  %297 = add nuw nsw i64 %indvars.iv531, 2
+  %298 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %297
+  %299 = load float, ptr %298, align 8, !tbaa !3
+  %300 = add nuw nsw i64 %indvars.iv531, 3
+  %301 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %300
+  %302 = load float, ptr %301, align 4, !tbaa !3
+  %303 = add nuw nsw i64 %indvars.iv531, 4
+  %304 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %303
+  %305 = load float, ptr %304, align 8, !tbaa !3
+  %306 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %291
+  %307 = load float, ptr %306, align 4, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %293, float noundef %296, float noundef %299, float noundef %302, float noundef %305, float noundef %307)
+  %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 6
+  %308 = add nuw nsw i64 %indvars.iv531, 11
+  %309 = icmp samesign ult i64 %308, %290
+  br i1 %309, label %.preheader449, label %.thread, !llvm.loop !603
 
-309:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %310 = icmp slt i32 %.0241481, 8
-  br i1 %310, label %.critedge, label %.lr.ph468.preheader
+310:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %311 = icmp slt i32 %.0241480, 8
+  br i1 %311, label %.critedge, label %.lr.ph468.preheader
 
-.lr.ph468.preheader:                              ; preds = %309
-  %311 = zext nneg i32 %.0241481 to i64
-  %invariant.op = add nsw i64 %311, -13
+.lr.ph468.preheader:                              ; preds = %310
+  %312 = zext nneg i32 %.0241480 to i64
+  %invariant.op = add nsw i64 %312, -13
   br label %.lr.ph468
 
 .lr.ph468:                                        ; preds = %.lr.ph468.preheader, %.lr.ph468
-  %indvars.iv530 = phi i64 [ 0, %.lr.ph468.preheader ], [ %indvars.iv.next531, %.lr.ph468 ]
-  %312 = add nuw nsw i64 %indvars.iv530, 5
-  %313 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv530
-  %314 = load float, ptr %313, align 8, !tbaa !3
-  %315 = or disjoint i64 %indvars.iv530, 1
-  %316 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %315
-  %317 = load float, ptr %316, align 4, !tbaa !3
-  %318 = add nuw nsw i64 %indvars.iv530, 2
-  %319 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %318
-  %320 = load float, ptr %319, align 8, !tbaa !3
-  %321 = add nuw nsw i64 %indvars.iv530, 3
-  %322 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %321
-  %323 = load float, ptr %322, align 4, !tbaa !3
-  %324 = add nuw nsw i64 %indvars.iv530, 4
-  %325 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %324
-  %326 = load float, ptr %325, align 8, !tbaa !3
-  %327 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %312
-  %328 = load float, ptr %327, align 4, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %314, float noundef %317, float noundef %320, float noundef %323, float noundef %326, float noundef %328)
-  %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 6
-  %329 = icmp slt i64 %indvars.iv530, %invariant.op
-  br i1 %329, label %.lr.ph468, label %._crit_edge469, !llvm.loop !604
+  %indvars.iv528 = phi i64 [ 0, %.lr.ph468.preheader ], [ %indvars.iv.next529, %.lr.ph468 ]
+  %313 = add nuw nsw i64 %indvars.iv528, 5
+  %314 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv528
+  %315 = load float, ptr %314, align 8, !tbaa !3
+  %316 = or disjoint i64 %indvars.iv528, 1
+  %317 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %316
+  %318 = load float, ptr %317, align 4, !tbaa !3
+  %319 = add nuw nsw i64 %indvars.iv528, 2
+  %320 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %319
+  %321 = load float, ptr %320, align 8, !tbaa !3
+  %322 = add nuw nsw i64 %indvars.iv528, 3
+  %323 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %322
+  %324 = load float, ptr %323, align 4, !tbaa !3
+  %325 = add nuw nsw i64 %indvars.iv528, 4
+  %326 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %325
+  %327 = load float, ptr %326, align 8, !tbaa !3
+  %328 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %313
+  %329 = load float, ptr %328, align 4, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %315, float noundef %318, float noundef %321, float noundef %324, float noundef %327, float noundef %329)
+  %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 6
+  %330 = icmp slt i64 %indvars.iv528, %invariant.op
+  br i1 %330, label %.lr.ph468, label %._crit_edge469, !llvm.loop !604
 
 ._crit_edge469:                                   ; preds = %.lr.ph468
-  %330 = trunc nuw nsw i64 %indvars.iv.next531 to i32
-  %331 = or disjoint i32 %330, 1
-  %.not269 = icmp slt i32 %331, %.0241481
-  br i1 %.not269, label %332, label %.critedge
+  %331 = trunc nuw nsw i64 %indvars.iv.next529 to i32
+  %332 = or disjoint i32 %331, 1
+  %.not269 = icmp slt i32 %332, %.0241480
+  br i1 %.not269, label %333, label %.critedge
 
-332:                                              ; preds = %._crit_edge469
-  %333 = and i64 %indvars.iv.next531, 4294967294
-  %334 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %333
-  %335 = load float, ptr %334, align 8, !tbaa !3
-  %336 = zext nneg i32 %331 to i64
-  %337 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %336
-  %338 = load float, ptr %337, align 4, !tbaa !3
-  %339 = load float, ptr %29, align 8, !tbaa !589
-  %340 = fadd float %335, %339
-  store float %340, ptr %29, align 8, !tbaa !589
-  %341 = load float, ptr %30, align 4, !tbaa !591
-  %342 = fadd float %338, %341
-  store float %342, ptr %30, align 4, !tbaa !591
-  %343 = fptosi float %340 to i32
-  %344 = fptosi float %342 to i32
-  %345 = load i32, ptr %2, align 8, !tbaa !592
-  %.not.i.i294 = icmp eq i32 %345, 0
-  br i1 %.not.i.i294, label %370, label %346
+333:                                              ; preds = %._crit_edge469
+  %334 = and i64 %indvars.iv.next529, 4294967294
+  %335 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %334
+  %336 = load float, ptr %335, align 8, !tbaa !3
+  %337 = zext nneg i32 %332 to i64
+  %338 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %337
+  %339 = load float, ptr %338, align 4, !tbaa !3
+  %340 = load float, ptr %29, align 8, !tbaa !589
+  %341 = fadd float %336, %340
+  store float %341, ptr %29, align 8, !tbaa !589
+  %342 = load float, ptr %30, align 4, !tbaa !591
+  %343 = fadd float %339, %342
+  store float %343, ptr %30, align 4, !tbaa !591
+  %344 = fptosi float %341 to i32
+  %345 = fptosi float %343 to i32
+  %346 = load i32, ptr %2, align 8, !tbaa !592
+  %.not.i.i294 = icmp eq i32 %346, 0
+  br i1 %.not.i.i294, label %371, label %347
 
-346:                                              ; preds = %332
-  %347 = load i32, ptr %31, align 4, !tbaa !593
-  %348 = icmp slt i32 %347, %343
-  br i1 %348, label %351, label %349
+347:                                              ; preds = %333
+  %348 = load i32, ptr %31, align 4, !tbaa !593
+  %349 = icmp slt i32 %348, %344
+  br i1 %349, label %352, label %350
 
-349:                                              ; preds = %346
-  %350 = load i32, ptr %32, align 4, !tbaa !594
-  %.not.i.i.i295 = icmp eq i32 %350, 0
-  br i1 %.not.i.i.i295, label %351, label %352
+350:                                              ; preds = %347
+  %351 = load i32, ptr %32, align 4, !tbaa !594
+  %.not.i.i.i295 = icmp eq i32 %351, 0
+  br i1 %.not.i.i.i295, label %352, label %353
 
-351:                                              ; preds = %349, %346
-  store i32 %343, ptr %31, align 4, !tbaa !593
-  br label %352
+352:                                              ; preds = %350, %347
+  store i32 %344, ptr %31, align 4, !tbaa !593
+  br label %353
 
-352:                                              ; preds = %351, %349
-  %353 = load i32, ptr %33, align 4, !tbaa !595
-  %354 = icmp slt i32 %353, %344
-  br i1 %354, label %357, label %355
+353:                                              ; preds = %352, %350
+  %354 = load i32, ptr %33, align 4, !tbaa !595
+  %355 = icmp slt i32 %354, %345
+  br i1 %355, label %358, label %356
 
-355:                                              ; preds = %352
-  %356 = load i32, ptr %32, align 4, !tbaa !594
-  %.not20.i.i.i296 = icmp eq i32 %356, 0
-  br i1 %.not20.i.i.i296, label %357, label %358
+356:                                              ; preds = %353
+  %357 = load i32, ptr %32, align 4, !tbaa !594
+  %.not20.i.i.i296 = icmp eq i32 %357, 0
+  br i1 %.not20.i.i.i296, label %358, label %359
 
-357:                                              ; preds = %355, %352
-  store i32 %344, ptr %33, align 4, !tbaa !595
-  br label %358
+358:                                              ; preds = %356, %353
+  store i32 %345, ptr %33, align 4, !tbaa !595
+  br label %359
 
-358:                                              ; preds = %357, %355
-  %359 = load i32, ptr %34, align 8, !tbaa !596
-  %360 = icmp sgt i32 %359, %343
-  br i1 %360, label %363, label %361
+359:                                              ; preds = %358, %356
+  %360 = load i32, ptr %34, align 8, !tbaa !596
+  %361 = icmp sgt i32 %360, %344
+  br i1 %361, label %364, label %362
 
-361:                                              ; preds = %358
-  %362 = load i32, ptr %32, align 4, !tbaa !594
-  %.not21.i.i.i297 = icmp eq i32 %362, 0
-  br i1 %.not21.i.i.i297, label %363, label %364
+362:                                              ; preds = %359
+  %363 = load i32, ptr %32, align 4, !tbaa !594
+  %.not21.i.i.i297 = icmp eq i32 %363, 0
+  br i1 %.not21.i.i.i297, label %364, label %365
 
-363:                                              ; preds = %361, %358
-  store i32 %343, ptr %34, align 8, !tbaa !596
-  br label %364
+364:                                              ; preds = %362, %359
+  store i32 %344, ptr %34, align 8, !tbaa !596
+  br label %365
 
-364:                                              ; preds = %363, %361
-  %365 = load i32, ptr %35, align 8, !tbaa !597
-  %366 = icmp sgt i32 %365, %344
-  br i1 %366, label %369, label %367
+365:                                              ; preds = %364, %362
+  %366 = load i32, ptr %35, align 8, !tbaa !597
+  %367 = icmp sgt i32 %366, %345
+  br i1 %367, label %370, label %368
 
-367:                                              ; preds = %364
-  %368 = load i32, ptr %32, align 4, !tbaa !594
-  %.not22.i.i.i298 = icmp eq i32 %368, 0
-  br i1 %.not22.i.i.i298, label %369, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299
+368:                                              ; preds = %365
+  %369 = load i32, ptr %32, align 4, !tbaa !594
+  %.not22.i.i.i298 = icmp eq i32 %369, 0
+  br i1 %.not22.i.i.i298, label %370, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299
 
-369:                                              ; preds = %367, %364
-  store i32 %344, ptr %35, align 8, !tbaa !597
+370:                                              ; preds = %368, %365
+  store i32 %345, ptr %35, align 8, !tbaa !597
   br label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299
 
-_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299: ; preds = %369, %367
+_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299: ; preds = %370, %368
   store i32 1, ptr %32, align 4, !tbaa !594
   %.pre.i301 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
   br label %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302
 
-370:                                              ; preds = %332
-  %371 = load ptr, ptr %36, align 8, !tbaa !599
-  %372 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
-  %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds %struct.stbtt_vertex, ptr %371, i64 %373
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 12
-  store i8 2, ptr %375, align 2, !tbaa !433
-  %376 = trunc i32 %343 to i16
-  store i16 %376, ptr %374, align 2, !tbaa !440
+371:                                              ; preds = %333
+  %372 = load ptr, ptr %36, align 8, !tbaa !599
+  %373 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds %struct.stbtt_vertex, ptr %372, i64 %374
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 12
+  store i8 2, ptr %376, align 2, !tbaa !433
   %377 = trunc i32 %344 to i16
-  %378 = getelementptr inbounds nuw i8, ptr %374, i64 2
-  store i16 %377, ptr %378, align 2, !tbaa !441
-  %379 = getelementptr inbounds nuw i8, ptr %374, i64 4
-  store i64 0, ptr %379, align 2
+  store i16 %377, ptr %375, align 2, !tbaa !440
+  %378 = trunc i32 %345 to i16
+  %379 = getelementptr inbounds nuw i8, ptr %375, i64 2
+  store i16 %378, ptr %379, align 2, !tbaa !441
+  %380 = getelementptr inbounds nuw i8, ptr %375, i64 4
+  store i64 0, ptr %380, align 2
   br label %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302
 
-_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302: ; preds = %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299, %370
-  %380 = phi i32 [ %.pre.i301, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299 ], [ %372, %370 ]
-  %381 = add nsw i32 %380, 1
-  store i32 %381, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302: ; preds = %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299, %371
+  %381 = phi i32 [ %.pre.i301, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i299 ], [ %373, %371 ]
+  %382 = add nsw i32 %381, 1
+  store i32 %382, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
   br label %.thread
 
-382:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %383 = icmp slt i32 %.0241481, 8
-  br i1 %383, label %.critedge, label %.lr.ph465.preheader
+383:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %384 = icmp slt i32 %.0241480, 8
+  br i1 %384, label %.critedge, label %.lr.ph465.preheader
 
-.lr.ph465.preheader:                              ; preds = %382
-  %384 = add nsw i32 %.0241481, -6
-  %385 = zext nneg i32 %384 to i64
+.lr.ph465.preheader:                              ; preds = %383
+  %385 = add nsw i32 %.0241480, -6
+  %386 = zext nneg i32 %385 to i64
   br label %.lr.ph465
 
 .lr.ph465:                                        ; preds = %.lr.ph465.preheader, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311
-  %indvars.iv527 = phi i64 [ 0, %.lr.ph465.preheader ], [ %indvars.iv.next528, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311 ]
-  %386 = or disjoint i64 %indvars.iv527, 1
-  %387 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv527
-  %388 = load float, ptr %387, align 8, !tbaa !3
-  %389 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %386
-  %390 = load float, ptr %389, align 4, !tbaa !3
-  %391 = load float, ptr %29, align 8, !tbaa !589
-  %392 = fadd float %388, %391
-  store float %392, ptr %29, align 8, !tbaa !589
-  %393 = load float, ptr %30, align 4, !tbaa !591
-  %394 = fadd float %390, %393
-  store float %394, ptr %30, align 4, !tbaa !591
-  %395 = fptosi float %392 to i32
-  %396 = fptosi float %394 to i32
-  %397 = load i32, ptr %2, align 8, !tbaa !592
-  %.not.i.i303 = icmp eq i32 %397, 0
-  br i1 %.not.i.i303, label %422, label %398
+  %indvars.iv525 = phi i64 [ 0, %.lr.ph465.preheader ], [ %indvars.iv.next526, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311 ]
+  %387 = or disjoint i64 %indvars.iv525, 1
+  %388 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv525
+  %389 = load float, ptr %388, align 8, !tbaa !3
+  %390 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %387
+  %391 = load float, ptr %390, align 4, !tbaa !3
+  %392 = load float, ptr %29, align 8, !tbaa !589
+  %393 = fadd float %389, %392
+  store float %393, ptr %29, align 8, !tbaa !589
+  %394 = load float, ptr %30, align 4, !tbaa !591
+  %395 = fadd float %391, %394
+  store float %395, ptr %30, align 4, !tbaa !591
+  %396 = fptosi float %393 to i32
+  %397 = fptosi float %395 to i32
+  %398 = load i32, ptr %2, align 8, !tbaa !592
+  %.not.i.i303 = icmp eq i32 %398, 0
+  br i1 %.not.i.i303, label %423, label %399
 
-398:                                              ; preds = %.lr.ph465
-  %399 = load i32, ptr %31, align 4, !tbaa !593
-  %400 = icmp slt i32 %399, %395
-  br i1 %400, label %403, label %401
+399:                                              ; preds = %.lr.ph465
+  %400 = load i32, ptr %31, align 4, !tbaa !593
+  %401 = icmp slt i32 %400, %396
+  br i1 %401, label %404, label %402
 
-401:                                              ; preds = %398
-  %402 = load i32, ptr %32, align 4, !tbaa !594
-  %.not.i.i.i304 = icmp eq i32 %402, 0
-  br i1 %.not.i.i.i304, label %403, label %404
+402:                                              ; preds = %399
+  %403 = load i32, ptr %32, align 4, !tbaa !594
+  %.not.i.i.i304 = icmp eq i32 %403, 0
+  br i1 %.not.i.i.i304, label %404, label %405
 
-403:                                              ; preds = %401, %398
-  store i32 %395, ptr %31, align 4, !tbaa !593
-  br label %404
+404:                                              ; preds = %402, %399
+  store i32 %396, ptr %31, align 4, !tbaa !593
+  br label %405
 
-404:                                              ; preds = %403, %401
-  %405 = load i32, ptr %33, align 4, !tbaa !595
-  %406 = icmp slt i32 %405, %396
-  br i1 %406, label %409, label %407
+405:                                              ; preds = %404, %402
+  %406 = load i32, ptr %33, align 4, !tbaa !595
+  %407 = icmp slt i32 %406, %397
+  br i1 %407, label %410, label %408
 
-407:                                              ; preds = %404
-  %408 = load i32, ptr %32, align 4, !tbaa !594
-  %.not20.i.i.i305 = icmp eq i32 %408, 0
-  br i1 %.not20.i.i.i305, label %409, label %410
+408:                                              ; preds = %405
+  %409 = load i32, ptr %32, align 4, !tbaa !594
+  %.not20.i.i.i305 = icmp eq i32 %409, 0
+  br i1 %.not20.i.i.i305, label %410, label %411
 
-409:                                              ; preds = %407, %404
-  store i32 %396, ptr %33, align 4, !tbaa !595
-  br label %410
+410:                                              ; preds = %408, %405
+  store i32 %397, ptr %33, align 4, !tbaa !595
+  br label %411
 
-410:                                              ; preds = %409, %407
-  %411 = load i32, ptr %34, align 8, !tbaa !596
-  %412 = icmp sgt i32 %411, %395
-  br i1 %412, label %415, label %413
+411:                                              ; preds = %410, %408
+  %412 = load i32, ptr %34, align 8, !tbaa !596
+  %413 = icmp sgt i32 %412, %396
+  br i1 %413, label %416, label %414
 
-413:                                              ; preds = %410
-  %414 = load i32, ptr %32, align 4, !tbaa !594
-  %.not21.i.i.i306 = icmp eq i32 %414, 0
-  br i1 %.not21.i.i.i306, label %415, label %416
+414:                                              ; preds = %411
+  %415 = load i32, ptr %32, align 4, !tbaa !594
+  %.not21.i.i.i306 = icmp eq i32 %415, 0
+  br i1 %.not21.i.i.i306, label %416, label %417
 
-415:                                              ; preds = %413, %410
-  store i32 %395, ptr %34, align 8, !tbaa !596
-  br label %416
+416:                                              ; preds = %414, %411
+  store i32 %396, ptr %34, align 8, !tbaa !596
+  br label %417
 
-416:                                              ; preds = %415, %413
-  %417 = load i32, ptr %35, align 8, !tbaa !597
-  %418 = icmp sgt i32 %417, %396
-  br i1 %418, label %421, label %419
+417:                                              ; preds = %416, %414
+  %418 = load i32, ptr %35, align 8, !tbaa !597
+  %419 = icmp sgt i32 %418, %397
+  br i1 %419, label %422, label %420
 
-419:                                              ; preds = %416
-  %420 = load i32, ptr %32, align 4, !tbaa !594
-  %.not22.i.i.i307 = icmp eq i32 %420, 0
-  br i1 %.not22.i.i.i307, label %421, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308
+420:                                              ; preds = %417
+  %421 = load i32, ptr %32, align 4, !tbaa !594
+  %.not22.i.i.i307 = icmp eq i32 %421, 0
+  br i1 %.not22.i.i.i307, label %422, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308
 
-421:                                              ; preds = %419, %416
-  store i32 %396, ptr %35, align 8, !tbaa !597
+422:                                              ; preds = %420, %417
+  store i32 %397, ptr %35, align 8, !tbaa !597
   br label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308
 
-_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308: ; preds = %421, %419
+_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308: ; preds = %422, %420
   store i32 1, ptr %32, align 4, !tbaa !594
   %.pre.i310 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
   br label %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311
 
-422:                                              ; preds = %.lr.ph465
-  %423 = load ptr, ptr %36, align 8, !tbaa !599
-  %424 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
-  %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds %struct.stbtt_vertex, ptr %423, i64 %425
-  %427 = getelementptr inbounds nuw i8, ptr %426, i64 12
-  store i8 2, ptr %427, align 2, !tbaa !433
-  %428 = trunc i32 %395 to i16
-  store i16 %428, ptr %426, align 2, !tbaa !440
+423:                                              ; preds = %.lr.ph465
+  %424 = load ptr, ptr %36, align 8, !tbaa !599
+  %425 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+  %426 = sext i32 %425 to i64
+  %427 = getelementptr inbounds %struct.stbtt_vertex, ptr %424, i64 %426
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 12
+  store i8 2, ptr %428, align 2, !tbaa !433
   %429 = trunc i32 %396 to i16
-  %430 = getelementptr inbounds nuw i8, ptr %426, i64 2
-  store i16 %429, ptr %430, align 2, !tbaa !441
-  %431 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  store i64 0, ptr %431, align 2
+  store i16 %429, ptr %427, align 2, !tbaa !440
+  %430 = trunc i32 %397 to i16
+  %431 = getelementptr inbounds nuw i8, ptr %427, i64 2
+  store i16 %430, ptr %431, align 2, !tbaa !441
+  %432 = getelementptr inbounds nuw i8, ptr %427, i64 4
+  store i64 0, ptr %432, align 2
   br label %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311
 
-_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311: ; preds = %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308, %422
-  %432 = phi i32 [ %.pre.i310, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308 ], [ %424, %422 ]
-  %433 = add nsw i32 %432, 1
-  store i32 %433, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
-  %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 2
-  %434 = or disjoint i64 %indvars.iv.next528, 1
-  %435 = icmp samesign ult i64 %434, %385
-  br i1 %435, label %.lr.ph465, label %._crit_edge, !llvm.loop !605
+_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311: ; preds = %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308, %423
+  %433 = phi i32 [ %.pre.i310, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i308 ], [ %425, %423 ]
+  %434 = add nsw i32 %433, 1
+  store i32 %434, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+  %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 2
+  %435 = or disjoint i64 %indvars.iv.next526, 1
+  %436 = icmp samesign ult i64 %435, %386
+  br i1 %436, label %.lr.ph465, label %._crit_edge, !llvm.loop !605
 
 ._crit_edge:                                      ; preds = %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit311
-  %436 = trunc nuw nsw i64 %indvars.iv.next528 to i32
-  %437 = add nuw nsw i32 %436, 5
-  %.not268 = icmp slt i32 %437, %.0241481
-  br i1 %.not268, label %438, label %.critedge
+  %437 = trunc nuw nsw i64 %indvars.iv.next526 to i32
+  %438 = add nuw nsw i32 %437, 5
+  %.not268 = icmp slt i32 %438, %.0241480
+  br i1 %.not268, label %439, label %.critedge
 
-438:                                              ; preds = %._crit_edge
-  %439 = and i64 %indvars.iv.next528, 4294967294
-  %440 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %439
-  %441 = load float, ptr %440, align 8, !tbaa !3
-  %442 = and i64 %434, 4294967295
-  %443 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %442
-  %444 = load float, ptr %443, align 4, !tbaa !3
-  %445 = add nuw i64 %indvars.iv527, 4
-  %446 = and i64 %445, 4294967294
-  %447 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %446
-  %448 = load float, ptr %447, align 8, !tbaa !3
-  %449 = add nuw i64 %indvars.iv527, 5
-  %450 = and i64 %449, 4294967295
-  %451 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %450
-  %452 = load float, ptr %451, align 4, !tbaa !3
-  %453 = add nuw i64 %indvars.iv527, 6
-  %454 = and i64 %453, 4294967294
-  %455 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %454
-  %456 = load float, ptr %455, align 8, !tbaa !3
-  %457 = zext nneg i32 %437 to i64
-  %458 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %457
-  %459 = load float, ptr %458, align 4, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %441, float noundef %444, float noundef %448, float noundef %452, float noundef %456, float noundef %459)
+439:                                              ; preds = %._crit_edge
+  %440 = and i64 %indvars.iv.next526, 4294967294
+  %441 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %440
+  %442 = load float, ptr %441, align 8, !tbaa !3
+  %443 = and i64 %435, 4294967295
+  %444 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %443
+  %445 = load float, ptr %444, align 4, !tbaa !3
+  %446 = add nuw i64 %indvars.iv525, 4
+  %447 = and i64 %446, 4294967294
+  %448 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %447
+  %449 = load float, ptr %448, align 8, !tbaa !3
+  %450 = add nuw i64 %indvars.iv525, 5
+  %451 = and i64 %450, 4294967295
+  %452 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %451
+  %453 = load float, ptr %452, align 4, !tbaa !3
+  %454 = add nuw i64 %indvars.iv525, 6
+  %455 = and i64 %454, 4294967294
+  %456 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %455
+  %457 = load float, ptr %456, align 8, !tbaa !3
+  %458 = zext nneg i32 %438 to i64
+  %459 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %458
+  %460 = load float, ptr %459, align 4, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %442, float noundef %445, float noundef %449, float noundef %453, float noundef %457, float noundef %460)
   br label %.thread
 
-460:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %461 = icmp slt i32 %.0241481, 4
-  br i1 %461, label %.critedge, label %462
+461:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %462 = icmp slt i32 %.0241480, 4
+  br i1 %462, label %.critedge, label %463
 
-462:                                              ; preds = %460
-  %463 = and i32 %.0241481, 1
-  %464 = add nuw nsw i32 %463, 3
-  %465 = icmp samesign ult i32 %464, %.0241481
-  br i1 %465, label %.lr.ph, label %.thread
+463:                                              ; preds = %461
+  %464 = and i32 %.0241480, 1
+  %465 = add nuw nsw i32 %464, 3
+  %466 = icmp samesign ult i32 %465, %.0241480
+  br i1 %466, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %462
-  %.not267.not = icmp eq i32 %463, 0
-  %466 = load float, ptr %4, align 16
-  %.0253 = select i1 %.not267.not, float 0.000000e+00, float %466
-  %467 = icmp eq i8 %40, 27
-  %468 = and i32 %.0241481, 1
-  %469 = zext nneg i32 %468 to i64
-  br label %470
+.lr.ph:                                           ; preds = %463
+  %.not267.not = icmp eq i32 %464, 0
+  %467 = load float, ptr %4, align 16
+  %.0253 = select i1 %.not267.not, float 0.000000e+00, float %467
+  %468 = icmp eq i8 %40, 27
+  %469 = and i32 %.0241480, 1
+  %470 = zext nneg i32 %469 to i64
+  br label %471
 
-470:                                              ; preds = %.lr.ph, %485
-  %indvars.iv = phi i64 [ %469, %.lr.ph ], [ %indvars.iv.next, %485 ]
-  %471 = phi i32 [ %464, %.lr.ph ], [ %487, %485 ]
-  %.1254462 = phi float [ %.0253, %.lr.ph ], [ 0.000000e+00, %485 ]
-  %472 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv
-  %473 = load float, ptr %472, align 4, !tbaa !3
-  %474 = add nuw nsw i64 %indvars.iv, 1
-  %475 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %474
-  %476 = load float, ptr %475, align 4, !tbaa !3
-  %477 = add nuw nsw i64 %indvars.iv, 2
-  %478 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %477
-  %479 = load float, ptr %478, align 4, !tbaa !3
-  %480 = zext nneg i32 %471 to i64
-  %481 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %480
-  %482 = load float, ptr %481, align 4, !tbaa !3
-  br i1 %467, label %483, label %484
+471:                                              ; preds = %.lr.ph, %486
+  %indvars.iv = phi i64 [ %470, %.lr.ph ], [ %indvars.iv.next, %486 ]
+  %472 = phi i32 [ %465, %.lr.ph ], [ %488, %486 ]
+  %.1254462 = phi float [ %.0253, %.lr.ph ], [ 0.000000e+00, %486 ]
+  %473 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %indvars.iv
+  %474 = load float, ptr %473, align 4, !tbaa !3
+  %475 = add nuw nsw i64 %indvars.iv, 1
+  %476 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %475
+  %477 = load float, ptr %476, align 4, !tbaa !3
+  %478 = add nuw nsw i64 %indvars.iv, 2
+  %479 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %478
+  %480 = load float, ptr %479, align 4, !tbaa !3
+  %481 = zext nneg i32 %472 to i64
+  %482 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %481
+  %483 = load float, ptr %482, align 4, !tbaa !3
+  br i1 %468, label %484, label %485
 
-483:                                              ; preds = %470
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %473, float noundef %.1254462, float noundef %476, float noundef %479, float noundef %482, float noundef 0.000000e+00)
-  br label %485
+484:                                              ; preds = %471
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %474, float noundef %.1254462, float noundef %477, float noundef %480, float noundef %483, float noundef 0.000000e+00)
+  br label %486
 
-484:                                              ; preds = %470
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %.1254462, float noundef %473, float noundef %476, float noundef %479, float noundef 0.000000e+00, float noundef %482)
-  br label %485
+485:                                              ; preds = %471
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %.1254462, float noundef %474, float noundef %477, float noundef %480, float noundef 0.000000e+00, float noundef %483)
+  br label %486
 
-485:                                              ; preds = %484, %483
+486:                                              ; preds = %485, %484
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %486 = trunc i64 %indvars.iv to i32
-  %487 = add i32 %486, 7
-  %488 = icmp slt i32 %487, %.0241481
-  br i1 %488, label %470, label %.thread, !llvm.loop !606
+  %487 = trunc i64 %indvars.iv to i32
+  %488 = add i32 %487, 7
+  %489 = icmp slt i32 %488, %.0241480
+  br i1 %489, label %471, label %.thread, !llvm.loop !606
 
-489:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %.not = icmp eq i32 %.0248480, 0
-  br i1 %.not, label %490, label %554
+490:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %.not = icmp eq i32 %.0248479, 0
+  br i1 %.not, label %491, label %555
 
-490:                                              ; preds = %489
-  %491 = load i32, ptr %24, align 4, !tbaa !607
-  %.not266 = icmp eq i32 %491, 0
-  br i1 %.not266, label %554, label %492
+491:                                              ; preds = %490
+  %492 = load i32, ptr %24, align 4, !tbaa !607
+  %.not266 = icmp eq i32 %492, 0
+  br i1 %.not266, label %555, label %493
 
-492:                                              ; preds = %490
+493:                                              ; preds = %491
   %.sroa.0.0.copyload53.i = load ptr, ptr %25, align 8, !tbaa !285
-  %493 = tail call i32 @llvm.smin.i32(i32 %491, i32 0)
-  %.not.i.i312 = icmp sgt i32 %491, 0
+  %494 = tail call i32 @llvm.smin.i32(i32 %492, i32 0)
+  %.not.i.i312 = icmp sgt i32 %492, 0
   br i1 %.not.i.i312, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %492
-  %494 = zext nneg i32 %493 to i64
-  %495 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload53.i, i64 %494
-  %496 = load i8, ptr %495, align 1, !tbaa !23
-  switch i8 %496, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit [
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %493
+  %495 = zext nneg i32 %494 to i64
+  %496 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload53.i, i64 %495
+  %497 = load i8, ptr %496, align 1, !tbaa !23
+  switch i8 %497, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit [
     i8 0, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
     i8 3, label %.preheader.i
   ]
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i:  ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %492
-  %.sroa.9.168.i = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %493, %492 ]
-  %497 = add nsw i32 %.sroa.9.168.i, %1
-  %498 = icmp slt i32 %497, 0
-  %499 = tail call i32 @llvm.smin.i32(i32 %497, i32 %491)
-  %..i.i.i = select i1 %498, i32 %491, i32 %499
-  %.not.i26.i = icmp slt i32 %..i.i.i, %491
-  br i1 %.not.i26.i, label %500, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i:  ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %493
+  %.sroa.9.168.i = phi i32 [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %494, %493 ]
+  %498 = add nsw i32 %.sroa.9.168.i, %1
+  %499 = icmp slt i32 %498, 0
+  %500 = tail call i32 @llvm.smin.i32(i32 %498, i32 %492)
+  %..i.i.i = select i1 %499, i32 %492, i32 %500
+  %.not.i26.i = icmp slt i32 %..i.i.i, %492
+  br i1 %.not.i26.i, label %501, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i
 
-500:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
-  %501 = sext i32 %..i.i.i to i64
-  %502 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %501
-  %503 = load i8, ptr %502, align 1, !tbaa !23
-  %504 = zext i8 %503 to i32
+501:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
+  %502 = sext i32 %..i.i.i to i64
+  %503 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %502
+  %504 = load i8, ptr %503, align 1, !tbaa !23
+  %505 = zext i8 %504 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i
 
 .preheader.i:                                     ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
   %.sroa.9.2.i = phi i32 [ %.sroa.9.3.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
-  %505 = phi i32 [ %513, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
-  %.07.i.i = phi i32 [ %515, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
-  %.056.i.i = phi i32 [ %514, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
-  %506 = shl i32 %.056.i.i, 8
-  %.not.i.i.i313 = icmp slt i32 %505, %491
-  br i1 %.not.i.i.i313, label %507, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
+  %506 = phi i32 [ %514, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 1, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
+  %.07.i.i = phi i32 [ %516, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
+  %.056.i.i = phi i32 [ %515, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ]
+  %507 = shl i32 %.056.i.i, 8
+  %.not.i.i.i313 = icmp slt i32 %506, %492
+  br i1 %.not.i.i.i313, label %508, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
 
-507:                                              ; preds = %.preheader.i
-  %508 = add nsw i32 %505, 1
-  %509 = sext i32 %505 to i64
-  %510 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %509
-  %511 = load i8, ptr %510, align 1, !tbaa !23
-  %512 = zext i8 %511 to i32
+508:                                              ; preds = %.preheader.i
+  %509 = add nsw i32 %506, 1
+  %510 = sext i32 %506 to i64
+  %511 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %510
+  %512 = load i8, ptr %511, align 1, !tbaa !23
+  %513 = zext i8 %512 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i:       ; preds = %507, %.preheader.i
-  %.sroa.9.3.i = phi i32 [ %508, %507 ], [ %.sroa.9.2.i, %.preheader.i ]
-  %513 = phi i32 [ %508, %507 ], [ %505, %.preheader.i ]
-  %.0.i.i.i = phi i32 [ %512, %507 ], [ 0, %.preheader.i ]
-  %514 = or disjoint i32 %.0.i.i.i, %506
-  %515 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %515, 2
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i:       ; preds = %508, %.preheader.i
+  %.sroa.9.3.i = phi i32 [ %509, %508 ], [ %.sroa.9.2.i, %.preheader.i ]
+  %514 = phi i32 [ %509, %508 ], [ %506, %.preheader.i ]
+  %.0.i.i.i = phi i32 [ %513, %508 ], [ 0, %.preheader.i ]
+  %515 = or disjoint i32 %.0.i.i.i, %507
+  %516 = add nuw nsw i32 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %516, 2
   br i1 %exitcond.not.i.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i, label %.preheader.i, !llvm.loop !349
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit.i:         ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
   %.sroa.9.4.i = phi i32 [ %.sroa.9.5.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ %.sroa.9.3.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
-  %516 = phi i32 [ %524, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ %.sroa.9.3.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
-  %.07.i30.i = phi i32 [ %526, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
-  %.056.i31.i = phi i32 [ %525, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
-  %517 = shl i32 %.056.i31.i, 8
-  %.not.i.i32.i = icmp slt i32 %516, %491
-  br i1 %.not.i.i32.i, label %518, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
+  %517 = phi i32 [ %525, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ %.sroa.9.3.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
+  %.07.i30.i = phi i32 [ %527, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
+  %.056.i31.i = phi i32 [ %526, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ]
+  %518 = shl i32 %.056.i31.i, 8
+  %.not.i.i32.i = icmp slt i32 %517, %492
+  br i1 %.not.i.i32.i, label %519, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
 
-518:                                              ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i
-  %519 = add nsw i32 %516, 1
-  %520 = sext i32 %516 to i64
-  %521 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %520
-  %522 = load i8, ptr %521, align 1, !tbaa !23
-  %523 = zext i8 %522 to i32
+519:                                              ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i
+  %520 = add nsw i32 %517, 1
+  %521 = sext i32 %517 to i64
+  %522 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %521
+  %523 = load i8, ptr %522, align 1, !tbaa !23
+  %524 = zext i8 %523 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i:     ; preds = %518, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i
-  %.sroa.9.5.i = phi i32 [ %519, %518 ], [ %.sroa.9.4.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
-  %524 = phi i32 [ %519, %518 ], [ %516, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
-  %.0.i.i34.i = phi i32 [ %523, %518 ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
-  %525 = or disjoint i32 %.0.i.i34.i, %517
-  %526 = add nuw nsw i32 %.07.i30.i, 1
-  %exitcond.not.i35.i = icmp eq i32 %526, 2
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i:     ; preds = %519, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i
+  %.sroa.9.5.i = phi i32 [ %520, %519 ], [ %.sroa.9.4.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
+  %525 = phi i32 [ %520, %519 ], [ %517, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
+  %.0.i.i34.i = phi i32 [ %524, %519 ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i ]
+  %526 = or disjoint i32 %.0.i.i34.i, %518
+  %527 = add nuw nsw i32 %.07.i30.i, 1
+  %exitcond.not.i35.i = icmp eq i32 %527, 2
   br i1 %exitcond.not.i35.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit.i, !llvm.loop !349
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i: ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i33.i
-  %527 = icmp sgt i32 %514, 0
-  br i1 %527, label %.lr.ph.i, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit
+  %528 = icmp sgt i32 %515, 0
+  br i1 %528, label %.lr.ph.i, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit36.i:       ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i
-  %528 = add nuw nsw i32 %.02273.i, 1
-  %exitcond.not.i = icmp eq i32 %528, %514
+  %529 = add nuw nsw i32 %.02273.i, 1
+  %exitcond.not.i = icmp eq i32 %529, %515
   br i1 %exitcond.not.i, label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit, label %.lr.ph.i, !llvm.loop !608
 
 .lr.ph.i:                                         ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i
-  %.074.i = phi i32 [ %545, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ], [ %525, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ]
-  %.02273.i = phi i32 [ %528, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ]
+  %.074.i = phi i32 [ %546, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ], [ %526, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ]
+  %.02273.i = phi i32 [ %529, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ]
   %.sroa.9.072.i = phi i32 [ %.sroa.9.8.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ], [ %.sroa.9.5.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ]
-  %.not.i37.i = icmp slt i32 %.sroa.9.072.i, %491
-  br i1 %.not.i37.i, label %529, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i
+  %.not.i37.i = icmp slt i32 %.sroa.9.072.i, %492
+  br i1 %.not.i37.i, label %530, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i
 
-529:                                              ; preds = %.lr.ph.i
-  %530 = add nsw i32 %.sroa.9.072.i, 1
-  %531 = sext i32 %.sroa.9.072.i to i64
-  %532 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %531
-  %533 = load i8, ptr %532, align 1, !tbaa !23
-  %534 = zext i8 %533 to i32
+530:                                              ; preds = %.lr.ph.i
+  %531 = add nsw i32 %.sroa.9.072.i, 1
+  %532 = sext i32 %.sroa.9.072.i to i64
+  %533 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %532
+  %534 = load i8, ptr %533, align 1, !tbaa !23
+  %535 = zext i8 %534 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i:       ; preds = %529, %.lr.ph.i
-  %.sroa.9.6.i = phi i32 [ %530, %529 ], [ %.sroa.9.072.i, %.lr.ph.i ]
-  %.0.i38.i = phi i32 [ %534, %529 ], [ 0, %.lr.ph.i ]
-  br label %535
+_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i:       ; preds = %530, %.lr.ph.i
+  %.sroa.9.6.i = phi i32 [ %531, %530 ], [ %.sroa.9.072.i, %.lr.ph.i ]
+  %.0.i38.i = phi i32 [ %535, %530 ], [ 0, %.lr.ph.i ]
+  br label %536
 
-535:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i
+536:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i
   %.sroa.9.7.i = phi i32 [ %.sroa.9.6.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %.sroa.9.8.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
-  %536 = phi i32 [ %.sroa.9.6.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %544, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
-  %.07.i41.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %546, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
-  %.056.i42.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %545, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
-  %537 = shl i32 %.056.i42.i, 8
-  %.not.i.i43.i = icmp slt i32 %536, %491
-  br i1 %.not.i.i43.i, label %538, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i
+  %537 = phi i32 [ %.sroa.9.6.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %545, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
+  %.07.i41.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %547, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
+  %.056.i42.i = phi i32 [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit39.i ], [ %546, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i ]
+  %538 = shl i32 %.056.i42.i, 8
+  %.not.i.i43.i = icmp slt i32 %537, %492
+  br i1 %.not.i.i43.i, label %539, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i
 
-538:                                              ; preds = %535
-  %539 = add nsw i32 %536, 1
-  %540 = sext i32 %536 to i64
-  %541 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %540
-  %542 = load i8, ptr %541, align 1, !tbaa !23
-  %543 = zext i8 %542 to i32
+539:                                              ; preds = %536
+  %540 = add nsw i32 %537, 1
+  %541 = sext i32 %537 to i64
+  %542 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload53.i, i64 %541
+  %543 = load i8, ptr %542, align 1, !tbaa !23
+  %544 = zext i8 %543 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i:     ; preds = %538, %535
-  %.sroa.9.8.i = phi i32 [ %539, %538 ], [ %.sroa.9.7.i, %535 ]
-  %544 = phi i32 [ %539, %538 ], [ %536, %535 ]
-  %.0.i.i45.i = phi i32 [ %543, %538 ], [ 0, %535 ]
-  %545 = or disjoint i32 %.0.i.i45.i, %537
-  %546 = add nuw nsw i32 %.07.i41.i, 1
-  %exitcond.not.i46.i = icmp eq i32 %546, 2
-  br i1 %exitcond.not.i46.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i, label %535, !llvm.loop !349
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i:     ; preds = %539, %536
+  %.sroa.9.8.i = phi i32 [ %540, %539 ], [ %.sroa.9.7.i, %536 ]
+  %545 = phi i32 [ %540, %539 ], [ %537, %536 ]
+  %.0.i.i45.i = phi i32 [ %544, %539 ], [ 0, %536 ]
+  %546 = or disjoint i32 %.0.i.i45.i, %538
+  %547 = add nuw nsw i32 %.07.i41.i, 1
+  %exitcond.not.i46.i = icmp eq i32 %547, 2
+  br i1 %exitcond.not.i46.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i, label %536, !llvm.loop !349
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit47.i:       ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i44.i
   %.not.i314 = icmp sge i32 %1, %.074.i
-  %547 = icmp slt i32 %1, %545
-  %or.cond.i = and i1 %.not.i314, %547
+  %548 = icmp slt i32 %1, %546
+  %or.cond.i = and i1 %.not.i314, %548
   br i1 %or.cond.i, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i:       ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i, %500, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
-  %.021.i = phi i32 [ %504, %500 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i ], [ %.0.i38.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i ]
+_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i:       ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i, %501, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i
+  %.021.i = phi i32 [ %505, %501 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.thread.i ], [ %.0.i38.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit47.i ]
   %.sroa.03.0.copyload.i = load ptr, ptr %26, align 8, !tbaa !285
   %.sroa.24.0.copyload.i = load i64, ptr %.sroa.24.0..sroa_idx.i, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %27, align 8, !tbaa !285
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %548 = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i32 noundef %.021.i)
-  %549 = extractvalue { ptr, i64 } %548, 0
-  %550 = extractvalue { ptr, i64 } %548, 1
-  %551 = tail call fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %.sroa.03.0.copyload.i, i64 %.sroa.24.0.copyload.i, ptr %549, i64 %550)
+  %549 = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i32 noundef %.021.i)
+  %550 = extractvalue { ptr, i64 } %549, 0
+  %551 = extractvalue { ptr, i64 } %549, 1
+  %552 = tail call fastcc { ptr, i64 } @_ZL16stbtt__get_subrs10stbtt__bufS_(ptr %.sroa.03.0.copyload.i, i64 %.sroa.24.0.copyload.i, ptr %550, i64 %551)
   br label %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit
 
 _ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit: ; preds = %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i
-  %.pn.i = phi { ptr, i64 } [ %551, %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i ], [ zeroinitializer, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ zeroinitializer, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ], [ zeroinitializer, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ]
-  %552 = extractvalue { ptr, i64 } %.pn.i, 0
-  %553 = extractvalue { ptr, i64 } %.pn.i, 1
-  store i64 %553, ptr %.sroa.5, align 8
-  br label %554
+  %.pn.i = phi { ptr, i64 } [ %552, %_ZL15stbtt__buf_get8P10stbtt__buf.exit28.i ], [ zeroinitializer, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ zeroinitializer, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.preheader.i ], [ zeroinitializer, %_ZL14stbtt__buf_getP10stbtt__bufi.exit36.i ]
+  %553 = extractvalue { ptr, i64 } %.pn.i, 0
+  %554 = extractvalue { ptr, i64 } %.pn.i, 1
+  store i64 %554, ptr %.sroa.5, align 8
+  br label %555
 
-554:                                              ; preds = %490, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit, %489, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %.sroa.073.1 = phi ptr [ %.sroa.073.0479, %489 ], [ %.sroa.073.0479, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ %552, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ %.sroa.073.0479, %490 ]
-  %.1249 = phi i32 [ 1, %489 ], [ %.0248480, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ 1, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ 1, %490 ]
-  %555 = icmp slt i32 %.0241481, 1
-  br i1 %555, label %.critedge, label %556
+555:                                              ; preds = %491, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit, %490, %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %.sroa.073.1 = phi ptr [ %.sroa.073.0478, %490 ], [ %.sroa.073.0478, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ %553, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ %.sroa.073.0478, %491 ]
+  %.1249 = phi i32 [ 1, %490 ], [ %.0248479, %_ZL15stbtt__buf_get8P10stbtt__buf.exit ], [ 1, %_ZL26stbtt__cid_get_glyph_subrsPK14stbtt_fontinfoi.exit ], [ 1, %491 ]
+  %556 = icmp slt i32 %.0241480, 1
+  br i1 %556, label %.critedge, label %557
 
-556:                                              ; preds = %554
-  %557 = add nsw i32 %.0241481, -1
-  %558 = zext nneg i32 %557 to i64
-  %559 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %558
-  %560 = load float, ptr %559, align 4, !tbaa !3
-  %561 = fptosi float %560 to i32
-  %562 = icmp sgt i32 %.0239484, 9
-  br i1 %562, label %.critedge, label %563
+557:                                              ; preds = %555
+  %558 = add nsw i32 %.0241480, -1
+  %559 = zext nneg i32 %558 to i64
+  %560 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %559
+  %561 = load float, ptr %560, align 4, !tbaa !3
+  %562 = fptosi float %561 to i32
+  %563 = icmp sgt i32 %.0239483, 9
+  br i1 %563, label %.critedge, label %564
 
-563:                                              ; preds = %556
-  %564 = add nsw i32 %.0239484, 1
-  %565 = sext i32 %.0239484 to i64
-  %566 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %565
-  store ptr %.sroa.0.0478, ptr %566, align 16, !tbaa !285
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %566, i64 8
+564:                                              ; preds = %557
+  %565 = add nsw i32 %.0239483, 1
+  %566 = sext i32 %.0239483 to i64
+  %567 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %566
+  store ptr %.sroa.0.0477, ptr %567, align 16, !tbaa !285
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 8
   store i64 %.sroa.10.8.insert.insert358, ptr %.sroa.10.0..sroa_idx, align 8
-  %567 = icmp eq i8 %40, 10
-  br i1 %567, label %.cont, label %.else
+  %568 = icmp eq i8 %40, 10
+  br i1 %568, label %.cont, label %.else
 
-.else:                                            ; preds = %563
+.else:                                            ; preds = %564
   %.sroa.0.0.copyload.else.val = load ptr, ptr %28, align 8, !tbaa !285
   br label %.cont
 
-.cont:                                            ; preds = %563, %.else
-  %.sroa.sel = phi ptr [ %.sroa.5, %563 ], [ %.sroa.gep72, %.else ]
-  %.sroa.0.0.copyload = phi ptr [ %.sroa.073.1, %563 ], [ %.sroa.0.0.copyload.else.val, %.else ]
+.cont:                                            ; preds = %564, %.else
+  %.sroa.sel = phi ptr [ %.sroa.5, %564 ], [ %.sroa.gep72, %.else ]
+  %.sroa.0.0.copyload = phi ptr [ %.sroa.073.1, %564 ], [ %.sroa.0.0.copyload.else.val, %.else ]
   %.sroa.2.0.copyload = load i64, ptr %.sroa.sel, align 8
   %.sroa.7.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload, 32
   %.sroa.7.8.extract.trunc.i = trunc nuw i64 %.sroa.7.8.extract.shift.i to i32
-  %568 = tail call i32 @llvm.smin.i32(i32 %.sroa.7.8.extract.trunc.i, i32 0)
-  br label %569
+  %569 = tail call i32 @llvm.smin.i32(i32 %.sroa.7.8.extract.trunc.i, i32 0)
+  br label %570
 
-569:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %.cont
-  %.sroa.3.0.i = phi i32 [ %568, %.cont ], [ %.sroa.3.1.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
-  %570 = phi i32 [ %568, %.cont ], [ %578, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
-  %.07.i.i.i = phi i32 [ 0, %.cont ], [ %580, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
-  %.056.i.i.i = phi i32 [ 0, %.cont ], [ %579, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
-  %571 = shl i32 %.056.i.i.i, 8
-  %.not.i.i.i.i = icmp slt i32 %570, %.sroa.7.8.extract.trunc.i
-  br i1 %.not.i.i.i.i, label %572, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
+570:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %.cont
+  %.sroa.3.0.i = phi i32 [ %569, %.cont ], [ %.sroa.3.1.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %571 = phi i32 [ %569, %.cont ], [ %579, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %.07.i.i.i = phi i32 [ 0, %.cont ], [ %581, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %.056.i.i.i = phi i32 [ 0, %.cont ], [ %580, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ]
+  %572 = shl i32 %.056.i.i.i, 8
+  %.not.i.i.i.i = icmp slt i32 %571, %.sroa.7.8.extract.trunc.i
+  br i1 %.not.i.i.i.i, label %573, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
 
-572:                                              ; preds = %569
-  %573 = add nsw i32 %570, 1
-  %574 = sext i32 %570 to i64
-  %575 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %574
-  %576 = load i8, ptr %575, align 1, !tbaa !23
-  %577 = zext i8 %576 to i32
+573:                                              ; preds = %570
+  %574 = add nsw i32 %571, 1
+  %575 = sext i32 %571 to i64
+  %576 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %575
+  %577 = load i8, ptr %576, align 1, !tbaa !23
+  %578 = zext i8 %577 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i:     ; preds = %572, %569
-  %.sroa.3.1.i = phi i32 [ %573, %572 ], [ %.sroa.3.0.i, %569 ]
-  %578 = phi i32 [ %573, %572 ], [ %570, %569 ]
-  %.0.i.i.i.i = phi i32 [ %577, %572 ], [ 0, %569 ]
-  %579 = or disjoint i32 %.0.i.i.i.i, %571
-  %580 = add nuw nsw i32 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %580, 2
-  br i1 %exitcond.not.i.i.i, label %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, label %569, !llvm.loop !349
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i:     ; preds = %573, %570
+  %.sroa.3.1.i = phi i32 [ %574, %573 ], [ %.sroa.3.0.i, %570 ]
+  %579 = phi i32 [ %574, %573 ], [ %571, %570 ]
+  %.0.i.i.i.i = phi i32 [ %578, %573 ], [ 0, %570 ]
+  %580 = or disjoint i32 %.0.i.i.i.i, %572
+  %581 = add nuw nsw i32 %.07.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %581, 2
+  br i1 %exitcond.not.i.i.i, label %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, label %570, !llvm.loop !349
 
 _ZL22stbtt__cff_index_countP10stbtt__buf.exit.i:  ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
-  %581 = icmp sgt i32 %579, 33899
-  %582 = icmp sgt i32 %579, 1239
-  %spec.select.i = select i1 %582, i32 1131, i32 107
-  %.0.i315 = select i1 %581, i32 32768, i32 %spec.select.i
-  %583 = add nsw i32 %.0.i315, %561
-  %584 = icmp sgt i32 %583, -1
-  %.not.i316 = icmp slt i32 %583, %579
-  %or.cond.i317 = and i1 %584, %.not.i316
-  br i1 %or.cond.i317, label %585, label %_ZL15stbtt__get_subr10stbtt__bufi.exit
+  %582 = icmp sgt i32 %580, 33899
+  %583 = icmp sgt i32 %580, 1239
+  %spec.select.i = select i1 %583, i32 1131, i32 107
+  %.0.i315 = select i1 %582, i32 32768, i32 %spec.select.i
+  %584 = add nsw i32 %.0.i315, %562
+  %585 = icmp sgt i32 %584, -1
+  %.not.i316 = icmp slt i32 %584, %580
+  %or.cond.i317 = and i1 %585, %.not.i316
+  br i1 %or.cond.i317, label %586, label %_ZL15stbtt__get_subr10stbtt__bufi.exit
 
-585:                                              ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i
+586:                                              ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i
   %.sroa.7.8.insert.shift.i = and i64 %.sroa.2.0.copyload, -4294967296
   %.sroa.3.8.insert.ext.i = zext i32 %.sroa.3.1.i to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.7.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  %586 = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr readonly %.sroa.0.0.copyload, i64 %.sroa.3.8.insert.insert.i, i32 noundef %583)
+  %587 = tail call fastcc { ptr, i64 } @_ZL20stbtt__cff_index_get10stbtt__bufi(ptr readonly %.sroa.0.0.copyload, i64 %.sroa.3.8.insert.insert.i, i32 noundef %584)
   br label %_ZL15stbtt__get_subr10stbtt__bufi.exit
 
-_ZL15stbtt__get_subr10stbtt__bufi.exit:           ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, %585
-  %.pn.i318 = phi { ptr, i64 } [ %586, %585 ], [ zeroinitializer, %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i ]
-  %587 = extractvalue { ptr, i64 } %.pn.i318, 1
-  %588 = icmp ult i64 %587, 4294967296
-  br i1 %588, label %.critedge, label %589
+_ZL15stbtt__get_subr10stbtt__bufi.exit:           ; preds = %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i, %586
+  %.pn.i318 = phi { ptr, i64 } [ %587, %586 ], [ zeroinitializer, %_ZL22stbtt__cff_index_countP10stbtt__buf.exit.i ]
+  %588 = extractvalue { ptr, i64 } %.pn.i318, 1
+  %589 = icmp ult i64 %588, 4294967296
+  br i1 %589, label %.critedge, label %590
 
-589:                                              ; preds = %_ZL15stbtt__get_subr10stbtt__bufi.exit
-  %590 = extractvalue { ptr, i64 } %.pn.i318, 0
-  %.sroa.10.8.insert.mask = and i64 %587, -4294967296
+590:                                              ; preds = %_ZL15stbtt__get_subr10stbtt__bufi.exit
+  %591 = extractvalue { ptr, i64 } %.pn.i318, 0
+  %.sroa.10.8.insert.mask = and i64 %588, -4294967296
   br label %.thread
 
-591:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %592 = icmp slt i32 %.0239484, 1
-  br i1 %592, label %.critedge, label %593
+592:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %593 = icmp slt i32 %.0239483, 1
+  br i1 %593, label %.critedge, label %594
 
-593:                                              ; preds = %591
-  %594 = add nsw i32 %.0239484, -1
-  %595 = zext nneg i32 %594 to i64
-  %596 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %595
-  %.sroa.0.0.copyload351 = load ptr, ptr %596, align 16, !tbaa !285
-  %.sroa.10.0..sroa_idx352 = getelementptr inbounds nuw i8, ptr %596, i64 8
+594:                                              ; preds = %592
+  %595 = add nsw i32 %.0239483, -1
+  %596 = zext nneg i32 %595 to i64
+  %597 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %596
+  %.sroa.0.0.copyload351 = load ptr, ptr %597, align 16, !tbaa !285
+  %.sroa.10.0..sroa_idx352 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %.sroa.10.0.copyload353 = load i64, ptr %.sroa.10.0..sroa_idx352, align 8
   br label %.thread
 
-597:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %598 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %599 = load float, ptr %598, align 8, !tbaa !609
-  %600 = load float, ptr %29, align 8, !tbaa !589
-  %601 = fcmp une float %599, %600
+598:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %599 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %600 = load float, ptr %599, align 8, !tbaa !609
+  %601 = load float, ptr %29, align 8, !tbaa !589
+  %602 = fcmp une float %600, %601
   %.phi.trans.insert.i319 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.pre.i320 = load float, ptr %.phi.trans.insert.i319, align 4, !tbaa !610
-  br i1 %601, label %._crit_edge.i, label %602
+  br i1 %602, label %._crit_edge.i, label %603
 
-602:                                              ; preds = %597
-  %603 = load float, ptr %30, align 4, !tbaa !591
-  %604 = fcmp une float %.pre.i320, %603
-  br i1 %604, label %._crit_edge.i, label %.critedge
+603:                                              ; preds = %598
+  %604 = load float, ptr %30, align 4, !tbaa !591
+  %605 = fcmp une float %.pre.i320, %604
+  br i1 %605, label %._crit_edge.i, label %.critedge
 
-._crit_edge.i:                                    ; preds = %602, %597
-  %605 = fptosi float %599 to i32
-  %606 = fptosi float %.pre.i320 to i32
-  %607 = load i32, ptr %2, align 8, !tbaa !592
-  %.not.i.i321 = icmp eq i32 %607, 0
-  br i1 %.not.i.i321, label %632, label %608
+._crit_edge.i:                                    ; preds = %603, %598
+  %606 = fptosi float %600 to i32
+  %607 = fptosi float %.pre.i320 to i32
+  %608 = load i32, ptr %2, align 8, !tbaa !592
+  %.not.i.i321 = icmp eq i32 %608, 0
+  br i1 %.not.i.i321, label %633, label %609
 
-608:                                              ; preds = %._crit_edge.i
-  %609 = load i32, ptr %31, align 4, !tbaa !593
-  %610 = icmp slt i32 %609, %605
-  br i1 %610, label %613, label %611
+609:                                              ; preds = %._crit_edge.i
+  %610 = load i32, ptr %31, align 4, !tbaa !593
+  %611 = icmp slt i32 %610, %606
+  br i1 %611, label %614, label %612
 
-611:                                              ; preds = %608
-  %612 = load i32, ptr %32, align 4, !tbaa !594
-  %.not.i.i.i322 = icmp eq i32 %612, 0
-  br i1 %.not.i.i.i322, label %613, label %614
+612:                                              ; preds = %609
+  %613 = load i32, ptr %32, align 4, !tbaa !594
+  %.not.i.i.i322 = icmp eq i32 %613, 0
+  br i1 %.not.i.i.i322, label %614, label %615
 
-613:                                              ; preds = %611, %608
-  store i32 %605, ptr %31, align 4, !tbaa !593
-  br label %614
+614:                                              ; preds = %612, %609
+  store i32 %606, ptr %31, align 4, !tbaa !593
+  br label %615
 
-614:                                              ; preds = %613, %611
-  %615 = load i32, ptr %33, align 4, !tbaa !595
-  %616 = icmp slt i32 %615, %606
-  br i1 %616, label %619, label %617
+615:                                              ; preds = %614, %612
+  %616 = load i32, ptr %33, align 4, !tbaa !595
+  %617 = icmp slt i32 %616, %607
+  br i1 %617, label %620, label %618
 
-617:                                              ; preds = %614
-  %618 = load i32, ptr %32, align 4, !tbaa !594
-  %.not20.i.i.i323 = icmp eq i32 %618, 0
-  br i1 %.not20.i.i.i323, label %619, label %620
+618:                                              ; preds = %615
+  %619 = load i32, ptr %32, align 4, !tbaa !594
+  %.not20.i.i.i323 = icmp eq i32 %619, 0
+  br i1 %.not20.i.i.i323, label %620, label %621
 
-619:                                              ; preds = %617, %614
-  store i32 %606, ptr %33, align 4, !tbaa !595
-  br label %620
+620:                                              ; preds = %618, %615
+  store i32 %607, ptr %33, align 4, !tbaa !595
+  br label %621
 
-620:                                              ; preds = %619, %617
-  %621 = load i32, ptr %34, align 8, !tbaa !596
-  %622 = icmp sgt i32 %621, %605
-  br i1 %622, label %625, label %623
+621:                                              ; preds = %620, %618
+  %622 = load i32, ptr %34, align 8, !tbaa !596
+  %623 = icmp sgt i32 %622, %606
+  br i1 %623, label %626, label %624
 
-623:                                              ; preds = %620
-  %624 = load i32, ptr %32, align 4, !tbaa !594
-  %.not21.i.i.i324 = icmp eq i32 %624, 0
-  br i1 %.not21.i.i.i324, label %625, label %626
+624:                                              ; preds = %621
+  %625 = load i32, ptr %32, align 4, !tbaa !594
+  %.not21.i.i.i324 = icmp eq i32 %625, 0
+  br i1 %.not21.i.i.i324, label %626, label %627
 
-625:                                              ; preds = %623, %620
-  store i32 %605, ptr %34, align 8, !tbaa !596
-  br label %626
+626:                                              ; preds = %624, %621
+  store i32 %606, ptr %34, align 8, !tbaa !596
+  br label %627
 
-626:                                              ; preds = %625, %623
-  %627 = load i32, ptr %35, align 8, !tbaa !597
-  %628 = icmp sgt i32 %627, %606
-  br i1 %628, label %631, label %629
+627:                                              ; preds = %626, %624
+  %628 = load i32, ptr %35, align 8, !tbaa !597
+  %629 = icmp sgt i32 %628, %607
+  br i1 %629, label %632, label %630
 
-629:                                              ; preds = %626
-  %630 = load i32, ptr %32, align 4, !tbaa !594
-  %.not22.i.i.i325 = icmp eq i32 %630, 0
-  br i1 %.not22.i.i.i325, label %631, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326
+630:                                              ; preds = %627
+  %631 = load i32, ptr %32, align 4, !tbaa !594
+  %.not22.i.i.i325 = icmp eq i32 %631, 0
+  br i1 %.not22.i.i.i325, label %632, label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326
 
-631:                                              ; preds = %629, %626
-  store i32 %606, ptr %35, align 8, !tbaa !597
+632:                                              ; preds = %630, %627
+  store i32 %607, ptr %35, align 8, !tbaa !597
   br label %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326
 
-_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326: ; preds = %631, %629
+_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326: ; preds = %632, %630
   store i32 1, ptr %32, align 4, !tbaa !594
   %.pre8.i = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
   br label %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i
 
-632:                                              ; preds = %._crit_edge.i
-  %633 = load ptr, ptr %36, align 8, !tbaa !599
-  %634 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
-  %635 = sext i32 %634 to i64
-  %636 = getelementptr inbounds %struct.stbtt_vertex, ptr %633, i64 %635
-  %637 = getelementptr inbounds nuw i8, ptr %636, i64 12
-  store i8 2, ptr %637, align 2, !tbaa !433
-  %638 = trunc i32 %605 to i16
-  store i16 %638, ptr %636, align 2, !tbaa !440
+633:                                              ; preds = %._crit_edge.i
+  %634 = load ptr, ptr %36, align 8, !tbaa !599
+  %635 = load i32, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+  %636 = sext i32 %635 to i64
+  %637 = getelementptr inbounds %struct.stbtt_vertex, ptr %634, i64 %636
+  %638 = getelementptr inbounds nuw i8, ptr %637, i64 12
+  store i8 2, ptr %638, align 2, !tbaa !433
   %639 = trunc i32 %606 to i16
-  %640 = getelementptr inbounds nuw i8, ptr %636, i64 2
-  store i16 %639, ptr %640, align 2, !tbaa !441
-  %641 = getelementptr inbounds nuw i8, ptr %636, i64 4
-  store i64 0, ptr %641, align 2
+  store i16 %639, ptr %637, align 2, !tbaa !440
+  %640 = trunc i32 %607 to i16
+  %641 = getelementptr inbounds nuw i8, ptr %637, i64 2
+  store i16 %640, ptr %641, align 2, !tbaa !441
+  %642 = getelementptr inbounds nuw i8, ptr %637, i64 4
+  store i64 0, ptr %642, align 2
   br label %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i
 
-_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i: ; preds = %632, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326
-  %642 = phi i32 [ %.pre8.i, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326 ], [ %634, %632 ]
-  %643 = add nsw i32 %642, 1
-  store i32 %643, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
+_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i: ; preds = %633, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326
+  %643 = phi i32 [ %.pre8.i, %_ZL19stbtt__track_vertexP12stbtt__csctxii.exit.i.i326 ], [ %635, %633 ]
+  %644 = add nsw i32 %643, 1
+  store i32 %644, ptr %.phi.trans.insert.i309, align 8, !tbaa !598
   br label %.critedge
 
-644:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+645:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
   %.sroa.10.8.extract.trunc366 = trunc i64 %37 to i32
-  %.sroa.10.12.extract.shift415 = lshr i64 %.sroa.10.0477, 32
+  %.sroa.10.12.extract.shift415 = lshr i64 %.sroa.10.0476, 32
   %.sroa.10.12.extract.trunc416 = trunc nuw i64 %.sroa.10.12.extract.shift415 to i32
   %.not.i327 = icmp slt i32 %.sroa.10.8.extract.trunc366, %.sroa.10.12.extract.trunc416
   br i1 %.not.i327, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit329, label %.critedge
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit329:        ; preds = %644
-  %645 = add i64 %.sroa.10.0477, 2
-  %.sroa.10.8.insert.ext368 = and i64 %645, 4294967295
+_ZL15stbtt__buf_get8P10stbtt__buf.exit329:        ; preds = %645
+  %646 = add i64 %.sroa.10.0476, 2
+  %.sroa.10.8.insert.ext368 = and i64 %646, 4294967295
   %.sroa.10.8.insert.insert370 = or disjoint i64 %.sroa.10.8.insert.ext368, %.sroa.10.8.insert.mask357
   %sext444 = shl i64 %37, 32
-  %646 = ashr exact i64 %sext444, 32
-  %647 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %646
-  %648 = load i8, ptr %647, align 1, !tbaa !23
-  switch i8 %648, label %.critedge [
-    i8 34, label %649
-    i8 35, label %660
-    i8 36, label %675
-    i8 37, label %690
+  %647 = ashr exact i64 %sext444, 32
+  %648 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %647
+  %649 = load i8, ptr %648, align 1, !tbaa !23
+  switch i8 %649, label %.critedge [
+    i8 34, label %650
+    i8 35, label %661
+    i8 36, label %676
+    i8 37, label %691
   ]
 
-649:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
-  %650 = icmp slt i32 %.0241481, 7
-  br i1 %650, label %.critedge, label %651
+650:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
+  %651 = icmp slt i32 %.0241480, 7
+  br i1 %651, label %.critedge, label %652
 
-651:                                              ; preds = %649
-  %652 = load float, ptr %4, align 16, !tbaa !3
-  %653 = load float, ptr %13, align 4, !tbaa !3
-  %654 = load float, ptr %14, align 8, !tbaa !3
-  %655 = load float, ptr %15, align 4, !tbaa !3
-  %656 = load float, ptr %16, align 16, !tbaa !3
-  %657 = load float, ptr %17, align 4, !tbaa !3
-  %658 = load float, ptr %18, align 8, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %652, float noundef 0.000000e+00, float noundef %653, float noundef %654, float noundef %655, float noundef 0.000000e+00)
-  %659 = fneg float %654
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %656, float noundef 0.000000e+00, float noundef %657, float noundef %659, float noundef %658, float noundef 0.000000e+00)
+652:                                              ; preds = %650
+  %653 = load float, ptr %4, align 16, !tbaa !3
+  %654 = load float, ptr %13, align 4, !tbaa !3
+  %655 = load float, ptr %14, align 8, !tbaa !3
+  %656 = load float, ptr %15, align 4, !tbaa !3
+  %657 = load float, ptr %16, align 16, !tbaa !3
+  %658 = load float, ptr %17, align 4, !tbaa !3
+  %659 = load float, ptr %18, align 8, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %653, float noundef 0.000000e+00, float noundef %654, float noundef %655, float noundef %656, float noundef 0.000000e+00)
+  %660 = fneg float %655
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %657, float noundef 0.000000e+00, float noundef %658, float noundef %660, float noundef %659, float noundef 0.000000e+00)
   br label %.thread
 
-660:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
-  %661 = icmp slt i32 %.0241481, 13
-  br i1 %661, label %.critedge, label %662
+661:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
+  %662 = icmp slt i32 %.0241480, 13
+  br i1 %662, label %.critedge, label %663
 
-662:                                              ; preds = %660
-  %663 = load float, ptr %4, align 16, !tbaa !3
-  %664 = load float, ptr %13, align 4, !tbaa !3
-  %665 = load float, ptr %14, align 8, !tbaa !3
-  %666 = load float, ptr %15, align 4, !tbaa !3
-  %667 = load float, ptr %16, align 16, !tbaa !3
-  %668 = load float, ptr %17, align 4, !tbaa !3
-  %669 = load float, ptr %18, align 8, !tbaa !3
-  %670 = load float, ptr %19, align 4, !tbaa !3
-  %671 = load float, ptr %20, align 16, !tbaa !3
-  %672 = load float, ptr %21, align 4, !tbaa !3
-  %673 = load float, ptr %22, align 8, !tbaa !3
-  %674 = load float, ptr %23, align 4, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %663, float noundef %664, float noundef %665, float noundef %666, float noundef %667, float noundef %668)
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %669, float noundef %670, float noundef %671, float noundef %672, float noundef %673, float noundef %674)
+663:                                              ; preds = %661
+  %664 = load float, ptr %4, align 16, !tbaa !3
+  %665 = load float, ptr %13, align 4, !tbaa !3
+  %666 = load float, ptr %14, align 8, !tbaa !3
+  %667 = load float, ptr %15, align 4, !tbaa !3
+  %668 = load float, ptr %16, align 16, !tbaa !3
+  %669 = load float, ptr %17, align 4, !tbaa !3
+  %670 = load float, ptr %18, align 8, !tbaa !3
+  %671 = load float, ptr %19, align 4, !tbaa !3
+  %672 = load float, ptr %20, align 16, !tbaa !3
+  %673 = load float, ptr %21, align 4, !tbaa !3
+  %674 = load float, ptr %22, align 8, !tbaa !3
+  %675 = load float, ptr %23, align 4, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %664, float noundef %665, float noundef %666, float noundef %667, float noundef %668, float noundef %669)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %670, float noundef %671, float noundef %672, float noundef %673, float noundef %674, float noundef %675)
   br label %.thread
 
-675:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
-  %676 = icmp slt i32 %.0241481, 9
-  br i1 %676, label %.critedge, label %677
+676:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
+  %677 = icmp slt i32 %.0241480, 9
+  br i1 %677, label %.critedge, label %678
 
-677:                                              ; preds = %675
-  %678 = load float, ptr %4, align 16, !tbaa !3
-  %679 = load float, ptr %13, align 4, !tbaa !3
-  %680 = load float, ptr %14, align 8, !tbaa !3
-  %681 = load float, ptr %15, align 4, !tbaa !3
-  %682 = load float, ptr %16, align 16, !tbaa !3
-  %683 = load float, ptr %17, align 4, !tbaa !3
-  %684 = load float, ptr %18, align 8, !tbaa !3
-  %685 = load float, ptr %19, align 4, !tbaa !3
-  %686 = load float, ptr %20, align 16, !tbaa !3
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %678, float noundef %679, float noundef %680, float noundef %681, float noundef %682, float noundef 0.000000e+00)
-  %687 = fadd float %679, %681
-  %688 = fadd float %687, %685
-  %689 = fneg float %688
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %683, float noundef 0.000000e+00, float noundef %684, float noundef %685, float noundef %686, float noundef %689)
+678:                                              ; preds = %676
+  %679 = load float, ptr %4, align 16, !tbaa !3
+  %680 = load float, ptr %13, align 4, !tbaa !3
+  %681 = load float, ptr %14, align 8, !tbaa !3
+  %682 = load float, ptr %15, align 4, !tbaa !3
+  %683 = load float, ptr %16, align 16, !tbaa !3
+  %684 = load float, ptr %17, align 4, !tbaa !3
+  %685 = load float, ptr %18, align 8, !tbaa !3
+  %686 = load float, ptr %19, align 4, !tbaa !3
+  %687 = load float, ptr %20, align 16, !tbaa !3
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %679, float noundef %680, float noundef %681, float noundef %682, float noundef %683, float noundef 0.000000e+00)
+  %688 = fadd float %680, %682
+  %689 = fadd float %688, %686
+  %690 = fneg float %689
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %684, float noundef 0.000000e+00, float noundef %685, float noundef %686, float noundef %687, float noundef %690)
   br label %.thread
 
-690:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
-  %691 = icmp slt i32 %.0241481, 11
-  br i1 %691, label %.critedge, label %692
+691:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit329
+  %692 = icmp slt i32 %.0241480, 11
+  br i1 %692, label %.critedge, label %693
 
-692:                                              ; preds = %690
-  %693 = load float, ptr %4, align 16, !tbaa !3
-  %694 = load float, ptr %13, align 4, !tbaa !3
-  %695 = load float, ptr %14, align 8, !tbaa !3
-  %696 = load float, ptr %15, align 4, !tbaa !3
-  %697 = load float, ptr %16, align 16, !tbaa !3
-  %698 = load float, ptr %17, align 4, !tbaa !3
-  %699 = load float, ptr %18, align 8, !tbaa !3
-  %700 = load float, ptr %19, align 4, !tbaa !3
-  %701 = load float, ptr %20, align 16, !tbaa !3
-  %702 = load float, ptr %21, align 4, !tbaa !3
-  %703 = load float, ptr %22, align 8, !tbaa !3
-  %704 = fadd float %693, %695
-  %705 = fadd float %704, %697
-  %706 = fadd float %705, %699
-  %707 = fadd float %706, %701
-  %708 = fadd float %694, %696
-  %709 = fadd float %708, %698
-  %710 = fadd float %709, %700
-  %711 = fadd float %710, %702
-  %712 = tail call float @llvm.fabs.f32(float %707)
-  %713 = tail call float @llvm.fabs.f32(float %711)
-  %714 = fcmp ogt float %712, %713
-  %715 = fneg float %711
-  %716 = fneg float %707
-  %.0238 = select i1 %714, float %703, float %716
-  %.0237 = select i1 %714, float %715, float %703
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %693, float noundef %694, float noundef %695, float noundef %696, float noundef %697, float noundef %698)
-  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %699, float noundef %700, float noundef %701, float noundef %702, float noundef %.0238, float noundef %.0237)
+693:                                              ; preds = %691
+  %694 = load float, ptr %4, align 16, !tbaa !3
+  %695 = load float, ptr %13, align 4, !tbaa !3
+  %696 = load float, ptr %14, align 8, !tbaa !3
+  %697 = load float, ptr %15, align 4, !tbaa !3
+  %698 = load float, ptr %16, align 16, !tbaa !3
+  %699 = load float, ptr %17, align 4, !tbaa !3
+  %700 = load float, ptr %18, align 8, !tbaa !3
+  %701 = load float, ptr %19, align 4, !tbaa !3
+  %702 = load float, ptr %20, align 16, !tbaa !3
+  %703 = load float, ptr %21, align 4, !tbaa !3
+  %704 = load float, ptr %22, align 8, !tbaa !3
+  %705 = fadd float %694, %696
+  %706 = fadd float %705, %698
+  %707 = fadd float %706, %700
+  %708 = fadd float %707, %702
+  %709 = fadd float %695, %697
+  %710 = fadd float %709, %699
+  %711 = fadd float %710, %701
+  %712 = fadd float %711, %703
+  %713 = tail call float @llvm.fabs.f32(float %708)
+  %714 = tail call float @llvm.fabs.f32(float %712)
+  %715 = fcmp ogt float %713, %714
+  %716 = fneg float %712
+  %717 = fneg float %708
+  %.0238 = select i1 %715, float %704, float %717
+  %.0237 = select i1 %715, float %716, float %704
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %694, float noundef %695, float noundef %696, float noundef %697, float noundef %698, float noundef %699)
+  tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %2, float noundef %700, float noundef %701, float noundef %702, float noundef %703, float noundef %.0238, float noundef %.0237)
   br label %.thread
 
-717:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
-  %718 = icmp ne i8 %40, 28
-  %719 = icmp ult i8 %40, 32
-  %or.cond3 = and i1 %719, %718
-  br i1 %or.cond3, label %.critedge, label %720
+718:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit
+  %719 = icmp ne i8 %40, 28
+  %720 = icmp ult i8 %40, 32
+  %or.cond3 = and i1 %720, %719
+  br i1 %or.cond3, label %.critedge, label %721
 
-720:                                              ; preds = %717
-  %721 = icmp eq i8 %40, -1
-  br i1 %721, label %722, label %737
+721:                                              ; preds = %718
+  %722 = icmp eq i8 %40, -1
+  br i1 %722, label %723, label %738
 
-722:                                              ; preds = %720
-  %.sroa.10.12.extract.shift418 = lshr i64 %.sroa.10.0477, 32
+723:                                              ; preds = %721
+  %.sroa.10.12.extract.shift418 = lshr i64 %.sroa.10.0476, 32
   %.sroa.10.12.extract.trunc419 = trunc nuw i64 %.sroa.10.12.extract.shift418 to i32
   %.sroa.10.8.extract.trunc372 = trunc i64 %37 to i32
-  br label %723
+  br label %724
 
-723:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332, %722
-  %.sroa.10.5 = phi i64 [ %.sroa.10.8.insert.insert358, %722 ], [ %.sroa.10.6, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
-  %724 = phi i32 [ %.sroa.10.8.extract.trunc372, %722 ], [ %732, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
-  %.07.i = phi i32 [ 0, %722 ], [ %734, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
-  %.056.i = phi i32 [ 0, %722 ], [ %733, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
-  %725 = shl i32 %.056.i, 8
-  %.not.i.i331 = icmp slt i32 %724, %.sroa.10.12.extract.trunc419
-  br i1 %.not.i.i331, label %726, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332
+724:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332, %723
+  %.sroa.10.5 = phi i64 [ %.sroa.10.8.insert.insert358, %723 ], [ %.sroa.10.6, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
+  %725 = phi i32 [ %.sroa.10.8.extract.trunc372, %723 ], [ %733, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
+  %.07.i = phi i32 [ 0, %723 ], [ %735, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
+  %.056.i = phi i32 [ 0, %723 ], [ %734, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332 ]
+  %726 = shl i32 %.056.i, 8
+  %.not.i.i331 = icmp slt i32 %725, %.sroa.10.12.extract.trunc419
+  br i1 %.not.i.i331, label %727, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332
 
-726:                                              ; preds = %723
-  %727 = add nsw i32 %724, 1
-  %.sroa.10.8.insert.ext374 = zext i32 %727 to i64
+727:                                              ; preds = %724
+  %728 = add nsw i32 %725, 1
+  %.sroa.10.8.insert.ext374 = zext i32 %728 to i64
   %.sroa.10.8.insert.mask375 = and i64 %.sroa.10.5, -4294967296
   %.sroa.10.8.insert.insert376 = or disjoint i64 %.sroa.10.8.insert.mask375, %.sroa.10.8.insert.ext374
-  %728 = sext i32 %724 to i64
-  %729 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %728
-  %730 = load i8, ptr %729, align 1, !tbaa !23
-  %731 = zext i8 %730 to i32
+  %729 = sext i32 %725 to i64
+  %730 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %729
+  %731 = load i8, ptr %730, align 1, !tbaa !23
+  %732 = zext i8 %731 to i32
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332:      ; preds = %726, %723
-  %.sroa.10.6 = phi i64 [ %.sroa.10.8.insert.insert376, %726 ], [ %.sroa.10.5, %723 ]
-  %732 = phi i32 [ %727, %726 ], [ %724, %723 ]
-  %.0.i.i = phi i32 [ %731, %726 ], [ 0, %723 ]
-  %733 = or disjoint i32 %.0.i.i, %725
-  %734 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i333 = icmp eq i32 %734, 4
-  br i1 %exitcond.not.i333, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit, label %723, !llvm.loop !349
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332:      ; preds = %727, %724
+  %.sroa.10.6 = phi i64 [ %.sroa.10.8.insert.insert376, %727 ], [ %.sroa.10.5, %724 ]
+  %733 = phi i32 [ %728, %727 ], [ %725, %724 ]
+  %.0.i.i = phi i32 [ %732, %727 ], [ 0, %724 ]
+  %734 = or disjoint i32 %.0.i.i, %726
+  %735 = add nuw nsw i32 %.07.i, 1
+  %exitcond.not.i333 = icmp eq i32 %735, 4
+  br i1 %exitcond.not.i333, label %_ZL14stbtt__buf_getP10stbtt__bufi.exit, label %724, !llvm.loop !349
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i332
-  %735 = sitofp i32 %733 to float
-  %736 = fmul float %735, 0x3EF0000000000000
-  br label %797
+  %736 = sitofp i32 %734 to float
+  %737 = fmul float %736, 0x3EF0000000000000
+  br label %798
 
-737:                                              ; preds = %720
+738:                                              ; preds = %721
   %.sroa.10.8.extract.trunc378 = trunc i64 %37 to i32
-  %738 = add nsw i32 %.sroa.10.8.extract.trunc378, -1
-  %.sroa.10.12.extract.shift421 = lshr i64 %.sroa.10.0477, 32
+  %739 = add nsw i32 %.sroa.10.8.extract.trunc378, -1
+  %.sroa.10.12.extract.shift421 = lshr i64 %.sroa.10.0476, 32
   %.sroa.10.12.extract.trunc422 = trunc nuw i64 %.sroa.10.12.extract.shift421 to i32
-  %739 = icmp slt i32 %.sroa.10.8.extract.trunc378, 1
-  %740 = tail call i32 @llvm.smin.i32(i32 %738, i32 %.sroa.10.12.extract.trunc422)
-  %..i.i335 = select i1 %739, i32 %.sroa.10.12.extract.trunc422, i32 %740
+  %740 = icmp slt i32 %.sroa.10.8.extract.trunc378, 1
+  %741 = tail call i32 @llvm.smin.i32(i32 %739, i32 %.sroa.10.12.extract.trunc422)
+  %..i.i335 = select i1 %740, i32 %.sroa.10.12.extract.trunc422, i32 %741
   %.sroa.10.8.insert.ext380 = zext i32 %..i.i335 to i64
   %.sroa.10.8.insert.insert382 = or disjoint i64 %.sroa.10.8.insert.mask357, %.sroa.10.8.insert.ext380
   %.not.i.i336 = icmp slt i32 %..i.i335, %.sroa.10.12.extract.trunc422
   br i1 %.not.i.i336, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339, label %_ZL14stbtt__cff_intP10stbtt__buf.exit
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339:      ; preds = %737
-  %741 = add nsw i32 %..i.i335, 1
-  %.sroa.10.8.insert.ext386 = zext i32 %741 to i64
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339:      ; preds = %738
+  %742 = add nsw i32 %..i.i335, 1
+  %.sroa.10.8.insert.ext386 = zext i32 %742 to i64
   %.sroa.10.8.insert.insert388 = or disjoint i64 %.sroa.10.8.insert.mask357, %.sroa.10.8.insert.ext386
-  %742 = sext i32 %..i.i335 to i64
-  %743 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %742
-  %744 = load i8, ptr %743, align 1, !tbaa !23
-  %745 = zext i8 %744 to i16
-  %746 = add i8 %744, -32
-  %or.cond.i340 = icmp ult i8 %746, -41
-  br i1 %or.cond.i340, label %747, label %749
+  %743 = sext i32 %..i.i335 to i64
+  %744 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %743
+  %745 = load i8, ptr %744, align 1, !tbaa !23
+  %746 = zext i8 %745 to i16
+  %747 = add i8 %745, -32
+  %or.cond.i340 = icmp ult i8 %747, -41
+  br i1 %or.cond.i340, label %748, label %750
 
-747:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339
-  %748 = add nsw i16 %745, -139
+748:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339
+  %749 = add nsw i16 %746, -139
   br label %_ZL14stbtt__cff_intP10stbtt__buf.exit
 
-749:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339
-  %750 = add nsw i8 %744, 9
-  %or.cond3.i = icmp samesign ult i8 %750, 4
-  br i1 %or.cond3.i, label %751, label %761
+750:                                              ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i339
+  %751 = add nsw i8 %745, 9
+  %or.cond3.i = icmp samesign ult i8 %751, 4
+  br i1 %or.cond3.i, label %752, label %762
 
-751:                                              ; preds = %749
-  %752 = shl nuw i16 %745, 8
-  %.not.i22.i = icmp slt i32 %741, %.sroa.10.12.extract.trunc422
-  br i1 %.not.i22.i, label %753, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i
+752:                                              ; preds = %750
+  %753 = shl nuw i16 %746, 8
+  %.not.i22.i = icmp slt i32 %742, %.sroa.10.12.extract.trunc422
+  br i1 %.not.i22.i, label %754, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i
 
-753:                                              ; preds = %751
-  %754 = add nsw i32 %..i.i335, 2
-  %.sroa.10.8.insert.ext402 = zext i32 %754 to i64
+754:                                              ; preds = %752
+  %755 = add nsw i32 %..i.i335, 2
+  %.sroa.10.8.insert.ext402 = zext i32 %755 to i64
   %.sroa.10.8.insert.insert404 = or disjoint i64 %.sroa.10.8.insert.mask357, %.sroa.10.8.insert.ext402
-  %755 = sext i32 %741 to i64
-  %756 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %755
-  %757 = load i8, ptr %756, align 1, !tbaa !23
-  %758 = zext i8 %757 to i16
+  %756 = sext i32 %742 to i64
+  %757 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %756
+  %758 = load i8, ptr %757, align 1, !tbaa !23
+  %759 = zext i8 %758 to i16
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i:       ; preds = %753, %751
-  %.sroa.10.12 = phi i64 [ %.sroa.10.8.insert.insert404, %753 ], [ %.sroa.10.8.insert.insert388, %751 ]
-  %.0.i23.i = phi i16 [ %758, %753 ], [ 0, %751 ]
-  %759 = add nsw i16 %752, 2412
-  %760 = add nsw i16 %759, %.0.i23.i
+_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i:       ; preds = %754, %752
+  %.sroa.10.12 = phi i64 [ %.sroa.10.8.insert.insert404, %754 ], [ %.sroa.10.8.insert.insert388, %752 ]
+  %.0.i23.i = phi i16 [ %759, %754 ], [ 0, %752 ]
+  %760 = add nsw i16 %753, 2412
+  %761 = add nsw i16 %760, %.0.i23.i
   br label %_ZL14stbtt__cff_intP10stbtt__buf.exit
 
-761:                                              ; preds = %749
-  %762 = add nsw i8 %744, 5
-  %or.cond5.i = icmp samesign ult i8 %762, 4
-  br i1 %or.cond5.i, label %763, label %773
+762:                                              ; preds = %750
+  %763 = add nsw i8 %745, 5
+  %or.cond5.i = icmp samesign ult i8 %763, 4
+  br i1 %or.cond5.i, label %764, label %774
 
-763:                                              ; preds = %761
-  %.not.i25.i = icmp slt i32 %741, %.sroa.10.12.extract.trunc422
-  br i1 %.not.i25.i, label %764, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i
+764:                                              ; preds = %762
+  %.not.i25.i = icmp slt i32 %742, %.sroa.10.12.extract.trunc422
+  br i1 %.not.i25.i, label %765, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i
 
-764:                                              ; preds = %763
-  %765 = add nsw i32 %..i.i335, 2
-  %.sroa.10.8.insert.ext398 = zext i32 %765 to i64
+765:                                              ; preds = %764
+  %766 = add nsw i32 %..i.i335, 2
+  %.sroa.10.8.insert.ext398 = zext i32 %766 to i64
   %.sroa.10.8.insert.insert400 = or disjoint i64 %.sroa.10.8.insert.mask357, %.sroa.10.8.insert.ext398
-  %766 = sext i32 %741 to i64
-  %767 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %766
-  %768 = load i8, ptr %767, align 1, !tbaa !23
-  %769 = zext i8 %768 to i16
+  %767 = sext i32 %742 to i64
+  %768 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %767
+  %769 = load i8, ptr %768, align 1, !tbaa !23
+  %770 = zext i8 %769 to i16
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i:       ; preds = %764, %763
-  %.sroa.10.11 = phi i64 [ %.sroa.10.8.insert.insert400, %764 ], [ %.sroa.10.8.insert.insert388, %763 ]
-  %.0.i26.i = phi i16 [ %769, %764 ], [ 0, %763 ]
-  %770 = shl nuw i16 %745, 8
-  %771 = or disjoint i16 %770, %.0.i26.i
-  %772 = sub nsw i16 -1388, %771
+_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i:       ; preds = %765, %764
+  %.sroa.10.11 = phi i64 [ %.sroa.10.8.insert.insert400, %765 ], [ %.sroa.10.8.insert.insert388, %764 ]
+  %.0.i26.i = phi i16 [ %770, %765 ], [ 0, %764 ]
+  %771 = shl nuw i16 %746, 8
+  %772 = or disjoint i16 %771, %.0.i26.i
+  %773 = sub nsw i16 -1388, %772
   br label %_ZL14stbtt__cff_intP10stbtt__buf.exit
 
-773:                                              ; preds = %761
-  switch i8 %744, label %_ZL14stbtt__cff_intP10stbtt__buf.exit [
+774:                                              ; preds = %762
+  switch i8 %745, label %_ZL14stbtt__cff_intP10stbtt__buf.exit [
     i8 28, label %.preheader
     i8 29, label %.preheader446
   ]
 
-.preheader:                                       ; preds = %773, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344
-  %.sroa.10.9 = phi i64 [ %.sroa.10.10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %.sroa.10.8.insert.insert388, %773 ]
-  %774 = phi i32 [ %782, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %741, %773 ]
-  %.07.i.i341 = phi i32 [ %784, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ 0, %773 ]
-  %.056.i.i342 = phi i16 [ %783, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ 0, %773 ]
-  %775 = shl i16 %.056.i.i342, 8
-  %.not.i.i.i343 = icmp slt i32 %774, %.sroa.10.12.extract.trunc422
-  br i1 %.not.i.i.i343, label %776, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344
+.preheader:                                       ; preds = %774, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344
+  %.sroa.10.9 = phi i64 [ %.sroa.10.10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %.sroa.10.8.insert.insert388, %774 ]
+  %775 = phi i32 [ %783, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %742, %774 ]
+  %.07.i.i341 = phi i32 [ %785, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ 0, %774 ]
+  %.056.i.i342 = phi i16 [ %784, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ 0, %774 ]
+  %776 = shl i16 %.056.i.i342, 8
+  %.not.i.i.i343 = icmp slt i32 %775, %.sroa.10.12.extract.trunc422
+  br i1 %.not.i.i.i343, label %777, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344
 
-776:                                              ; preds = %.preheader
-  %777 = add nsw i32 %774, 1
-  %.sroa.10.8.insert.ext394 = zext i32 %777 to i64
+777:                                              ; preds = %.preheader
+  %778 = add nsw i32 %775, 1
+  %.sroa.10.8.insert.ext394 = zext i32 %778 to i64
   %.sroa.10.8.insert.mask395 = and i64 %.sroa.10.9, -4294967296
   %.sroa.10.8.insert.insert396 = or disjoint i64 %.sroa.10.8.insert.mask395, %.sroa.10.8.insert.ext394
-  %778 = sext i32 %774 to i64
-  %779 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %778
-  %780 = load i8, ptr %779, align 1, !tbaa !23
-  %781 = zext i8 %780 to i16
+  %779 = sext i32 %775 to i64
+  %780 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %779
+  %781 = load i8, ptr %780, align 1, !tbaa !23
+  %782 = zext i8 %781 to i16
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344:    ; preds = %776, %.preheader
-  %.sroa.10.10 = phi i64 [ %.sroa.10.8.insert.insert396, %776 ], [ %.sroa.10.9, %.preheader ]
-  %782 = phi i32 [ %777, %776 ], [ %774, %.preheader ]
-  %.0.i.i.i345 = phi i16 [ %781, %776 ], [ 0, %.preheader ]
-  %783 = or disjoint i16 %.0.i.i.i345, %775
-  %784 = add nuw nsw i32 %.07.i.i341, 1
-  %exitcond.not.i.i346 = icmp eq i32 %784, 2
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344:    ; preds = %777, %.preheader
+  %.sroa.10.10 = phi i64 [ %.sroa.10.8.insert.insert396, %777 ], [ %.sroa.10.9, %.preheader ]
+  %783 = phi i32 [ %778, %777 ], [ %775, %.preheader ]
+  %.0.i.i.i345 = phi i16 [ %782, %777 ], [ 0, %.preheader ]
+  %784 = or disjoint i16 %.0.i.i.i345, %776
+  %785 = add nuw nsw i32 %.07.i.i341, 1
+  %exitcond.not.i.i346 = icmp eq i32 %785, 2
   br i1 %exitcond.not.i.i346, label %_ZL14stbtt__cff_intP10stbtt__buf.exit, label %.preheader, !llvm.loop !349
 
-.preheader446:                                    ; preds = %773, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i
-  %.sroa.10.7 = phi i64 [ %.sroa.10.8, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ %.sroa.10.8.insert.insert388, %773 ]
-  %785 = phi i32 [ %793, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ %741, %773 ]
-  %.07.i29.i = phi i32 [ %795, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ 0, %773 ]
-  %.056.i30.i = phi i16 [ %794, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ 0, %773 ]
-  %786 = shl i16 %.056.i30.i, 8
-  %.not.i.i31.i = icmp slt i32 %785, %.sroa.10.12.extract.trunc422
-  br i1 %.not.i.i31.i, label %787, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i
+.preheader446:                                    ; preds = %774, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i
+  %.sroa.10.7 = phi i64 [ %.sroa.10.8, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ %.sroa.10.8.insert.insert388, %774 ]
+  %786 = phi i32 [ %794, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ %742, %774 ]
+  %.07.i29.i = phi i32 [ %796, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ 0, %774 ]
+  %.056.i30.i = phi i16 [ %795, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ], [ 0, %774 ]
+  %787 = shl i16 %.056.i30.i, 8
+  %.not.i.i31.i = icmp slt i32 %786, %.sroa.10.12.extract.trunc422
+  br i1 %.not.i.i31.i, label %788, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i
 
-787:                                              ; preds = %.preheader446
-  %788 = add nsw i32 %785, 1
-  %.sroa.10.8.insert.ext390 = zext i32 %788 to i64
+788:                                              ; preds = %.preheader446
+  %789 = add nsw i32 %786, 1
+  %.sroa.10.8.insert.ext390 = zext i32 %789 to i64
   %.sroa.10.8.insert.mask391 = and i64 %.sroa.10.7, -4294967296
   %.sroa.10.8.insert.insert392 = or disjoint i64 %.sroa.10.8.insert.mask391, %.sroa.10.8.insert.ext390
-  %789 = sext i32 %785 to i64
-  %790 = getelementptr inbounds i8, ptr %.sroa.0.0478, i64 %789
-  %791 = load i8, ptr %790, align 1, !tbaa !23
-  %792 = zext i8 %791 to i16
+  %790 = sext i32 %786 to i64
+  %791 = getelementptr inbounds i8, ptr %.sroa.0.0477, i64 %790
+  %792 = load i8, ptr %791, align 1, !tbaa !23
+  %793 = zext i8 %792 to i16
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i:     ; preds = %787, %.preheader446
-  %.sroa.10.8 = phi i64 [ %.sroa.10.8.insert.insert392, %787 ], [ %.sroa.10.7, %.preheader446 ]
-  %793 = phi i32 [ %788, %787 ], [ %785, %.preheader446 ]
-  %.0.i.i33.i = phi i16 [ %792, %787 ], [ 0, %.preheader446 ]
-  %794 = or disjoint i16 %.0.i.i33.i, %786
-  %795 = add nuw nsw i32 %.07.i29.i, 1
-  %exitcond.not.i34.i = icmp eq i32 %795, 4
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i:     ; preds = %788, %.preheader446
+  %.sroa.10.8 = phi i64 [ %.sroa.10.8.insert.insert392, %788 ], [ %.sroa.10.7, %.preheader446 ]
+  %794 = phi i32 [ %789, %788 ], [ %786, %.preheader446 ]
+  %.0.i.i33.i = phi i16 [ %793, %788 ], [ 0, %.preheader446 ]
+  %795 = or disjoint i16 %.0.i.i33.i, %787
+  %796 = add nuw nsw i32 %.07.i29.i, 1
+  %exitcond.not.i34.i = icmp eq i32 %796, 4
   br i1 %exitcond.not.i34.i, label %_ZL14stbtt__cff_intP10stbtt__buf.exit, label %.preheader446, !llvm.loop !349
 
-_ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344, %737, %747, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i, %773
-  %.sroa.10.13 = phi i64 [ %.sroa.10.8.insert.insert388, %747 ], [ %.sroa.10.12, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %.sroa.10.11, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i ], [ %.sroa.10.8.insert.insert388, %773 ], [ %.sroa.10.8.insert.insert382, %737 ], [ %.sroa.10.10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %.sroa.10.8, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ]
-  %.0.i338 = phi i16 [ %748, %747 ], [ %760, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %772, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i ], [ 0, %773 ], [ 0, %737 ], [ %783, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %794, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ]
-  %796 = sitofp i16 %.0.i338 to float
-  br label %797
+_ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344, %738, %748, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i, %774
+  %.sroa.10.13 = phi i64 [ %.sroa.10.8.insert.insert388, %748 ], [ %.sroa.10.12, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %.sroa.10.11, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i ], [ %.sroa.10.8.insert.insert388, %774 ], [ %.sroa.10.8.insert.insert382, %738 ], [ %.sroa.10.10, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %.sroa.10.8, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ]
+  %.0.i338 = phi i16 [ %749, %748 ], [ %761, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %773, %_ZL15stbtt__buf_get8P10stbtt__buf.exit27.i ], [ 0, %774 ], [ 0, %738 ], [ %784, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i344 ], [ %795, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i ]
+  %797 = sitofp i16 %.0.i338 to float
+  br label %798
 
-797:                                              ; preds = %_ZL14stbtt__cff_intP10stbtt__buf.exit, %_ZL14stbtt__buf_getP10stbtt__bufi.exit
+798:                                              ; preds = %_ZL14stbtt__cff_intP10stbtt__buf.exit, %_ZL14stbtt__buf_getP10stbtt__bufi.exit
   %.sroa.10.2 = phi i64 [ %.sroa.10.6, %_ZL14stbtt__buf_getP10stbtt__bufi.exit ], [ %.sroa.10.13, %_ZL14stbtt__cff_intP10stbtt__buf.exit ]
-  %.2255 = phi float [ %736, %_ZL14stbtt__buf_getP10stbtt__bufi.exit ], [ %796, %_ZL14stbtt__cff_intP10stbtt__buf.exit ]
-  %798 = icmp sgt i32 %.0241481, 47
-  br i1 %798, label %.critedge, label %799
+  %.2255 = phi float [ %737, %_ZL14stbtt__buf_getP10stbtt__bufi.exit ], [ %797, %_ZL14stbtt__cff_intP10stbtt__buf.exit ]
+  %799 = icmp sgt i32 %.0241480, 47
+  br i1 %799, label %.critedge, label %800
 
-799:                                              ; preds = %797
-  %800 = add nsw i32 %.0241481, 1
-  %801 = sext i32 %.0241481 to i64
-  %802 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %801
-  store float %.2255, ptr %802, align 4, !tbaa !3
+800:                                              ; preds = %798
+  %801 = add nsw i32 %.0241480, 1
+  %802 = sext i32 %.0241480 to i64
+  %803 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %802
+  store float %.2255, ptr %803, align 4, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %485, %.preheader449, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit, %462, %692, %677, %662, %651, %438, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302, %238, %263, %136, %185, %74, %67, %56, %51, %45, %799, %593, %589
-  %.1233443 = phi i32 [ %.0232486, %799 ], [ %.0232486, %589 ], [ %.0232486, %593 ], [ %.0232486, %692 ], [ %.0232486, %677 ], [ %.0232486, %662 ], [ %.0232486, %651 ], [ %.0232486, %438 ], [ %.0232486, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0232486, %238 ], [ %.0232486, %263 ], [ %.0232486, %136 ], [ %.0232486, %185 ], [ 0, %74 ], [ 0, %67 ], [ 0, %56 ], [ %.0232486, %51 ], [ 0, %45 ], [ %.0232486, %462 ], [ %.0232486, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0232486, %.preheader449 ], [ %.0232486, %485 ]
-  %.2236442 = phi i32 [ %.0234485, %799 ], [ %.0234485, %589 ], [ %.0234485, %593 ], [ %.0234485, %692 ], [ %.0234485, %677 ], [ %.0234485, %662 ], [ %.0234485, %651 ], [ %.0234485, %438 ], [ %.0234485, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0234485, %238 ], [ %.0234485, %263 ], [ %.0234485, %136 ], [ %.0234485, %185 ], [ %.0234485, %74 ], [ %.0234485, %67 ], [ %.0234485, %56 ], [ %53, %51 ], [ %.1235, %45 ], [ %.0234485, %462 ], [ %.0234485, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0234485, %.preheader449 ], [ %.0234485, %485 ]
-  %.1240441 = phi i32 [ %.0239484, %799 ], [ %564, %589 ], [ %594, %593 ], [ %.0239484, %692 ], [ %.0239484, %677 ], [ %.0239484, %662 ], [ %.0239484, %651 ], [ %.0239484, %438 ], [ %.0239484, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0239484, %238 ], [ %.0239484, %263 ], [ %.0239484, %136 ], [ %.0239484, %185 ], [ %.0239484, %74 ], [ %.0239484, %67 ], [ %.0239484, %56 ], [ %.0239484, %51 ], [ %.0239484, %45 ], [ %.0239484, %462 ], [ %.0239484, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0239484, %.preheader449 ], [ %.0239484, %485 ]
-  %.2250440 = phi i32 [ %.0248480, %799 ], [ %.1249, %589 ], [ %.0248480, %593 ], [ %.0248480, %692 ], [ %.0248480, %677 ], [ %.0248480, %662 ], [ %.0248480, %651 ], [ %.0248480, %438 ], [ %.0248480, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0248480, %238 ], [ %.0248480, %263 ], [ %.0248480, %136 ], [ %.0248480, %185 ], [ %.0248480, %74 ], [ %.0248480, %67 ], [ %.0248480, %56 ], [ %.0248480, %51 ], [ %.0248480, %45 ], [ %.0248480, %462 ], [ %.0248480, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0248480, %.preheader449 ], [ %.0248480, %485 ]
-  %.sroa.073.2439 = phi ptr [ %.sroa.073.0479, %799 ], [ %.sroa.073.1, %589 ], [ %.sroa.073.0479, %593 ], [ %.sroa.073.0479, %692 ], [ %.sroa.073.0479, %677 ], [ %.sroa.073.0479, %662 ], [ %.sroa.073.0479, %651 ], [ %.sroa.073.0479, %438 ], [ %.sroa.073.0479, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.073.0479, %238 ], [ %.sroa.073.0479, %263 ], [ %.sroa.073.0479, %136 ], [ %.sroa.073.0479, %185 ], [ %.sroa.073.0479, %74 ], [ %.sroa.073.0479, %67 ], [ %.sroa.073.0479, %56 ], [ %.sroa.073.0479, %51 ], [ %.sroa.073.0479, %45 ], [ %.sroa.073.0479, %462 ], [ %.sroa.073.0479, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.073.0479, %.preheader449 ], [ %.sroa.073.0479, %485 ]
-  %.sroa.0.1438 = phi ptr [ %.sroa.0.0478, %799 ], [ %590, %589 ], [ %.sroa.0.0.copyload351, %593 ], [ %.sroa.0.0478, %692 ], [ %.sroa.0.0478, %677 ], [ %.sroa.0.0478, %662 ], [ %.sroa.0.0478, %651 ], [ %.sroa.0.0478, %438 ], [ %.sroa.0.0478, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.0.0478, %238 ], [ %.sroa.0.0478, %263 ], [ %.sroa.0.0478, %136 ], [ %.sroa.0.0478, %185 ], [ %.sroa.0.0478, %74 ], [ %.sroa.0.0478, %67 ], [ %.sroa.0.0478, %56 ], [ %.sroa.0.0478, %51 ], [ %.sroa.0.0478, %45 ], [ %.sroa.0.0478, %462 ], [ %.sroa.0.0478, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.0.0478, %.preheader449 ], [ %.sroa.0.0478, %485 ]
-  %.sroa.10.1437 = phi i64 [ %.sroa.10.2, %799 ], [ %.sroa.10.8.insert.mask, %589 ], [ %.sroa.10.0.copyload353, %593 ], [ %.sroa.10.8.insert.insert370, %692 ], [ %.sroa.10.8.insert.insert370, %677 ], [ %.sroa.10.8.insert.insert370, %662 ], [ %.sroa.10.8.insert.insert370, %651 ], [ %.sroa.10.8.insert.insert358, %438 ], [ %.sroa.10.8.insert.insert358, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.10.8.insert.insert358, %238 ], [ %.sroa.10.8.insert.insert358, %263 ], [ %.sroa.10.8.insert.insert358, %136 ], [ %.sroa.10.8.insert.insert358, %185 ], [ %.sroa.10.8.insert.insert358, %74 ], [ %.sroa.10.8.insert.insert358, %67 ], [ %.sroa.10.8.insert.insert358, %56 ], [ %.sroa.10.8.insert.insert358, %51 ], [ %.sroa.10.8.insert.insert364, %45 ], [ %.sroa.10.8.insert.insert358, %462 ], [ %.sroa.10.8.insert.insert358, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.10.8.insert.insert358, %.preheader449 ], [ %.sroa.10.8.insert.insert358, %485 ]
-  %803 = phi i32 [ %800, %799 ], [ %557, %589 ], [ %.0241481, %593 ], [ 0, %692 ], [ 0, %677 ], [ 0, %662 ], [ 0, %651 ], [ 0, %438 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ 0, %238 ], [ 0, %263 ], [ 0, %136 ], [ 0, %185 ], [ 0, %74 ], [ 0, %67 ], [ 0, %56 ], [ 0, %51 ], [ 0, %45 ], [ 0, %462 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ 0, %.preheader449 ], [ 0, %485 ]
+.thread:                                          ; preds = %486, %.preheader449, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit, %463, %693, %678, %663, %652, %439, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302, %238, %263, %136, %185, %74, %67, %56, %51, %45, %800, %594, %590
+  %.1233443 = phi i32 [ %.0232485, %800 ], [ %.0232485, %590 ], [ %.0232485, %594 ], [ %.0232485, %693 ], [ %.0232485, %678 ], [ %.0232485, %663 ], [ %.0232485, %652 ], [ %.0232485, %439 ], [ %.0232485, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0232485, %238 ], [ %.0232485, %263 ], [ %.0232485, %136 ], [ %.0232485, %185 ], [ 0, %74 ], [ 0, %67 ], [ 0, %56 ], [ %.0232485, %51 ], [ 0, %45 ], [ %.0232485, %463 ], [ %.0232485, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0232485, %.preheader449 ], [ %.0232485, %486 ]
+  %.2236442 = phi i32 [ %.0234484, %800 ], [ %.0234484, %590 ], [ %.0234484, %594 ], [ %.0234484, %693 ], [ %.0234484, %678 ], [ %.0234484, %663 ], [ %.0234484, %652 ], [ %.0234484, %439 ], [ %.0234484, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0234484, %238 ], [ %.0234484, %263 ], [ %.0234484, %136 ], [ %.0234484, %185 ], [ %.0234484, %74 ], [ %.0234484, %67 ], [ %.0234484, %56 ], [ %53, %51 ], [ %.1235, %45 ], [ %.0234484, %463 ], [ %.0234484, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0234484, %.preheader449 ], [ %.0234484, %486 ]
+  %.1240441 = phi i32 [ %.0239483, %800 ], [ %565, %590 ], [ %595, %594 ], [ %.0239483, %693 ], [ %.0239483, %678 ], [ %.0239483, %663 ], [ %.0239483, %652 ], [ %.0239483, %439 ], [ %.0239483, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0239483, %238 ], [ %.0239483, %263 ], [ %.0239483, %136 ], [ %.0239483, %185 ], [ %.0239483, %74 ], [ %.0239483, %67 ], [ %.0239483, %56 ], [ %.0239483, %51 ], [ %.0239483, %45 ], [ %.0239483, %463 ], [ %.0239483, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0239483, %.preheader449 ], [ %.0239483, %486 ]
+  %.2250440 = phi i32 [ %.0248479, %800 ], [ %.1249, %590 ], [ %.0248479, %594 ], [ %.0248479, %693 ], [ %.0248479, %678 ], [ %.0248479, %663 ], [ %.0248479, %652 ], [ %.0248479, %439 ], [ %.0248479, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.0248479, %238 ], [ %.0248479, %263 ], [ %.0248479, %136 ], [ %.0248479, %185 ], [ %.0248479, %74 ], [ %.0248479, %67 ], [ %.0248479, %56 ], [ %.0248479, %51 ], [ %.0248479, %45 ], [ %.0248479, %463 ], [ %.0248479, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.0248479, %.preheader449 ], [ %.0248479, %486 ]
+  %.sroa.073.2439 = phi ptr [ %.sroa.073.0478, %800 ], [ %.sroa.073.1, %590 ], [ %.sroa.073.0478, %594 ], [ %.sroa.073.0478, %693 ], [ %.sroa.073.0478, %678 ], [ %.sroa.073.0478, %663 ], [ %.sroa.073.0478, %652 ], [ %.sroa.073.0478, %439 ], [ %.sroa.073.0478, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.073.0478, %238 ], [ %.sroa.073.0478, %263 ], [ %.sroa.073.0478, %136 ], [ %.sroa.073.0478, %185 ], [ %.sroa.073.0478, %74 ], [ %.sroa.073.0478, %67 ], [ %.sroa.073.0478, %56 ], [ %.sroa.073.0478, %51 ], [ %.sroa.073.0478, %45 ], [ %.sroa.073.0478, %463 ], [ %.sroa.073.0478, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.073.0478, %.preheader449 ], [ %.sroa.073.0478, %486 ]
+  %.sroa.0.1438 = phi ptr [ %.sroa.0.0477, %800 ], [ %591, %590 ], [ %.sroa.0.0.copyload351, %594 ], [ %.sroa.0.0477, %693 ], [ %.sroa.0.0477, %678 ], [ %.sroa.0.0477, %663 ], [ %.sroa.0.0477, %652 ], [ %.sroa.0.0477, %439 ], [ %.sroa.0.0477, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.0.0477, %238 ], [ %.sroa.0.0477, %263 ], [ %.sroa.0.0477, %136 ], [ %.sroa.0.0477, %185 ], [ %.sroa.0.0477, %74 ], [ %.sroa.0.0477, %67 ], [ %.sroa.0.0477, %56 ], [ %.sroa.0.0477, %51 ], [ %.sroa.0.0477, %45 ], [ %.sroa.0.0477, %463 ], [ %.sroa.0.0477, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.0.0477, %.preheader449 ], [ %.sroa.0.0477, %486 ]
+  %.sroa.10.1437 = phi i64 [ %.sroa.10.2, %800 ], [ %.sroa.10.8.insert.mask, %590 ], [ %.sroa.10.0.copyload353, %594 ], [ %.sroa.10.8.insert.insert370, %693 ], [ %.sroa.10.8.insert.insert370, %678 ], [ %.sroa.10.8.insert.insert370, %663 ], [ %.sroa.10.8.insert.insert370, %652 ], [ %.sroa.10.8.insert.insert358, %439 ], [ %.sroa.10.8.insert.insert358, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ %.sroa.10.8.insert.insert358, %238 ], [ %.sroa.10.8.insert.insert358, %263 ], [ %.sroa.10.8.insert.insert358, %136 ], [ %.sroa.10.8.insert.insert358, %185 ], [ %.sroa.10.8.insert.insert358, %74 ], [ %.sroa.10.8.insert.insert358, %67 ], [ %.sroa.10.8.insert.insert358, %56 ], [ %.sroa.10.8.insert.insert358, %51 ], [ %.sroa.10.8.insert.insert364, %45 ], [ %.sroa.10.8.insert.insert358, %463 ], [ %.sroa.10.8.insert.insert358, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ %.sroa.10.8.insert.insert358, %.preheader449 ], [ %.sroa.10.8.insert.insert358, %486 ]
+  %804 = phi i32 [ %801, %800 ], [ %558, %590 ], [ %.0241480, %594 ], [ 0, %693 ], [ 0, %678 ], [ 0, %663 ], [ 0, %652 ], [ 0, %439 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit302 ], [ 0, %238 ], [ 0, %263 ], [ 0, %136 ], [ 0, %185 ], [ 0, %74 ], [ 0, %67 ], [ 0, %56 ], [ 0, %51 ], [ 0, %45 ], [ 0, %463 ], [ 0, %_ZL21stbtt__csctx_rline_toP12stbtt__csctxff.exit ], [ 0, %.preheader449 ], [ 0, %486 ]
   %.sroa.10.8.extract.trunc = trunc i64 %.sroa.10.1437 to i32
   %.sroa.10.12.extract.shift406 = lshr i64 %.sroa.10.1437, 32
   %.sroa.10.12.extract.trunc407 = trunc nuw i64 %.sroa.10.12.extract.shift406 to i32
-  %804 = icmp slt i32 %.sroa.10.8.extract.trunc, %.sroa.10.12.extract.trunc407
-  br i1 %804, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit, label %.critedge, !llvm.loop !611
+  %805 = icmp slt i32 %.sroa.10.8.extract.trunc, %.sroa.10.12.extract.trunc407
+  br i1 %805, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit, label %.critedge, !llvm.loop !611
 
-.critedge:                                        ; preds = %54, %65, %72, %79, %132, %134, %234, %236, %288, %309, %._crit_edge469, %382, %._crit_edge, %460, %554, %556, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %591, %717, %797, %.thread, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329, %690, %675, %660, %649, %644, %3, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i, %602
-  %.2 = phi i32 [ 1, %602 ], [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 0, %3 ], [ 0, %644 ], [ 0, %649 ], [ 0, %660 ], [ 0, %675 ], [ 0, %690 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329 ], [ 0, %.thread ], [ 0, %797 ], [ 0, %717 ], [ 0, %591 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %556 ], [ 0, %554 ], [ 0, %460 ], [ 0, %._crit_edge ], [ 0, %382 ], [ 0, %._crit_edge469 ], [ 0, %309 ], [ 0, %288 ], [ 0, %236 ], [ 0, %234 ], [ 0, %134 ], [ 0, %132 ], [ 0, %79 ], [ 0, %72 ], [ 0, %65 ], [ 0, %54 ]
+.critedge:                                        ; preds = %54, %65, %72, %79, %132, %134, %234, %236, %288, %310, %._crit_edge469, %383, %._crit_edge, %461, %555, %557, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %592, %718, %798, %.thread, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329, %691, %676, %661, %650, %645, %3, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i, %603
+  %.2 = phi i32 [ 1, %603 ], [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 0, %3 ], [ 0, %645 ], [ 0, %650 ], [ 0, %661 ], [ 0, %676 ], [ 0, %691 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit329 ], [ 0, %.thread ], [ 0, %798 ], [ 0, %718 ], [ 0, %592 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %557 ], [ 0, %555 ], [ 0, %461 ], [ 0, %._crit_edge ], [ 0, %383 ], [ 0, %._crit_edge469 ], [ 0, %310 ], [ 0, %288 ], [ 0, %236 ], [ 0, %234 ], [ 0, %134 ], [ 0, %132 ], [ 0, %79 ], [ 0, %72 ], [ 0, %65 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

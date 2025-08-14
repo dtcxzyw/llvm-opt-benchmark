@@ -53,13 +53,12 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %24 = shl nuw i32 1, %23
   %25 = sext i32 %24 to i64
   %26 = sext i32 %21 to i64
-  %invariant.op = add nsw i64 %25, %26
+  %invariant.op = sub nsw i64 %17, %26
   br label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, %25
-  %.reass = add i64 %indvars.iv, %invariant.op
-  %28 = icmp slt i64 %.reass, %17
+  %28 = icmp slt i64 %indvars.iv.next, %invariant.op
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27

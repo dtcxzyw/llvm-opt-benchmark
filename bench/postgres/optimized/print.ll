@@ -3292,26 +3292,22 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %201 = add i32 %.2351.us570, 1
   br i1 %or.cond16.us, label %.loopexit544, label %.split.split.us, !llvm.loop !37
 
-.split.split:                                     ; preds = %.split
-  %invariant.op = add i32 %.0383.lcssa, %.0380.lcssa
-  br label %202
-
-202:                                              ; preds = %202, %.split.split
-  %.3364 = phi i8 [ %.0361.lcssa, %.split.split ], [ 1, %202 ]
-  %.2351 = phi i32 [ %spec.select436, %.split.split ], [ %206, %202 ]
-  %203 = add i32 %.2351, %.0383.lcssa
-  %.reass = add i32 %.2351, %invariant.op
-  %spec.select437 = call i32 @llvm.umax.i32(i32 %.reass, i32 %.0347)
-  %.1346 = sub i32 %spec.select437, %203
+.split.split:                                     ; preds = %.split, %.split.split
+  %.3364 = phi i8 [ 1, %.split.split ], [ %.0361.lcssa, %.split ]
+  %.2351 = phi i32 [ %206, %.split.split ], [ %spec.select436, %.split ]
+  %202 = add i32 %.2351, %.0383.lcssa
+  %203 = add i32 %202, %.0380.lcssa
+  %spec.select437 = call i32 @llvm.umax.i32(i32 %203, i32 %.0347)
+  %.1346 = sub i32 %spec.select437, %202
   %204 = icmp uge i32 %.1346, %.0380.lcssa
   %205 = trunc nuw i8 %.3364 to i1
   %or.cond16 = select i1 %204, i1 true, i1 %205
   %206 = add i32 %.2351, 1
-  br i1 %or.cond16, label %.loopexit544, label %202
+  br i1 %or.cond16, label %.loopexit544, label %.split.split
 
-.loopexit544:                                     ; preds = %.split.split.us, %202, %.loopexit544.split.us, %152
-  %.2382 = phi i32 [ %.0380.lcssa, %152 ], [ %.1346.us, %.loopexit544.split.us ], [ %.1346, %202 ], [ %.1346.us576, %.split.split.us ]
-  %.2363 = phi i8 [ %.0361.lcssa, %152 ], [ %.0361.lcssa, %.loopexit544.split.us ], [ %.3364, %202 ], [ %.3364.us569, %.split.split.us ]
+.loopexit544:                                     ; preds = %.split.split.us, %.split.split, %.loopexit544.split.us, %152
+  %.2382 = phi i32 [ %.0380.lcssa, %152 ], [ %.1346.us, %.loopexit544.split.us ], [ %.1346, %.split.split ], [ %.1346.us576, %.split.split.us ]
+  %.2363 = phi i8 [ %.0361.lcssa, %152 ], [ %.0361.lcssa, %.loopexit544.split.us ], [ %.3364, %.split.split ], [ %.3364.us569, %.split.split.us ]
   %207 = load ptr, ptr %26, align 8
   %208 = load ptr, ptr %207, align 8
   %.not412587 = icmp eq ptr %208, null

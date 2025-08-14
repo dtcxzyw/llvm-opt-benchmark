@@ -76,128 +76,128 @@ define internal fastcc noundef ptr @create_internal(ptr noundef %0, i64 noundef 
   %.056.i = phi i64 [ 7288, %7 ], [ %10, %8 ]
   %9 = add i32 %.07.i, 1
   %10 = add i64 %.056.i, 8
-  %.reass.i = add i64 %.056.i, 4103
-  %11 = lshr i64 %.reass.i, 12
-  %12 = sext i32 %9 to i64
-  %13 = icmp ugt i64 %11, %12
-  br i1 %13, label %8, label %dsa_minimum_size.exit, !llvm.loop !4
+  %11 = add i64 %.056.i, 4103
+  %12 = lshr i64 %11, 12
+  %13 = sext i32 %9 to i64
+  %14 = icmp ugt i64 %12, %13
+  br i1 %14, label %8, label %dsa_minimum_size.exit, !llvm.loop !4
 
 dsa_minimum_size.exit:                            ; preds = %8
-  %14 = shl i32 %9, 12
-  %15 = sext i32 %14 to i64
-  %16 = icmp ult i64 %1, %15
-  br i1 %16, label %17, label %21
+  %15 = shl i32 %9, 12
+  %16 = sext i32 %15 to i64
+  %17 = icmp ult i64 %1, %16
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %dsa_minimum_size.exit
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i64 @dsa_minimum_size()
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i64 noundef %19, i64 noundef %1) #11
+18:                                               ; preds = %dsa_minimum_size.exit
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %19)
+  %20 = tail call i64 @dsa_minimum_size()
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i64 noundef %20, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1240, ptr noundef nonnull @__func__.create_internal) #11
   unreachable
 
-21:                                               ; preds = %dsa_minimum_size.exit
-  %22 = lshr i64 %1, 9
-  %23 = and i64 %22, 36028797018963960
-  %24 = add nuw nsw i64 %23, 7288
-  %25 = and i64 %24, 4088
-  %.not = icmp eq i64 %25, 0
-  %26 = add nuw nsw i64 %23, 11384
-  %27 = sub nuw nsw i64 %26, %25
-  %.072 = select i1 %.not, i64 %24, i64 %27
-  %28 = sub i64 %1, %.072
-  %29 = lshr i64 %28, 12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6188) %30, i8 0, i64 6188, i1 false)
-  %31 = xor i32 %3, 216163848
-  store i32 %31, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 -1, i64 16, i1 false)
-  store i64 %29, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %1, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %3, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 6112
-  store i64 %5, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 6120
-  store i64 %6, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6136
-  store i64 -1, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 6128
-  store i64 %1, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %3, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %41, i8 -1, i64 128, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 6152
-  store i32 1, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  store i32 %2, ptr %43, align 8
-  %44 = tail call ptr @palloc(i64 noundef 40992) #11
-  store ptr %0, ptr %44, align 8
-  %45 = load ptr, ptr @CurrentResourceOwner, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 6172
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40976) %47, i8 0, i64 40976, i1 false)
-  %49 = load i32, ptr %43, align 8
-  tail call void @LWLockInitialize(ptr noundef nonnull %48, i32 noundef %49) #11
-  br label %50
+22:                                               ; preds = %dsa_minimum_size.exit
+  %23 = lshr i64 %1, 9
+  %24 = and i64 %23, 36028797018963960
+  %25 = add nuw nsw i64 %24, 7288
+  %26 = and i64 %25, 4088
+  %.not = icmp eq i64 %26, 0
+  %27 = add nuw nsw i64 %24, 11384
+  %28 = sub nuw nsw i64 %27, %26
+  %.072 = select i1 %.not, i64 %25, i64 %28
+  %29 = sub i64 %1, %.072
+  %30 = lshr i64 %29, 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6188) %31, i8 0, i64 6188, i1 false)
+  %32 = xor i32 %3, 216163848
+  store i32 %32, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
+  store i64 %30, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %1, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %3, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 6112
+  store i64 %5, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6120
+  store i64 %6, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 6136
+  store i64 -1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 6128
+  store i64 %1, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %3, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %42, i8 -1, i64 128, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 6152
+  store i32 1, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 6168
+  store i32 %2, ptr %44, align 8
+  %45 = tail call ptr @palloc(i64 noundef 40992) #11
+  store ptr %0, ptr %45, align 8
+  %46 = load ptr, ptr @CurrentResourceOwner, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 6172
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40976) %48, i8 0, i64 40976, i1 false)
+  %50 = load i32, ptr %44, align 8
+  tail call void @LWLockInitialize(ptr noundef nonnull %49, i32 noundef %50) #11
+  br label %51
 
-50:                                               ; preds = %21, %50
-  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %50 ]
-  %51 = load ptr, ptr %44, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4288
-  %53 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %52, i64 0, i64 %indvars.iv
-  %54 = load i32, ptr %43, align 8
-  tail call void @LWLockInitialize(ptr noundef nonnull %53, i32 noundef %54) #11
+51:                                               ; preds = %22, %51
+  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %51 ]
+  %52 = load ptr, ptr %45, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4288
+  %54 = getelementptr inbounds nuw [38 x %struct.dsa_area_pool], ptr %53, i64 0, i64 %indvars.iv
+  %55 = load i32, ptr %44, align 8
+  tail call void @LWLockInitialize(ptr noundef nonnull %54, i32 noundef %55) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond.not, label %55, label %50, !llvm.loop !6
+  br i1 %exitcond.not, label %56, label %51, !llvm.loop !6
 
-55:                                               ; preds = %50
-  store ptr %4, ptr %47, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %0, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 32
+56:                                               ; preds = %51
+  store ptr %4, ptr %48, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 6192
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 7288
-  %61 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  store ptr %60, ptr %61, align 8
-  tail call void @FreePageManagerInitialize(ptr noundef nonnull %58, ptr noundef nonnull %0) #11
-  %.not78 = icmp ult i64 %28, 4096
-  br i1 %.not78, label %contiguous_pages_to_segment_bin.exit.thread, label %62
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store ptr %0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 6192
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 7288
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  store ptr %61, ptr %62, align 8
+  tail call void @FreePageManagerInitialize(ptr noundef nonnull %59, ptr noundef nonnull %0) #11
+  %.not78 = icmp ult i64 %29, 4096
+  br i1 %.not78, label %contiguous_pages_to_segment_bin.exit.thread, label %63
 
-contiguous_pages_to_segment_bin.exit.thread:      ; preds = %55
-  store i64 0, ptr %41, align 8
+contiguous_pages_to_segment_bin.exit.thread:      ; preds = %56
+  store i64 0, ptr %42, align 8
   br label %contiguous_pages_to_segment_bin.exit80
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %59, align 8
-  %64 = lshr i64 %.072, 12
-  tail call void @FreePageManagerPut(ptr noundef %63, i64 noundef %64, i64 noundef %29) #11
-  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %29, i1 true)
-  %66 = trunc nuw nsw i64 %65 to i32
-  %67 = xor i32 %66, 63
-  %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 14)
-  %69 = add nuw nsw i32 %68, 1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw [16 x i64], ptr %41, i64 0, i64 %70
-  store i64 0, ptr %71, align 8
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %60, align 8
+  %65 = lshr i64 %.072, 12
+  tail call void @FreePageManagerPut(ptr noundef %64, i64 noundef %65, i64 noundef %30) #11
+  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %30, i1 true)
+  %67 = trunc nuw nsw i64 %66 to i32
+  %68 = xor i32 %67, 63
+  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 14)
+  %70 = add nuw nsw i32 %69, 1
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw [16 x i64], ptr %42, i64 0, i64 %71
+  store i64 0, ptr %72, align 8
   br label %contiguous_pages_to_segment_bin.exit80
 
-contiguous_pages_to_segment_bin.exit80:           ; preds = %contiguous_pages_to_segment_bin.exit.thread, %62
-  %.0.i79 = phi i64 [ %70, %62 ], [ 0, %contiguous_pages_to_segment_bin.exit.thread ]
-  %72 = load ptr, ptr %57, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  store i64 %.0.i79, ptr %73, align 8
-  ret ptr %44
+contiguous_pages_to_segment_bin.exit80:           ; preds = %contiguous_pages_to_segment_bin.exit.thread, %63
+  %.0.i79 = phi i64 [ %71, %63 ], [ 0, %contiguous_pages_to_segment_bin.exit.thread ]
+  %73 = load ptr, ptr %58, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  store i64 %.0.i79, ptr %74, align 8
+  ret ptr %45
 }
 
 declare ptr @dsm_segment_address(ptr noundef) local_unnamed_addr #1
@@ -3549,16 +3549,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @dsa_minimum_size() loca
   %.056 = phi i64 [ 7288, %0 ], [ %3, %1 ]
   %2 = add i32 %.07, 1
   %3 = add i64 %.056, 8
-  %.reass = add i64 %.056, 4103
-  %4 = lshr i64 %.reass, 12
-  %5 = sext i32 %2 to i64
-  %6 = icmp ugt i64 %4, %5
-  br i1 %6, label %1, label %7, !llvm.loop !4
+  %4 = add i64 %.056, 4103
+  %5 = lshr i64 %4, 12
+  %6 = sext i32 %2 to i64
+  %7 = icmp ugt i64 %5, %6
+  br i1 %7, label %1, label %8, !llvm.loop !4
 
-7:                                                ; preds = %1
-  %8 = shl i32 %2, 12
-  %9 = sext i32 %8 to i64
-  ret i64 %9
+8:                                                ; preds = %1
+  %9 = shl i32 %2, 12
+  %10 = sext i32 %9 to i64
+  ret i64 %10
 }
 
 ; Function Attrs: nounwind uwtable

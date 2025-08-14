@@ -41,101 +41,100 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef
   br label %.preheader.lr.ph.us.i
 
 .preheader.lr.ph.us.i:                            ; preds = %._crit_edge.us.i, %.preheader.lr.ph.us.preheader.i
-  %.sroa.8.028.us.i = phi i8 [ %.sroa.8.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.05.027.us.i.idx = phi i64 [ %.sroa.05.027.us.i.add, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.08.026.us.i = phi i32 [ %.sroa.08.3.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.3.025.us.i = phi i8 [ %.sroa.3.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.5.024.us.i = phi i8 [ %.sroa.5.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.05.027.us.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.05.027.us.i.idx
-  %16 = load i32, ptr %.sroa.05.027.us.i.ptr, align 4, !tbaa !3
-  %invariant.op46 = xor i32 %16, 21522
+  %.sroa.8.027.us.i = phi i8 [ %.sroa.8.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.05.026.us.i.idx = phi i64 [ %.sroa.05.026.us.i.add, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.08.025.us.i = phi i32 [ %.sroa.08.3.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.3.024.us.i = phi i8 [ %.sroa.3.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.5.023.us.i = phi i8 [ %.sroa.5.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
+  %.sroa.05.026.us.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.05.026.us.i.idx
+  %16 = load i32, ptr %.sroa.05.026.us.i.ptr, align 4, !tbaa !3
   br label %.preheader.us.i
 
-17:                                               ; preds = %.preheader.us.i, %27
-  %.021.idx14.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %27 ]
-  %.sroa.8.213.us.i = phi i8 [ %.sroa.8.119.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %27 ]
-  %.sroa.08.212.us.i = phi i32 [ %.sroa.08.118.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %27 ]
-  %.sroa.3.211.us.i = phi i8 [ %.sroa.3.117.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %27 ]
-  %.sroa.5.210.us.i = phi i8 [ %.sroa.5.116.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %27 ]
+17:                                               ; preds = %.preheader.us.i, %28
+  %.021.idx14.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %28 ]
+  %.sroa.8.213.us.i = phi i8 [ %.sroa.8.118.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %28 ]
+  %.sroa.08.212.us.i = phi i32 [ %.sroa.08.117.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %28 ]
+  %.sroa.3.211.us.i = phi i8 [ %.sroa.3.116.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %28 ]
+  %.sroa.5.210.us.i = phi i8 [ %.sroa.5.115.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %28 ]
   %.021.ptr.us.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx14.us.i
   %18 = load i32, ptr %.021.ptr.us.i, align 4, !tbaa !3
-  %.reass.us.reass.i.reass.reass = xor i32 %18, %invariant.op.reass
-  %19 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
-  %20 = zext i8 %.sroa.5.210.us.i to i32
-  %21 = icmp samesign ult i32 %19, %20
-  br i1 %21, label %22, label %27
+  %19 = xor i32 %18, 21522
+  %20 = xor i32 %32, %19
+  %21 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %20)
+  %22 = zext i8 %.sroa.5.210.us.i to i32
+  %23 = icmp samesign ult i32 %21, %22
+  br i1 %23, label %24, label %28
 
-22:                                               ; preds = %17
-  %23 = lshr i32 %18, 10
-  %24 = trunc i32 %23 to i8
-  %25 = xor i8 %24, 21
-  %26 = trunc nuw nsw i32 %19 to i8
-  br label %27
+24:                                               ; preds = %17
+  %25 = lshr i32 %19, 10
+  %26 = trunc i32 %25 to i8
+  %27 = trunc nuw nsw i32 %21 to i8
+  br label %28
 
-27:                                               ; preds = %22, %17
-  %.sroa.5.3.us.i = phi i8 [ %26, %22 ], [ %.sroa.5.210.us.i, %17 ]
-  %.sroa.3.3.us.i = phi i8 [ %25, %22 ], [ %.sroa.3.211.us.i, %17 ]
-  %.sroa.08.3.us.i = phi i32 [ %16, %22 ], [ %.sroa.08.212.us.i, %17 ]
-  %.sroa.8.3.us.i = phi i8 [ %31, %22 ], [ %.sroa.8.213.us.i, %17 ]
+28:                                               ; preds = %24, %17
+  %.sroa.5.3.us.i = phi i8 [ %27, %24 ], [ %.sroa.5.210.us.i, %17 ]
+  %.sroa.3.3.us.i = phi i8 [ %26, %24 ], [ %.sroa.3.211.us.i, %17 ]
+  %.sroa.08.3.us.i = phi i32 [ %16, %24 ], [ %.sroa.08.212.us.i, %17 ]
+  %.sroa.8.3.us.i = phi i8 [ %33, %24 ], [ %.sroa.8.213.us.i, %17 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx14.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
-  br i1 %.not.us.i, label %28, label %17
+  br i1 %.not.us.i, label %29, label %17
 
-28:                                               ; preds = %27
+29:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !7
 
-.preheader.us.i:                                  ; preds = %28, %.preheader.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %28 ]
-  %.sroa.8.119.us.i = phi i8 [ %.sroa.8.028.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.8.3.us.i, %28 ]
-  %.sroa.08.118.us.i = phi i32 [ %.sroa.08.026.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %28 ]
-  %.sroa.3.117.us.i = phi i8 [ %.sroa.3.025.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %28 ]
-  %.sroa.5.116.us.i = phi i8 [ %.sroa.5.024.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
-  %30 = load i32, ptr %29, align 4, !tbaa !3
-  %31 = trunc i64 %indvars.iv.i to i8
-  %invariant.op.reass = xor i32 %30, %invariant.op46
+.preheader.us.i:                                  ; preds = %29, %.preheader.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %29 ]
+  %.sroa.8.118.us.i = phi i8 [ %.sroa.8.027.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.8.3.us.i, %29 ]
+  %.sroa.08.117.us.i = phi i32 [ %.sroa.08.025.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %29 ]
+  %.sroa.3.116.us.i = phi i8 [ %.sroa.3.024.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %29 ]
+  %.sroa.5.115.us.i = phi i8 [ %.sroa.5.023.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %29 ]
+  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %31 = load i32, ptr %30, align 4, !tbaa !3
+  %32 = xor i32 %31, %16
+  %33 = trunc i64 %indvars.iv.i to i8
   br label %17
 
-._crit_edge.us.i:                                 ; preds = %28
-  %.sroa.05.027.us.i.add = add nuw nsw i64 %.sroa.05.027.us.i.idx, 4
-  %32 = icmp eq i64 %.sroa.05.027.us.i.add, 12
-  br i1 %32, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i, !llvm.loop !9
+._crit_edge.us.i:                                 ; preds = %29
+  %.sroa.05.026.us.i.add = add nuw nsw i64 %.sroa.05.026.us.i.idx, 4
+  %34 = icmp eq i64 %.sroa.05.026.us.i.add, 12
+  br i1 %34, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i, !llvm.loop !9
 
 _ZNSt6vectorIjSaIjEED2Ev.exit27:                  ; preds = %._crit_edge.us.i
-  %33 = zext i8 %.sroa.8.3.us.i to i64
-  %34 = shl nuw nsw i64 %33, 48
-  %35 = zext i8 %.sroa.5.3.us.i to i64
-  %36 = shl nuw nsw i64 %35, 40
-  %37 = zext i8 %.sroa.3.3.us.i to i64
-  %38 = shl nuw nsw i64 %37, 32
-  %39 = zext i32 %.sroa.08.3.us.i to i64
-  %.sroa.5.0.insert.insert.i = or disjoint i64 %34, %36
-  %40 = or disjoint i64 %38, %39
-  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %40
+  %35 = zext i8 %.sroa.8.3.us.i to i64
+  %36 = shl nuw nsw i64 %35, 48
+  %37 = zext i8 %.sroa.5.3.us.i to i64
+  %38 = shl nuw nsw i64 %37, 40
+  %39 = zext i8 %.sroa.3.3.us.i to i64
+  %40 = shl nuw nsw i64 %39, 32
+  %41 = zext i32 %.sroa.08.3.us.i to i64
+  %.sroa.5.0.insert.insert.i = or disjoint i64 %36, %38
+  %42 = or disjoint i64 %40, %41
+  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 12) #7
-  %41 = lshr i8 %.sroa.3.3.us.i, 3
-  %42 = and i8 %41, 3
-  %43 = zext nneg i8 %42 to i32
-  %44 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %43, i1 noundef zeroext false)
-  %.sroa.6.8.insert.ext = and i64 %37, 7
+  %43 = lshr i8 %.sroa.3.3.us.i, 3
+  %44 = and i8 %43, 3
+  %45 = zext nneg i8 %44 to i32
+  %46 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %45, i1 noundef zeroext false)
+  %.sroa.6.8.insert.ext = and i64 %39, 7
   %.not = icmp ult i8 %.sroa.8.3.us.i, 2
   %.sroa.5.0.insert.shift = select i1 %.not, i64 0, i64 72057594037927936
   %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.insert.i, %.sroa.5.0.insert.shift
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0.insert.insert, 0
-  %.sroa.915.8.insert.ext = zext i32 %44 to i64
+  %.sroa.915.8.insert.ext = zext i32 %46 to i64
   %.sroa.915.8.insert.shift = shl nuw i64 %.sroa.915.8.insert.ext, 32
   %.sroa.6.8.insert.insert = or disjoint i64 %.sroa.915.8.insert.shift, %.sroa.6.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 
 _ZNSt6vectorIjSaIjEED2Ev.exit31:                  ; preds = %2
-  %45 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 12) #7
-  resume { ptr, i32 } %45
+  resume { ptr, i32 } %47
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -155,30 +154,30 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
 
 4:                                                ; preds = %.preheader.us.i, %14
   %.021.idx14.us.i = phi i64 [ 0, %.preheader.us.i ], [ %.021.add.us.i, %14 ]
-  %.sroa.8.213.us.i = phi i8 [ %.sroa.8.119.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %14 ]
-  %.sroa.08.212.us.i = phi i32 [ %.sroa.08.118.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %14 ]
-  %.sroa.3.211.us.i = phi i8 [ %.sroa.3.117.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %14 ]
-  %.sroa.5.210.us.i = phi i8 [ %.sroa.5.116.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %14 ]
+  %.sroa.8.213.us.i = phi i8 [ %.sroa.8.118.us.i, %.preheader.us.i ], [ %.sroa.8.3.us.i, %14 ]
+  %.sroa.08.212.us.i = phi i32 [ %.sroa.08.117.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %14 ]
+  %.sroa.3.211.us.i = phi i8 [ %.sroa.3.116.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %14 ]
+  %.sroa.5.210.us.i = phi i8 [ %.sroa.5.115.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %14 ]
   %.021.ptr.us.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx14.us.i
   %5 = load i32, ptr %.021.ptr.us.i, align 4, !tbaa !3
-  %.reass.us.reass.i.reass.reass = xor i32 %5, %invariant.op
-  %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
-  %7 = zext i8 %.sroa.5.210.us.i to i32
-  %8 = icmp samesign ult i32 %6, %7
-  br i1 %8, label %9, label %14
+  %6 = xor i32 %5, 21522
+  %.reass.reass = xor i32 %6, %invariant.op
+  %7 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.reass)
+  %8 = zext i8 %.sroa.5.210.us.i to i32
+  %9 = icmp samesign ult i32 %7, %8
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %4
-  %10 = lshr i32 %5, 10
-  %11 = trunc i32 %10 to i8
-  %12 = xor i8 %11, 21
-  %13 = trunc nuw nsw i32 %6 to i8
+10:                                               ; preds = %4
+  %11 = lshr i32 %6, 10
+  %12 = trunc i32 %11 to i8
+  %13 = trunc nuw nsw i32 %7 to i8
   br label %14
 
-14:                                               ; preds = %9, %4
-  %.sroa.5.3.us.i = phi i8 [ %13, %9 ], [ %.sroa.5.210.us.i, %4 ]
-  %.sroa.3.3.us.i = phi i8 [ %12, %9 ], [ %.sroa.3.211.us.i, %4 ]
-  %.sroa.08.3.us.i = phi i32 [ 17477, %9 ], [ %.sroa.08.212.us.i, %4 ]
-  %.sroa.8.3.us.i = phi i8 [ %18, %9 ], [ %.sroa.8.213.us.i, %4 ]
+14:                                               ; preds = %10, %4
+  %.sroa.5.3.us.i = phi i8 [ %13, %10 ], [ %.sroa.5.210.us.i, %4 ]
+  %.sroa.3.3.us.i = phi i8 [ %12, %10 ], [ %.sroa.3.211.us.i, %4 ]
+  %.sroa.08.3.us.i = phi i32 [ 17477, %10 ], [ %.sroa.08.212.us.i, %4 ]
+  %.sroa.8.3.us.i = phi i8 [ %18, %10 ], [ %.sroa.8.213.us.i, %4 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx14.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
   br i1 %.not.us.i, label %15, label %4
@@ -190,14 +189,14 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
 
 .preheader.us.i:                                  ; preds = %15, %.preheader.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %.sroa.8.119.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.8.3.us.i, %15 ]
-  %.sroa.08.118.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
-  %.sroa.3.117.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
-  %.sroa.5.116.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
+  %.sroa.8.118.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.8.3.us.i, %15 ]
+  %.sroa.08.117.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
+  %.sroa.3.116.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
+  %.sroa.5.115.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = trunc i64 %indvars.iv.i to i8
-  %invariant.op = xor i32 %17, 4183
+  %invariant.op = xor i32 %17, 17477
   br label %4
 
 ._crit_edge.us.i:                                 ; preds = %15

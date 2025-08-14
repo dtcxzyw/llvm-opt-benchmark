@@ -10857,7 +10857,6 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
 
 .lr.ph.preheader:                                 ; preds = %.preheader142
   %invariant.op = and i64 %100, %82
-  %invariant.op234 = xor i64 %94, -1
   br label %.lr.ph
 
 116:                                              ; preds = %137
@@ -10893,25 +10892,25 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   br label %.thread
 
 137:                                              ; preds = %.lr.ph
-  %.reass204.reass = xor i64 %129, %invariant.op234
-  %138 = and i64 %.reass.reass, %.reass204.reass
-  %.not123 = icmp eq i64 %138, 0
-  br i1 %.not123, label %139, label %116
+  %138 = xor i64 %130, -1
+  %139 = and i64 %.reass.reass, %138
+  %.not123 = icmp eq i64 %139, 0
+  br i1 %.not123, label %140, label %116
 
-139:                                              ; preds = %137
-  %140 = shl i32 %121, 1
-  %141 = or disjoint i32 %140, 1
+140:                                              ; preds = %137
+  %141 = shl i32 %121, 1
+  %142 = or disjoint i32 %141, 1
   br label %.thread
 
 .thread.loopexit.split.loop.exit160:              ; preds = %..critedge8_crit_edge.us
-  %142 = xor i1 %60, true
-  %143 = zext i1 %142 to i32
-  %144 = shl i32 %40, 1
-  %145 = or disjoint i32 %144, %143
+  %143 = xor i1 %60, true
+  %144 = zext i1 %143 to i32
+  %145 = shl i32 %40, 1
+  %146 = or disjoint i32 %145, %144
   br label %.thread
 
-.thread:                                          ; preds = %116, %43, %8, %.critedge, %.preheader142, %.thread.loopexit.split.loop.exit160, %.preheader, %135, %139, %102, %79
-  %.4 = phi i32 [ -1, %102 ], [ -2, %79 ], [ %136, %135 ], [ %141, %139 ], [ %145, %.thread.loopexit.split.loop.exit160 ], [ -3, %.preheader ], [ -3, %.preheader142 ], [ %19, %.critedge ], [ -1, %8 ], [ -3, %43 ], [ -3, %116 ]
+.thread:                                          ; preds = %116, %43, %8, %.critedge, %.preheader142, %.thread.loopexit.split.loop.exit160, %.preheader, %135, %140, %102, %79
+  %.4 = phi i32 [ -1, %102 ], [ -2, %79 ], [ %136, %135 ], [ %142, %140 ], [ %146, %.thread.loopexit.split.loop.exit160 ], [ -3, %.preheader ], [ -3, %.preheader142 ], [ %19, %.critedge ], [ -1, %8 ], [ -3, %43 ], [ -3, %116 ]
   ret i32 %.4
 }
 

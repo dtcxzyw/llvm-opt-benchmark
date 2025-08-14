@@ -12436,7 +12436,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMe
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKSt10shared_ptrINS_21HdContainerDataSourceEEf.exit unwind label %21
 
 common.resume:                                    ; preds = %.split.us, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %56, %.split.us ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %58, %.split.us ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %16, %7
@@ -12460,14 +12460,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKS
   %29 = icmp ne i32 %26, 0
   %30 = icmp sgt i32 %23, 1
   %or.cond = and i1 %29, %30
-  br i1 %or.cond, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKSt10shared_ptrINS_21HdContainerDataSourceEEf.exit
-  %invariant.op = add i32 %13, 1
   %31 = icmp sgt i32 %13, 1
-  br i1 %31, label %.preheader.us.preheader, label %.loopexit
+  %or.cond51 = and i1 %or.cond, %31
+  br i1 %or.cond51, label %.preheader.us.preheader, label %.loopexit
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+.preheader.us.preheader:                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKSt10shared_ptrINS_21HdContainerDataSourceEEf.exit
   %32 = zext nneg i32 %13 to i64
   %33 = zext nneg i32 %24 to i64
   %wide.trip.count49 = zext nneg i32 %25 to i64
@@ -12480,8 +12477,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKS
   %35 = mul i64 %indvars.iv46, %32
   br label %36
 
-36:                                               ; preds = %.preheader.us, %53
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %53 ]
+36:                                               ; preds = %.preheader.us, %56
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %56 ]
   %37 = add nuw nsw i64 %indvars.iv, %34
   %38 = add i64 %indvars.iv, %35
   %39 = shl nsw i64 %37, 2
@@ -12504,32 +12501,33 @@ _ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKS
           to label %50 unwind label %.split.us
 
 50:                                               ; preds = %45
-  %.reass.us = add i32 %invariant.op, %42
-  store i32 %.reass.us, ptr %49, align 4
-  %51 = or disjoint i64 %39, 3
-  %52 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEixEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %51)
-          to label %53 unwind label %.split.us
+  %51 = add i64 %38, %32
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %49, align 4
+  %54 = or disjoint i64 %39, 3
+  %55 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEixEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %54)
+          to label %56 unwind label %.split.us
 
-53:                                               ; preds = %50
-  %54 = trunc i64 %38 to i32
-  %55 = add i32 %13, %54
-  store i32 %55, ptr %52, align 4
+56:                                               ; preds = %50
+  %57 = trunc i64 %51 to i32
+  store i32 %57, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !43
 
-._crit_edge.us:                                   ; preds = %53
+._crit_edge.us:                                   ; preds = %56
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %.loopexit, label %.preheader.us, !llvm.loop !44
 
 .split.us:                                        ; preds = %50, %45, %41, %36
-  %56 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #21
   br label %common.resume
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKSt10shared_ptrINS_21HdContainerDataSourceEEf.exit
+.loopexit:                                        ; preds = %._crit_edge.us, %_ZN32pxrInternal_v0_24__pxrReserved__17_NurbsPatchToMesh18_GetUVVertexCountsERKSt10shared_ptrINS_21HdContainerDataSourceEEf.exit
   ret void
 }
 

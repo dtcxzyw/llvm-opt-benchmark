@@ -75,13 +75,12 @@ init_bins.exit:                                   ; preds = %15
 define internal fastcc ptr @mmap_probe(ptr noundef %0, i64 noundef range(i64 1, -4095) %1) unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #10
   %4 = load i32, ptr %3, align 4, !tbaa !27
-  %invariant.op = add i64 %1, 16777216
   %.pre = load i64, ptr @mmap_probe.hint_addr, align 8, !tbaa !28
   br label %5
 
 5:                                                ; preds = %2, %.loopexit
-  %6 = phi i64 [ %.pre, %2 ], [ %33, %.loopexit ]
-  %.02335 = phi i32 [ 0, %2 ], [ %34, %.loopexit ]
+  %6 = phi i64 [ %.pre, %2 ], [ %34, %.loopexit ]
+  %.02335 = phi i32 [ 0, %2 ], [ %35, %.loopexit ]
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @mmap64(ptr noundef %7, i64 noundef %1, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #11
   %9 = icmp ult ptr %8, inttoptr (i64 140737488355328 to ptr)
@@ -117,38 +116,38 @@ define internal fastcc ptr @mmap_probe(ptr noundef %0, i64 noundef range(i64 1, 
 
 23:                                               ; preds = %21
   %24 = icmp samesign ult i32 %.02335, 5
-  br i1 %24, label %25, label %27
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
   %26 = add i64 %22, 16777216
-  %.reass = add i64 %22, %invariant.op
-  %.not28 = icmp ult i64 %.reass, 140737488355328
+  %27 = add i64 %26, %1
+  %.not28 = icmp ult i64 %27, 140737488355328
   %spec.store.select = select i1 %.not28, i64 %26, i64 0
   br label %.loopexit.sink.split
 
-27:                                               ; preds = %23
-  %28 = icmp eq i32 %.02335, 5
-  br i1 %28, label %.loopexit.sink.split, label %.preheader
+28:                                               ; preds = %23
+  %29 = icmp eq i32 %.02335, 5
+  br i1 %29, label %.loopexit.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %27, %21
-  br label %29
+.preheader:                                       ; preds = %28, %21
+  br label %30
 
-29:                                               ; preds = %.preheader, %29
-  %30 = tail call i64 @lj_prng_u64(ptr noundef %0) #11
-  %31 = and i64 %30, 140737488351232
-  store i64 %31, ptr @mmap_probe.hint_addr, align 8, !tbaa !28
-  %32 = icmp samesign ult i64 %31, 16384
-  br i1 %32, label %29, label %.loopexit, !llvm.loop !29
+30:                                               ; preds = %.preheader, %30
+  %31 = tail call i64 @lj_prng_u64(ptr noundef %0) #11
+  %32 = and i64 %31, 140737488351232
+  store i64 %32, ptr @mmap_probe.hint_addr, align 8, !tbaa !28
+  %33 = icmp samesign ult i64 %32, 16384
+  br i1 %33, label %30, label %.loopexit, !llvm.loop !29
 
-.loopexit.sink.split:                             ; preds = %27, %25
-  %spec.store.select.sink = phi i64 [ %spec.store.select, %25 ], [ 0, %27 ]
+.loopexit.sink.split:                             ; preds = %28, %25
+  %spec.store.select.sink = phi i64 [ %spec.store.select, %25 ], [ 0, %28 ]
   store i64 %spec.store.select.sink, ptr @mmap_probe.hint_addr, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %29, %.loopexit.sink.split
-  %33 = phi i64 [ %spec.store.select.sink, %.loopexit.sink.split ], [ %31, %29 ]
-  %34 = add nuw nsw i32 %.02335, 1
-  %exitcond.not = icmp eq i32 %34, 30
+.loopexit:                                        ; preds = %30, %.loopexit.sink.split
+  %34 = phi i64 [ %spec.store.select.sink, %.loopexit.sink.split ], [ %32, %30 ]
+  %35 = add nuw nsw i32 %.02335, 1
+  %exitcond.not = icmp eq i32 %35, 30
   br i1 %exitcond.not, label %.loopexit32.sink.split, label %5, !llvm.loop !30
 
 .loopexit32.sink.split:                           ; preds = %.loopexit, %14

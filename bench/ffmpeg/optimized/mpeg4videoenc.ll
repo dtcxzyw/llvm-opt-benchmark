@@ -182,7 +182,6 @@ define void @ff_clean_mpeg4_qscales(ptr noundef %0) local_unnamed_addr #0 {
   %12 = shl nuw nsw i32 %23, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3440
   %14 = icmp sle i32 %12, %8
-  %invariant.op = xor i1 %14, true
   br label %28
 
 15:                                               ; preds = %.lr.ph, %15
@@ -222,8 +221,8 @@ define void @ff_clean_mpeg4_qscales(ptr noundef %0) local_unnamed_addr #0 {
   %35 = load i8, ptr %34, align 1, !tbaa !49
   %36 = trunc i8 %35 to i1
   %.not45 = xor i1 %14, %36
-  %not..not45.reass.reass.reass = xor i1 %36, %invariant.op
-  %37 = zext i1 %not..not45.reass.reass.reass to i8
+  %not..not45 = xor i1 %.not45, true
+  %37 = zext i1 %not..not45 to i8
   %38 = add i8 %35, %37
   %39 = icmp slt i8 %38, 32
   %.not47 = and i1 %.not45, %39

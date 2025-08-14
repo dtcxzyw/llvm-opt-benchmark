@@ -21220,18 +21220,18 @@ _ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit: ; preds = %"
   %26 = tail call { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h3bbcf66ac6011d04E"(ptr noundef nonnull align 8 %2)
   %27 = extractvalue { ptr, ptr } %26, 0
   %.not81 = icmp eq ptr %27, null
-  br i1 %.not81, label %226, label %221
+  br i1 %.not81, label %228, label %223
 
 28:                                               ; preds = %_ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit
   fence seq_cst
   br label %29
 
-.loopexit100:                                     ; preds = %.lr.ph171
+.loopexit100:                                     ; preds = %.lr.ph169
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %101
+.loopexit.split-lp.loopexit:                      ; preds = %102
   %lpad.loopexit103 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -21249,7 +21249,7 @@ _ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit: ; preds = %"
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit100
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit100 ], [ %lpad.loopexit103, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE"(ptr %30) #33
-          to label %220 unwind label %218
+          to label %222 unwind label %220
 
 29:                                               ; preds = %_ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit, %28, %_ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit.thread
   %30 = tail call fastcc noundef ptr @_ZN15crossbeam_epoch7default11with_handle17h440965274d25bd9cE()
@@ -21261,7 +21261,7 @@ _ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit: ; preds = %"
 
 35:                                               ; preds = %29
   store i64 0, ptr %0, align 8
-  br label %205
+  br label %207
 
 36:                                               ; preds = %29
   %37 = add nsw i64 %33, -1
@@ -21323,13 +21323,12 @@ _ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit: ; preds = %"
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load i8, ptr %73, align 8, !range !835, !noundef !7
   %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %129, label %76
+  br i1 %75, label %131, label %76
 
 76:                                               ; preds = %65
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %78 = load i8, ptr %77, align 8, !range !835, !noundef !7
   %79 = trunc nuw i8 %78 to i1
-  %invariant.op114 = add i64 %13, 1
   br i1 %79, label %.preheader101, label %.preheader106
 
 .preheader106:                                    ; preds = %76
@@ -21340,296 +21339,296 @@ _ZN15crossbeam_epoch7default11with_handle17h7869b9697e9b4302E.exit: ; preds = %"
   br label %83
 
 .preheader101:                                    ; preds = %76
-  br i1 %.not.i, label %.loopexit102, label %.lr.ph117
+  br i1 %.not.i, label %.loopexit102, label %.lr.ph115
 
-.lr.ph117:                                        ; preds = %.preheader101
+.lr.ph115:                                        ; preds = %.preheader101
   %81 = add i64 %61, %.sroa.0.0.sroa.speculated.i
   %82 = add i64 %58, -1
-  br label %101
+  br label %102
 
 83:                                               ; preds = %.lr.ph, %86
-  %84 = phi i64 [ 1, %.lr.ph ], [ %100, %86 ]
+  %84 = phi i64 [ 1, %.lr.ph ], [ %101, %86 ]
   %.sroa.034.0113 = phi i64 [ 0, %.lr.ph ], [ %84, %86 ]
   %85 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
           to label %86 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 86:                                               ; preds = %83
-  %.reass = add i64 %.sroa.034.0113, %invariant.op114
-  %87 = load ptr, ptr %85, align 8, !noundef !7
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %89 = load i64, ptr %88, align 8, !noundef !7
-  %90 = add i64 %89, -1
-  %91 = and i64 %90, %.reass
-  %92 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %87, i64 %91
-  %93 = load volatile { [2 x i64] }, ptr %92, align 8
-  %.fca.0.0.extract53 = extractvalue { [2 x i64] } %93, 0, 0
-  %.fca.0.1.extract54 = extractvalue { [2 x i64] } %93, 0, 1
-  %94 = inttoptr i64 %.fca.0.0.extract53 to ptr
-  %95 = inttoptr i64 %.fca.0.1.extract54 to ptr
-  %96 = add i64 %.sroa.034.0113, %61
-  %97 = and i64 %96, %80
-  %98 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %97
-  store volatile ptr %94, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %87 = add i64 %84, %13
+  %88 = load ptr, ptr %85, align 8, !noundef !7
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %90 = load i64, ptr %89, align 8, !noundef !7
+  %91 = add i64 %90, -1
+  %92 = and i64 %91, %87
+  %93 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %88, i64 %92
+  %94 = load volatile { [2 x i64] }, ptr %93, align 8
+  %.fca.0.0.extract53 = extractvalue { [2 x i64] } %94, 0, 0
+  %.fca.0.1.extract54 = extractvalue { [2 x i64] } %94, 0, 1
+  %95 = inttoptr i64 %.fca.0.0.extract53 to ptr
+  %96 = inttoptr i64 %.fca.0.1.extract54 to ptr
+  %97 = add i64 %.sroa.034.0113, %61
+  %98 = and i64 %97, %80
+  %99 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %98
   store volatile ptr %95, ptr %99, align 8
-  %100 = add nuw i64 %84, 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store volatile ptr %96, ptr %100, align 8
+  %101 = add nuw i64 %84, 1
   %exitcond.not = icmp eq i64 %84, %.sroa.0.0.sroa.speculated.i
   br i1 %exitcond.not, label %.loopexit102, label %83
 
-101:                                              ; preds = %.lr.ph117, %113
-  %102 = phi i64 [ 1, %.lr.ph117 ], [ %128, %113 ]
-  %.sroa.036.0116 = phi i64 [ 0, %.lr.ph117 ], [ %102, %113 ]
-  %103 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
-          to label %113 unwind label %.loopexit.split-lp.loopexit
+102:                                              ; preds = %.lr.ph115, %114
+  %103 = phi i64 [ 1, %.lr.ph115 ], [ %130, %114 ]
+  %.sroa.036.0114 = phi i64 [ 0, %.lr.ph115 ], [ %103, %114 ]
+  %104 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
+          to label %114 unwind label %.loopexit.split-lp.loopexit
 
-.loopexit102:                                     ; preds = %86, %113, %.preheader106, %.preheader101
-  %104 = load atomic i64, ptr %62 acquire, align 8
-  %.not75 = icmp eq i64 %104, %63
-  br i1 %.not75, label %105, label %112
+.loopexit102:                                     ; preds = %86, %114, %.preheader106, %.preheader101
+  %105 = load atomic i64, ptr %62 acquire, align 8
+  %.not75 = icmp eq i64 %105, %63
+  br i1 %.not75, label %106, label %113
 
-105:                                              ; preds = %.loopexit102
-  %106 = add i64 %13, 1
-  %107 = add i64 %106, %.sroa.0.0.sroa.speculated.i
-  %108 = cmpxchg ptr %12, i64 %13, i64 %107 seq_cst monotonic, align 8
-  %109 = extractvalue { i64, i1 } %108, 1
-  br i1 %109, label %110, label %112
+106:                                              ; preds = %.loopexit102
+  %107 = add i64 %13, 1
+  %108 = add i64 %107, %.sroa.0.0.sroa.speculated.i
+  %109 = cmpxchg ptr %12, i64 %13, i64 %108 seq_cst monotonic, align 8
+  %110 = extractvalue { i64, i1 } %109, 1
+  br i1 %110, label %111, label %113
 
-110:                                              ; preds = %105
-  %111 = add i64 %61, %.sroa.0.0.sroa.speculated.i
+111:                                              ; preds = %106
+  %112 = add i64 %61, %.sroa.0.0.sroa.speculated.i
   br label %.loopexit
 
-112:                                              ; preds = %129, %.loopexit102, %105
+113:                                              ; preds = %131, %.loopexit102, %106
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %205
+  br label %207
 
-113:                                              ; preds = %101
-  %.reass115 = add i64 %.sroa.036.0116, %invariant.op114
-  %114 = load ptr, ptr %103, align 8, !noundef !7
-  %115 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %116 = load i64, ptr %115, align 8, !noundef !7
-  %117 = add i64 %116, -1
-  %118 = and i64 %117, %.reass115
-  %119 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %114, i64 %118
-  %120 = load volatile { [2 x i64] }, ptr %119, align 8
-  %.fca.0.0.extract57 = extractvalue { [2 x i64] } %120, 0, 0
-  %.fca.0.1.extract58 = extractvalue { [2 x i64] } %120, 0, 1
-  %121 = inttoptr i64 %.fca.0.0.extract57 to ptr
-  %122 = inttoptr i64 %.fca.0.1.extract58 to ptr
-  %123 = xor i64 %.sroa.036.0116, -1
-  %124 = add i64 %81, %123
-  %125 = and i64 %124, %82
-  %126 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %125
-  store volatile ptr %121, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store volatile ptr %122, ptr %127, align 8
-  %128 = add nuw i64 %102, 1
-  %exitcond149.not = icmp eq i64 %102, %.sroa.0.0.sroa.speculated.i
-  br i1 %exitcond149.not, label %.loopexit102, label %101
+114:                                              ; preds = %102
+  %115 = add i64 %103, %13
+  %116 = load ptr, ptr %104, align 8, !noundef !7
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %118 = load i64, ptr %117, align 8, !noundef !7
+  %119 = add i64 %118, -1
+  %120 = and i64 %119, %115
+  %121 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %116, i64 %120
+  %122 = load volatile { [2 x i64] }, ptr %121, align 8
+  %.fca.0.0.extract57 = extractvalue { [2 x i64] } %122, 0, 0
+  %.fca.0.1.extract58 = extractvalue { [2 x i64] } %122, 0, 1
+  %123 = inttoptr i64 %.fca.0.0.extract57 to ptr
+  %124 = inttoptr i64 %.fca.0.1.extract58 to ptr
+  %125 = xor i64 %.sroa.036.0114, -1
+  %126 = add i64 %81, %125
+  %127 = and i64 %126, %82
+  %128 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %127
+  store volatile ptr %123, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store volatile ptr %124, ptr %129, align 8
+  %130 = add nuw i64 %103, 1
+  %exitcond147.not = icmp eq i64 %103, %.sroa.0.0.sroa.speculated.i
+  br i1 %exitcond147.not, label %.loopexit102, label %102
 
-129:                                              ; preds = %65
-  %130 = add i64 %13, 1
-  %131 = cmpxchg ptr %12, i64 %13, i64 %130 seq_cst monotonic, align 8
-  %132 = extractvalue { i64, i1 } %131, 1
-  br i1 %132, label %.preheader, label %112
+131:                                              ; preds = %65
+  %132 = add i64 %13, 1
+  %133 = cmpxchg ptr %12, i64 %13, i64 %132 seq_cst monotonic, align 8
+  %134 = extractvalue { i64, i1 } %133, 1
+  br i1 %134, label %.preheader, label %113
 
-.preheader:                                       ; preds = %129
-  br i1 %.not.i, label %.loopexit, label %.lr.ph123
+.preheader:                                       ; preds = %131
+  br i1 %.not.i, label %.loopexit, label %.lr.ph121
 
-.lr.ph123:                                        ; preds = %.preheader
-  %133 = add i64 %58, -1
+.lr.ph121:                                        ; preds = %.preheader
+  %135 = add i64 %58, -1
   fence seq_cst
-  %134 = load atomic i64, ptr %31 acquire, align 8
-  %135 = sub i64 %134, %130
-  %136 = icmp slt i64 %135, 1
-  br i1 %136, label %._crit_edge, label %.lr.ph171
+  %136 = load atomic i64, ptr %31 acquire, align 8
+  %137 = sub i64 %136, %132
+  %138 = icmp slt i64 %137, 1
+  br i1 %138, label %._crit_edge, label %.lr.ph169
 
-._crit_edge:                                      ; preds = %147, %156, %140, %160, %.lr.ph123
-  %.sroa.4.1.lcssa = phi i64 [ %.fca.0.1.extract, %.lr.ph123 ], [ %.sroa.4.1119169, %147 ], [ %.sroa.4.1119169, %156 ], [ %.fca.0.1.extract62, %140 ], [ %.fca.0.1.extract62, %160 ]
-  %.sroa.031.1.lcssa = phi i64 [ %.fca.0.0.extract, %.lr.ph123 ], [ %.sroa.031.1120168, %147 ], [ %.sroa.031.1120168, %156 ], [ %.fca.0.0.extract61, %140 ], [ %.fca.0.0.extract61, %160 ]
-  %.sroa.023.1.lcssa = phi i64 [ %61, %.lr.ph123 ], [ %.sroa.023.1121167, %147 ], [ %.sroa.023.1121167, %156 ], [ %166, %140 ], [ %166, %160 ]
-  %.sroa.040.0 = phi i64 [ 0, %.lr.ph123 ], [ %.sroa.038.0118170, %147 ], [ %.sroa.038.0118170, %156 ], [ %145, %140 ], [ %.sroa.0.0.sroa.speculated.i, %160 ]
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %138 = load i8, ptr %137, align 8, !range !835, !noundef !7
-  %139 = icmp eq i8 %138, 0
-  br i1 %139, label %167, label %.loopexit
+._crit_edge:                                      ; preds = %149, %158, %142, %162, %.lr.ph121
+  %.sroa.4.1.lcssa = phi i64 [ %.fca.0.1.extract, %.lr.ph121 ], [ %.sroa.4.1117167, %149 ], [ %.sroa.4.1117167, %158 ], [ %.fca.0.1.extract62, %142 ], [ %.fca.0.1.extract62, %162 ]
+  %.sroa.031.1.lcssa = phi i64 [ %.fca.0.0.extract, %.lr.ph121 ], [ %.sroa.031.1118166, %149 ], [ %.sroa.031.1118166, %158 ], [ %.fca.0.0.extract61, %142 ], [ %.fca.0.0.extract61, %162 ]
+  %.sroa.023.1.lcssa = phi i64 [ %61, %.lr.ph121 ], [ %.sroa.023.1119165, %149 ], [ %.sroa.023.1119165, %158 ], [ %168, %142 ], [ %168, %162 ]
+  %.sroa.040.0 = phi i64 [ 0, %.lr.ph121 ], [ %.sroa.038.0116168, %149 ], [ %.sroa.038.0116168, %158 ], [ %147, %142 ], [ %.sroa.0.0.sroa.speculated.i, %162 ]
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %140 = load i8, ptr %139, align 8, !range !835, !noundef !7
+  %141 = icmp eq i8 %140, 0
+  br i1 %141, label %169, label %.loopexit
 
-140:                                              ; preds = %160
-  %141 = add nuw i64 %145, 1
+142:                                              ; preds = %162
+  %143 = add nuw i64 %147, 1
   fence seq_cst
-  %142 = load atomic i64, ptr %31 acquire, align 8
-  %143 = sub i64 %142, %157
-  %144 = icmp slt i64 %143, 1
-  br i1 %144, label %._crit_edge, label %.lr.ph171
+  %144 = load atomic i64, ptr %31 acquire, align 8
+  %145 = sub i64 %144, %159
+  %146 = icmp slt i64 %145, 1
+  br i1 %146, label %._crit_edge, label %.lr.ph169
 
-.lr.ph171:                                        ; preds = %.lr.ph123, %140
-  %.sroa.038.0118170 = phi i64 [ %145, %140 ], [ 0, %.lr.ph123 ]
-  %.sroa.4.1119169 = phi i64 [ %.fca.0.1.extract62, %140 ], [ %.fca.0.1.extract, %.lr.ph123 ]
-  %.sroa.031.1120168 = phi i64 [ %.fca.0.0.extract61, %140 ], [ %.fca.0.0.extract, %.lr.ph123 ]
-  %.sroa.023.1121167 = phi i64 [ %166, %140 ], [ %61, %.lr.ph123 ]
-  %.sroa.07.0122166 = phi i64 [ %157, %140 ], [ %130, %.lr.ph123 ]
-  %145 = phi i64 [ %141, %140 ], [ 1, %.lr.ph123 ]
-  %146 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
-          to label %147 unwind label %.loopexit100
+.lr.ph169:                                        ; preds = %.lr.ph121, %142
+  %.sroa.038.0116168 = phi i64 [ %147, %142 ], [ 0, %.lr.ph121 ]
+  %.sroa.4.1117167 = phi i64 [ %.fca.0.1.extract62, %142 ], [ %.fca.0.1.extract, %.lr.ph121 ]
+  %.sroa.031.1118166 = phi i64 [ %.fca.0.0.extract61, %142 ], [ %.fca.0.0.extract, %.lr.ph121 ]
+  %.sroa.023.1119165 = phi i64 [ %168, %142 ], [ %61, %.lr.ph121 ]
+  %.sroa.07.0120164 = phi i64 [ %159, %142 ], [ %132, %.lr.ph121 ]
+  %147 = phi i64 [ %143, %142 ], [ 1, %.lr.ph121 ]
+  %148 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
+          to label %149 unwind label %.loopexit100
 
-147:                                              ; preds = %.lr.ph171
-  %148 = load ptr, ptr %146, align 8, !noundef !7
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %150 = load i64, ptr %149, align 8, !noundef !7
-  %151 = add i64 %150, -1
-  %152 = and i64 %151, %.sroa.07.0122166
-  %153 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %148, i64 %152
-  %154 = load volatile { [2 x i64] }, ptr %153, align 8
-  %.fca.0.0.extract61 = extractvalue { [2 x i64] } %154, 0, 0
-  %.fca.0.1.extract62 = extractvalue { [2 x i64] } %154, 0, 1
-  %155 = load atomic i64, ptr %62 acquire, align 8
-  %.not78 = icmp eq i64 %155, %63
-  br i1 %.not78, label %156, label %._crit_edge
+149:                                              ; preds = %.lr.ph169
+  %150 = load ptr, ptr %148, align 8, !noundef !7
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %152 = load i64, ptr %151, align 8, !noundef !7
+  %153 = add i64 %152, -1
+  %154 = and i64 %153, %.sroa.07.0120164
+  %155 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %150, i64 %154
+  %156 = load volatile { [2 x i64] }, ptr %155, align 8
+  %.fca.0.0.extract61 = extractvalue { [2 x i64] } %156, 0, 0
+  %.fca.0.1.extract62 = extractvalue { [2 x i64] } %156, 0, 1
+  %157 = load atomic i64, ptr %62 acquire, align 8
+  %.not78 = icmp eq i64 %157, %63
+  br i1 %.not78, label %158, label %._crit_edge
 
-156:                                              ; preds = %147
-  %157 = add i64 %.sroa.07.0122166, 1
-  %158 = cmpxchg ptr %12, i64 %.sroa.07.0122166, i64 %157 seq_cst monotonic, align 8
-  %159 = extractvalue { i64, i1 } %158, 1
-  br i1 %159, label %160, label %._crit_edge
+158:                                              ; preds = %149
+  %159 = add i64 %.sroa.07.0120164, 1
+  %160 = cmpxchg ptr %12, i64 %.sroa.07.0120164, i64 %159 seq_cst monotonic, align 8
+  %161 = extractvalue { i64, i1 } %160, 1
+  br i1 %161, label %162, label %._crit_edge
 
-160:                                              ; preds = %156
-  %161 = inttoptr i64 %.sroa.031.1120168 to ptr
-  %162 = inttoptr i64 %.sroa.4.1119169 to ptr
-  %163 = and i64 %.sroa.023.1121167, %133
-  %164 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %163
-  store volatile ptr %161, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store volatile ptr %162, ptr %165, align 8
-  %166 = add i64 %.sroa.023.1121167, 1
-  %exitcond150.not = icmp eq i64 %145, %.sroa.0.0.sroa.speculated.i
-  br i1 %exitcond150.not, label %._crit_edge, label %140
+162:                                              ; preds = %158
+  %163 = inttoptr i64 %.sroa.031.1118166 to ptr
+  %164 = inttoptr i64 %.sroa.4.1117167 to ptr
+  %165 = and i64 %.sroa.023.1119165, %135
+  %166 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %165
+  store volatile ptr %163, ptr %166, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  store volatile ptr %164, ptr %167, align 8
+  %168 = add i64 %.sroa.023.1119165, 1
+  %exitcond148.not = icmp eq i64 %147, %.sroa.0.0.sroa.speculated.i
+  br i1 %exitcond148.not, label %._crit_edge, label %142
 
-167:                                              ; preds = %._crit_edge
-  %168 = sdiv i64 %.sroa.040.0, 2
-  %169 = icmp sgt i64 %.sroa.040.0, 1
-  br i1 %169, label %.lr.ph144, label %.loopexit
+169:                                              ; preds = %._crit_edge
+  %170 = sdiv i64 %.sroa.040.0, 2
+  %171 = icmp sgt i64 %.sroa.040.0, 1
+  br i1 %171, label %.lr.ph142, label %.loopexit
 
-.lr.ph144:                                        ; preds = %167
+.lr.ph142:                                        ; preds = %169
   %.neg = sub i64 %.sroa.023.1.lcssa, %.sroa.040.0
-  %170 = add i64 %58, -1
-  br label %171
+  %172 = add i64 %58, -1
+  br label %173
 
-171:                                              ; preds = %.lr.ph144, %171
-  %.sroa.048.0142 = phi i64 [ 0, %.lr.ph144 ], [ %172, %171 ]
-  %172 = add nuw nsw i64 %.sroa.048.0142, 1
-  %173 = add i64 %.neg, %.sroa.048.0142
-  %.neg80 = xor i64 %.sroa.048.0142, -1
-  %174 = add i64 %.sroa.023.1.lcssa, %.neg80
-  %175 = and i64 %173, %170
-  %176 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %175
-  %177 = load volatile { [2 x i64] }, ptr %176, align 8
-  %.fca.0.0.extract65 = extractvalue { [2 x i64] } %177, 0, 0
-  %.fca.0.1.extract66 = extractvalue { [2 x i64] } %177, 0, 1
-  %178 = inttoptr i64 %.fca.0.0.extract65 to ptr
-  %179 = inttoptr i64 %.fca.0.1.extract66 to ptr
-  %180 = and i64 %174, %170
-  %181 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %180
-  %182 = load volatile { [2 x i64] }, ptr %181, align 8
-  %.fca.0.0.extract69 = extractvalue { [2 x i64] } %182, 0, 0
-  %.fca.0.1.extract70 = extractvalue { [2 x i64] } %182, 0, 1
-  %183 = inttoptr i64 %.fca.0.0.extract69 to ptr
-  %184 = inttoptr i64 %.fca.0.1.extract70 to ptr
-  store volatile ptr %183, ptr %176, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store volatile ptr %184, ptr %185, align 8
-  store volatile ptr %178, ptr %181, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  store volatile ptr %179, ptr %186, align 8
-  %exitcond151.not = icmp eq i64 %172, %168
-  br i1 %exitcond151.not, label %.loopexit, label %171
+173:                                              ; preds = %.lr.ph142, %173
+  %.sroa.048.0140 = phi i64 [ 0, %.lr.ph142 ], [ %174, %173 ]
+  %174 = add nuw nsw i64 %.sroa.048.0140, 1
+  %175 = add i64 %.neg, %.sroa.048.0140
+  %.neg80 = xor i64 %.sroa.048.0140, -1
+  %176 = add i64 %.sroa.023.1.lcssa, %.neg80
+  %177 = and i64 %175, %172
+  %178 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %177
+  %179 = load volatile { [2 x i64] }, ptr %178, align 8
+  %.fca.0.0.extract65 = extractvalue { [2 x i64] } %179, 0, 0
+  %.fca.0.1.extract66 = extractvalue { [2 x i64] } %179, 0, 1
+  %180 = inttoptr i64 %.fca.0.0.extract65 to ptr
+  %181 = inttoptr i64 %.fca.0.1.extract66 to ptr
+  %182 = and i64 %176, %172
+  %183 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %182
+  %184 = load volatile { [2 x i64] }, ptr %183, align 8
+  %.fca.0.0.extract69 = extractvalue { [2 x i64] } %184, 0, 0
+  %.fca.0.1.extract70 = extractvalue { [2 x i64] } %184, 0, 1
+  %185 = inttoptr i64 %.fca.0.0.extract69 to ptr
+  %186 = inttoptr i64 %.fca.0.1.extract70 to ptr
+  store volatile ptr %185, ptr %178, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store volatile ptr %186, ptr %187, align 8
+  store volatile ptr %180, ptr %183, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store volatile ptr %181, ptr %188, align 8
+  %exitcond149.not = icmp eq i64 %174, %170
+  br i1 %exitcond149.not, label %.loopexit, label %173
 
-.loopexit:                                        ; preds = %171, %.preheader, %167, %110, %._crit_edge
-  %.sroa.4.0 = phi i64 [ %.sroa.4.1.lcssa, %._crit_edge ], [ %.fca.0.1.extract, %110 ], [ %.sroa.4.1.lcssa, %167 ], [ %.fca.0.1.extract, %.preheader ], [ %.sroa.4.1.lcssa, %171 ]
-  %.sroa.031.0 = phi i64 [ %.sroa.031.1.lcssa, %._crit_edge ], [ %.fca.0.0.extract, %110 ], [ %.sroa.031.1.lcssa, %167 ], [ %.fca.0.0.extract, %.preheader ], [ %.sroa.031.1.lcssa, %171 ]
-  %.sroa.023.0 = phi i64 [ %.sroa.023.1.lcssa, %._crit_edge ], [ %111, %110 ], [ %.sroa.023.1.lcssa, %167 ], [ %61, %.preheader ], [ %.sroa.023.1.lcssa, %171 ]
+.loopexit:                                        ; preds = %173, %.preheader, %169, %111, %._crit_edge
+  %.sroa.4.0 = phi i64 [ %.sroa.4.1.lcssa, %._crit_edge ], [ %.fca.0.1.extract, %111 ], [ %.sroa.4.1.lcssa, %169 ], [ %.fca.0.1.extract, %.preheader ], [ %.sroa.4.1.lcssa, %173 ]
+  %.sroa.031.0 = phi i64 [ %.sroa.031.1.lcssa, %._crit_edge ], [ %.fca.0.0.extract, %111 ], [ %.sroa.031.1.lcssa, %169 ], [ %.fca.0.0.extract, %.preheader ], [ %.sroa.031.1.lcssa, %173 ]
+  %.sroa.023.0 = phi i64 [ %.sroa.023.1.lcssa, %._crit_edge ], [ %112, %111 ], [ %.sroa.023.1.lcssa, %169 ], [ %61, %.preheader ], [ %.sroa.023.1.lcssa, %173 ]
   fence release
-  %187 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 264
-  store atomic i64 %.sroa.023.0, ptr %188 release, align 8
-  %189 = inttoptr i64 %.sroa.031.0 to ptr
-  %190 = inttoptr i64 %.sroa.4.0 to ptr
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %189, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %190, ptr %192, align 8
+  %189 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 264
+  store atomic i64 %.sroa.023.0, ptr %190 release, align 8
+  %191 = inttoptr i64 %.sroa.031.0 to ptr
+  %192 = inttoptr i64 %.sroa.4.0 to ptr
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %191, ptr %193, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %192, ptr %194, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %193 = icmp eq ptr %30, null
-  br i1 %193, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", label %194
+  %195 = icmp eq ptr %30, null
+  br i1 %195, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", label %196
 
-194:                                              ; preds = %.loopexit
-  %195 = getelementptr inbounds nuw i8, ptr %30, i64 2072
-  %196 = load i64, ptr %195, align 8, !noundef !7
-  %197 = add i64 %196, -1
-  store i64 %197, ptr %195, align 8
-  %198 = icmp eq i64 %196, 1
-  br i1 %198, label %199, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
+196:                                              ; preds = %.loopexit
+  %197 = getelementptr inbounds nuw i8, ptr %30, i64 2072
+  %198 = load i64, ptr %197, align 8, !noundef !7
+  %199 = add i64 %198, -1
+  store i64 %199, ptr %197, align 8
+  %200 = icmp eq i64 %198, 1
+  br i1 %200, label %201, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
 
-199:                                              ; preds = %194
-  %200 = getelementptr inbounds nuw i8, ptr %30, i64 2176
-  store atomic i64 0, ptr %200 release, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %30, i64 2080
-  %202 = load i64, ptr %201, align 8, !noundef !7
-  %203 = icmp eq i64 %202, 0
-  br i1 %203, label %204, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", !prof !206
+201:                                              ; preds = %196
+  %202 = getelementptr inbounds nuw i8, ptr %30, i64 2176
+  store atomic i64 0, ptr %202 release, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %30, i64 2080
+  %204 = load i64, ptr %203, align 8, !noundef !7
+  %205 = icmp eq i64 %204, 0
+  br i1 %205, label %206, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", !prof !206
 
-204:                                              ; preds = %199
+206:                                              ; preds = %201
   call void @_ZN15crossbeam_epoch8internal5Local8finalize17hc726bf61cf9bd362E(ptr noundef nonnull align 128 %30)
   br label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit": ; preds = %217, %212, %207, %205, %204, %199, %194, %.loopexit, %226
+"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit": ; preds = %219, %214, %209, %207, %206, %201, %196, %.loopexit, %228
   ret void
 
-205:                                              ; preds = %112, %35
-  %206 = icmp eq ptr %30, null
-  br i1 %206, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", label %207
+207:                                              ; preds = %113, %35
+  %208 = icmp eq ptr %30, null
+  br i1 %208, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", label %209
 
-207:                                              ; preds = %205
-  %208 = getelementptr inbounds nuw i8, ptr %30, i64 2072
-  %209 = load i64, ptr %208, align 8, !noundef !7
-  %210 = add i64 %209, -1
-  store i64 %210, ptr %208, align 8
-  %211 = icmp eq i64 %209, 1
-  br i1 %211, label %212, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds nuw i8, ptr %30, i64 2072
+  %211 = load i64, ptr %210, align 8, !noundef !7
+  %212 = add i64 %211, -1
+  store i64 %212, ptr %210, align 8
+  %213 = icmp eq i64 %211, 1
+  br i1 %213, label %214, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
 
-212:                                              ; preds = %207
-  %213 = getelementptr inbounds nuw i8, ptr %30, i64 2176
-  store atomic i64 0, ptr %213 release, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %30, i64 2080
-  %215 = load i64, ptr %214, align 8, !noundef !7
-  %216 = icmp eq i64 %215, 0
-  br i1 %216, label %217, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", !prof !206
+214:                                              ; preds = %209
+  %215 = getelementptr inbounds nuw i8, ptr %30, i64 2176
+  store atomic i64 0, ptr %215 release, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %30, i64 2080
+  %217 = load i64, ptr %216, align 8, !noundef !7
+  %218 = icmp eq i64 %217, 0
+  br i1 %218, label %219, label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit", !prof !206
 
-217:                                              ; preds = %212
+219:                                              ; preds = %214
   call void @_ZN15crossbeam_epoch8internal5Local8finalize17hc726bf61cf9bd362E(ptr noundef nonnull align 128 %30)
   br label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
 
-218:                                              ; preds = %.loopexit.split-lp
-  %219 = landingpad { ptr, i32 }
+220:                                              ; preds = %.loopexit.split-lp
+  %221 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34
   unreachable
 
-220:                                              ; preds = %.loopexit.split-lp
+222:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 
-221:                                              ; preds = %25
-  %222 = extractvalue { ptr, ptr } %26, 1
-  %223 = icmp ne ptr %222, null
-  tail call void @llvm.assume(i1 %223)
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %224, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %222, ptr %225, align 8
-  br label %226
+223:                                              ; preds = %25
+  %224 = extractvalue { ptr, ptr } %26, 1
+  %225 = icmp ne ptr %224, null
+  tail call void @llvm.assume(i1 %225)
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %27, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %224, ptr %227, align 8
+  br label %228
 
-226:                                              ; preds = %25, %221
-  %storemerge = phi i64 [ 1, %221 ], [ 0, %25 ]
+228:                                              ; preds = %25, %223
+  %storemerge = phi i64 [ 1, %223 ], [ 0, %25 ]
   store i64 %storemerge, ptr %0, align 8
   br label %"_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h9193572307a1659aE.exit"
 }

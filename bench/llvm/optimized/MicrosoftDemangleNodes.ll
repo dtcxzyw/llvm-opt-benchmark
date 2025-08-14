@@ -1285,7 +1285,6 @@ define dso_local void @_ZNK4llvm11ms_demangle13NodeArrayNode6outputERNS_16itaniu
 
 17:                                               ; preds = %13, %9
   %18 = phi i64 [ %.pre, %13 ], [ %7, %9 ]
-  %invariant.op = add i64 %3, 992
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.lr.ph, label %.loopexit
 
@@ -1310,7 +1309,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   br i1 %30, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us, label %.loopexit, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
-  %.011 = phi i64 [ %51, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ 1, %.lr.ph ]
+  %.011 = phi i64 [ %52, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ 1, %.lr.ph ]
   %31 = load i64, ptr %20, align 8, !tbaa !16
   %32 = add i64 %31, %3
   %33 = load i64, ptr %21, align 8, !tbaa !31
@@ -1319,42 +1318,42 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   br i1 %34, label %35, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 35:                                               ; preds = %.lr.ph.split
-  %.reass = add i64 %31, %invariant.op
-  %36 = shl i64 %33, 1
-  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 %.reass)
+  %36 = add i64 %32, 992
+  %37 = shl i64 %33, 1
+  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %37, i64 %36)
   store i64 %spec.select.i.i.i, ptr %21, align 8, !tbaa !31
-  %37 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #16
-  store ptr %37, ptr %1, align 8, !tbaa !15
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
+  %38 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #16
+  store ptr %38, ptr %1, align 8, !tbaa !15
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i: ; preds = %35
   %.pre4.i.i = load i64, ptr %20, align 8, !tbaa !16
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
-39:                                               ; preds = %35
+40:                                               ; preds = %35
   tail call void @abort() #17
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %.lr.ph.split
-  %40 = phi i64 [ %31, %.lr.ph.split ], [ %.pre4.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
-  %41 = phi ptr [ %.pre.i.i, %.lr.ph.split ], [ %37, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %4, i64 %3, i1 false)
-  %43 = load i64, ptr %20, align 8, !tbaa !16
-  %44 = add i64 %43, %3
-  store i64 %44, ptr %20, align 8, !tbaa !16
-  %45 = load ptr, ptr %10, align 8, !tbaa !36
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.011
-  %47 = load ptr, ptr %46, align 8, !tbaa !37
-  %48 = load ptr, ptr %47, align 8, !tbaa !13
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %51 = add nuw i64 %.011, 1
-  %52 = load i64, ptr %6, align 8, !tbaa !33
-  %53 = icmp ult i64 %51, %52
-  br i1 %53, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
+  %41 = phi i64 [ %31, %.lr.ph.split ], [ %.pre4.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
+  %42 = phi ptr [ %.pre.i.i, %.lr.ph.split ], [ %38, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %4, i64 %3, i1 false)
+  %44 = load i64, ptr %20, align 8, !tbaa !16
+  %45 = add i64 %44, %3
+  store i64 %45, ptr %20, align 8, !tbaa !16
+  %46 = load ptr, ptr %10, align 8, !tbaa !36
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.011
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %49 = load ptr, ptr %48, align 8, !tbaa !13
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
+  %52 = add nuw i64 %.011, 1
+  %53 = load i64, ptr %6, align 8, !tbaa !33
+  %54 = icmp ult i64 %52, %53
+  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us, %17, %5
   ret void

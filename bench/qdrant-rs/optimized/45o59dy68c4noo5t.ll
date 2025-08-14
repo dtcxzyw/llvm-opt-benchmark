@@ -180,10 +180,6 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %or.cond390.i.i = select i1 %85, i1 true, i1 %86
   br i1 %or.cond390.i.i, label %._crit_edge.i.i, label %.lr.ph92.i.i
 
-.lr.ph92.i.i:                                     ; preds = %.preheader.i.i
-  %invariant.op.i.i = add nuw nsw i64 %25, 31
-  br label %116
-
 .lr.ph.i.i:                                       ; preds = %71, %94
   %.06388.i.i = phi i64 [ %95, %94 ], [ 0, %71 ]
   store i64 0, ptr %8, align 8
@@ -231,34 +227,34 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %111 = zext i1 %110 to i8
   br label %103
 
-._crit_edge.i.i:                                  ; preds = %119, %.preheader.i.i
-  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %119 ]
-  %.lcssa.i.i = phi i1 [ %86, %.preheader.i.i ], [ %122, %119 ]
+._crit_edge.i.i:                                  ; preds = %118, %.preheader.i.i
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %118 ]
+  %.lcssa.i.i = phi i1 [ %86, %.preheader.i.i ], [ %122, %118 ]
   %112 = sub i64 %2, %55
   %113 = add i64 %112, -16
   %114 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %113)
   %115 = icmp eq i16 %114, 0
   br i1 %115, label %229, label %126
 
-116:                                              ; preds = %119, %.lr.ph92.i.i
-  %.191.i.i = phi i64 [ %.063.lcssa.i.i, %.lr.ph92.i.i ], [ %120, %119 ]
-  %117 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %.191.i.i)
-  %118 = icmp eq i16 %117, 0
-  br i1 %118, label %119, label %123
+.lr.ph92.i.i:                                     ; preds = %.preheader.i.i, %118
+  %.191.i.i = phi i64 [ %119, %118 ], [ %.063.lcssa.i.i, %.preheader.i.i ]
+  %116 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %.191.i.i)
+  %117 = icmp eq i16 %116, 0
+  br i1 %117, label %118, label %123
 
-119:                                              ; preds = %123, %116
-  %.5.i.i = phi i8 [ 0, %116 ], [ %125, %123 ]
-  %120 = add i64 %.191.i.i, 16
-  %.reass.i.i = add i64 %invariant.op.i.i, %.191.i.i
-  %121 = icmp uge i64 %.reass.i.i, %2
+118:                                              ; preds = %123, %.lr.ph92.i.i
+  %.5.i.i = phi i8 [ 0, %.lr.ph92.i.i ], [ %125, %123 ]
+  %119 = add i64 %.191.i.i, 16
+  %120 = add i64 %119, %64
+  %121 = icmp uge i64 %120, %2
   %122 = trunc nuw i8 %.5.i.i to i1
   %or.cond3.i.i = select i1 %121, i1 true, i1 %122
-  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %116
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %.lr.ph92.i.i
 
-123:                                              ; preds = %116
-  %124 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr nonnull align 8 %10, i64 %.191.i.i, i16 %117, i1 zeroext false)
+123:                                              ; preds = %.lr.ph92.i.i
+  %124 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr nonnull align 8 %10, i64 %.191.i.i, i16 %116, i1 zeroext false)
   %125 = zext i1 %124 to i8
-  br label %119
+  br label %118
 
 126:                                              ; preds = %._crit_edge.i.i
   %127 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr nonnull align 8 %10, i64 %113, i16 %114, i1 zeroext %.lcssa.i.i)

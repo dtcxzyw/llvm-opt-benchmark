@@ -690,36 +690,32 @@ retransmission_indicator.exit:                    ; preds = %46, %49
   %.not394417 = icmp sgt i8 %7, -1
   br i1 %.not394417, label %.loopexit._crit_edge, label %.preheader.split.us
 
-.preheader.split.us:                              ; preds = %.thread
-  %invariant.op = add nuw nsw i32 %.0368, 1
-  br label %217
+.preheader.split.us:                              ; preds = %.thread, %wtp_handle_tpi.exit.us
+  %.0369.us = phi i32 [ %229, %wtp_handle_tpi.exit.us ], [ 0, %.thread ]
+  %217 = add i32 %.0369.us, %.0368
+  %218 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %217)
+  %219 = zext i8 %218 to i32
+  %220 = and i32 %219, 4
+  %.not395.us = icmp eq i32 %220, 0
+  br i1 %.not395.us, label %226, label %221
 
-217:                                              ; preds = %wtp_handle_tpi.exit.us, %.preheader.split.us
-  %.0369.us = phi i32 [ %229, %wtp_handle_tpi.exit.us ], [ 0, %.preheader.split.us ]
-  %218 = add i32 %.0369.us, %.0368
-  %219 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %218)
-  %220 = zext i8 %219 to i32
-  %221 = and i32 %220, 4
-  %.not395.us = icmp eq i32 %221, 0
-  br i1 %.not395.us, label %226, label %222
-
-222:                                              ; preds = %217
-  %.reass = add i32 %.0369.us, %invariant.op
-  %223 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass)
+221:                                              ; preds = %.preheader.split.us
+  %222 = add i32 %217, 1
+  %223 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %222)
   %224 = zext i8 %223 to i32
   %225 = add nuw nsw i32 %224, 2
   br label %wtp_handle_tpi.exit.us
 
-226:                                              ; preds = %217
-  %227 = and i32 %220, 3
+226:                                              ; preds = %.preheader.split.us
+  %227 = and i32 %219, 3
   %228 = add nuw nsw i32 %227, 1
   br label %wtp_handle_tpi.exit.us
 
-wtp_handle_tpi.exit.us:                           ; preds = %226, %222
-  %.0365.us = phi i32 [ %225, %222 ], [ %228, %226 ]
+wtp_handle_tpi.exit.us:                           ; preds = %226, %221
+  %.0365.us = phi i32 [ %225, %221 ], [ %228, %226 ]
   %229 = add i32 %.0365.us, %.0369.us
-  %.not396.us = icmp sgt i8 %219, -1
-  br i1 %.not396.us, label %.loopexit, label %217, !llvm.loop !9
+  %.not396.us = icmp sgt i8 %218, -1
+  br i1 %.not396.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !9
 
 .preheader.split:                                 ; preds = %216, %wtp_handle_tpi.exit
   %.0369 = phi i32 [ %274, %wtp_handle_tpi.exit ], [ 0, %216 ]

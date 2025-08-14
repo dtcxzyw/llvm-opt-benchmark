@@ -4971,9 +4971,9 @@ define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr noundef nonnu
 75:                                               ; preds = %._crit_edge.i.i, %58, %54, %.lr.ph62.i.i
   %.1.i.i = phi i64 [ %.lcssa.i.i, %._crit_edge.i.i ], [ %.04260.i.i, %58 ], [ %.04260.i.i, %.lr.ph62.i.i ], [ %.04260.i.i, %54 ]
   %76 = add i64 %.1.i.i, 1
-  %.reass.i.i = add i64 %.1.i.i, 11
-  %77 = icmp ult i64 %.reass.i.i, %28
-  br i1 %77, label %.lr.ph62.i.i, label %extract_text_urls.exit.i.loopexit
+  %77 = add i64 %.1.i.i, 11
+  %78 = icmp ult i64 %77, %28
+  br i1 %78, label %.lr.ph62.i.i, label %extract_text_urls.exit.i.loopexit
 
 extract_text_urls.exit.i.loopexit:                ; preds = %75
   %.pre.pre = load i32, ptr %22, align 4
@@ -4985,26 +4985,26 @@ extract_text_urls.exit.i:                         ; preds = %extract_text_urls.e
   br label %getHrefs.exit
 
 getHrefs.exit:                                    ; preds = %42, %extract_text_urls.exit.i
-  %78 = phi i32 [ %44, %42 ], [ %.pre, %extract_text_urls.exit.i ]
-  %.not24 = icmp eq i32 %78, 0
-  br i1 %.not24, label %.thread, label %79
+  %79 = phi i32 [ %44, %42 ], [ %.pre, %extract_text_urls.exit.i ]
+  %.not24 = icmp eq i32 %79, 0
+  br i1 %.not24, label %.thread, label %80
 
-79:                                               ; preds = %getHrefs.exit
-  %80 = load ptr, ptr %9, align 8, !tbaa !36
-  %81 = call i32 @phishingScan(ptr noundef %80, ptr noundef nonnull %5) #21
-  %82 = icmp eq i32 %81, 1
-  br i1 %82, label %83, label %.thread
+80:                                               ; preds = %getHrefs.exit
+  %81 = load ptr, ptr %9, align 8, !tbaa !36
+  %82 = call i32 @phishingScan(ptr noundef %81, ptr noundef nonnull %5) #21
+  %83 = icmp eq i32 %82, 1
+  br i1 %83, label %84, label %.thread
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  %85 = load i8, ptr %84, align 1
-  %86 = or i8 %85, 1
-  store i8 %86, ptr %84, align 1
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  %86 = load i8, ptr %85, align 1
+  %87 = or i8 %86, 1
+  store i8 %87, ptr %85, align 1
   store i32 3, ptr %2, align 4, !tbaa !90
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.181) #21
   br label %.thread
 
-.thread:                                          ; preds = %getHrefs.exit, %79, %83
+.thread:                                          ; preds = %getHrefs.exit, %80, %84
   call void @blobDestroy(ptr noundef nonnull %25) #21
   br label %hrefs_done.exit
 

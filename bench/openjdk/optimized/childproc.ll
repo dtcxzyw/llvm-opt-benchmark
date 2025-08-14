@@ -586,7 +586,6 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = ptrtoint ptr %2 to i64
-  %invariant.op67 = add i32 %38, 1
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %77
@@ -611,17 +610,16 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   br i1 %.not38.us, label %59, label %56
 
 56:                                               ; preds = %51
-  %57 = add i64 %47, 1
+  %57 = add nsw i32 %48, 1
   %58 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %52
   store i8 47, ptr %58, align 1
-  %.pre57.reass = add i32 %invariant.op67, %48
+  %.pre57 = add nsw i32 %57, %38
   br label %59
 
 59:                                               ; preds = %56, %51
-  %.pre-phi = phi i32 [ %.pre57.reass, %56 ], [ %49, %51 ]
-  %.0.us = phi i64 [ %57, %56 ], [ %47, %51 ]
-  %sext69 = shl i64 %.0.us, 32
-  %60 = ashr exact i64 %sext69, 32
+  %.pre-phi = phi i32 [ %.pre57, %56 ], [ %49, %51 ]
+  %.0.us = phi i32 [ %57, %56 ], [ %48, %51 ]
+  %60 = sext i32 %.0.us to i64
   %61 = getelementptr inbounds i8, ptr %5, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %1, i64 %41, i1 false)
   %62 = sext i32 %.pre-phi to i64
@@ -715,17 +713,16 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
   br i1 %.not38, label %execve_with_shell_fallback.exit48, label %92
 
 92:                                               ; preds = %87
-  %93 = add i64 %81, 1
+  %93 = add nsw i32 %82, 1
   %94 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %88
   store i8 47, ptr %94, align 1
-  %.pre60.reass = add i32 %invariant.op67, %82
+  %.pre60 = add nsw i32 %93, %38
   br label %execve_with_shell_fallback.exit48
 
 execve_with_shell_fallback.exit48:                ; preds = %92, %87
-  %.pre-phi61 = phi i32 [ %.pre60.reass, %92 ], [ %83, %87 ]
-  %.0 = phi i64 [ %93, %92 ], [ %81, %87 ]
-  %sext68 = shl i64 %.0, 32
-  %95 = ashr exact i64 %sext68, 32
+  %.pre-phi61 = phi i32 [ %.pre60, %92 ], [ %83, %87 ]
+  %.0 = phi i32 [ %93, %92 ], [ %82, %87 ]
+  %95 = sext i32 %.0 to i64
   %96 = getelementptr inbounds i8, ptr %5, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull align 1 %1, i64 %41, i1 false)
   %97 = sext i32 %.pre-phi61 to i64

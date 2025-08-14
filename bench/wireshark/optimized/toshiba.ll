@@ -425,60 +425,58 @@ define internal fastcc noundef zeroext i1 @parse_toshiba_packet(ptr noundef %0, 
   %.not.i = icmp eq i64 %102, %101
   br i1 %.not.i, label %.preheader28.i, label %parse_single_hex_dump_line.exit.thread
 
-.preheader.i:                                     ; preds = %110
-  %103 = trunc nuw nsw i64 %101 to i32
-  %104 = trunc i64 %101 to i32
-  %105 = or disjoint i32 %104, 1
-  br label %111
+.preheader28.i:                                   ; preds = %100, %107
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %107 ], [ 7, %100 ]
+  %103 = getelementptr i8, ptr %5, i64 %indvars.iv.i
+  %104 = load i8, ptr %103, align 1
+  %105 = icmp eq i8 %104, 32
+  br i1 %105, label %106, label %107
 
-.preheader28.i:                                   ; preds = %100, %110
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %110 ], [ 7, %100 ]
-  %106 = getelementptr i8, ptr %5, i64 %indvars.iv.i
-  %107 = load i8, ptr %106, align 1
-  %108 = icmp eq i8 %107, 32
-  br i1 %108, label %109, label %110
+106:                                              ; preds = %.preheader28.i
+  store i8 48, ptr %103, align 1
+  br label %107
 
-109:                                              ; preds = %.preheader28.i
-  store i8 48, ptr %106, align 1
-  br label %110
-
-110:                                              ; preds = %109, %.preheader28.i
+107:                                              ; preds = %106, %.preheader28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 46
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader28.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.preheader28.i, !llvm.loop !11
 
-111:                                              ; preds = %111, %.preheader.i
-  %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %111 ]
-  %indvars.iv33.i = phi i64 [ 7, %.preheader.i ], [ %indvars.iv.next34.i, %111 ]
-  %112 = getelementptr i8, ptr %5, i64 %indvars.iv33.i
-  %113 = getelementptr i8, ptr %112, i64 4
-  store i8 0, ptr %113, align 1
-  %114 = call i64 @strtoul(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 16) #8
-  %115 = trunc i64 %114 to i8
-  %116 = lshr i64 %114, 8
-  %117 = trunc i64 %116 to i8
+.preheader.i.preheader:                           ; preds = %107
+  %108 = trunc nuw nsw i64 %101 to i32
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
+  %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.preheader.i ], [ 7, %.preheader.i.preheader ]
+  %109 = getelementptr i8, ptr %5, i64 %indvars.iv33.i
+  %110 = getelementptr i8, ptr %109, i64 4
+  store i8 0, ptr %110, align 1
+  %111 = call i64 @strtoul(ptr noundef captures(none) %109, ptr noundef null, i32 noundef 16) #8
+  %112 = trunc i64 %111 to i8
+  %113 = lshr i64 %111, 8
+  %114 = trunc i64 %113 to i8
   %indvars.iv35.tr.i = trunc i64 %indvars.iv35.i to i32
-  %118 = shl i32 %indvars.iv35.tr.i, 1
-  %119 = add nuw nsw i32 %118, %103
+  %115 = shl i32 %indvars.iv35.tr.i, 1
+  %116 = add nuw nsw i32 %115, %108
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr i8, ptr %86, i64 %117
+  store i8 %114, ptr %118, align 1
+  %119 = or disjoint i32 %116, 1
   %120 = zext i32 %119 to i64
   %121 = getelementptr i8, ptr %86, i64 %120
-  store i8 %117, ptr %121, align 1
-  %.reass.i = add nuw nsw i32 %105, %118
-  %122 = zext i32 %.reass.i to i64
-  %123 = getelementptr i8, ptr %86, i64 %122
-  store i8 %115, ptr %123, align 1
+  store i8 %112, ptr %121, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 5
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %111, !llvm.loop !12
+  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %.preheader.i, !llvm.loop !12
 
 parse_single_hex_dump_line.exit.thread:           ; preds = %100
   store i32 -13, ptr %2, align 4
-  %124 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
-  store ptr %124, ptr %3, align 8
+  %122 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8)
+  store ptr %122, ptr %3, align 8
   br label %.loopexit
 
-parse_single_hex_dump_line.exit:                  ; preds = %111
+parse_single_hex_dump_line.exit:                  ; preds = %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !13

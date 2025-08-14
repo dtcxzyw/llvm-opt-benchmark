@@ -55347,7 +55347,6 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   %68 = or i32 %67, 1
   %69 = mul i32 %68, 1765145193
   %invariant.gep = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %62
-  %invariant.op = xor i32 %65, %64
   br label %70
 
 70:                                               ; preds = %.lr.ph31.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
@@ -55356,44 +55355,44 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   br label %72
 
 72:                                               ; preds = %72, %70
-  %.0.i.us = phi i32 [ %71, %70 ], [ %99, %72 ]
+  %.0.i.us = phi i32 [ %71, %70 ], [ %100, %72 ]
   %73 = xor i32 %.0.i.us, %63
   %74 = mul i32 %73, -512718531
   %75 = xor i32 %74, %64
   %76 = and i32 %75, %48
   %77 = lshr i32 %76, 4
-  %.reass.reass = xor i32 %77, %invariant.op
-  %78 = xor i32 %.reass.reass, %74
-  %79 = mul i32 %78, 153742143
-  %80 = xor i32 %79, %66
-  %81 = and i32 %80, %48
-  %82 = lshr i32 %81, 1
-  %83 = xor i32 %82, %80
-  %84 = mul i32 %69, %83
-  %85 = and i32 %84, %48
-  %86 = lshr i32 %85, 11
-  %87 = xor i32 %86, %84
-  %88 = mul i32 %87, 1960620803
-  %89 = and i32 %88, %48
-  %90 = lshr i32 %89, 2
-  %91 = xor i32 %90, %88
-  %92 = mul i32 %91, -1638916925
-  %93 = and i32 %92, %48
-  %94 = lshr i32 %93, 2
-  %95 = xor i32 %94, %92
-  %96 = mul i32 %95, -933190689
-  %97 = and i32 %96, %48
-  %98 = lshr i32 %97, 5
-  %99 = xor i32 %98, %97
-  %.not.i.us = icmp ult i32 %99, %1
+  %78 = xor i32 %65, %77
+  %79 = xor i32 %78, %75
+  %80 = mul i32 %79, 153742143
+  %81 = xor i32 %80, %66
+  %82 = and i32 %81, %48
+  %83 = lshr i32 %82, 1
+  %84 = xor i32 %83, %81
+  %85 = mul i32 %69, %84
+  %86 = and i32 %85, %48
+  %87 = lshr i32 %86, 11
+  %88 = xor i32 %87, %85
+  %89 = mul i32 %88, 1960620803
+  %90 = and i32 %89, %48
+  %91 = lshr i32 %90, 2
+  %92 = xor i32 %91, %89
+  %93 = mul i32 %92, -1638916925
+  %94 = and i32 %93, %48
+  %95 = lshr i32 %94, 2
+  %96 = xor i32 %95, %93
+  %97 = mul i32 %96, -933190689
+  %98 = and i32 %97, %48
+  %99 = lshr i32 %98, 5
+  %100 = xor i32 %99, %98
+  %.not.i.us = icmp ult i32 %100, %1
   br i1 %.not.i.us, label %_ZN4pbrt18PermutationElementEjjj.exit.us, label %72, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %72
-  %100 = add i32 %99, %63
-  %101 = urem i32 %100, %1
-  %102 = trunc i32 %101 to i16
+  %101 = add i32 %100, %63
+  %102 = urem i32 %101, %1
+  %103 = trunc i32 %102 to i16
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
-  store i16 %102, ptr %gep, align 2, !tbaa !1314
+  store i16 %103, ptr %gep, align 2, !tbaa !1314
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext.i
   br i1 %exitcond.not, label %._crit_edge32.us, label %70, !llvm.loop !1424
@@ -60603,75 +60602,74 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %39 = lshr i32 %24, 27
   %40 = or i32 %39, 1
   %41 = mul i32 %40, 1765145193
-  %invariant.op = xor i32 %37, %36
   br label %42
 
 42:                                               ; preds = %42, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %69, %42 ]
+  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %70, %42 ]
   %43 = xor i32 %.0.i, %24
   %44 = mul i32 %43, -512718531
   %45 = xor i32 %44, %36
   %46 = and i32 %45, %35
   %47 = lshr i32 %46, 4
-  %.reass.reass = xor i32 %47, %invariant.op
-  %48 = xor i32 %.reass.reass, %44
-  %49 = mul i32 %48, 153742143
-  %50 = xor i32 %49, %38
-  %51 = and i32 %50, %35
-  %52 = lshr i32 %51, 1
-  %53 = xor i32 %52, %50
-  %54 = mul i32 %41, %53
-  %55 = and i32 %54, %35
-  %56 = lshr i32 %55, 11
-  %57 = xor i32 %56, %54
-  %58 = mul i32 %57, 1960620803
-  %59 = and i32 %58, %35
-  %60 = lshr i32 %59, 2
-  %61 = xor i32 %60, %58
-  %62 = mul i32 %61, -1638916925
-  %63 = and i32 %62, %35
-  %64 = lshr i32 %63, 2
-  %65 = xor i32 %64, %62
-  %66 = mul i32 %65, -933190689
-  %67 = and i32 %66, %35
-  %68 = lshr i32 %67, 5
-  %69 = xor i32 %68, %67
-  %.not.i = icmp ult i32 %69, %23
+  %48 = xor i32 %37, %47
+  %49 = xor i32 %48, %45
+  %50 = mul i32 %49, 153742143
+  %51 = xor i32 %50, %38
+  %52 = and i32 %51, %35
+  %53 = lshr i32 %52, 1
+  %54 = xor i32 %53, %51
+  %55 = mul i32 %41, %54
+  %56 = and i32 %55, %35
+  %57 = lshr i32 %56, 11
+  %58 = xor i32 %57, %55
+  %59 = mul i32 %58, 1960620803
+  %60 = and i32 %59, %35
+  %61 = lshr i32 %60, 2
+  %62 = xor i32 %61, %59
+  %63 = mul i32 %62, -1638916925
+  %64 = and i32 %63, %35
+  %65 = lshr i32 %64, 2
+  %66 = xor i32 %65, %63
+  %67 = mul i32 %66, -933190689
+  %68 = and i32 %67, %35
+  %69 = lshr i32 %68, 5
+  %70 = xor i32 %69, %68
+  %.not.i = icmp ult i32 %70, %23
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %42, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %42
-  %70 = icmp sgt i32 %5, -1
-  %71 = and i64 %.sroa.01.0.copyload, -9223372034707292160
-  %72 = icmp eq i64 %71, 0
-  %or.cond5.i = select i1 %70, i1 %72, i1 false
-  br i1 %or.cond5.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit, label %73
+  %71 = icmp sgt i32 %5, -1
+  %72 = and i64 %.sroa.01.0.copyload, -9223372034707292160
+  %73 = icmp eq i64 %72, 0
+  %or.cond5.i = select i1 %71, i1 %73, i1 false
+  br i1 %or.cond5.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit, label %74
 
-73:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
+74:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
   tail call void @_ZN4pbrt8LogFatalIJRA42_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.132, i32 noundef 26, ptr noundef nonnull @.str.50, ptr noundef nonnull align 1 dereferenceable(42) @.str.133) #40
   unreachable
 
 _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit:          ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %74 = add i32 %69, %24
-  %75 = urem i32 %74, %23
+  %75 = add i32 %70, %24
+  %76 = urem i32 %75, %23
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.01.0.copyload, 32
-  %76 = urem i32 %5, 48
-  %77 = and i64 %.sroa.01.0.copyload, 127
-  %78 = and i64 %.sroa.3.0.extract.shift.i, 127
-  %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %79
-  %81 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %80, i64 0, i64 %77
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %81, i64 0, i64 %78
-  %83 = load i16, ptr %82, align 2, !tbaa !1314
-  %84 = uitofp i16 %83 to float
-  %85 = fdiv float %84, 6.553500e+04
-  %86 = add nuw nsw i32 %5, 1
-  store i32 %86, ptr %4, align 4, !tbaa !1444
-  %87 = sitofp i32 %75 to float
-  %88 = fadd float %85, %87
-  %89 = sitofp i32 %23 to float
-  %90 = fdiv float %88, %89
-  %91 = fcmp ogt float %90, 0x3FEFFFFFE0000000
-  %.sroa.speculated = select i1 %91, float 0x3FEFFFFFE0000000, float %90
+  %77 = urem i32 %5, 48
+  %78 = and i64 %.sroa.01.0.copyload, 127
+  %79 = and i64 %.sroa.3.0.extract.shift.i, 127
+  %80 = zext nneg i32 %77 to i64
+  %81 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %80
+  %82 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %81, i64 0, i64 %78
+  %83 = getelementptr inbounds nuw [128 x i16], ptr %82, i64 0, i64 %79
+  %84 = load i16, ptr %83, align 2, !tbaa !1314
+  %85 = uitofp i16 %84 to float
+  %86 = fdiv float %85, 6.553500e+04
+  %87 = add nuw nsw i32 %5, 1
+  store i32 %87, ptr %4, align 4, !tbaa !1444
+  %88 = sitofp i32 %76 to float
+  %89 = fadd float %86, %88
+  %90 = sitofp i32 %23 to float
+  %91 = fdiv float %89, %90
+  %92 = fcmp ogt float %91, 0x3FEFFFFFE0000000
+  %.sroa.speculated = select i1 %92, float 0x3FEFFFFFE0000000, float %91
   ret float %.sroa.speculated
 }
 
@@ -61299,80 +61297,79 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %42 = lshr i32 %27, 27
   %43 = or i32 %42, 1
   %44 = mul i32 %43, 1765145193
-  %invariant.op = xor i32 %40, %39
   br label %45
 
 45:                                               ; preds = %45, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %72, %45 ]
+  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %73, %45 ]
   %46 = xor i32 %.0.i, %27
   %47 = mul i32 %46, -512718531
   %48 = xor i32 %47, %39
   %49 = and i32 %48, %38
   %50 = lshr i32 %49, 4
-  %.reass.reass = xor i32 %50, %invariant.op
-  %51 = xor i32 %.reass.reass, %47
-  %52 = mul i32 %51, 153742143
-  %53 = xor i32 %52, %41
-  %54 = and i32 %53, %38
-  %55 = lshr i32 %54, 1
-  %56 = xor i32 %55, %53
-  %57 = mul i32 %44, %56
-  %58 = and i32 %57, %38
-  %59 = lshr i32 %58, 11
-  %60 = xor i32 %59, %57
-  %61 = mul i32 %60, 1960620803
-  %62 = and i32 %61, %38
-  %63 = lshr i32 %62, 2
-  %64 = xor i32 %63, %61
-  %65 = mul i32 %64, -1638916925
-  %66 = and i32 %65, %38
-  %67 = lshr i32 %66, 2
-  %68 = xor i32 %67, %65
-  %69 = mul i32 %68, -933190689
-  %70 = and i32 %69, %38
-  %71 = lshr i32 %70, 5
-  %72 = xor i32 %71, %70
-  %.not.i = icmp ult i32 %72, %26
+  %51 = xor i32 %40, %50
+  %52 = xor i32 %51, %48
+  %53 = mul i32 %52, 153742143
+  %54 = xor i32 %53, %41
+  %55 = and i32 %54, %38
+  %56 = lshr i32 %55, 1
+  %57 = xor i32 %56, %54
+  %58 = mul i32 %44, %57
+  %59 = and i32 %58, %38
+  %60 = lshr i32 %59, 11
+  %61 = xor i32 %60, %58
+  %62 = mul i32 %61, 1960620803
+  %63 = and i32 %62, %38
+  %64 = lshr i32 %63, 2
+  %65 = xor i32 %64, %62
+  %66 = mul i32 %65, -1638916925
+  %67 = and i32 %66, %38
+  %68 = lshr i32 %67, 2
+  %69 = xor i32 %68, %66
+  %70 = mul i32 %69, -933190689
+  %71 = and i32 %70, %38
+  %72 = lshr i32 %71, 5
+  %73 = xor i32 %72, %71
+  %.not.i = icmp ult i32 %73, %26
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %45, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %45
-  %73 = add nsw i32 %5, 1
-  store i32 %73, ptr %4, align 4, !tbaa !1448
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %75 = load i8, ptr %74, align 4, !tbaa !1523, !range !116, !noundef !117
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %94
+  %74 = add nsw i32 %5, 1
+  store i32 %74, ptr %4, align 4, !tbaa !1448
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %76 = load i8, ptr %75, align 4, !tbaa !1523, !range !116, !noundef !117
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %95
 
-77:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !744
-  %80 = mul i64 %79, 6364136223846793005
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load i64, ptr %81, align 8, !tbaa !743
-  %83 = add i64 %80, %82
-  store i64 %83, ptr %78, align 8, !tbaa !744
-  %84 = lshr i64 %79, 45
-  %85 = lshr i64 %79, 27
-  %86 = xor i64 %84, %85
-  %87 = trunc i64 %86 to i32
-  %88 = lshr i64 %79, 59
-  %89 = trunc nuw nsw i64 %88 to i32
-  %90 = tail call noundef i32 @llvm.fshr.i32(i32 %87, i32 %87, i32 %89)
-  %91 = uitofp i32 %90 to float
-  %92 = fmul float %91, 0x3DF0000000000000
-  %93 = fcmp olt float %92, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i = select i1 %93, float %92, float 0x3FEFFFFFE0000000
-  br label %94
+78:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !744
+  %81 = mul i64 %80, 6364136223846793005
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %83 = load i64, ptr %82, align 8, !tbaa !743
+  %84 = add i64 %81, %83
+  store i64 %84, ptr %79, align 8, !tbaa !744
+  %85 = lshr i64 %80, 45
+  %86 = lshr i64 %80, 27
+  %87 = xor i64 %85, %86
+  %88 = trunc i64 %87 to i32
+  %89 = lshr i64 %80, 59
+  %90 = trunc nuw nsw i64 %89 to i32
+  %91 = tail call noundef i32 @llvm.fshr.i32(i32 %88, i32 %88, i32 %90)
+  %92 = uitofp i32 %91 to float
+  %93 = fmul float %92, 0x3DF0000000000000
+  %94 = fcmp olt float %93, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i = select i1 %94, float %93, float 0x3FEFFFFFE0000000
+  br label %95
 
-94:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit, %77
-  %95 = phi float [ %.sroa.speculated.i, %77 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
-  %96 = add i32 %72, %27
-  %97 = urem i32 %96, %26
-  %98 = sitofp i32 %97 to float
-  %99 = fadd float %95, %98
-  %100 = sitofp i32 %26 to float
-  %101 = fdiv float %99, %100
-  ret float %101
+95:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit, %78
+  %96 = phi float [ %.sroa.speculated.i, %78 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %97 = add i32 %73, %27
+  %98 = urem i32 %97, %26
+  %99 = sitofp i32 %98 to float
+  %100 = fadd float %96, %99
+  %101 = sitofp i32 %26 to float
+  %102 = fdiv float %100, %101
+  ret float %102
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -61538,8 +61535,8 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt27OwenScrambledRadicalInver
 
 23:                                               ; preds = %.lr.ph, %_ZN4pbrt18PermutationElementEjjj.exit
   %.030 = phi i64 [ %1, %.lr.ph ], [ %24, %_ZN4pbrt18PermutationElementEjjj.exit ]
-  %.02529 = phi float [ 1.000000e+00, %.lr.ph ], [ %76, %_ZN4pbrt18PermutationElementEjjj.exit ]
-  %.02628 = phi i64 [ 0, %.lr.ph ], [ %75, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %.02529 = phi float [ 1.000000e+00, %.lr.ph ], [ %77, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %.02628 = phi i64 [ 0, %.lr.ph ], [ %76, %_ZN4pbrt18PermutationElementEjjj.exit ]
   %24 = udiv i64 %.030, %6
   %25 = mul i64 %24, %6
   %.recomposed = urem i64 %.030, %6
@@ -61560,60 +61557,59 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt27OwenScrambledRadicalInver
   %40 = lshr i32 %36, 27
   %41 = or i32 %40, 1
   %42 = mul i32 %41, 1765145193
-  %invariant.op = xor i32 %38, %37
   br label %43
 
 43:                                               ; preds = %43, %23
-  %.0.i = phi i32 [ %26, %23 ], [ %70, %43 ]
+  %.0.i = phi i32 [ %26, %23 ], [ %71, %43 ]
   %44 = xor i32 %.0.i, %36
   %45 = mul i32 %44, -512718531
   %46 = xor i32 %45, %37
   %47 = and i32 %46, %22
   %48 = lshr i32 %47, 4
-  %.reass.reass = xor i32 %48, %invariant.op
-  %49 = xor i32 %.reass.reass, %45
-  %50 = mul i32 %49, 153742143
-  %51 = xor i32 %50, %39
-  %52 = and i32 %51, %22
-  %53 = lshr i32 %52, 1
-  %54 = xor i32 %53, %51
-  %55 = mul i32 %42, %54
-  %56 = and i32 %55, %22
-  %57 = lshr i32 %56, 11
-  %58 = xor i32 %57, %55
-  %59 = mul i32 %58, 1960620803
-  %60 = and i32 %59, %22
-  %61 = lshr i32 %60, 2
-  %62 = xor i32 %61, %59
-  %63 = mul i32 %62, -1638916925
-  %64 = and i32 %63, %22
-  %65 = lshr i32 %64, 2
-  %66 = xor i32 %65, %63
-  %67 = mul i32 %66, -933190689
-  %68 = and i32 %67, %22
-  %69 = lshr i32 %68, 5
-  %70 = xor i32 %69, %68
-  %.not.i = icmp ult i32 %70, %5
+  %49 = xor i32 %38, %48
+  %50 = xor i32 %49, %46
+  %51 = mul i32 %50, 153742143
+  %52 = xor i32 %51, %39
+  %53 = and i32 %52, %22
+  %54 = lshr i32 %53, 1
+  %55 = xor i32 %54, %52
+  %56 = mul i32 %42, %55
+  %57 = and i32 %56, %22
+  %58 = lshr i32 %57, 11
+  %59 = xor i32 %58, %56
+  %60 = mul i32 %59, 1960620803
+  %61 = and i32 %60, %22
+  %62 = lshr i32 %61, 2
+  %63 = xor i32 %62, %60
+  %64 = mul i32 %63, -1638916925
+  %65 = and i32 %64, %22
+  %66 = lshr i32 %65, 2
+  %67 = xor i32 %66, %64
+  %68 = mul i32 %67, -933190689
+  %69 = and i32 %68, %22
+  %70 = lshr i32 %69, 5
+  %71 = xor i32 %70, %69
+  %.not.i = icmp ult i32 %71, %5
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %43, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %43
-  %71 = add i32 %70, %36
-  %72 = urem i32 %71, %5
-  %73 = mul i64 %.02628, %6
-  %74 = sext i32 %72 to i64
-  %75 = add i64 %73, %74
-  %76 = fmul float %10, %.02529
-  %77 = fsub float 1.000000e+00, %76
-  %78 = fcmp olt float %77, 1.000000e+00
-  %79 = icmp ult i64 %75, %8
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %23, label %._crit_edge, !llvm.loop !1530
+  %72 = add i32 %71, %36
+  %73 = urem i32 %72, %5
+  %74 = mul i64 %.02628, %6
+  %75 = sext i32 %73 to i64
+  %76 = add i64 %74, %75
+  %77 = fmul float %10, %.02529
+  %78 = fsub float 1.000000e+00, %77
+  %79 = fcmp olt float %78, 1.000000e+00
+  %80 = icmp ult i64 %76, %8
+  %81 = select i1 %79, i1 %80, i1 false
+  br i1 %81, label %23, label %._crit_edge, !llvm.loop !1530
 
 ._crit_edge:                                      ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %81 = uitofp i64 %75 to float
-  %82 = fmul float %76, %81
-  %83 = fcmp ogt float %82, 0x3FEFFFFFE0000000
-  %.sroa.speculated = select i1 %83, float 0x3FEFFFFFE0000000, float %82
+  %82 = uitofp i64 %76 to float
+  %83 = fmul float %77, %82
+  %84 = fcmp ogt float %83, 0x3FEFFFFFE0000000
+  %.sroa.speculated = select i1 %84, float 0x3FEFFFFFE0000000, float %83
   ret float %.sroa.speculated
 }
 
@@ -61677,51 +61673,50 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %39 = lshr i32 %24, 27
   %40 = or i32 %39, 1
   %41 = mul i32 %40, 1765145193
-  %invariant.op = xor i32 %37, %36
   br label %42
 
 42:                                               ; preds = %42, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %69, %42 ]
+  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %70, %42 ]
   %43 = xor i32 %.0.i, %24
   %44 = mul i32 %43, -512718531
   %45 = xor i32 %44, %36
   %46 = and i32 %45, %35
   %47 = lshr i32 %46, 4
-  %.reass.reass = xor i32 %47, %invariant.op
-  %48 = xor i32 %.reass.reass, %44
-  %49 = mul i32 %48, 153742143
-  %50 = xor i32 %49, %38
-  %51 = and i32 %50, %35
-  %52 = lshr i32 %51, 1
-  %53 = xor i32 %52, %50
-  %54 = mul i32 %41, %53
-  %55 = and i32 %54, %35
-  %56 = lshr i32 %55, 11
-  %57 = xor i32 %56, %54
-  %58 = mul i32 %57, 1960620803
-  %59 = and i32 %58, %35
-  %60 = lshr i32 %59, 2
-  %61 = xor i32 %60, %58
-  %62 = mul i32 %61, -1638916925
-  %63 = and i32 %62, %35
-  %64 = lshr i32 %63, 2
-  %65 = xor i32 %64, %62
-  %66 = mul i32 %65, -933190689
-  %67 = and i32 %66, %35
-  %68 = lshr i32 %67, 5
-  %69 = xor i32 %68, %67
-  %.not.i = icmp ult i32 %69, %23
+  %48 = xor i32 %37, %47
+  %49 = xor i32 %48, %45
+  %50 = mul i32 %49, 153742143
+  %51 = xor i32 %50, %38
+  %52 = and i32 %51, %35
+  %53 = lshr i32 %52, 1
+  %54 = xor i32 %53, %51
+  %55 = mul i32 %41, %54
+  %56 = and i32 %55, %35
+  %57 = lshr i32 %56, 11
+  %58 = xor i32 %57, %55
+  %59 = mul i32 %58, 1960620803
+  %60 = and i32 %59, %35
+  %61 = lshr i32 %60, 2
+  %62 = xor i32 %61, %59
+  %63 = mul i32 %62, -1638916925
+  %64 = and i32 %63, %35
+  %65 = lshr i32 %64, 2
+  %66 = xor i32 %65, %63
+  %67 = mul i32 %66, -933190689
+  %68 = and i32 %67, %35
+  %69 = lshr i32 %68, 5
+  %70 = xor i32 %69, %68
+  %.not.i = icmp ult i32 %70, %23
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %42, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %42
-  %70 = add i32 %69, %24
-  %71 = urem i32 %70, %23
-  %72 = add nsw i32 %5, 1
-  store i32 %72, ptr %4, align 4, !tbaa !1451
-  %73 = lshr i64 %18, 32
-  %74 = trunc nuw i64 %73 to i32
-  %75 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 0, i32 noundef %71, i32 noundef %74)
-  ret float %75
+  %71 = add i32 %70, %24
+  %72 = urem i32 %71, %23
+  %73 = add nsw i32 %5, 1
+  store i32 %73, ptr %4, align 4, !tbaa !1451
+  %74 = lshr i64 %18, 32
+  %75 = trunc nuw i64 %74 to i32
+  %76 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 0, i32 noundef %72, i32 noundef %75)
+  ret float %76
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65113,118 +65108,117 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %41 = lshr i32 %26, 27
   %42 = or i32 %41, 1
   %43 = mul i32 %42, 1765145193
-  %invariant.op = xor i32 %39, %38
   br label %44
 
 44:                                               ; preds = %44, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %4, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %71, %44 ]
+  %.0.i = phi i32 [ %4, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %72, %44 ]
   %45 = xor i32 %.0.i, %26
   %46 = mul i32 %45, -512718531
   %47 = xor i32 %46, %38
   %48 = and i32 %47, %37
   %49 = lshr i32 %48, 4
-  %.reass.reass = xor i32 %49, %invariant.op
-  %50 = xor i32 %.reass.reass, %46
-  %51 = mul i32 %50, 153742143
-  %52 = xor i32 %51, %40
-  %53 = and i32 %52, %37
-  %54 = lshr i32 %53, 1
-  %55 = xor i32 %54, %52
-  %56 = mul i32 %43, %55
-  %57 = and i32 %56, %37
-  %58 = lshr i32 %57, 11
-  %59 = xor i32 %58, %56
-  %60 = mul i32 %59, 1960620803
-  %61 = and i32 %60, %37
-  %62 = lshr i32 %61, 2
-  %63 = xor i32 %62, %60
-  %64 = mul i32 %63, -1638916925
-  %65 = and i32 %64, %37
-  %66 = lshr i32 %65, 2
-  %67 = xor i32 %66, %64
-  %68 = mul i32 %67, -933190689
-  %69 = and i32 %68, %37
-  %70 = lshr i32 %69, 5
-  %71 = xor i32 %70, %69
-  %.not.i = icmp ult i32 %71, %25
+  %50 = xor i32 %39, %49
+  %51 = xor i32 %50, %47
+  %52 = mul i32 %51, 153742143
+  %53 = xor i32 %52, %40
+  %54 = and i32 %53, %37
+  %55 = lshr i32 %54, 1
+  %56 = xor i32 %55, %53
+  %57 = mul i32 %43, %56
+  %58 = and i32 %57, %37
+  %59 = lshr i32 %58, 11
+  %60 = xor i32 %59, %57
+  %61 = mul i32 %60, 1960620803
+  %62 = and i32 %61, %37
+  %63 = lshr i32 %62, 2
+  %64 = xor i32 %63, %61
+  %65 = mul i32 %64, -1638916925
+  %66 = and i32 %65, %37
+  %67 = lshr i32 %66, 2
+  %68 = xor i32 %67, %65
+  %69 = mul i32 %68, -933190689
+  %70 = and i32 %69, %37
+  %71 = lshr i32 %70, 5
+  %72 = xor i32 %71, %70
+  %.not.i = icmp ult i32 %72, %25
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %44, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %44
-  %72 = add i32 %71, %26
-  %73 = urem i32 %72, %25
+  %73 = add i32 %72, %26
+  %74 = urem i32 %73, %25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %_ZN4pbrt18PermutationElementEjjj.exit
-  %.0 = phi i32 [ %73, %_ZN4pbrt18PermutationElementEjjj.exit ], [ %4, %1 ]
-  %74 = icmp sgt i32 %6, -1
-  %75 = and i64 %.sroa.02.0.copyload, -9223372034707292160
-  %76 = icmp eq i64 %75, 0
-  %or.cond5.i = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond5.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10, label %77
+  %.0 = phi i32 [ %74, %_ZN4pbrt18PermutationElementEjjj.exit ], [ %4, %1 ]
+  %75 = icmp sgt i32 %6, -1
+  %76 = and i64 %.sroa.02.0.copyload, -9223372034707292160
+  %77 = icmp eq i64 %76, 0
+  %or.cond5.i = select i1 %75, i1 %77, i1 false
+  br i1 %or.cond5.i, label %_ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10, label %78
 
-77:                                               ; preds = %._crit_edge
+78:                                               ; preds = %._crit_edge
   tail call void @_ZN4pbrt8LogFatalIJRA42_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.132, i32 noundef 26, ptr noundef nonnull @.str.50, ptr noundef nonnull align 1 dereferenceable(42) @.str.133) #40
   unreachable
 
 _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10:        ; preds = %._crit_edge
-  %78 = lshr i32 %6, 1
-  %79 = urem i32 %78, 5
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %80
-  %82 = srem i32 %.0, 65536
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [65536 x [2 x i32]], ptr %81, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 8, !tbaa !15
-  %86 = uitofp i32 %85 to double
-  %87 = fmul double %86, 0x3DF0000000000000
-  %88 = fptrunc double %87 to float
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !15
-  %91 = uitofp i32 %90 to double
-  %92 = fmul double %91, 0x3DF0000000000000
-  %93 = fptrunc double %92 to float
+  %79 = lshr i32 %6, 1
+  %80 = urem i32 %79, 5
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds nuw [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %81
+  %83 = srem i32 %.0, 65536
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds [65536 x [2 x i32]], ptr %82, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 8, !tbaa !15
+  %87 = uitofp i32 %86 to double
+  %88 = fmul double %87, 0x3DF0000000000000
+  %89 = fptrunc double %88 to float
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !15
+  %92 = uitofp i32 %91 to double
+  %93 = fmul double %92, 0x3DF0000000000000
+  %94 = fptrunc double %93 to float
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.02.0.copyload, 32
-  %94 = urem i32 %6, 48
-  %95 = and i64 %.sroa.02.0.copyload, 127
-  %96 = and i64 %.sroa.3.0.extract.shift.i, 127
-  %97 = zext nneg i32 %94 to i64
-  %98 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %97
-  %99 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %98, i64 0, i64 %95
-  %100 = getelementptr inbounds nuw [128 x i16], ptr %99, i64 0, i64 %96
-  %101 = load i16, ptr %100, align 2, !tbaa !1314
-  %102 = uitofp i16 %101 to float
-  %103 = fdiv float %102, 6.553500e+04
-  %104 = add nuw nsw i32 %6, 1
-  %105 = urem i32 %104, 48
-  %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %106
-  %108 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %107, i64 0, i64 %95
-  %109 = getelementptr inbounds nuw [128 x i16], ptr %108, i64 0, i64 %96
-  %110 = load i16, ptr %109, align 2, !tbaa !1314
-  %111 = uitofp i16 %110 to float
-  %112 = fdiv float %111, 6.553500e+04
-  %113 = fadd float %103, %88
-  %114 = insertelement <2 x float> poison, float %113, i64 0
-  %115 = fadd float %112, %93
-  %.sroa.013.4.vec.insert = insertelement <2 x float> %114, float %115, i64 1
-  %116 = fcmp ult float %113, 1.000000e+00
-  %117 = fadd float %113, -1.000000e+00
-  %.sroa.013.0.vec.insert = insertelement <2 x float> %.sroa.013.4.vec.insert, float %117, i64 0
-  %.sroa.013.0 = select i1 %116, <2 x float> %.sroa.013.4.vec.insert, <2 x float> %.sroa.013.0.vec.insert
-  %118 = fcmp ult float %115, 1.000000e+00
-  %119 = fadd float %115, -1.000000e+00
-  %.sroa.013.4.vec.insert42 = insertelement <2 x float> %.sroa.013.0, float %119, i64 1
-  %.sroa.013.1 = select i1 %118, <2 x float> %.sroa.013.0, <2 x float> %.sroa.013.4.vec.insert42
-  %120 = add nuw nsw i32 %6, 2
-  store i32 %120, ptr %5, align 4, !tbaa !1444
+  %95 = urem i32 %6, 48
+  %96 = and i64 %.sroa.02.0.copyload, 127
+  %97 = and i64 %.sroa.3.0.extract.shift.i, 127
+  %98 = zext nneg i32 %95 to i64
+  %99 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %99, i64 0, i64 %96
+  %101 = getelementptr inbounds nuw [128 x i16], ptr %100, i64 0, i64 %97
+  %102 = load i16, ptr %101, align 2, !tbaa !1314
+  %103 = uitofp i16 %102 to float
+  %104 = fdiv float %103, 6.553500e+04
+  %105 = add nuw nsw i32 %6, 1
+  %106 = urem i32 %105, 48
+  %107 = zext nneg i32 %106 to i64
+  %108 = getelementptr inbounds nuw [48 x [128 x [128 x i16]]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 0, i64 %107
+  %109 = getelementptr inbounds nuw [128 x [128 x i16]], ptr %108, i64 0, i64 %96
+  %110 = getelementptr inbounds nuw [128 x i16], ptr %109, i64 0, i64 %97
+  %111 = load i16, ptr %110, align 2, !tbaa !1314
+  %112 = uitofp i16 %111 to float
+  %113 = fdiv float %112, 6.553500e+04
+  %114 = fadd float %104, %89
+  %115 = insertelement <2 x float> poison, float %114, i64 0
+  %116 = fadd float %113, %94
+  %.sroa.013.4.vec.insert = insertelement <2 x float> %115, float %116, i64 1
+  %117 = fcmp ult float %114, 1.000000e+00
+  %118 = fadd float %114, -1.000000e+00
+  %.sroa.013.0.vec.insert = insertelement <2 x float> %.sroa.013.4.vec.insert, float %118, i64 0
+  %.sroa.013.0 = select i1 %117, <2 x float> %.sroa.013.4.vec.insert, <2 x float> %.sroa.013.0.vec.insert
+  %119 = fcmp ult float %116, 1.000000e+00
+  %120 = fadd float %116, -1.000000e+00
+  %.sroa.013.4.vec.insert42 = insertelement <2 x float> %.sroa.013.0, float %120, i64 1
+  %.sroa.013.1 = select i1 %119, <2 x float> %.sroa.013.0, <2 x float> %.sroa.013.4.vec.insert42
+  %121 = add nuw nsw i32 %6, 2
+  store i32 %121, ptr %5, align 4, !tbaa !1444
   %.sroa.013.0.vec.extract37 = extractelement <2 x float> %.sroa.013.1, i64 0
-  %121 = fcmp ogt float %.sroa.013.0.vec.extract37, 0x3FEFFFFFE0000000
-  %122 = select i1 %121, float 0x3FEFFFFFE0000000, float %.sroa.013.0.vec.extract37
+  %122 = fcmp ogt float %.sroa.013.0.vec.extract37, 0x3FEFFFFFE0000000
+  %123 = select i1 %122, float 0x3FEFFFFFE0000000, float %.sroa.013.0.vec.extract37
   %.sroa.013.4.vec.extract40 = extractelement <2 x float> %.sroa.013.1, i64 1
-  %123 = fcmp ogt float %.sroa.013.4.vec.extract40, 0x3FEFFFFFE0000000
-  %124 = select i1 %123, float 0x3FEFFFFFE0000000, float %.sroa.013.4.vec.extract40
-  %.sroa.029.0.vec.insert = insertelement <2 x float> poison, float %122, i64 0
-  %.sroa.029.4.vec.insert = insertelement <2 x float> %.sroa.029.0.vec.insert, float %124, i64 1
+  %124 = fcmp ogt float %.sroa.013.4.vec.extract40, 0x3FEFFFFFE0000000
+  %125 = select i1 %124, float 0x3FEFFFFFE0000000, float %.sroa.013.4.vec.extract40
+  %.sroa.029.0.vec.insert = insertelement <2 x float> poison, float %123, i64 0
+  %.sroa.029.4.vec.insert = insertelement <2 x float> %.sroa.029.0.vec.insert, float %125, i64 1
   ret <2 x float> %.sroa.029.4.vec.insert
 }
 
@@ -65291,101 +65285,100 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %42 = lshr i32 %27, 27
   %43 = or i32 %42, 1
   %44 = mul i32 %43, 1765145193
-  %invariant.op = xor i32 %40, %39
   br label %45
 
 45:                                               ; preds = %45, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %72, %45 ]
+  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %73, %45 ]
   %46 = xor i32 %.0.i, %27
   %47 = mul i32 %46, -512718531
   %48 = xor i32 %47, %39
   %49 = and i32 %48, %38
   %50 = lshr i32 %49, 4
-  %.reass.reass = xor i32 %50, %invariant.op
-  %51 = xor i32 %.reass.reass, %47
-  %52 = mul i32 %51, 153742143
-  %53 = xor i32 %52, %41
-  %54 = and i32 %53, %38
-  %55 = lshr i32 %54, 1
-  %56 = xor i32 %55, %53
-  %57 = mul i32 %44, %56
-  %58 = and i32 %57, %38
-  %59 = lshr i32 %58, 11
-  %60 = xor i32 %59, %57
-  %61 = mul i32 %60, 1960620803
-  %62 = and i32 %61, %38
-  %63 = lshr i32 %62, 2
-  %64 = xor i32 %63, %61
-  %65 = mul i32 %64, -1638916925
-  %66 = and i32 %65, %38
-  %67 = lshr i32 %66, 2
-  %68 = xor i32 %67, %65
-  %69 = mul i32 %68, -933190689
-  %70 = and i32 %69, %38
-  %71 = lshr i32 %70, 5
-  %72 = xor i32 %71, %70
-  %.not.i = icmp ult i32 %72, %26
+  %51 = xor i32 %40, %50
+  %52 = xor i32 %51, %48
+  %53 = mul i32 %52, 153742143
+  %54 = xor i32 %53, %41
+  %55 = and i32 %54, %38
+  %56 = lshr i32 %55, 1
+  %57 = xor i32 %56, %54
+  %58 = mul i32 %44, %57
+  %59 = and i32 %58, %38
+  %60 = lshr i32 %59, 11
+  %61 = xor i32 %60, %58
+  %62 = mul i32 %61, 1960620803
+  %63 = and i32 %62, %38
+  %64 = lshr i32 %63, 2
+  %65 = xor i32 %64, %62
+  %66 = mul i32 %65, -1638916925
+  %67 = and i32 %66, %38
+  %68 = lshr i32 %67, 2
+  %69 = xor i32 %68, %66
+  %70 = mul i32 %69, -933190689
+  %71 = and i32 %70, %38
+  %72 = lshr i32 %71, 5
+  %73 = xor i32 %72, %71
+  %.not.i = icmp ult i32 %73, %26
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %45, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %45
-  %73 = add nsw i32 %5, 2
-  store i32 %73, ptr %4, align 4, !tbaa !1448
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %75 = load i8, ptr %74, align 4, !tbaa !1523, !range !116, !noundef !117
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %106
+  %74 = add nsw i32 %5, 2
+  store i32 %74, ptr %4, align 4, !tbaa !1448
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %76 = load i8, ptr %75, align 4, !tbaa !1523, !range !116, !noundef !117
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %107
 
-77:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !744
-  %80 = mul i64 %79, 6364136223846793005
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load i64, ptr %81, align 8, !tbaa !743
-  %83 = add i64 %80, %82
-  %84 = lshr i64 %79, 45
-  %85 = lshr i64 %79, 27
-  %86 = xor i64 %84, %85
-  %87 = trunc i64 %86 to i32
-  %88 = lshr i64 %79, 59
-  %89 = trunc nuw nsw i64 %88 to i32
-  %90 = tail call noundef i32 @llvm.fshr.i32(i32 %87, i32 %87, i32 %89)
-  %91 = uitofp i32 %90 to float
-  %92 = fmul float %91, 0x3DF0000000000000
-  %93 = fcmp olt float %92, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i = select i1 %93, float %92, float 0x3FEFFFFFE0000000
-  %94 = mul i64 %83, 6364136223846793005
-  %95 = add i64 %94, %82
-  store i64 %95, ptr %78, align 8, !tbaa !744
-  %96 = lshr i64 %83, 45
-  %97 = lshr i64 %83, 27
-  %98 = xor i64 %96, %97
-  %99 = trunc i64 %98 to i32
-  %100 = lshr i64 %83, 59
-  %101 = trunc nuw nsw i64 %100 to i32
-  %102 = tail call noundef i32 @llvm.fshr.i32(i32 %99, i32 %99, i32 %101)
-  %103 = uitofp i32 %102 to float
-  %104 = fmul float %103, 0x3DF0000000000000
-  %105 = fcmp olt float %104, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i7 = select i1 %105, float %104, float 0x3FEFFFFFE0000000
-  br label %106
+78:                                               ; preds = %_ZN4pbrt18PermutationElementEjjj.exit
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !744
+  %81 = mul i64 %80, 6364136223846793005
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %83 = load i64, ptr %82, align 8, !tbaa !743
+  %84 = add i64 %81, %83
+  %85 = lshr i64 %80, 45
+  %86 = lshr i64 %80, 27
+  %87 = xor i64 %85, %86
+  %88 = trunc i64 %87 to i32
+  %89 = lshr i64 %80, 59
+  %90 = trunc nuw nsw i64 %89 to i32
+  %91 = tail call noundef i32 @llvm.fshr.i32(i32 %88, i32 %88, i32 %90)
+  %92 = uitofp i32 %91 to float
+  %93 = fmul float %92, 0x3DF0000000000000
+  %94 = fcmp olt float %93, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i = select i1 %94, float %93, float 0x3FEFFFFFE0000000
+  %95 = mul i64 %84, 6364136223846793005
+  %96 = add i64 %95, %83
+  store i64 %96, ptr %79, align 8, !tbaa !744
+  %97 = lshr i64 %84, 45
+  %98 = lshr i64 %84, 27
+  %99 = xor i64 %97, %98
+  %100 = trunc i64 %99 to i32
+  %101 = lshr i64 %84, 59
+  %102 = trunc nuw nsw i64 %101 to i32
+  %103 = tail call noundef i32 @llvm.fshr.i32(i32 %100, i32 %100, i32 %102)
+  %104 = uitofp i32 %103 to float
+  %105 = fmul float %104, 0x3DF0000000000000
+  %106 = fcmp olt float %105, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i7 = select i1 %106, float %105, float 0x3FEFFFFFE0000000
+  br label %107
 
-106:                                              ; preds = %_ZN4pbrt18PermutationElementEjjj.exit, %77
-  %107 = phi float [ %.sroa.speculated.i, %77 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
-  %108 = phi float [ %.sroa.speculated.i7, %77 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
-  %109 = add i32 %72, %27
-  %110 = urem i32 %109, %26
-  %111 = sdiv i32 %110, %23
-  %112 = srem i32 %110, %23
-  %113 = sitofp i32 %112 to float
-  %114 = fadd float %107, %113
-  %115 = sitofp i32 %23 to float
-  %116 = fdiv float %114, %115
-  %117 = sitofp i32 %111 to float
-  %118 = fadd float %108, %117
-  %119 = sitofp i32 %25 to float
-  %120 = fdiv float %118, %119
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %116, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %120, i64 1
+107:                                              ; preds = %_ZN4pbrt18PermutationElementEjjj.exit, %78
+  %108 = phi float [ %.sroa.speculated.i, %78 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %109 = phi float [ %.sroa.speculated.i7, %78 ], [ 5.000000e-01, %_ZN4pbrt18PermutationElementEjjj.exit ]
+  %110 = add i32 %73, %27
+  %111 = urem i32 %110, %26
+  %112 = sdiv i32 %111, %23
+  %113 = srem i32 %111, %23
+  %114 = sitofp i32 %113 to float
+  %115 = fadd float %108, %114
+  %116 = sitofp i32 %23 to float
+  %117 = fdiv float %115, %116
+  %118 = sitofp i32 %112 to float
+  %119 = fadd float %109, %118
+  %120 = sitofp i32 %25 to float
+  %121 = fdiv float %119, %120
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %117, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %121, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 
@@ -65449,53 +65442,52 @@ _ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit:     ; preds = %.lr.ph.i.i
   %39 = lshr i32 %24, 27
   %40 = or i32 %39, 1
   %41 = mul i32 %40, 1765145193
-  %invariant.op = xor i32 %37, %36
   br label %42
 
 42:                                               ; preds = %42, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit
-  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %69, %42 ]
+  %.0.i = phi i32 [ %22, %_ZN4pbrt4HashIJNS_6Point2IiEEiiEEEmDpT_.exit ], [ %70, %42 ]
   %43 = xor i32 %.0.i, %24
   %44 = mul i32 %43, -512718531
   %45 = xor i32 %44, %36
   %46 = and i32 %45, %35
   %47 = lshr i32 %46, 4
-  %.reass.reass = xor i32 %47, %invariant.op
-  %48 = xor i32 %.reass.reass, %44
-  %49 = mul i32 %48, 153742143
-  %50 = xor i32 %49, %38
-  %51 = and i32 %50, %35
-  %52 = lshr i32 %51, 1
-  %53 = xor i32 %52, %50
-  %54 = mul i32 %41, %53
-  %55 = and i32 %54, %35
-  %56 = lshr i32 %55, 11
-  %57 = xor i32 %56, %54
-  %58 = mul i32 %57, 1960620803
-  %59 = and i32 %58, %35
-  %60 = lshr i32 %59, 2
-  %61 = xor i32 %60, %58
-  %62 = mul i32 %61, -1638916925
-  %63 = and i32 %62, %35
-  %64 = lshr i32 %63, 2
-  %65 = xor i32 %64, %62
-  %66 = mul i32 %65, -933190689
-  %67 = and i32 %66, %35
-  %68 = lshr i32 %67, 5
-  %69 = xor i32 %68, %67
-  %.not.i = icmp ult i32 %69, %23
+  %48 = xor i32 %37, %47
+  %49 = xor i32 %48, %45
+  %50 = mul i32 %49, 153742143
+  %51 = xor i32 %50, %38
+  %52 = and i32 %51, %35
+  %53 = lshr i32 %52, 1
+  %54 = xor i32 %53, %51
+  %55 = mul i32 %41, %54
+  %56 = and i32 %55, %35
+  %57 = lshr i32 %56, 11
+  %58 = xor i32 %57, %55
+  %59 = mul i32 %58, 1960620803
+  %60 = and i32 %59, %35
+  %61 = lshr i32 %60, 2
+  %62 = xor i32 %61, %59
+  %63 = mul i32 %62, -1638916925
+  %64 = and i32 %63, %35
+  %65 = lshr i32 %64, 2
+  %66 = xor i32 %65, %63
+  %67 = mul i32 %66, -933190689
+  %68 = and i32 %67, %35
+  %69 = lshr i32 %68, 5
+  %70 = xor i32 %69, %68
+  %.not.i = icmp ult i32 %70, %23
   br i1 %.not.i, label %_ZN4pbrt18PermutationElementEjjj.exit, label %42, !llvm.loop !1423
 
 _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %42
-  %70 = add i32 %69, %24
-  %71 = urem i32 %70, %23
-  %72 = add nsw i32 %5, 2
-  store i32 %72, ptr %4, align 4, !tbaa !1451
-  %73 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 0, i32 noundef %71, i32 noundef %24)
-  %74 = lshr i64 %18, 32
-  %75 = trunc nuw i64 %74 to i32
-  %76 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 1, i32 noundef %71, i32 noundef %75)
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %73, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %76, i64 1
+  %71 = add i32 %70, %24
+  %72 = urem i32 %71, %23
+  %73 = add nsw i32 %5, 2
+  store i32 %73, ptr %4, align 4, !tbaa !1451
+  %74 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 0, i32 noundef %72, i32 noundef %24)
+  %75 = lshr i64 %18, 32
+  %76 = trunc nuw i64 %75 to i32
+  %77 = tail call noundef float @_ZNK4pbrt18PaddedSobolSampler15SampleDimensionEijj(ptr noundef nonnull align 4 dereferenceable(28) %0, i32 noundef 1, i32 noundef %72, i32 noundef %76)
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %74, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %77, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 

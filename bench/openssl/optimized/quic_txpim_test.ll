@@ -40,7 +40,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.preheader41
 
-5:                                                ; preds = %38
+5:                                                ; preds = %39
   %6 = add nuw nsw i64 %.02944, 1
   %exitcond50.not = icmp eq i64 %6, 10
   br i1 %exitcond50.not, label %.loopexit, label %.preheader41, !llvm.loop !4
@@ -62,13 +62,12 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 
 .preheader:                                       ; preds = %10
   %13 = mul nuw nsw i64 %.02944, 1000
-  %invariant.op = or disjoint i64 %13, 5
   br label %16
 
 14:                                               ; preds = %16
   %15 = add nuw nsw i64 %.02843, 1
   %exitcond.not = icmp eq i64 %15, 3
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !11
+  br i1 %exitcond.not, label %28, label %16, !llvm.loop !11
 
 16:                                               ; preds = %.preheader, %14
   %.02843 = phi i64 [ 0, %.preheader ], [ %15, %14 ]
@@ -79,65 +78,65 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
   %20 = add nuw nsw i64 %19, %13
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !16
-  %.reass = add nuw nsw i64 %19, %invariant.op
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.reass, ptr %22, align 16, !tbaa !17
-  %23 = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %7, ptr noundef nonnull %18) #4
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 38, ptr noundef nonnull @.str.6, i32 noundef %25) #4
-  %.not38 = icmp eq i32 %26, 0
+  %22 = add nuw nsw i64 %20, 5
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 %22, ptr %23, align 16, !tbaa !17
+  %24 = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %7, ptr noundef nonnull %18) #4
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 38, ptr noundef nonnull @.str.6, i32 noundef %26) #4
+  %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %.loopexit, label %14
 
-27:                                               ; preds = %14
-  %28 = call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef %7) #4
-  %29 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 43, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i64 noundef %28, i64 noundef 3) #4
-  %.not34 = icmp eq i32 %29, 0
-  br i1 %.not34, label %.loopexit, label %30
+28:                                               ; preds = %14
+  %29 = call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef %7) #4
+  %30 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 43, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, i64 noundef %29, i64 noundef 3) #4
+  %.not34 = icmp eq i32 %30, 0
+  br i1 %.not34, label %.loopexit, label %31
 
-30:                                               ; preds = %27
-  %31 = call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %7) #4
-  %32 = load i64, ptr %31, align 8, !tbaa !12
-  %33 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %32, i64 noundef 98) #4
-  %.not35 = icmp eq i32 %33, 0
-  br i1 %.not35, label %.loopexit, label %34
+31:                                               ; preds = %28
+  %32 = call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %7) #4
+  %33 = load i64, ptr %32, align 8, !tbaa !12
+  %34 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %33, i64 noundef 98) #4
+  %.not35 = icmp eq i32 %34, 0
+  br i1 %.not35, label %.loopexit, label %35
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %36 = load i64, ptr %35, align 8, !tbaa !12
-  %37 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %36, i64 noundef 99) #4
-  %.not36 = icmp eq i32 %37, 0
-  br i1 %.not36, label %.loopexit, label %38
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %37 = load i64, ptr %36, align 8, !tbaa !12
+  %38 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %37, i64 noundef 99) #4
+  %.not36 = icmp eq i32 %38, 0
+  br i1 %.not36, label %.loopexit, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %40 = load i64, ptr %39, align 8, !tbaa !12
-  %41 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i64 noundef %40, i64 noundef 100) #4
-  %.not37 = icmp eq i32 %41, 0
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %41 = load i64, ptr %40, align 8, !tbaa !12
+  %42 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i64 noundef %41, i64 noundef 100) #4
+  %.not37 = icmp eq i32 %42, 0
   br i1 %.not37, label %.loopexit, label %5
 
-.loopexit:                                        ; preds = %5, %30, %34, %38, %27, %10, %.preheader41, %16, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %16 ], [ 1, %5 ], [ 0, %.preheader41 ], [ 0, %10 ], [ 0, %27 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ]
+.loopexit:                                        ; preds = %5, %31, %35, %39, %28, %10, %.preheader41, %16, %0
+  %.0 = phi i32 [ 0, %0 ], [ 0, %16 ], [ 1, %5 ], [ 0, %.preheader41 ], [ 0, %10 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ]
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %.split47.us, label %.split
 
-.split:                                           ; preds = %.loopexit, %45
-  %.145 = phi i64 [ %46, %45 ], [ 0, %.loopexit ]
-  %42 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %.145
-  %43 = load ptr, ptr %42, align 8, !tbaa !6
-  %.not40 = icmp eq ptr %43, null
-  br i1 %.not40, label %45, label %44
+.split:                                           ; preds = %.loopexit, %46
+  %.145 = phi i64 [ %47, %46 ], [ 0, %.loopexit ]
+  %43 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %.145
+  %44 = load ptr, ptr %43, align 8, !tbaa !6
+  %.not40 = icmp eq ptr %44, null
+  br i1 %.not40, label %46, label %45
 
-44:                                               ; preds = %.split
-  call void @ossl_quic_txpim_pkt_release(ptr noundef nonnull %3, ptr noundef nonnull %43) #4
-  br label %45
+45:                                               ; preds = %.split
+  call void @ossl_quic_txpim_pkt_release(ptr noundef nonnull %3, ptr noundef nonnull %44) #4
+  br label %46
 
-45:                                               ; preds = %.split, %44
-  %46 = add nuw nsw i64 %.145, 1
-  %exitcond51.not = icmp eq i64 %46, 10
+46:                                               ; preds = %.split, %45
+  %47 = add nuw nsw i64 %.145, 1
+  %exitcond51.not = icmp eq i64 %47, 10
   br i1 %exitcond51.not, label %.split47.us, label %.split, !llvm.loop !18
 
-.split47.us:                                      ; preds = %45, %.loopexit
+.split47.us:                                      ; preds = %46, %.loopexit
   call void @ossl_quic_txpim_free(ptr noundef %3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

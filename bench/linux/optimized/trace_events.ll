@@ -472,10 +472,6 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
     i8 112, label %54
   ]
 
-.preheader19:                                     ; preds = %49
-  %invariant.op = add i32 %16, 2
-  br label %81
-
 54:                                               ; preds = %49
   %55 = add i32 %16, 2
   %56 = sext i32 %55 to i64
@@ -550,43 +546,43 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   %80 = or i64 %22, %79
   br label %.loopexit20
 
-81:                                               ; preds = %.preheader19, %93
-  %82 = phi i8 [ %98, %93 ], [ %53, %.preheader19 ]
-  %83 = phi i32 [ %95, %93 ], [ 0, %.preheader19 ]
-  %84 = phi i8 [ %94, %93 ], [ 0, %.preheader19 ]
-  %85 = zext i8 %82 to i32
-  %86 = add nsw i32 %85, -58
-  %87 = icmp ult i32 %86, -10
-  br i1 %87, label %88, label %93
+.preheader19:                                     ; preds = %49, %92
+  %81 = phi i8 [ %98, %92 ], [ %53, %49 ]
+  %82 = phi i32 [ %94, %92 ], [ 0, %49 ]
+  %83 = phi i8 [ %93, %92 ], [ 0, %49 ]
+  %84 = zext i8 %81 to i32
+  %85 = add nsw i32 %84, -58
+  %86 = icmp ult i32 %85, -10
+  br i1 %86, label %87, label %92
 
-88:                                               ; preds = %81
-  switch i8 %82, label %.loopexit20 [
-    i8 46, label %93
-    i8 42, label %89
-    i8 115, label %90
+87:                                               ; preds = %.preheader19
+  switch i8 %81, label %.loopexit20 [
+    i8 46, label %92
+    i8 42, label %88
+    i8 115, label %89
   ]
 
-89:                                               ; preds = %88
-  br label %93
+88:                                               ; preds = %87
+  br label %92
 
-90:                                               ; preds = %88
-  %91 = zext nneg i8 %84 to i32
-  %92 = add i32 %17, %91
+89:                                               ; preds = %87
+  %90 = zext nneg i8 %83 to i32
+  %91 = add i32 %17, %90
   br label %.loopexit20
 
-93:                                               ; preds = %89, %88, %81
-  %94 = phi i8 [ %84, %81 ], [ %84, %88 ], [ 1, %89 ]
-  %95 = add i32 %83, 1
-  %.reass = add i32 %83, %invariant.op
-  %96 = sext i32 %.reass to i64
+92:                                               ; preds = %88, %87, %.preheader19
+  %93 = phi i8 [ %83, %.preheader19 ], [ %83, %87 ], [ 1, %88 ]
+  %94 = add i32 %82, 1
+  %95 = add i32 %94, %50
+  %96 = sext i32 %95 to i64
   %97 = getelementptr i8, ptr %7, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 0
-  br i1 %99, label %.loopexit20, label %81, !llvm.loop !19
+  br i1 %99, label %.loopexit20, label %.preheader19, !llvm.loop !19
 
-.loopexit20:                                      ; preds = %93, %88, %90, %77, %54
-  %100 = phi i32 [ %17, %54 ], [ %17, %77 ], [ %92, %90 ], [ %17, %88 ], [ %17, %93 ]
-  %101 = phi i64 [ %22, %54 ], [ %80, %77 ], [ %22, %90 ], [ %22, %88 ], [ %22, %93 ]
+.loopexit20:                                      ; preds = %92, %87, %89, %77, %54
+  %100 = phi i32 [ %17, %54 ], [ %17, %77 ], [ %91, %89 ], [ %17, %87 ], [ %17, %92 ]
+  %101 = phi i64 [ %22, %54 ], [ %80, %77 ], [ %22, %89 ], [ %22, %87 ], [ %22, %92 ]
   %102 = add i32 %100, 1
   br label %.thread
 

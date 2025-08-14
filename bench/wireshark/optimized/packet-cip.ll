@@ -12935,15 +12935,14 @@ define internal noundef i32 @dissect_file_revision(ptr readnone captures(none) %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_file_directory(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #3 {
   %7 = alloca ptr, align 8
-  %invariant.op = add i32 %4, 2
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %10 = phi i32 [ %24, %.lr.ph ], [ %4, %6 ]
-  %.027 = phi i32 [ %22, %.lr.ph ], [ 0, %6 ]
-  %.02526 = phi i32 [ %23, %.lr.ph ], [ 1, %6 ]
+  %10 = phi i32 [ %25, %.lr.ph ], [ %4, %6 ]
+  %.027 = phi i32 [ %23, %.lr.ph ], [ 0, %6 ]
+  %.02526 = phi i32 [ %24, %.lr.ph ], [ 1, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = load i32, ptr @ett_cmd_data, align 4
   %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @.str.2835, i32 noundef %.02526)
@@ -12951,22 +12950,22 @@ define internal i32 @dissect_file_directory(ptr noundef %0, ptr noundef %1, ptr 
   %14 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %3, i32 noundef %10, i32 noundef 2, i32 noundef -2147483648)
   %15 = add i32 %.027, 2
   %16 = load ptr, ptr %7, align 8
-  %.reass = add i32 %.027, %invariant.op
-  %17 = call fastcc i32 @dissect_cip_stringi(ptr noundef %0, ptr noundef %12, ptr noundef %16, ptr noundef %3, i32 noundef %.reass)
-  %18 = add i32 %17, %15
-  %19 = load ptr, ptr %7, align 8
-  %20 = add i32 %18, %4
-  %21 = call fastcc i32 @dissect_cip_stringi(ptr noundef %0, ptr noundef %12, ptr noundef %19, ptr noundef %3, i32 noundef %20)
-  %22 = add i32 %21, %18
-  %23 = add i32 %.02526, 1
+  %17 = add i32 %15, %4
+  %18 = call fastcc i32 @dissect_cip_stringi(ptr noundef %0, ptr noundef %12, ptr noundef %16, ptr noundef %3, i32 noundef %17)
+  %19 = add i32 %18, %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = add i32 %19, %4
+  %22 = call fastcc i32 @dissect_cip_stringi(ptr noundef %0, ptr noundef %12, ptr noundef %20, ptr noundef %3, i32 noundef %21)
+  %23 = add i32 %22, %19
+  %24 = add i32 %.02526, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %24 = add i32 %22, %4
-  %25 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %24)
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  %25 = add i32 %23, %4
+  %26 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %25)
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %.0.lcssa = phi i32 [ 0, %6 ], [ %22, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %6 ], [ %23, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -13656,21 +13655,20 @@ define internal range(i32 -2147483648, 17) i32 @dissect_time_sync_sys_time_and_o
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_port_instance_info(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef returned %5) #3 {
-  %invariant.op = add i32 %4, 2
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.012 = phi i32 [ %13, %.lr.ph ], [ 0, %6 ]
+  %.012 = phi i32 [ %14, %.lr.ph ], [ 0, %6 ]
   %8 = load i32, ptr @hf_port_type, align 4
   %9 = add i32 %.012, %4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %3, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648)
   %11 = load i32, ptr @hf_port_number, align 4
-  %.reass = add i32 %.012, %invariant.op
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %.reass, i32 noundef 2, i32 noundef -2147483648)
-  %13 = add i32 %.012, 4
-  %14 = icmp slt i32 %13, %5
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  %12 = add i32 %9, 2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %12, i32 noundef 2, i32 noundef -2147483648)
+  %14 = add i32 %.012, 4
+  %15 = icmp slt i32 %14, %5
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret i32 %5

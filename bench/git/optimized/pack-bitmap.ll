@@ -5771,7 +5771,7 @@ switch.lookup:
 
 14:                                               ; preds = %.lr.ph, %.loopexit
   %.059 = phi i64 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
-  %.04358 = phi i64 [ 0, %.lr.ph ], [ %67, %.loopexit ]
+  %.04358 = phi i64 [ 0, %.lr.ph ], [ %68, %.loopexit ]
   %15 = call i32 @ewah_iterator_next(ptr noundef nonnull %3, ptr noundef nonnull %2) #21
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.critedge, label %16
@@ -5788,12 +5788,11 @@ switch.lookup:
 .preheader:                                       ; preds = %16
   %.04358.tr = trunc i64 %.04358 to i32
   %22 = shl i32 %.04358.tr, 6
-  %invariant.op = or disjoint i32 %22, 1
   br label %23
 
-23:                                               ; preds = %.preheader, %64
-  %.257 = phi i64 [ %.059, %.preheader ], [ %.3, %64 ]
-  %.04456 = phi i32 [ 0, %.preheader ], [ %65, %64 ]
+23:                                               ; preds = %.preheader, %65
+  %.257 = phi i64 [ %.059, %.preheader ], [ %.3, %65 ]
+  %.04456 = phi i32 [ 0, %.preheader ], [ %66, %65 ]
   %24 = zext nneg i32 %.04456 to i64
   %25 = lshr i64 %21, %24
   %26 = icmp eq i64 %25, 0
@@ -5841,30 +5840,30 @@ switch.lookup:
   %56 = call i64 @pack_pos_to_offset(ptr noundef %44, i32 noundef %55) #21
   %57 = sub nsw i64 %56, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %64
+  br label %65
 
 58:                                               ; preds = %27
   %59 = load ptr, ptr %0, align 8, !tbaa !37
-  %.reass = add i32 %30, %invariant.op
-  %60 = call i64 @pack_pos_to_offset(ptr noundef %59, i32 noundef %.reass) #21
-  %61 = load ptr, ptr %0, align 8, !tbaa !37
-  %62 = call i64 @pack_pos_to_offset(ptr noundef %61, i32 noundef %32) #21
-  %63 = sub nsw i64 %60, %62
-  br label %64
+  %60 = add i32 %32, 1
+  %61 = call i64 @pack_pos_to_offset(ptr noundef %59, i32 noundef %60) #21
+  %62 = load ptr, ptr %0, align 8, !tbaa !37
+  %63 = call i64 @pack_pos_to_offset(ptr noundef %62, i32 noundef %32) #21
+  %64 = sub nsw i64 %61, %63
+  br label %65
 
-64:                                               ; preds = %53, %58
-  %.pn = phi i64 [ %57, %53 ], [ %63, %58 ]
+65:                                               ; preds = %53, %58
+  %.pn = phi i64 [ %57, %53 ], [ %64, %58 ]
   %.3 = add nsw i64 %.pn, %.257
-  %65 = add nuw nsw i32 %30, 1
-  %66 = icmp ult i32 %30, 63
-  br i1 %66, label %23, label %.loopexit, !llvm.loop !282
+  %66 = add nuw nsw i32 %30, 1
+  %67 = icmp ult i32 %30, 63
+  br i1 %67, label %23, label %.loopexit, !llvm.loop !282
 
-.loopexit:                                        ; preds = %64, %23, %16
-  %.1 = phi i64 [ %.059, %16 ], [ %.257, %23 ], [ %.3, %64 ]
-  %67 = add nuw i64 %.04358, 1
-  %68 = load i64, ptr %11, align 8, !tbaa !194
-  %69 = icmp ult i64 %67, %68
-  br i1 %69, label %14, label %.critedge, !llvm.loop !283
+.loopexit:                                        ; preds = %65, %23, %16
+  %.1 = phi i64 [ %.059, %16 ], [ %.257, %23 ], [ %.3, %65 ]
+  %68 = add nuw i64 %.04358, 1
+  %69 = load i64, ptr %11, align 8, !tbaa !194
+  %70 = icmp ult i64 %68, %69
+  br i1 %70, label %14, label %.critedge, !llvm.loop !283
 
 .critedge:                                        ; preds = %14, %.loopexit, %switch.lookup
   %.0.lcssa = phi i64 [ 0, %switch.lookup ], [ %.1, %.loopexit ], [ %.059, %14 ]

@@ -3306,10 +3306,10 @@ dtls_cid_length.exit113:                          ; preds = %71, %74, %82, %85
   br i1 %or.cond, label %.thread.sink.split, label %.thread
 
 .preheader137:                                    ; preds = %4, %112
-  %.5 = phi i32 [ %116, %112 ], [ 0, %4 ]
+  %.5 = phi i32 [ %117, %112 ], [ 0, %4 ]
   %101 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.5)
   %102 = icmp sgt i32 %101, 2
-  br i1 %102, label %103, label %118
+  br i1 %102, label %103, label %119
 
 103:                                              ; preds = %.preheader137
   %104 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.5)
@@ -3340,32 +3340,32 @@ looks_like_dtls.exit117.thread129:                ; preds = %106, %106, %106, %l
   %113 = add i32 %.5, 11
   %114 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %113)
   %115 = zext i16 %114 to i32
-  %.reass = add i32 %.5, 13
-  %116 = add i32 %.reass, %115
-  %117 = icmp eq i32 %116, %5
-  br i1 %117, label %.thread.sink.split, label %.preheader137, !llvm.loop !16
+  %116 = add i32 %.5, 13
+  %117 = add i32 %116, %115
+  %118 = icmp eq i32 %117, %5
+  br i1 %118, label %.thread.sink.split, label %.preheader137, !llvm.loop !16
 
-118:                                              ; preds = %.preheader137
-  %119 = icmp ugt i32 %5, 2
-  br i1 %119, label %120, label %.thread
+119:                                              ; preds = %.preheader137
+  %120 = icmp ugt i32 %5, 2
+  br i1 %120, label %121, label %.thread
 
-120:                                              ; preds = %118
-  %121 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not = icmp ugt i32 %.5, %121
-  br i1 %.not, label %122, label %.thread.sink.split
+121:                                              ; preds = %119
+  %122 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not = icmp ugt i32 %.5, %122
+  br i1 %.not, label %123, label %.thread.sink.split
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %124 = load i8, ptr %123, align 8, !range !11, !noundef !12
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %.thread.sink.split, label %.thread
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %125 = load i8, ptr %124, align 8, !range !11, !noundef !12
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %.thread.sink.split, label %.thread
 
-.thread.sink.split:                               ; preds = %112, %looks_like_dtls.exit117.thread129, %94, %120, %122, %.critedge
-  %126 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+.thread.sink.split:                               ; preds = %112, %looks_like_dtls.exit117.thread129, %94, %121, %123, %.critedge
+  %127 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %.thread
 
-.thread:                                          ; preds = %106, %looks_like_dtls.exit117, %27, %32, %42, %.thread.sink.split, %118, %122, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ false, %122 ], [ false, %118 ], [ true, %.thread.sink.split ], [ false, %42 ], [ false, %32 ], [ false, %27 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
+.thread:                                          ; preds = %106, %looks_like_dtls.exit117, %27, %32, %42, %.thread.sink.split, %119, %123, %.critedge
+  %.2 = phi i1 [ false, %.critedge ], [ false, %123 ], [ false, %119 ], [ true, %.thread.sink.split ], [ false, %42 ], [ false, %32 ], [ false, %27 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
   ret i1 %.2
 }
 

@@ -752,11 +752,11 @@ define internal fastcc void @parity_revtab_generator(ptr noundef %0, i32 noundef
   br i1 %.not104, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %10
-  %.tr97.lcssa = phi i32 [ %3, %10 ], [ %78, %tailrecurse ]
+  %.tr97.lcssa = phi i32 [ %3, %10 ], [ %81, %tailrecurse ]
   %.tr98.lcssa = phi i32 [ %4, %10 ], [ 1, %tailrecurse ]
   %.tr99.lcssa = phi i32 [ %5, %10 ], [ 1, %tailrecurse ]
-  %.tr100.lcssa = phi i32 [ %6, %10 ], [ %77, %tailrecurse ]
-  %.lcssa = phi i32 [ %11, %10 ], [ %79, %tailrecurse ]
+  %.tr100.lcssa = phi i32 [ %6, %10 ], [ %80, %tailrecurse ]
+  %.lcssa = phi i32 [ %11, %10 ], [ %82, %tailrecurse ]
   %12 = icmp ne i32 %.tr98.lcssa, 0
   %13 = icmp ne i32 %8, 0
   %14 = and i1 %13, %12
@@ -774,7 +774,6 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %10
   %25 = mul nsw i32 %24, %.lcssa
   %26 = add i32 %25, %23
   %27 = add i32 %26, %21
-  %invariant.op = add i32 %.tr97.lcssa, 1
   %28 = icmp sgt i32 %.lcssa, 0
   br i1 %28, label %.lr.ph114, label %._crit_edge
 
@@ -793,114 +792,112 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %10
   %32 = tail call fastcc i32 @split_radix_permutation(i32 noundef %31, i32 noundef %1, i32 noundef %2)
   %33 = sub nsw i32 0, %32
   %34 = and i32 %29, %33
-  %.reass.us = add i32 %30, %invariant.op
-  %35 = tail call fastcc i32 @split_radix_permutation(i32 noundef %.reass.us, i32 noundef %1, i32 noundef %2)
-  %36 = sub nsw i32 0, %35
-  %37 = and i32 %29, %36
-  %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  store i32 %.083111.us, ptr %39, align 4, !tbaa !20
-  %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds i32, ptr %0, i64 %40
-  store i32 %.082112.us, ptr %41, align 4, !tbaa !20
+  %35 = add nsw i32 %31, 1
+  %36 = tail call fastcc i32 @split_radix_permutation(i32 noundef %35, i32 noundef %1, i32 noundef %2)
+  %37 = sub nsw i32 0, %36
+  %38 = and i32 %29, %37
+  %39 = sext i32 %34 to i64
+  %40 = getelementptr inbounds i32, ptr %0, i64 %39
+  store i32 %.083111.us, ptr %40, align 4, !tbaa !20
+  %41 = sext i32 %38 to i64
+  %42 = getelementptr inbounds i32, ptr %0, i64 %41
+  store i32 %.082112.us, ptr %42, align 4, !tbaa !20
   %.1.us = add nsw i32 %.082112.us, 1
   %.184.us = add nsw i32 %.083111.us, 1
   %.pre = add nuw nsw i32 %.0113.us, 1
-  br i1 %.not93, label %.lr.ph114.split.us._crit_edge, label %42
+  br i1 %.not93, label %.lr.ph114.split.us._crit_edge, label %43
 
-42:                                               ; preds = %.lr.ph114.split.us
-  %43 = srem i32 %.pre, %16
-  %.not94.us = icmp eq i32 %43, 0
-  br i1 %.not94.us, label %44, label %.lr.ph114.split.us._crit_edge
+43:                                               ; preds = %.lr.ph114.split.us
+  %44 = srem i32 %.pre, %16
+  %.not94.us = icmp eq i32 %44, 0
+  br i1 %.not94.us, label %45, label %.lr.ph114.split.us._crit_edge
 
-44:                                               ; preds = %42
-  %45 = add nsw i32 %.184.us, %17
-  %46 = add nsw i32 %.1.us, %17
+45:                                               ; preds = %43
+  %46 = add nsw i32 %.184.us, %17
+  %47 = add nsw i32 %.1.us, %17
   br label %.lr.ph114.split.us._crit_edge
 
-.lr.ph114.split.us._crit_edge:                    ; preds = %.lr.ph114.split.us, %44, %42
-  %.285.us = phi i32 [ %45, %44 ], [ %.184.us, %42 ], [ %.184.us, %.lr.ph114.split.us ]
-  %.2.us = phi i32 [ %46, %44 ], [ %.1.us, %42 ], [ %.1.us, %.lr.ph114.split.us ]
-  %exitcond138.not = icmp eq i32 %.pre, %.lcssa
-  br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph114.split.us, !llvm.loop !43
+.lr.ph114.split.us._crit_edge:                    ; preds = %.lr.ph114.split.us, %45, %43
+  %.285.us = phi i32 [ %46, %45 ], [ %.184.us, %43 ], [ %.184.us, %.lr.ph114.split.us ]
+  %.2.us = phi i32 [ %47, %45 ], [ %.1.us, %43 ], [ %.1.us, %.lr.ph114.split.us ]
+  %exitcond133.not = icmp eq i32 %.pre, %.lcssa
+  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph114.split.us, !llvm.loop !43
 
 .lr.ph114.split:                                  ; preds = %.lr.ph114
   br i1 %.not93, label %.lr.ph114.split.split.us.preheader, label %.lr.ph114.split.split
 
 .lr.ph114.split.split.us.preheader:               ; preds = %.lr.ph114.split
-  %47 = sext i32 %27 to i64
-  %48 = sext i32 %21 to i64
+  %48 = sext i32 %27 to i64
+  %49 = sext i32 %21 to i64
   br label %.lr.ph114.split.split.us
 
 .lr.ph114.split.split.us:                         ; preds = %.lr.ph114.split.split.us.preheader, %.lr.ph114.split.split.us
-  %indvars.iv132 = phi i64 [ %48, %.lr.ph114.split.split.us.preheader ], [ %indvars.iv.next133, %.lr.ph114.split.split.us ]
-  %indvars.iv = phi i64 [ %47, %.lr.ph114.split.split.us.preheader ], [ %indvars.iv.next, %.lr.ph114.split.split.us ]
-  %.0113.us115 = phi i32 [ 0, %.lr.ph114.split.split.us.preheader ], [ %59, %.lr.ph114.split.split.us ]
-  %49 = shl nuw nsw i32 %.0113.us115, 1
-  %50 = add nsw i32 %49, %.tr97.lcssa
-  %51 = tail call fastcc i32 @split_radix_permutation(i32 noundef %50, i32 noundef %1, i32 noundef %2)
-  %52 = sub nsw i32 0, %51
-  %53 = and i32 %29, %52
-  %.reass.us118 = add i32 %49, %invariant.op
-  %54 = tail call fastcc i32 @split_radix_permutation(i32 noundef %.reass.us118, i32 noundef %1, i32 noundef %2)
-  %55 = sub nsw i32 0, %54
-  %56 = and i32 %29, %55
-  %57 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv132
-  store i32 %53, ptr %57, align 4, !tbaa !20
-  %58 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  store i32 %56, ptr %58, align 4, !tbaa !20
+  %indvars.iv127 = phi i64 [ %49, %.lr.ph114.split.split.us.preheader ], [ %indvars.iv.next128, %.lr.ph114.split.split.us ]
+  %indvars.iv = phi i64 [ %48, %.lr.ph114.split.split.us.preheader ], [ %indvars.iv.next, %.lr.ph114.split.split.us ]
+  %.0113.us115 = phi i32 [ 0, %.lr.ph114.split.split.us.preheader ], [ %61, %.lr.ph114.split.split.us ]
+  %50 = shl nuw nsw i32 %.0113.us115, 1
+  %51 = add nsw i32 %50, %.tr97.lcssa
+  %52 = tail call fastcc i32 @split_radix_permutation(i32 noundef %51, i32 noundef %1, i32 noundef %2)
+  %53 = sub nsw i32 0, %52
+  %54 = and i32 %29, %53
+  %55 = add nsw i32 %51, 1
+  %56 = tail call fastcc i32 @split_radix_permutation(i32 noundef %55, i32 noundef %1, i32 noundef %2)
+  %57 = sub nsw i32 0, %56
+  %58 = and i32 %29, %57
+  %59 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv127
+  store i32 %54, ptr %59, align 4, !tbaa !20
+  %60 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  store i32 %58, ptr %60, align 4, !tbaa !20
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %indvars.iv.next133 = add nsw i64 %indvars.iv132, 1
-  %59 = add nuw nsw i32 %.0113.us115, 1
-  %exitcond137.not = icmp eq i32 %59, %.lcssa
-  br i1 %exitcond137.not, label %._crit_edge, label %.lr.ph114.split.split.us, !llvm.loop !44
+  %indvars.iv.next128 = add nsw i64 %indvars.iv127, 1
+  %61 = add nuw nsw i32 %.0113.us115, 1
+  %exitcond132.not = icmp eq i32 %61, %.lcssa
+  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph114.split.split.us, !llvm.loop !44
 
-.lr.ph114.split.split:                            ; preds = %.lr.ph114.split
-  %invariant.op123 = add nsw i32 %17, 1
-  br label %60
-
-60:                                               ; preds = %.lr.ph114.split.split, %60
-  %.0113 = phi i32 [ 0, %.lr.ph114.split.split ], [ %73, %60 ]
-  %.082112 = phi i32 [ %27, %.lr.ph114.split.split ], [ %.2, %60 ]
-  %.083111 = phi i32 [ %21, %.lr.ph114.split.split ], [ %.285, %60 ]
-  %61 = shl nuw nsw i32 %.0113, 1
-  %62 = add nsw i32 %61, %.tr97.lcssa
-  %63 = tail call fastcc i32 @split_radix_permutation(i32 noundef %62, i32 noundef %1, i32 noundef %2)
-  %64 = sub nsw i32 0, %63
-  %65 = and i32 %29, %64
-  %.reass = add i32 %61, %invariant.op
-  %66 = tail call fastcc i32 @split_radix_permutation(i32 noundef %.reass, i32 noundef %1, i32 noundef %2)
-  %67 = sub nsw i32 0, %66
-  %68 = and i32 %29, %67
-  %69 = sext i32 %.083111 to i64
-  %70 = getelementptr inbounds i32, ptr %0, i64 %69
-  store i32 %65, ptr %70, align 4, !tbaa !20
-  %71 = sext i32 %.082112 to i64
+.lr.ph114.split.split:                            ; preds = %.lr.ph114.split, %.lr.ph114.split.split
+  %.0113 = phi i32 [ %75, %.lr.ph114.split.split ], [ 0, %.lr.ph114.split ]
+  %.082112 = phi i32 [ %.2, %.lr.ph114.split.split ], [ %27, %.lr.ph114.split ]
+  %.083111 = phi i32 [ %.285, %.lr.ph114.split.split ], [ %21, %.lr.ph114.split ]
+  %62 = shl nuw nsw i32 %.0113, 1
+  %63 = add nsw i32 %62, %.tr97.lcssa
+  %64 = tail call fastcc i32 @split_radix_permutation(i32 noundef %63, i32 noundef %1, i32 noundef %2)
+  %65 = sub nsw i32 0, %64
+  %66 = and i32 %29, %65
+  %67 = add nsw i32 %63, 1
+  %68 = tail call fastcc i32 @split_radix_permutation(i32 noundef %67, i32 noundef %1, i32 noundef %2)
+  %69 = sub nsw i32 0, %68
+  %70 = and i32 %29, %69
+  %71 = sext i32 %.083111 to i64
   %72 = getelementptr inbounds i32, ptr %0, i64 %71
-  store i32 %68, ptr %72, align 4, !tbaa !20
-  %73 = add nuw nsw i32 %.0113, 1
-  %74 = srem i32 %73, %16
-  %.not94 = icmp eq i32 %74, 0
-  %.285.v = select i1 %.not94, i32 %invariant.op123, i32 1
-  %.285 = add i32 %.083111, %.285.v
-  %.2 = add i32 %.082112, %.285.v
-  %exitcond.not = icmp eq i32 %73, %.lcssa
-  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !45
+  store i32 %66, ptr %72, align 4, !tbaa !20
+  %73 = sext i32 %.082112 to i64
+  %74 = getelementptr inbounds i32, ptr %0, i64 %73
+  store i32 %70, ptr %74, align 4, !tbaa !20
+  %.1 = add nsw i32 %.082112, 1
+  %.184 = add nsw i32 %.083111, 1
+  %75 = add nuw nsw i32 %.0113, 1
+  %76 = srem i32 %75, %16
+  %.not94 = icmp eq i32 %76, 0
+  %77 = select i1 %.not94, i32 %17, i32 0
+  %.285 = add nsw i32 %.184, %77
+  %.2 = add nsw i32 %.1, %77
+  %exitcond.not = icmp eq i32 %75, %.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph114.split.split, !llvm.loop !45
 
 tailrecurse:                                      ; preds = %10, %tailrecurse
-  %75 = phi i32 [ %79, %tailrecurse ], [ %11, %10 ]
-  %.tr100106 = phi i32 [ %77, %tailrecurse ], [ %6, %10 ]
-  %.tr97105 = phi i32 [ %78, %tailrecurse ], [ %3, %10 ]
-  tail call fastcc void @parity_revtab_generator(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.tr97105, i32 noundef 0, i32 noundef 0, i32 noundef %75, i32 noundef %7, i32 noundef %8, i32 noundef %9)
-  %76 = add nsw i32 %75, %.tr97105
-  %77 = ashr i32 %.tr100106, 2
-  tail call fastcc void @parity_revtab_generator(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %76, i32 noundef 1, i32 noundef 0, i32 noundef %77, i32 noundef %7, i32 noundef %8, i32 noundef %9)
-  %78 = add nsw i32 %76, %77
-  %79 = ashr i32 %.tr100106, 3
-  %.not = icmp sgt i32 %79, %7
+  %78 = phi i32 [ %82, %tailrecurse ], [ %11, %10 ]
+  %.tr100106 = phi i32 [ %80, %tailrecurse ], [ %6, %10 ]
+  %.tr97105 = phi i32 [ %81, %tailrecurse ], [ %3, %10 ]
+  tail call fastcc void @parity_revtab_generator(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.tr97105, i32 noundef 0, i32 noundef 0, i32 noundef %78, i32 noundef %7, i32 noundef %8, i32 noundef %9)
+  %79 = add nsw i32 %78, %.tr97105
+  %80 = ashr i32 %.tr100106, 2
+  tail call fastcc void @parity_revtab_generator(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %79, i32 noundef 1, i32 noundef 0, i32 noundef %80, i32 noundef %7, i32 noundef %8, i32 noundef %9)
+  %81 = add nsw i32 %79, %80
+  %82 = ashr i32 %.tr100106, 3
+  %.not = icmp sgt i32 %82, %7
   br i1 %.not, label %tailrecurse, label %tailrecurse._crit_edge
 
-._crit_edge:                                      ; preds = %60, %.lr.ph114.split.split.us, %.lr.ph114.split.us._crit_edge, %tailrecurse._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph114.split.split, %.lr.ph114.split.split.us, %.lr.ph114.split.us._crit_edge, %tailrecurse._crit_edge
   ret void
 }
 

@@ -94,9 +94,9 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !36
   %23 = icmp sgt i32 %22, 7
-  br i1 %23, label %167, label %.thread96
+  br i1 %23, label %169, label %.thread98
 
-.thread96:                                        ; preds = %17
+.thread98:                                        ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !31
@@ -106,9 +106,9 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !36
   %29 = icmp slt i32 %28, 8
-  br i1 %29, label %31, label %.thread97
+  br i1 %29, label %31, label %.thread99
 
-.thread97:                                        ; preds = %.critedge
+.thread99:                                        ; preds = %.critedge
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br i1 %16, label %63, label %73
 
@@ -148,7 +148,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 54:                                               ; preds = %.thread89, %52
   %55 = add nsw i32 %47, 1
   store i32 %55, ptr %27, align 4, !tbaa !36
-  br label %167
+  br label %169
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -163,12 +163,12 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 62:                                               ; preds = %56
   br i1 %16, label %63, label %73
 
-63:                                               ; preds = %.thread96, %.thread97, %59, %62
-  %.06599 = phi ptr [ %61, %59 ], [ %11, %62 ], [ %11, %.thread97 ], [ %26, %.thread96 ]
-  %64 = phi i32 [ 7, %59 ], [ %47, %62 ], [ %28, %.thread97 ], [ %22, %.thread96 ]
-  %65 = phi ptr [ %15, %59 ], [ %15, %62 ], [ %15, %.thread97 ], [ %19, %.thread96 ]
-  %66 = phi i32 [ %13, %59 ], [ %13, %62 ], [ 2, %.thread97 ], [ %20, %.thread96 ]
-  %67 = phi ptr [ %57, %59 ], [ %57, %62 ], [ %30, %.thread97 ], [ %24, %.thread96 ]
+63:                                               ; preds = %.thread98, %.thread99, %59, %62
+  %.065101 = phi ptr [ %61, %59 ], [ %11, %62 ], [ %11, %.thread99 ], [ %26, %.thread98 ]
+  %64 = phi i32 [ 7, %59 ], [ %47, %62 ], [ %28, %.thread99 ], [ %22, %.thread98 ]
+  %65 = phi ptr [ %15, %59 ], [ %15, %62 ], [ %15, %.thread99 ], [ %19, %.thread98 ]
+  %66 = phi i32 [ %13, %59 ], [ %13, %62 ], [ 2, %.thread99 ], [ %20, %.thread98 ]
+  %67 = phi ptr [ %57, %59 ], [ %57, %62 ], [ %30, %.thread99 ], [ %24, %.thread98 ]
   %68 = load i16, ptr %65, align 8, !tbaa !33
   %69 = and i16 %68, -256
   store i16 %69, ptr %65, align 8, !tbaa !33
@@ -178,13 +178,13 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   store i16 %72, ptr %70, align 2, !tbaa !33
   br label %73
 
-73:                                               ; preds = %.thread96, %.thread97, %59, %63, %62
-  %.06598 = phi ptr [ %61, %59 ], [ %.06599, %63 ], [ %11, %62 ], [ %11, %.thread97 ], [ %26, %.thread96 ]
-  %74 = phi i32 [ 7, %59 ], [ %64, %63 ], [ %47, %62 ], [ %28, %.thread97 ], [ %22, %.thread96 ]
-  %75 = phi i1 [ false, %59 ], [ true, %63 ], [ false, %62 ], [ false, %.thread97 ], [ false, %.thread96 ]
-  %76 = phi ptr [ %15, %59 ], [ %65, %63 ], [ %15, %62 ], [ %15, %.thread97 ], [ %19, %.thread96 ]
-  %77 = phi i32 [ %13, %59 ], [ %66, %63 ], [ %13, %62 ], [ %13, %.thread97 ], [ %20, %.thread96 ]
-  %78 = phi ptr [ %57, %59 ], [ %67, %63 ], [ %57, %62 ], [ %30, %.thread97 ], [ %24, %.thread96 ]
+73:                                               ; preds = %.thread98, %.thread99, %59, %63, %62
+  %.065100 = phi ptr [ %61, %59 ], [ %.065101, %63 ], [ %11, %62 ], [ %11, %.thread99 ], [ %26, %.thread98 ]
+  %74 = phi i32 [ 7, %59 ], [ %64, %63 ], [ %47, %62 ], [ %28, %.thread99 ], [ %22, %.thread98 ]
+  %75 = phi i1 [ false, %59 ], [ true, %63 ], [ false, %62 ], [ false, %.thread99 ], [ false, %.thread98 ]
+  %76 = phi ptr [ %15, %59 ], [ %65, %63 ], [ %15, %62 ], [ %15, %.thread99 ], [ %19, %.thread98 ]
+  %77 = phi i32 [ %13, %59 ], [ %66, %63 ], [ %13, %62 ], [ %13, %.thread99 ], [ %20, %.thread98 ]
+  %78 = phi ptr [ %57, %59 ], [ %67, %63 ], [ %57, %62 ], [ %30, %.thread99 ], [ %24, %.thread98 ]
   %79 = icmp eq i32 %74, 7
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -195,7 +195,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %83 = sext i32 %82 to i64
   %84 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %83, i32 noundef 0) #5
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %167, label %86
+  br i1 %85, label %169, label %86
 
 86:                                               ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -236,15 +236,15 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dpcm_predict.exit
-  %.06493 = phi i32 [ %157, %dpcm_predict.exit ], [ 0, %.lr.ph.preheader ]
-  %.192 = phi ptr [ %110, %dpcm_predict.exit ], [ %.06598, %.lr.ph.preheader ]
-  %.18791 = phi ptr [ %156, %dpcm_predict.exit ], [ %.086, %.lr.ph.preheader ]
-  %106 = and i32 %.06493, 1
+  %.06494 = phi i32 [ %159, %dpcm_predict.exit ], [ 0, %.lr.ph.preheader ]
+  %.193 = phi ptr [ %110, %dpcm_predict.exit ], [ %.065100, %.lr.ph.preheader ]
+  %.18792 = phi ptr [ %158, %dpcm_predict.exit ], [ %.086, %.lr.ph.preheader ]
+  %106 = and i32 %.06494, 1
   %107 = zext nneg i32 %106 to i64
   %108 = select i1 %75, i64 %107, i64 0
   %109 = getelementptr inbounds nuw [2 x i16], ptr %76, i64 0, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %.192, i64 2
-  %111 = load i16, ptr %.192, align 2, !tbaa !33
+  %110 = getelementptr inbounds nuw i8, ptr %.193, i64 2
+  %111 = load i16, ptr %.193, align 2, !tbaa !33
   %112 = sext i16 %111 to i32
   %113 = load i16, ptr %109, align 2, !tbaa !33
   %.fr34.i = freeze i16 %113
@@ -296,67 +296,63 @@ ff_sqrt.exit.i:                                   ; preds = %129, %121
 
 144:                                              ; preds = %ff_sqrt.exit.i, %.lr.ph
   %.027.i = phi i32 [ %143, %ff_sqrt.exit.i ], [ 127, %.lr.ph ]
-  %invariant.op.i = add nsw i32 %114, -32768
   br i1 %116, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %144, %.split.us.i
-  %.1.us.i = phi i32 [ %146, %.split.us.i ], [ %.027.i, %144 ]
+  %.1.us.i = phi i32 [ %148, %.split.us.i ], [ %.027.i, %144 ]
   %145 = mul nsw i32 %.1.us.i, %.1.us.i
-  %.reass.us.i = sub i32 %invariant.op.i, %145
-  %or.cond.us.i = icmp ult i32 %.reass.us.i, -65536
-  %146 = add nsw i32 %.1.us.i, -1
-  br i1 %or.cond.us.i, label %.split.us.i, label %.split31.us.loopexit.i, !llvm.loop !48
+  %146 = sub nsw i32 %114, %145
+  %147 = add i32 %146, -32768
+  %or.cond.us.i = icmp ult i32 %147, -65536
+  %148 = add nsw i32 %.1.us.i, -1
+  br i1 %or.cond.us.i, label %.split.us.i, label %dpcm_predict.exit, !llvm.loop !48
 
 .split.i:                                         ; preds = %144, %.split.i
-  %.1.i = phi i32 [ %148, %.split.i ], [ %.027.i, %144 ]
-  %147 = mul nsw i32 %.1.i, %.1.i
-  %.reass.i = add i32 %147, %invariant.op.i
-  %or.cond.i = icmp ult i32 %.reass.i, -65536
-  %148 = add nsw i32 %.1.i, -1
+  %.1.i = phi i32 [ %152, %.split.i ], [ %.027.i, %144 ]
+  %149 = mul nsw i32 %.1.i, %.1.i
+  %150 = add nsw i32 %149, %114
+  %151 = add i32 %150, -32768
+  %or.cond.i = icmp ult i32 %151, -65536
+  %152 = add nsw i32 %.1.i, -1
   br i1 %or.cond.i, label %.split.i, label %dpcm_predict.exit
 
-.split31.us.loopexit.i:                           ; preds = %.split.us.i
-  %149 = sub nsw i32 0, %145
-  br label %dpcm_predict.exit
-
-dpcm_predict.exit:                                ; preds = %.split.i, %.split31.us.loopexit.i
-  %.us-phi.i = phi i32 [ %149, %.split31.us.loopexit.i ], [ %147, %.split.i ]
-  %.us-phi32.i = phi i32 [ %.1.us.i, %.split31.us.loopexit.i ], [ %.1.i, %.split.i ]
-  %150 = lshr i32 %115, 24
-  %151 = and i32 %150, 128
-  %152 = or i32 %.us-phi32.i, %151
-  %153 = trunc i32 %.us-phi.i to i16
-  %154 = add i16 %.fr34.i, %153
-  store i16 %154, ptr %109, align 2, !tbaa !33
-  %155 = trunc i32 %152 to i8
-  %156 = getelementptr inbounds nuw i8, ptr %.18791, i64 1
-  store i8 %155, ptr %.18791, align 1, !tbaa !47
-  %157 = add nuw nsw i32 %.06493, 1
-  %exitcond.not = icmp eq i32 %157, %.066
+dpcm_predict.exit:                                ; preds = %.split.i, %.split.us.i
+  %.us-phi.i = phi i32 [ %.1.us.i, %.split.us.i ], [ %.1.i, %.split.i ]
+  %.us-phi32.i = phi i32 [ %146, %.split.us.i ], [ %150, %.split.i ]
+  %153 = lshr i32 %115, 24
+  %154 = and i32 %153, 128
+  %155 = or i32 %.us-phi.i, %154
+  %156 = trunc nsw i32 %.us-phi32.i to i16
+  store i16 %156, ptr %109, align 2, !tbaa !33
+  %157 = trunc i32 %155 to i8
+  %158 = getelementptr inbounds nuw i8, ptr %.18792, i64 1
+  store i8 %157, ptr %.18792, align 1, !tbaa !47
+  %159 = add nuw nsw i32 %.06494, 1
+  %exitcond.not = icmp eq i32 %159, %.066
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %dpcm_predict.exit, %104
-  %.1.lcssa = phi ptr [ %.06598, %104 ], [ %110, %dpcm_predict.exit ]
-  %158 = load i32, ptr %78, align 4, !tbaa !36
-  %159 = icmp slt i32 %158, 8
-  %160 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %.in = select i1 %159, ptr %160, ptr %161
-  %162 = load i64, ptr %.in, align 8, !tbaa !52
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %162, ptr %163, align 8, !tbaa !53
-  %164 = sext i32 %.pn to i64
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %164, ptr %165, align 8, !tbaa !54
-  %166 = add nsw i32 %158, 1
+  %.1.lcssa = phi ptr [ %.065100, %104 ], [ %110, %dpcm_predict.exit ]
+  %160 = load i32, ptr %78, align 4, !tbaa !36
+  %161 = icmp slt i32 %160, 8
+  %162 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %.in = select i1 %161, ptr %162, ptr %163
+  %164 = load i64, ptr %.in, align 8, !tbaa !52
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %164, ptr %165, align 8, !tbaa !53
+  %166 = sext i32 %.pn to i64
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i64 %166, ptr %167, align 8, !tbaa !54
+  %168 = add nsw i32 %160, 1
   %.not73 = icmp eq ptr %.1.lcssa, null
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %166, i32 8)
-  %storemerge = select i1 %.not73, i32 %spec.select, i32 %166
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %168, i32 8)
+  %storemerge = select i1 %.not73, i32 %spec.select, i32 %168
   store i32 %storemerge, ptr %78, align 4, !tbaa !36
   store i32 1, ptr %3, align 4, !tbaa !44
-  br label %167
+  br label %169
 
-167:                                              ; preds = %73, %17, %._crit_edge, %54
+169:                                              ; preds = %73, %17, %._crit_edge, %54
   %.0 = phi i32 [ 0, %54 ], [ 0, %._crit_edge ], [ 0, %17 ], [ %84, %73 ]
   ret i32 %.0
 }

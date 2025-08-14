@@ -15460,9 +15460,9 @@ _ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit: ; preds = %38, %_ZNSt6vect
   %64 = phi ptr [ %12, %17 ], [ %60, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit ], [ %12, %19 ]
   %.1 = phi i64 [ %.02135, %17 ], [ %61, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit ], [ %.02135, %19 ]
   %65 = add i64 %.1, 4
-  %.reass = add i64 %.1, 11
-  %66 = icmp ult i64 %.reass, %4
-  br i1 %66, label %10, label %._crit_edge, !llvm.loop !186
+  %66 = add i64 %.1, 11
+  %67 = icmp ult i64 %66, %4
+  br i1 %67, label %10, label %._crit_edge, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %62, %6
   %.lcssa33 = phi ptr [ null, %6 ], [ %64, %62 ]

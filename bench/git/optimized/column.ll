@@ -113,7 +113,7 @@ define dso_local void @print_columns(ptr noundef readonly captures(none) %0, i32
 
 39:                                               ; preds = %25
   %40 = and i32 %1, 15
-  switch i32 %40, label %296 [
+  switch i32 %40, label %293 [
     i32 15, label %41
     i32 1, label %49
     i32 0, label %49
@@ -184,7 +184,7 @@ layout.exit.i.loopexit:                           ; preds = %.lr.ph.i.i
   br label %layout.exit.i
 
 layout.exit.i:                                    ; preds = %layout.exit.i.loopexit, %._crit_edge.i, %st_mult.exit.i
-  %.lcssa101188.i = phi i64 [ -1, %._crit_edge.i ], [ -1, %st_mult.exit.i ], [ %67, %layout.exit.i.loopexit ]
+  %.lcssa101187.i = phi i64 [ -1, %._crit_edge.i ], [ -1, %st_mult.exit.i ], [ %67, %layout.exit.i.loopexit ]
   %68 = phi i32 [ 0, %._crit_edge.i ], [ 0, %st_mult.exit.i ], [ %spec.select.i, %layout.exit.i.loopexit ]
   %69 = add nsw i32 %68, %.sroa.5.1
   %70 = sext i32 %29 to i64
@@ -195,7 +195,7 @@ layout.exit.i:                                    ; preds = %layout.exit.i.loope
   %75 = trunc i64 %74 to i32
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %75, i32 1)
   %76 = sext i32 %spec.select.i.i to i64
-  %77 = add i64 %.lcssa101188.i, %76
+  %77 = add i64 %.lcssa101187.i, %76
   %78 = udiv i64 %77, %76
   %79 = trunc i64 %78 to i32
   %80 = and i32 %1, 128
@@ -214,8 +214,8 @@ st_mult.exit.i.i:                                 ; preds = %81
   %84 = shl nuw nsw i64 %76, 2
   %85 = tail call ptr @xrealloc(ptr noundef null, i64 noundef %84) #10
   %86 = icmp eq i32 %40, 0
-  %sext179.i = shl i64 %78, 32
-  %87 = ashr exact i64 %sext179.i, 32
+  %sext178.i = shl i64 %78, 32
+  %87 = ashr exact i64 %sext178.i, 32
   br label %88
 
 88:                                               ; preds = %._crit_edge.i.i, %st_mult.exit.i.i
@@ -276,8 +276,8 @@ st_mult.exit38.i.i:                               ; preds = %99
   %spec.select95.us.i = mul nsw i32 %112, %115
   %116 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i.i.us.i
   store i32 %spec.select95.us.i, ptr %116, align 4, !tbaa !23
-  %sext182.i = shl i64 %indvars.iv.i.i.us.i, 32
-  %117 = ashr exact i64 %sext182.i, 32
+  %sext181.i = shl i64 %indvars.iv.i.i.us.i, 32
+  %117 = ashr exact i64 %sext181.i, 32
   %118 = mul nsw i64 %117, %indvars.iv.next150.i
   br label %119
 
@@ -324,8 +324,8 @@ compute_column_width.exit.thread.i.i:             ; preds = %105
   %spec.select95.i = mul nsw i32 %112, %138
   %139 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i.i.i
   store i32 %spec.select95.i, ptr %139, align 4, !tbaa !23
-  %sext181.i = shl i64 %indvars.iv.i.i.i, 32
-  %140 = ashr exact i64 %sext181.i, 32
+  %sext180.i = shl i64 %indvars.iv.i.i.i, 32
+  %140 = ashr exact i64 %sext180.i, 32
   br label %141
 
 141:                                              ; preds = %155, %.lr.ph35.i.i.i
@@ -407,8 +407,8 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
 
 .lr.ph35.i39.i.preheader.split.us.i:              ; preds = %.lr.ph35.i39.i.preheader.i
   %179 = load i64, ptr %27, align 8, !tbaa !11
-  %sext183.i = shl i64 %indvars.iv149.i, 32
-  %180 = ashr exact i64 %sext183.i, 32
+  %sext182.i = shl i64 %indvars.iv149.i, 32
+  %180 = ashr exact i64 %sext182.i, 32
   br label %.lr.ph35.i39.i.us.i
 
 .lr.ph35.i39.i.us.i:                              ; preds = %._crit_edge.i41.i.loopexit.us.i, %.lr.ph35.i39.i.preheader.split.us.i
@@ -420,13 +420,13 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
   br i1 %86, label %.lr.ph.i43.i.split.us.us.preheader.i, label %.lr.ph.i43.i.split.us105.preheader.i
 
 .lr.ph.i43.i.split.us105.preheader.i:             ; preds = %.lr.ph35.i39.i.us.i
-  %sext184.i = shl i64 %indvars.iv.i40.i.us.i, 32
-  %184 = ashr exact i64 %sext184.i, 32
+  %sext183.i = shl i64 %indvars.iv.i40.i.us.i, 32
+  %184 = ashr exact i64 %sext183.i, 32
   br label %.lr.ph.i43.i.split.us105.i
 
 .lr.ph.i43.i.split.us.us.preheader.i:             ; preds = %.lr.ph35.i39.i.us.i
-  %sext185.i = mul i64 %sext183.i, %indvars.iv.i40.i.us.i
-  %185 = ashr exact i64 %sext185.i, 32
+  %sext184.i = mul i64 %sext182.i, %indvars.iv.i40.i.us.i
+  %185 = ashr exact i64 %sext184.i, 32
   br label %.lr.ph.i43.i.split.us.us.i
 
 .lr.ph.i43.i.split.us105.i:                       ; preds = %199, %.lr.ph.i43.i.split.us105.preheader.i
@@ -519,135 +519,127 @@ shrink_columns.exit.i:                            ; preds = %.lr.ph35.i39.i.i, %
   %224 = add nsw i32 %.sroa.38.0.i, -1
   %225 = zext nneg i32 %224 to i64
   %226 = zext nneg i32 %.sroa.26.0.i to i64
-  %wide.trip.count.i = zext nneg i32 %.sroa.38.0.i to i64
+  %227 = zext nneg i32 %.sroa.38.0.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %display_cell.exit.us.i, %.preheader.us.preheader.i
   %indvars.iv173.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next174.i, %display_cell.exit.us.i ]
-  %227 = trunc i64 %indvars.iv173.i to i32
+  %228 = mul nuw nsw i64 %indvars.iv173.i, %227
   br i1 %222, label %.lr.ph107.split.us.us.i, label %.lr.ph107.split.us125.i
 
-.lr.ph107.split.split.us126.i:                    ; preds = %.lr.ph107.split.us125.i, %230
-  %indvars.iv159.i = phi i64 [ %indvars.iv.next160.i, %230 ], [ 0, %.lr.ph107.split.us125.i ]
-  %228 = add nuw nsw i64 %indvars.iv159.i, %251
-  %229 = load i64, ptr %27, align 8, !tbaa !11
-  %.not.i28.us118.i = icmp ugt i64 %229, %228
-  br i1 %.not.i28.us118.i, label %230, label %display_cell.exit.us.i
+.lr.ph107.split.split.us126.i:                    ; preds = %.lr.ph107.split.us125.i, %231
+  %indvars.iv159.i = phi i64 [ %indvars.iv.next160.i, %231 ], [ 0, %.lr.ph107.split.us125.i ]
+  %229 = add nuw nsw i64 %indvars.iv159.i, %228
+  %230 = load i64, ptr %27, align 8, !tbaa !11
+  %.not.i28.us118.i = icmp ugt i64 %230, %229
+  br i1 %.not.i28.us118.i, label %231, label %display_cell.exit.us.i
 
-display_cell.exit.us.i:                           ; preds = %230, %.lr.ph107.split.split.us126.i, %282, %.lr.ph107.split.split.us.us.i, %269, %253
+display_cell.exit.us.i:                           ; preds = %231, %.lr.ph107.split.split.us126.i, %279, %.lr.ph107.split.split.us.us.i, %267, %.lr.ph107.split.us.us.i
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
-  %exitcond178.not.i = icmp eq i64 %indvars.iv.next174.i, %226
-  br i1 %exitcond178.not.i, label %display_table.exit, label %.preheader.us.i, !llvm.loop !34
+  %exitcond177.not.i = icmp eq i64 %indvars.iv.next174.i, %226
+  br i1 %exitcond177.not.i, label %display_table.exit, label %.preheader.us.i, !llvm.loop !34
 
-230:                                              ; preds = %.lr.ph107.split.split.us126.i
-  %231 = getelementptr inbounds nuw i32, ptr %54, i64 %228
-  %232 = load i32, ptr %231, align 4, !tbaa !23
-  %233 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv159.i
-  %234 = load i32, ptr %233, align 4, !tbaa !23
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i32, ptr %54, i64 %235
-  %237 = load i32, ptr %236, align 4, !tbaa !23
-  %238 = icmp slt i32 %237, %69
-  %.neg49.i.us120.i = add i32 %232, %68
-  %239 = sub i32 %.neg49.i.us120.i, %237
-  %.039.i.us121.i = select i1 %238, i32 %239, i32 %232
-  %240 = icmp ne i64 %indvars.iv159.i, %225
-  %241 = add i64 %229, -1
-  %242 = icmp ne i64 %241, %228
-  %.0.i.us.i = and i1 %240, %242
-  %243 = icmp eq i64 %indvars.iv159.i, 0
-  %spec.select96.us122.i = select i1 %243, ptr %28, ptr @.str.2
-  %244 = load ptr, ptr %0, align 8, !tbaa !18
-  %245 = getelementptr inbounds nuw %struct.string_list_item, ptr %244, i64 %228
-  %246 = load ptr, ptr %245, align 8, !tbaa !19
-  %247 = sext i32 %.039.i.us121.i to i64
-  %248 = getelementptr inbounds i8, ptr %220, i64 %247
-  %249 = select i1 %.0.i.us.i, ptr %248, ptr %26
-  %250 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us122.i, ptr noundef %246, ptr noundef %249)
+231:                                              ; preds = %.lr.ph107.split.split.us126.i
+  %232 = getelementptr inbounds nuw i32, ptr %54, i64 %229
+  %233 = load i32, ptr %232, align 4, !tbaa !23
+  %234 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv159.i
+  %235 = load i32, ptr %234, align 4, !tbaa !23
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds i32, ptr %54, i64 %236
+  %238 = load i32, ptr %237, align 4, !tbaa !23
+  %239 = icmp slt i32 %238, %69
+  %.neg49.i.us120.i = add i32 %233, %68
+  %240 = sub i32 %.neg49.i.us120.i, %238
+  %.039.i.us121.i = select i1 %239, i32 %240, i32 %233
+  %241 = icmp ne i64 %indvars.iv159.i, %225
+  %242 = add i64 %230, -1
+  %243 = icmp ne i64 %242, %229
+  %.0.i.us.i = and i1 %241, %243
+  %244 = icmp eq i64 %indvars.iv159.i, 0
+  %spec.select96.us122.i = select i1 %244, ptr %28, ptr @.str.2
+  %245 = load ptr, ptr %0, align 8, !tbaa !18
+  %246 = getelementptr inbounds nuw %struct.string_list_item, ptr %245, i64 %229
+  %247 = load ptr, ptr %246, align 8, !tbaa !19
+  %248 = sext i32 %.039.i.us121.i to i64
+  %249 = getelementptr inbounds i8, ptr %220, i64 %248
+  %250 = select i1 %.0.i.us.i, ptr %249, ptr %26
+  %251 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us122.i, ptr noundef %247, ptr noundef %250)
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
-  %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, %wide.trip.count.i
+  %exitcond162.not.i = icmp eq i64 %indvars.iv.next160.i, %227
   br i1 %exitcond162.not.i, label %display_cell.exit.us.i, label %.lr.ph107.split.split.us126.i, !llvm.loop !35
 
 .lr.ph107.split.us125.i:                          ; preds = %.preheader.us.i
-  %.narrow.i = mul i32 %.sroa.38.0.i, %227
-  %251 = zext i32 %.narrow.i to i64
   br i1 %.not45.i.i, label %.lr.ph107.split.split.us.us.i, label %.lr.ph107.split.split.us126.i
 
-.lr.ph107.split.us.us.i:                          ; preds = %.preheader.us.i
-  %252 = add i32 %.sroa.26.0.i, %227
-  br label %253
+.lr.ph107.split.us.us.i:                          ; preds = %.preheader.us.i, %267
+  %indvars.iv168.i = phi i64 [ %indvars.iv.next169.i, %267 ], [ 0, %.preheader.us.i ]
+  %252 = mul nuw nsw i64 %indvars.iv168.i, %226
+  %253 = add nuw nsw i64 %252, %indvars.iv173.i
+  %254 = load i64, ptr %27, align 8, !tbaa !11
+  %.not.i28.us.us.i = icmp ugt i64 %254, %253
+  br i1 %.not.i28.us.us.i, label %255, label %display_cell.exit.us.i
 
-253:                                              ; preds = %269, %.lr.ph107.split.us.us.i
-  %indvars.iv168.i = phi i64 [ %indvars.iv.next169.i, %269 ], [ 0, %.lr.ph107.split.us.us.i ]
-  %254 = mul nuw nsw i64 %indvars.iv168.i, %226
-  %255 = add nuw nsw i64 %254, %indvars.iv173.i
-  %256 = load i64, ptr %27, align 8, !tbaa !11
-  %.not.i28.us.us.i = icmp ugt i64 %256, %255
-  br i1 %.not.i28.us.us.i, label %257, label %display_cell.exit.us.i
+255:                                              ; preds = %.lr.ph107.split.us.us.i
+  %256 = getelementptr inbounds nuw i32, ptr %54, i64 %253
+  %257 = load i32, ptr %256, align 4, !tbaa !23
+  br i1 %.not45.i.i, label %267, label %258
 
-257:                                              ; preds = %253
-  %258 = getelementptr inbounds nuw i32, ptr %54, i64 %255
-  %259 = load i32, ptr %258, align 4, !tbaa !23
-  br i1 %.not45.i.i, label %269, label %260
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv168.i
+  %260 = load i32, ptr %259, align 4, !tbaa !23
+  %261 = sext i32 %260 to i64
+  %262 = getelementptr inbounds i32, ptr %54, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !23
+  %264 = icmp slt i32 %263, %69
+  br i1 %264, label %265, label %267
 
-260:                                              ; preds = %257
-  %261 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv168.i
-  %262 = load i32, ptr %261, align 4, !tbaa !23
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i32, ptr %54, i64 %263
-  %265 = load i32, ptr %264, align 4, !tbaa !23
-  %266 = icmp slt i32 %265, %69
-  br i1 %266, label %267, label %269
+265:                                              ; preds = %258
+  %.neg49.i.us.us.i = add i32 %257, %68
+  %266 = sub i32 %.neg49.i.us.us.i, %263
+  br label %267
 
-267:                                              ; preds = %260
-  %.neg49.i.us.us.i = add i32 %259, %68
-  %268 = sub i32 %.neg49.i.us.us.i, %265
-  br label %269
-
-269:                                              ; preds = %267, %260, %257
-  %.039.i.us.us.i = phi i32 [ %268, %267 ], [ %259, %260 ], [ %259, %257 ]
-  %270 = trunc nsw i64 %254 to i32
-  %.reass.us.i = add i32 %252, %270
-  %271 = sext i32 %.reass.us.i to i64
-  %.not47.i.us.us.i = icmp ugt i64 %256, %271
-  %272 = icmp eq i64 %indvars.iv168.i, 0
-  %spec.select96.us.us.i = select i1 %272, ptr %28, ptr @.str.2
-  %273 = load ptr, ptr %0, align 8, !tbaa !18
-  %274 = getelementptr inbounds nuw %struct.string_list_item, ptr %273, i64 %255
-  %275 = load ptr, ptr %274, align 8, !tbaa !19
-  %276 = sext i32 %.039.i.us.us.i to i64
-  %277 = getelementptr inbounds i8, ptr %220, i64 %276
-  %278 = select i1 %.not47.i.us.us.i, ptr %277, ptr %26
-  %279 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us.us.i, ptr noundef %275, ptr noundef %278)
+267:                                              ; preds = %265, %258, %255
+  %.039.i.us.us.i = phi i32 [ %266, %265 ], [ %257, %258 ], [ %257, %255 ]
+  %268 = add nuw nsw i64 %253, %226
+  %.not47.i.us.us.i = icmp ugt i64 %254, %268
+  %269 = icmp eq i64 %indvars.iv168.i, 0
+  %spec.select96.us.us.i = select i1 %269, ptr %28, ptr @.str.2
+  %270 = load ptr, ptr %0, align 8, !tbaa !18
+  %271 = getelementptr inbounds nuw %struct.string_list_item, ptr %270, i64 %253
+  %272 = load ptr, ptr %271, align 8, !tbaa !19
+  %273 = sext i32 %.039.i.us.us.i to i64
+  %274 = getelementptr inbounds i8, ptr %220, i64 %273
+  %275 = select i1 %.not47.i.us.us.i, ptr %274, ptr %26
+  %276 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us.us.i, ptr noundef %272, ptr noundef %275)
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
-  %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %wide.trip.count.i
-  br i1 %exitcond172.not.i, label %display_cell.exit.us.i, label %253, !llvm.loop !36
+  %exitcond172.not.i = icmp eq i64 %indvars.iv.next169.i, %227
+  br i1 %exitcond172.not.i, label %display_cell.exit.us.i, label %.lr.ph107.split.us.us.i, !llvm.loop !36
 
-.lr.ph107.split.split.us.us.i:                    ; preds = %.lr.ph107.split.us125.i, %282
-  %indvars.iv163.i = phi i64 [ %indvars.iv.next164.i, %282 ], [ 0, %.lr.ph107.split.us125.i ]
-  %280 = add nuw nsw i64 %indvars.iv163.i, %251
-  %281 = load i64, ptr %27, align 8, !tbaa !11
-  %.not.i28.us110.us.i = icmp ugt i64 %281, %280
-  br i1 %.not.i28.us110.us.i, label %282, label %display_cell.exit.us.i
+.lr.ph107.split.split.us.us.i:                    ; preds = %.lr.ph107.split.us125.i, %279
+  %indvars.iv163.i = phi i64 [ %indvars.iv.next164.i, %279 ], [ 0, %.lr.ph107.split.us125.i ]
+  %277 = add nuw nsw i64 %indvars.iv163.i, %228
+  %278 = load i64, ptr %27, align 8, !tbaa !11
+  %.not.i28.us110.us.i = icmp ugt i64 %278, %277
+  br i1 %.not.i28.us110.us.i, label %279, label %display_cell.exit.us.i
 
-282:                                              ; preds = %.lr.ph107.split.split.us.us.i
-  %283 = getelementptr inbounds nuw i32, ptr %54, i64 %280
-  %284 = load i32, ptr %283, align 4, !tbaa !23
-  %285 = icmp ne i64 %indvars.iv163.i, %225
-  %286 = add i64 %281, -1
-  %287 = icmp ne i64 %286, %280
-  %.0.i.us112.us.i = and i1 %285, %287
-  %288 = icmp eq i64 %indvars.iv163.i, 0
-  %spec.select96.us113.us.i = select i1 %288, ptr %28, ptr @.str.2
-  %289 = load ptr, ptr %0, align 8, !tbaa !18
-  %290 = getelementptr inbounds nuw %struct.string_list_item, ptr %289, i64 %280
-  %291 = load ptr, ptr %290, align 8, !tbaa !19
-  %292 = sext i32 %284 to i64
-  %293 = getelementptr inbounds i8, ptr %220, i64 %292
-  %294 = select i1 %.0.i.us112.us.i, ptr %293, ptr %26
-  %295 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us113.us.i, ptr noundef %291, ptr noundef %294)
+279:                                              ; preds = %.lr.ph107.split.split.us.us.i
+  %280 = getelementptr inbounds nuw i32, ptr %54, i64 %277
+  %281 = load i32, ptr %280, align 4, !tbaa !23
+  %282 = icmp ne i64 %indvars.iv163.i, %225
+  %283 = add i64 %278, -1
+  %284 = icmp ne i64 %283, %277
+  %.0.i.us112.us.i = and i1 %282, %284
+  %285 = icmp eq i64 %indvars.iv163.i, 0
+  %spec.select96.us113.us.i = select i1 %285, ptr %28, ptr @.str.2
+  %286 = load ptr, ptr %0, align 8, !tbaa !18
+  %287 = getelementptr inbounds nuw %struct.string_list_item, ptr %286, i64 %277
+  %288 = load ptr, ptr %287, align 8, !tbaa !19
+  %289 = sext i32 %281 to i64
+  %290 = getelementptr inbounds i8, ptr %220, i64 %289
+  %291 = select i1 %.0.i.us112.us.i, ptr %290, ptr %26
+  %292 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %spec.select96.us113.us.i, ptr noundef %288, ptr noundef %291)
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
-  %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %wide.trip.count.i
+  %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %227
   br i1 %exitcond167.not.i, label %display_cell.exit.us.i, label %.lr.ph107.split.split.us.us.i, !llvm.loop !37
 
 display_table.exit:                               ; preds = %display_cell.exit.us.i, %shrink_columns.exit.i, %.preheader.lr.ph.i
@@ -656,7 +648,7 @@ display_table.exit:                               ; preds = %display_cell.exit.u
   tail call void @free(ptr noundef %220) #10
   br label %display_plain.exit
 
-296:                                              ; preds = %39
+293:                                              ; preds = %39
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 211, ptr noundef nonnull @.str.4, i32 noundef %40) #9
   unreachable
 

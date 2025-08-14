@@ -84,10 +84,10 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .preheader215:                                    ; preds = %28, %25
   br label %29
 
-29:                                               ; preds = %.preheader215, %118
-  %30 = phi ptr [ %32, %118 ], [ %13, %.preheader215 ]
-  %.038 = phi i32 [ %111, %118 ], [ 0, %.preheader215 ]
-  %.036 = phi i64 [ %112, %118 ], [ %.lcssa91, %.preheader215 ]
+29:                                               ; preds = %.preheader215, %119
+  %30 = phi ptr [ %32, %119 ], [ %13, %.preheader215 ]
+  %.038 = phi i32 [ %112, %119 ], [ 0, %.preheader215 ]
+  %.036 = phi i64 [ %113, %119 ], [ %.lcssa91, %.preheader215 ]
   %.not88 = icmp eq i32 %.038, 0
   %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 noundef signext 10, i64 noundef %.036) #9
   %32 = load ptr, ptr %0, align 8, !tbaa !19
@@ -192,7 +192,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 73:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   store i32 1, ptr %5, align 8, !tbaa !17
   %.pre = load i64, ptr %8, align 8, !tbaa !28
-  br label %122
+  br label %123
 
 74:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !28
@@ -202,7 +202,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 .thread:                                          ; preds = %50, %55, %.critedge.i, %64, %68, %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
   store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !28
-  br i1 %.not88, label %.thread80, label %96
+  br i1 %.not88, label %.thread80, label %97
 
 .thread80:                                        ; preds = %.thread
   store i32 %42, ptr %9, align 4, !tbaa !31
@@ -230,12 +230,11 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   %84 = trunc i64 %34 to i32
   %85 = trunc i64 %.sink12.i to i32
   %86 = sub i32 %84, %85
-  %invariant.op = add i64 %44, 1
   br label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %92
   %indvars.iv134 = phi i64 [ %indvars.iv, %.lr.ph119.preheader ], [ %indvars.iv.next135, %92 ]
-  %87 = phi i64 [ %82, %.lr.ph119.preheader ], [ %.reass, %92 ]
+  %87 = phi i64 [ %82, %.lr.ph119.preheader ], [ %93, %92 ]
   %88 = getelementptr inbounds nuw i8, ptr %.val, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !25
   %90 = sext i8 %89 to i32
@@ -245,211 +244,211 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 92:                                               ; preds = %.lr.ph119
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %.reass = add i64 %indvars.iv134, %invariant.op
-  %93 = icmp ult i64 %.reass, %34
-  br i1 %93, label %.lr.ph119, label %.thread148, !llvm.loop !34
+  %93 = add i64 %44, %indvars.iv.next135
+  %94 = icmp ult i64 %93, %34
+  br i1 %94, label %.lr.ph119, label %.thread148, !llvm.loop !34
 
 .thread148.loopexit.split.loop.exit:              ; preds = %.lr.ph119
-  %94 = trunc nuw nsw i64 %indvars.iv134 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv134 to i32
   br label %.thread148
 
 .thread148:                                       ; preds = %92, %.thread148.loopexit.split.loop.exit, %.preheader
-  %.134.lcssa = phi i32 [ %80, %.preheader ], [ %94, %.thread148.loopexit.split.loop.exit ], [ %86, %92 ]
-  %95 = add nsw i32 %.134.lcssa, %42
-  store i32 %95, ptr %9, align 4, !tbaa !31
+  %.134.lcssa = phi i32 [ %80, %.preheader ], [ %95, %.thread148.loopexit.split.loop.exit ], [ %86, %92 ]
+  %96 = add nsw i32 %.134.lcssa, %42
+  store i32 %96, ptr %9, align 4, !tbaa !31
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-96:                                               ; preds = %.thread
-  %97 = add nsw i32 %.038, 1
-  %98 = load i32, ptr %9, align 4, !tbaa !35
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %98, i32 %42)
+97:                                               ; preds = %.thread
+  %98 = add nsw i32 %.038, 1
+  %99 = load i32, ptr %9, align 4, !tbaa !35
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %99, i32 %42)
   store i32 %.sroa.speculated, ptr %9, align 4, !tbaa !31
-  %99 = icmp eq i32 %97, 2
-  br i1 %99, label %100, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+  %100 = icmp eq i32 %98, 2
+  br i1 %100, label %101, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-100:                                              ; preds = %96
+101:                                              ; preds = %97
   %.val48 = load i64, ptr %33, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.val, i64 %.036
-  %102 = load i8, ptr %101, align 1, !tbaa !25
-  %103 = sext i8 %102 to i32
-  %104 = tail call i32 @ispunct(i32 noundef %103) #10
-  %.not.i55 = icmp eq i32 %104, 0
+  %102 = getelementptr inbounds nuw i8, ptr %.val, i64 %.036
+  %103 = load i8, ptr %102, align 1, !tbaa !25
+  %104 = sext i8 %103 to i32
+  %105 = tail call i32 @ispunct(i32 noundef %104) #10
+  %.not.i55 = icmp eq i32 %105, 0
   br i1 %.not.i55, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit, label %.preheader.i56
 
-.preheader.i56:                                   ; preds = %100
-  %105 = icmp ult i64 %.036, %.val48
-  br i1 %105, label %.lr.ph.i58, label %.loopexit
+.preheader.i56:                                   ; preds = %101
+  %106 = icmp ult i64 %.036, %.val48
+  br i1 %106, label %.lr.ph.i58, label %.loopexit
 
-106:                                              ; preds = %110
-  %107 = add i64 %.0111.i, 1
-  %exitcond.not.i59 = icmp eq i64 %107, %.val48
+107:                                              ; preds = %111
+  %108 = add i64 %.0111.i, 1
+  %exitcond.not.i59 = icmp eq i64 %108, %.val48
   br i1 %exitcond.not.i59, label %.loopexit, label %.lr.ph.i58, !llvm.loop !36
 
-.lr.ph.i58:                                       ; preds = %.preheader.i56, %106
-  %.0111.i = phi i64 [ %107, %106 ], [ %.036, %.preheader.i56 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.val, i64 %.0111.i
-  %109 = load i8, ptr %108, align 1, !tbaa !25
-  %.not12.i = icmp eq i8 %109, 10
-  br i1 %.not12.i, label %.loopexit, label %110
+.lr.ph.i58:                                       ; preds = %.preheader.i56, %107
+  %.0111.i = phi i64 [ %108, %107 ], [ %.036, %.preheader.i56 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.val, i64 %.0111.i
+  %110 = load i8, ptr %109, align 1, !tbaa !25
+  %.not12.i = icmp eq i8 %110, 10
+  br i1 %.not12.i, label %.loopexit, label %111
 
-110:                                              ; preds = %.lr.ph.i58
-  %.not13.i = icmp eq i8 %109, %102
-  br i1 %.not13.i, label %106, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+111:                                              ; preds = %.lr.ph.i58
+  %.not13.i = icmp eq i8 %110, %103
+  br i1 %.not13.i, label %107, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-.loopexit:                                        ; preds = %106, %.lr.ph.i58, %.preheader.i56
+.loopexit:                                        ; preds = %107, %.lr.ph.i58, %.preheader.i56
   store i32 2, ptr %4, align 8, !tbaa !16
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %110, %.thread148, %100, %.thread80, %.loopexit, %96
-  %111 = phi i32 [ 1, %.thread80 ], [ 2, %.loopexit ], [ %97, %96 ], [ 2, %100 ], [ 1, %.thread148 ], [ 2, %110 ]
-  %112 = add i64 %.sroa.speculated68, 1
-  %.not44 = icmp ult i64 %112, %34
-  br i1 %.not44, label %113, label %117
+_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %111, %.thread148, %101, %.thread80, %.loopexit, %97
+  %112 = phi i32 [ 1, %.thread80 ], [ 2, %.loopexit ], [ %98, %97 ], [ 2, %101 ], [ 1, %.thread148 ], [ 2, %111 ]
+  %113 = add i64 %.sroa.speculated68, 1
+  %.not44 = icmp ult i64 %113, %34
+  br i1 %.not44, label %114, label %118
 
-113:                                              ; preds = %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-  %114 = getelementptr inbounds nuw i8, ptr %.val, i64 %112
-  %115 = load i8, ptr %114, align 1, !tbaa !25
-  %116 = icmp eq i8 %115, 10
-  br i1 %116, label %117, label %118
+114:                                              ; preds = %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+  %115 = getelementptr inbounds nuw i8, ptr %.val, i64 %113
+  %116 = load i8, ptr %115, align 1, !tbaa !25
+  %117 = icmp eq i8 %116, 10
+  br i1 %117, label %118, label %119
 
-117:                                              ; preds = %113, %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
+118:                                              ; preds = %114, %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   store i32 2, ptr %5, align 8, !tbaa !17
-  br label %122
+  br label %123
 
-118:                                              ; preds = %113
-  %119 = load i32, ptr %4, align 8, !tbaa !16
-  %120 = icmp eq i32 %119, 2
-  br i1 %120, label %121, label %29
+119:                                              ; preds = %114
+  %120 = load i32, ptr %4, align 8, !tbaa !16
+  %121 = icmp eq i32 %120, 2
+  br i1 %121, label %122, label %29
 
-121:                                              ; preds = %118
+122:                                              ; preds = %119
   store i32 1, ptr %5, align 8, !tbaa !17
-  br label %122
+  br label %123
 
-122:                                              ; preds = %117, %121, %73
-  %123 = phi i64 [ %.sroa.speculated68, %117 ], [ %.sroa.speculated68, %121 ], [ %.pre, %73 ]
-  store i64 %123, ptr %2, align 8, !tbaa !14
-  %124 = load i64, ptr %3, align 8, !tbaa !15
-  %125 = sub i64 %123, %124
-  %126 = icmp ugt i64 %125, 1
-  br i1 %126, label %127, label %split
+123:                                              ; preds = %118, %122, %73
+  %124 = phi i64 [ %.sroa.speculated68, %118 ], [ %.sroa.speculated68, %122 ], [ %.pre, %73 ]
+  store i64 %124, ptr %2, align 8, !tbaa !14
+  %125 = load i64, ptr %3, align 8, !tbaa !15
+  %126 = sub i64 %124, %125
+  %127 = icmp ugt i64 %126, 1
+  br i1 %127, label %128, label %split
 
-127:                                              ; preds = %122
-  %128 = add i64 %123, -2
-  %129 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef %128, i64 noundef 2, ptr noundef nonnull @.str)
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %._crit_edge
+128:                                              ; preds = %123
+  %129 = add i64 %124, -2
+  %130 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef %129, i64 noundef 2, ptr noundef nonnull @.str)
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %._crit_edge
 
-._crit_edge:                                      ; preds = %127
+._crit_edge:                                      ; preds = %128
   %.pre137.pre = load ptr, ptr %0, align 8, !tbaa !19
   %.pre138.pre = load i64, ptr %3, align 8, !tbaa !15
   %.val49.pre.pre = load ptr, ptr %.pre137.pre, align 8, !tbaa !24
   br label %split
 
-131:                                              ; preds = %127
-  %132 = load i32, ptr %9, align 4, !tbaa !31
-  store i32 %132, ptr %7, align 4, !tbaa !9
-  %133 = load i64, ptr %8, align 8, !tbaa !28
-  %134 = load i64, ptr %3, align 8, !tbaa !15
-  %135 = sub i64 %133, %134
-  %136 = icmp eq i64 %135, 2
-  br i1 %136, label %137, label %141
+132:                                              ; preds = %128
+  %133 = load i32, ptr %9, align 4, !tbaa !31
+  store i32 %133, ptr %7, align 4, !tbaa !9
+  %134 = load i64, ptr %8, align 8, !tbaa !28
+  %135 = load i64, ptr %3, align 8, !tbaa !15
+  %136 = sub i64 %134, %135
+  %137 = icmp eq i64 %136, 2
+  br i1 %137, label %138, label %142
 
-137:                                              ; preds = %131
-  %138 = load i32, ptr %6, align 4, !tbaa !18
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %tailrecurse.backedge
+138:                                              ; preds = %132
+  %139 = load i32, ptr %6, align 4, !tbaa !18
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %tailrecurse.backedge
 
-140:                                              ; preds = %137
+141:                                              ; preds = %138
   store i32 0, ptr %5, align 8, !tbaa !17
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %140, %137
+tailrecurse.backedge:                             ; preds = %141, %138
   br label %tailrecurse
 
-141:                                              ; preds = %131
-  %142 = load ptr, ptr %0, align 8, !tbaa !19
-  %143 = load ptr, ptr %142, align 8, !tbaa !24
-  %144 = getelementptr i8, ptr %143, i64 %133
-  %145 = getelementptr i8, ptr %144, i64 -3
-  %146 = load i8, ptr %145, align 1, !tbaa !25
-  %147 = icmp eq i8 %146, 32
-  %.neg = select i1 %147, i64 -3, i64 -1
-  %148 = add i64 %.neg, %133
-  store i64 %148, ptr %8, align 8, !tbaa !28
-  br label %149
+142:                                              ; preds = %132
+  %143 = load ptr, ptr %0, align 8, !tbaa !19
+  %144 = load ptr, ptr %143, align 8, !tbaa !24
+  %145 = getelementptr i8, ptr %144, i64 %134
+  %146 = getelementptr i8, ptr %145, i64 -3
+  %147 = load i8, ptr %146, align 1, !tbaa !25
+  %148 = icmp eq i8 %147, 32
+  %.neg = select i1 %148, i64 -3, i64 -1
+  %149 = add i64 %.neg, %134
+  store i64 %149, ptr %8, align 8, !tbaa !28
+  br label %150
 
-split:                                            ; preds = %122, %._crit_edge
-  %.val49.pre = phi ptr [ %.val49.pre.pre, %._crit_edge ], [ %.val, %122 ]
-  %.pre138 = phi i64 [ %.pre138.pre, %._crit_edge ], [ %124, %122 ]
-  %.pre137 = phi ptr [ %.pre137.pre, %._crit_edge ], [ %32, %122 ]
+split:                                            ; preds = %123, %._crit_edge
+  %.val49.pre = phi ptr [ %.val49.pre.pre, %._crit_edge ], [ %.val, %123 ]
+  %.pre138 = phi i64 [ %.pre138.pre, %._crit_edge ], [ %125, %123 ]
+  %.pre137 = phi ptr [ %.pre137.pre, %._crit_edge ], [ %32, %123 ]
   store i32 -1, ptr %7, align 4, !tbaa !9
-  br label %149
+  br label %150
 
-149:                                              ; preds = %split, %141
-  %.val49 = phi ptr [ %.val49.pre, %split ], [ %143, %141 ]
-  %150 = phi i64 [ %.pre138, %split ], [ %134, %141 ]
-  %151 = phi ptr [ %.pre137, %split ], [ %142, %141 ]
-  %152 = load i32, ptr %10, align 8, !tbaa !32
-  %153 = sext i32 %152 to i64
-  %154 = add i64 %150, %153
-  %155 = getelementptr i8, ptr %151, i64 8
-  %.val50 = load i64, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %.val49, i64 %154
-  %157 = load i8, ptr %156, align 1, !tbaa !25
-  switch i8 %157, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit [
+150:                                              ; preds = %split, %142
+  %.val49 = phi ptr [ %.val49.pre, %split ], [ %144, %142 ]
+  %151 = phi i64 [ %.pre138, %split ], [ %135, %142 ]
+  %152 = phi ptr [ %.pre137, %split ], [ %143, %142 ]
+  %153 = load i32, ptr %10, align 8, !tbaa !32
+  %154 = sext i32 %153 to i64
+  %155 = add i64 %151, %154
+  %156 = getelementptr i8, ptr %152, i64 8
+  %.val50 = load i64, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %.val49, i64 %155
+  %158 = load i8, ptr %157, align 1, !tbaa !25
+  switch i8 %158, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit [
     i8 61, label %.preheader.i63
     i8 43, label %.preheader1.i
   ]
 
-.preheader1.i:                                    ; preds = %149
-  %158 = icmp ult i64 %154, %.val50
-  br i1 %158, label %.lr.ph.i61, label %.critedge.loopexit13.i
+.preheader1.i:                                    ; preds = %150
+  %159 = icmp ult i64 %155, %.val50
+  br i1 %159, label %.lr.ph.i61, label %.critedge.loopexit13.i
 
-.preheader.i63:                                   ; preds = %149
-  %159 = icmp ult i64 %154, %.val50
-  br i1 %159, label %.lr.ph6.i, label %.critedge.loopexit13.i
+.preheader.i63:                                   ; preds = %150
+  %160 = icmp ult i64 %155, %.val50
+  br i1 %160, label %.lr.ph6.i, label %.critedge.loopexit13.i
 
-.lr.ph6.i:                                        ; preds = %.preheader.i63, %165
-  %.05.i = phi i64 [ %166, %165 ], [ %154, %.preheader.i63 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.val49, i64 %.05.i
-  %161 = load i8, ptr %160, align 1, !tbaa !25
-  switch i8 %161, label %162 [
+.lr.ph6.i:                                        ; preds = %.preheader.i63, %166
+  %.05.i = phi i64 [ %167, %166 ], [ %155, %.preheader.i63 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.val49, i64 %.05.i
+  %162 = load i8, ptr %161, align 1, !tbaa !25
+  switch i8 %162, label %163 [
     i8 10, label %.critedge.loopexit13.i
-    i8 61, label %165
+    i8 61, label %166
   ]
 
-162:                                              ; preds = %.lr.ph6.i
-  %163 = sext i8 %161 to i32
-  %164 = tail call i32 @isspace(i32 noundef %163) #10
-  %.not29.i = icmp eq i32 %164, 0
-  br i1 %.not29.i, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit, label %165
+163:                                              ; preds = %.lr.ph6.i
+  %164 = sext i8 %162 to i32
+  %165 = tail call i32 @isspace(i32 noundef %164) #10
+  %.not29.i = icmp eq i32 %165, 0
+  br i1 %.not29.i, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit, label %166
 
-165:                                              ; preds = %162, %.lr.ph6.i
-  %166 = add i64 %.05.i, 1
-  %exitcond12.not.i = icmp eq i64 %166, %.val50
+166:                                              ; preds = %163, %.lr.ph6.i
+  %167 = add i64 %.05.i, 1
+  %exitcond12.not.i = icmp eq i64 %167, %.val50
   br i1 %exitcond12.not.i, label %.critedge.loopexit13.i, label %.lr.ph6.i, !llvm.loop !37
 
-.lr.ph.i61:                                       ; preds = %.preheader1.i, %169
-  %.13.i = phi i64 [ %170, %169 ], [ %154, %.preheader1.i ]
-  %167 = getelementptr inbounds nuw i8, ptr %.val49, i64 %.13.i
-  %168 = load i8, ptr %167, align 1, !tbaa !25
-  switch i8 %168, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit [
+.lr.ph.i61:                                       ; preds = %.preheader1.i, %170
+  %.13.i = phi i64 [ %171, %170 ], [ %155, %.preheader1.i ]
+  %168 = getelementptr inbounds nuw i8, ptr %.val49, i64 %.13.i
+  %169 = load i8, ptr %168, align 1, !tbaa !25
+  switch i8 %169, label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit [
     i8 10, label %.critedge.loopexit13.i
-    i8 45, label %169
-    i8 43, label %169
+    i8 45, label %170
+    i8 43, label %170
   ]
 
-169:                                              ; preds = %.lr.ph.i61, %.lr.ph.i61
-  %170 = add i64 %.13.i, 1
-  %exitcond.not.i62 = icmp eq i64 %170, %.val50
+170:                                              ; preds = %.lr.ph.i61, %.lr.ph.i61
+  %171 = add i64 %.13.i, 1
+  %exitcond.not.i62 = icmp eq i64 %171, %.val50
   br i1 %exitcond.not.i62, label %.critedge.loopexit13.i, label %.lr.ph.i61, !llvm.loop !38
 
-.critedge.loopexit13.i:                           ; preds = %.lr.ph.i61, %169, %165, %.lr.ph6.i, %.preheader.i63, %.preheader1.i
+.critedge.loopexit13.i:                           ; preds = %.lr.ph.i61, %170, %166, %.lr.ph6.i, %.preheader.i63, %.preheader1.i
   store i32 1, ptr %4, align 8, !tbaa !16
   br label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
-_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %.lr.ph.i61, %162, %149, %.critedge.loopexit13.i, %.critedge.thread
-  %.not143146 = phi i1 [ true, %149 ], [ true, %.critedge.loopexit13.i ], [ false, %.critedge.thread ], [ true, %162 ], [ true, %.lr.ph.i61 ]
+_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; preds = %.lr.ph.i61, %163, %150, %.critedge.loopexit13.i, %.critedge.thread
+  %.not143146 = phi i1 [ true, %150 ], [ true, %.critedge.loopexit13.i ], [ false, %.critedge.thread ], [ true, %163 ], [ true, %.lr.ph.i61 ]
   ret i1 %.not143146
 }
 

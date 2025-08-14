@@ -4472,7 +4472,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %44 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !34
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %44, i64 1
   %45 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !34
-  br label %138
+  br label %139
 
 46:                                               ; preds = %36
   %47 = tail call float @llvm.floor.f32(float %14)
@@ -4516,7 +4516,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %sqrt = tail call float @llvm.sqrt.f32(float %80)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %81 = fcmp olt float %sqrt, 0x3F1A36E2E0000000
-  br i1 %81, label %.preheader.preheader, label %126
+  br i1 %81, label %.preheader.preheader, label %127
 
 .preheader.preheader:                             ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @_ZN2cv5kinfuL4nan3E, i64 12, i1 false), !tbaa !34
@@ -4527,7 +4527,6 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %83 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv70
   %84 = load i32, ptr %83, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %invariant.op = add i32 %63, %84
   br label %109
 
 85:                                               ; preds = %109
@@ -4565,55 +4564,55 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu13TSDFVolumeCPU1
   %110 = getelementptr inbounds nuw [8 x i32], ptr %64, i64 0, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !14
   %112 = add nsw i32 %63, %111
-  %.reass = add i32 %111, %invariant.op
-  %113 = sext i32 %.reass to i64
-  %114 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !252
-  %116 = sitofp i8 %115 to float
-  %117 = fmul float %116, -7.812500e-03
-  %118 = sub nsw i32 %112, %84
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !252
-  %122 = sitofp i8 %121 to float
-  %123 = fmul float %122, 7.812500e-03
-  %124 = fadd float %117, %123
-  %125 = getelementptr inbounds nuw [8 x float], ptr %4, i64 0, i64 %indvars.iv
-  store float %124, ptr %125, align 4, !tbaa !34
+  %113 = add nsw i32 %112, %84
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %114
+  %116 = load i8, ptr %115, align 1, !tbaa !252
+  %117 = sitofp i8 %116 to float
+  %118 = fmul float %117, -7.812500e-03
+  %119 = sub nsw i32 %112, %84
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %13, i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !252
+  %123 = sitofp i8 %122 to float
+  %124 = fmul float %123, 7.812500e-03
+  %125 = fadd float %118, %124
+  %126 = getelementptr inbounds nuw [8 x float], ptr %4, i64 0, i64 %indvars.iv
+  store float %125, ptr %126, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %85, label %109, !llvm.loop !285
 
-126:                                              ; preds = %72
+127:                                              ; preds = %72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %127 = fdiv float 1.000000e+00, %sqrt
-  br label %128
+  %128 = fdiv float 1.000000e+00, %sqrt
+  br label %129
 
-128:                                              ; preds = %128, %126
-  %indvars.iv.i.i.i = phi i64 [ 0, %126 ], [ %indvars.iv.next.i.i.i, %128 ]
-  %129 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i
-  %130 = load float, ptr %129, align 4, !tbaa !34, !noalias !286
-  %131 = fmul float %127, %130
-  %132 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i
-  store float %131, ptr %132, align 4, !tbaa !34, !alias.scope !286
+129:                                              ; preds = %129, %127
+  %indvars.iv.i.i.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i.i.i, %129 ]
+  %130 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %131 = load float, ptr %130, align 4, !tbaa !34, !noalias !286
+  %132 = fmul float %128, %131
+  %133 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  store float %132, ptr %133, align 4, !tbaa !34, !alias.scope !286
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, label %128, !llvm.loop !289
+  br i1 %exitcond.not.i.i.i, label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, label %129, !llvm.loop !289
 
-_ZN2cv3VecIfLi3EEC2ERKS1_.exit:                   ; preds = %128, %.preheader.preheader
-  %133 = load float, ptr %5, align 4, !tbaa !34
-  %.sroa.0.0.vec.insert62 = insertelement <2 x float> poison, float %133, i64 0
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %135 = load float, ptr %134, align 4, !tbaa !34
-  %.sroa.0.4.vec.insert64 = insertelement <2 x float> %.sroa.0.0.vec.insert62, float %135, i64 1
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %137 = load float, ptr %136, align 4, !tbaa !34
+_ZN2cv3VecIfLi3EEC2ERKS1_.exit:                   ; preds = %129, %.preheader.preheader
+  %134 = load float, ptr %5, align 4, !tbaa !34
+  %.sroa.0.0.vec.insert62 = insertelement <2 x float> poison, float %134, i64 0
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %136 = load float, ptr %135, align 4, !tbaa !34
+  %.sroa.0.4.vec.insert64 = insertelement <2 x float> %.sroa.0.0.vec.insert62, float %136, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %138 = load float, ptr %137, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %138
+  br label %139
 
-138:                                              ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, %42
-  %.sroa.5.0 = phi float [ %45, %42 ], [ %137, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
+139:                                              ; preds = %_ZN2cv3VecIfLi3EEC2ERKS1_.exit, %42
+  %.sroa.5.0 = phi float [ %45, %42 ], [ %138, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %42 ], [ %.sroa.0.4.vec.insert64, %_ZN2cv3VecIfLi3EEC2ERKS1_.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.5.0, 1

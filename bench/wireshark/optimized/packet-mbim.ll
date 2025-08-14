@@ -13190,18 +13190,18 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noun
   %43 = icmp ult i32 %41, %42
   br i1 %43, label %34, label %.preheader, !llvm.loop !34
 
-.lr.ph57:                                         ; preds = %.preheader, %60
-  %.14956 = phi i32 [ %61, %60 ], [ 0, %.preheader ]
+.lr.ph57:                                         ; preds = %.preheader, %61
+  %.14956 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
   %44 = call ptr @wmem_array_index(ptr noundef %26, i32 noundef %.14956)
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp eq i32 %45, 0
-  br i1 %.not52, label %60, label %46
+  br i1 %.not52, label %61, label %46
 
 46:                                               ; preds = %.lr.ph57
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = load i32, ptr %47, align 4
   %.not53 = icmp eq i32 %48, 0
-  br i1 %.not53, label %60, label %49
+  br i1 %.not53, label %61, label %49
 
 49:                                               ; preds = %46
   %50 = add i32 %45, %3
@@ -13212,18 +13212,18 @@ define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noun
   %55 = add i32 %54, %3
   %56 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_antenna_index, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef -2147483648)
-  %.reass = add i32 %54, %10
-  %58 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_backoff_index, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %58, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef -2147483648)
-  br label %60
+  %58 = add i32 %55, 4
+  %59 = load i32, ptr @hf_mbim_ms_sar_config_state_sar_backoff_index, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef -2147483648)
+  br label %61
 
-60:                                               ; preds = %.lr.ph57, %46, %49
-  %61 = add nuw i32 %.14956, 1
-  %62 = load i32, ptr %6, align 4
-  %63 = icmp ult i32 %61, %62
-  br i1 %63, label %.lr.ph57, label %.loopexit, !llvm.loop !35
+61:                                               ; preds = %.lr.ph57, %46, %49
+  %62 = add nuw i32 %.14956, 1
+  %63 = load i32, ptr %6, align 4
+  %64 = icmp ult i32 %62, %63
+  br i1 %64, label %.lr.ph57, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %60, %22, %.preheader, %18
+.loopexit:                                        ; preds = %61, %22, %.preheader, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

@@ -9575,7 +9575,7 @@ define internal { ptr, i64 } @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder6
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = icmp eq ptr %5, %6
-  br i1 %11, label %143, label %12
+  br i1 %11, label %144, label %12
 
 12:                                               ; preds = %2
   %sext = shl i64 %9, 30
@@ -9609,7 +9609,7 @@ _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit: ; p
   %28 = icmp ne i32 %spec.select.i.sink.i.i, 0
   %29 = icmp ne i32 %storemerge.i.i, 0
   %or.cond = select i1 %28, i1 %29, i1 false
-  br i1 %or.cond, label %.lr.ph, label %131
+  br i1 %or.cond, label %.lr.ph, label %132
 
 .lr.ph:                                           ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -9618,7 +9618,7 @@ _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit: ; p
   br i1 %31, label %.lr.ph.i3.i.preheader.us, label %._crit_edge
 
 .lr.ph.i3.i.preheader.us:                         ; preds = %.lr.ph, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us
-  %.sroa.030.044.us = phi ptr [ %48, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us ], [ %6, %.lr.ph ]
+  %.sroa.030.044.us = phi ptr [ %49, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us ], [ %6, %.lr.ph ]
   %32 = load i32, ptr %.sroa.030.044.us, align 4, !tbaa !38
   %33 = urem i32 %32, %storemerge.i.i
   %34 = shl nuw nsw i32 %33, 6
@@ -9628,174 +9628,174 @@ _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit: ; p
   br label %.lr.ph.i3.i.us
 
 .lr.ph.i3.i.us:                                   ; preds = %.lr.ph.i3.i.preheader.us, %.lr.ph.i3.i.us
-  %.018.i.i.us = phi i32 [ %46, %.lr.ph.i3.i.us ], [ %32, %.lr.ph.i3.i.preheader.us ]
-  %.01617.i.i.us = phi i32 [ %47, %.lr.ph.i3.i.us ], [ 0, %.lr.ph.i3.i.preheader.us ]
-  %.reass.i.i.us = and i32 %.018.i.i.us, 7
-  %38 = shl nuw nsw i32 1, %.reass.i.i.us
-  %39 = lshr i32 %.018.i.i.us, 3
-  %40 = and i32 %39, 63
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !46
-  %44 = trunc nuw i32 %38 to i8
-  %45 = or i8 %43, %44
-  store i8 %45, ptr %42, align 1, !tbaa !46
-  %46 = add i32 %.018.i.i.us, %37
-  %47 = add nuw nsw i32 %.01617.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i32 %47, %.val22
+  %.018.i.i.us = phi i32 [ %47, %.lr.ph.i3.i.us ], [ %32, %.lr.ph.i3.i.preheader.us ]
+  %.01617.i.i.us = phi i32 [ %48, %.lr.ph.i3.i.us ], [ 0, %.lr.ph.i3.i.preheader.us ]
+  %38 = and i32 %.018.i.i.us, 7
+  %39 = shl nuw nsw i32 1, %38
+  %40 = lshr i32 %.018.i.i.us, 3
+  %41 = and i32 %40, 63
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !46
+  %45 = trunc nuw i32 %39 to i8
+  %46 = or i8 %44, %45
+  store i8 %46, ptr %43, align 1, !tbaa !46
+  %47 = add i32 %.018.i.i.us, %37
+  %48 = add nuw nsw i32 %.01617.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i32 %48, %.val22
   br i1 %exitcond.not.i.i.us, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us, label %.lr.ph.i3.i.us, !llvm.loop !452
 
 _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us: ; preds = %.lr.ph.i3.i.us
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.030.044.us, i64 4
-  %.not.us = icmp eq ptr %48, %5
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.030.044.us, i64 4
+  %.not.us = icmp eq ptr %49, %5
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.i3.i.preheader.us, !llvm.loop !453
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us, %.lr.ph
-  %49 = icmp ugt i64 %10, 2999999
-  br i1 %49, label %50, label %131
+  %50 = icmp ugt i64 %10, 2999999
+  br i1 %50, label %51, label %132
 
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %52 = and i32 %spec.select.i.sink.i.i, -8
-  %53 = uitofp i32 %52 to double
-  %54 = uitofp i64 %10 to double
-  %55 = fdiv double %53, %54
-  %56 = fcmp ugt double %55, 0.000000e+00
-  br i1 %56, label %57, label %cdce.end.i
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %53 = and i32 %spec.select.i.sink.i.i, -8
+  %54 = uitofp i32 %53 to double
+  %55 = uitofp i64 %10 to double
+  %56 = fdiv double %54, %55
+  %57 = fcmp ugt double %56, 0.000000e+00
+  br i1 %57, label %58, label %cdce.end.i
 
-57:                                               ; preds = %50
-  %58 = load i32, ptr %51, align 4, !tbaa !107
-  %59 = fdiv double 5.120000e+02, %55
-  %sqrt.i = tail call double @llvm.sqrt.f64(double %59)
-  %60 = fadd double %59, %sqrt.i
-  %61 = fdiv double 5.120000e+02, %60
-  %62 = sub nsw i32 0, %58
-  %63 = sitofp i32 %62 to double
-  %64 = fdiv double %63, %61
-  %65 = tail call double @exp(double noundef %64) #39, !tbaa !38
-  %66 = fsub double 1.000000e+00, %65
-  %67 = sitofp i32 %58 to double
-  %68 = tail call noundef double @pow(double noundef %66, double noundef %67) #39, !tbaa !38
-  %69 = fsub double %59, %sqrt.i
-  %70 = fdiv double 5.120000e+02, %69
-  %71 = fdiv double %63, %70
-  %72 = tail call double @exp(double noundef %71) #39, !tbaa !38
-  %73 = fsub double 1.000000e+00, %72
-  %74 = tail call noundef double @pow(double noundef %73, double noundef %67) #39, !tbaa !38
-  %75 = fadd double %68, %74
-  %76 = fmul double %75, 5.000000e-01
+58:                                               ; preds = %51
+  %59 = load i32, ptr %52, align 4, !tbaa !107
+  %60 = fdiv double 5.120000e+02, %56
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %60)
+  %61 = fadd double %60, %sqrt.i
+  %62 = fdiv double 5.120000e+02, %61
+  %63 = sub nsw i32 0, %59
+  %64 = sitofp i32 %63 to double
+  %65 = fdiv double %64, %62
+  %66 = tail call double @exp(double noundef %65) #39, !tbaa !38
+  %67 = fsub double 1.000000e+00, %66
+  %68 = sitofp i32 %59 to double
+  %69 = tail call noundef double @pow(double noundef %67, double noundef %68) #39, !tbaa !38
+  %70 = fsub double %60, %sqrt.i
+  %71 = fdiv double 5.120000e+02, %70
+  %72 = fdiv double %64, %71
+  %73 = tail call double @exp(double noundef %72) #39, !tbaa !38
+  %74 = fsub double 1.000000e+00, %73
+  %75 = tail call noundef double @pow(double noundef %74, double noundef %68) #39, !tbaa !38
+  %76 = fadd double %69, %75
+  %77 = fmul double %76, 5.000000e-01
   br label %cdce.end.i
 
-cdce.end.i:                                       ; preds = %57, %50
-  %.0.i.i = phi double [ %76, %57 ], [ 1.000000e+00, %50 ]
-  %77 = fmul double %54, 0x3DF0000000000000
-  %78 = fcmp ogt double %77, 1.000000e-04
-  %79 = fneg double %77
-  br i1 %78, label %80, label %83
+cdce.end.i:                                       ; preds = %58, %51
+  %.0.i.i = phi double [ %77, %58 ], [ 1.000000e+00, %51 ]
+  %78 = fmul double %55, 0x3DF0000000000000
+  %79 = fcmp ogt double %78, 1.000000e-04
+  %80 = fneg double %78
+  br i1 %79, label %81, label %84
 
-80:                                               ; preds = %cdce.end.i
-  %81 = tail call double @exp(double noundef %79) #39, !tbaa !38
-  %82 = fsub double 1.000000e+00, %81
+81:                                               ; preds = %cdce.end.i
+  %82 = tail call double @exp(double noundef %80) #39, !tbaa !38
+  %83 = fsub double 1.000000e+00, %82
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
-83:                                               ; preds = %cdce.end.i
-  %84 = fmul double %77, %79
-  %85 = tail call double @llvm.fmuladd.f64(double %84, double 5.000000e-01, double %77)
+84:                                               ; preds = %cdce.end.i
+  %85 = fmul double %78, %80
+  %86 = tail call double @llvm.fmuladd.f64(double %85, double 5.000000e-01, double %78)
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit: ; preds = %80, %83
-  %.0.i8.i = phi double [ %82, %80 ], [ %85, %83 ]
-  %86 = tail call double @llvm.fmuladd.f64(double %55, double 7.500000e-01, double 2.200000e+01)
-  %87 = fdiv double 1.000000e-01, %86
-  %88 = fadd double %87, %.0.i.i
-  %89 = fadd double %88, %.0.i8.i
-  %90 = fneg double %88
-  %91 = tail call noundef double @llvm.fmuladd.f64(double %90, double %.0.i8.i, double %89)
-  %92 = load i32, ptr %13, align 8, !tbaa !98
-  %93 = shl i32 %92, 16
-  %94 = uitofp i32 %93 to double
-  %95 = fmul double %94, 0x3EF0000000000000
-  %96 = fcmp ugt double %95, 0.000000e+00
-  br i1 %96, label %97, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit: ; preds = %81, %84
+  %.0.i8.i = phi double [ %83, %81 ], [ %86, %84 ]
+  %87 = tail call double @llvm.fmuladd.f64(double %56, double 7.500000e-01, double 2.200000e+01)
+  %88 = fdiv double 1.000000e-01, %87
+  %89 = fadd double %88, %.0.i.i
+  %90 = fadd double %89, %.0.i8.i
+  %91 = fneg double %89
+  %92 = tail call noundef double @llvm.fmuladd.f64(double %91, double %.0.i8.i, double %90)
+  %93 = load i32, ptr %13, align 8, !tbaa !98
+  %94 = shl i32 %93, 16
+  %95 = uitofp i32 %94 to double
+  %96 = fmul double %95, 0x3EF0000000000000
+  %97 = fcmp ugt double %96, 0.000000e+00
+  br i1 %97, label %98, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
 
-97:                                               ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
-  %98 = load i32, ptr %51, align 4, !tbaa !107
-  %99 = fdiv double 5.120000e+02, %95
-  %sqrt.i26 = tail call double @llvm.sqrt.f64(double %99)
-  %100 = fadd double %99, %sqrt.i26
-  %101 = fdiv double 5.120000e+02, %100
-  %102 = sub nsw i32 0, %98
-  %103 = sitofp i32 %102 to double
-  %104 = fdiv double %103, %101
-  %105 = tail call double @exp(double noundef %104) #39, !tbaa !38
-  %106 = fsub double 1.000000e+00, %105
-  %107 = sitofp i32 %98 to double
-  %108 = tail call noundef double @pow(double noundef %106, double noundef %107) #39, !tbaa !38
-  %109 = fsub double %99, %sqrt.i26
-  %110 = fdiv double 5.120000e+02, %109
-  %111 = fdiv double %103, %110
-  %112 = tail call double @exp(double noundef %111) #39, !tbaa !38
-  %113 = fsub double 1.000000e+00, %112
-  %114 = tail call noundef double @pow(double noundef %113, double noundef %107) #39, !tbaa !38
-  %115 = fadd double %108, %114
-  %116 = fmul double %115, 5.000000e-01
+98:                                               ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
+  %99 = load i32, ptr %52, align 4, !tbaa !107
+  %100 = fdiv double 5.120000e+02, %96
+  %sqrt.i26 = tail call double @llvm.sqrt.f64(double %100)
+  %101 = fadd double %100, %sqrt.i26
+  %102 = fdiv double 5.120000e+02, %101
+  %103 = sub nsw i32 0, %99
+  %104 = sitofp i32 %103 to double
+  %105 = fdiv double %104, %102
+  %106 = tail call double @exp(double noundef %105) #39, !tbaa !38
+  %107 = fsub double 1.000000e+00, %106
+  %108 = sitofp i32 %99 to double
+  %109 = tail call noundef double @pow(double noundef %107, double noundef %108) #39, !tbaa !38
+  %110 = fsub double %100, %sqrt.i26
+  %111 = fdiv double 5.120000e+02, %110
+  %112 = fdiv double %104, %111
+  %113 = tail call double @exp(double noundef %112) #39, !tbaa !38
+  %114 = fsub double 1.000000e+00, %113
+  %115 = tail call noundef double @pow(double noundef %114, double noundef %108) #39, !tbaa !38
+  %116 = fadd double %109, %115
+  %117 = fmul double %116, 5.000000e-01
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27: ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit, %97
-  %.0.i.i24 = phi double [ %116, %97 ], [ 1.000000e+00, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit ]
-  %117 = tail call double @llvm.fmuladd.f64(double %95, double 7.500000e-01, double 2.200000e+01)
-  %118 = fdiv double 1.000000e-01, %117
-  %119 = fadd double %118, %.0.i.i24
-  %120 = fadd double %119, 0x3EEFFFF000000000
-  %121 = fneg double %119
-  %122 = tail call noundef double @llvm.fmuladd.f64(double %121, double 0x3EEFFFF000000000, double %120)
-  %123 = fmul double %122, 1.500000e+00
-  %124 = fcmp ult double %91, %123
-  br i1 %124, label %131, label %125
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27: ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit, %98
+  %.0.i.i24 = phi double [ %117, %98 ], [ 1.000000e+00, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit ]
+  %118 = tail call double @llvm.fmuladd.f64(double %96, double 7.500000e-01, double 2.200000e+01)
+  %119 = fdiv double 1.000000e-01, %118
+  %120 = fadd double %119, %.0.i.i24
+  %121 = fadd double %120, 0x3EEFFFF000000000
+  %122 = fneg double %120
+  %123 = tail call noundef double @llvm.fmuladd.f64(double %122, double 0x3EEFFFF000000000, double %121)
+  %124 = fmul double %123, 1.500000e+00
+  %125 = fcmp ult double %92, %124
+  br i1 %125, label %132, label %126
 
-125:                                              ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %127 = load ptr, ptr %126, align 8, !tbaa !109
-  %128 = fdiv double %54, 1.000000e+06
-  %129 = load i32, ptr %13, align 8, !tbaa !98
-  %130 = fdiv double %91, %122
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %127, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 93), double noundef %128, i32 noundef %129, double noundef %130)
-  br label %131
+126:                                              ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %128 = load ptr, ptr %127, align 8, !tbaa !109
+  %129 = fdiv double %55, 1.000000e+06
+  %130 = load i32, ptr %13, align 8, !tbaa !98
+  %131 = fdiv double %92, %123
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %128, ptr noundef nonnull @.str.26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 93), double noundef %129, i32 noundef %130, double noundef %131)
+  br label %132
 
-131:                                              ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27, %125, %._crit_edge, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %133 = load i32, ptr %132, align 4, !tbaa !107
-  %134 = trunc i32 %133 to i8
-  %135 = zext nneg i32 %24 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %27, i64 %135
-  store i8 %134, ptr %136, align 1, !tbaa !46
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  store i32 %storemerge.i.i, ptr %137, align 1
-  %138 = load ptr, ptr %1, align 8, !tbaa !288
+132:                                              ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27, %126, %._crit_edge, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %134 = load i32, ptr %133, align 4, !tbaa !107
+  %135 = trunc i32 %134 to i8
+  %136 = zext nneg i32 %24 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %27, i64 %136
+  store i8 %135, ptr %137, align 1, !tbaa !46
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
+  store i32 %storemerge.i.i, ptr %138, align 1
+  %139 = load ptr, ptr %1, align 8, !tbaa !288
   store ptr %27, ptr %1, align 8, !tbaa !288
-  %.not.i.i28 = icmp eq ptr %138, null
+  %.not.i.i28 = icmp eq ptr %139, null
   br i1 %.not.i.i28, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %131
-  tail call void @_ZdaPv(ptr noundef nonnull %138) #38
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %132
+  tail call void @_ZdaPv(ptr noundef nonnull %139) #38
   br label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
 
-_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit: ; preds = %131, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  %139 = load ptr, ptr %3, align 8, !tbaa !448
-  %140 = load ptr, ptr %4, align 8, !tbaa !451
-  %.not.i.i29 = icmp eq ptr %140, %139
-  br i1 %.not.i.i29, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %141
+_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit: ; preds = %132, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+  %140 = load ptr, ptr %3, align 8, !tbaa !448
+  %141 = load ptr, ptr %4, align 8, !tbaa !451
+  %.not.i.i29 = icmp eq ptr %141, %140
+  br i1 %.not.i.i29, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %142
 
-141:                                              ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
-  store ptr %139, ptr %4, align 8, !tbaa !451
+142:                                              ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
+  store ptr %140, ptr %4, align 8, !tbaa !451
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
-_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, %141
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 -1, ptr %142, align 8, !tbaa !108
-  br label %143
+_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, %142
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 -1, ptr %143, align 8, !tbaa !108
+  br label %144
 
-143:                                              ; preds = %2, %_ZNSt6vectorIjSaIjEE5clearEv.exit
+144:                                              ; preds = %2, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %.sroa.042.0 = phi ptr [ %27, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ null, %2 ]
   %.sroa.3.0 = phi i64 [ %26, %_ZNSt6vectorIjSaIjEE5clearEv.exit ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.042.0, 0
@@ -11986,33 +11986,32 @@ define internal noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_121LegacyBloomBitsRe
   %23 = tail call i32 @llvm.fshl.i32(i32 %6, i32 %6, i32 15)
   %notmask.i3 = shl nsw i32 -1, %22
   %24 = xor i32 %notmask.i3, -1
-  %invariant.op.i = and i32 %24, 7
   %.not2122.i = icmp slt i32 %21, 1
   br i1 %.not2122.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %33
-  %.01824.i = phi i32 [ %35, %33 ], [ 0, %2 ]
-  %.01923.i = phi i32 [ %34, %33 ], [ %6, %2 ]
+.lr.ph.i:                                         ; preds = %2, %34
+  %.01824.i = phi i32 [ %36, %34 ], [ 0, %2 ]
+  %.01923.i = phi i32 [ %35, %34 ], [ %6, %2 ]
   %25 = and i32 %.01923.i, %24
   %26 = lshr i32 %25, 3
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !46
   %30 = zext i8 %29 to i32
-  %.reass.i = and i32 %invariant.op.i, %.01923.i
-  %31 = shl nuw nsw i32 1, %.reass.i
-  %32 = and i32 %31, %30
-  %.not.not.i.not.not = icmp ne i32 %32, 0
-  br i1 %.not.not.i.not.not, label %33, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
+  %31 = and i32 %25, 7
+  %32 = shl nuw nsw i32 1, %31
+  %33 = and i32 %32, %30
+  %.not.not.i.not.not = icmp ne i32 %33, 0
+  br i1 %.not.not.i.not.not, label %34, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = add i32 %.01923.i, %23
-  %35 = add nuw nsw i32 %.01824.i, 1
-  %exitcond.not.i = icmp eq i32 %35, %21
+34:                                               ; preds = %.lr.ph.i
+  %35 = add i32 %.01923.i, %23
+  %36 = add nuw nsw i32 %.01824.i, 1
+  %exitcond.not.i = icmp eq i32 %36, %21
   br i1 %exitcond.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit, label %.lr.ph.i, !llvm.loop !496
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %.lr.ph.i, %33, %2
-  %.not21.lcssa.i = phi i1 [ true, %2 ], [ %.not.not.i.not.not, %33 ], [ %.not.not.i.not.not, %.lr.ph.i ]
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit: ; preds = %.lr.ph.i, %34, %2
+  %.not21.lcssa.i = phi i1 [ true, %2 ], [ %.not.not.i.not.not, %34 ], [ %.not.not.i.not.not, %.lr.ph.i ]
   ret i1 %.not21.lcssa.i
 }
 
@@ -12042,7 +12041,6 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_121LegacyBloomBitsReader8MayMatchE
   %17 = add nsw i32 %16, 3
   %notmask.i17 = shl nsw i32 -1, %17
   %18 = xor i32 %notmask.i17, -1
-  %invariant.op.i = and i32 %18, 7
   %.not2122.i = icmp slt i32 %12, 1
   %19 = zext nneg i32 %1 to i64
   br i1 %.not2122.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.us.preheader, label %.lr.ph.i.preheader
@@ -12096,31 +12094,31 @@ _ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.us.
   %45 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 15)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %54
-  %.01824.i = phi i32 [ %56, %54 ], [ 0, %.lr.ph.i.preheader ]
-  %.01923.i = phi i32 [ %55, %54 ], [ %40, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %55
+  %.01824.i = phi i32 [ %57, %55 ], [ 0, %.lr.ph.i.preheader ]
+  %.01923.i = phi i32 [ %56, %55 ], [ %40, %.lr.ph.i.preheader ]
   %46 = and i32 %.01923.i, %18
   %47 = lshr i32 %46, 3
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !46
   %51 = zext i8 %50 to i32
-  %.reass.i = and i32 %invariant.op.i, %.01923.i
-  %52 = shl nuw nsw i32 1, %.reass.i
-  %53 = and i32 %52, %51
-  %.not.not.i = icmp eq i32 %53, 0
-  br i1 %.not.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %54
+  %52 = and i32 %46, 7
+  %53 = shl nuw nsw i32 1, %52
+  %54 = and i32 %53, %51
+  %.not.not.i = icmp eq i32 %54, 0
+  br i1 %.not.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %55
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = add i32 %.01923.i, %45
-  %56 = add nuw nsw i32 %.01824.i, 1
-  %exitcond.not.i = icmp eq i32 %56, %12
+55:                                               ; preds = %.lr.ph.i
+  %56 = add i32 %.01923.i, %45
+  %57 = add nuw nsw i32 %.01824.i, 1
+  %exitcond.not.i = icmp eq i32 %57, %12
   br i1 %exitcond.not.i, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit, label %.lr.ph.i, !llvm.loop !496
 
-_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit: ; preds = %54, %.lr.ph.i
-  %.not21.lcssa.i.ph = phi i8 [ 1, %54 ], [ 0, %.lr.ph.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv23
-  store i8 %.not21.lcssa.i.ph, ptr %57, align 1, !tbaa !284
+_ZN7rocksdb23LegacyLocalityBloomImplILb0EE20HashMayMatchPreparedEjiPKci.exit.loopexit: ; preds = %55, %.lr.ph.i
+  %.not21.lcssa.i.ph = phi i8 [ 1, %55 ], [ 0, %.lr.ph.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv23
+  store i8 %.not21.lcssa.i.ph, ptr %58, align 1, !tbaa !284
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %19
   br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !498

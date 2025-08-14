@@ -50,7 +50,7 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
 
 2:                                                ; preds = %1, %._crit_edge39
   %.03141 = phi i32 [ 256, %1 ], [ %3, %._crit_edge39 ]
-  %.03240 = phi i32 [ 1, %1 ], [ %58, %._crit_edge39 ]
+  %.03240 = phi i32 [ 1, %1 ], [ %59, %._crit_edge39 ]
   %3 = lshr i32 %.03141, 1
   %4 = icmp sgt i32 %.03240, 0
   br i1 %4, label %.lr.ph38, label %._crit_edge39
@@ -70,7 +70,6 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   %11 = getelementptr inbounds nuw [256 x i32], ptr @zetas_montgomery, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = zext i32 %12 to i64
-  %invariant.op = mul nuw i64 %13, 4236238847
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -82,50 +81,50 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = zext i32 %19 to i64
   %21 = mul nuw i64 %20, %13
-  %.reass = mul i64 %invariant.op, %20
-  %22 = and i64 %.reass, 4294967295
-  %23 = mul nuw nsw i64 %22, 8380417
-  %24 = add i64 %23, %21
-  %25 = lshr i64 %24, 32
-  %26 = trunc nuw i64 %25 to i32
-  %27 = add i32 %26, -8380417
-  %28 = xor i32 %26, -1
-  %29 = and i32 %27, %28
-  %.neg.i.i.i.i = ashr i32 %29, 31
-  %30 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
-  %31 = and i32 %30, %26
-  %32 = xor i32 %.neg.i.i.i.i, -1
-  %33 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %32) #1, !srcloc !7
-  %34 = and i32 %27, %33
-  %35 = or i32 %34, %31
-  %36 = add i32 %35, %16
-  %37 = add i32 %36, -8380417
-  %38 = xor i32 %36, -1
-  %39 = and i32 %37, %38
-  %.neg.i.i.i = ashr i32 %39, 31
-  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
-  %41 = and i32 %36, %40
-  %42 = xor i32 %.neg.i.i.i, -1
-  %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %42) #1, !srcloc !7
-  %44 = and i32 %37, %43
-  %45 = or i32 %44, %41
-  store i32 %45, ptr %15, align 4, !tbaa !3
-  %46 = add i32 %16, 8380417
-  %47 = sub i32 %46, %35
-  %48 = add i32 %47, -8380417
-  %49 = xor i32 %47, -1
-  %50 = and i32 %48, %49
-  %.neg.i.i.i.i33 = ashr i32 %50, 31
-  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33) #1, !srcloc !7
-  %52 = and i32 %47, %51
-  %53 = xor i32 %.neg.i.i.i.i33, -1
-  %54 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %53) #1, !srcloc !7
-  %55 = and i32 %48, %54
-  %56 = or i32 %55, %52
-  store i32 %56, ptr %18, align 4, !tbaa !3
+  %22 = mul i64 %21, 4236238847
+  %23 = and i64 %22, 4294967295
+  %24 = mul nuw nsw i64 %23, 8380417
+  %25 = add i64 %24, %21
+  %26 = lshr i64 %25, 32
+  %27 = trunc nuw i64 %26 to i32
+  %28 = add i32 %27, -8380417
+  %29 = xor i32 %27, -1
+  %30 = and i32 %28, %29
+  %.neg.i.i.i.i = ashr i32 %30, 31
+  %31 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
+  %32 = and i32 %31, %27
+  %33 = xor i32 %.neg.i.i.i.i, -1
+  %34 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %33) #1, !srcloc !7
+  %35 = and i32 %28, %34
+  %36 = or i32 %35, %32
+  %37 = add i32 %36, %16
+  %38 = add i32 %37, -8380417
+  %39 = xor i32 %37, -1
+  %40 = and i32 %38, %39
+  %.neg.i.i.i = ashr i32 %40, 31
+  %41 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i) #1, !srcloc !7
+  %42 = and i32 %37, %41
+  %43 = xor i32 %.neg.i.i.i, -1
+  %44 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %43) #1, !srcloc !7
+  %45 = and i32 %38, %44
+  %46 = or i32 %45, %42
+  store i32 %46, ptr %15, align 4, !tbaa !3
+  %47 = add i32 %16, 8380417
+  %48 = sub i32 %47, %36
+  %49 = add i32 %48, -8380417
+  %50 = xor i32 %48, -1
+  %51 = and i32 %49, %50
+  %.neg.i.i.i.i33 = ashr i32 %51, 31
+  %52 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i33) #1, !srcloc !7
+  %53 = and i32 %48, %52
+  %54 = xor i32 %.neg.i.i.i.i33, -1
+  %55 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %54) #1, !srcloc !7
+  %56 = and i32 %49, %55
+  %57 = or i32 %56, %53
+  store i32 %57, ptr %18, align 4, !tbaa !3
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %57 = icmp samesign ult i64 %indvars.iv.next43, %9
-  br i1 %57, label %14, label %._crit_edge, !llvm.loop !10
+  %58 = icmp samesign ult i64 %indvars.iv.next43, %9
+  br i1 %58, label %14, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %6
@@ -134,11 +133,11 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %2
-  %58 = shl i32 %.03240, 1
-  %59 = icmp slt i32 %58, 256
-  br i1 %59, label %2, label %60, !llvm.loop !12
+  %59 = shl i32 %.03240, 1
+  %60 = icmp slt i32 %59, 256
+  br i1 %60, label %2, label %61, !llvm.loop !12
 
-60:                                               ; preds = %._crit_edge39
+61:                                               ; preds = %._crit_edge39
   ret void
 }
 
@@ -168,7 +167,6 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = sub i32 8380417, %11
   %13 = zext i32 %12 to i64
-  %invariant.op = mul nuw i64 %13, 4236238847
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -194,26 +192,26 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %31 = sub i32 %30, %19
   %32 = zext i32 %31 to i64
   %33 = mul nuw i64 %32, %13
-  %.reass = mul i64 %invariant.op, %32
-  %34 = and i64 %.reass, 4294967295
-  %35 = mul nuw nsw i64 %34, 8380417
-  %36 = add i64 %35, %33
-  %37 = lshr i64 %36, 32
-  %38 = trunc nuw i64 %37 to i32
-  %39 = add i32 %38, -8380417
-  %40 = xor i32 %38, -1
-  %41 = and i32 %39, %40
-  %.neg.i.i.i.i = ashr i32 %41, 31
-  %42 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
-  %43 = and i32 %42, %38
-  %44 = xor i32 %.neg.i.i.i.i, -1
-  %45 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %44) #1, !srcloc !7
-  %46 = and i32 %39, %45
-  %47 = or i32 %46, %43
-  store i32 %47, ptr %18, align 4, !tbaa !3
+  %34 = mul i64 %33, 4236238847
+  %35 = and i64 %34, 4294967295
+  %36 = mul nuw nsw i64 %35, 8380417
+  %37 = add i64 %36, %33
+  %38 = lshr i64 %37, 32
+  %39 = trunc nuw i64 %38 to i32
+  %40 = add i32 %39, -8380417
+  %41 = xor i32 %39, -1
+  %42 = and i32 %40, %41
+  %.neg.i.i.i.i = ashr i32 %42, 31
+  %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i) #1, !srcloc !7
+  %44 = and i32 %43, %39
+  %45 = xor i32 %.neg.i.i.i.i, -1
+  %46 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %45) #1, !srcloc !7
+  %47 = and i32 %40, %46
+  %48 = or i32 %47, %44
+  store i32 %48, ptr %18, align 4, !tbaa !3
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %48 = icmp slt i64 %indvars.iv.next53, %7
-  br i1 %48, label %14, label %._crit_edge, !llvm.loop !13
+  %49 = icmp slt i64 %indvars.iv.next53, %7
+  br i1 %49, label %14, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14
   %indvars.iv.next = add nsw i64 %indvars.iv, %4
@@ -222,37 +220,37 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge48:                                    ; preds = %._crit_edge
-  %49 = icmp slt i32 %3, 256
-  br i1 %49, label %.lr.ph47, label %.preheader, !llvm.loop !15
+  %50 = icmp slt i32 %3, 256
+  br i1 %50, label %.lr.ph47, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %._crit_edge48, %.preheader
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %._crit_edge48 ]
-  %50 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv60
-  %51 = load i32, ptr %50, align 4, !tbaa !3
-  %52 = zext i32 %51 to i64
-  %53 = mul nuw nsw i64 %52, 41978
-  %54 = mul nuw nsw i64 %52, 8395782
-  %55 = and i64 %54, 4294967294
-  %56 = mul nuw nsw i64 %55, 8380417
-  %57 = add nuw nsw i64 %56, %53
-  %58 = lshr i64 %57, 32
-  %59 = trunc nuw nsw i64 %58 to i32
-  %60 = add nsw i32 %59, -8380417
-  %61 = xor i32 %59, -1
-  %62 = and i32 %60, %61
-  %.neg.i.i.i.i42 = ashr i32 %62, 31
-  %63 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
-  %64 = and i32 %63, %59
-  %65 = xor i32 %.neg.i.i.i.i42, -1
-  %66 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %65) #1, !srcloc !7
-  %67 = and i32 %60, %66
-  %68 = or i32 %67, %64
-  store i32 %68, ptr %50, align 4, !tbaa !3
+  %51 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv60
+  %52 = load i32, ptr %51, align 4, !tbaa !3
+  %53 = zext i32 %52 to i64
+  %54 = mul nuw nsw i64 %53, 41978
+  %55 = mul nuw nsw i64 %53, 8395782
+  %56 = and i64 %55, 4294967294
+  %57 = mul nuw nsw i64 %56, 8380417
+  %58 = add nuw nsw i64 %57, %54
+  %59 = lshr i64 %58, 32
+  %60 = trunc nuw nsw i64 %59 to i32
+  %61 = add nsw i32 %60, -8380417
+  %62 = xor i32 %60, -1
+  %63 = and i32 %61, %62
+  %.neg.i.i.i.i42 = ashr i32 %63, 31
+  %64 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i42) #1, !srcloc !7
+  %65 = and i32 %64, %60
+  %66 = xor i32 %.neg.i.i.i.i42, -1
+  %67 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %66) #1, !srcloc !7
+  %68 = and i32 %61, %67
+  %69 = or i32 %68, %65
+  store i32 %69, ptr %51, align 4, !tbaa !3
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 256
-  br i1 %exitcond63.not, label %69, label %.preheader, !llvm.loop !16
+  br i1 %exitcond63.not, label %70, label %.preheader, !llvm.loop !16
 
-69:                                               ; preds = %.preheader
+70:                                               ; preds = %.preheader
   ret void
 }
 

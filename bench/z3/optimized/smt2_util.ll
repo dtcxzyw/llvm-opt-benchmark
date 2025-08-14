@@ -83,7 +83,7 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   %9 = icmp ugt i32 %8, 1
   %10 = icmp eq i8 %4, 124
   %or.cond47 = and i1 %10, %9
-  br i1 %or.cond47, label %11, label %31
+  br i1 %or.cond47, label %11, label %32
 
 11:                                               ; preds = %6
   %12 = add i64 %7, 4294967295
@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
   br i1 %.not4354, label %.lr.ph56, label %.thread
 
 .lr.ph56:                                         ; preds = %.preheader, %29
-  %17 = phi i32 [ %.reass, %29 ], [ 2, %.preheader ]
+  %17 = phi i32 [ %31, %29 ], [ 2, %.preheader ]
   %.03355 = phi i32 [ %30, %29 ], [ 1, %.preheader ]
   %18 = zext i32 %.03355 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
@@ -127,34 +127,34 @@ define hidden noundef zeroext i1 @_Z21is_smt2_quoted_symbolPKc(ptr noundef reado
 29:                                               ; preds = %28, %24, %24
   %.134 = phi i32 [ %17, %24 ], [ %17, %24 ], [ %.03355, %28 ]
   %30 = add i32 %.134, 1
-  %.reass = add i32 %.134, 2
-  %.not43 = icmp ult i32 %.reass, %8
+  %31 = add i32 %.134, 2
+  %.not43 = icmp ult i32 %31, %8
   br i1 %.not43, label %.lr.ph56, label %.thread, !llvm.loop !6
 
-31:                                               ; preds = %6
+32:                                               ; preds = %6
   %.not50.not = icmp eq i32 %8, 0
   br i1 %.not50.not, label %.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %11, %31
+.lr.ph.preheader:                                 ; preds = %11, %32
   %wide.trip.count = and i64 %7, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !3
-  %34 = tail call noundef zeroext i1 @_Z26is_smt2_simple_symbol_charc(i8 noundef signext %33)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %34 = load i8, ptr %33, align 1, !tbaa !3
+  %35 = tail call noundef zeroext i1 @_Z26is_smt2_simple_symbol_charc(i8 noundef signext %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond69.not = select i1 %34, i1 %exitcond.not, i1 false
+  %or.cond69.not = select i1 %35, i1 %exitcond.not, i1 false
   br i1 %or.cond69.not, label %.lr.ph, label %.thread.loopexit64, !llvm.loop !8
 
 .thread.loopexit64:                               ; preds = %.lr.ph
-  %.035.ph65 = xor i1 %34, true
+  %.035.ph65 = xor i1 %35, true
   br label %.thread
 
-.thread:                                          ; preds = %28, %28, %29, %24, %.thread.loopexit64, %31, %.preheader, %3, %1
-  %.035 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ false, %31 ], [ %.035.ph65, %.thread.loopexit64 ], [ true, %28 ], [ true, %28 ], [ false, %29 ], [ true, %24 ]
+.thread:                                          ; preds = %28, %28, %29, %24, %.thread.loopexit64, %32, %.preheader, %3, %1
+  %.035 = phi i1 [ false, %1 ], [ true, %3 ], [ false, %.preheader ], [ false, %32 ], [ %.035.ph65, %.thread.loopexit64 ], [ true, %28 ], [ true, %28 ], [ false, %29 ], [ true, %24 ]
   ret i1 %.035
 }
 

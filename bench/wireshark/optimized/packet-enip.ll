@@ -1693,7 +1693,7 @@ define hidden i32 @dissect_ingress_egress_set_rules(ptr noundef %0, ptr noundef 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  br i1 %5, label %15, label %72
+  br i1 %5, label %15, label %73
 
 15:                                               ; preds = %6
   %16 = load i32, ptr @hf_ingress_egress_rules_change_count, align 4
@@ -1706,18 +1706,17 @@ define hidden i32 @dissect_ingress_egress_set_rules(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr @hf_ingress_egress_ins_num, align 4
   %23 = add i32 %4, 8
   %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %22, ptr noundef %3, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %11)
-  %invariant.op = add i32 %4, 2
   %25 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %dissect_ingress_egress_rules.exit56, %15
-  %.049.lcssa = phi i32 [ 10, %15 ], [ %69, %dissect_ingress_egress_rules.exit56 ]
+  %.049.lcssa = phi i32 [ 10, %15 ], [ %70, %dissect_ingress_egress_rules.exit56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %72
+  br label %73
 
 .lr.ph:                                           ; preds = %15, %dissect_ingress_egress_rules.exit56
-  %.04959 = phi i32 [ %69, %dissect_ingress_egress_rules.exit56 ], [ 10, %15 ]
+  %.04959 = phi i32 [ %70, %dissect_ingress_egress_rules.exit56 ], [ 10, %15 ]
   %.05058 = phi i32 [ %28, %dissect_ingress_egress_rules.exit56 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %26 = add i32 %.04959, %4
@@ -1728,81 +1727,81 @@ define hidden i32 @dissect_ingress_egress_set_rules(ptr noundef %0, ptr noundef 
   %31 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %3, i32 noundef %26, i32 noundef 2, i32 noundef -2147483648)
   %32 = add i32 %.04959, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %.reass = add i32 %.04959, %invariant.op
-  %33 = load i32, ptr @ett_cmd_data, align 4
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %3, i32 noundef %.reass, i32 noundef 0, i32 noundef %33, ptr noundef nonnull %13, ptr noundef nonnull @.str.3)
-  %35 = load ptr, ptr %13, align 8
-  %36 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.reass)
+  %33 = add i32 %32, %4
+  %34 = load i32, ptr @ett_cmd_data, align 4
+  %35 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %3, i32 noundef %33, i32 noundef 0, i32 noundef %34, ptr noundef nonnull %13, ptr noundef nonnull @.str.3)
+  %36 = load ptr, ptr %13, align 8
+  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = load i32, ptr @hf_ingress_egress_num_rules, align 4
-  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %34, i32 noundef %37, ptr noundef %3, i32 noundef %.reass, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9)
+  %38 = load i32, ptr @hf_ingress_egress_num_rules, align 4
+  %39 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %38, ptr noundef %3, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %39 = add i32 %.reass, 2
-  %40 = load i32, ptr @ett_cmd_data, align 4
-  %41 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %34, ptr noundef %3, i32 noundef %39, i32 noundef 0, i32 noundef %40, ptr noundef nonnull %10, ptr noundef nonnull @.str.1)
-  %42 = load i32, ptr %9, align 4
-  %.not.i = icmp eq i32 %42, 0
+  %40 = add i32 %33, 2
+  %41 = load i32, ptr @ett_cmd_data, align 4
+  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %3, i32 noundef %40, i32 noundef 0, i32 noundef %41, ptr noundef nonnull %10, ptr noundef nonnull @.str.1)
+  %43 = load i32, ptr %9, align 4
+  %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %dissect_ingress_egress_rules.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %.018.i = phi i32 [ %47, %.lr.ph.i ], [ 0, %.lr.ph ]
-  %.01617.i = phi i32 [ %46, %.lr.ph.i ], [ 2, %.lr.ph ]
-  %43 = add i32 %.01617.i, %.reass
-  %44 = load i32, ptr @hf_ingress_egress_rule_string, align 4
-  %45 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %41, ptr noundef %35, ptr noundef %3, i32 noundef %43, i32 noundef %44, i32 noundef 218)
-  %46 = add i32 %45, %.01617.i
-  %47 = add nuw i32 %.018.i, 1
-  %48 = load i32, ptr %9, align 4
-  %49 = icmp ult i32 %47, %48
-  br i1 %49, label %.lr.ph.i, label %dissect_ingress_egress_rules.exit, !llvm.loop !8
+  %.018.i = phi i32 [ %48, %.lr.ph.i ], [ 0, %.lr.ph ]
+  %.01617.i = phi i32 [ %47, %.lr.ph.i ], [ 2, %.lr.ph ]
+  %44 = add i32 %.01617.i, %33
+  %45 = load i32, ptr @hf_ingress_egress_rule_string, align 4
+  %46 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %42, ptr noundef %36, ptr noundef %3, i32 noundef %44, i32 noundef %45, i32 noundef 218)
+  %47 = add i32 %46, %.01617.i
+  %48 = add nuw i32 %.018.i, 1
+  %49 = load i32, ptr %9, align 4
+  %50 = icmp ult i32 %48, %49
+  br i1 %50, label %.lr.ph.i, label %dissect_ingress_egress_rules.exit, !llvm.loop !8
 
 dissect_ingress_egress_rules.exit:                ; preds = %.lr.ph.i, %.lr.ph
-  %.016.lcssa.i = phi i32 [ 2, %.lr.ph ], [ %46, %.lr.ph.i ]
+  %.016.lcssa.i = phi i32 [ 2, %.lr.ph ], [ %47, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %50 = add i32 %.016.lcssa.i, %32
+  %51 = add i32 %.016.lcssa.i, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %51 = add i32 %50, %4
-  %52 = load i32, ptr @ett_cmd_data, align 4
-  %53 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %3, i32 noundef %51, i32 noundef 0, i32 noundef %52, ptr noundef nonnull %14, ptr noundef nonnull @.str.4)
-  %54 = load ptr, ptr %14, align 8
-  %55 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %51)
+  %52 = add i32 %51, %4
+  %53 = load i32, ptr @ett_cmd_data, align 4
+  %54 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %3, i32 noundef %52, i32 noundef 0, i32 noundef %53, ptr noundef nonnull %14, ptr noundef nonnull @.str.4)
+  %55 = load ptr, ptr %14, align 8
+  %56 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %56 = load i32, ptr @hf_ingress_egress_num_rules, align 4
-  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %53, i32 noundef %56, ptr noundef %3, i32 noundef %51, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7)
+  %57 = load i32, ptr @hf_ingress_egress_num_rules, align 4
+  %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %54, i32 noundef %57, ptr noundef %3, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %58 = add i32 %51, 2
-  %59 = load i32, ptr @ett_cmd_data, align 4
-  %60 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %53, ptr noundef %3, i32 noundef %58, i32 noundef 0, i32 noundef %59, ptr noundef nonnull %8, ptr noundef nonnull @.str.1)
-  %61 = load i32, ptr %7, align 4
-  %.not.i51 = icmp eq i32 %61, 0
+  %59 = add i32 %52, 2
+  %60 = load i32, ptr @ett_cmd_data, align 4
+  %61 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %54, ptr noundef %3, i32 noundef %59, i32 noundef 0, i32 noundef %60, ptr noundef nonnull %8, ptr noundef nonnull @.str.1)
+  %62 = load i32, ptr %7, align 4
+  %.not.i51 = icmp eq i32 %62, 0
   br i1 %.not.i51, label %dissect_ingress_egress_rules.exit56, label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %dissect_ingress_egress_rules.exit, %.lr.ph.i52
-  %.018.i53 = phi i32 [ %66, %.lr.ph.i52 ], [ 0, %dissect_ingress_egress_rules.exit ]
-  %.01617.i54 = phi i32 [ %65, %.lr.ph.i52 ], [ 2, %dissect_ingress_egress_rules.exit ]
-  %62 = add i32 %.01617.i54, %51
-  %63 = load i32, ptr @hf_ingress_egress_rule_string, align 4
-  %64 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %60, ptr noundef %54, ptr noundef %3, i32 noundef %62, i32 noundef %63, i32 noundef 218)
-  %65 = add i32 %64, %.01617.i54
-  %66 = add nuw i32 %.018.i53, 1
-  %67 = load i32, ptr %7, align 4
-  %68 = icmp ult i32 %66, %67
-  br i1 %68, label %.lr.ph.i52, label %dissect_ingress_egress_rules.exit56, !llvm.loop !8
+  %.018.i53 = phi i32 [ %67, %.lr.ph.i52 ], [ 0, %dissect_ingress_egress_rules.exit ]
+  %.01617.i54 = phi i32 [ %66, %.lr.ph.i52 ], [ 2, %dissect_ingress_egress_rules.exit ]
+  %63 = add i32 %.01617.i54, %52
+  %64 = load i32, ptr @hf_ingress_egress_rule_string, align 4
+  %65 = call i32 @dissect_cip_string_type(ptr noundef %0, ptr noundef %61, ptr noundef %55, ptr noundef %3, i32 noundef %63, i32 noundef %64, i32 noundef 218)
+  %66 = add i32 %65, %.01617.i54
+  %67 = add nuw i32 %.018.i53, 1
+  %68 = load i32, ptr %7, align 4
+  %69 = icmp ult i32 %67, %68
+  br i1 %69, label %.lr.ph.i52, label %dissect_ingress_egress_rules.exit56, !llvm.loop !8
 
 dissect_ingress_egress_rules.exit56:              ; preds = %.lr.ph.i52, %dissect_ingress_egress_rules.exit
-  %.016.lcssa.i55 = phi i32 [ 2, %dissect_ingress_egress_rules.exit ], [ %65, %.lr.ph.i52 ]
+  %.016.lcssa.i55 = phi i32 [ 2, %dissect_ingress_egress_rules.exit ], [ %66, %.lr.ph.i52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %69 = add i32 %.016.lcssa.i55, %50
+  %70 = add i32 %.016.lcssa.i55, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %70 = load i32, ptr %11, align 4
-  %71 = icmp ult i32 %28, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %71 = load i32, ptr %11, align 4
+  %72 = icmp ult i32 %28, %71
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-72:                                               ; preds = %6, %._crit_edge
+73:                                               ; preds = %6, %._crit_edge
   %.0 = phi i32 [ %.049.lcssa, %._crit_edge ], [ 0, %6 ]
   ret i32 %.0
 }
@@ -2382,7 +2381,6 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %6
-  %invariant.op = add i32 %4, 4
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
@@ -2391,16 +2389,16 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.017 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
+  %.017 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %11 = load i32, ptr @hf_dlr_rppl_dev_ip_addr, align 4
   %12 = add i32 %.017, %4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %3, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648)
   %14 = load i32, ptr @hf_dlr_rppl_dev_physical_address, align 4
-  %.reass = add i32 %.017, %invariant.op
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %3, i32 noundef %.reass, i32 noundef 6, i32 noundef 0)
-  %16 = add i32 %.017, 10
-  %17 = icmp slt i32 %16, %5
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %15 = add i32 %12, 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %3, i32 noundef %15, i32 noundef 6, i32 noundef 0)
+  %17 = add i32 %.017, 10
+  %18 = icmp slt i32 %17, %5
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %9
   ret i32 %5

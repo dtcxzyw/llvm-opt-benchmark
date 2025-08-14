@@ -1602,7 +1602,7 @@ define internal fastcc noundef i64 @store_cache_disable(ptr noundef readonly cap
   %29 = load i32, ptr %6, align 4
   %30 = icmp ugt i32 %29, 1073741823
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %30, label %65, label %31
+  br i1 %30, label %68, label %31
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1625,47 +1625,46 @@ define internal fastcc noundef i64 @store_cache_disable(ptr noundef readonly cap
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = sext i32 %44 to i64
   %46 = icmp eq i64 %23, %45
-  br i1 %46, label %65, label %47
+  br i1 %46, label %68, label %47
 
 47:                                               ; preds = %36
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %49 = trunc nuw i64 %23 to i32
-  %invariant.op = or i32 %49, 1073741824
-  %invariant.op4 = or i32 %49, -1073741824
   br label %50
 
-50:                                               ; preds = %62, %47
-  %51 = phi i64 [ 0, %47 ], [ %63, %62 ]
+50:                                               ; preds = %65, %47
+  %51 = phi i64 [ 0, %47 ], [ %66, %65 ]
   %52 = getelementptr [4 x i8], ptr %48, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %62, label %55
+  br i1 %54, label %65, label %55
 
 55:                                               ; preds = %50
   %56 = trunc i64 %51 to i32
   %57 = shl i32 %56, 20
-  %.reass = or i32 %57, %invariant.op
-  %58 = load ptr, ptr %24, align 8
-  %59 = call i32 @pci_write_config_dword(ptr noundef %58, i32 noundef %27, i32 noundef %.reass) #13
-  call void @wbinvd_on_cpu(i32 noundef %19) #13
-  %.reass5 = or i32 %57, %invariant.op4
+  %58 = or i32 %57, %49
+  %59 = or i32 %58, 1073741824
   %60 = load ptr, ptr %24, align 8
-  %61 = call i32 @pci_write_config_dword(ptr noundef %60, i32 noundef %27, i32 noundef %.reass5) #13
-  br label %62
+  %61 = call i32 @pci_write_config_dword(ptr noundef %60, i32 noundef %27, i32 noundef %59) #13
+  call void @wbinvd_on_cpu(i32 noundef %19) #13
+  %62 = or i32 %58, -1073741824
+  %63 = load ptr, ptr %24, align 8
+  %64 = call i32 @pci_write_config_dword(ptr noundef %63, i32 noundef %27, i32 noundef %62) #13
+  br label %65
 
-62:                                               ; preds = %55, %50
-  %63 = add nuw nsw i64 %51, 1
-  %64 = icmp eq i64 %63, 4
-  br i1 %64, label %.thread3, label %50, !llvm.loop !40
+65:                                               ; preds = %55, %50
+  %66 = add nuw nsw i64 %51, 1
+  %67 = icmp eq i64 %66, 4
+  br i1 %67, label %.thread3, label %50, !llvm.loop !40
 
-65:                                               ; preds = %22, %36
-  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %3) #16
+68:                                               ; preds = %22, %36
+  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %3) #16
   br label %.thread3
 
-.thread3:                                         ; preds = %62, %65, %31, %18, %4
-  %67 = phi i64 [ -1, %4 ], [ -22, %18 ], [ -17, %65 ], [ -22, %31 ], [ %2, %62 ]
+.thread3:                                         ; preds = %65, %68, %31, %18, %4
+  %70 = phi i64 [ -1, %4 ], [ -22, %18 ], [ -17, %68 ], [ -22, %31 ], [ %2, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i64 %67
+  ret i64 %70
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -161,8 +161,8 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %68
-  %.not2165 = icmp eq i32 %65, 1
-  br i1 %.not2165, label %72, label %77
+  %.not2163 = icmp eq i32 %65, 1
+  br i1 %.not2163, label %72, label %77
 
 72:                                               ; preds = %._crit_edge
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -878,19 +878,19 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %468 = add i32 %467, 2
   %469 = shl i32 %468, %236
   %470 = or i32 %469, %460
-  br label %.sink.split2142
+  br label %.sink.split2140
 
 471:                                              ; preds = %446
   %472 = and i32 %376, 4
   %.not1715 = icmp eq i32 %472, 0
-  br i1 %.not1715, label %473, label %.sink.split2142
+  br i1 %.not1715, label %473, label %.sink.split2140
 
-.sink.split2142:                                  ; preds = %471, %450
-  %.sink2143 = phi i32 [ %470, %450 ], [ 0, %471 ]
-  store i32 %.sink2143, ptr %448, align 4, !tbaa !51
+.sink.split2140:                                  ; preds = %471, %450
+  %.sink2141 = phi i32 [ %470, %450 ], [ 0, %471 ]
+  store i32 %.sink2141, ptr %448, align 4, !tbaa !51
   br label %473
 
-473:                                              ; preds = %.sink.split2142, %471
+473:                                              ; preds = %.sink.split2140, %471
   store i8 0, ptr %447, align 1, !tbaa !44
   %474 = and i32 %.sroa.0.0, 128
   %.not1717 = icmp eq i32 %474, 0
@@ -967,19 +967,19 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %524 = add i32 %523, 2
   %525 = shl i32 %524, %236
   %526 = or i32 %525, %516
-  br label %.sink.split2144
+  br label %.sink.split2142
 
 527:                                              ; preds = %503
   %528 = and i32 %376, 16
   %.not1721 = icmp eq i32 %528, 0
-  br i1 %.not1721, label %529, label %.sink.split2144
+  br i1 %.not1721, label %529, label %.sink.split2142
 
-.sink.split2144:                                  ; preds = %527, %506
-  %.sink2145 = phi i32 [ %526, %506 ], [ 0, %527 ]
-  store i32 %.sink2145, ptr %504, align 4, !tbaa !51
+.sink.split2142:                                  ; preds = %527, %506
+  %.sink2143 = phi i32 [ %526, %506 ], [ 0, %527 ]
+  store i32 %.sink2143, ptr %504, align 4, !tbaa !51
   br label %529
 
-529:                                              ; preds = %.sink.split2144, %527
+529:                                              ; preds = %.sink.split2142, %527
   %530 = and i32 %.sroa.49.0, 32
   %.not1723 = icmp eq i32 %530, 0
   br i1 %.not1723, label %561, label %531
@@ -1062,19 +1062,19 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %587 = add i32 %586, 2
   %588 = shl i32 %587, %236
   %589 = or i32 %588, %579
-  br label %.sink.split2146
+  br label %.sink.split2144
 
 590:                                              ; preds = %565
   %591 = and i32 %376, 64
   %.not1727 = icmp eq i32 %591, 0
-  br i1 %.not1727, label %592, label %.sink.split2146
+  br i1 %.not1727, label %592, label %.sink.split2144
 
-.sink.split2146:                                  ; preds = %590, %569
-  %.sink2147 = phi i32 [ %589, %569 ], [ 0, %590 ]
-  store i32 %.sink2147, ptr %567, align 4, !tbaa !51
+.sink.split2144:                                  ; preds = %590, %569
+  %.sink2145 = phi i32 [ %589, %569 ], [ 0, %590 ]
+  store i32 %.sink2145, ptr %567, align 4, !tbaa !51
   br label %592
 
-592:                                              ; preds = %.sink.split2146, %590
+592:                                              ; preds = %.sink.split2144, %590
   store i8 0, ptr %566, align 1, !tbaa !44
   %593 = and i32 %.sroa.49.0, 128
   %.not1729 = icmp eq i32 %593, 0
@@ -1487,19 +1487,19 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %860 = add i32 %859, 2
   %861 = shl i32 %860, %243
   %862 = or i32 %861, %852
-  br label %.sink.split2148
+  br label %.sink.split2146
 
 863:                                              ; preds = %840
   %864 = and i32 %831, 1
   %.not1680 = icmp eq i32 %864, 0
-  br i1 %.not1680, label %865, label %.sink.split2148
+  br i1 %.not1680, label %865, label %.sink.split2146
 
-.sink.split2148:                                  ; preds = %863, %842
-  %.sink2149 = phi i32 [ %862, %842 ], [ 0, %863 ]
-  store i32 %.sink2149, ptr %.214381877, align 4, !tbaa !51
+.sink.split2146:                                  ; preds = %863, %842
+  %.sink2147 = phi i32 [ %862, %842 ], [ 0, %863 ]
+  store i32 %.sink2147, ptr %.214381877, align 4, !tbaa !51
   br label %865
 
-865:                                              ; preds = %.sink.split2148, %863
+865:                                              ; preds = %.sink.split2146, %863
   %866 = and i32 %.sroa.0.1, 32
   %.not1681 = icmp eq i32 %866, 0
   br i1 %.not1681, label %897, label %867
@@ -1580,19 +1580,19 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %921 = add i32 %920, 2
   %922 = shl i32 %921, %243
   %923 = or i32 %922, %913
-  br label %.sink.split2150
+  br label %.sink.split2148
 
 924:                                              ; preds = %901
   %925 = and i32 %831, 4
   %.not1685 = icmp eq i32 %925, 0
-  br i1 %.not1685, label %926, label %.sink.split2150
+  br i1 %.not1685, label %926, label %.sink.split2148
 
-.sink.split2150:                                  ; preds = %924, %903
-  %.sink2151 = phi i32 [ %923, %903 ], [ 0, %924 ]
-  store i32 %.sink2151, ptr %902, align 4, !tbaa !51
+.sink.split2148:                                  ; preds = %924, %903
+  %.sink2149 = phi i32 [ %923, %903 ], [ 0, %924 ]
+  store i32 %.sink2149, ptr %902, align 4, !tbaa !51
   br label %926
 
-926:                                              ; preds = %.sink.split2150, %924
+926:                                              ; preds = %.sink.split2148, %924
   %.not1687 = icmp eq i32 %663, 0
   br i1 %.not1687, label %951, label %927
 
@@ -1667,19 +1667,19 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %976 = add i32 %975, 2
   %977 = shl i32 %976, %243
   %978 = or i32 %977, %968
-  br label %.sink.split2152
+  br label %.sink.split2150
 
 979:                                              ; preds = %955
   %980 = and i32 %831, 16
   %.not1691 = icmp eq i32 %980, 0
-  br i1 %.not1691, label %981, label %.sink.split2152
+  br i1 %.not1691, label %981, label %.sink.split2150
 
-.sink.split2152:                                  ; preds = %979, %958
-  %.sink2153 = phi i32 [ %978, %958 ], [ 0, %979 ]
-  store i32 %.sink2153, ptr %956, align 4, !tbaa !51
+.sink.split2150:                                  ; preds = %979, %958
+  %.sink2151 = phi i32 [ %978, %958 ], [ 0, %979 ]
+  store i32 %.sink2151, ptr %956, align 4, !tbaa !51
   br label %981
 
-981:                                              ; preds = %.sink.split2152, %979
+981:                                              ; preds = %.sink.split2150, %979
   %982 = and i32 %.sroa.49.2, 32
   %.not1693 = icmp eq i32 %982, 0
   br i1 %.not1693, label %1013, label %983
@@ -1761,19 +1761,19 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %1038 = add i32 %1037, 2
   %1039 = shl i32 %1038, %243
   %1040 = or i32 %1039, %1030
-  br label %.sink.split2154
+  br label %.sink.split2152
 
 1041:                                             ; preds = %1017
   %1042 = and i32 %831, 64
   %.not1697 = icmp eq i32 %1042, 0
-  br i1 %.not1697, label %1043, label %.sink.split2154
+  br i1 %.not1697, label %1043, label %.sink.split2152
 
-.sink.split2154:                                  ; preds = %1041, %1020
-  %.sink2155 = phi i32 [ %1040, %1020 ], [ 0, %1041 ]
-  store i32 %.sink2155, ptr %1018, align 4, !tbaa !51
+.sink.split2152:                                  ; preds = %1041, %1020
+  %.sink2153 = phi i32 [ %1040, %1020 ], [ 0, %1041 ]
+  store i32 %.sink2153, ptr %1018, align 4, !tbaa !51
   br label %1043
 
-1043:                                             ; preds = %.sink.split2154, %1041
+1043:                                             ; preds = %.sink.split2152, %1041
   %1044 = and i32 %.sroa.49.2, 128
   %.not1699 = icmp eq i32 %1044, 0
   br i1 %.not1699, label %1069, label %1045
@@ -2096,11 +2096,10 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %1215 = getelementptr inbounds nuw i8, ptr %.115401935, i64 4
   %1216 = getelementptr inbounds nuw i8, ptr %.115381936, i64 4
   %invariant.gep = getelementptr inbounds nuw i32, ptr %1210, i64 %indvars.iv2040
-  %invariant.op = or disjoint i64 %indvars.iv2040, 4
   br label %1217
 
 1217:                                             ; preds = %.loopexit1840, %.preheader1841
-  %switch2161 = phi i1 [ false, %.preheader1841 ], [ true, %.loopexit1840 ]
+  %switch2159 = phi i1 [ false, %.preheader1841 ], [ true, %.loopexit1840 ]
   %indvars.iv2037 = phi i64 [ 0, %.preheader1841 ], [ 4, %.loopexit1840 ]
   %.115081932 = phi i32 [ 0, %.preheader1841 ], [ %.21509.lcssa2106, %.loopexit1840 ]
   %.015191931 = phi i32 [ %1212, %.preheader1841 ], [ %.11520.lcssa2105, %.loopexit1840 ]
@@ -2111,12 +2110,12 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %1220 = shl nuw nsw i32 15, %1219
   %1221 = load i32, ptr %.115401935, align 4, !tbaa !51
   %1222 = xor i32 %1221, -1
-  %.reass = add nuw nsw i64 %indvars.iv2037, %invariant.op
-  %1223 = trunc nuw i64 %.reass to i32
-  %1224 = icmp sgt i32 %135, %1223
-  %1225 = trunc nuw nsw i64 %indvars.iv2037 to i32
-  %1226 = add nuw nsw i32 %1225, 4
-  %1227 = select i1 %1224, i32 %1226, i32 %1214
+  %indvars.iv.next2038 = add nuw nsw i64 %indvars.iv2037, 4
+  %1223 = add nuw nsw i64 %indvars.iv.next2038, %indvars.iv2040
+  %1224 = trunc nuw i64 %1223 to i32
+  %1225 = icmp sgt i32 %135, %1224
+  %1226 = trunc nuw nsw i64 %indvars.iv.next2038 to i32
+  %1227 = select i1 %1225, i32 %1226, i32 %1214
   %1228 = sext i32 %1227 to i64
   %1229 = icmp slt i64 %indvars.iv2037, %1228
   br i1 %1229, label %.lr.ph1918.preheader, label %.loopexit1840
@@ -2375,7 +2374,7 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %1349 = load i32, ptr %255, align 8, !tbaa !54
   %1350 = sub i32 %1349, %.61484
   store i32 %1350, ptr %255, align 8, !tbaa !54
-  br i1 %switch2161, label %.thread2107, label %1217
+  br i1 %switch2159, label %.thread2107, label %1217
 
 .thread2107:                                      ; preds = %.loopexit1840
   %1351 = lshr i32 %.21509.lcssa2106, 28
@@ -2456,8 +2455,8 @@ decode_noninit_uvlc.exit:                         ; preds = %718, %737, %756
   %1400 = and i32 %138, 3
   %.off = add nsw i32 %1400, -1
   %switch = icmp ult i32 %.off, 2
-  %or.cond2156 = select i1 %226, i1 %switch, i1 false
-  br i1 %or.cond2156, label %1401, label %.loopexit1838
+  %or.cond2154 = select i1 %226, i1 %switch, i1 false
+  br i1 %or.cond2154, label %1401, label %.loopexit1838
 
 1401:                                             ; preds = %1399
   %1402 = and i32 %138, 16777212
@@ -2778,11 +2777,10 @@ switch.lookup:                                    ; preds = %1525
   %1577 = getelementptr inbounds nuw i8, ptr %.114351994, i64 4
   %1578 = getelementptr inbounds nuw i8, ptr %.114331995, i64 4
   %invariant.gep2138 = getelementptr inbounds nuw i32, ptr %1571, i64 %indvars.iv2053
-  %invariant.op2140 = or disjoint i64 %indvars.iv2053, 4
   br label %1579
 
 1579:                                             ; preds = %.loopexit, %.preheader1834
-  %switch2163 = phi i1 [ false, %.preheader1834 ], [ true, %.loopexit ]
+  %switch2161 = phi i1 [ false, %.preheader1834 ], [ true, %.loopexit ]
   %indvars.iv2050 = phi i64 [ 0, %.preheader1834 ], [ 4, %.loopexit ]
   %.113991991 = phi i32 [ 0, %.preheader1834 ], [ %.21400.lcssa2122, %.loopexit ]
   %.014101990 = phi i32 [ %1574, %.preheader1834 ], [ %.11411.lcssa2121, %.loopexit ]
@@ -2794,12 +2792,12 @@ switch.lookup:                                    ; preds = %1525
   %1583 = load i32, ptr %.114351994, align 4, !tbaa !51
   %1584 = xor i32 %1583, -1
   %1585 = and i32 %.0142318152112, %1584
-  %.reass2141 = add nuw nsw i64 %indvars.iv2050, %invariant.op2140
-  %1586 = trunc nuw i64 %.reass2141 to i32
-  %1587 = icmp sgt i32 %135, %1586
-  %1588 = trunc nuw nsw i64 %indvars.iv2050 to i32
-  %1589 = add nuw nsw i32 %1588, 4
-  %1590 = select i1 %1587, i32 %1589, i32 %1576
+  %indvars.iv.next2051 = add nuw nsw i64 %indvars.iv2050, 4
+  %1586 = add nuw nsw i64 %indvars.iv.next2051, %indvars.iv2053
+  %1587 = trunc nuw i64 %1586 to i32
+  %1588 = icmp sgt i32 %135, %1587
+  %1589 = trunc nuw nsw i64 %indvars.iv.next2051 to i32
+  %1590 = select i1 %1588, i32 %1589, i32 %1576
   %1591 = sext i32 %1590 to i64
   %1592 = icmp slt i64 %indvars.iv2050, %1591
   br i1 %1592, label %.lr.ph1977.preheader, label %.loopexit
@@ -3058,7 +3056,7 @@ switch.lookup:                                    ; preds = %1525
   %1712 = load i32, ptr %1522, align 8, !tbaa !54
   %1713 = sub i32 %1712, %.61367
   store i32 %1713, ptr %1522, align 8, !tbaa !54
-  br i1 %switch2163, label %.thread2123, label %1579
+  br i1 %switch2161, label %.thread2123, label %1579
 
 .thread2123:                                      ; preds = %.loopexit
   %1714 = lshr i32 %.21400.lcssa2122, 28
@@ -3130,8 +3128,8 @@ switch.lookup:                                    ; preds = %1525
 
 .loopexit1836:                                    ; preds = %._crit_edge2000, %.loopexit1837, %._crit_edge1947
   %1761 = icmp slt i32 %138, 1
-  %brmerge2160 = or i1 %1761, %229
-  br i1 %brmerge2160, label %.critedge1742, label %.lr.ph2007.us.preheader
+  %brmerge2158 = or i1 %1761, %229
+  br i1 %brmerge2158, label %.critedge1742, label %.lr.ph2007.us.preheader
 
 .lr.ph2007.us.preheader:                          ; preds = %.loopexit1836
   %1762 = zext nneg i32 %135 to i64

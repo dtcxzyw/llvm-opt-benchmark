@@ -2007,18 +2007,18 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
   br label %54
 
 54:                                               ; preds = %52, %61
-  %.090136 = phi i64 [ %7, %52 ], [ %63, %61 ]
+  %.090134 = phi i64 [ %7, %52 ], [ %63, %61 ]
   %55 = load ptr, ptr %53, align 8, !tbaa !118
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %57 = load ptr, ptr %56, align 8, !tbaa !119
-  %58 = call i64 @llvm.umin.i64(i64 %.090136, i64 256)
+  %58 = call i64 @llvm.umin.i64(i64 %.090134, i64 256)
   %59 = call i32 %57(ptr noundef nonnull %0, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %5, i64 noundef %58, i32 noundef 0, ptr noundef nonnull %4) #9
   %60 = icmp slt i32 %59, 1
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %54
   %62 = load i64, ptr %4, align 8, !tbaa !98
-  %63 = sub i64 %.090136, %62
+  %63 = sub i64 %.090134, %62
   %.not115.not = icmp eq i64 %63, 0
   br i1 %.not115.not, label %.critedge, label %54, !llvm.loop !145
 
@@ -2050,24 +2050,24 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
 .preheader126:                                    ; preds = %77
   %80 = add i64 %78, %7
   %81 = icmp slt i64 %78, %80
-  br i1 %81, label %.lr.ph135, label %.loopexit127
+  br i1 %81, label %.lr.ph133, label %.loopexit127
 
-.lr.ph135:                                        ; preds = %.preheader126, %.lr.ph135
-  %.087134 = phi i64 [ %90, %.lr.ph135 ], [ %78, %.preheader126 ]
-  %82 = trunc i64 %.087134 to i8
+.lr.ph133:                                        ; preds = %.preheader126, %.lr.ph133
+  %.087132 = phi i64 [ %90, %.lr.ph133 ], [ %78, %.preheader126 ]
+  %82 = trunc i64 %.087132 to i8
   %83 = and i8 %82, 7
   %84 = shl nuw i8 1, %83
   %85 = load ptr, ptr %49, align 8, !tbaa !16
-  %86 = ashr i64 %.087134, 3
+  %86 = ashr i64 %.087132, 3
   %87 = getelementptr inbounds i8, ptr %85, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !95
   %89 = or i8 %88, %84
   store i8 %89, ptr %87, align 1, !tbaa !95
-  %90 = add nsw i64 %.087134, 1
+  %90 = add nsw i64 %.087132, 1
   %91 = load i64, ptr %8, align 8, !tbaa !89
   %92 = add i64 %91, %7
   %93 = icmp slt i64 %90, %92
-  br i1 %93, label %.lr.ph135, label %.loopexit127, !llvm.loop !146
+  br i1 %93, label %.lr.ph133, label %.loopexit127, !llvm.loop !146
 
 94:                                               ; preds = %77
   %95 = and i64 %78, 7
@@ -2081,105 +2081,105 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
   store i8 %102, ptr %100, align 1, !tbaa !95
   %103 = load i64, ptr %8, align 8, !tbaa !89
   %104 = ashr i64 %103, 3
-  %invariant.op = add nsw i64 %7, -1
   %.086129 = add nsw i64 %104, 1
-  %.reass130 = add i64 %103, %invariant.op
-  %105 = ashr i64 %.reass130, 3
-  %106 = icmp slt i64 %.086129, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge
+  %105 = add i64 %103, %7
+  %106 = add nsw i64 %105, -1
+  %107 = ashr i64 %106, 3
+  %108 = icmp slt i64 %.086129, %107
+  br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %94, %.lr.ph
-  %.086131 = phi i64 [ %.086, %.lr.ph ], [ %.086129, %94 ]
-  %107 = load ptr, ptr %49, align 8, !tbaa !16
-  %108 = getelementptr inbounds i8, ptr %107, i64 %.086131
-  store i8 -1, ptr %108, align 1, !tbaa !95
-  %.086 = add nsw i64 %.086131, 1
-  %109 = load i64, ptr %8, align 8, !tbaa !89
-  %.reass = add i64 %109, %invariant.op
-  %110 = ashr i64 %.reass, 3
-  %111 = icmp slt i64 %.086, %110
-  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !147
+  %.086130 = phi i64 [ %.086, %.lr.ph ], [ %.086129, %94 ]
+  %109 = load ptr, ptr %49, align 8, !tbaa !16
+  %110 = getelementptr inbounds i8, ptr %109, i64 %.086130
+  store i8 -1, ptr %110, align 1, !tbaa !95
+  %.086 = add nsw i64 %.086130, 1
+  %111 = load i64, ptr %8, align 8, !tbaa !89
+  %112 = add i64 %111, %7
+  %113 = add nsw i64 %112, -1
+  %114 = ashr i64 %113, 3
+  %115 = icmp slt i64 %.086, %114
+  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %.lr.ph, %94
-  %.pn = phi i64 [ %103, %94 ], [ %109, %.lr.ph ]
-  %.lcssa = phi i64 [ %105, %94 ], [ %110, %.lr.ph ]
-  %.lcssa128 = add i64 %.pn, %7
-  %112 = and i64 %.lcssa128, 7
-  %113 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !95
-  %115 = load ptr, ptr %49, align 8, !tbaa !16
-  %116 = getelementptr inbounds i8, ptr %115, i64 %.lcssa
-  %117 = load i8, ptr %116, align 1, !tbaa !95
-  %118 = or i8 %117, %114
-  store i8 %118, ptr %116, align 1, !tbaa !95
+  %.lcssa128 = phi i64 [ %105, %94 ], [ %112, %.lr.ph ]
+  %.lcssa = phi i64 [ %107, %94 ], [ %114, %.lr.ph ]
+  %116 = and i64 %.lcssa128, 7
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !95
+  %119 = load ptr, ptr %49, align 8, !tbaa !16
+  %120 = getelementptr inbounds i8, ptr %119, i64 %.lcssa
+  %121 = load i8, ptr %120, align 1, !tbaa !95
+  %122 = or i8 %121, %118
+  store i8 %122, ptr %120, align 1, !tbaa !95
   br label %.loopexit127
 
-.loopexit127:                                     ; preds = %.lr.ph135, %.preheader126, %._crit_edge
-  %119 = load i64, ptr %11, align 8, !tbaa !96
-  %.not109 = icmp eq i64 %119, 0
-  br i1 %.not109, label %.critedge117, label %120, !prof !130
+.loopexit127:                                     ; preds = %.lr.ph133, %.preheader126, %._crit_edge
+  %123 = load i64, ptr %11, align 8, !tbaa !96
+  %.not109 = icmp eq i64 %123, 0
+  br i1 %.not109, label %.critedge117, label %124, !prof !130
 
-120:                                              ; preds = %.loopexit127
-  %121 = load ptr, ptr %49, align 8, !tbaa !16
-  %122 = add nsw i64 %119, -1
-  %123 = ashr i64 %122, 3
-  %124 = getelementptr inbounds i8, ptr %121, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !95
-  %126 = and i64 %119, 7
-  %127 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !95
-  %.not110.not = icmp eq i8 %125, %128
+124:                                              ; preds = %.loopexit127
+  %125 = load ptr, ptr %49, align 8, !tbaa !16
+  %126 = add nsw i64 %123, -1
+  %127 = ashr i64 %126, 3
+  %128 = getelementptr inbounds i8, ptr %125, i64 %127
+  %129 = load i8, ptr %128, align 1, !tbaa !95
+  %130 = and i64 %123, 7
+  %131 = getelementptr inbounds nuw [8 x i8], ptr @bitmask_end_values, i64 0, i64 %130
+  %132 = load i8, ptr %131, align 1, !tbaa !95
+  %.not110.not = icmp eq i8 %129, %132
   br i1 %.not110.not, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %120, %130
-  %.0.in = phi i64 [ %.0, %130 ], [ %123, %120 ]
-  %129 = icmp sgt i64 %.0.in, 0
-  br i1 %129, label %130, label %.critedge119
+.preheader:                                       ; preds = %124, %134
+  %.0.in = phi i64 [ %.0, %134 ], [ %127, %124 ]
+  %133 = icmp sgt i64 %.0.in, 0
+  br i1 %133, label %134, label %.critedge119
 
-130:                                              ; preds = %.preheader
+134:                                              ; preds = %.preheader
   %.0 = add nsw i64 %.0.in, -1
-  %131 = getelementptr inbounds nuw i8, ptr %121, i64 %.0
-  %132 = load i8, ptr %131, align 1, !tbaa !95
-  %.not112 = icmp eq i8 %132, -1
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 %.0
+  %136 = load i8, ptr %135, align 1, !tbaa !95
+  %.not112 = icmp eq i8 %136, -1
   br i1 %.not112, label %.preheader, label %.loopexit, !llvm.loop !148
 
 .critedge119:                                     ; preds = %.preheader
-  call void @CRYPTO_free(ptr noundef nonnull %121, ptr noundef nonnull @.str, i32 noundef 675) #9
+  call void @CRYPTO_free(ptr noundef nonnull %125, ptr noundef nonnull @.str, i32 noundef 675) #9
   store ptr null, ptr %49, align 8, !tbaa !16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %130, %120, %.critedge119
-  br i1 %32, label %133, label %dtls1_hm_fragment_free.exit
+.loopexit:                                        ; preds = %134, %124, %.critedge119
+  br i1 %32, label %137, label %dtls1_hm_fragment_free.exit
 
-133:                                              ; preds = %.loopexit
-  %134 = call ptr @pitem_new(ptr noundef nonnull %3, ptr noundef %.196) #9
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %.critedge117.thread, label %136
+137:                                              ; preds = %.loopexit
+  %138 = call ptr @pitem_new(ptr noundef nonnull %3, ptr noundef %.196) #9
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %.critedge117.thread, label %140
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %27, align 8, !tbaa !74
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 280
-  %139 = load ptr, ptr %138, align 8, !tbaa !105
-  %140 = call ptr @pqueue_insert(ptr noundef %139, ptr noundef nonnull %134) #9
-  %.not114 = icmp eq ptr %140, null
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %27, align 8, !tbaa !74
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 280
+  %143 = load ptr, ptr %142, align 8, !tbaa !105
+  %144 = call ptr @pqueue_insert(ptr noundef %143, ptr noundef nonnull %138) #9
+  %.not114 = icmp eq ptr %144, null
   br i1 %.not114, label %.critedge117.thread, label %dtls1_hm_fragment_free.exit, !prof !130
 
 .critedge117:                                     ; preds = %64, %65, %.loopexit127
-  %141 = icmp ne ptr %31, null
+  %145 = icmp ne ptr %31, null
   %.not.i = icmp eq ptr %.196, null
-  %or.cond125 = or i1 %141, %.not.i
-  br i1 %or.cond125, label %dtls1_hm_fragment_free.exit, label %142
+  %or.cond125 = or i1 %145, %.not.i
+  br i1 %or.cond125, label %dtls1_hm_fragment_free.exit, label %146
 
-.critedge117.thread:                              ; preds = %133, %136
+.critedge117.thread:                              ; preds = %137, %140
   %.not.i.old = icmp eq ptr %.196, null
-  br i1 %.not.i.old, label %dtls1_hm_fragment_free.exit, label %142
+  br i1 %.not.i.old, label %dtls1_hm_fragment_free.exit, label %146
 
-142:                                              ; preds = %.critedge117, %.critedge117.thread
-  %143 = getelementptr inbounds nuw i8, ptr %.196, i64 64
-  %144 = load ptr, ptr %143, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %144, ptr noundef nonnull @.str, i32 noundef 101) #9
-  %145 = load ptr, ptr %49, align 8, !tbaa !16
-  call void @CRYPTO_free(ptr noundef %145, ptr noundef nonnull @.str, i32 noundef 102) #9
+146:                                              ; preds = %.critedge117, %.critedge117.thread
+  %147 = getelementptr inbounds nuw i8, ptr %.196, i64 64
+  %148 = load ptr, ptr %147, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %148, ptr noundef nonnull @.str, i32 noundef 101) #9
+  %149 = load ptr, ptr %49, align 8, !tbaa !16
+  call void @CRYPTO_free(ptr noundef %149, ptr noundef nonnull @.str, i32 noundef 102) #9
   call void @CRYPTO_free(ptr noundef nonnull %.196, ptr noundef nonnull @.str, i32 noundef 103) #9
   br label %dtls1_hm_fragment_free.exit
 
@@ -2187,8 +2187,8 @@ define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dtls1_hm_fragment_free.exit
 
-dtls1_hm_fragment_free.exit:                      ; preds = %2, %14, %33, %42, %142, %.critedge117.thread, %.critedge117, %.loopexit, %136, %.critedge, %17
-  %.089 = phi i32 [ -3, %17 ], [ -3, %.critedge ], [ -3, %136 ], [ -3, %.loopexit ], [ -1, %.critedge117 ], [ -1, %.critedge117.thread ], [ -1, %142 ], [ -1, %42 ], [ -1, %33 ], [ -1, %14 ], [ -1, %2 ]
+dtls1_hm_fragment_free.exit:                      ; preds = %2, %14, %33, %42, %146, %.critedge117.thread, %.critedge117, %.loopexit, %140, %.critedge, %17
+  %.089 = phi i32 [ -3, %17 ], [ -3, %.critedge ], [ -3, %140 ], [ -3, %.loopexit ], [ -1, %.critedge117 ], [ -1, %.critedge117.thread ], [ -1, %146 ], [ -1, %42 ], [ -1, %33 ], [ -1, %14 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.089

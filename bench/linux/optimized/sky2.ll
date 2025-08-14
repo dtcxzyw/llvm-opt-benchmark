@@ -4751,53 +4751,52 @@ define internal void @sky2_get_ethtool_stats(ptr noundef readonly captures(none)
   %119 = add i32 %8, 10240
   %120 = getelementptr i8, ptr %2, i64 8
   store i64 %94, ptr %120, align 8
-  %invariant.op = add i32 %8, 10244
   br label %121
 
-121:                                              ; preds = %151, %118
-  %122 = phi i64 [ 2, %118 ], [ %154, %151 ]
+121:                                              ; preds = %152, %118
+  %122 = phi i64 [ 2, %118 ], [ %155, %152 ]
   %123 = getelementptr [36 x %struct.sky2_stat], ptr @sky2_stats, i64 0, i64 %122, i32 1
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   %126 = add i32 %119, %125
   %127 = zext i32 %126 to i64
-  %.reass = add i32 %invariant.op, %125
-  %128 = zext i32 %.reass to i64
-  br label %129
+  %128 = add i32 %126, 4
+  %129 = zext i32 %128 to i64
+  br label %130
 
-129:                                              ; preds = %129, %121
-  %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr i8, ptr %130, i64 %127
-  %132 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %131) #23, !srcloc !16
-  %133 = zext i16 %132 to i32
-  %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr i8, ptr %134, i64 %128
-  %136 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %135) #23, !srcloc !16
-  %137 = zext i16 %136 to i32
-  %138 = shl nuw i32 %137, 16
-  %139 = or disjoint i32 %138, %133
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr i8, ptr %140, i64 %127
-  %142 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %141) #23, !srcloc !16
-  %143 = zext i16 %142 to i32
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr i8, ptr %144, i64 %128
-  %146 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %145) #23, !srcloc !16
-  %147 = zext i16 %146 to i32
-  %148 = shl nuw i32 %147, 16
-  %149 = or disjoint i32 %148, %143
-  %150 = icmp eq i32 %149, %139
-  br i1 %150, label %151, label %129, !llvm.loop !45
+130:                                              ; preds = %130, %121
+  %131 = load ptr, ptr %5, align 8
+  %132 = getelementptr i8, ptr %131, i64 %127
+  %133 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %132) #23, !srcloc !16
+  %134 = zext i16 %133 to i32
+  %135 = load ptr, ptr %5, align 8
+  %136 = getelementptr i8, ptr %135, i64 %129
+  %137 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %136) #23, !srcloc !16
+  %138 = zext i16 %137 to i32
+  %139 = shl nuw i32 %138, 16
+  %140 = or disjoint i32 %139, %134
+  %141 = load ptr, ptr %5, align 8
+  %142 = getelementptr i8, ptr %141, i64 %127
+  %143 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %142) #23, !srcloc !16
+  %144 = zext i16 %143 to i32
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr i8, ptr %145, i64 %129
+  %147 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %146) #23, !srcloc !16
+  %148 = zext i16 %147 to i32
+  %149 = shl nuw i32 %148, 16
+  %150 = or disjoint i32 %149, %144
+  %151 = icmp eq i32 %150, %140
+  br i1 %151, label %152, label %130, !llvm.loop !45
 
-151:                                              ; preds = %129
-  %152 = zext i32 %139 to i64
-  %153 = getelementptr i64, ptr %2, i64 %122
-  store i64 %152, ptr %153, align 8
-  %154 = add nuw nsw i64 %122, 1
-  %155 = icmp eq i64 %154, 36
-  br i1 %155, label %156, label %121, !llvm.loop !46
+152:                                              ; preds = %130
+  %153 = zext i32 %140 to i64
+  %154 = getelementptr i64, ptr %2, i64 %122
+  store i64 %153, ptr %154, align 8
+  %155 = add nuw nsw i64 %122, 1
+  %156 = icmp eq i64 %155, 36
+  br i1 %156, label %157, label %121, !llvm.loop !46
 
-156:                                              ; preds = %151
+157:                                              ; preds = %152
   ret void
 }
 

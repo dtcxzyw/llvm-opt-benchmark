@@ -1292,7 +1292,10 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
 383:                                              ; preds = %359
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br i1 %180, label %.lr.ph364.i, label %.preheader.i
+  br i1 %180, label %.lr.ph364.i, label %.preheader.i.preheader
+
+.preheader.i.preheader:                           ; preds = %389, %383
+  br label %.preheader.i
 
 .lr.ph364.i:                                      ; preds = %383
   %384 = load ptr, ptr %32, align 8, !tbaa !54
@@ -1308,10 +1311,6 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.body198.i
 
-.preheader.i:                                     ; preds = %389, %383
-  %invariant.op.i = add nsw i32 %310, -2
-  br label %407
-
 389:                                              ; preds = %389, %.lr.ph364.i
   %indvars.iv403.i = phi i64 [ 0, %.lr.ph364.i ], [ %indvars.iv.next404.i, %389 ]
   %390 = getelementptr inbounds nuw i32, ptr %385, i64 %indvars.iv403.i
@@ -1325,7 +1324,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
   store i32 %397, ptr %393, align 4, !tbaa !108
   %indvars.iv.next404.i = add nuw nsw i64 %indvars.iv403.i, 1
   %exitcond406.not.i = icmp eq i64 %indvars.iv.next404.i, %wide.trip.count.i
-  br i1 %exitcond406.not.i, label %.preheader.i, label %389, !llvm.loop !110
+  br i1 %exitcond406.not.i, label %.preheader.i.preheader, label %389, !llvm.loop !110
 
 398:                                              ; preds = %450
   %399 = load ptr, ptr %33, align 8, !tbaa !53
@@ -1355,33 +1354,33 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body198.i
 
-407:                                              ; preds = %450, %.preheader.i
-  %indvars.iv407.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next408.i, %450 ]
-  %408 = trunc nuw nsw i64 %indvars.iv407.i to i32
-  %409 = and i32 %.0122.i, %408
-  %410 = zext nneg i32 %409 to i64
-  %411 = icmp eq i64 %indvars.iv407.i, %410
-  br i1 %411, label %412, label %450
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %450
+  %indvars.iv407.i = phi i64 [ %indvars.iv.next408.i, %450 ], [ 0, %.preheader.i.preheader ]
+  %407 = trunc nuw nsw i64 %indvars.iv407.i to i32
+  %408 = and i32 %.0122.i, %407
+  %409 = zext nneg i32 %408 to i64
+  %410 = icmp eq i64 %indvars.iv407.i, %409
+  br i1 %410, label %411, label %450
 
-412:                                              ; preds = %407
-  %413 = load ptr, ptr %30, align 8, !tbaa !51
+411:                                              ; preds = %.preheader.i
+  %412 = load ptr, ptr %30, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull @.str.5)
           to label %.lr.ph68.preheader.i.i unwind label %448
 
-.lr.ph68.preheader.i.i:                           ; preds = %412
-  %414 = mul nuw nsw i64 %indvars.iv407.i, %331
-  %415 = add nuw nsw i64 %414, %331
-  %416 = trunc nuw i64 %414 to i32
-  %.reass.i = add i32 %invariant.op.i, %416
-  %invariant.op.i.i = add nuw nsw i64 %414, 2
+.lr.ph68.preheader.i.i:                           ; preds = %411
+  %413 = mul nuw nsw i64 %indvars.iv407.i, %331
+  %414 = add nuw nsw i64 %413, %331
+  %415 = trunc nuw i64 %414 to i32
+  %416 = add nsw i32 %415, -2
+  %invariant.op.i.i = add nuw nsw i64 %413, 2
   br label %.lr.ph68.i.i
 
 .lr.ph68.i.i:                                     ; preds = %.loopexit58.i.i, %.lr.ph68.preheader.i.i
-  %indvars.iv82.i.i = phi i64 [ %415, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next83.i.i, %.loopexit58.i.i ]
-  %indvars.iv.i200.i = phi i32 [ %.reass.i, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next.i201.i, %.loopexit58.i.i ]
+  %indvars.iv82.i.i = phi i64 [ %414, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next83.i.i, %.loopexit58.i.i ]
+  %indvars.iv.i200.i = phi i32 [ %416, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next.i201.i, %.loopexit58.i.i ]
   %indvars.iv.next83.i.i = add nsw i64 %indvars.iv82.i.i, -1
-  %417 = getelementptr inbounds %struct.btBatchInfo, ptr %413, i64 %indvars.iv.next83.i.i
+  %417 = getelementptr inbounds %struct.btBatchInfo, ptr %412, i64 %indvars.iv.next83.i.i
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %419 = load i32, ptr %418, align 4, !tbaa !115
   %420 = icmp eq i32 %419, -1
@@ -1402,7 +1401,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
 
 .lr.ph.i204.i:                                    ; preds = %435, %.lr.ph.i204.preheader.i
   %indvars.iv79.i.i = phi i64 [ %indvars.iv.next80.i.i, %435 ], [ %425, %.lr.ph.i204.preheader.i ]
-  %426 = getelementptr inbounds %struct.btBatchInfo, ptr %413, i64 %indvars.iv79.i.i
+  %426 = getelementptr inbounds %struct.btBatchInfo, ptr %412, i64 %indvars.iv79.i.i
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %428 = load i32, ptr %427, align 4, !tbaa !115
   %429 = icmp eq i32 %428, -1
@@ -1423,24 +1422,24 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
 
 435:                                              ; preds = %430, %.lr.ph.i204.i
   %indvars.iv.next80.i.i = add nsw i64 %indvars.iv79.i.i, -1
-  %.not54.not.i.i = icmp sgt i64 %indvars.iv79.i.i, %414
+  %.not54.not.i.i = icmp sgt i64 %indvars.iv79.i.i, %413
   br i1 %.not54.not.i.i, label %.lr.ph.i204.i, label %.loopexit58.i.i, !llvm.loop !116
 
 .loopexit58.i.i:                                  ; preds = %435, %.critedge.i.i, %421, %.lr.ph68.i.i
-  %.not.not.i.i = icmp sgt i64 %indvars.iv.next83.i.i, %414
+  %.not.not.i.i = icmp sgt i64 %indvars.iv.next83.i.i, %413
   %indvars.iv.next.i201.i = add i32 %indvars.iv.i200.i, -1
   br i1 %.not.not.i.i, label %.lr.ph68.i.i, label %.lr.ph70.i.i, !llvm.loop !117
 
 .lr.ph70.i.i:                                     ; preds = %.loopexit58.i.i, %.loopexit.i.i
-  %indvars.iv85.i.i = phi i64 [ %indvars.iv.next86.i.i, %.loopexit.i.i ], [ %414, %.loopexit58.i.i ]
-  %436 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %413, i64 %indvars.iv85.i.i, i32 1
+  %indvars.iv85.i.i = phi i64 [ %indvars.iv.next86.i.i, %.loopexit.i.i ], [ %413, %.loopexit58.i.i ]
+  %436 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %412, i64 %indvars.iv85.i.i, i32 1
   %437 = load i32, ptr %436, align 4, !tbaa !115
   %.not.i.i = icmp eq i32 %437, -1
   br i1 %.not.i.i, label %.loopexit.i.i, label %438
 
 438:                                              ; preds = %.lr.ph70.i.i
   %439 = sext i32 %437 to i64
-  %440 = getelementptr inbounds %struct.btBatchInfo, ptr %413, i64 %439, i32 1
+  %440 = getelementptr inbounds %struct.btBatchInfo, ptr %412, i64 %439, i32 1
   %441 = load i32, ptr %440, align 4, !tbaa !115
   br label %442
 
@@ -1451,7 +1450,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
 
 443:                                              ; preds = %442
   %444 = sext i32 %.042.i.i to i64
-  %445 = getelementptr inbounds %struct.btBatchInfo, ptr %413, i64 %444, i32 1
+  %445 = getelementptr inbounds %struct.btBatchInfo, ptr %412, i64 %444, i32 1
   %446 = load i32, ptr %445, align 4, !tbaa !115
   %447 = icmp eq i32 %446, -1
   br i1 %447, label %.thread.i.i, label %442
@@ -1462,7 +1461,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %254, %_Z8btSetMaxIf
 
 .loopexit.i.i:                                    ; preds = %442, %.thread.i.i, %.lr.ph70.i.i
   %indvars.iv.next86.i.i = add nuw nsw i64 %indvars.iv85.i.i, 1
-  %exitcond.not.i203.i = icmp eq i64 %indvars.iv.next86.i.i, %415
+  %exitcond.not.i203.i = icmp eq i64 %indvars.iv.next86.i.i, %414
   br i1 %exitcond.not.i203.i, label %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, label %.lr.ph70.i.i, !llvm.loop !118
 
 _ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i:  ; preds = %.loopexit.i.i
@@ -1470,15 +1469,15 @@ _ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i:  ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %450
 
-448:                                              ; preds = %412
+448:                                              ; preds = %411
   %449 = landingpad { ptr, i32 }
           cleanup
   br label %.body198.i
 
-450:                                              ; preds = %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, %407
+450:                                              ; preds = %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, %.preheader.i
   %indvars.iv.next408.i = add nuw nsw i64 %indvars.iv407.i, 1
   %exitcond410.not.i = icmp eq i64 %indvars.iv.next408.i, 8
-  br i1 %exitcond410.not.i, label %398, label %407, !llvm.loop !119
+  br i1 %exitcond410.not.i, label %398, label %.preheader.i, !llvm.loop !119
 
 451:                                              ; preds = %.noexc197.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)

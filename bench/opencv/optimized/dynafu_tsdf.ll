@@ -7359,7 +7359,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv6dynafu13TSDFVolumeCPU
   %38 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4, !tbaa !25
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %38, i64 1
   %39 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), align 4, !tbaa !25
-  br label %128
+  br label %129
 
 40:                                               ; preds = %30
   %41 = tail call float @llvm.floor.f32(float %.sroa.048.0.vec.extract)
@@ -7438,14 +7438,13 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %76
   %87 = load float, ptr %86, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %128
+  br label %129
 
 88:                                               ; preds = %40, %91
   %indvars.iv74 = phi i64 [ 0, %40 ], [ %indvars.iv.next75, %91 ]
   %89 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv74
   %90 = load i32, ptr %89, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %invariant.op = add i32 %57, %90
   br label %115
 
 91:                                               ; preds = %115
@@ -7483,22 +7482,22 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %76
   %116 = getelementptr inbounds nuw [8 x i32], ptr %58, i64 0, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4, !tbaa !20
   %118 = add nsw i32 %57, %117
-  %.reass = add i32 %117, %invariant.op
-  %119 = sext i32 %.reass to i64
-  %120 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %119
-  %121 = load float, ptr %120, align 4, !tbaa !369
-  %122 = sub nsw i32 %118, %90
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %123
-  %125 = load float, ptr %124, align 4, !tbaa !369
-  %126 = fsub float %121, %125
-  %127 = getelementptr inbounds nuw [8 x float], ptr %5, i64 0, i64 %indvars.iv
-  store float %126, ptr %127, align 4, !tbaa !25
+  %119 = add nsw i32 %118, %90
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %120
+  %122 = load float, ptr %121, align 4, !tbaa !369
+  %123 = sub nsw i32 %118, %90
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %124
+  %126 = load float, ptr %125, align 4, !tbaa !369
+  %127 = fsub float %122, %126
+  %128 = getelementptr inbounds nuw [8 x float], ptr %5, i64 0, i64 %indvars.iv
+  store float %127, ptr %128, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %91, label %115, !llvm.loop !385
 
-128:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %36
+129:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %36
   %.sroa.5.0 = phi float [ %39, %36 ], [ %87, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert, %36 ], [ %.sroa.0.4.vec.insert70, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0

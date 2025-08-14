@@ -3312,20 +3312,12 @@ _ZN5boost6nowide4test8test_monEv.exit33:          ; preds = %29, %32, %34
   %exitcond.not = icmp eq i32 %37, 15000
   br i1 %exitcond.not, label %7, label %10, !llvm.loop !68
 
-.preheader55:                                     ; preds = %7, %._crit_edge67
-  %.027.idx68 = phi i64 [ %.027.add, %._crit_edge67 ], [ 0, %7 ]
-  %.027.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.027.idx68
+.preheader55:                                     ; preds = %7, %._crit_edge65
+  %.027.idx66 = phi i64 [ %.027.add, %._crit_edge65 ], [ 0, %7 ]
+  %.027.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.027.idx66
   %38 = load i32, ptr %.027.ptr, align 4, !tbaa !67
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.preheader54.thread
-
-.preheader54.thread:                              ; preds = %.preheader55
-  %invariant.op71 = add i32 %38, -1
-  br label %._crit_edge
-
-.preheader54:                                     ; preds = %59
-  %invariant.op = add nsw i32 %38, -1
-  br label %.lr.ph59
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader55, %59
   %.02657 = phi i32 [ %60, %59 ], [ 0, %.preheader55 ]
@@ -3368,168 +3360,167 @@ _ZN5boost6nowide4test8test_monEv.exit35:          ; preds = %.lr.ph, %46, %48
 
 59:                                               ; preds = %_ZN5boost6nowide4test8test_monEv.exit35, %58
   %60 = add nuw nsw i32 %.02657, 1
-  %exitcond69.not = icmp eq i32 %60, %38
-  br i1 %exitcond69.not, label %.preheader54, label %.lr.ph, !llvm.loop !69
+  %exitcond67.not = icmp eq i32 %60, %38
+  br i1 %exitcond67.not, label %.lr.ph59, label %.lr.ph, !llvm.loop !69
 
-.lr.ph59:                                         ; preds = %.preheader54, %_ZN5boost6nowide4test8test_monEv.exit38
-  %.024.in58 = phi i32 [ %.024, %_ZN5boost6nowide4test8test_monEv.exit38 ], [ %38, %.preheader54 ]
+.lr.ph59:                                         ; preds = %59, %_ZN5boost6nowide4test8test_monEv.exit38
+  %.024.in58 = phi i32 [ %.024, %_ZN5boost6nowide4test8test_monEv.exit38 ], [ %38, %59 ]
   %.024 = add nsw i32 %.024.in58, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.reass = add i32 %.024.in58, %invariant.op
-  %61 = srem i32 %.reass, 96
-  %62 = add nsw i32 %61, 32
-  store i32 %62, ptr %3, align 4, !tbaa !67
-  %63 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %_ZN5boost6nowide4test8test_monEv.exit38, !prof !22
+  %61 = add nsw i32 %.024, %38
+  %62 = srem i32 %61, 96
+  %63 = add nsw i32 %62, 32
+  store i32 %63, ptr %3, align 4, !tbaa !67
+  %64 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %_ZN5boost6nowide4test8test_monEv.exit38, !prof !22
 
-65:                                               ; preds = %.lr.ph59
-  %66 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
-  %.not.i37 = icmp eq i32 %66, 0
-  br i1 %.not.i37, label %_ZN5boost6nowide4test8test_monEv.exit38, label %67
+66:                                               ; preds = %.lr.ph59
+  %67 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
+  %.not.i37 = icmp eq i32 %67, 0
+  br i1 %.not.i37, label %_ZN5boost6nowide4test8test_monEv.exit38, label %68
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), ptr @_ZZN5boost6nowide4test8test_monEvE8instance, align 8, !tbaa !12
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 8), align 8, !tbaa !21
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), align 8, !tbaa !20
-  %68 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
+  %69 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
   br label %_ZN5boost6nowide4test8test_monEv.exit38
 
-_ZN5boost6nowide4test8test_monEv.exit38:          ; preds = %.lr.ph59, %65, %67
+_ZN5boost6nowide4test8test_monEv.exit38:          ; preds = %.lr.ph59, %66, %68
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %69 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
-  store i32 %69, ptr %4, align 4, !tbaa !67
+  %70 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
+  store i32 %70, ptr %4, align 4, !tbaa !67
   call void @_ZN5boost6nowide4test15test_equal_implIiiEEvRKT_RKT0_PKciSA_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull @.str.19, i32 noundef 174, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %70 = icmp samesign ugt i32 %.024.in58, 1
-  br i1 %70, label %.lr.ph59, label %.lr.ph61, !llvm.loop !70
+  %71 = icmp samesign ugt i32 %.024.in58, 1
+  br i1 %71, label %.lr.ph59, label %.lr.ph61, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %100, %.preheader54.thread
-  %invariant.op7274 = phi i32 [ %invariant.op71, %.preheader54.thread ], [ %invariant.op, %100 ]
-  %71 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %_ZN5boost6nowide4test8test_monEv.exit40, !prof !22
+._crit_edge:                                      ; preds = %101, %.preheader55
+  %72 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %74, label %_ZN5boost6nowide4test8test_monEv.exit40, !prof !22
 
-73:                                               ; preds = %._crit_edge
-  %74 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
-  %.not.i39 = icmp eq i32 %74, 0
-  br i1 %.not.i39, label %_ZN5boost6nowide4test8test_monEv.exit40, label %75
+74:                                               ; preds = %._crit_edge
+  %75 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
+  %.not.i39 = icmp eq i32 %75, 0
+  br i1 %.not.i39, label %_ZN5boost6nowide4test8test_monEv.exit40, label %76
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), ptr @_ZZN5boost6nowide4test8test_monEvE8instance, align 8, !tbaa !12
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 8), align 8, !tbaa !21
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), align 8, !tbaa !20
-  %76 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
+  %77 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
   br label %_ZN5boost6nowide4test8test_monEv.exit40
 
-_ZN5boost6nowide4test8test_monEv.exit40:          ; preds = %._crit_edge, %73, %75
-  %77 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5ungetEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
-  %78 = load ptr, ptr %77, align 8, !tbaa !4
-  %79 = getelementptr i8, ptr %78, i64 -24
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 %80
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %83 = load i32, ptr %82, align 8, !tbaa !34
-  %84 = and i32 %83, 5
-  %.not53 = icmp eq i32 %84, 0
-  br i1 %.not53, label %102, label %103
+_ZN5boost6nowide4test8test_monEv.exit40:          ; preds = %._crit_edge, %74, %76
+  %78 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5ungetEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
+  %79 = load ptr, ptr %78, align 8, !tbaa !4
+  %80 = getelementptr i8, ptr %79, i64 -24
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %78, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %84 = load i32, ptr %83, align 8, !tbaa !34
+  %85 = and i32 %84, 5
+  %.not53 = icmp eq i32 %85, 0
+  br i1 %.not53, label %103, label %104
 
-.lr.ph61:                                         ; preds = %_ZN5boost6nowide4test8test_monEv.exit38, %100
-  %.02360 = phi i32 [ %101, %100 ], [ 0, %_ZN5boost6nowide4test8test_monEv.exit38 ]
-  %85 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %_ZN5boost6nowide4test8test_monEv.exit42, !prof !22
+.lr.ph61:                                         ; preds = %_ZN5boost6nowide4test8test_monEv.exit38, %101
+  %.02360 = phi i32 [ %102, %101 ], [ 0, %_ZN5boost6nowide4test8test_monEv.exit38 ]
+  %86 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %88, label %_ZN5boost6nowide4test8test_monEv.exit42, !prof !22
 
-87:                                               ; preds = %.lr.ph61
-  %88 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
-  %.not.i41 = icmp eq i32 %88, 0
-  br i1 %.not.i41, label %_ZN5boost6nowide4test8test_monEv.exit42, label %89
+88:                                               ; preds = %.lr.ph61
+  %89 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
+  %.not.i41 = icmp eq i32 %89, 0
+  br i1 %.not.i41, label %_ZN5boost6nowide4test8test_monEv.exit42, label %90
 
-89:                                               ; preds = %87
+90:                                               ; preds = %88
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), ptr @_ZZN5boost6nowide4test8test_monEvE8instance, align 8, !tbaa !12
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 8), align 8, !tbaa !21
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), align 8, !tbaa !20
-  %90 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
+  %91 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
   br label %_ZN5boost6nowide4test8test_monEv.exit42
 
-_ZN5boost6nowide4test8test_monEv.exit42:          ; preds = %.lr.ph61, %87, %89
-  %91 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5ungetEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
-  %92 = load ptr, ptr %91, align 8, !tbaa !4
-  %93 = getelementptr i8, ptr %92, i64 -24
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %91, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = load i32, ptr %96, align 8, !tbaa !34
-  %98 = and i32 %97, 5
-  %.not.i43 = icmp eq i32 %98, 0
-  br i1 %.not.i43, label %100, label %99
+_ZN5boost6nowide4test8test_monEv.exit42:          ; preds = %.lr.ph61, %88, %90
+  %92 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5ungetEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
+  %93 = load ptr, ptr %92, align 8, !tbaa !4
+  %94 = getelementptr i8, ptr %93, i64 -24
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %92, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %98 = load i32, ptr %97, align 8, !tbaa !34
+  %99 = and i32 %98, 5
+  %.not.i43 = icmp eq i32 %99, 0
+  br i1 %.not.i43, label %101, label %100
 
-99:                                               ; preds = %_ZN5boost6nowide4test8test_monEv.exit42
+100:                                              ; preds = %_ZN5boost6nowide4test8test_monEv.exit42
   call void @_ZN5boost6nowide4test11test_failedEPKcS3_iS3_(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.19, i32 noundef 178, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
-  br label %100
+  br label %101
 
-100:                                              ; preds = %99, %_ZN5boost6nowide4test8test_monEv.exit42
-  %101 = add nuw nsw i32 %.02360, 1
-  %exitcond70.not = icmp eq i32 %101, %38
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph61, !llvm.loop !71
+101:                                              ; preds = %100, %_ZN5boost6nowide4test8test_monEv.exit42
+  %102 = add nuw nsw i32 %.02360, 1
+  %exitcond68.not = icmp eq i32 %102, %38
+  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph61, !llvm.loop !71
 
-102:                                              ; preds = %_ZN5boost6nowide4test8test_monEv.exit40
+103:                                              ; preds = %_ZN5boost6nowide4test8test_monEv.exit40
   call void @_ZN5boost6nowide4test11test_failedEPKcS3_iS3_(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.19, i32 noundef 179, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
-  br label %103
+  br label %104
 
-103:                                              ; preds = %_ZN5boost6nowide4test8test_monEv.exit40, %102
-  %104 = load ptr, ptr @_ZSt3cin, align 8, !tbaa !4
-  %105 = getelementptr i8, ptr %104, i64 -24
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %106
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %107, i32 noundef 0)
-  br i1 %39, label %.lr.ph66, label %._crit_edge67
+104:                                              ; preds = %_ZN5boost6nowide4test8test_monEv.exit40, %103
+  %105 = load ptr, ptr @_ZSt3cin, align 8, !tbaa !4
+  %106 = getelementptr i8, ptr %105, i64 -24
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %107
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %108, i32 noundef 0)
+  br i1 %39, label %.lr.ph64, label %._crit_edge65
 
-._crit_edge67:                                    ; preds = %_ZN5boost6nowide4test8test_monEv.exit45, %103
-  %.027.add = add nuw nsw i64 %.027.idx68, 4
+._crit_edge65:                                    ; preds = %_ZN5boost6nowide4test8test_monEv.exit45, %104
+  %.027.add = add nuw nsw i64 %.027.idx66, 4
   %.not = icmp eq i64 %.027.add, 48
   br i1 %.not, label %.loopexit, label %.preheader55
 
-.lr.ph66:                                         ; preds = %103, %_ZN5boost6nowide4test8test_monEv.exit45
-  %.0.in64 = phi i32 [ %.0, %_ZN5boost6nowide4test8test_monEv.exit45 ], [ %38, %103 ]
-  %.0 = add nsw i32 %.0.in64, -1
+.lr.ph64:                                         ; preds = %104, %_ZN5boost6nowide4test8test_monEv.exit45
+  %.0.in62 = phi i32 [ %.0, %_ZN5boost6nowide4test8test_monEv.exit45 ], [ %38, %104 ]
+  %.0 = add nsw i32 %.0.in62, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.reass63 = add i32 %.0.in64, %invariant.op7274
-  %108 = srem i32 %.reass63, 96
-  %109 = add nsw i32 %108, 32
-  store i32 %109, ptr %5, align 4, !tbaa !67
-  %110 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %_ZN5boost6nowide4test8test_monEv.exit45, !prof !22
+  %109 = add nsw i32 %.0, %38
+  %110 = srem i32 %109, 96
+  %111 = add nsw i32 %110, 32
+  store i32 %111, ptr %5, align 4, !tbaa !67
+  %112 = load atomic i8, ptr @_ZGVZN5boost6nowide4test8test_monEvE8instance acquire, align 8
+  %113 = icmp eq i8 %112, 0
+  br i1 %113, label %114, label %_ZN5boost6nowide4test8test_monEv.exit45, !prof !22
 
-112:                                              ; preds = %.lr.ph66
-  %113 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
-  %.not.i44 = icmp eq i32 %113, 0
-  br i1 %.not.i44, label %_ZN5boost6nowide4test8test_monEv.exit45, label %114
+114:                                              ; preds = %.lr.ph64
+  %115 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
+  %.not.i44 = icmp eq i32 %115, 0
+  br i1 %.not.i44, label %_ZN5boost6nowide4test8test_monEv.exit45, label %116
 
-114:                                              ; preds = %112
+116:                                              ; preds = %114
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), ptr @_ZZN5boost6nowide4test8test_monEvE8instance, align 8, !tbaa !12
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 8), align 8, !tbaa !21
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test8test_monEvE8instance, i64 16), align 8, !tbaa !20
-  %115 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
+  %117 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost6nowide4test12test_monitorD2Ev, ptr nonnull @_ZZN5boost6nowide4test8test_monEvE8instance, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost6nowide4test8test_monEvE8instance) #20
   br label %_ZN5boost6nowide4test8test_monEv.exit45
 
-_ZN5boost6nowide4test8test_monEv.exit45:          ; preds = %.lr.ph66, %112, %114
+_ZN5boost6nowide4test8test_monEv.exit45:          ; preds = %.lr.ph64, %114, %116
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %116 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
-  store i32 %116, ptr %6, align 4, !tbaa !67
+  %118 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
+  store i32 %118, ptr %6, align 4, !tbaa !67
   call void @_ZN5boost6nowide4test15test_equal_implIiiEEvRKT_RKT0_PKciSA_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull @.str.19, i32 noundef 184, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %117 = icmp samesign ugt i32 %.0.in64, 1
-  br i1 %117, label %.lr.ph66, label %._crit_edge67, !llvm.loop !72
+  %119 = icmp samesign ugt i32 %.0.in62, 1
+  br i1 %119, label %.lr.ph64, label %._crit_edge65, !llvm.loop !72
 
-.loopexit:                                        ; preds = %._crit_edge67, %7
+.loopexit:                                        ; preds = %._crit_edge65, %7
   ret void
 }
 

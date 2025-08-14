@@ -5855,24 +5855,21 @@ dct_inverse.exit.us:                              ; preds = %.preheader.i.us
 .lr.ph434.split:                                  ; preds = %.lr.ph434
   %548 = load ptr, ptr %4, align 8, !tbaa !136
   %549 = load i32, ptr %10, align 8, !tbaa !132
-  %invariant.op = mul i32 %549, %530
   %550 = icmp sgt i32 %549, 0
   br i1 %550, label %.lr.ph431.us.preheader, label %.critedge
 
 .lr.ph431.us.preheader:                           ; preds = %.lr.ph434.split
   %551 = zext nneg i32 %549 to i64
+  %552 = zext nneg i32 %530 to i64
   %wide.trip.count474 = zext nneg i32 %163 to i64
-  %wide.trip.count = zext nneg i32 %549 to i64
   br label %.lr.ph431.us
 
 .lr.ph431.us:                                     ; preds = %.lr.ph431.us.preheader, %._crit_edge432.us
   %indvars.iv471 = phi i64 [ 0, %.lr.ph431.us.preheader ], [ %indvars.iv.next472, %._crit_edge432.us ]
-  %552 = mul nuw nsw i64 %indvars.iv471, %551
-  %553 = trunc nuw nsw i64 %indvars.iv471 to i32
-  %.reass.us = mul i32 %invariant.op, %553
-  %554 = sext i32 %.reass.us to i64
-  %555 = getelementptr inbounds i16, ptr %548, i64 %554
-  %556 = getelementptr inbounds nuw i8, ptr %546, i64 %552
+  %553 = mul nuw nsw i64 %indvars.iv471, %551
+  %554 = mul nuw nsw i64 %553, %552
+  %555 = getelementptr inbounds nuw i16, ptr %548, i64 %554
+  %556 = getelementptr inbounds nuw i8, ptr %546, i64 %553
   %557 = getelementptr inbounds i8, ptr %556, i64 %547
   br label %558
 
@@ -5889,7 +5886,7 @@ dct_inverse.exit.us:                              ; preds = %.preheader.i.us
   %567 = getelementptr inbounds nuw i16, ptr %555, i64 %indvars.iv467
   store i16 %566, ptr %567, align 2, !tbaa !41
   %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 1
-  %exitcond470.not = icmp eq i64 %indvars.iv.next468, %wide.trip.count
+  %exitcond470.not = icmp eq i64 %indvars.iv.next468, %551
   br i1 %exitcond470.not, label %._crit_edge432.us, label %558, !llvm.loop !204
 
 ._crit_edge432.us:                                ; preds = %558

@@ -2027,185 +2027,183 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br i1 %.not94128, label %.loopexit122, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_label_flags.exit
-  %reass.add = shl i32 %29, 1
-  %invariant.op = add i32 %reass.add, %.sroa.0.0.extract.trunc.i103
-  %51 = add nsw i32 %29, %.sroa.0.0.extract.trunc.i103
+  %51 = add i32 %29, %.sroa.0.0.extract.trunc.i103
   br label %52
 
-52:                                               ; preds = %.lr.ph, %73
-  %53 = phi ptr [ %21, %.lr.ph ], [ %76, %73 ]
-  %.076131 = phi i32 [ 0, %.lr.ph ], [ %63, %73 ]
-  %.082130 = phi i32 [ 0, %.lr.ph ], [ %74, %73 ]
-  %.084129 = phi i32 [ %.2.i, %.lr.ph ], [ %.286, %73 ]
+52:                                               ; preds = %.lr.ph, %74
+  %53 = phi ptr [ %21, %.lr.ph ], [ %77, %74 ]
+  %.076131 = phi i32 [ 0, %.lr.ph ], [ %64, %74 ]
+  %.082130 = phi i32 [ 0, %.lr.ph ], [ %75, %74 ]
+  %.084129 = phi i32 [ %.2.i, %.lr.ph ], [ %.286, %74 ]
   %54 = add nsw i32 %.082130, %29
-  %.reass = add i32 %.082130, %invariant.op
-  %55 = icmp sgt i32 %.reass, %23
-  br i1 %55, label %56, label %61
+  %55 = add i32 %51, %54
+  %56 = icmp sgt i32 %55, %23
+  br i1 %56, label %57, label %62
 
-56:                                               ; preds = %52
-  %57 = load i8, ptr %30, align 4
-  %58 = and i8 %57, 15
-  %59 = icmp eq i8 %58, 1
-  %60 = or i32 %.084129, 4
-  %spec.select = select i1 %59, i32 %60, i32 %.084129
-  br label %61
+57:                                               ; preds = %52
+  %58 = load i8, ptr %30, align 4
+  %59 = and i8 %58, 15
+  %60 = icmp eq i8 %59, 1
+  %61 = or i32 %.084129, 4
+  %spec.select = select i1 %60, i32 %61, i32 %.084129
+  br label %62
 
-61:                                               ; preds = %56, %52
-  %.286 = phi i32 [ %.084129, %52 ], [ %spec.select, %56 ]
-  %62 = call i32 @lv_text_get_next_line(ptr noundef nonnull %53, i32 noundef -1, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef %22, ptr noundef null, i32 noundef %.286) #7
-  %63 = add i32 %62, %.076131
+62:                                               ; preds = %57, %52
+  %.286 = phi i32 [ %.084129, %52 ], [ %spec.select, %57 ]
+  %63 = call i32 @lv_text_get_next_line(ptr noundef nonnull %53, i32 noundef -1, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef %22, ptr noundef null, i32 noundef %.286) #7
+  %64 = add i32 %63, %.076131
   %.not95 = icmp sgt i32 %19, %54
-  br i1 %.not95, label %73, label %64
+  br i1 %.not95, label %74, label %65
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %63, ptr %5, align 4, !tbaa !48
-  %65 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
-  %66 = call i32 %65(ptr noundef nonnull %21, ptr noundef nonnull %5) #7
-  %.not96 = icmp eq i32 %66, 10
-  br i1 %.not96, label %.thread, label %67
+  store i32 %64, ptr %5, align 4, !tbaa !48
+  %66 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
+  %67 = call i32 %66(ptr noundef nonnull %21, ptr noundef nonnull %5) #7
+  %.not96 = icmp eq i32 %67, 10
+  br i1 %.not96, label %.thread, label %68
 
-67:                                               ; preds = %64
-  %68 = zext i32 %63 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %21, i64 %68
-  %70 = load i8, ptr %69, align 1, !tbaa !25
-  %71 = icmp eq i8 %70, 0
-  %72 = zext i1 %71 to i32
-  %spec.select99 = add i32 %63, %72
+68:                                               ; preds = %65
+  %69 = zext i32 %64 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %21, i64 %69
+  %71 = load i8, ptr %70, align 1, !tbaa !25
+  %72 = icmp eq i8 %71, 0
+  %73 = zext i1 %72 to i32
+  %spec.select99 = add i32 %64, %73
   br label %.thread
 
-.thread:                                          ; preds = %64, %67
-  %.278 = phi i32 [ %63, %64 ], [ %spec.select99, %67 ]
+.thread:                                          ; preds = %65, %68
+  %.278 = phi i32 [ %64, %65 ], [ %spec.select99, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit122
 
-73:                                               ; preds = %61
-  %74 = add nsw i32 %51, %.082130
-  %75 = zext i32 %63 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %21, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !25
-  %.not94 = icmp eq i8 %77, 0
+74:                                               ; preds = %62
+  %75 = add nsw i32 %51, %.082130
+  %76 = zext i32 %64 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 %76
+  %78 = load i8, ptr %77, align 1, !tbaa !25
+  %.not94 = icmp eq i8 %78, 0
   br i1 %.not94, label %.loopexit122, label %52
 
-.loopexit122:                                     ; preds = %73, %get_label_flags.exit, %.thread
-  %.076125 = phi i32 [ %.076131, %.thread ], [ 0, %get_label_flags.exit ], [ %63, %73 ]
-  %.185 = phi i32 [ %.286, %.thread ], [ %.2.i, %get_label_flags.exit ], [ %.286, %73 ]
-  %.177 = phi i32 [ %.278, %.thread ], [ 0, %get_label_flags.exit ], [ %63, %73 ]
-  %78 = zext i32 %.076125 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %21, i64 %78
-  %80 = load ptr, ptr %20, align 8, !tbaa !3
-  %81 = call i32 @lv_obj_calculate_style_text_align(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %80) #7
-  %82 = sub i32 %.177, %.076125
-  switch i32 %81, label %calculate_x_coordinate.exit [
-    i32 2, label %83
-    i32 3, label %88
+.loopexit122:                                     ; preds = %74, %get_label_flags.exit, %.thread
+  %.076125 = phi i32 [ %.076131, %.thread ], [ 0, %get_label_flags.exit ], [ %64, %74 ]
+  %.185 = phi i32 [ %.286, %.thread ], [ %.2.i, %get_label_flags.exit ], [ %.286, %74 ]
+  %.177 = phi i32 [ %.278, %.thread ], [ 0, %get_label_flags.exit ], [ %64, %74 ]
+  %79 = zext i32 %.076125 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 %79
+  %81 = load ptr, ptr %20, align 8, !tbaa !3
+  %82 = call i32 @lv_obj_calculate_style_text_align(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %81) #7
+  %83 = sub i32 %.177, %.076125
+  switch i32 %82, label %calculate_x_coordinate.exit [
+    i32 2, label %84
+    i32 3, label %89
   ]
 
-83:                                               ; preds = %.loopexit122
-  %84 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
-  %85 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
-  %86 = sdiv i32 %85, 2
-  %.neg.i = sdiv i32 %84, -2
-  %87 = add nsw i32 %86, %.neg.i
+84:                                               ; preds = %.loopexit122
+  %85 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %80, i32 noundef %83, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
+  %86 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
+  %87 = sdiv i32 %86, 2
+  %.neg.i = sdiv i32 %85, -2
+  %88 = add nsw i32 %87, %.neg.i
   br label %calculate_x_coordinate.exit
 
-88:                                               ; preds = %.loopexit122
-  %89 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
-  %90 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
-  %91 = sub i32 %90, %89
+89:                                               ; preds = %.loopexit122
+  %90 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %80, i32 noundef %83, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
+  %91 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
+  %92 = sub i32 %91, %90
   br label %calculate_x_coordinate.exit
 
-calculate_x_coordinate.exit:                      ; preds = %83, %88, %.loopexit122
-  %.2108 = phi i32 [ 0, %.loopexit122 ], [ %91, %88 ], [ %87, %83 ]
+calculate_x_coordinate.exit:                      ; preds = %84, %89, %.loopexit122
+  %.2108 = phi i32 [ 0, %.loopexit122 ], [ %92, %89 ], [ %88, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !48
   %.not97 = icmp ne i32 %.177, 0
-  %92 = icmp ult i32 %.076125, %.177
-  %or.cond = select i1 %.not97, i1 %92, i1 false
+  %93 = icmp ult i32 %.076125, %.177
+  %or.cond = select i1 %.not97, i1 %93, i1 false
   br i1 %or.cond, label %.lr.ph135, label %.loopexit
 
 .lr.ph135:                                        ; preds = %calculate_x_coordinate.exit
-  %93 = and i32 %.185, 8
-  %.not98 = icmp eq i32 %93, 0
-  br label %94
+  %94 = and i32 %.185, 8
+  %.not98 = icmp eq i32 %94, 0
+  br label %95
 
-94:                                               ; preds = %.lr.ph135, %121
-  %.079134 = phi i32 [ 0, %.lr.ph135 ], [ %.180, %121 ]
-  %.0106133 = phi i32 [ %.2108, %.lr.ph135 ], [ %.1107, %121 ]
+95:                                               ; preds = %.lr.ph135, %122
+  %.079134 = phi i32 [ 0, %.lr.ph135 ], [ %.180, %122 ]
+  %.0106133 = phi i32 [ %.2108, %.lr.ph135 ], [ %.1107, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @lv_text_encoded_letter_next_2(ptr noundef nonnull %79, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #7
-  br i1 %.not98, label %102, label %95
+  call void @lv_text_encoded_letter_next_2(ptr noundef nonnull %80, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #7
+  br i1 %.not98, label %103, label %96
 
-95:                                               ; preds = %94
-  %96 = load i32, ptr %7, align 4, !tbaa !48
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %79, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !25
-  %100 = sext i8 %99 to i32
-  %101 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %6, i32 noundef %100) #7
-  br i1 %101, label %._crit_edge, label %102, !llvm.loop !69
+96:                                               ; preds = %95
+  %97 = load i32, ptr %7, align 4, !tbaa !48
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %80, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !25
+  %101 = sext i8 %100 to i32
+  %102 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %6, i32 noundef %101) #7
+  br i1 %102, label %._crit_edge, label %103, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %95
+._crit_edge:                                      ; preds = %96
   %.pre = load i32, ptr %7, align 4, !tbaa !48
   %.pre140 = add i32 %.pre, %.076125
-  br label %121, !llvm.loop !69
+  br label %122, !llvm.loop !69
 
-102:                                              ; preds = %95, %94
-  %103 = load i32, ptr %8, align 4, !tbaa !48
-  %104 = load i32, ptr %9, align 4, !tbaa !48
-  %105 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %24, i32 noundef %103, i32 noundef %104) #7
-  %106 = zext i16 %105 to i32
-  %107 = add nsw i32 %.0106133, %106
-  %108 = icmp slt i32 %14, %107
-  br i1 %108, label %.thread114, label %109
+103:                                              ; preds = %96, %95
+  %104 = load i32, ptr %8, align 4, !tbaa !48
+  %105 = load i32, ptr %9, align 4, !tbaa !48
+  %106 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %24, i32 noundef %104, i32 noundef %105) #7
+  %107 = zext i16 %106 to i32
+  %108 = add nsw i32 %.0106133, %107
+  %109 = icmp slt i32 %14, %108
+  br i1 %109, label %.thread114, label %110
 
-109:                                              ; preds = %102
-  %110 = load i32, ptr %7, align 4, !tbaa !48
-  %111 = add i32 %110, %.076125
-  %112 = icmp eq i32 %111, %.177
-  br i1 %112, label %.thread114, label %113
+110:                                              ; preds = %103
+  %111 = load i32, ptr %7, align 4, !tbaa !48
+  %112 = add i32 %111, %.076125
+  %113 = icmp eq i32 %112, %.177
+  br i1 %113, label %.thread114, label %114
 
-113:                                              ; preds = %109
-  %114 = add i32 %.079134, %.076125
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %21, i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !25
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %.thread114, label %119
+114:                                              ; preds = %110
+  %115 = add i32 %.079134, %.076125
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %21, i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !25
+  %119 = icmp eq i8 %118, 0
+  br i1 %119, label %.thread114, label %120
 
-.thread114:                                       ; preds = %102, %109, %113
+.thread114:                                       ; preds = %103, %110, %114
   store i32 %.079134, ptr %7, align 4, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-119:                                              ; preds = %113
-  %120 = add nsw i32 %107, %.sroa.0.0.extract.trunc.i104
-  br label %121
+120:                                              ; preds = %114
+  %121 = add nsw i32 %108, %.sroa.0.0.extract.trunc.i104
+  br label %122
 
-121:                                              ; preds = %._crit_edge, %119
-  %.pre-phi = phi i32 [ %.pre140, %._crit_edge ], [ %111, %119 ]
-  %122 = phi i32 [ %.pre, %._crit_edge ], [ %110, %119 ]
-  %.1107 = phi i32 [ %.0106133, %._crit_edge ], [ %120, %119 ]
-  %.180 = phi i32 [ %.079134, %._crit_edge ], [ %110, %119 ]
+122:                                              ; preds = %._crit_edge, %120
+  %.pre-phi = phi i32 [ %.pre140, %._crit_edge ], [ %112, %120 ]
+  %123 = phi i32 [ %.pre, %._crit_edge ], [ %111, %120 ]
+  %.1107 = phi i32 [ %.0106133, %._crit_edge ], [ %121, %120 ]
+  %.180 = phi i32 [ %.079134, %._crit_edge ], [ %111, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %123 = icmp ult i32 %.pre-phi, %.177
-  br i1 %123, label %94, label %.loopexit
+  %124 = icmp ult i32 %.pre-phi, %.177
+  br i1 %124, label %95, label %.loopexit
 
-.loopexit:                                        ; preds = %121, %.thread114, %calculate_x_coordinate.exit
-  %124 = phi i32 [ %.079134, %.thread114 ], [ 0, %calculate_x_coordinate.exit ], [ %122, %121 ]
-  %125 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !67
-  %126 = call i32 %125(ptr noundef nonnull %79, i32 noundef %124) #7
-  %127 = call i32 %125(ptr noundef nonnull %21, i32 noundef %.076125) #7
-  %128 = add i32 %127, %126
+.loopexit:                                        ; preds = %122, %.thread114, %calculate_x_coordinate.exit
+  %125 = phi i32 [ %.079134, %.thread114 ], [ 0, %calculate_x_coordinate.exit ], [ %123, %122 ]
+  %126 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !67
+  %127 = call i32 %126(ptr noundef nonnull %80, i32 noundef %125) #7
+  %128 = call i32 %126(ptr noundef nonnull %21, i32 noundef %.076125) #7
+  %129 = add i32 %128, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %128
+  ret i32 %129
 }
 
 declare void @lv_text_encoded_letter_next_2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2281,74 +2279,72 @@ lv_label_get_text.exit:                           ; preds = %8
 
 get_label_flags.exit:                             ; preds = %lv_label_get_text.exit, %29, %34
   %.2.i = phi i32 [ %.1.i, %29 ], [ %.1.i, %lv_label_get_text.exit ], [ %spec.select11.i, %34 ]
-  %reass.add = shl i32 %18, 1
-  %invariant.op = add i32 %reass.add, %.sroa.0.0.extract.trunc.i
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %40 = add nsw i32 %18, %.sroa.0.0.extract.trunc.i
+  %39 = add i32 %18, %.sroa.0.0.extract.trunc.i
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %41
 
-41:                                               ; preds = %54, %get_label_flags.exit
-  %.088 = phi i32 [ 0, %get_label_flags.exit ], [ %58, %54 ]
-  %.083 = phi i32 [ %.2.i, %get_label_flags.exit ], [ %.285, %54 ]
-  %42 = phi i32 [ 0, %get_label_flags.exit ], [ %56, %54 ]
+41:                                               ; preds = %55, %get_label_flags.exit
+  %.088 = phi i32 [ 0, %get_label_flags.exit ], [ %59, %55 ]
+  %.083 = phi i32 [ %.2.i, %get_label_flags.exit ], [ %.285, %55 ]
+  %42 = phi i32 [ 0, %get_label_flags.exit ], [ %57, %55 ]
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !25
   %.not97 = icmp eq i8 %45, 0
-  br i1 %.not97, label %59, label %46
+  br i1 %.not97, label %60, label %46
 
 46:                                               ; preds = %41
   %47 = add nsw i32 %.088, %18
-  %.reass = add i32 %.088, %invariant.op
-  %48 = icmp sgt i32 %.reass, %12
-  br i1 %48, label %49, label %54
+  %48 = add i32 %39, %47
+  %49 = icmp sgt i32 %48, %12
+  br i1 %49, label %50, label %55
 
-49:                                               ; preds = %46
-  %50 = load i8, ptr %19, align 4
-  %51 = and i8 %50, 15
-  %52 = icmp eq i8 %51, 1
-  %53 = or i32 %.083, 4
-  %spec.select = select i1 %52, i32 %53, i32 %.083
-  br label %54
+50:                                               ; preds = %46
+  %51 = load i8, ptr %19, align 4
+  %52 = and i8 %51, 15
+  %53 = icmp eq i8 %52, 1
+  %54 = or i32 %.083, 4
+  %spec.select = select i1 %53, i32 %54, i32 %.083
+  br label %55
 
-54:                                               ; preds = %49, %46
-  %.285 = phi i32 [ %.083, %46 ], [ %spec.select, %49 ]
-  %55 = call i32 @lv_text_get_next_line(ptr noundef nonnull %44, i32 noundef -1, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %11, ptr noundef null, i32 noundef %.285) #7
-  %56 = add i32 %55, %42
-  %57 = load i32, ptr %39, align 4, !tbaa !32
-  %.not98 = icmp sgt i32 %57, %47
-  %58 = add nsw i32 %40, %.088
-  br i1 %.not98, label %41, label %59
+55:                                               ; preds = %50, %46
+  %.285 = phi i32 [ %.083, %46 ], [ %spec.select, %50 ]
+  %56 = call i32 @lv_text_get_next_line(ptr noundef nonnull %44, i32 noundef -1, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %11, ptr noundef null, i32 noundef %.285) #7
+  %57 = add i32 %56, %42
+  %58 = load i32, ptr %40, align 4, !tbaa !32
+  %.not98 = icmp sgt i32 %58, %47
+  %59 = add nsw i32 %39, %.088
+  br i1 %.not98, label %41, label %60
 
-59:                                               ; preds = %54, %41
-  %.184 = phi i32 [ %.285, %54 ], [ %.083, %41 ]
-  %.182 = phi i32 [ %56, %54 ], [ %42, %41 ]
+60:                                               ; preds = %55, %41
+  %.184 = phi i32 [ %.285, %55 ], [ %.083, %41 ]
+  %.182 = phi i32 [ %57, %55 ], [ %42, %41 ]
   %.184.fr = freeze i32 %.184
-  %60 = load ptr, ptr %9, align 8, !tbaa !3
-  %61 = call i32 @lv_obj_calculate_style_text_align(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %60) #7
-  switch i32 %61, label %73 [
-    i32 2, label %62
-    i32 3, label %68
+  %61 = load ptr, ptr %9, align 8, !tbaa !3
+  %62 = call i32 @lv_obj_calculate_style_text_align(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %61) #7
+  switch i32 %62, label %74 [
+    i32 2, label %63
+    i32 3, label %69
   ]
 
-62:                                               ; preds = %59
-  %63 = sub i32 %.182, %42
-  %64 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %63, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
-  %65 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
-  %66 = sdiv i32 %65, 2
-  %.neg = sdiv i32 %64, -2
-  %67 = add nsw i32 %66, %.neg
-  br label %73
+63:                                               ; preds = %60
+  %64 = sub i32 %.182, %42
+  %65 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %64, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
+  %66 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
+  %67 = sdiv i32 %66, 2
+  %.neg = sdiv i32 %65, -2
+  %68 = add nsw i32 %67, %.neg
+  br label %74
 
-68:                                               ; preds = %59
-  %69 = sub i32 %.182, %42
-  %70 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %69, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
-  %71 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
-  %72 = sub nsw i32 %71, %70
-  br label %73
+69:                                               ; preds = %60
+  %70 = sub i32 %.182, %42
+  %71 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %70, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
+  %72 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
+  %73 = sub nsw i32 %72, %71
+  br label %74
 
-73:                                               ; preds = %59, %68, %62
-  %.086 = phi i32 [ %67, %62 ], [ %72, %68 ], [ 0, %59 ]
+74:                                               ; preds = %60, %69, %63
+  %.086 = phi i32 [ %68, %63 ], [ %73, %69 ], [ 0, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2360,114 +2356,114 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   %.not99 = icmp eq i32 %.182, 0
   br i1 %.not99, label %.loopexit, label %.preheader105
 
-.preheader105:                                    ; preds = %73
-  %74 = add i32 %.182, -1
-  %75 = and i32 %.184.fr, 8
-  %.not101 = icmp eq i32 %75, 0
+.preheader105:                                    ; preds = %74
+  %75 = add i32 %.182, -1
+  %76 = and i32 %.184.fr, 8
+  %.not101 = icmp eq i32 %76, 0
   br i1 %.not101, label %.preheader105.split.us, label %.outer
 
 .preheader105.split.us:                           ; preds = %.preheader105
-  %.not100.us.us114 = icmp ugt i32 %42, %74
+  %.not100.us.us114 = icmp ugt i32 %42, %75
   br i1 %.not100.us.us114, label %.loopexit, label %.split.us.us.preheader
 
 .split.us.us.preheader:                           ; preds = %.preheader105.split.us
   call void @lv_text_encoded_letter_next_2(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %76 = load i32, ptr %6, align 4, !tbaa !48
-  %77 = load i32, ptr %7, align 4, !tbaa !48
-  %78 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %76, i32 noundef %77) #7
-  %79 = zext i16 %78 to i32
-  %80 = add nsw i32 %.086, %79
-  %81 = load i32, ptr %1, align 4, !tbaa !30
-  %82 = icmp slt i32 %81, %80
-  br i1 %82, label %.split110.us, label %.outer.us
+  %77 = load i32, ptr %6, align 4, !tbaa !48
+  %78 = load i32, ptr %7, align 4, !tbaa !48
+  %79 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %77, i32 noundef %78) #7
+  %80 = zext i16 %79 to i32
+  %81 = add nsw i32 %.086, %80
+  %82 = load i32, ptr %1, align 4, !tbaa !30
+  %83 = icmp slt i32 %82, %81
+  br i1 %83, label %.split110.us, label %.outer.us
 
 .outer.us:                                        ; preds = %.split.us.us.preheader, %.split.us.us
-  %83 = phi i32 [ %90, %.split.us.us ], [ %80, %.split.us.us.preheader ]
-  %.187.ph.us115140 = phi i32 [ %85, %.split.us.us ], [ %.086, %.split.us.us.preheader ]
-  %84 = load i32, ptr %5, align 4, !tbaa !48
-  %.not100.us.us = icmp ugt i32 %84, %74
+  %84 = phi i32 [ %91, %.split.us.us ], [ %81, %.split.us.us.preheader ]
+  %.187.ph.us115140 = phi i32 [ %86, %.split.us.us ], [ %.086, %.split.us.us.preheader ]
+  %85 = load i32, ptr %5, align 4, !tbaa !48
+  %.not100.us.us = icmp ugt i32 %85, %75
   br i1 %.not100.us.us, label %.loopexit, label %.split.us.us, !llvm.loop !70
 
 .split.us.us:                                     ; preds = %.outer.us
-  %85 = add nsw i32 %83, %.sroa.0.0.extract.trunc.i103
+  %86 = add nsw i32 %84, %.sroa.0.0.extract.trunc.i103
   call void @lv_text_encoded_letter_next_2(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %86 = load i32, ptr %6, align 4, !tbaa !48
-  %87 = load i32, ptr %7, align 4, !tbaa !48
-  %88 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %86, i32 noundef %87) #7
-  %89 = zext i16 %88 to i32
-  %90 = add nsw i32 %85, %89
-  %91 = load i32, ptr %1, align 4, !tbaa !30
-  %92 = icmp slt i32 %91, %90
-  br i1 %92, label %.split110.us, label %.outer.us, !llvm.loop !70
+  %87 = load i32, ptr %6, align 4, !tbaa !48
+  %88 = load i32, ptr %7, align 4, !tbaa !48
+  %89 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %87, i32 noundef %88) #7
+  %90 = zext i16 %89 to i32
+  %91 = add nsw i32 %86, %90
+  %92 = load i32, ptr %1, align 4, !tbaa !30
+  %93 = icmp slt i32 %92, %91
+  br i1 %93, label %.split110.us, label %.outer.us, !llvm.loop !70
 
-.outer:                                           ; preds = %.preheader105, %109
-  %.187.ph = phi i32 [ %110, %109 ], [ %.086, %.preheader105 ]
-  %.180.ph = phi i32 [ %.187.ph, %109 ], [ 0, %.preheader105 ]
-  %.078.ph = phi i32 [ %111, %109 ], [ %42, %.preheader105 ]
-  br label %93
+.outer:                                           ; preds = %.preheader105, %110
+  %.187.ph = phi i32 [ %111, %110 ], [ %.086, %.preheader105 ]
+  %.180.ph = phi i32 [ %.187.ph, %110 ], [ 0, %.preheader105 ]
+  %.078.ph = phi i32 [ %112, %110 ], [ %42, %.preheader105 ]
+  br label %94
 
-93:                                               ; preds = %.outer, %95
-  %94 = load i32, ptr %5, align 4, !tbaa !48
-  %.not100 = icmp ugt i32 %94, %74
-  br i1 %.not100, label %.loopexit, label %95
+94:                                               ; preds = %.outer, %96
+  %95 = load i32, ptr %5, align 4, !tbaa !48
+  %.not100 = icmp ugt i32 %95, %75
+  br i1 %.not100, label %.loopexit, label %96
 
-95:                                               ; preds = %93
+96:                                               ; preds = %94
   call void @lv_text_encoded_letter_next_2(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  %96 = load i32, ptr %5, align 4, !tbaa !48
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %10, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !25
-  %100 = sext i8 %99 to i32
-  %101 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %4, i32 noundef %100) #7
-  br i1 %101, label %93, label %.split, !llvm.loop !72
+  %97 = load i32, ptr %5, align 4, !tbaa !48
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !25
+  %101 = sext i8 %100 to i32
+  %102 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %4, i32 noundef %101) #7
+  br i1 %102, label %94, label %.split, !llvm.loop !72
 
-.split:                                           ; preds = %95
-  %102 = load i32, ptr %6, align 4, !tbaa !48
-  %103 = load i32, ptr %7, align 4, !tbaa !48
-  %104 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %102, i32 noundef %103) #7
-  %105 = zext i16 %104 to i32
-  %106 = add nsw i32 %.187.ph, %105
-  %107 = load i32, ptr %1, align 4, !tbaa !30
-  %108 = icmp slt i32 %107, %106
-  br i1 %108, label %.split110.us, label %109
+.split:                                           ; preds = %96
+  %103 = load i32, ptr %6, align 4, !tbaa !48
+  %104 = load i32, ptr %7, align 4, !tbaa !48
+  %105 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %103, i32 noundef %104) #7
+  %106 = zext i16 %105 to i32
+  %107 = add nsw i32 %.187.ph, %106
+  %108 = load i32, ptr %1, align 4, !tbaa !30
+  %109 = icmp slt i32 %108, %107
+  br i1 %109, label %.split110.us, label %110
 
 .split110.us:                                     ; preds = %.split, %.split.us.us, %.split.us.us.preheader
-  %.us-phi111 = phi i32 [ %.086, %.split.us.us.preheader ], [ %85, %.split.us.us ], [ %.187.ph, %.split ]
-  %.us-phi112 = phi i32 [ %42, %.split.us.us.preheader ], [ %84, %.split.us.us ], [ %.078.ph, %.split ]
+  %.us-phi111 = phi i32 [ %.086, %.split.us.us.preheader ], [ %86, %.split.us.us ], [ %.187.ph, %.split ]
+  %.us-phi112 = phi i32 [ %42, %.split.us.us.preheader ], [ %85, %.split.us.us ], [ %.078.ph, %.split ]
   store i32 %.us-phi112, ptr %5, align 4, !tbaa !48
   br label %.loopexit
 
-109:                                              ; preds = %.split
-  %110 = add nsw i32 %106, %.sroa.0.0.extract.trunc.i103
-  %111 = load i32, ptr %5, align 4, !tbaa !48
+110:                                              ; preds = %.split
+  %111 = add nsw i32 %107, %.sroa.0.0.extract.trunc.i103
+  %112 = load i32, ptr %5, align 4, !tbaa !48
   br label %.outer, !llvm.loop !72
 
-.loopexit:                                        ; preds = %93, %.outer.us, %.preheader105.split.us, %.split110.us, %73
-  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %73 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115140, %.outer.us ], [ %.180.ph, %93 ]
-  %112 = load i32, ptr %6, align 4, !tbaa !48
-  %113 = load i32, ptr %7, align 4, !tbaa !48
-  %114 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %112, i32 noundef %113) #7
-  %115 = load i32, ptr %1, align 4, !tbaa !30
-  %116 = sub nsw i32 %.079, %.sroa.0.0.extract.trunc.i103
-  %.not102 = icmp slt i32 %115, %116
-  br i1 %.not102, label %123, label %117
+.loopexit:                                        ; preds = %94, %.outer.us, %.preheader105.split.us, %.split110.us, %74
+  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115140, %.outer.us ], [ %.180.ph, %94 ]
+  %113 = load i32, ptr %6, align 4, !tbaa !48
+  %114 = load i32, ptr %7, align 4, !tbaa !48
+  %115 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %113, i32 noundef %114) #7
+  %116 = load i32, ptr %1, align 4, !tbaa !30
+  %117 = sub nsw i32 %.079, %.sroa.0.0.extract.trunc.i103
+  %.not102 = icmp slt i32 %116, %117
+  br i1 %.not102, label %124, label %118
 
-117:                                              ; preds = %.loopexit
-  %118 = zext i16 %114 to i32
-  %119 = add i32 %.sroa.0.0.extract.trunc.i103, 1
-  %120 = add i32 %119, %.079
-  %121 = add i32 %120, %118
-  %122 = icmp sle i32 %115, %121
-  br label %123
+118:                                              ; preds = %.loopexit
+  %119 = zext i16 %115 to i32
+  %120 = add i32 %.sroa.0.0.extract.trunc.i103, 1
+  %121 = add i32 %120, %.079
+  %122 = add i32 %121, %119
+  %123 = icmp sle i32 %116, %122
+  br label %124
 
-123:                                              ; preds = %117, %.loopexit
-  %124 = phi i1 [ false, %.loopexit ], [ %122, %117 ]
+124:                                              ; preds = %118, %.loopexit
+  %125 = phi i1 [ false, %.loopexit ], [ %123, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %124
+  ret i1 %125
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

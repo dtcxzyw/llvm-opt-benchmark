@@ -6803,7 +6803,6 @@ invoke.cont204:                                   ; preds = %for.cond.cleanup218
   %agg.tmp227.sroa.2.0.insert.shift = add nuw nsw i32 %conv230, -327680
   %conv7.i.i943 = ashr exact i32 %agg.tmp227.sroa.2.0.insert.shift, 16
   %mul.i.i941 = add nsw i32 %conv7.i.i943, 30
-  %invariant.op = add nuw nsw i32 %add.i.i923, 1
   br label %invoke.cont233
 
 for.cond.cleanup218.loopexit:                     ; preds = %if.end253.1
@@ -6837,12 +6836,12 @@ if.then250:                                       ; preds = %invoke.cont233
   br label %if.end253
 
 if.end253:                                        ; preds = %if.then250, %invoke.cont233
-  %inc254.reass = add nsw i32 %92, %invariant.op
-  %inc255.reass = add nsw i32 %93, %invariant.op
-  %idxprom.i954.1 = zext i32 %inc254.reass to i64
+  %inc254 = add nsw i32 %add21.i.i928, 1
+  %inc255 = add nsw i32 %add21.i.i953, 1
+  %idxprom.i954.1 = zext i32 %inc254 to i64
   %arrayidx.i955.1 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i954.1
   store i8 1, ptr %arrayidx.i955.1, align 1, !tbaa !12
-  %idxprom.i956.1 = zext i32 %inc255.reass to i64
+  %idxprom.i956.1 = zext i32 %inc255 to i64
   %arrayidx.i957.1 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %idxprom.i956.1
   %95 = load i8, ptr %arrayidx.i957.1, align 1, !tbaa !12
   %cmp249.1 = icmp eq i8 %95, 0

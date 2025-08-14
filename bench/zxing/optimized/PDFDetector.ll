@@ -2095,51 +2095,49 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %35 = add nsw i32 %27, %1
   %36 = sext i32 %35 to i64
   %.not.i.i.i.i82128 = icmp ugt i64 %34, %36
-  br i1 %.not.i.i.i.i82128, label %_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph, label %._crit_edge
+  br i1 %.not.i.i.i.i82128, label %_ZNK5ZXing9BitMatrix3getEii.exit.preheader, label %._crit_edge
 
-_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph:           ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
-  %invariant.op = add i32 %27, -1
+_ZNK5ZXing9BitMatrix3getEii.exit.preheader:       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %37 = sext i32 %1 to i64
+  %38 = sext i32 %27 to i64
   br label %_ZNK5ZXing9BitMatrix3getEii.exit
 
-._crit_edge:                                      ; preds = %51, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
-  %.lcssa123 = phi i64 [ %36, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit ], [ %54, %51 ]
+._crit_edge:                                      ; preds = %52, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
+  %.lcssa123 = phi i64 [ %36, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit ], [ %54, %52 ]
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %.lcssa123, i64 noundef %34) #24
   unreachable
 
-_ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph, %51
-  %indvars.iv = phi i64 [ %37, %_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph ], [ %indvars.iv.next, %51 ]
-  %38 = phi i64 [ %36, %_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph ], [ %54, %51 ]
-  %.066129 = phi i32 [ 0, %_ZNK5ZXing9BitMatrix3getEii.exit.lr.ph ], [ %52, %51 ]
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !62
-  %41 = icmp ne i8 %40, 0
-  %42 = icmp sgt i64 %indvars.iv, 0
-  %or.cond = and i1 %42, %41
-  %43 = icmp samesign ult i32 %.066129, 3
-  %or.cond74 = select i1 %or.cond, i1 %43, i1 false
-  br i1 %or.cond74, label %51, label %.critedge.preheader
+_ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.preheader, %52
+  %indvars.iv = phi i64 [ %37, %_ZNK5ZXing9BitMatrix3getEii.exit.preheader ], [ %indvars.iv.next, %52 ]
+  %39 = phi i64 [ %36, %_ZNK5ZXing9BitMatrix3getEii.exit.preheader ], [ %54, %52 ]
+  %.066129 = phi i32 [ 0, %_ZNK5ZXing9BitMatrix3getEii.exit.preheader ], [ %53, %52 ]
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !62
+  %42 = icmp ne i8 %41, 0
+  %43 = icmp sgt i64 %indvars.iv, 0
+  %or.cond = and i1 %43, %42
+  %44 = icmp samesign ult i32 %.066129, 3
+  %or.cond74 = select i1 %or.cond, i1 %44, i1 false
+  br i1 %or.cond74, label %52, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit
-  %44 = trunc nsw i64 %indvars.iv to i32
-  %45 = icmp sgt i32 %3, %44
-  %46 = add nsw i32 %25, -1
-  br i1 %45, label %.lr.ph, label %.critedge._crit_edge
+  %45 = trunc nsw i64 %indvars.iv to i32
+  %46 = icmp sgt i32 %3, %45
+  %47 = add nsw i32 %25, -1
+  br i1 %46, label %.lr.ph, label %.critedge._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge.preheader
-  %47 = shl i64 %23, 30
-  %sext = add i64 %47, -8589934592
-  %48 = ashr i64 %sext, 32
-  %49 = sext i32 %46 to i64
-  %50 = add nsw i32 %25, -2
+  %48 = shl i64 %23, 30
+  %sext = add i64 %48, -8589934592
+  %49 = ashr i64 %sext, 32
+  %50 = sext i32 %47 to i64
+  %51 = add nsw i32 %25, -2
   br label %55
 
-51:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit
-  %52 = add nuw nsw i32 %.066129, 1
+52:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit
+  %53 = add nuw nsw i32 %.066129, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %53 = trunc nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %53
-  %54 = sext i32 %.reass to i64
+  %54 = add nsw i64 %indvars.iv.next, %38
   %.not.i.i.i.i82 = icmp ugt i64 %34, %54
   br i1 %.not.i.i.i.i82, label %_ZNK5ZXing9BitMatrix3getEii.exit, label %._crit_edge, !llvm.loop !106
 
@@ -2147,8 +2145,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %_ZNK5ZXing9BitMatri
   %56 = phi ptr [ %9, %.lr.ph ], [ %133, %.critedge ]
   %57 = phi ptr [ %9, %.lr.ph ], [ %134, %.critedge ]
   %.060137 = phi i1 [ false, %.lr.ph ], [ %.262, %.critedge ]
-  %.164136 = phi i32 [ %44, %.lr.ph ], [ %.3, %.critedge ]
-  %.068133 = phi i32 [ %44, %.lr.ph ], [ %135, %.critedge ]
+  %.164136 = phi i32 [ %45, %.lr.ph ], [ %.3, %.critedge ]
+  %.068133 = phi i32 [ %45, %.lr.ph ], [ %135, %.critedge ]
   %.069132 = phi i32 [ 0, %.lr.ph ], [ %.271, %.critedge ]
   %58 = load i32, ptr %0, align 8, !tbaa !86
   %59 = mul nsw i32 %58, %2
@@ -2182,7 +2180,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit84:               ; preds = %55
   br label %.critedge
 
 77:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit84
-  %78 = icmp eq i32 %.069132, %46
+  %78 = icmp eq i32 %.069132, %47
   br i1 %78, label %79, label %125
 
 79:                                               ; preds = %77
@@ -2272,9 +2270,9 @@ _ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit.thread: ; p
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit: ; preds = %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit.thread, %119
   %122 = phi ptr [ %.val, %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit.thread ], [ %.pre, %119 ]
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %48
+  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %49
   store i32 0, ptr %123, align 4, !tbaa !63
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %49
+  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %50
   store i32 0, ptr %124, align 4, !tbaa !63
   br label %127
 
@@ -2285,7 +2283,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 127:                                              ; preds = %125, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
   %128 = phi ptr [ %122, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %56, %125 ]
   %129 = phi ptr [ %122, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %57, %125 ]
-  %.372 = phi i32 [ %50, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %126, %125 ]
+  %.372 = phi i32 [ %51, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %126, %125 ]
   %.4 = phi i32 [ %117, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %.164136, %125 ]
   %130 = sext i32 %.372 to i64
   %131 = getelementptr inbounds nuw i32, ptr %129, i64 %130
@@ -2305,9 +2303,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %.069.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.271, %.critedge ]
-  %.068.lcssa = phi i32 [ %44, %.critedge.preheader ], [ %3, %.critedge ]
-  %.164.lcssa = phi i32 [ %44, %.critedge.preheader ], [ %.3, %.critedge ]
-  %136 = icmp eq i32 %.069.lcssa, %46
+  %.068.lcssa = phi i32 [ %45, %.critedge.preheader ], [ %3, %.critedge ]
+  %.164.lcssa = phi i32 [ %45, %.critedge.preheader ], [ %.3, %.critedge ]
+  %136 = icmp eq i32 %.069.lcssa, %47
   br i1 %136, label %137, label %_ZN5ZXing6Pdf417L20PatternMatchVarianceERKSt6vectorIiSaIiEES5_f.exit101.thread
 
 137:                                              ; preds = %.critedge._crit_edge

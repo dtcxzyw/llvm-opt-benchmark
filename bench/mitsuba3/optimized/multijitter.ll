@@ -466,7 +466,6 @@ define weak_odr noundef float @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixIN
   %30 = lshr i32 %12, 27
   %31 = or i32 %30, 1
   %32 = mul i32 %31, 1765145193
-  %invariant.op = xor i32 %28, %27
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %14
@@ -477,83 +476,83 @@ define weak_odr noundef float @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixIN
   %35 = xor i32 %34, %27
   %36 = and i32 %35, %26
   %37 = lshr i32 %36, 4
-  %.reass.reass = xor i32 %37, %invariant.op
-  %38 = xor i32 %.reass.reass, %34
-  %39 = mul i32 %38, 153742143
-  %40 = xor i32 %39, %29
-  %41 = and i32 %40, %26
-  %42 = lshr i32 %41, 1
-  %43 = xor i32 %42, %40
-  %44 = mul i32 %32, %43
-  %45 = and i32 %44, %26
-  %46 = lshr i32 %45, 11
-  %47 = xor i32 %46, %44
-  %48 = mul i32 %47, 1960620803
-  %49 = and i32 %48, %26
-  %50 = lshr i32 %49, 2
-  %51 = xor i32 %50, %48
-  %52 = mul i32 %51, -1638916925
-  %53 = and i32 %52, %26
-  %54 = lshr i32 %53, 2
-  %55 = xor i32 %54, %52
-  %56 = mul i32 %55, -933190689
-  %57 = and i32 %56, %26
-  %58 = lshr i32 %57, 5
-  %59 = xor i32 %58, %57
-  %60 = trunc nuw i8 %.017.i to i1
-  %spec.select.i = select i1 %60, i32 %59, i32 %.023.i
+  %38 = xor i32 %28, %37
+  %39 = xor i32 %38, %35
+  %40 = mul i32 %39, 153742143
+  %41 = xor i32 %40, %29
+  %42 = and i32 %41, %26
+  %43 = lshr i32 %42, 1
+  %44 = xor i32 %43, %41
+  %45 = mul i32 %32, %44
+  %46 = and i32 %45, %26
+  %47 = lshr i32 %46, 11
+  %48 = xor i32 %47, %45
+  %49 = mul i32 %48, 1960620803
+  %50 = and i32 %49, %26
+  %51 = lshr i32 %50, 2
+  %52 = xor i32 %51, %49
+  %53 = mul i32 %52, -1638916925
+  %54 = and i32 %53, %26
+  %55 = lshr i32 %54, 2
+  %56 = xor i32 %55, %53
+  %57 = mul i32 %56, -933190689
+  %58 = and i32 %57, %26
+  %59 = lshr i32 %58, 5
+  %60 = xor i32 %59, %58
+  %61 = trunc nuw i8 %.017.i to i1
+  %spec.select.i = select i1 %61, i32 %60, i32 %.023.i
   %.not.i = icmp uge i32 %spec.select.i, %11
-  %61 = icmp ne i8 %.017.i, 0
-  %62 = and i1 %61, %.not.i
-  br i1 %62, label %.critedge.i, label %63
+  %62 = icmp ne i8 %.017.i, 0
+  %63 = and i1 %62, %.not.i
+  br i1 %63, label %.critedge.i, label %64
 
-63:                                               ; preds = %.critedge.i
-  %64 = add i32 %spec.select.i, %12
-  %65 = urem i32 %64, %11
-  %66 = uitofp i32 %65 to float
+64:                                               ; preds = %.critedge.i
+  %65 = add i32 %spec.select.i, %12
+  %66 = urem i32 %65, %11
+  %67 = uitofp i32 %66 to float
   br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ; preds = %2, %63
-  %.0.i = phi float [ %66, %63 ], [ 0.000000e+00, %2 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = load i8, ptr %67, align 8
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %90
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ; preds = %2, %64
+  %.0.i = phi float [ %67, %64 ], [ 0.000000e+00, %2 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %69 = load i8, ptr %68, align 8
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %91
 
-70:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load i64, ptr %71, align 8
-  br i1 %1, label %73, label %78
+71:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %73 = load i64, ptr %72, align 8
+  br i1 %1, label %74, label %79
 
-73:                                               ; preds = %70
-  %74 = mul i64 %72, 6364136223846793005
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load i64, ptr %75, align 8
-  %77 = add i64 %76, %74
-  store i64 %77, ptr %71, align 8
-  br label %78
+74:                                               ; preds = %71
+  %75 = mul i64 %73, 6364136223846793005
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %77 = load i64, ptr %76, align 8
+  %78 = add i64 %77, %75
+  store i64 %78, ptr %72, align 8
+  br label %79
 
-78:                                               ; preds = %73, %70
-  %79 = lshr i64 %72, 45
-  %80 = lshr i64 %72, 27
-  %81 = xor i64 %79, %80
-  %82 = trunc i64 %81 to i32
-  %83 = lshr i64 %72, 59
-  %84 = trunc nuw nsw i64 %83 to i32
-  %85 = tail call i32 @llvm.fshr.i32(i32 %82, i32 %82, i32 %84)
-  %86 = lshr i32 %85, 9
-  %87 = or disjoint i32 %86, 1065353216
-  %88 = bitcast i32 %87 to float
-  %89 = fadd contract float %88, -1.000000e+00
-  br label %90
+79:                                               ; preds = %74, %71
+  %80 = lshr i64 %73, 45
+  %81 = lshr i64 %73, 27
+  %82 = xor i64 %80, %81
+  %83 = trunc i64 %82 to i32
+  %84 = lshr i64 %73, 59
+  %85 = trunc nuw nsw i64 %84 to i32
+  %86 = tail call i32 @llvm.fshr.i32(i32 %83, i32 %83, i32 %85)
+  %87 = lshr i32 %86, 9
+  %88 = or disjoint i32 %87, 1065353216
+  %89 = bitcast i32 %88 to float
+  %90 = fadd contract float %89, -1.000000e+00
+  br label %91
 
-90:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit, %78
-  %91 = phi contract float [ %89, %78 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit ]
-  %92 = fadd contract float %.0.i, %91
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %94 = load float, ptr %93, align 4
-  %95 = fmul contract float %92, %94
-  ret float %95
+91:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit, %79
+  %92 = phi contract float [ %90, %79 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit ]
+  %93 = fadd contract float %.0.i, %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %95 = load float, ptr %94, align 4
+  %96 = fmul contract float %93, %95
+  ret float %96
 }
 
 declare noundef i32 @_ZNK7mitsuba7SamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20current_sample_indexEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
@@ -593,7 +592,6 @@ define weak_odr <2 x float> @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_
   %30 = lshr i32 %13, 27
   %31 = or i32 %30, 1
   %32 = mul i32 %31, 1765145193
-  %invariant.op = xor i32 %28, %27
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %15
@@ -604,287 +602,285 @@ define weak_odr <2 x float> @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_
   %35 = xor i32 %34, %27
   %36 = and i32 %35, %26
   %37 = lshr i32 %36, 4
-  %.reass.reass = xor i32 %37, %invariant.op
-  %38 = xor i32 %.reass.reass, %34
-  %39 = mul i32 %38, 153742143
-  %40 = xor i32 %39, %29
-  %41 = and i32 %40, %26
-  %42 = lshr i32 %41, 1
-  %43 = xor i32 %42, %40
-  %44 = mul i32 %32, %43
-  %45 = and i32 %44, %26
-  %46 = lshr i32 %45, 11
-  %47 = xor i32 %46, %44
-  %48 = mul i32 %47, 1960620803
-  %49 = and i32 %48, %26
-  %50 = lshr i32 %49, 2
-  %51 = xor i32 %50, %48
-  %52 = mul i32 %51, -1638916925
-  %53 = and i32 %52, %26
-  %54 = lshr i32 %53, 2
-  %55 = xor i32 %54, %52
-  %56 = mul i32 %55, -933190689
-  %57 = and i32 %56, %26
-  %58 = lshr i32 %57, 5
-  %59 = xor i32 %58, %57
-  %60 = trunc nuw i8 %.017.i to i1
-  %spec.select.i = select i1 %60, i32 %59, i32 %.023.i
+  %38 = xor i32 %28, %37
+  %39 = xor i32 %38, %35
+  %40 = mul i32 %39, 153742143
+  %41 = xor i32 %40, %29
+  %42 = and i32 %41, %26
+  %43 = lshr i32 %42, 1
+  %44 = xor i32 %43, %41
+  %45 = mul i32 %32, %44
+  %46 = and i32 %45, %26
+  %47 = lshr i32 %46, 11
+  %48 = xor i32 %47, %45
+  %49 = mul i32 %48, 1960620803
+  %50 = and i32 %49, %26
+  %51 = lshr i32 %50, 2
+  %52 = xor i32 %51, %49
+  %53 = mul i32 %52, -1638916925
+  %54 = and i32 %53, %26
+  %55 = lshr i32 %54, 2
+  %56 = xor i32 %55, %53
+  %57 = mul i32 %56, -933190689
+  %58 = and i32 %57, %26
+  %59 = lshr i32 %58, 5
+  %60 = xor i32 %59, %58
+  %61 = trunc nuw i8 %.017.i to i1
+  %spec.select.i = select i1 %61, i32 %60, i32 %.023.i
   %.not.i = icmp uge i32 %spec.select.i, %12
-  %61 = icmp ne i8 %.017.i, 0
-  %62 = and i1 %61, %.not.i
-  br i1 %62, label %.critedge.i, label %63
+  %62 = icmp ne i8 %.017.i, 0
+  %63 = and i1 %62, %.not.i
+  br i1 %63, label %.critedge.i, label %64
 
-63:                                               ; preds = %.critedge.i
-  %64 = add i32 %spec.select.i, %13
-  %65 = urem i32 %64, %12
+64:                                               ; preds = %.critedge.i
+  %65 = add i32 %spec.select.i, %13
+  %66 = urem i32 %65, %12
   br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ; preds = %2, %63
-  %.0.i = phi i32 [ %65, %63 ], [ 0, %2 ]
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 1
-  br i1 %68, label %84, label %69
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ; preds = %2, %64
+  %.0.i = phi i32 [ %66, %64 ], [ 0, %2 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %68, 1
+  br i1 %69, label %85, label %70
 
-69:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %71 = load i32, ptr %70, align 4
-  %72 = zext i32 %71 to i64
-  %73 = zext i32 %.0.i to i64
-  %74 = mul nuw i64 %72, %73
-  %75 = lshr i64 %74, 32
-  %76 = trunc nuw i64 %75 to i32
-  %77 = sub i32 %.0.i, %76
-  %78 = lshr i32 %77, 1
-  %79 = add i32 %78, %76
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %81 = load i8, ptr %80, align 8
-  %82 = zext nneg i8 %81 to i32
-  %83 = lshr i32 %79, %82
-  br label %84
+70:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %72 = load i32, ptr %71, align 4
+  %73 = zext i32 %72 to i64
+  %74 = zext i32 %.0.i to i64
+  %75 = mul nuw i64 %73, %74
+  %76 = lshr i64 %75, 32
+  %77 = trunc nuw i64 %76 to i32
+  %78 = sub i32 %.0.i, %77
+  %79 = lshr i32 %78, 1
+  %80 = add i32 %79, %77
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %82 = load i8, ptr %81, align 8
+  %83 = zext nneg i8 %82 to i32
+  %84 = lshr i32 %80, %83
+  br label %85
 
-84:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit, %69
-  %.0104 = phi i32 [ %83, %69 ], [ %.0.i, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %86 = load i32, ptr %85, align 4
-  %87 = mul i32 %86, %.0104
-  %88 = sub i32 %.0.i, %87
-  %89 = mul i32 %10, 1757159915
-  %90 = icmp eq i32 %86, 1
-  br i1 %90, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132, label %91
+85:                                               ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit, %70
+  %.0104 = phi i32 [ %84, %70 ], [ %.0.i, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %87 = load i32, ptr %86, align 4
+  %88 = mul i32 %87, %.0104
+  %89 = sub i32 %.0.i, %88
+  %90 = mul i32 %10, 1757159915
+  %91 = icmp eq i32 %87, 1
+  br i1 %91, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131, label %92
 
-91:                                               ; preds = %84
-  %92 = add i32 %86, -1
-  %93 = lshr i32 %92, 1
-  %94 = or i32 %93, %92
-  %95 = lshr i32 %94, 2
-  %96 = or i32 %95, %94
-  %97 = lshr i32 %96, 4
-  %98 = or i32 %97, %96
-  %99 = lshr i32 %98, 8
-  %100 = or i32 %99, %98
-  %101 = lshr i32 %100, 16
-  %102 = or i32 %101, %100
-  %103 = lshr i32 %89, 16
-  %104 = lshr i32 %89, 8
-  %105 = lshr i32 %89, 23
-  %106 = lshr i32 %89, 27
-  %107 = or i32 %106, 1
-  %108 = mul i32 %107, 1765145193
-  %invariant.op160 = xor i32 %104, %103
+92:                                               ; preds = %85
+  %93 = add i32 %87, -1
+  %94 = lshr i32 %93, 1
+  %95 = or i32 %94, %93
+  %96 = lshr i32 %95, 2
+  %97 = or i32 %96, %95
+  %98 = lshr i32 %97, 4
+  %99 = or i32 %98, %97
+  %100 = lshr i32 %99, 8
+  %101 = or i32 %100, %99
+  %102 = lshr i32 %101, 16
+  %103 = or i32 %102, %101
+  %104 = lshr i32 %90, 16
+  %105 = lshr i32 %90, 8
+  %106 = lshr i32 %90, 23
+  %107 = lshr i32 %90, 27
+  %108 = or i32 %107, 1
+  %109 = mul i32 %108, 1765145193
   br label %.critedge.i125
 
-.critedge.i125:                                   ; preds = %.critedge.i125, %91
-  %.023.i126 = phi i32 [ %88, %91 ], [ %spec.select.i129, %.critedge.i125 ]
-  %.017.i127 = phi i8 [ %3, %91 ], [ 1, %.critedge.i125 ]
-  %109 = xor i32 %.023.i126, %89
-  %110 = mul i32 %109, -512718531
-  %111 = xor i32 %110, %103
-  %112 = and i32 %111, %102
-  %113 = lshr i32 %112, 4
-  %.reass157.reass = xor i32 %113, %invariant.op160
-  %114 = xor i32 %.reass157.reass, %110
-  %115 = mul i32 %114, 153742143
-  %116 = xor i32 %115, %105
-  %117 = and i32 %116, %102
-  %118 = lshr i32 %117, 1
-  %119 = xor i32 %118, %116
-  %120 = mul i32 %108, %119
-  %121 = and i32 %120, %102
-  %122 = lshr i32 %121, 11
-  %123 = xor i32 %122, %120
-  %124 = mul i32 %123, 1960620803
-  %125 = and i32 %124, %102
-  %126 = lshr i32 %125, 2
-  %127 = xor i32 %126, %124
-  %128 = mul i32 %127, -1638916925
-  %129 = and i32 %128, %102
-  %130 = lshr i32 %129, 2
-  %131 = xor i32 %130, %128
-  %132 = mul i32 %131, -933190689
-  %133 = and i32 %132, %102
-  %134 = lshr i32 %133, 5
-  %135 = xor i32 %134, %133
-  %136 = trunc nuw i8 %.017.i127 to i1
-  %spec.select.i129 = select i1 %136, i32 %135, i32 %.023.i126
-  %.not.i130 = icmp uge i32 %spec.select.i129, %86
-  %137 = icmp ne i8 %.017.i127, 0
-  %138 = and i1 %137, %.not.i130
-  br i1 %138, label %.critedge.i125, label %139
+.critedge.i125:                                   ; preds = %.critedge.i125, %92
+  %.023.i126 = phi i32 [ %89, %92 ], [ %spec.select.i128, %.critedge.i125 ]
+  %.017.i127 = phi i8 [ %3, %92 ], [ 1, %.critedge.i125 ]
+  %110 = xor i32 %.023.i126, %90
+  %111 = mul i32 %110, -512718531
+  %112 = xor i32 %111, %104
+  %113 = and i32 %112, %103
+  %114 = lshr i32 %113, 4
+  %115 = xor i32 %105, %114
+  %116 = xor i32 %115, %112
+  %117 = mul i32 %116, 153742143
+  %118 = xor i32 %117, %106
+  %119 = and i32 %118, %103
+  %120 = lshr i32 %119, 1
+  %121 = xor i32 %120, %118
+  %122 = mul i32 %109, %121
+  %123 = and i32 %122, %103
+  %124 = lshr i32 %123, 11
+  %125 = xor i32 %124, %122
+  %126 = mul i32 %125, 1960620803
+  %127 = and i32 %126, %103
+  %128 = lshr i32 %127, 2
+  %129 = xor i32 %128, %126
+  %130 = mul i32 %129, -1638916925
+  %131 = and i32 %130, %103
+  %132 = lshr i32 %131, 2
+  %133 = xor i32 %132, %130
+  %134 = mul i32 %133, -933190689
+  %135 = and i32 %134, %103
+  %136 = lshr i32 %135, 5
+  %137 = xor i32 %136, %135
+  %138 = trunc nuw i8 %.017.i127 to i1
+  %spec.select.i128 = select i1 %138, i32 %137, i32 %.023.i126
+  %.not.i129 = icmp uge i32 %spec.select.i128, %87
+  %139 = icmp ne i8 %.017.i127, 0
+  %140 = and i1 %139, %.not.i129
+  br i1 %140, label %.critedge.i125, label %141
 
-139:                                              ; preds = %.critedge.i125
-  %140 = add i32 %spec.select.i129, %89
-  %141 = urem i32 %140, %86
-  %142 = uitofp i32 %141 to float
-  br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132
+141:                                              ; preds = %.critedge.i125
+  %142 = add i32 %spec.select.i128, %90
+  %143 = urem i32 %142, %87
+  %144 = uitofp i32 %143 to float
+  br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132: ; preds = %84, %139
-  %.0.i131 = phi float [ %142, %139 ], [ 0.000000e+00, %84 ]
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %144 = load i32, ptr %143, align 8
-  %145 = mul i32 %10, 48610963
-  %146 = icmp eq i32 %144, 1
-  br i1 %146, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140, label %147
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131: ; preds = %85, %141
+  %.0.i130 = phi float [ %144, %141 ], [ 0.000000e+00, %85 ]
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %146 = load i32, ptr %145, align 8
+  %147 = mul i32 %10, 48610963
+  %148 = icmp eq i32 %146, 1
+  br i1 %148, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138, label %149
 
-147:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132
-  %148 = add i32 %144, -1
-  %149 = lshr i32 %148, 1
-  %150 = or i32 %149, %148
-  %151 = lshr i32 %150, 2
+149:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131
+  %150 = add i32 %146, -1
+  %151 = lshr i32 %150, 1
   %152 = or i32 %151, %150
-  %153 = lshr i32 %152, 4
+  %153 = lshr i32 %152, 2
   %154 = or i32 %153, %152
-  %155 = lshr i32 %154, 8
+  %155 = lshr i32 %154, 4
   %156 = or i32 %155, %154
-  %157 = lshr i32 %156, 16
+  %157 = lshr i32 %156, 8
   %158 = or i32 %157, %156
-  %159 = lshr i32 %145, 16
-  %160 = lshr i32 %145, 8
-  %161 = lshr i32 %145, 23
-  %162 = lshr i32 %145, 27
-  %163 = or i32 %162, 1
-  %164 = mul i32 %163, 1765145193
-  %invariant.op161 = xor i32 %160, %159
-  br label %.critedge.i133
+  %159 = lshr i32 %158, 16
+  %160 = or i32 %159, %158
+  %161 = lshr i32 %147, 16
+  %162 = lshr i32 %147, 8
+  %163 = lshr i32 %147, 23
+  %164 = lshr i32 %147, 27
+  %165 = or i32 %164, 1
+  %166 = mul i32 %165, 1765145193
+  br label %.critedge.i132
 
-.critedge.i133:                                   ; preds = %.critedge.i133, %147
-  %.023.i134 = phi i32 [ %.0104, %147 ], [ %spec.select.i137, %.critedge.i133 ]
-  %.017.i135 = phi i8 [ %3, %147 ], [ 1, %.critedge.i133 ]
-  %165 = xor i32 %.023.i134, %145
-  %166 = mul i32 %165, -512718531
-  %167 = xor i32 %166, %159
-  %168 = and i32 %167, %158
-  %169 = lshr i32 %168, 4
-  %.reass159.reass = xor i32 %169, %invariant.op161
-  %170 = xor i32 %.reass159.reass, %166
-  %171 = mul i32 %170, 153742143
-  %172 = xor i32 %171, %161
-  %173 = and i32 %172, %158
-  %174 = lshr i32 %173, 1
-  %175 = xor i32 %174, %172
-  %176 = mul i32 %164, %175
-  %177 = and i32 %176, %158
-  %178 = lshr i32 %177, 11
-  %179 = xor i32 %178, %176
-  %180 = mul i32 %179, 1960620803
-  %181 = and i32 %180, %158
-  %182 = lshr i32 %181, 2
-  %183 = xor i32 %182, %180
-  %184 = mul i32 %183, -1638916925
-  %185 = and i32 %184, %158
-  %186 = lshr i32 %185, 2
-  %187 = xor i32 %186, %184
-  %188 = mul i32 %187, -933190689
-  %189 = and i32 %188, %158
-  %190 = lshr i32 %189, 5
-  %191 = xor i32 %190, %189
-  %192 = trunc nuw i8 %.017.i135 to i1
-  %spec.select.i137 = select i1 %192, i32 %191, i32 %.023.i134
-  %.not.i138 = icmp uge i32 %spec.select.i137, %144
-  %193 = icmp ne i8 %.017.i135, 0
-  %194 = and i1 %193, %.not.i138
-  br i1 %194, label %.critedge.i133, label %195
+.critedge.i132:                                   ; preds = %.critedge.i132, %149
+  %.023.i133 = phi i32 [ %.0104, %149 ], [ %spec.select.i135, %.critedge.i132 ]
+  %.017.i134 = phi i8 [ %3, %149 ], [ 1, %.critedge.i132 ]
+  %167 = xor i32 %.023.i133, %147
+  %168 = mul i32 %167, -512718531
+  %169 = xor i32 %168, %161
+  %170 = and i32 %169, %160
+  %171 = lshr i32 %170, 4
+  %172 = xor i32 %162, %171
+  %173 = xor i32 %172, %169
+  %174 = mul i32 %173, 153742143
+  %175 = xor i32 %174, %163
+  %176 = and i32 %175, %160
+  %177 = lshr i32 %176, 1
+  %178 = xor i32 %177, %175
+  %179 = mul i32 %166, %178
+  %180 = and i32 %179, %160
+  %181 = lshr i32 %180, 11
+  %182 = xor i32 %181, %179
+  %183 = mul i32 %182, 1960620803
+  %184 = and i32 %183, %160
+  %185 = lshr i32 %184, 2
+  %186 = xor i32 %185, %183
+  %187 = mul i32 %186, -1638916925
+  %188 = and i32 %187, %160
+  %189 = lshr i32 %188, 2
+  %190 = xor i32 %189, %187
+  %191 = mul i32 %190, -933190689
+  %192 = and i32 %191, %160
+  %193 = lshr i32 %192, 5
+  %194 = xor i32 %193, %192
+  %195 = trunc nuw i8 %.017.i134 to i1
+  %spec.select.i135 = select i1 %195, i32 %194, i32 %.023.i133
+  %.not.i136 = icmp uge i32 %spec.select.i135, %146
+  %196 = icmp ne i8 %.017.i134, 0
+  %197 = and i1 %196, %.not.i136
+  br i1 %197, label %.critedge.i132, label %198
 
-195:                                              ; preds = %.critedge.i133
-  %196 = add i32 %spec.select.i137, %145
-  %197 = urem i32 %196, %144
-  %198 = uitofp i32 %197 to float
-  br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140
+198:                                              ; preds = %.critedge.i132
+  %199 = add i32 %spec.select.i135, %147
+  %200 = urem i32 %199, %146
+  %201 = uitofp i32 %200 to float
+  br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140: ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132, %195
-  %.0.i139 = phi float [ %198, %195 ], [ 0.000000e+00, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit132 ]
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %200 = load i8, ptr %199, align 8
-  %201 = trunc i8 %200 to i1
-  br i1 %201, label %202, label %238
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138: ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131, %198
+  %.0.i137 = phi float [ %201, %198 ], [ 0.000000e+00, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131 ]
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %203 = load i8, ptr %202, align 8
+  %204 = trunc i8 %203 to i1
+  br i1 %204, label %205, label %241
 
-202:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %204 = load i64, ptr %203, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %206 = load i64, ptr %205, align 8
-  br i1 %1, label %207, label %210
+205:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %207 = load i64, ptr %206, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %209 = load i64, ptr %208, align 8
+  br i1 %1, label %210, label %213
 
-207:                                              ; preds = %202
-  %208 = mul i64 %204, 6364136223846793005
-  %209 = add i64 %208, %206
-  store i64 %209, ptr %203, align 8
-  br label %210
+210:                                              ; preds = %205
+  %211 = mul i64 %207, 6364136223846793005
+  %212 = add i64 %211, %209
+  store i64 %212, ptr %206, align 8
+  br label %213
 
-210:                                              ; preds = %207, %202
-  %211 = phi i64 [ %209, %207 ], [ %204, %202 ]
-  %212 = lshr i64 %204, 45
-  %213 = lshr i64 %204, 27
-  %214 = xor i64 %212, %213
-  %215 = trunc i64 %214 to i32
-  %216 = lshr i64 %204, 59
-  %217 = trunc nuw nsw i64 %216 to i32
-  %218 = tail call i32 @llvm.fshr.i32(i32 %215, i32 %215, i32 %217)
-  %219 = lshr i32 %218, 9
-  %220 = or disjoint i32 %219, 1065353216
-  %221 = bitcast i32 %220 to float
-  %222 = fadd contract float %221, -1.000000e+00
-  br i1 %1, label %223, label %226
+213:                                              ; preds = %210, %205
+  %214 = phi i64 [ %212, %210 ], [ %207, %205 ]
+  %215 = lshr i64 %207, 45
+  %216 = lshr i64 %207, 27
+  %217 = xor i64 %215, %216
+  %218 = trunc i64 %217 to i32
+  %219 = lshr i64 %207, 59
+  %220 = trunc nuw nsw i64 %219 to i32
+  %221 = tail call i32 @llvm.fshr.i32(i32 %218, i32 %218, i32 %220)
+  %222 = lshr i32 %221, 9
+  %223 = or disjoint i32 %222, 1065353216
+  %224 = bitcast i32 %223 to float
+  %225 = fadd contract float %224, -1.000000e+00
+  br i1 %1, label %226, label %229
 
-223:                                              ; preds = %210
-  %224 = mul i64 %211, 6364136223846793005
-  %225 = add i64 %224, %206
-  store i64 %225, ptr %203, align 8
-  br label %226
+226:                                              ; preds = %213
+  %227 = mul i64 %214, 6364136223846793005
+  %228 = add i64 %227, %209
+  store i64 %228, ptr %206, align 8
+  br label %229
 
-226:                                              ; preds = %223, %210
-  %227 = lshr i64 %211, 45
-  %228 = lshr i64 %211, 27
-  %229 = xor i64 %227, %228
-  %230 = trunc i64 %229 to i32
-  %231 = lshr i64 %211, 59
-  %232 = trunc nuw nsw i64 %231 to i32
-  %233 = tail call i32 @llvm.fshr.i32(i32 %230, i32 %230, i32 %232)
-  %234 = lshr i32 %233, 9
-  %235 = or disjoint i32 %234, 1065353216
-  %236 = bitcast i32 %235 to float
-  %237 = fadd contract float %236, -1.000000e+00
-  br label %238
+229:                                              ; preds = %226, %213
+  %230 = lshr i64 %214, 45
+  %231 = lshr i64 %214, 27
+  %232 = xor i64 %230, %231
+  %233 = trunc i64 %232 to i32
+  %234 = lshr i64 %214, 59
+  %235 = trunc nuw nsw i64 %234 to i32
+  %236 = tail call i32 @llvm.fshr.i32(i32 %233, i32 %233, i32 %235)
+  %237 = lshr i32 %236, 9
+  %238 = or disjoint i32 %237, 1065353216
+  %239 = bitcast i32 %238 to float
+  %240 = fadd contract float %239, -1.000000e+00
+  br label %241
 
-238:                                              ; preds = %226, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140
-  %.0103 = phi float [ %222, %226 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140 ]
-  %.0 = phi float [ %237, %226 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit140 ]
-  %239 = uitofp i32 %88 to float
-  %240 = fadd contract float %.0.i139, %.0103
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %243 = load float, ptr %242, align 8
-  %244 = fmul contract float %240, %243
-  %245 = fadd contract float %244, %239
-  %246 = load float, ptr %241, align 4
-  %247 = fmul contract float %246, %245
-  %248 = uitofp i32 %.0104 to float
-  %249 = fadd contract float %.0.i131, %.0
-  %250 = fmul contract float %249, %246
-  %251 = fadd contract float %250, %248
-  %252 = fmul contract float %243, %251
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %247, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %252, i64 1
+241:                                              ; preds = %229, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
+  %.0103 = phi float [ %225, %229 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138 ]
+  %.0 = phi float [ %240, %229 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138 ]
+  %242 = uitofp i32 %89 to float
+  %243 = fadd contract float %.0.i137, %.0103
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %246 = load float, ptr %245, align 8
+  %247 = fmul contract float %243, %246
+  %248 = fadd contract float %247, %242
+  %249 = load float, ptr %244, align 4
+  %250 = fmul contract float %249, %248
+  %251 = uitofp i32 %.0104 to float
+  %252 = fadd contract float %.0.i130, %.0
+  %253 = fmul contract float %252, %249
+  %254 = fadd contract float %253, %251
+  %255 = fmul contract float %246, %254
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %250, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %255, i64 1
   ret <2 x float> %.sroa.0.4.vec.insert
 }
 

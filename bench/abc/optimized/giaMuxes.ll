@@ -5393,7 +5393,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %3
   %.val5.val.i = load i32, ptr %15, align 4, !tbaa !34
   %16 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not61 = icmp slt i32 %12, %16
-  br i1 %.not61, label %Gia_ObjIsRi.exit.thread, label %80
+  br i1 %.not61, label %Gia_ObjIsRi.exit.thread, label %79
 
 Gia_ObjIsRi.exit.thread:                          ; preds = %3, %Gia_ObjIsRi.exit
   %17 = and i64 %.val48, 2684354559
@@ -5457,8 +5457,8 @@ Gia_ObjFaninNum.exit:                             ; preds = %30, %Gia_ObjIsMux.e
   br label %39
 
 .preheader:                                       ; preds = %39
-  %.not88 = icmp eq i32 %31, 3
-  br i1 %.not88, label %._crit_edge, label %.lr.ph64.preheader
+  %.not87 = icmp eq i32 %31, 3
+  br i1 %.not87, label %._crit_edge, label %.lr.ph64.preheader
 
 .lr.ph64.preheader:                               ; preds = %Gia_ObjFaninNum.exit, %.preheader
   %.13963.ph = phi i32 [ 0, %Gia_ObjFaninNum.exit ], [ %31, %.preheader ]
@@ -5495,7 +5495,7 @@ Gia_ObjFaninNum.exit:                             ; preds = %30, %Gia_ObjIsMux.e
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %53)
   %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33)
   %56 = icmp sgt i32 %36, 0
-  br i1 %56, label %57, label %79
+  br i1 %56, label %57, label %78
 
 57:                                               ; preds = %._crit_edge
   %.val45 = load ptr, ptr %49, align 8, !tbaa !55
@@ -5507,55 +5507,53 @@ Gia_ObjFaninNum.exit:                             ; preds = %30, %Gia_ObjIsMux.e
   br i1 %.not74, label %._crit_edge70, label %.lr.ph69.preheader
 
 .lr.ph69.preheader:                               ; preds = %57
-  %invariant.op = add nuw nsw i32 %31, 1
-  %62 = zext nneg i32 %invariant.op to i64
-  %wide.trip.count82 = zext nneg i32 %36 to i64
+  %wide.trip.count81 = zext nneg i32 %36 to i64
   br label %.lr.ph69
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %73
-  %.val44 = phi ptr [ %.val45, %.lr.ph69.preheader ], [ %.val4485, %73 ]
-  %indvars.iv78 = phi i64 [ 1, %.lr.ph69.preheader ], [ %indvars.iv.next79, %73 ]
-  %.067 = phi i32 [ %61, %.lr.ph69.preheader ], [ %.1, %73 ]
-  %.03666 = phi i32 [ 1, %.lr.ph69.preheader ], [ %74, %73 ]
+.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %72
+  %.val44 = phi ptr [ %.val45, %.lr.ph69.preheader ], [ %.val4484, %72 ]
+  %indvars.iv78 = phi i64 [ 1, %.lr.ph69.preheader ], [ %indvars.iv.next79, %72 ]
+  %.067 = phi i32 [ %61, %.lr.ph69.preheader ], [ %.1, %72 ]
+  %.03666 = phi i32 [ 1, %.lr.ph69.preheader ], [ %73, %72 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %63 = add nuw nsw i64 %indvars.iv78, %62
-  %64 = getelementptr inbounds nuw i32, ptr %.val44, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !3
-  %.not42 = icmp eq i32 %.067, %65
-  br i1 %.not42, label %73, label %66
+  %62 = add nuw nsw i64 %indvars.iv.next79, %58
+  %63 = getelementptr inbounds nuw i32, ptr %.val44, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !3
+  %.not42 = icmp eq i32 %.067, %64
+  br i1 %.not42, label %72, label %65
 
-66:                                               ; preds = %.lr.ph69
-  %67 = sext i32 %.067 to i64
-  %68 = getelementptr inbounds [25 x ptr], ptr @GIA_TYPE_STRINGS, i64 0, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !76
-  %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.03666, ptr noundef %69)
+65:                                               ; preds = %.lr.ph69
+  %66 = sext i32 %.067 to i64
+  %67 = getelementptr inbounds [25 x ptr], ptr @GIA_TYPE_STRINGS, i64 0, i64 %66
+  %68 = load ptr, ptr %67, align 8, !tbaa !76
+  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.03666, ptr noundef %68)
   %.val43 = load ptr, ptr %49, align 8, !tbaa !55
-  %71 = getelementptr inbounds nuw i32, ptr %.val43, i64 %63
-  %72 = load i32, ptr %71, align 4, !tbaa !3
-  br label %73
+  %70 = getelementptr inbounds nuw i32, ptr %.val43, i64 %62
+  %71 = load i32, ptr %70, align 4, !tbaa !3
+  br label %72
 
-73:                                               ; preds = %66, %.lr.ph69
-  %.val4485 = phi ptr [ %.val43, %66 ], [ %.val44, %.lr.ph69 ]
-  %.137 = phi i32 [ 0, %66 ], [ %.03666, %.lr.ph69 ]
-  %.1 = phi i32 [ %72, %66 ], [ %.067, %.lr.ph69 ]
-  %74 = add nsw i32 %.137, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !109
+72:                                               ; preds = %65, %.lr.ph69
+  %.val4484 = phi ptr [ %.val43, %65 ], [ %.val44, %.lr.ph69 ]
+  %.137 = phi i32 [ 0, %65 ], [ %.03666, %.lr.ph69 ]
+  %.1 = phi i32 [ %71, %65 ], [ %.067, %.lr.ph69 ]
+  %73 = add nsw i32 %.137, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  br i1 %exitcond82.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !109
 
-._crit_edge70:                                    ; preds = %73, %57
-  %.036.lcssa = phi i32 [ 1, %57 ], [ %74, %73 ]
-  %.0.lcssa = phi i32 [ %61, %57 ], [ %.1, %73 ]
-  %75 = sext i32 %.0.lcssa to i64
-  %76 = getelementptr inbounds [25 x ptr], ptr @GIA_TYPE_STRINGS, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !76
-  %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.036.lcssa, ptr noundef %77)
+._crit_edge70:                                    ; preds = %72, %57
+  %.036.lcssa = phi i32 [ 1, %57 ], [ %73, %72 ]
+  %.0.lcssa = phi i32 [ %61, %57 ], [ %.1, %72 ]
+  %74 = sext i32 %.0.lcssa to i64
+  %75 = getelementptr inbounds [25 x ptr], ptr @GIA_TYPE_STRINGS, i64 0, i64 %74
+  %76 = load ptr, ptr %75, align 8, !tbaa !76
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.036.lcssa, ptr noundef %76)
+  br label %78
+
+78:                                               ; preds = %._crit_edge70, %._crit_edge
+  %putchar = tail call i32 @putchar(i32 10)
   br label %79
 
-79:                                               ; preds = %._crit_edge70, %._crit_edge
-  %putchar = tail call i32 @putchar(i32 10)
-  br label %80
-
-80:                                               ; preds = %Gia_ObjIsRi.exit, %79
+79:                                               ; preds = %Gia_ObjIsRi.exit, %78
   ret void
 }
 

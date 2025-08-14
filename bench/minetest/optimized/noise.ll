@@ -2100,9 +2100,9 @@ for.cond12.preheader.preheader:                   ; preds = %for.cond12.preheade
   %broadcast.splatinsert = insertelement <4 x i32> poison, i32 %conv, i64 0
   %broadcast.splat = shufflevector <4 x i32> %broadcast.splatinsert, <4 x i32> poison, <4 x i32> zeroinitializer
   %cmp.n = icmp eq i32 %add, %n.vec
-  br i1 %min.iters.check, label %for.cond12.preheader.us, label %for.cond12.preheader.preheader8
+  br i1 %min.iters.check, label %for.cond12.preheader.us, label %for.cond12.preheader.preheader5
 
-for.cond12.preheader.preheader8:                  ; preds = %for.cond12.preheader.preheader
+for.cond12.preheader.preheader5:                  ; preds = %for.cond12.preheader.preheader
   %9 = zext i32 %n.vec to i64
   br label %for.cond12.preheader
 
@@ -2145,9 +2145,9 @@ for.cond12.for.inc19_crit_edge.loopexit.us:       ; preds = %for.body14.us
   %cmp.not.us = icmp eq i32 %inc20.us, %add11
   br i1 %cmp.not.us, label %for.cond22.preheader, label %for.cond12.preheader.us, !llvm.loop !72
 
-for.cond12.preheader:                             ; preds = %for.cond12.preheader.preheader8, %for.cond12.for.inc19_crit_edge
-  %j.0136 = phi i32 [ %inc20, %for.cond12.for.inc19_crit_edge ], [ 0, %for.cond12.preheader.preheader8 ]
-  %index.0135 = phi i32 [ %inc.lcssa, %for.cond12.for.inc19_crit_edge ], [ 0, %for.cond12.preheader.preheader8 ]
+for.cond12.preheader:                             ; preds = %for.cond12.preheader.preheader5, %for.cond12.for.inc19_crit_edge
+  %j.0136 = phi i32 [ %inc20, %for.cond12.for.inc19_crit_edge ], [ 0, %for.cond12.preheader.preheader5 ]
+  %index.0135 = phi i32 [ %inc.lcssa, %for.cond12.for.inc19_crit_edge ], [ 0, %for.cond12.preheader.preheader5 ]
   %add16 = add i32 %j.0136, %conv3
   %mul1.i = mul nsw i32 %add16, 31337
   %add.i = add i32 %mul1.i, %mul2.i
@@ -2237,8 +2237,6 @@ for.body25.us:                                    ; preds = %for.body25.preheade
   %37 = insertelement <2 x float> %36, float %33, i64 1
   %38 = insertelement <2 x float> poison, float %34, i64 0
   %39 = insertelement <2 x float> %38, float %32, i64 1
-  %invariant.op4.us = add i32 %mul.us, 2
-  %invariant.op5.us = add i32 %mul37.us, 2
   br label %for.body50.us.us
 
 for.body50.us.us:                                 ; preds = %for.body25.us, %for.inc76.us.us
@@ -2267,12 +2265,13 @@ for.body50.us.us:                                 ; preds = %for.body25.us, %for
 if.then.us.us:                                    ; preds = %for.body50.us.us
   %conv61.us.us = fadd nsz float %add56.us.us, -1.000000e+00
   %inc62.us.us = add i32 %noisex.0140.us.us, 1
-  %add66.us.reass.us = add i32 %noisex.0140.us.us, %invariant.op4.us
-  %idxprom67.us.us = zext i32 %add66.us.reass.us to i64
+  %add65.us.us = add i32 %noisex.0140.us.us, 2
+  %add66.us.us = add i32 %add65.us.us, %mul.us
+  %idxprom67.us.us = zext i32 %add66.us.us to i64
   %arrayidx68.us.us = getelementptr inbounds nuw float, ptr %30, i64 %idxprom67.us.us
   %49 = load float, ptr %arrayidx68.us.us, align 4, !tbaa !35
-  %add73.us.reass.us = add i32 %noisex.0140.us.us, %invariant.op5.us
-  %idxprom74.us.us = zext i32 %add73.us.reass.us to i64
+  %add73.us.us = add i32 %add65.us.us, %mul37.us
+  %idxprom74.us.us = zext i32 %add73.us.us to i64
   %arrayidx75.us.us = getelementptr inbounds nuw float, ptr %30, i64 %idxprom74.us.us
   %50 = load float, ptr %arrayidx75.us.us, align 4, !tbaa !35
   %51 = insertelement <2 x float> poison, float %50, i64 0
@@ -2361,8 +2360,6 @@ for.body25:                                       ; preds = %for.body25.preheade
   %62 = insertelement <2 x float> %61, float %56, i64 1
   %63 = insertelement <2 x float> poison, float %57, i64 0
   %64 = insertelement <2 x float> %63, float %55, i64 1
-  %invariant.op = add i32 %mul, 2
-  %invariant.op3 = add i32 %mul37, 2
   br label %for.body50
 
 for.body50:                                       ; preds = %for.body25, %for.inc76
@@ -2396,12 +2393,13 @@ for.body50:                                       ; preds = %for.body25, %for.in
 if.then:                                          ; preds = %for.body50
   %conv61 = fadd nsz float %add56, -1.000000e+00
   %inc62 = add i32 %noisex.0140, 1
-  %add66.reass = add i32 %noisex.0140, %invariant.op
-  %idxprom67 = zext i32 %add66.reass to i64
+  %add65 = add i32 %noisex.0140, 2
+  %add66 = add i32 %add65, %mul
+  %idxprom67 = zext i32 %add66 to i64
   %arrayidx68 = getelementptr inbounds nuw float, ptr %30, i64 %idxprom67
   %76 = load float, ptr %arrayidx68, align 4, !tbaa !35
-  %add73.reass = add i32 %noisex.0140, %invariant.op3
-  %idxprom74 = zext i32 %add73.reass to i64
+  %add73 = add i32 %add65, %mul37
+  %idxprom74 = zext i32 %add73 to i64
   %arrayidx75 = getelementptr inbounds nuw float, ptr %30, i64 %idxprom74
   %77 = load float, ptr %arrayidx75, align 4, !tbaa !35
   %78 = insertelement <2 x float> poison, float %77, i64 0

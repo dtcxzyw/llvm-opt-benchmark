@@ -3947,14 +3947,13 @@ define internal fastcc i64 @record_print_text(ptr noundef readonly captures(none
 42:                                               ; preds = %27, %29
   %43 = phi i64 [ %39, %29 ], [ %28, %27 ]
   %44 = add nsw i64 %11, -1
-  %invariant.op = add nsw i64 %43, 1
   br label %45
 
-45:                                               ; preds = %80, %42
-  %46 = phi i64 [ %14, %42 ], [ %83, %80 ]
-  %47 = phi ptr [ %13, %42 ], [ %81, %80 ]
-  %48 = phi i8 [ 0, %42 ], [ %73, %80 ]
-  %49 = phi i64 [ 0, %42 ], [ %75, %80 ]
+45:                                               ; preds = %81, %42
+  %46 = phi i64 [ %14, %42 ], [ %84, %81 ]
+  %47 = phi ptr [ %13, %42 ], [ %82, %81 ]
+  %48 = phi i8 [ 0, %42 ], [ %73, %81 ]
+  %49 = phi i64 [ 0, %42 ], [ %77, %81 ]
   %50 = tail call ptr @memchr(ptr noundef %47, i32 noundef 10, i64 noundef %46) #28
   %51 = icmp eq ptr %50, null
   br i1 %51, label %56, label %52
@@ -3994,37 +3993,37 @@ define internal fastcc i64 @record_print_text(ptr noundef readonly captures(none
   %74 = getelementptr i8, ptr %47, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %74, ptr align 1 %47, i64 %72, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %4, i64 %43, i1 false)
-  %.reass = add i64 %59, %invariant.op
-  %75 = add i64 %.reass, %49
-  %76 = icmp eq i64 %72, %59
-  br i1 %76, label %77, label %80
+  %75 = add i64 %59, %43
+  %76 = add i64 %75, 1
+  %77 = add i64 %76, %49
+  %78 = icmp eq i64 %72, %59
+  br i1 %78, label %79, label %81
 
-77:                                               ; preds = %71
-  %78 = getelementptr i8, ptr %47, i64 %59
-  %79 = getelementptr i8, ptr %78, i64 %43
-  store i8 10, ptr %79, align 1
+79:                                               ; preds = %71
+  %80 = getelementptr i8, ptr %47, i64 %75
+  store i8 10, ptr %80, align 1
   br label %.loopexit
 
-80:                                               ; preds = %71
-  %81 = getelementptr i8, ptr %47, i64 %.reass
-  %82 = xor i64 %59, -1
-  %83 = add i64 %72, %82
+81:                                               ; preds = %71
+  %82 = getelementptr i8, ptr %47, i64 %76
+  %83 = xor i64 %59, -1
+  %84 = add i64 %72, %83
   br label %45, !llvm.loop !79
 
-.loopexit:                                        ; preds = %64, %56, %77
-  %84 = phi i64 [ %75, %77 ], [ %49, %56 ], [ %49, %64 ]
-  %85 = icmp eq i32 %10, 0
-  br i1 %85, label %89, label %86
+.loopexit:                                        ; preds = %64, %56, %79
+  %85 = phi i64 [ %77, %79 ], [ %49, %56 ], [ %49, %64 ]
+  %86 = icmp eq i32 %10, 0
+  br i1 %86, label %90, label %87
 
-86:                                               ; preds = %.loopexit
-  %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr i8, ptr %87, i64 %84
-  store i8 0, ptr %88, align 1
-  br label %89
+87:                                               ; preds = %.loopexit
+  %88 = load ptr, ptr %12, align 8
+  %89 = getelementptr i8, ptr %88, i64 %85
+  store i8 0, ptr %89, align 1
+  br label %90
 
-89:                                               ; preds = %86, %.loopexit
+90:                                               ; preds = %87, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %84
+  ret i64 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

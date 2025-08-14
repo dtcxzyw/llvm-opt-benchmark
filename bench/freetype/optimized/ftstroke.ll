@@ -995,9 +995,9 @@ define i32 @FT_Stroker_ConicTo(ptr noundef captures(address_is_null) %0, ptr nou
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %220, %36
-  %.not143 = phi i1 [ true, %220 ], [ false, %36 ]
-  %.0114.idx.ph = phi i64 [ %.0114.add140, %220 ], [ 0, %36 ]
+.outer:                                           ; preds = %222, %36
+  %.not143 = phi i1 [ true, %222 ], [ false, %36 ]
+  %.0114.idx.ph = phi i64 [ %.0114.add140, %222 ], [ 0, %36 ]
   br label %51
 
 51:                                               ; preds = %.outer, %91
@@ -1169,161 +1169,159 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %146 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 32
   %148 = getelementptr inbounds nuw i8, ptr %.0114.ptr, i64 40
-  %invariant.op = add i64 %127, 5898240
-  %invariant.op217 = add i64 %.0170, 5898240
   br label %149
 
-149:                                              ; preds = %143, %218
-  %150 = phi i1 [ true, %143 ], [ false, %218 ]
-  %indvars.iv = phi i64 [ 0, %143 ], [ -11796480, %218 ]
-  %.0124208 = phi ptr [ %45, %143 ], [ %219, %218 ]
-  %.reass = add i64 %indvars.iv, %invariant.op
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %.reass) #10
-  %151 = load i64, ptr %144, align 8, !tbaa !37
-  %152 = load i64, ptr %5, align 8, !tbaa !37
-  %153 = add nsw i64 %152, %151
-  store i64 %153, ptr %5, align 8, !tbaa !37
-  %154 = load i64, ptr %145, align 8, !tbaa !39
-  %155 = load i64, ptr %46, align 8, !tbaa !39
-  %156 = add nsw i64 %155, %154
-  store i64 %156, ptr %46, align 8, !tbaa !39
-  %157 = load i64, ptr %43, align 8, !tbaa !28
-  %.reass218 = add i64 %indvars.iv, %invariant.op217
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %157, i64 noundef %.reass218) #10
-  %158 = load i64, ptr %.0114.ptr, align 8, !tbaa !37
-  %159 = load i64, ptr %6, align 8, !tbaa !37
-  %160 = add nsw i64 %159, %158
-  store i64 %160, ptr %6, align 8, !tbaa !37
-  %161 = load i64, ptr %146, align 8, !tbaa !39
-  %162 = load i64, ptr %47, align 8, !tbaa !39
-  %163 = add nsw i64 %162, %161
-  store i64 %163, ptr %47, align 8, !tbaa !39
-  %164 = load i8, ptr %44, align 8, !tbaa !54
-  %.not147 = icmp eq i8 %164, 0
-  br i1 %.not147, label %216, label %165
+149:                                              ; preds = %143, %220
+  %150 = phi i1 [ true, %143 ], [ false, %220 ]
+  %indvars.iv = phi i64 [ 5898240, %143 ], [ -5898240, %220 ]
+  %.0124208 = phi ptr [ %45, %143 ], [ %221, %220 ]
+  %151 = add nsw i64 %127, %indvars.iv
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %151) #10
+  %152 = load i64, ptr %144, align 8, !tbaa !37
+  %153 = load i64, ptr %5, align 8, !tbaa !37
+  %154 = add nsw i64 %153, %152
+  store i64 %154, ptr %5, align 8, !tbaa !37
+  %155 = load i64, ptr %145, align 8, !tbaa !39
+  %156 = load i64, ptr %46, align 8, !tbaa !39
+  %157 = add nsw i64 %156, %155
+  store i64 %157, ptr %46, align 8, !tbaa !39
+  %158 = load i64, ptr %43, align 8, !tbaa !28
+  %159 = add nsw i64 %indvars.iv, %.0170
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %158, i64 noundef %159) #10
+  %160 = load i64, ptr %.0114.ptr, align 8, !tbaa !37
+  %161 = load i64, ptr %6, align 8, !tbaa !37
+  %162 = add nsw i64 %161, %160
+  store i64 %162, ptr %6, align 8, !tbaa !37
+  %163 = load i64, ptr %146, align 8, !tbaa !39
+  %164 = load i64, ptr %47, align 8, !tbaa !39
+  %165 = add nsw i64 %164, %163
+  store i64 %165, ptr %47, align 8, !tbaa !39
+  %166 = load i8, ptr %44, align 8, !tbaa !54
+  %.not147 = icmp eq i8 %166, 0
+  br i1 %.not147, label %218, label %167
 
-165:                                              ; preds = %149
+167:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %166 = getelementptr inbounds nuw i8, ptr %.0124208, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !34
-  %168 = load i32, ptr %.0124208, align 8, !tbaa !33
-  %169 = add i32 %168, -1
-  %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %167, i64 %170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false), !tbaa.struct !46
-  %172 = load i64, ptr %7, align 8, !tbaa !37
-  %173 = sub nsw i64 %160, %172
-  %174 = load i64, ptr %48, align 8, !tbaa !39
-  %175 = sub nsw i64 %163, %174
-  %176 = call i64 @FT_Atan2(i64 noundef %173, i64 noundef %175) #10
-  %177 = call i64 @FT_Angle_Diff(i64 noundef %.0123, i64 noundef %176) #10
-  %178 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %177, i1 true)
-  %179 = icmp samesign ugt i64 %178, 5898240
-  br i1 %179, label %180, label %.thread
+  %168 = getelementptr inbounds nuw i8, ptr %.0124208, i64 8
+  %169 = load ptr, ptr %168, align 8, !tbaa !34
+  %170 = load i32, ptr %.0124208, align 8, !tbaa !33
+  %171 = add i32 %170, -1
+  %172 = zext i32 %171 to i64
+  %173 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %169, i64 %172
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !46
+  %174 = load i64, ptr %7, align 8, !tbaa !37
+  %175 = sub nsw i64 %162, %174
+  %176 = load i64, ptr %48, align 8, !tbaa !39
+  %177 = sub nsw i64 %165, %176
+  %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #10
+  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0123, i64 noundef %178) #10
+  %180 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %179, i1 true)
+  %181 = icmp samesign ugt i64 %180, 5898240
+  br i1 %181, label %182, label %.thread
 
-.thread:                                          ; preds = %165
+.thread:                                          ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %216
+  br label %218
 
-180:                                              ; preds = %165
+182:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %181 = load i64, ptr %147, align 8, !tbaa !37
-  %182 = sub nsw i64 %181, %172
-  %183 = load i64, ptr %148, align 8, !tbaa !39
+  %183 = load i64, ptr %147, align 8, !tbaa !37
   %184 = sub nsw i64 %183, %174
-  %185 = call i64 @FT_Atan2(i64 noundef %182, i64 noundef %184) #10
-  %186 = load i64, ptr %6, align 8, !tbaa !37
-  %187 = sub nsw i64 %158, %186
-  %188 = load i64, ptr %47, align 8, !tbaa !39
-  %189 = sub nsw i64 %161, %188
-  %190 = call i64 @FT_Atan2(i64 noundef %187, i64 noundef %189) #10
-  %191 = load i64, ptr %6, align 8, !tbaa !37
-  %192 = sub nsw i64 %191, %172
-  store i64 %192, ptr %8, align 8, !tbaa !37
-  %193 = load i64, ptr %47, align 8, !tbaa !39
+  %185 = load i64, ptr %148, align 8, !tbaa !39
+  %186 = sub nsw i64 %185, %176
+  %187 = call i64 @FT_Atan2(i64 noundef %184, i64 noundef %186) #10
+  %188 = load i64, ptr %6, align 8, !tbaa !37
+  %189 = sub nsw i64 %160, %188
+  %190 = load i64, ptr %47, align 8, !tbaa !39
+  %191 = sub nsw i64 %163, %190
+  %192 = call i64 @FT_Atan2(i64 noundef %189, i64 noundef %191) #10
+  %193 = load i64, ptr %6, align 8, !tbaa !37
   %194 = sub nsw i64 %193, %174
-  store i64 %194, ptr %49, align 8, !tbaa !39
-  %195 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #10
-  %196 = sub nsw i64 %176, %190
-  %197 = call i64 @FT_Sin(i64 noundef %196) #10
-  %198 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %197, i1 true)
-  %199 = sub nsw i64 %185, %190
-  %200 = call i64 @FT_Sin(i64 noundef %199) #10
-  %201 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %200, i1 true)
-  %202 = call i64 @FT_MulDiv(i64 noundef %195, i64 noundef %198, i64 noundef %201) #10
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %202, i64 noundef %185) #10
-  %203 = load i64, ptr %9, align 8, !tbaa !37
-  %204 = add nsw i64 %203, %172
-  store i64 %204, ptr %9, align 8, !tbaa !37
-  %205 = load i64, ptr %50, align 8, !tbaa !39
+  store i64 %194, ptr %8, align 8, !tbaa !37
+  %195 = load i64, ptr %47, align 8, !tbaa !39
+  %196 = sub nsw i64 %195, %176
+  store i64 %196, ptr %49, align 8, !tbaa !39
+  %197 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #10
+  %198 = sub nsw i64 %178, %192
+  %199 = call i64 @FT_Sin(i64 noundef %198) #10
+  %200 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %199, i1 true)
+  %201 = sub nsw i64 %187, %192
+  %202 = call i64 @FT_Sin(i64 noundef %201) #10
+  %203 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %202, i1 true)
+  %204 = call i64 @FT_MulDiv(i64 noundef %197, i64 noundef %200, i64 noundef %203) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %204, i64 noundef %187) #10
+  %205 = load i64, ptr %9, align 8, !tbaa !37
   %206 = add nsw i64 %205, %174
-  store i64 %206, ptr %50, align 8, !tbaa !39
-  %207 = getelementptr inbounds nuw i8, ptr %.0124208, i64 24
-  store i8 0, ptr %207, align 8, !tbaa !50
-  %208 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %9, i8 noundef zeroext 0)
-  %.not148 = icmp eq i32 %208, 0
-  br i1 %.not148, label %209, label %.thread176
+  store i64 %206, ptr %9, align 8, !tbaa !37
+  %207 = load i64, ptr %50, align 8, !tbaa !39
+  %208 = add nsw i64 %207, %176
+  store i64 %208, ptr %50, align 8, !tbaa !39
+  %209 = getelementptr inbounds nuw i8, ptr %.0124208, i64 24
+  store i8 0, ptr %209, align 8, !tbaa !50
+  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %9, i8 noundef zeroext 0)
+  %.not148 = icmp eq i32 %210, 0
+  br i1 %.not148, label %211, label %.thread176
 
-209:                                              ; preds = %180
-  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %6, i8 noundef zeroext 0)
-  %.not149 = icmp eq i32 %210, 0
-  br i1 %.not149, label %211, label %.thread176
-
-211:                                              ; preds = %209
-  %212 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0124208, ptr noundef %5, ptr noundef %7)
-  %.not150 = icmp eq i32 %212, 0
-  br i1 %.not150, label %213, label %.thread176
+211:                                              ; preds = %182
+  %212 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %6, i8 noundef zeroext 0)
+  %.not149 = icmp eq i32 %212, 0
+  br i1 %.not149, label %213, label %.thread176
 
 213:                                              ; preds = %211
-  %214 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %6, i8 noundef zeroext 0)
-  %.not151 = icmp eq i32 %214, 0
-  br i1 %.not151, label %215, label %.thread176
+  %214 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0124208, ptr noundef %5, ptr noundef %7)
+  %.not150 = icmp eq i32 %214, 0
+  br i1 %.not150, label %215, label %.thread176
 
-.thread176:                                       ; preds = %180, %209, %211, %213
-  %.5.ph = phi i32 [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %180 ]
+215:                                              ; preds = %213
+  %216 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0124208, ptr noundef %6, i8 noundef zeroext 0)
+  %.not151 = icmp eq i32 %216, 0
+  br i1 %.not151, label %217, label %.thread176
+
+.thread176:                                       ; preds = %182, %211, %213, %215
+  %.5.ph = phi i32 [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread180
 
-215:                                              ; preds = %213
+217:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %218
+  br label %220
 
-216:                                              ; preds = %.thread, %149
-  %217 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0124208, ptr noundef %5, ptr noundef %6)
-  %.not152 = icmp eq i32 %217, 0
-  br i1 %.not152, label %218, label %.thread180
+218:                                              ; preds = %.thread, %149
+  %219 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0124208, ptr noundef %5, ptr noundef %6)
+  %.not152 = icmp eq i32 %219, 0
+  br i1 %.not152, label %220, label %.thread180
 
-218:                                              ; preds = %215, %216
-  %219 = getelementptr inbounds nuw i8, ptr %.0124208, i64 48
-  br i1 %150, label %149, label %220, !llvm.loop !55
+220:                                              ; preds = %217, %218
+  %221 = getelementptr inbounds nuw i8, ptr %.0124208, i64 48
+  br i1 %150, label %149, label %222, !llvm.loop !55
 
-.thread180:                                       ; preds = %216, %.thread176
-  %.7.ph = phi i32 [ %.5.ph, %.thread176 ], [ %217, %216 ]
+.thread180:                                       ; preds = %218, %.thread176
+  %.7.ph = phi i32 [ %.5.ph, %.thread176 ], [ %219, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread186
 
-220:                                              ; preds = %218
+222:                                              ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.0170, ptr %0, align 8, !tbaa !45
-  %221 = icmp eq i64 %.0114.idx, 0
+  %223 = icmp eq i64 %.0114.idx, 0
   %.0114.add140 = add nsw i64 %.0114.idx, -32
-  br i1 %221, label %222, label %.outer
+  br i1 %223, label %224, label %.outer
 
-222:                                              ; preds = %220
+224:                                              ; preds = %222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !46
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %223, align 8, !tbaa !48
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %225, align 8, !tbaa !48
   br label %.thread186
 
-.thread186:                                       ; preds = %124, %.thread180, %35, %222, %3
-  %.0 = phi i32 [ 0, %35 ], [ 0, %222 ], [ 6, %3 ], [ %.7.ph, %.thread180 ], [ %.3, %124 ]
+.thread186:                                       ; preds = %124, %.thread180, %35, %224, %3
+  %.0 = phi i32 [ 0, %35 ], [ 0, %224 ], [ 6, %3 ], [ %.7.ph, %.thread180 ], [ %.3, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

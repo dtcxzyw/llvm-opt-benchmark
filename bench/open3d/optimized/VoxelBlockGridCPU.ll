@@ -55566,9 +55566,6 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %15 = srem i32 %12, %14
   %16 = sdiv i32 %12, %14
   %17 = load i32, ptr %0, align 8, !tbaa !19
-  %invariant.op = add i32 %11, %17
-  %invariant.op73 = add i32 %15, %17
-  %invariant.op75 = add i32 %16, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = load ptr, ptr %3, align 8, !tbaa !25
@@ -55587,9 +55584,9 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %33 = load ptr, ptr %32, align 8
   br label %34
 
-34:                                               ; preds = %2, %84
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %84 ]
-  %.078 = phi i32 [ 0, %2 ], [ %91, %84 ]
+34:                                               ; preds = %2, %87
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %87 ]
+  %.074 = phi i32 [ 0, %2 ], [ %94, %87 ]
   %35 = getelementptr inbounds nuw [8 x [3 x i32]], ptr @_ZN12_GLOBAL__N_110vtx_shiftsE, i64 0, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !19
   %37 = add nsw i32 %36, %11
@@ -55599,180 +55596,180 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %43 = add nsw i32 %42, %16
-  %.reass = add i32 %36, %invariant.op
-  %44 = srem i32 %.reass, %17
-  %.reass74 = add i32 %39, %invariant.op73
-  %45 = srem i32 %.reass74, %17
-  %.reass76 = add i32 %42, %invariant.op75
-  %46 = srem i32 %.reass76, %17
-  %47 = sub nsw i32 %37, %44
-  %.lobit.i.i.i = ashr i32 %47, 31
-  %.inv.i.i.i = icmp slt i32 %47, 1
-  %48 = sub nsw i32 %40, %45
-  %.inv.i33.i.i = icmp slt i32 %48, 1
-  %49 = sub nsw i32 %43, %46
-  %.inv.i35.i.i = icmp slt i32 %49, 1
-  %isneg.i.i = icmp slt i32 %48, 0
-  %50 = select i1 %isneg.i.i, i32 -3, i32 0
-  %51 = select i1 %.inv.i33.i.i, i32 %50, i32 3
-  %isneg36.i.i = icmp slt i32 %49, 0
-  %52 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %53 = select i1 %.inv.i35.i.i, i32 %52, i32 9
-  %54 = add nsw i32 %.lobit.i.i.i, 13
-  %55 = select i1 %.inv.i.i.i, i32 %54, i32 14
-  %56 = add nsw i32 %51, %55
-  %57 = add nsw i32 %56, %53
-  %58 = mul nsw i32 %57, %19
-  %59 = add nsw i32 %58, %7
-  %60 = mul nsw i32 %59, %22
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %20, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !134, !range !215, !noundef !216
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %44 = add nsw i32 %17, %37
+  %45 = srem i32 %44, %17
+  %46 = add nsw i32 %17, %40
+  %47 = srem i32 %46, %17
+  %48 = add nsw i32 %17, %43
+  %49 = srem i32 %48, %17
+  %50 = sub nsw i32 %37, %45
+  %.lobit.i.i.i = ashr i32 %50, 31
+  %.inv.i.i.i = icmp slt i32 %50, 1
+  %51 = sub nsw i32 %40, %47
+  %.inv.i33.i.i = icmp slt i32 %51, 1
+  %52 = sub nsw i32 %43, %49
+  %.inv.i35.i.i = icmp slt i32 %52, 1
+  %isneg.i.i = icmp slt i32 %51, 0
+  %53 = select i1 %isneg.i.i, i32 -3, i32 0
+  %54 = select i1 %.inv.i33.i.i, i32 %53, i32 3
+  %isneg36.i.i = icmp slt i32 %52, 0
+  %55 = select i1 %isneg36.i.i, i32 -9, i32 0
+  %56 = select i1 %.inv.i35.i.i, i32 %55, i32 9
+  %57 = add nsw i32 %.lobit.i.i.i, 13
+  %58 = select i1 %.inv.i.i.i, i32 %57, i32 14
+  %59 = add nsw i32 %54, %58
+  %60 = add nsw i32 %59, %56
+  %61 = mul nsw i32 %60, %19
+  %62 = add nsw i32 %61, %7
+  %63 = mul nsw i32 %62, %22
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %20, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !134, !range !215, !noundef !216
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %34
-  %65 = mul nsw i32 %24, %57
-  %66 = add nsw i32 %65, %7
-  %67 = mul nsw i32 %66, %27
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %25, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !19
-  %71 = mul nsw i32 %70, %17
-  %72 = add nsw i32 %71, %46
-  %73 = mul nsw i32 %72, %17
-  %74 = add nsw i32 %73, %45
-  %75 = mul nsw i32 %74, %17
-  %76 = add nsw i32 %75, %44
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %78
+  %68 = mul nsw i32 %24, %60
+  %69 = add nsw i32 %68, %7
+  %70 = mul nsw i32 %69, %27
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %25, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !19
+  %74 = mul nsw i32 %73, %17
+  %75 = add nsw i32 %74, %49
+  %76 = mul nsw i32 %75, %17
+  %77 = add nsw i32 %76, %47
+  %78 = mul nsw i32 %77, %17
+  %79 = add nsw i32 %78, %45
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %81
 
-78:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr inbounds nuw i16, ptr %29, i64 %79
-  %81 = load i16, ptr %80, align 2, !tbaa !783
-  %82 = uitofp i16 %81 to float
-  %83 = fcmp ult float %31, %82
-  br i1 %83, label %84, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+81:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %82 = zext nneg i32 %79 to i64
+  %83 = getelementptr inbounds nuw i16, ptr %29, i64 %82
+  %84 = load i16, ptr %83, align 2, !tbaa !783
+  %85 = uitofp i16 %84 to float
+  %86 = fcmp ult float %31, %85
+  br i1 %86, label %87, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw float, ptr %33, i64 %79
-  %86 = load float, ptr %85, align 4, !tbaa !653
-  %87 = fcmp olt float %86, 0.000000e+00
-  %88 = trunc nuw nsw i64 %indvars.iv to i32
-  %89 = shl nuw nsw i32 1, %88
-  %90 = select i1 %87, i32 %89, i32 0
-  %91 = or i32 %90, %.078
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds nuw float, ptr %33, i64 %82
+  %89 = load float, ptr %88, align 4, !tbaa !653
+  %90 = fcmp olt float %89, 0.000000e+00
+  %91 = trunc nuw nsw i64 %indvars.iv to i32
+  %92 = shl nuw nsw i32 1, %91
+  %93 = select i1 %90, i32 %92, i32 0
+  %94 = or i32 %93, %.074
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %92, label %34, !llvm.loop !1044
+  br i1 %exitcond, label %95, label %34, !llvm.loop !1044
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %95 = load i32, ptr %94, align 4, !tbaa !19
-  %96 = mul nsw i32 %95, %7
-  %97 = add nsw i32 %96, %16
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %99 = load i32, ptr %98, align 8, !tbaa !19
-  %100 = mul nsw i32 %97, %99
-  %101 = add nsw i32 %100, %15
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = mul nsw i32 %101, %103
-  %105 = add nsw i32 %104, %11
-  %106 = load ptr, ptr %93, align 8, !tbaa !25
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %108 = load i32, ptr %107, align 8, !tbaa !24
-  %109 = mul nsw i32 %105, %108
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %106, i64 %110
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  store i32 %91, ptr %112, align 4, !tbaa !19
-  switch i32 %91, label %113 [
+95:                                               ; preds = %87
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %98 = load i32, ptr %97, align 4, !tbaa !19
+  %99 = mul nsw i32 %98, %7
+  %100 = add nsw i32 %99, %16
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %102 = load i32, ptr %101, align 8, !tbaa !19
+  %103 = mul nsw i32 %100, %102
+  %104 = add nsw i32 %103, %15
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = mul nsw i32 %104, %106
+  %108 = add nsw i32 %107, %11
+  %109 = load ptr, ptr %96, align 8, !tbaa !25
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %111 = load i32, ptr %110, align 8, !tbaa !24
+  %112 = mul nsw i32 %108, %111
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %109, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
+  store i32 %94, ptr %115, align 4, !tbaa !19
+  switch i32 %94, label %116 [
     i32 255, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
     i32 0, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
   ]
 
-113:                                              ; preds = %92
-  %114 = zext nneg i32 %91 to i64
-  %115 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !19
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %119 = load ptr, ptr %118, align 8
-  br label %120
+116:                                              ; preds = %95
+  %117 = zext nneg i32 %94 to i64
+  %118 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !19
+  %120 = load ptr, ptr %4, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %122 = load ptr, ptr %121, align 8
+  br label %123
 
-120:                                              ; preds = %113, %174
-  %indvars.iv82 = phi i64 [ 0, %113 ], [ %indvars.iv.next83, %174 ]
-  %121 = trunc nuw nsw i64 %indvars.iv82 to i32
-  %122 = shl nuw nsw i32 1, %121
-  %123 = and i32 %122, %116
-  %.not = icmp eq i32 %123, 0
-  br i1 %.not, label %174, label %124
+123:                                              ; preds = %116, %177
+  %indvars.iv78 = phi i64 [ 0, %116 ], [ %indvars.iv.next79, %177 ]
+  %124 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %125 = shl nuw nsw i32 1, %124
+  %126 = and i32 %125, %119
+  %.not = icmp eq i32 %126, 0
+  br i1 %.not, label %177, label %127
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw [12 x [4 x i32]], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 0, i64 %indvars.iv82
-  %126 = load i32, ptr %125, align 16, !tbaa !19
-  %127 = add nsw i32 %126, %11
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %129 = load i32, ptr %128, align 4, !tbaa !19
-  %130 = add nsw i32 %129, %15
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %132 = load i32, ptr %131, align 8, !tbaa !19
-  %133 = add nsw i32 %132, %16
-  %134 = getelementptr inbounds nuw i8, ptr %125, i64 12
-  %135 = load i32, ptr %134, align 4, !tbaa !19
-  %136 = load i32, ptr %0, align 8, !tbaa !1015
-  %137 = sdiv i32 %127, %136
-  %138 = sdiv i32 %130, %136
-  %139 = sdiv i32 %133, %136
-  %140 = mul i32 %138, 3
-  %141 = mul i32 %139, 9
-  %142 = add i32 %137, 13
-  %143 = add i32 %142, %140
-  %144 = add i32 %143, %141
-  %145 = load i32, ptr %23, align 4, !tbaa !19
-  %146 = mul nsw i32 %144, %145
-  %147 = add nsw i32 %146, %7
-  %148 = load i32, ptr %26, align 8, !tbaa !24
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw [12 x [4 x i32]], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 0, i64 %indvars.iv78
+  %129 = load i32, ptr %128, align 16, !tbaa !19
+  %130 = add nsw i32 %129, %11
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %132 = load i32, ptr %131, align 4, !tbaa !19
+  %133 = add nsw i32 %132, %15
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %135 = load i32, ptr %134, align 8, !tbaa !19
+  %136 = add nsw i32 %135, %16
+  %137 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  %138 = load i32, ptr %137, align 4, !tbaa !19
+  %139 = load i32, ptr %0, align 8, !tbaa !1015
+  %140 = sdiv i32 %130, %139
+  %141 = sdiv i32 %133, %139
+  %142 = sdiv i32 %136, %139
+  %143 = mul i32 %141, 3
+  %144 = mul i32 %142, 9
+  %145 = add i32 %140, 13
+  %146 = add i32 %145, %143
+  %147 = add i32 %146, %144
+  %148 = load i32, ptr %23, align 4, !tbaa !19
   %149 = mul nsw i32 %147, %148
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i8, ptr %117, i64 %150
-  %152 = load i32, ptr %151, align 4, !tbaa !19
-  %153 = mul nsw i32 %137, %136
-  %.recomposed = srem i32 %127, %136
-  %154 = mul nsw i32 %138, %136
-  %.recomposed89 = srem i32 %130, %136
-  %155 = mul nsw i32 %139, %136
-  %.recomposed90 = srem i32 %133, %136
-  %156 = sext i32 %152 to i64
-  %157 = getelementptr inbounds i32, ptr %119, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !19
-  %159 = load i32, ptr %94, align 4, !tbaa !19
-  %160 = mul nsw i32 %159, %158
-  %161 = add nsw i32 %.recomposed90, %160
-  %162 = load i32, ptr %98, align 8, !tbaa !19
-  %163 = mul nsw i32 %161, %162
-  %164 = add nsw i32 %.recomposed89, %163
-  %165 = load i32, ptr %102, align 4, !tbaa !19
+  %150 = add nsw i32 %149, %7
+  %151 = load i32, ptr %26, align 8, !tbaa !24
+  %152 = mul nsw i32 %150, %151
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %120, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !19
+  %156 = mul nsw i32 %140, %139
+  %.recomposed = srem i32 %130, %139
+  %157 = mul nsw i32 %141, %139
+  %.recomposed85 = srem i32 %133, %139
+  %158 = mul nsw i32 %142, %139
+  %.recomposed86 = srem i32 %136, %139
+  %159 = sext i32 %155 to i64
+  %160 = getelementptr inbounds i32, ptr %122, i64 %159
+  %161 = load i32, ptr %160, align 4, !tbaa !19
+  %162 = load i32, ptr %97, align 4, !tbaa !19
+  %163 = mul nsw i32 %162, %161
+  %164 = add nsw i32 %.recomposed86, %163
+  %165 = load i32, ptr %101, align 8, !tbaa !19
   %166 = mul nsw i32 %164, %165
-  %167 = add nsw i32 %.recomposed, %166
-  %168 = load i32, ptr %107, align 8, !tbaa !24
+  %167 = add nsw i32 %.recomposed85, %166
+  %168 = load i32, ptr %105, align 4, !tbaa !19
   %169 = mul nsw i32 %167, %168
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i8, ptr %106, i64 %170
-  %172 = sext i32 %135 to i64
-  %173 = getelementptr inbounds i32, ptr %171, i64 %172
-  store i32 -1, ptr %173, align 4, !tbaa !19
-  br label %174
+  %170 = add nsw i32 %.recomposed, %169
+  %171 = load i32, ptr %110, align 8, !tbaa !24
+  %172 = mul nsw i32 %170, %171
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds i8, ptr %109, i64 %173
+  %175 = sext i32 %138 to i64
+  %176 = getelementptr inbounds i32, ptr %174, i64 %175
+  store i32 -1, ptr %176, align 4, !tbaa !19
+  br label %177
 
-174:                                              ; preds = %120, %124
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next83, 12
-  br i1 %exitcond85.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %120, !llvm.loop !1045
+177:                                              ; preds = %123, %127
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next79, 12
+  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %123, !llvm.loop !1045
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %78, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %174, %92, %92
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %81, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %177, %95, %95
   ret void
 }
 
@@ -58727,9 +58724,6 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %15 = srem i32 %12, %14
   %16 = sdiv i32 %12, %14
   %17 = load i32, ptr %0, align 8, !tbaa !19
-  %invariant.op = add i32 %11, %17
-  %invariant.op73 = add i32 %15, %17
-  %invariant.op75 = add i32 %16, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = load ptr, ptr %3, align 8, !tbaa !25
@@ -58748,9 +58742,9 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %33 = load ptr, ptr %32, align 8
   br label %34
 
-34:                                               ; preds = %2, %83
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %83 ]
-  %.078 = phi i32 [ 0, %2 ], [ %90, %83 ]
+34:                                               ; preds = %2, %86
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %86 ]
+  %.074 = phi i32 [ 0, %2 ], [ %93, %86 ]
   %35 = getelementptr inbounds nuw [8 x [3 x i32]], ptr @_ZN12_GLOBAL__N_110vtx_shiftsE, i64 0, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !19
   %37 = add nsw i32 %36, %11
@@ -58760,179 +58754,179 @@ define linkonce_odr hidden void @_ZZN6open3d1t8geometry6kernel10voxel_grid22Extr
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %43 = add nsw i32 %42, %16
-  %.reass = add i32 %36, %invariant.op
-  %44 = srem i32 %.reass, %17
-  %.reass74 = add i32 %39, %invariant.op73
-  %45 = srem i32 %.reass74, %17
-  %.reass76 = add i32 %42, %invariant.op75
-  %46 = srem i32 %.reass76, %17
-  %47 = sub nsw i32 %37, %44
-  %.lobit.i.i.i = ashr i32 %47, 31
-  %.inv.i.i.i = icmp slt i32 %47, 1
-  %48 = sub nsw i32 %40, %45
-  %.inv.i33.i.i = icmp slt i32 %48, 1
-  %49 = sub nsw i32 %43, %46
-  %.inv.i35.i.i = icmp slt i32 %49, 1
-  %isneg.i.i = icmp slt i32 %48, 0
-  %50 = select i1 %isneg.i.i, i32 -3, i32 0
-  %51 = select i1 %.inv.i33.i.i, i32 %50, i32 3
-  %isneg36.i.i = icmp slt i32 %49, 0
-  %52 = select i1 %isneg36.i.i, i32 -9, i32 0
-  %53 = select i1 %.inv.i35.i.i, i32 %52, i32 9
-  %54 = add nsw i32 %.lobit.i.i.i, 13
-  %55 = select i1 %.inv.i.i.i, i32 %54, i32 14
-  %56 = add nsw i32 %51, %55
-  %57 = add nsw i32 %56, %53
-  %58 = mul nsw i32 %57, %19
-  %59 = add nsw i32 %58, %7
-  %60 = mul nsw i32 %59, %22
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %20, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !134, !range !215, !noundef !216
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+  %44 = add nsw i32 %17, %37
+  %45 = srem i32 %44, %17
+  %46 = add nsw i32 %17, %40
+  %47 = srem i32 %46, %17
+  %48 = add nsw i32 %17, %43
+  %49 = srem i32 %48, %17
+  %50 = sub nsw i32 %37, %45
+  %.lobit.i.i.i = ashr i32 %50, 31
+  %.inv.i.i.i = icmp slt i32 %50, 1
+  %51 = sub nsw i32 %40, %47
+  %.inv.i33.i.i = icmp slt i32 %51, 1
+  %52 = sub nsw i32 %43, %49
+  %.inv.i35.i.i = icmp slt i32 %52, 1
+  %isneg.i.i = icmp slt i32 %51, 0
+  %53 = select i1 %isneg.i.i, i32 -3, i32 0
+  %54 = select i1 %.inv.i33.i.i, i32 %53, i32 3
+  %isneg36.i.i = icmp slt i32 %52, 0
+  %55 = select i1 %isneg36.i.i, i32 -9, i32 0
+  %56 = select i1 %.inv.i35.i.i, i32 %55, i32 9
+  %57 = add nsw i32 %.lobit.i.i.i, 13
+  %58 = select i1 %.inv.i.i.i, i32 %57, i32 14
+  %59 = add nsw i32 %54, %58
+  %60 = add nsw i32 %59, %56
+  %61 = mul nsw i32 %60, %19
+  %62 = add nsw i32 %61, %7
+  %63 = mul nsw i32 %62, %22
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %20, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !134, !range !215, !noundef !216
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
 _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit: ; preds = %34
-  %65 = mul nsw i32 %24, %57
-  %66 = add nsw i32 %65, %7
-  %67 = mul nsw i32 %66, %27
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %25, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !19
-  %71 = mul nsw i32 %70, %17
-  %72 = add nsw i32 %71, %46
-  %73 = mul nsw i32 %72, %17
-  %74 = add nsw i32 %73, %45
-  %75 = mul nsw i32 %74, %17
-  %76 = add nsw i32 %75, %44
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %78
+  %68 = mul nsw i32 %24, %60
+  %69 = add nsw i32 %68, %7
+  %70 = mul nsw i32 %69, %27
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %25, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !19
+  %74 = mul nsw i32 %73, %17
+  %75 = add nsw i32 %74, %49
+  %76 = mul nsw i32 %75, %17
+  %77 = add nsw i32 %76, %47
+  %78 = mul nsw i32 %77, %17
+  %79 = add nsw i32 %78, %45
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %81
 
-78:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
-  %79 = zext nneg i32 %76 to i64
-  %80 = getelementptr inbounds nuw float, ptr %29, i64 %79
-  %81 = load float, ptr %80, align 4, !tbaa !653
-  %82 = fcmp ugt float %81, %31
-  br i1 %82, label %83, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
+81:                                               ; preds = %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit
+  %82 = zext nneg i32 %79 to i64
+  %83 = getelementptr inbounds nuw float, ptr %29, i64 %82
+  %84 = load float, ptr %83, align 4, !tbaa !653
+  %85 = fcmp ugt float %84, %31
+  br i1 %85, label %86, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw float, ptr %33, i64 %79
-  %85 = load float, ptr %84, align 4, !tbaa !653
-  %86 = fcmp olt float %85, 0.000000e+00
-  %87 = trunc nuw nsw i64 %indvars.iv to i32
-  %88 = shl nuw nsw i32 1, %87
-  %89 = select i1 %86, i32 %88, i32 0
-  %90 = or i32 %89, %.078
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw float, ptr %33, i64 %82
+  %88 = load float, ptr %87, align 4, !tbaa !653
+  %89 = fcmp olt float %88, 0.000000e+00
+  %90 = trunc nuw nsw i64 %indvars.iv to i32
+  %91 = shl nuw nsw i32 1, %90
+  %92 = select i1 %89, i32 %91, i32 0
+  %93 = or i32 %92, %.074
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %91, label %34, !llvm.loop !1073
+  br i1 %exitcond, label %94, label %34, !llvm.loop !1073
 
-91:                                               ; preds = %83
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %94 = load i32, ptr %93, align 4, !tbaa !19
-  %95 = mul nsw i32 %94, %7
-  %96 = add nsw i32 %95, %16
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %98 = load i32, ptr %97, align 8, !tbaa !19
-  %99 = mul nsw i32 %96, %98
-  %100 = add nsw i32 %99, %15
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %102 = load i32, ptr %101, align 4, !tbaa !19
-  %103 = mul nsw i32 %100, %102
-  %104 = add nsw i32 %103, %11
-  %105 = load ptr, ptr %92, align 8, !tbaa !25
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %107 = load i32, ptr %106, align 8, !tbaa !24
-  %108 = mul nsw i32 %104, %107
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %105, i64 %109
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 %90, ptr %111, align 4, !tbaa !19
-  switch i32 %90, label %112 [
+94:                                               ; preds = %86
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %97 = load i32, ptr %96, align 4, !tbaa !19
+  %98 = mul nsw i32 %97, %7
+  %99 = add nsw i32 %98, %16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %101 = load i32, ptr %100, align 8, !tbaa !19
+  %102 = mul nsw i32 %99, %101
+  %103 = add nsw i32 %102, %15
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %105 = load i32, ptr %104, align 4, !tbaa !19
+  %106 = mul nsw i32 %103, %105
+  %107 = add nsw i32 %106, %11
+  %108 = load ptr, ptr %95, align 8, !tbaa !25
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %110 = load i32, ptr %109, align 8, !tbaa !24
+  %111 = mul nsw i32 %107, %110
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %108, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
+  store i32 %93, ptr %114, align 4, !tbaa !19
+  switch i32 %93, label %115 [
     i32 255, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
     i32 0, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread
   ]
 
-112:                                              ; preds = %91
-  %113 = zext nneg i32 %90 to i64
-  %114 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !19
-  %116 = load ptr, ptr %4, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %118 = load ptr, ptr %117, align 8
-  br label %119
+115:                                              ; preds = %94
+  %116 = zext nneg i32 %93 to i64
+  %117 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !19
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %121 = load ptr, ptr %120, align 8
+  br label %122
 
-119:                                              ; preds = %112, %173
-  %indvars.iv82 = phi i64 [ 0, %112 ], [ %indvars.iv.next83, %173 ]
-  %120 = trunc nuw nsw i64 %indvars.iv82 to i32
-  %121 = shl nuw nsw i32 1, %120
-  %122 = and i32 %121, %115
-  %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %173, label %123
+122:                                              ; preds = %115, %176
+  %indvars.iv78 = phi i64 [ 0, %115 ], [ %indvars.iv.next79, %176 ]
+  %123 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %124 = shl nuw nsw i32 1, %123
+  %125 = and i32 %124, %118
+  %.not = icmp eq i32 %125, 0
+  br i1 %.not, label %176, label %126
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw [12 x [4 x i32]], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 0, i64 %indvars.iv82
-  %125 = load i32, ptr %124, align 16, !tbaa !19
-  %126 = add nsw i32 %125, %11
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %128 = load i32, ptr %127, align 4, !tbaa !19
-  %129 = add nsw i32 %128, %15
-  %130 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %131 = load i32, ptr %130, align 8, !tbaa !19
-  %132 = add nsw i32 %131, %16
-  %133 = getelementptr inbounds nuw i8, ptr %124, i64 12
-  %134 = load i32, ptr %133, align 4, !tbaa !19
-  %135 = load i32, ptr %0, align 8, !tbaa !1050
-  %136 = sdiv i32 %126, %135
-  %137 = sdiv i32 %129, %135
-  %138 = sdiv i32 %132, %135
-  %139 = mul i32 %137, 3
-  %140 = mul i32 %138, 9
-  %141 = add i32 %136, 13
-  %142 = add i32 %141, %139
-  %143 = add i32 %142, %140
-  %144 = load i32, ptr %23, align 4, !tbaa !19
-  %145 = mul nsw i32 %143, %144
-  %146 = add nsw i32 %145, %7
-  %147 = load i32, ptr %26, align 8, !tbaa !24
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds nuw [12 x [4 x i32]], ptr @_ZN12_GLOBAL__N_111edge_shiftsE, i64 0, i64 %indvars.iv78
+  %128 = load i32, ptr %127, align 16, !tbaa !19
+  %129 = add nsw i32 %128, %11
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
+  %131 = load i32, ptr %130, align 4, !tbaa !19
+  %132 = add nsw i32 %131, %15
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %134 = load i32, ptr %133, align 8, !tbaa !19
+  %135 = add nsw i32 %134, %16
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 12
+  %137 = load i32, ptr %136, align 4, !tbaa !19
+  %138 = load i32, ptr %0, align 8, !tbaa !1050
+  %139 = sdiv i32 %129, %138
+  %140 = sdiv i32 %132, %138
+  %141 = sdiv i32 %135, %138
+  %142 = mul i32 %140, 3
+  %143 = mul i32 %141, 9
+  %144 = add i32 %139, 13
+  %145 = add i32 %144, %142
+  %146 = add i32 %145, %143
+  %147 = load i32, ptr %23, align 4, !tbaa !19
   %148 = mul nsw i32 %146, %147
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %116, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !19
-  %152 = mul nsw i32 %136, %135
-  %.recomposed = srem i32 %126, %135
-  %153 = mul nsw i32 %137, %135
-  %.recomposed89 = srem i32 %129, %135
-  %154 = mul nsw i32 %138, %135
-  %.recomposed90 = srem i32 %132, %135
-  %155 = sext i32 %151 to i64
-  %156 = getelementptr inbounds i32, ptr %118, i64 %155
-  %157 = load i32, ptr %156, align 4, !tbaa !19
-  %158 = load i32, ptr %93, align 4, !tbaa !19
-  %159 = mul nsw i32 %158, %157
-  %160 = add nsw i32 %.recomposed90, %159
-  %161 = load i32, ptr %97, align 8, !tbaa !19
-  %162 = mul nsw i32 %160, %161
-  %163 = add nsw i32 %.recomposed89, %162
-  %164 = load i32, ptr %101, align 4, !tbaa !19
+  %149 = add nsw i32 %148, %7
+  %150 = load i32, ptr %26, align 8, !tbaa !24
+  %151 = mul nsw i32 %149, %150
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds i8, ptr %119, i64 %152
+  %154 = load i32, ptr %153, align 4, !tbaa !19
+  %155 = mul nsw i32 %139, %138
+  %.recomposed = srem i32 %129, %138
+  %156 = mul nsw i32 %140, %138
+  %.recomposed85 = srem i32 %132, %138
+  %157 = mul nsw i32 %141, %138
+  %.recomposed86 = srem i32 %135, %138
+  %158 = sext i32 %154 to i64
+  %159 = getelementptr inbounds i32, ptr %121, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !19
+  %161 = load i32, ptr %96, align 4, !tbaa !19
+  %162 = mul nsw i32 %161, %160
+  %163 = add nsw i32 %.recomposed86, %162
+  %164 = load i32, ptr %100, align 8, !tbaa !19
   %165 = mul nsw i32 %163, %164
-  %166 = add nsw i32 %.recomposed, %165
-  %167 = load i32, ptr %106, align 8, !tbaa !24
+  %166 = add nsw i32 %.recomposed85, %165
+  %167 = load i32, ptr %104, align 4, !tbaa !19
   %168 = mul nsw i32 %166, %167
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i8, ptr %105, i64 %169
-  %171 = sext i32 %134 to i64
-  %172 = getelementptr inbounds i32, ptr %170, i64 %171
-  store i32 -1, ptr %172, align 4, !tbaa !19
-  br label %173
+  %169 = add nsw i32 %.recomposed, %168
+  %170 = load i32, ptr %109, align 8, !tbaa !24
+  %171 = mul nsw i32 %169, %170
+  %172 = sext i32 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %108, i64 %172
+  %174 = sext i32 %137 to i64
+  %175 = getelementptr inbounds i32, ptr %173, i64 %174
+  store i32 -1, ptr %175, align 4, !tbaa !19
+  br label %176
 
-173:                                              ; preds = %119, %123
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next83, 12
-  br i1 %exitcond85.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %119, !llvm.loop !1074
+176:                                              ; preds = %122, %126
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next79, 12
+  br i1 %exitcond81.not, label %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread, label %122, !llvm.loop !1074
 
-_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %78, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %173, %91, %91
+_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit.thread: ; preds = %34, %81, %_ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4core6TensorES8_S8_S8_S8_RKNS1_9TensorMapERS6_SC_SC_SC_iffRiENKUliE_clEiENKUliiiiE_clEiiii.exit, %176, %94, %94
   ret void
 }
 

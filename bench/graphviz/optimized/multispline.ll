@@ -1290,7 +1290,7 @@ triPath.exit:                                     ; preds = %PQremove.exit.i, %1
   tail call void @free(ptr noundef %81) #18
   tail call void @free(ptr noundef %75) #18
   %.not = icmp eq ptr %.058.i, null
-  br i1 %.not, label %1010, label %281
+  br i1 %.not, label %1011, label %281
 
 276:                                              ; preds = %.lr.ph, %276
   %.060155 = phi i64 [ 0, %.lr.ph ], [ %280, %276 ]
@@ -2750,18 +2750,18 @@ gv_calloc.exit170.thread.i:                       ; preds = %929
   %993 = load ptr, ptr %992, align 8, !tbaa !70
   call void @free(ptr noundef %993) #18
   %994 = add nuw i64 %.0224.i, 1
-  %.reass.i = add nuw i64 %.0224.i, 3
-  %995 = load i64, ptr %621, align 8, !tbaa !34
-  %996 = icmp ult i64 %.reass.i, %995
-  br i1 %996, label %.lr.ph226.i, label %._crit_edge227.i, !llvm.loop !147
+  %995 = add nuw i64 %.0224.i, 3
+  %996 = load i64, ptr %621, align 8, !tbaa !34
+  %997 = icmp ult i64 %995, %996
+  br i1 %997, label %.lr.ph226.i, label %._crit_edge227.i, !llvm.loop !147
 
 .thread183.i:                                     ; preds = %._crit_edge227.i, %.thread.i104, %654, %636
   %.0134187.i = phi i32 [ %.0134.i, %._crit_edge227.i ], [ 1, %.thread.i104 ], [ 0, %654 ], [ 1, %636 ]
-  %997 = load ptr, ptr %7, align 8, !tbaa !36
+  %998 = load ptr, ptr %7, align 8, !tbaa !36
   br label %genroute.exit
 
 genroute.exit:                                    ; preds = %704, %.thread183.i
-  %.sink287.i = phi ptr [ %675, %704 ], [ %997, %.thread183.i ]
+  %.sink287.i = phi ptr [ %675, %704 ], [ %998, %.thread183.i ]
   %.1.i90 = phi i32 [ 0, %704 ], [ %.0134187.i, %.thread183.i ]
   call void @free(ptr noundef %.sink287.i) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2770,27 +2770,27 @@ genroute.exit:                                    ; preds = %704, %.thread183.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %998 = load ptr, ptr %586, align 8, !tbaa !131
-  call void @free(ptr noundef %998) #18
-  %999 = load i64, ptr %607, align 8, !tbaa !128
-  %.not18.i = icmp eq i64 %999, 0
+  %999 = load ptr, ptr %586, align 8, !tbaa !131
+  call void @free(ptr noundef %999) #18
+  %1000 = load i64, ptr %607, align 8, !tbaa !128
+  %.not18.i = icmp eq i64 %1000, 0
   br i1 %.not18.i, label %freeTripoly.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %genroute.exit, %._crit_edge.i108
-  %1000 = phi i64 [ %1006, %._crit_edge.i108 ], [ %999, %genroute.exit ]
-  %.014.i = phi i64 [ %1007, %._crit_edge.i108 ], [ 0, %genroute.exit ]
-  %1001 = load ptr, ptr %608, align 8, !tbaa !132
-  %1002 = getelementptr inbounds nuw ptr, ptr %1001, i64 %.014.i
-  %1003 = load ptr, ptr %1002, align 8, !tbaa !123
-  %.not12.i = icmp eq ptr %1003, null
+  %1001 = phi i64 [ %1007, %._crit_edge.i108 ], [ %1000, %genroute.exit ]
+  %.014.i = phi i64 [ %1008, %._crit_edge.i108 ], [ 0, %genroute.exit ]
+  %1002 = load ptr, ptr %608, align 8, !tbaa !132
+  %1003 = getelementptr inbounds nuw ptr, ptr %1002, i64 %.014.i
+  %1004 = load ptr, ptr %1003, align 8, !tbaa !123
+  %.not12.i = icmp eq ptr %1004, null
   br i1 %.not12.i, label %._crit_edge.i108, label %.lr.ph.i105
 
 .lr.ph.i105:                                      ; preds = %.lr.ph16.i, %.lr.ph.i105
-  %.01113.i = phi ptr [ %1005, %.lr.ph.i105 ], [ %1003, %.lr.ph16.i ]
-  %1004 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 8
-  %1005 = load ptr, ptr %1004, align 8, !tbaa !118
+  %.01113.i = phi ptr [ %1006, %.lr.ph.i105 ], [ %1004, %.lr.ph16.i ]
+  %1005 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 8
+  %1006 = load ptr, ptr %1005, align 8, !tbaa !118
   call void @free(ptr noundef nonnull %.01113.i) #18
-  %.not.i106 = icmp eq ptr %1005, null
+  %.not.i106 = icmp eq ptr %1006, null
   br i1 %.not.i106, label %._crit_edge.loopexit.i, label %.lr.ph.i105, !llvm.loop !148
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i105
@@ -2798,43 +2798,43 @@ genroute.exit:                                    ; preds = %704, %.thread183.i
   br label %._crit_edge.i108
 
 ._crit_edge.i108:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph16.i
-  %1006 = phi i64 [ %.pre.i107, %._crit_edge.loopexit.i ], [ %1000, %.lr.ph16.i ]
-  %1007 = add nuw i64 %.014.i, 1
-  %1008 = icmp ult i64 %1007, %1006
-  br i1 %1008, label %.lr.ph16.i, label %freeTripoly.exit, !llvm.loop !149
+  %1007 = phi i64 [ %.pre.i107, %._crit_edge.loopexit.i ], [ %1001, %.lr.ph16.i ]
+  %1008 = add nuw i64 %.014.i, 1
+  %1009 = icmp ult i64 %1008, %1007
+  br i1 %1009, label %.lr.ph16.i, label %freeTripoly.exit, !llvm.loop !149
 
 freeTripoly.exit:                                 ; preds = %._crit_edge.i108, %genroute.exit
-  %1009 = load ptr, ptr %608, align 8, !tbaa !132
-  call void @free(ptr noundef %1009) #18
+  %1010 = load ptr, ptr %608, align 8, !tbaa !132
+  call void @free(ptr noundef %1010) #18
   call void @free(ptr noundef nonnull %586) #18
-  br label %1010
+  br label %1011
 
-1010:                                             ; preds = %triPath.exit, %freeTripoly.exit
+1011:                                             ; preds = %triPath.exit, %freeTripoly.exit
   %.0 = phi i32 [ %.1.i90, %freeTripoly.exit ], [ -1, %triPath.exit ]
-  %1011 = load ptr, ptr %35, align 8, !tbaa !15
-  %1012 = load i32, ptr %32, align 8, !tbaa !61
-  %1013 = load ptr, ptr %1011, align 8, !tbaa !19
-  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 24
-  store i32 %38, ptr %1014, align 8, !tbaa !75
-  %1015 = icmp sgt i32 %1012, 0
-  br i1 %1015, label %.lr.ph.preheader.i, label %resetGraph.exit
+  %1012 = load ptr, ptr %35, align 8, !tbaa !15
+  %1013 = load i32, ptr %32, align 8, !tbaa !61
+  %1014 = load ptr, ptr %1012, align 8, !tbaa !19
+  %1015 = getelementptr inbounds nuw i8, ptr %1012, i64 24
+  store i32 %38, ptr %1015, align 8, !tbaa !75
+  %1016 = icmp sgt i32 %1013, 0
+  br i1 %1016, label %.lr.ph.preheader.i, label %resetGraph.exit
 
-.lr.ph.preheader.i:                               ; preds = %1010
-  %wide.trip.count.i110 = zext nneg i32 %1012 to i64
+.lr.ph.preheader.i:                               ; preds = %1011
+  %wide.trip.count.i110 = zext nneg i32 %1013 to i64
   br label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %.lr.ph.i111, %.lr.ph.preheader.i
   %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i113, %.lr.ph.i111 ]
-  %.011.i = phi ptr [ %1013, %.lr.ph.preheader.i ], [ %1018, %.lr.ph.i111 ]
-  %1016 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i112
-  %1017 = load i64, ptr %1016, align 8, !tbaa !71
-  store i64 %1017, ptr %.011.i, align 8, !tbaa !100
-  %1018 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
+  %.011.i = phi ptr [ %1014, %.lr.ph.preheader.i ], [ %1019, %.lr.ph.i111 ]
+  %1017 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i112
+  %1018 = load i64, ptr %1017, align 8, !tbaa !71
+  store i64 %1018, ptr %.011.i, align 8, !tbaa !100
+  %1019 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i110
   br i1 %exitcond.not.i114, label %resetGraph.exit, label %.lr.ph.i111, !llvm.loop !150
 
-resetGraph.exit:                                  ; preds = %.lr.ph.i111, %1010
+resetGraph.exit:                                  ; preds = %.lr.ph.i111, %1011
   call void @free(ptr noundef %54) #18
   ret i32 %.0
 }

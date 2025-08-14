@@ -190,7 +190,6 @@ _gres_limit_reserved_cores.exit:                  ; preds = %42, %54, %56, %59, 
   %or.cond7.i = and i1 %93, %9
   %97 = zext i16 %6 to i64
   %98 = or i1 %.not117.i, %.not118.i
-  %invariant.op.i = or i1 %98, %95
   %99 = add nsw i32 %91, -1
   %not. = xor i1 %96, true
   %invariant.op = and i1 %93, %9
@@ -566,9 +565,9 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   %282 = icmp eq ptr %.pre, null
   %or.cond3.i = or i1 %95, %282
   %not.or.cond3.i = xor i1 %or.cond3.i, true
-  %brmerge113.reass.i = or i1 %invariant.op.i, %282
+  %brmerge113.i = or i1 %98, %or.cond3.i
   %.mux.mux.i = and i1 %.not117.i, %not.or.cond3.i
-  br i1 %brmerge113.reass.i, label %.loopexit51.i, label %.preheader50.i
+  br i1 %brmerge113.i, label %.loopexit51.i, label %.preheader50.i
 
 .preheader50.i:                                   ; preds = %.thread.i, %291
   %indvars.iv132.i = phi i64 [ %indvars.iv.next133.i, %291 ], [ 0, %.thread.i ]

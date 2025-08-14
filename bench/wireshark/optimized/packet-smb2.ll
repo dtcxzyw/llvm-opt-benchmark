@@ -16448,8 +16448,8 @@ define internal fastcc noundef i32 @dissect_smb2_file_full_ea_info(ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %15
 
-15:                                               ; preds = %51, %13
-  %.053 = phi i32 [ %3, %13 ], [ %54, %51 ]
+15:                                               ; preds = %52, %13
+  %.053 = phi i32 [ %3, %13 ], [ %55, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -16484,49 +16484,49 @@ define internal fastcc noundef i32 @dissect_smb2_file_full_ea_info(ptr noundef %
 
 ._crit_edge1:                                     ; preds = %15, %32
   %.pre-phi = phi i32 [ %35, %32 ], [ 0, %15 ]
-  %.reass = add i32 %.053, 9
-  %38 = add i32 %.reass, %.pre-phi
+  %38 = add i32 %.053, 9
+  %39 = add i32 %38, %.pre-phi
   %.not61 = icmp eq i16 %29, 0
-  br i1 %.not61, label %._crit_edge, label %39
+  br i1 %.not61, label %._crit_edge, label %40
 
-39:                                               ; preds = %._crit_edge1
-  %40 = load i32, ptr @hf_smb2_ea_data, align 4
-  %41 = zext i16 %29 to i32
-  %42 = load ptr, ptr %14, align 8
-  %43 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %17, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef %41, i32 noundef 0, ptr noundef %42, ptr noundef nonnull %6)
+40:                                               ; preds = %._crit_edge1
+  %41 = load i32, ptr @hf_smb2_ea_data, align 4
+  %42 = zext i16 %29 to i32
+  %43 = load ptr, ptr %14, align 8
+  %44 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %17, i32 noundef %41, ptr noundef %0, i32 noundef %39, i32 noundef %42, i32 noundef 0, ptr noundef %43, ptr noundef nonnull %6)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge1, %39
-  %.pre-phi4 = phi i32 [ %41, %39 ], [ 0, %._crit_edge1 ]
-  %44 = add i32 %38, %.pre-phi4
-  %45 = load ptr, ptr %7, align 8
-  %.not62 = icmp eq ptr %45, null
-  br i1 %.not62, label %51, label %46
+._crit_edge:                                      ; preds = %._crit_edge1, %40
+  %.pre-phi4 = phi i32 [ %42, %40 ], [ 0, %._crit_edge1 ]
+  %45 = add i32 %39, %.pre-phi4
+  %46 = load ptr, ptr %7, align 8
+  %.not62 = icmp eq ptr %46, null
+  br i1 %.not62, label %52, label %47
 
-46:                                               ; preds = %._crit_edge
-  %47 = load ptr, ptr %5, align 8
-  %.not63 = icmp eq ptr %47, null
-  %48 = select i1 %.not63, ptr @.str.1539, ptr %47
-  %49 = load ptr, ptr %6, align 8
-  %.not64 = icmp eq ptr %49, null
-  %50 = select i1 %.not64, ptr @.str.1539, ptr %49
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %45, ptr noundef nonnull @.str.2208, ptr noundef nonnull %48, ptr noundef nonnull %50)
+47:                                               ; preds = %._crit_edge
+  %48 = load ptr, ptr %5, align 8
+  %.not63 = icmp eq ptr %48, null
+  %49 = select i1 %.not63, ptr @.str.1539, ptr %48
+  %50 = load ptr, ptr %6, align 8
+  %.not64 = icmp eq ptr %50, null
+  %51 = select i1 %.not64, ptr @.str.1539, ptr %50
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %46, ptr noundef nonnull @.str.2208, ptr noundef nonnull %49, ptr noundef nonnull %51)
   %.pre = load ptr, ptr %7, align 8
-  br label %51
+  br label %52
 
-51:                                               ; preds = %46, %._crit_edge
-  %52 = phi ptr [ %.pre, %46 ], [ null, %._crit_edge ]
-  %53 = sub i32 %44, %.053
-  call void @proto_item_set_len(ptr noundef %52, i32 noundef %53)
+52:                                               ; preds = %47, %._crit_edge
+  %53 = phi ptr [ %.pre, %47 ], [ null, %._crit_edge ]
+  %54 = sub i32 %45, %.053
+  call void @proto_item_set_len(ptr noundef %53, i32 noundef %54)
   %.not65 = icmp eq i32 %18, 0
-  %54 = add i32 %18, %.053
+  %55 = add i32 %18, %.053
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not65, label %55, label %15
+  br i1 %.not65, label %56, label %15
 
-55:                                               ; preds = %51
-  ret i32 %44
+56:                                               ; preds = %52
+  ret i32 %45
 }
 
 ; Function Attrs: null_pointer_is_valid

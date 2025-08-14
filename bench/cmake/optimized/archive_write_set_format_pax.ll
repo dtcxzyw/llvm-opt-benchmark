@@ -2225,29 +2225,28 @@ define internal fastcc noundef nonnull ptr @build_ustar_entry_name(ptr noundef n
   br label %.critedge
 
 .lr.ph175.preheader:                              ; preds = %.thread
-  %invariant.op = add nsw i64 %.0116.idx153, -1
   %26 = load i8, ptr %.0118.ptr.ptr171, align 1, !tbaa !29
   %.not138226.not = icmp eq i8 %26, 47
   br i1 %.not138226.not, label %.critedge, label %.lr.ph228
 
 .lr.ph175:                                        ; preds = %.lr.ph228
-  %.0118.add = add nsw i64 %.0118.idx172227, -1
-  %.0118.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0116.ptr.add.reass
+  %.0118.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0116.ptr.add
   %27 = load i8, ptr %.0118.ptr.ptr, align 1, !tbaa !29
   %.not138 = icmp eq i8 %27, 47
   br i1 %.not138, label %.critedge.loopexit, label %.lr.ph228, !llvm.loop !60
 
 .lr.ph228:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
   %.0118.idx172227 = phi i64 [ %.0118.add, %.lr.ph175 ], [ -1, %.lr.ph175.preheader ]
-  %.0116.ptr.add.reass = add i64 %.0118.idx172227, %invariant.op
-  %28 = icmp sgt i64 %.0116.ptr.add.reass, 0
+  %.0118.add = add nsw i64 %.0118.idx172227, -1
+  %.0116.ptr.add = add nsw i64 %.0118.add, %.0116.idx153
+  %28 = icmp sgt i64 %.0116.ptr.add, 0
   br i1 %28, label %.lr.ph175, label %..critedge.loopexit_crit_edge, !llvm.loop !60
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph228
   br label %.critedge, !llvm.loop !60
 
 .critedge.loopexit:                               ; preds = %.lr.ph175
-  %.0118.ptr.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.0116.ptr.add.reass
+  %.0118.ptr.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.0116.ptr.add
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph175.preheader, %..critedge.loopexit_crit_edge, %.thread210, %.thread
@@ -2256,7 +2255,7 @@ define internal fastcc noundef nonnull ptr @build_ustar_entry_name(ptr noundef n
   %.not.lcssa202217 = phi i1 [ %.not154, %.thread ], [ %10, %.thread210 ], [ %.not154, %..critedge.loopexit_crit_edge ], [ %.not154, %.lr.ph175.preheader ], [ %.not154, %.critedge.loopexit ]
   %.0116.ptr.ptr.lcssa204216 = phi ptr [ %.0116.ptr.ptr155, %.thread ], [ %.0116.ptr.ptr.lcssa204.ph, %.thread210 ], [ %.0116.ptr.ptr155, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.ptr155, %.lr.ph175.preheader ], [ %.0116.ptr.ptr155, %.critedge.loopexit ]
   %.0118.idx.lcssa = phi i1 [ false, %.thread ], [ false, %.thread210 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph175.preheader ], [ true, %.critedge.loopexit ]
-  %.0116.ptr.add.lcssa = phi i64 [ 0, %.thread ], [ %.0116.ptr.add170214, %.thread210 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.add170, %.lr.ph175.preheader ], [ %.0116.ptr.add.reass, %.critedge.loopexit ]
+  %.0116.ptr.add.lcssa = phi i64 [ 0, %.thread ], [ %.0116.ptr.add170214, %.thread210 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.0116.ptr.add170, %.lr.ph175.preheader ], [ %.0116.ptr.add, %.critedge.loopexit ]
   %.0118.ptr.ptr.lcssa = phi ptr [ %.0118.ptr.ptr171, %.thread ], [ %.0118.ptr.ptr171215, %.thread210 ], [ %1, %..critedge.loopexit_crit_edge ], [ %.0118.ptr.ptr171, %.lr.ph175.preheader ], [ %.0118.ptr.ptr.le, %.critedge.loopexit ]
   %30 = load i8, ptr %.0118.ptr.ptr.lcssa, align 1, !tbaa !29
   %31 = icmp eq i8 %30, 47

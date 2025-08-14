@@ -282,7 +282,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %27 = trunc i64 %26 to i32
   %28 = call i32 @ff_outlink_frame_wanted(ptr noundef %5) #10
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %107, label %29
+  br i1 %.not, label %108, label %29
 
 29:                                               ; preds = %1
   %30 = icmp slt i32 %27, 1
@@ -310,18 +310,18 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 41:                                               ; preds = %35
   call void @ff_avfilter_link_set_in_status(ptr noundef nonnull %5, i32 noundef -541478725, i64 noundef %37) #10
-  br label %107
+  br label %108
 
 42:                                               ; preds = %35, %32
   %.1 = phi i32 [ %40, %35 ], [ %.051, %32 ]
   %43 = call ptr @ff_get_audio_buffer(ptr noundef nonnull %5, i32 noundef %.1) #10
   %.not62 = icmp eq ptr %43, null
-  br i1 %.not62, label %107, label %44
+  br i1 %.not62, label %108, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %43, align 8, !tbaa !59
   %46 = icmp sgt i32 %.1, 0
-  br i1 %46, label %.lr.ph, label %101
+  br i1 %46, label %.lr.ph, label %102
 
 .lr.ph:                                           ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -344,13 +344,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.pre = load ptr, ptr %47, align 8, !tbaa !20
   %.pre72 = load i32, ptr %49, align 4, !tbaa !62
   %.pre73 = load i32, ptr %50, align 4, !tbaa !63
-  %invariant.op = add i32 %.pre72, 1
   br label %61
 
 61:                                               ; preds = %.lr.ph, %sampling_advance.exit63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sampling_advance.exit63 ]
-  %62 = phi i32 [ %.promoted68, %.lr.ph ], [ %75, %sampling_advance.exit63 ]
-  %63 = phi i32 [ %.promoted, %.lr.ph ], [ %76, %sampling_advance.exit63 ]
+  %62 = phi i32 [ %.promoted68, %.lr.ph ], [ %76, %sampling_advance.exit63 ]
+  %63 = phi i32 [ %.promoted, %.lr.ph ], [ %77, %sampling_advance.exit63 ]
   %64 = lshr i32 %63, 17
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds nuw i16, ptr %.pre, i64 %65
@@ -365,71 +364,71 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 72:                                               ; preds = %61
   %73 = load i32, ptr %52, align 4, !tbaa !64
   %74 = sub nsw i32 %70, %73
-  %.reass = add i32 %63, %invariant.op
+  %75 = add i32 %69, 1
   br label %sampling_advance.exit
 
 sampling_advance.exit:                            ; preds = %61, %72
-  %75 = phi i32 [ %70, %61 ], [ %74, %72 ]
-  %76 = phi i32 [ %69, %61 ], [ %.reass, %72 ]
-  %77 = load i32, ptr %53, align 4, !tbaa !65
-  %78 = load i32, ptr %54, align 8, !tbaa !39
-  %79 = icmp ult i32 %77, %78
-  br i1 %79, label %80, label %sampling_advance.exit63
+  %76 = phi i32 [ %70, %61 ], [ %74, %72 ]
+  %77 = phi i32 [ %69, %61 ], [ %75, %72 ]
+  %78 = load i32, ptr %53, align 4, !tbaa !65
+  %79 = load i32, ptr %54, align 8, !tbaa !39
+  %80 = icmp ult i32 %78, %79
+  br i1 %80, label %81, label %sampling_advance.exit63
 
-80:                                               ; preds = %sampling_advance.exit
-  %81 = load i32, ptr %55, align 4, !tbaa !66
-  %82 = lshr i32 %81, 17
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %.pre, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !29
-  %86 = shl i16 %85, 1
-  %87 = add i16 %86, %67
-  store i16 %87, ptr %68, align 2, !tbaa !29
-  %88 = load i32, ptr %56, align 4, !tbaa !62
-  %89 = add i32 %88, %81
-  store i32 %89, ptr %55, align 4, !tbaa !60
-  %90 = load i32, ptr %57, align 4, !tbaa !63
-  %91 = load i32, ptr %58, align 4, !tbaa !61
-  %92 = add nsw i32 %91, %90
-  store i32 %92, ptr %58, align 4, !tbaa !61
-  %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %94, label %sampling_advance.exit63
+81:                                               ; preds = %sampling_advance.exit
+  %82 = load i32, ptr %55, align 4, !tbaa !66
+  %83 = lshr i32 %82, 17
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds nuw i16, ptr %.pre, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !29
+  %87 = shl i16 %86, 1
+  %88 = add i16 %87, %67
+  store i16 %88, ptr %68, align 2, !tbaa !29
+  %89 = load i32, ptr %56, align 4, !tbaa !62
+  %90 = add i32 %89, %82
+  store i32 %90, ptr %55, align 4, !tbaa !60
+  %91 = load i32, ptr %57, align 4, !tbaa !63
+  %92 = load i32, ptr %58, align 4, !tbaa !61
+  %93 = add nsw i32 %92, %91
+  store i32 %93, ptr %58, align 4, !tbaa !61
+  %94 = icmp sgt i32 %93, -1
+  br i1 %94, label %95, label %sampling_advance.exit63
 
-94:                                               ; preds = %80
-  %95 = load i32, ptr %59, align 4, !tbaa !64
-  %96 = sub nsw i32 %92, %95
-  store i32 %96, ptr %58, align 4, !tbaa !61
-  %97 = add i32 %89, 1
-  store i32 %97, ptr %55, align 4, !tbaa !60
+95:                                               ; preds = %81
+  %96 = load i32, ptr %59, align 4, !tbaa !64
+  %97 = sub nsw i32 %93, %96
+  store i32 %97, ptr %58, align 4, !tbaa !61
+  %98 = add i32 %90, 1
+  store i32 %98, ptr %55, align 4, !tbaa !60
   br label %sampling_advance.exit63
 
-sampling_advance.exit63:                          ; preds = %94, %80, %sampling_advance.exit
-  %98 = add i32 %77, 1
-  %99 = load i32, ptr %60, align 8, !tbaa !38
-  %100 = icmp eq i32 %98, %99
-  %spec.store.select = select i1 %100, i32 0, i32 %98
+sampling_advance.exit63:                          ; preds = %95, %81, %sampling_advance.exit
+  %99 = add i32 %78, 1
+  %100 = load i32, ptr %60, align 8, !tbaa !38
+  %101 = icmp eq i32 %99, %100
+  %spec.store.select = select i1 %101, i32 0, i32 %99
   store i32 %spec.store.select, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %sampling_advance.exit63
-  store i32 %76, ptr %48, align 8, !tbaa !60
-  store i32 %75, ptr %51, align 8, !tbaa !61
-  br label %101
+  store i32 %77, ptr %48, align 8, !tbaa !60
+  store i32 %76, ptr %51, align 8, !tbaa !61
+  br label %102
 
-101:                                              ; preds = %._crit_edge, %44
-  %102 = load i64, ptr %12, align 8, !tbaa !57
-  %103 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  store i64 %102, ptr %103, align 8, !tbaa !68
-  %104 = sext i32 %.1 to i64
-  %105 = add nsw i64 %102, %104
-  store i64 %105, ptr %12, align 8, !tbaa !57
-  %106 = call i32 @ff_filter_frame(ptr noundef nonnull %5, ptr noundef nonnull %43) #10
-  br label %107
+102:                                              ; preds = %._crit_edge, %44
+  %103 = load i64, ptr %12, align 8, !tbaa !57
+  %104 = getelementptr inbounds nuw i8, ptr %43, i64 136
+  store i64 %103, ptr %104, align 8, !tbaa !68
+  %105 = sext i32 %.1 to i64
+  %106 = add nsw i64 %103, %105
+  store i64 %106, ptr %12, align 8, !tbaa !57
+  %107 = call i32 @ff_filter_frame(ptr noundef nonnull %5, ptr noundef nonnull %43) #10
+  br label %108
 
-107:                                              ; preds = %42, %1, %101, %41
-  %.0 = phi i32 [ %106, %101 ], [ 0, %41 ], [ -1497649742, %1 ], [ -12, %42 ]
+108:                                              ; preds = %42, %1, %102, %41
+  %.0 = phi i32 [ %107, %102 ], [ 0, %41 ], [ -1497649742, %1 ], [ -12, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

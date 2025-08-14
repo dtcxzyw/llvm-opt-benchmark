@@ -19469,42 +19469,41 @@ define internal fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef 
   store i64 %74, ptr %68, align 8, !tbaa !93
   %75 = add i64 %.0.ph, 1
   %76 = load i64, ptr %5, align 8, !tbaa !396
-  %reass.sub = sub i64 %.0.ph, %6
-  %.reass = add i64 %reass.sub, 1
-  %77 = add i64 %.reass, %76
-  %78 = icmp ugt i64 %77, %2
-  br i1 %78, label %pop_mark_stack.exit, label %.outer, !llvm.loop !528
+  %77 = sub i64 %75, %6
+  %78 = add i64 %77, %76
+  %79 = icmp ugt i64 %78, %2
+  br i1 %79, label %pop_mark_stack.exit, label %.outer, !llvm.loop !528
 
 pop_mark_stack.exit:                              ; preds = %58
   %.val.pre = load ptr, ptr %4, align 8, !tbaa !182
-  %79 = icmp eq ptr %.val.pre, null
-  br i1 %79, label %pop_mark_stack.exit.thread, label %91
+  %80 = icmp eq ptr %.val.pre, null
+  br i1 %80, label %pop_mark_stack.exit.thread, label %92
 
 pop_mark_stack.exit.thread:                       ; preds = %37, %35, %pop_mark_stack.exit
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %81 = load i64, ptr %80, align 8, !tbaa !160
-  %82 = load i64, ptr %9, align 8, !tbaa !158
-  %83 = lshr i64 %82, 1
-  %84 = icmp ugt i64 %81, %83
-  br i1 %84, label %85, label %shrink_stack_chunk_cache.exit
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %82 = load i64, ptr %81, align 8, !tbaa !160
+  %83 = load i64, ptr %9, align 8, !tbaa !158
+  %84 = lshr i64 %83, 1
+  %85 = icmp ugt i64 %82, %84
+  br i1 %85, label %86, label %shrink_stack_chunk_cache.exit
 
-85:                                               ; preds = %pop_mark_stack.exit.thread
-  %86 = load ptr, ptr %8, align 8, !tbaa !157
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4000
-  %88 = load ptr, ptr %87, align 8, !tbaa !155
-  store ptr %88, ptr %8, align 8, !tbaa !157
-  %89 = add i64 %82, -1
-  store i64 %89, ptr %9, align 8, !tbaa !158
-  tail call void @free(ptr noundef %86) #6
+86:                                               ; preds = %pop_mark_stack.exit.thread
+  %87 = load ptr, ptr %8, align 8, !tbaa !157
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4000
+  %89 = load ptr, ptr %88, align 8, !tbaa !155
+  store ptr %89, ptr %8, align 8, !tbaa !157
+  %90 = add i64 %83, -1
+  store i64 %90, ptr %9, align 8, !tbaa !158
+  tail call void @free(ptr noundef %87) #6
   %.pre.i = load i64, ptr %9, align 8, !tbaa !158
   br label %shrink_stack_chunk_cache.exit
 
-shrink_stack_chunk_cache.exit:                    ; preds = %pop_mark_stack.exit.thread, %85
-  %90 = phi i64 [ %.pre.i, %85 ], [ %82, %pop_mark_stack.exit.thread ]
-  store i64 %90, ptr %80, align 8, !tbaa !160
-  br label %91
+shrink_stack_chunk_cache.exit:                    ; preds = %pop_mark_stack.exit.thread, %86
+  %91 = phi i64 [ %.pre.i, %86 ], [ %83, %pop_mark_stack.exit.thread ]
+  store i64 %91, ptr %81, align 8, !tbaa !160
+  br label %92
 
-91:                                               ; preds = %pop_mark_stack.exit, %shrink_stack_chunk_cache.exit
+92:                                               ; preds = %pop_mark_stack.exit, %shrink_stack_chunk_cache.exit
   %.012 = phi i32 [ 1, %shrink_stack_chunk_cache.exit ], [ 0, %pop_mark_stack.exit ]
   ret i32 %.012
 }

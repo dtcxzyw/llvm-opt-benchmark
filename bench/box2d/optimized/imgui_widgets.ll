@@ -30651,11 +30651,11 @@ define dso_local void @_ZN5ImGui23ColorPickerOptionsPopupEPKfi(ptr noundef reado
   %9 = and i32 %1, 65538
   %10 = icmp eq i32 %9, 0
   %or.cond = or i1 %.not, %10
-  br i1 %or.cond, label %11, label %89
+  br i1 %or.cond, label %11, label %91
 
 11:                                               ; preds = %2
   %12 = tail call noundef zeroext i1 @_ZN5ImGui10BeginPopupEPKci(ptr noundef nonnull @.str.54, i32 noundef 0)
-  br i1 %12, label %13, label %89
+  br i1 %12, label %13, label %91
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @GImGui, align 8, !tbaa !4
@@ -30681,136 +30681,137 @@ define dso_local void @_ZN5ImGui23ColorPickerOptionsPopupEPKfi(ptr noundef reado
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %28, ptr %29, align 4, !tbaa !159
   tail call void @_ZN5ImGui13PushItemWidthEf(float noundef %21)
-  %invariant.op = or disjoint i32 %8, 67108864
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 9212
-  %.not32 = icmp eq i32 %8, 0
-  %31 = select i1 %.not32, i64 16, i64 12
-  %32 = select i1 %.not32, i64 0, i64 4
-  %.sroa.sel.v = select i1 %.not32, i64 16, i64 12
-  %.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.sel.v
-  br label %33
+  br label %31
 
-33:                                               ; preds = %18, %58
-  %34 = phi i1 [ false, %18 ], [ true, %58 ]
-  %35 = phi i1 [ true, %18 ], [ false, %58 ]
-  %.02937 = phi i32 [ 0, %18 ], [ 1, %58 ]
-  br i1 %34, label %36, label %_ZN5ImGui9SeparatorEv.exit
+31:                                               ; preds = %18, %57
+  %32 = phi i1 [ false, %18 ], [ true, %57 ]
+  %33 = phi i1 [ true, %18 ], [ false, %57 ]
+  %.02937 = phi i32 [ 0, %18 ], [ 1, %57 ]
+  br i1 %32, label %34, label %_ZN5ImGui9SeparatorEv.exit
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr @GImGui, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4928
-  %39 = load ptr, ptr %38, align 8, !tbaa !9
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 207
-  %41 = load i8, ptr %40, align 1, !tbaa !151, !range !152, !noundef !153
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %_ZN5ImGui9SeparatorEv.exit, label %43
+34:                                               ; preds = %31
+  %35 = load ptr, ptr @GImGui, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4928
+  %37 = load ptr, ptr %36, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 207
+  %39 = load i8, ptr %38, align 1, !tbaa !151, !range !152, !noundef !153
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %_ZN5ImGui9SeparatorEv.exit, label %41
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 460
-  %45 = load i32, ptr %44, align 4, !tbaa !281
-  %46 = icmp eq i32 %45, 0
-  %47 = select i1 %46, i32 2, i32 1
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 448
-  %49 = load ptr, ptr %48, align 8, !tbaa !284
-  %.not.i = icmp eq ptr %49, null
-  %50 = or disjoint i32 %47, 4
-  %spec.select.i = select i1 %.not.i, i32 %47, i32 %50
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 460
+  %43 = load i32, ptr %42, align 4, !tbaa !281
+  %44 = icmp eq i32 %43, 0
+  %45 = select i1 %44, i32 2, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 448
+  %47 = load ptr, ptr %46, align 8, !tbaa !284
+  %.not.i = icmp eq ptr %47, null
+  %48 = or disjoint i32 %45, 4
+  %spec.select.i = select i1 %.not.i, i32 %45, i32 %48
   call void @_ZN5ImGui11SeparatorExEif(i32 noundef %spec.select.i, float noundef 1.000000e+00)
   br label %_ZN5ImGui9SeparatorEv.exit
 
-_ZN5ImGui9SeparatorEv.exit:                       ; preds = %43, %36, %33
-  %.1.v = phi i32 [ %invariant.op, %43 ], [ %invariant.op, %36 ], [ %8, %33 ]
+_ZN5ImGui9SeparatorEv.exit:                       ; preds = %41, %34, %31
   call void @_ZN5ImGui6PushIDEi(i32 noundef %.02937)
-  %spec.select.v = select i1 %35, i32 33554856, i32 424
-  %.1 = or disjoint i32 %spec.select.v, %.1.v
+  %spec.select.v = select i1 %33, i32 33554856, i32 424
+  %spec.select = or disjoint i32 %spec.select.v, %8
+  %49 = or disjoint i32 %spec.select, 67108864
+  %.1 = select i1 %32, i32 %49, i32 %spec.select
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %51 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
-  store <2 x float> %51, ptr %5, align 8
-  %52 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.91, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %52, label %53, label %58
+  %50 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
+  store <2 x float> %50, ptr %5, align 8
+  %51 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.91, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %51, label %52, label %57
 
-53:                                               ; preds = %_ZN5ImGui9SeparatorEv.exit
-  %54 = load i32, ptr %30, align 4, !tbaa !513
-  %55 = and i32 %54, -100663297
-  %56 = and i32 %.1, 100663296
-  %57 = or disjoint i32 %55, %56
-  store i32 %57, ptr %30, align 4, !tbaa !513
-  br label %58
+52:                                               ; preds = %_ZN5ImGui9SeparatorEv.exit
+  %53 = load i32, ptr %30, align 4, !tbaa !513
+  %54 = and i32 %53, -100663297
+  %55 = and i32 %.1, 100663296
+  %56 = or disjoint i32 %54, %55
+  store i32 %56, ptr %30, align 4, !tbaa !513
+  br label %57
 
-58:                                               ; preds = %53, %_ZN5ImGui9SeparatorEv.exit
+57:                                               ; preds = %52, %_ZN5ImGui9SeparatorEv.exit
   call void @_ZN5ImGui18SetCursorScreenPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.sroa.sel, i8 0, i64 %32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 %31, i1 false)
-  %59 = call noundef zeroext i1 @_ZN5ImGui12ColorPicker4EPKcPfiPKf(ptr noundef nonnull @.str.92, ptr noundef nonnull %6, i32 noundef %.1, ptr noundef null)
+  %58 = and i32 %.1, 2
+  %.not32 = icmp eq i32 %58, 0
+  %59 = select i1 %.not32, i64 16, i64 12
+  %60 = select i1 %.not32, i64 0, i64 4
+  %.sroa.sel.v = select i1 %.not32, i64 16, i64 12
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.sel.v
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.sroa.sel, i8 0, i64 %60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 %59, i1 false)
+  %61 = call noundef zeroext i1 @_ZN5ImGui12ColorPicker4EPKcPfiPKf(ptr noundef nonnull @.str.92, ptr noundef nonnull %6, i32 noundef %.1, ptr noundef null)
   call void @_ZN5ImGui5PopIDEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %35, label %33, label %60, !llvm.loop !539
+  br i1 %33, label %31, label %62, !llvm.loop !539
 
-60:                                               ; preds = %58
+62:                                               ; preds = %57
   call void @_ZN5ImGui12PopItemWidthEv()
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %10, label %61, label %86
+  br i1 %10, label %63, label %88
 
 .thread:                                          ; preds = %13
-  br i1 %10, label %_ZN5ImGui9SeparatorEv.exit35, label %86
+  br i1 %10, label %_ZN5ImGui9SeparatorEv.exit35, label %88
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr @GImGui, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4928
-  %64 = load ptr, ptr %63, align 8, !tbaa !9
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 207
-  %66 = load i8, ptr %65, align 1, !tbaa !151, !range !152, !noundef !153
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZN5ImGui9SeparatorEv.exit35, label %68
+63:                                               ; preds = %62
+  %64 = load ptr, ptr @GImGui, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4928
+  %66 = load ptr, ptr %65, align 8, !tbaa !9
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 207
+  %68 = load i8, ptr %67, align 1, !tbaa !151, !range !152, !noundef !153
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %_ZN5ImGui9SeparatorEv.exit35, label %70
 
-68:                                               ; preds = %61
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 460
-  %70 = load i32, ptr %69, align 4, !tbaa !281
-  %71 = icmp eq i32 %70, 0
-  %72 = select i1 %71, i32 2, i32 1
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 448
-  %74 = load ptr, ptr %73, align 8, !tbaa !284
-  %.not.i33 = icmp eq ptr %74, null
-  %75 = or disjoint i32 %72, 4
-  %spec.select.i34 = select i1 %.not.i33, i32 %72, i32 %75
+70:                                               ; preds = %63
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 460
+  %72 = load i32, ptr %71, align 4, !tbaa !281
+  %73 = icmp eq i32 %72, 0
+  %74 = select i1 %73, i32 2, i32 1
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 448
+  %76 = load ptr, ptr %75, align 8, !tbaa !284
+  %.not.i33 = icmp eq ptr %76, null
+  %77 = or disjoint i32 %74, 4
+  %spec.select.i34 = select i1 %.not.i33, i32 %74, i32 %77
   call void @_ZN5ImGui11SeparatorExEif(i32 noundef %spec.select.i34, float noundef 1.000000e+00)
   br label %_ZN5ImGui9SeparatorEv.exit35
 
-_ZN5ImGui9SeparatorEv.exit35:                     ; preds = %.thread, %68, %61
-  %76 = getelementptr inbounds nuw i8, ptr %14, i64 9212
+_ZN5ImGui9SeparatorEv.exit35:                     ; preds = %.thread, %70, %63
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 9212
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %77 = load i32, ptr %76, align 4, !tbaa !179
-  %78 = lshr i32 %77, 16
-  %79 = trunc i32 %78 to i8
-  %80 = and i8 %79, 1
-  store i8 %80, ptr %3, align 1, !tbaa !210
-  %81 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.93, ptr noundef nonnull %3)
-  br i1 %81, label %.sink.split.i.i, label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
+  %79 = load i32, ptr %78, align 4, !tbaa !179
+  %80 = lshr i32 %79, 16
+  %81 = trunc i32 %80 to i8
+  %82 = and i8 %81, 1
+  store i8 %82, ptr %3, align 1, !tbaa !210
+  %83 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.93, ptr noundef nonnull %3)
+  br i1 %83, label %.sink.split.i.i, label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
 
 .sink.split.i.i:                                  ; preds = %_ZN5ImGui9SeparatorEv.exit35
-  %82 = load i8, ptr %3, align 1, !tbaa !210, !range !152, !noundef !153
-  %83 = load i32, ptr %76, align 4, !tbaa !179
-  %84 = and i32 %83, -65537
-  %85 = zext nneg i8 %82 to i32
-  %masksel = shl nuw nsw i32 %85, 16
-  %.sink.i.i = or disjoint i32 %84, %masksel
-  store i32 %.sink.i.i, ptr %76, align 4, !tbaa !179
+  %84 = load i8, ptr %3, align 1, !tbaa !210, !range !152, !noundef !153
+  %85 = load i32, ptr %78, align 4, !tbaa !179
+  %86 = and i32 %85, -65537
+  %87 = zext nneg i8 %84 to i32
+  %masksel = shl nuw nsw i32 %87, 16
+  %.sink.i.i = or disjoint i32 %86, %masksel
+  store i32 %.sink.i.i, ptr %78, align 4, !tbaa !179
   br label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
 
 _ZN5ImGui13CheckboxFlagsEPKcPii.exit:             ; preds = %_ZN5ImGui9SeparatorEv.exit35, %.sink.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %86
+  br label %88
 
-86:                                               ; preds = %.thread, %_ZN5ImGui13CheckboxFlagsEPKcPii.exit, %60
+88:                                               ; preds = %.thread, %_ZN5ImGui13CheckboxFlagsEPKcPii.exit, %62
   call void @_ZN5ImGui8EndPopupEv()
-  %87 = load i16, ptr %15, align 2, !tbaa !526
-  %88 = add i16 %87, -1
-  store i16 %88, ptr %15, align 2, !tbaa !526
-  br label %89
+  %89 = load i16, ptr %15, align 2, !tbaa !526
+  %90 = add i16 %89, -1
+  store i16 %90, ptr %15, align 2, !tbaa !526
+  br label %91
 
-89:                                               ; preds = %11, %2, %86
+91:                                               ; preds = %11, %2, %88
   ret void
 }
 

@@ -2993,9 +2993,9 @@ while.end:                                        ; preds = %if.end37, %if.then3
 
 if.end42:                                         ; preds = %while.end
   %call.i38 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.067) #13
-  %i43.060.reass = add i32 %call.i38, -2
+  %i43.060 = add i32 %call.i38, -2
   %6 = load i32, ptr %maxSize_, align 8
-  %cmp46.not61 = icmp ult i32 %i43.060.reass, %6
+  %cmp46.not61 = icmp ult i32 %i43.060, %6
   br i1 %cmp46.not61, label %for.inc58, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %if.end42
@@ -3003,7 +3003,7 @@ for.body47.lr.ph:                                 ; preds = %if.end42
   br label %for.body47
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.body47
-  %i43.063 = phi i32 [ %i43.060.reass, %for.body47.lr.ph ], [ %i43.0, %for.body47 ]
+  %i43.063 = phi i32 [ %i43.060, %for.body47.lr.ph ], [ %i43.0, %for.body47 ]
   %i43.0.in62 = phi i32 [ %sub.i39, %for.body47.lr.ph ], [ %i43.063, %for.body47 ]
   %call49 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.067, i32 noundef %i43.0.in62) #13
   %conv54 = uitofp i32 %i43.063 to double

@@ -85,11 +85,10 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %.pn.neg82.i128 = trunc i64 %.pn.in.neg.i127 to i32
   %56 = trunc i64 %42 to i32
   %57 = add i32 %33, %56
-  %invariant.op502 = sub i32 %.079, %57
-  %invariant.op503 = add i32 %20, %.pn.neg82.i128
+  %invariant.op502 = add i32 %20, %.pn.neg82.i128
   %58 = add i32 %56, 65524
   %59 = select i1 %55, i32 0, i32 %58
-  %invariant.op504 = add i32 %invariant.op502, %59
+  %invariant.op503 = sub i32 %59, %57
   %.reass = sub i32 %32, %56
   br label %60
 
@@ -220,8 +219,8 @@ BTreeTupleIsPosting.exit.thread.i97:              ; preds = %108, %BTreeTupleIsP
 
 BTreeTupleIsPosting.exit.thread.i123:             ; preds = %94
   %122 = add i32 %.080499, %.079
-  %.1.in.i130.reass = add i32 %.080.neg500, %invariant.op503
-  %.160.in.i131.reass = add i32 %.080499, %invariant.op504
+  %.1.in.i130.reass = add i32 %.080.neg500, %invariant.op502
+  %.160.in.i131.reass = add i32 %122, %invariant.op503
   %sext.mask.i132 = and i32 %.1.in.i130.reass, 32768
   %123 = icmp eq i32 %sext.mask.i132, 0
   %sext.mask73.i133 = and i32 %.160.in.i131.reass, 32768
@@ -306,12 +305,12 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   %.160.in.i157.sink = phi i32 [ %.160.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.160.in.i105, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.160.in.i157, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.1.in.i156.sink = phi i32 [ %.1.in.i, %BTreeTupleIsPosting.exit.thread.i ], [ %.1.in.i104, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.1.in.i156, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.sroa.103.5.sink = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ]
-  %.sroa.117.5.sink532 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
+  %.sroa.117.5.sink531 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.sink = phi i8 [ 0, %BTreeTupleIsPosting.exit.thread.i ], [ 1, %BTreeTupleIsPosting.exit.thread.i97 ], [ 1, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.160.i161 = trunc i32 %.160.in.i157.sink to i16
   %.1.i162 = trunc i32 %.1.in.i156.sink to i16
   %..061.i163 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.5.sink, i64 %68)
-  %158 = sext i32 %.sroa.117.5.sink532 to i64
+  %158 = sext i32 %.sroa.117.5.sink531 to i64
   %159 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158
   store i16 0, ptr %159, align 2
   %160 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158, i32 1
@@ -322,7 +321,7 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   store i16 %.081498, ptr %162, align 2
   %163 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %158, i32 4
   store i8 %.sink, ptr %163, align 2
-  %164 = add i32 %.sroa.117.5.sink532, 1
+  %164 = add i32 %.sroa.117.5.sink531, 1
   br label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exit.sink.split, %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
@@ -515,22 +514,22 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   br i1 %257, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_bt_afternewitemoff.exit
-  %.not88505 = icmp sgt i32 %.sroa.117.2, 0
-  br i1 %.not88505, label %.lr.ph507.preheader, label %.loopexit
+  %.not88504 = icmp sgt i32 %.sroa.117.2, 0
+  br i1 %.not88504, label %.lr.ph506.preheader, label %.loopexit
 
-.lr.ph507.preheader:                              ; preds = %.preheader
+.lr.ph506.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %.sroa.117.2 to i64
-  br label %.lr.ph507
+  br label %.lr.ph506
 
-.lr.ph507:                                        ; preds = %.lr.ph507.preheader, %266
-  %indvars.iv = phi i64 [ 0, %.lr.ph507.preheader ], [ %indvars.iv.next, %266 ]
+.lr.ph506:                                        ; preds = %.lr.ph506.preheader, %266
+  %indvars.iv = phi i64 [ 0, %.lr.ph506.preheader ], [ %indvars.iv.next, %266 ]
   %258 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i8, ptr %259, align 2, !range !6, !noundef !7
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %262, label %266
 
-262:                                              ; preds = %.lr.ph507
+262:                                              ; preds = %.lr.ph506
   %263 = getelementptr inbounds nuw i8, ptr %258, i64 6
   %264 = load i16, ptr %263, align 2
   %265 = icmp eq i16 %2, %264
@@ -541,10 +540,10 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   store i8 1, ptr %5, align 1
   br label %496
 
-266:                                              ; preds = %262, %.lr.ph507
+266:                                              ; preds = %262, %.lr.ph506
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph507, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph506, !llvm.loop !8
 
 .loopexit:                                        ; preds = %266, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %246, %243, %249, %BTreeTupleIsPosting.exit.i201, %209, %203, %195, %190, %193
   %.0415.shrunk = phi i1 [ true, %193 ], [ %47, %190 ], [ false, %195 ], [ false, %203 ], [ false, %209 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %249 ], [ false, %243 ], [ false, %246 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %266 ]
@@ -588,8 +587,8 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   %spec.select.us.i = tail call i16 @llvm.abs.i16(i16 %283, i1 false)
   store i16 %spec.select.us.i, ptr %273, align 2
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %exitcond514.not = icmp eq i64 %indvars.iv.next26.i, %272
-  br i1 %exitcond514.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.us.i, !llvm.loop !9
+  %exitcond513.not = icmp eq i64 %indvars.iv.next26.i, %272
+  br i1 %exitcond513.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -602,8 +601,8 @@ _bt_afternewitemoff.exit:                         ; preds = %249
   %spec.select.i = tail call i16 @llvm.abs.i16(i16 %289, i1 false)
   store i16 %spec.select.i, ptr %284, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond513.not = icmp eq i64 %indvars.iv.next.i, %272
-  br i1 %exitcond513.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.i, !llvm.loop !11
+  %exitcond512.not = icmp eq i64 %indvars.iv.next.i, %272
+  br i1 %exitcond512.not, label %_bt_deltasortsplits.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i206, %.._crit_edge_crit_edge.i ], [ %272, %.lr.ph.split.us.i ], [ %272, %.lr.ph.split.i ]
@@ -677,8 +676,8 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
   %.09.i = phi ptr [ null, %.lr.ph.i.i ], [ %.09.i.be, %.backedge.i.i.backedge ]
   %.08.i = phi ptr [ null, %.lr.ph.i.i ], [ %.08.i.be, %.backedge.i.i.backedge ]
   %319 = phi ptr [ null, %.lr.ph.i.i ], [ %.be, %.backedge.i.i.backedge ]
-  %320 = phi ptr [ null, %.lr.ph.i.i ], [ %.be536, %.backedge.i.i.backedge ]
-  %321 = phi ptr [ null, %.lr.ph.i.i ], [ %.be537, %.backedge.i.i.backedge ]
+  %320 = phi ptr [ null, %.lr.ph.i.i ], [ %.be535, %.backedge.i.i.backedge ]
+  %321 = phi ptr [ null, %.lr.ph.i.i ], [ %.be536, %.backedge.i.i.backedge ]
   %.051.i.i = phi i32 [ %.050.i.i, %.lr.ph.i.i ], [ %.051.i.i.be, %.backedge.i.i.backedge ]
   %322 = zext nneg i32 %.051.i.i to i64
   %323 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %322
@@ -761,8 +760,8 @@ _bt_defaultinterval.exit:                         ; preds = %310, %_bt_deltasort
   %.09.i.be = phi ptr [ %.413.i, %.thread48.i.i ], [ null, %.critedge.i.i ]
   %.08.i.be = phi ptr [ null, %.thread48.i.i ], [ %.1.i217, %.critedge.i.i ]
   %.be = phi ptr [ null, %.thread48.i.i ], [ %348, %.critedge.i.i ]
-  %.be536 = phi ptr [ null, %.thread48.i.i ], [ %349, %.critedge.i.i ]
-  %.be537 = phi ptr [ null, %.thread48.i.i ], [ %350, %.critedge.i.i ]
+  %.be535 = phi ptr [ null, %.thread48.i.i ], [ %349, %.critedge.i.i ]
+  %.be536 = phi ptr [ null, %.thread48.i.i ], [ %350, %.critedge.i.i ]
   %.051.i.i.be = phi i32 [ %.0.i.i, %.thread48.i.i ], [ %.0.old.i.i, %.critedge.i.i ]
   br label %.backedge.i.i, !llvm.loop !13
 
@@ -898,8 +897,8 @@ _bt_split_firstright.exit57.i:                    ; preds = %_bt_split_lastleft.
   %spec.select.us.i224 = tail call i16 @llvm.abs.i16(i16 %417, i1 false)
   store i16 %spec.select.us.i224, ptr %408, align 2
   %indvars.iv.next26.i225 = add nuw nsw i64 %indvars.iv25.i223, 1
-  %exitcond515.not = icmp eq i64 %indvars.iv.next26.i225, %407
-  br i1 %exitcond515.not, label %_bt_deltasortsplits.exit226, label %.lr.ph.split.us.i222, !llvm.loop !9
+  %exitcond514.not = icmp eq i64 %indvars.iv.next26.i225, %407
+  br i1 %exitcond514.not, label %_bt_deltasortsplits.exit226, label %.lr.ph.split.us.i222, !llvm.loop !9
 
 _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i222, %.._crit_edge_crit_edge.i218
   %.pre-phi.i220 = phi i64 [ %.pre.i219, %.._crit_edge_crit_edge.i218 ], [ %407, %.lr.ph.split.us.i222 ]

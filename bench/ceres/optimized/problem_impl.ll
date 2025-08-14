@@ -15771,7 +15771,6 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
 45:                                               ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit
   %46 = load i8, ptr %5, align 1, !tbaa !13
   %47 = add i8 %46, 1
-  %invariant.op = add i8 %1, -1
   %.not5152 = icmp eq i8 %47, 0
   br i1 %.not5152, label %.preheader, label %.lr.ph
 
@@ -15790,52 +15789,54 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5cer
   %52 = add i8 %1, 1
   %umax = tail call i8 @llvm.umax.i8(i8 %52, i8 2)
   %wide.trip.count = zext i8 %umax to i64
-  br label %62
+  br label %64
 
 53:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %54, %53 ]
-  %54 = add nsw i64 %indvars.iv, -1
-  %55 = trunc nuw i64 %indvars.iv to i8
-  %.reass = add i8 %invariant.op, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %48, i64 %54
-  %57 = load ptr, ptr %56, align 8, !tbaa !11
-  %58 = zext i8 %.reass to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %48, i64 %58
-  store ptr %57, ptr %59, align 8, !tbaa !11
-  %60 = getelementptr i8, ptr %57, i64 8
-  store i8 %.reass, ptr %60, align 1, !tbaa !13
-  store ptr %2, ptr %57, align 8, !tbaa !11
-  %61 = and i64 %54, 255
-  %.not51 = icmp eq i64 %61, 0
+  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %54 = trunc nuw i64 %indvars.iv to i8
+  %55 = add i8 %54, -1
+  %56 = add i8 %55, %1
+  %57 = zext i8 %55 to i64
+  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !11
+  %60 = zext i8 %56 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %48, i64 %60
+  store ptr %59, ptr %61, align 8, !tbaa !11
+  %62 = getelementptr i8, ptr %59, i64 8
+  store i8 %56, ptr %62, align 1, !tbaa !13
+  store ptr %2, ptr %59, align 8, !tbaa !11
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %63 = and i64 %indvars.iv.next, 255
+  %.not51 = icmp eq i64 %63, 0
   br i1 %.not51, label %.preheader, label %53, !llvm.loop !569
 
-62:                                               ; preds = %.lr.ph56, %62
-  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %62 ]
-  %63 = add nsw i64 %indvars.iv59, -1
-  %64 = load i8, ptr %25, align 1, !tbaa !13
-  %65 = trunc nuw i64 %indvars.iv59 to i8
-  %66 = sub i8 %65, %1
-  %67 = add i8 %66, %64
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %50, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !11
-  %71 = getelementptr inbounds nuw ptr, ptr %51, i64 %63
-  store ptr %70, ptr %71, align 8, !tbaa !11
-  %72 = getelementptr i8, ptr %70, i64 8
-  %73 = trunc nuw i64 %63 to i8
-  store i8 %73, ptr %72, align 1, !tbaa !13
-  store ptr %2, ptr %70, align 8, !tbaa !11
+64:                                               ; preds = %.lr.ph56, %64
+  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %64 ]
+  %65 = add nsw i64 %indvars.iv59, -1
+  %66 = load i8, ptr %25, align 1, !tbaa !13
+  %67 = trunc nuw i64 %indvars.iv59 to i8
+  %68 = sub i8 %67, %1
+  %69 = add i8 %68, %66
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %50, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !11
+  %73 = getelementptr inbounds nuw ptr, ptr %51, i64 %65
+  store ptr %72, ptr %73, align 8, !tbaa !11
+  %74 = getelementptr i8, ptr %72, i64 8
+  %75 = trunc nuw i64 %65 to i8
+  store i8 %75, ptr %74, align 1, !tbaa !13
+  store ptr %2, ptr %72, align 8, !tbaa !11
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %62, !llvm.loop !570
+  br i1 %exitcond, label %.loopexit, label %64, !llvm.loop !570
 
-.loopexit:                                        ; preds = %62, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit
-  %74 = load i8, ptr %25, align 1, !tbaa !13
-  %75 = sub i8 %74, %1
-  store i8 %75, ptr %25, align 1, !tbaa !13
-  %76 = load i8, ptr %5, align 1, !tbaa !13
-  %77 = add i8 %76, %1
-  store i8 %77, ptr %5, align 1, !tbaa !13
+.loopexit:                                        ; preds = %64, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS4_ESaISt4pairIKS4_S8_EELi256ELb0EEEE10transfer_nEmmmPSG_PSE_.exit
+  %76 = load i8, ptr %25, align 1, !tbaa !13
+  %77 = sub i8 %76, %1
+  store i8 %77, ptr %25, align 1, !tbaa !13
+  %78 = load i8, ptr %5, align 1, !tbaa !13
+  %79 = add i8 %78, %1
+  store i8 %79, ptr %5, align 1, !tbaa !13
   ret void
 }
 
@@ -16687,7 +16688,6 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 45:                                               ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
   %46 = load i8, ptr %5, align 1, !tbaa !13
   %47 = add i8 %46, 1
-  %invariant.op = add i8 %1, -1
   %.not5152 = icmp eq i8 %47, 0
   br i1 %.not5152, label %.preheader, label %.lr.ph
 
@@ -16706,52 +16706,54 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   %52 = add i8 %1, 1
   %umax = tail call i8 @llvm.umax.i8(i8 %52, i8 2)
   %wide.trip.count = zext i8 %umax to i64
-  br label %62
+  br label %64
 
 53:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %54, %53 ]
-  %54 = add nsw i64 %indvars.iv, -1
-  %55 = trunc nuw i64 %indvars.iv to i8
-  %.reass = add i8 %invariant.op, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %48, i64 %54
-  %57 = load ptr, ptr %56, align 8, !tbaa !185
-  %58 = zext i8 %.reass to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %48, i64 %58
-  store ptr %57, ptr %59, align 8, !tbaa !185
-  %60 = getelementptr i8, ptr %57, i64 8
-  store i8 %.reass, ptr %60, align 1, !tbaa !13
-  store ptr %2, ptr %57, align 8, !tbaa !185
-  %61 = and i64 %54, 255
-  %.not51 = icmp eq i64 %61, 0
+  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %54 = trunc nuw i64 %indvars.iv to i8
+  %55 = add i8 %54, -1
+  %56 = add i8 %55, %1
+  %57 = zext i8 %55 to i64
+  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !185
+  %60 = zext i8 %56 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %48, i64 %60
+  store ptr %59, ptr %61, align 8, !tbaa !185
+  %62 = getelementptr i8, ptr %59, i64 8
+  store i8 %56, ptr %62, align 1, !tbaa !13
+  store ptr %2, ptr %59, align 8, !tbaa !185
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %63 = and i64 %indvars.iv.next, 255
+  %.not51 = icmp eq i64 %63, 0
   br i1 %.not51, label %.preheader, label %53, !llvm.loop !581
 
-62:                                               ; preds = %.lr.ph56, %62
-  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %62 ]
-  %63 = add nsw i64 %indvars.iv59, -1
-  %64 = load i8, ptr %25, align 1, !tbaa !13
-  %65 = trunc nuw i64 %indvars.iv59 to i8
-  %66 = sub i8 %65, %1
-  %67 = add i8 %66, %64
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %50, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !185
-  %71 = getelementptr inbounds nuw ptr, ptr %51, i64 %63
-  store ptr %70, ptr %71, align 8, !tbaa !185
-  %72 = getelementptr i8, ptr %70, i64 8
-  %73 = trunc nuw i64 %63 to i8
-  store i8 %73, ptr %72, align 1, !tbaa !13
-  store ptr %2, ptr %70, align 8, !tbaa !185
+64:                                               ; preds = %.lr.ph56, %64
+  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %64 ]
+  %65 = add nsw i64 %indvars.iv59, -1
+  %66 = load i8, ptr %25, align 1, !tbaa !13
+  %67 = trunc nuw i64 %indvars.iv59 to i8
+  %68 = sub i8 %67, %1
+  %69 = add i8 %68, %66
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %50, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !185
+  %73 = getelementptr inbounds nuw ptr, ptr %51, i64 %65
+  store ptr %72, ptr %73, align 8, !tbaa !185
+  %74 = getelementptr i8, ptr %72, i64 8
+  %75 = trunc nuw i64 %65 to i8
+  store i8 %75, ptr %74, align 1, !tbaa !13
+  store ptr %2, ptr %72, align 8, !tbaa !185
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %62, !llvm.loop !582
+  br i1 %exitcond, label %.loopexit, label %64, !llvm.loop !582
 
-.loopexit:                                        ; preds = %62, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
-  %74 = load i8, ptr %25, align 1, !tbaa !13
-  %75 = sub i8 %74, %1
-  store i8 %75, ptr %25, align 1, !tbaa !13
-  %76 = load i8, ptr %5, align 1, !tbaa !13
-  %77 = add i8 %76, %1
-  store i8 %77, ptr %5, align 1, !tbaa !13
+.loopexit:                                        ; preds = %64, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12CostFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
+  %76 = load i8, ptr %25, align 1, !tbaa !13
+  %77 = sub i8 %76, %1
+  store i8 %77, ptr %25, align 1, !tbaa !13
+  %78 = load i8, ptr %5, align 1, !tbaa !13
+  %79 = add i8 %78, %1
+  store i8 %79, ptr %5, align 1, !tbaa !13
   ret void
 }
 
@@ -17576,7 +17578,6 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
 45:                                               ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
   %46 = load i8, ptr %5, align 1, !tbaa !13
   %47 = add i8 %46, 1
-  %invariant.op = add i8 %1, -1
   %.not5152 = icmp eq i8 %47, 0
   br i1 %.not5152, label %.preheader, label %.lr.ph
 
@@ -17595,52 +17596,54 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres
   %52 = add i8 %1, 1
   %umax = tail call i8 @llvm.umax.i8(i8 %52, i8 2)
   %wide.trip.count = zext i8 %umax to i64
-  br label %62
+  br label %64
 
 53:                                               ; preds = %.lr.ph, %53
-  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %54, %53 ]
-  %54 = add nsw i64 %indvars.iv, -1
-  %55 = trunc nuw i64 %indvars.iv to i8
-  %.reass = add i8 %invariant.op, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %48, i64 %54
-  %57 = load ptr, ptr %56, align 8, !tbaa !195
-  %58 = zext i8 %.reass to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %48, i64 %58
-  store ptr %57, ptr %59, align 8, !tbaa !195
-  %60 = getelementptr i8, ptr %57, i64 8
-  store i8 %.reass, ptr %60, align 1, !tbaa !13
-  store ptr %2, ptr %57, align 8, !tbaa !195
-  %61 = and i64 %54, 255
-  %.not51 = icmp eq i64 %61, 0
+  %indvars.iv = phi i64 [ %49, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %54 = trunc nuw i64 %indvars.iv to i8
+  %55 = add i8 %54, -1
+  %56 = add i8 %55, %1
+  %57 = zext i8 %55 to i64
+  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !195
+  %60 = zext i8 %56 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %48, i64 %60
+  store ptr %59, ptr %61, align 8, !tbaa !195
+  %62 = getelementptr i8, ptr %59, i64 8
+  store i8 %56, ptr %62, align 1, !tbaa !13
+  store ptr %2, ptr %59, align 8, !tbaa !195
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %63 = and i64 %indvars.iv.next, 255
+  %.not51 = icmp eq i64 %63, 0
   br i1 %.not51, label %.preheader, label %53, !llvm.loop !593
 
-62:                                               ; preds = %.lr.ph56, %62
-  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %62 ]
-  %63 = add nsw i64 %indvars.iv59, -1
-  %64 = load i8, ptr %25, align 1, !tbaa !13
-  %65 = trunc nuw i64 %indvars.iv59 to i8
-  %66 = sub i8 %65, %1
-  %67 = add i8 %66, %64
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %50, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !195
-  %71 = getelementptr inbounds nuw ptr, ptr %51, i64 %63
-  store ptr %70, ptr %71, align 8, !tbaa !195
-  %72 = getelementptr i8, ptr %70, i64 8
-  %73 = trunc nuw i64 %63 to i8
-  store i8 %73, ptr %72, align 1, !tbaa !13
-  store ptr %2, ptr %70, align 8, !tbaa !195
+64:                                               ; preds = %.lr.ph56, %64
+  %indvars.iv59 = phi i64 [ 1, %.lr.ph56 ], [ %indvars.iv.next60, %64 ]
+  %65 = add nsw i64 %indvars.iv59, -1
+  %66 = load i8, ptr %25, align 1, !tbaa !13
+  %67 = trunc nuw i64 %indvars.iv59 to i8
+  %68 = sub i8 %67, %1
+  %69 = add i8 %68, %66
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %50, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !195
+  %73 = getelementptr inbounds nuw ptr, ptr %51, i64 %65
+  store ptr %72, ptr %73, align 8, !tbaa !195
+  %74 = getelementptr i8, ptr %72, i64 8
+  %75 = trunc nuw i64 %65 to i8
+  store i8 %75, ptr %74, align 1, !tbaa !13
+  store ptr %2, ptr %72, align 8, !tbaa !195
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond, label %.loopexit, label %62, !llvm.loop !594
+  br i1 %exitcond, label %.loopexit, label %64, !llvm.loop !594
 
-.loopexit:                                        ; preds = %62, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
-  %74 = load i8, ptr %25, align 1, !tbaa !13
-  %75 = sub i8 %74, %1
-  store i8 %75, ptr %25, align 1, !tbaa !13
-  %76 = load i8, ptr %5, align 1, !tbaa !13
-  %77 = add i8 %76, %1
-  store i8 %77, ptr %5, align 1, !tbaa !13
+.loopexit:                                        ; preds = %64, %.preheader, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIPN5ceres12LossFunctionEiSt4lessIS6_ESaISt4pairIKS6_iEELi256ELb0EEEE10transfer_nEmmmPSE_PSC_.exit
+  %76 = load i8, ptr %25, align 1, !tbaa !13
+  %77 = sub i8 %76, %1
+  store i8 %77, ptr %25, align 1, !tbaa !13
+  %78 = load i8, ptr %5, align 1, !tbaa !13
+  %79 = add i8 %78, %1
+  store i8 %79, ptr %5, align 1, !tbaa !13
   ret void
 }
 

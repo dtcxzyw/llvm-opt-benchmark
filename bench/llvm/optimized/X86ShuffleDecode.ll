@@ -621,9 +621,8 @@ define dso_local void @_ZN4llvm16DecodePSRLDQMaskEjjRNS_15SmallVectorImplIiEE(i3
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %7
-  %.pre = phi i32 [ %.pre.pre, %.preheader.lr.ph ], [ %23, %7 ]
+  %.pre = phi i32 [ %.pre.pre, %.preheader.lr.ph ], [ %24, %7 ]
   %.013 = phi i32 [ 0, %.preheader.lr.ph ], [ %8, %7 ]
-  %invariant.op = add i32 %1, %.013
   br label %10
 
 ._crit_edge:                                      ; preds = %7, %3
@@ -635,34 +634,34 @@ define dso_local void @_ZN4llvm16DecodePSRLDQMaskEjjRNS_15SmallVectorImplIiEE(i3
   br i1 %9, label %.preheader, label %._crit_edge, !llvm.loop !26
 
 10:                                               ; preds = %.preheader, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %11 = phi i32 [ %.pre, %.preheader ], [ %23, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
-  %.01112 = phi i32 [ 0, %.preheader ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
+  %11 = phi i32 [ %.pre, %.preheader ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
+  %.01112 = phi i32 [ 0, %.preheader ], [ %25, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
   %12 = add i32 %.01112, %1
-  %.reass = add i32 %.01112, %invariant.op
-  %13 = icmp ugt i32 %12, 15
-  %spec.store.select = select i1 %13, i32 -2, i32 %.reass
-  %14 = load i32, ptr %5, align 4, !tbaa !9
-  %.not.i.i.not.i = icmp ult i32 %11, %14
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %15, !prof !10
+  %13 = add i32 %12, %.013
+  %14 = icmp ugt i32 %12, 15
+  %spec.store.select = select i1 %14, i32 -2, i32 %13
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %.not.i.i.not.i = icmp ult i32 %11, %15
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %16, !prof !10
 
-15:                                               ; preds = %10
-  %16 = zext i32 %11 to i64
-  %17 = add nuw nsw i64 %16, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, i64 noundef %17, i64 noundef 4) #4
+16:                                               ; preds = %10
+  %17 = zext i32 %11 to i64
+  %18 = add nuw nsw i64 %17, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, i64 noundef %18, i64 noundef 4) #4
   %.pre.i = load i32, ptr %4, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %15
-  %18 = phi i32 [ %11, %10 ], [ %.pre.i, %15 ]
-  %19 = load ptr, ptr %2, align 8, !tbaa !11
-  %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
-  store i32 %spec.store.select, ptr %21, align 1
-  %22 = load i32, ptr %4, align 8, !tbaa !3
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %4, align 8, !tbaa !3
-  %24 = add nuw nsw i32 %.01112, 1
-  %exitcond.not = icmp eq i32 %24, 16
+_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %16
+  %19 = phi i32 [ %11, %10 ], [ %.pre.i, %16 ]
+  %20 = load ptr, ptr %2, align 8, !tbaa !11
+  %21 = zext i32 %19 to i64
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  store i32 %spec.store.select, ptr %22, align 1
+  %23 = load i32, ptr %4, align 8, !tbaa !3
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %4, align 8, !tbaa !3
+  %25 = add nuw nsw i32 %.01112, 1
+  %exitcond.not = icmp eq i32 %25, 16
   br i1 %exitcond.not, label %7, label %10, !llvm.loop !27
 }
 
@@ -682,7 +681,6 @@ define dso_local void @_ZN4llvm17DecodePALIGNRMaskEjjRNS_15SmallVectorImplIiEE(i
 .preheader:                                       ; preds = %.preheader.lr.ph, %8
   %.pre = phi i32 [ %.pre.pre, %.preheader.lr.ph ], [ %25, %8 ]
   %.01319 = phi i32 [ 0, %.preheader.lr.ph ], [ %9, %8 ]
-  %invariant.op = add i32 %1, %.01319
   br label %10
 
 ._crit_edge:                                      ; preds = %8, %3
@@ -699,8 +697,8 @@ define dso_local void @_ZN4llvm17DecodePALIGNRMaskEjjRNS_15SmallVectorImplIiEE(i
   %12 = add i32 %.01217, %1
   %13 = icmp ugt i32 %12, 15
   %14 = select i1 %13, i32 %4, i32 0
-  %.0.reass = add i32 %.01217, %invariant.op
-  %15 = add i32 %.0.reass, %14
+  %.0 = add i32 %12, %.01319
+  %15 = add i32 %.0, %14
   %16 = load i32, ptr %6, align 4, !tbaa !9
   %.not.i.i.not.i = icmp ult i32 %11, %16
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %17, !prof !10

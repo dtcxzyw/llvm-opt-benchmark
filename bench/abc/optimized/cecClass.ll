@@ -1649,7 +1649,7 @@ define noundef ptr @Cec_ManSimSimRef(ptr noundef captures(none) %0, i32 noundef 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
-  br label %39
+  br label %40
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1694,65 +1694,61 @@ define noundef ptr @Cec_ManSimSimRef(ptr noundef captures(none) %0, i32 noundef 
   %31 = mul nsw i32 %30, %27
   %32 = add i32 %30, %31
   %33 = icmp ult i32 %32, %24
-  br i1 %33, label %.lr.ph.i.preheader, label %Cec_ManSimMemRelink.exit
+  br i1 %33, label %.lr.ph.i, label %Cec_ManSimMemRelink.exit
 
-.lr.ph.i.preheader:                               ; preds = %23
-  %invariant.op = shl i32 %30, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.016.i = phi i32 [ %36, %.lr.ph.i ], [ %31, %.lr.ph.i.preheader ]
-  %.01415.i = phi ptr [ %35, %.lr.ph.i ], [ %3, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
+  %.016.i = phi i32 [ %36, %.lr.ph.i ], [ %31, %23 ]
+  %.01415.i = phi ptr [ %35, %.lr.ph.i ], [ %3, %23 ]
   store i32 %.016.i, ptr %.01415.i, align 4, !tbaa !3
   %34 = zext i32 %.016.i to i64
   %35 = getelementptr inbounds nuw i32, ptr %25, i64 %34
   %36 = add i32 %30, %.016.i
-  %.reass = add i32 %.016.i, %invariant.op
-  %37 = icmp ult i32 %.reass, %24
-  br i1 %37, label %.lr.ph.i, label %Cec_ManSimMemRelink.exit, !llvm.loop !68
+  %37 = add i32 %30, %36
+  %38 = icmp ult i32 %37, %24
+  br i1 %38, label %.lr.ph.i, label %Cec_ManSimMemRelink.exit, !llvm.loop !68
 
 Cec_ManSimMemRelink.exit:                         ; preds = %.lr.ph.i, %23
   %.014.lcssa.i = phi ptr [ %3, %23 ], [ %35, %.lr.ph.i ]
   store i32 0, ptr %.014.lcssa.i, align 4, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %29, ptr %38, align 8, !tbaa !69
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %29, ptr %39, align 8, !tbaa !69
   %.pre29 = load i32, ptr %3, align 4, !tbaa !70
-  br label %39
+  br label %40
 
-39:                                               ; preds = %._crit_edge, %Cec_ManSimMemRelink.exit
-  %40 = phi ptr [ %25, %Cec_ManSimMemRelink.exit ], [ %.pre30, %._crit_edge ]
-  %41 = phi i32 [ %.pre29, %Cec_ManSimMemRelink.exit ], [ %4, %._crit_edge ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !56
-  %44 = sext i32 %1 to i64
-  %45 = getelementptr inbounds i32, ptr %43, i64 %44
-  store i32 %41, ptr %45, align 4, !tbaa !3
-  %46 = load i32, ptr %3, align 4, !tbaa !70
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %40, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !3
-  store i32 %49, ptr %3, align 4, !tbaa !70
-  %50 = load ptr, ptr %0, align 8, !tbaa !58
-  %51 = getelementptr i8, ptr %50, i64 32
-  %.val = load ptr, ptr %51, align 8, !tbaa !71
-  %52 = getelementptr %struct.Gia_Obj_t_, ptr %.val, i64 %44, i32 1
-  %.val28 = load i32, ptr %52, align 4, !tbaa !72
-  store i32 %.val28, ptr %48, align 4, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %54 = load i32, ptr %53, align 4, !tbaa !66
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %53, align 4, !tbaa !66
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %57 = load i32, ptr %56, align 8, !tbaa !74
-  %.not27 = icmp sgt i32 %57, %54
-  br i1 %.not27, label %59, label %58
+40:                                               ; preds = %._crit_edge, %Cec_ManSimMemRelink.exit
+  %41 = phi ptr [ %25, %Cec_ManSimMemRelink.exit ], [ %.pre30, %._crit_edge ]
+  %42 = phi i32 [ %.pre29, %Cec_ManSimMemRelink.exit ], [ %4, %._crit_edge ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !56
+  %45 = sext i32 %1 to i64
+  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  store i32 %42, ptr %46, align 4, !tbaa !3
+  %47 = load i32, ptr %3, align 4, !tbaa !70
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i32, ptr %41, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !3
+  store i32 %50, ptr %3, align 4, !tbaa !70
+  %51 = load ptr, ptr %0, align 8, !tbaa !58
+  %52 = getelementptr i8, ptr %51, i64 32
+  %.val = load ptr, ptr %52, align 8, !tbaa !71
+  %53 = getelementptr %struct.Gia_Obj_t_, ptr %.val, i64 %45, i32 1
+  %.val28 = load i32, ptr %53, align 4, !tbaa !72
+  store i32 %.val28, ptr %49, align 4, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %55 = load i32, ptr %54, align 4, !tbaa !66
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %54, align 4, !tbaa !66
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %58 = load i32, ptr %57, align 8, !tbaa !74
+  %.not27 = icmp sgt i32 %58, %55
+  br i1 %.not27, label %60, label %59
 
-58:                                               ; preds = %39
-  store i32 %55, ptr %56, align 8, !tbaa !74
-  br label %59
+59:                                               ; preds = %40
+  store i32 %56, ptr %57, align 8, !tbaa !74
+  br label %60
 
-59:                                               ; preds = %58, %39
-  ret ptr %48
+60:                                               ; preds = %59, %40
+  ret ptr %49
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

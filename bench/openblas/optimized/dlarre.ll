@@ -785,7 +785,6 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %wide.trip.count975 = zext nneg i32 %424 to i64
   %invariant.gep = getelementptr double, ptr %45, i64 %435
   %invariant.gep1076 = getelementptr double, ptr %45, i64 %436
-  %invariant.op = or i1 %.not770, %.not774866
   %wide.trip.count980 = zext i32 %437 to i64
   br label %438
 
@@ -839,8 +838,9 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 461:                                              ; preds = %._crit_edge863, %438
   %.0743.lcssa = phi double [ %460, %._crit_edge863 ], [ %443, %438 ]
   %462 = fcmp ogt double %.0743.lcssa, %426
-  %brmerge.reass = or i1 %462, %invariant.op
-  br i1 %brmerge.reass, label %.loopexit, label %.lr.ph870
+  %or.cond15 = or i1 %.not770, %462
+  %brmerge = or i1 %or.cond15, %.not774866
+  br i1 %brmerge, label %.loopexit, label %.lr.ph870
 
 .lr.ph870:                                        ; preds = %461, %.lr.ph870
   %indvars.iv977 = phi i64 [ %indvars.iv.next978, %.lr.ph870 ], [ 1, %461 ]
@@ -900,7 +900,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit820
 
 .split.loop.exit1078:                             ; preds = %.loopexit
-  %487 = sext i1 %.not770 to i32
+  %487 = sext i1 %or.cond15 to i32
   %.mux.le = add nsw i32 %424, %487
   br label %.split.loop.exit
 

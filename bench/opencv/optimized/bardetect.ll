@@ -746,11 +746,10 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %33 = load ptr, ptr %32, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %35 = load ptr, ptr %34, align 8, !tbaa !56
-  %invariant.op = mul i32 %1, %27
   %36 = icmp sgt i32 %14, 0
-  br i1 %36, label %.lr.ph183, label %._crit_edge
+  br i1 %36, label %.lr.ph182, label %._crit_edge
 
-.lr.ph183:                                        ; preds = %25
+.lr.ph182:                                        ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -758,43 +757,42 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %43 = icmp sgt i32 %11, 0
-  br i1 %43, label %.lr.ph183.split.us.preheader, label %._crit_edge
+  br i1 %43, label %.lr.ph182.split.us.preheader, label %._crit_edge
 
-.lr.ph183.split.us.preheader:                     ; preds = %.lr.ph183
+.lr.ph182.split.us.preheader:                     ; preds = %.lr.ph182
   %44 = sext i32 %1 to i64
-  br label %.lr.ph183.split.us
+  %45 = sext i32 %27 to i64
+  br label %.lr.ph182.split.us
 
-.lr.ph183.split.us:                               ; preds = %.lr.ph183.split.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv187 = phi i64 [ 0, %.lr.ph183.split.us.preheader ], [ %63, %..loopexit_crit_edge.us ]
-  %45 = load ptr, ptr %37, align 8, !tbaa !56
-  %46 = load ptr, ptr %38, align 8, !tbaa !57
-  %47 = load i64, ptr %46, align 8, !tbaa !58
-  %48 = mul i64 %47, %indvars.iv187
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  %50 = load ptr, ptr %39, align 8, !tbaa !56
-  %51 = load ptr, ptr %40, align 8, !tbaa !57
-  %52 = load i64, ptr %51, align 8, !tbaa !58
-  %53 = mul i64 %52, %indvars.iv187
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
-  %55 = load ptr, ptr %41, align 8, !tbaa !56
-  %56 = load ptr, ptr %42, align 8, !tbaa !57
-  %57 = load i64, ptr %56, align 8, !tbaa !58
-  %58 = mul i64 %57, %indvars.iv187
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %58
-  %60 = mul nsw i64 %indvars.iv187, %44
-  %61 = load i32, ptr %12, align 8, !tbaa !42
-  %62 = sext i32 %61 to i64
-  %.not.us = icmp slt i64 %60, %62
-  %63 = add nuw nsw i64 %indvars.iv187, 1
+.lr.ph182.split.us:                               ; preds = %.lr.ph182.split.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv186 = phi i64 [ 0, %.lr.ph182.split.us.preheader ], [ %64, %..loopexit_crit_edge.us ]
+  %46 = load ptr, ptr %37, align 8, !tbaa !56
+  %47 = load ptr, ptr %38, align 8, !tbaa !57
+  %48 = load i64, ptr %47, align 8, !tbaa !58
+  %49 = mul i64 %48, %indvars.iv186
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
+  %51 = load ptr, ptr %39, align 8, !tbaa !56
+  %52 = load ptr, ptr %40, align 8, !tbaa !57
+  %53 = load i64, ptr %52, align 8, !tbaa !58
+  %54 = mul i64 %53, %indvars.iv186
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %54
+  %56 = load ptr, ptr %41, align 8, !tbaa !56
+  %57 = load ptr, ptr %42, align 8, !tbaa !57
+  %58 = load i64, ptr %57, align 8, !tbaa !58
+  %59 = mul i64 %58, %indvars.iv186
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
+  %61 = mul nsw i64 %indvars.iv186, %44
+  %62 = load i32, ptr %12, align 8, !tbaa !42
+  %63 = sext i32 %62 to i64
+  %.not.us = icmp slt i64 %61, %63
+  %64 = add nuw nsw i64 %indvars.iv186, 1
   br i1 %.not.us, label %.lr.ph.us, label %..loopexit_crit_edge.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph183.split.us
-  %64 = trunc i64 %63 to i32
-  %65 = mul i32 %1, %64
-  %.sroa.speculated149.us = call i32 @llvm.smin.i32(i32 %65, i32 %61)
-  %66 = trunc nuw nsw i64 %indvars.iv187 to i32
-  %.reass.us = mul i32 %invariant.op, %66
-  %67 = sext i32 %.reass.us to i64
+.lr.ph.us:                                        ; preds = %.lr.ph182.split.us
+  %65 = trunc i64 %64 to i32
+  %66 = mul i32 %1, %65
+  %.sroa.speculated149.us = call i32 @llvm.smin.i32(i32 %66, i32 %62)
+  %67 = mul nsw i64 %61, %45
   %invariant.gep.us = getelementptr float, ptr %29, i64 %67
   %68 = mul nsw i32 %.sroa.speculated149.us, %27
   %69 = sext i32 %68 to i64
@@ -807,18 +805,18 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %invariant.gep179.us = getelementptr float, ptr %35, i64 %69
   br label %70
 
-..loopexit_crit_edge.us:                          ; preds = %._crit_edge192, %.lr.ph183.split.us
-  %exitcond191.not = icmp eq i64 %63, %.sroa.8.0.insert.ext162
-  br i1 %exitcond191.not, label %._crit_edge, label %.lr.ph183.split.us, !llvm.loop !65
+..loopexit_crit_edge.us:                          ; preds = %._crit_edge191, %.lr.ph182.split.us
+  %exitcond190.not = icmp eq i64 %64, %.sroa.8.0.insert.ext162
+  br i1 %exitcond190.not, label %._crit_edge, label %.lr.ph182.split.us, !llvm.loop !65
 
-70:                                               ; preds = %.lr.ph.us, %._crit_edge192
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %74, %._crit_edge192 ]
+70:                                               ; preds = %.lr.ph.us, %._crit_edge191
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %74, %._crit_edge191 ]
   %71 = mul nsw i64 %indvars.iv, %44
   %72 = load i32, ptr %9, align 4, !tbaa !41
   %73 = sext i32 %72 to i64
   %.not145.us = icmp slt i64 %71, %73
   %74 = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not145.us, label %75, label %._crit_edge192
+  br i1 %.not145.us, label %75, label %._crit_edge191
 
 75:                                               ; preds = %70
   %76 = trunc i64 %74 to i32
@@ -881,12 +879,12 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %122 = fadd float %98, %107
   %123 = fdiv float %121, %122
   %124 = fcmp ogt float %123, 0x3FECCCCCC0000000
-  %125 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
   br i1 %124, label %127, label %126
 
 126:                                              ; preds = %89
   store i8 0, ptr %125, align 1, !tbaa !60
-  br label %._crit_edge192
+  br label %._crit_edge191
 
 127:                                              ; preds = %89
   store i8 -1, ptr %125, align 1, !tbaa !60
@@ -896,22 +894,22 @@ define hidden void @_ZN2cv7barcode6Detect12calCoherenceEi(ptr noundef nonnull al
   %131 = call double @atan2(double noundef %128, double noundef %130) #21, !tbaa !9
   %132 = fmul double %131, 5.000000e-01
   %133 = fptrunc double %132 to float
-  %134 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   store float %133, ptr %134, align 4, !tbaa !54
-  %135 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
   store float %87, ptr %135, align 4, !tbaa !54
-  br label %._crit_edge192
+  br label %._crit_edge191
 
 136:                                              ; preds = %75
-  %137 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
   store i8 0, ptr %137, align 1, !tbaa !60
-  br label %._crit_edge192
+  br label %._crit_edge191
 
-._crit_edge192:                                   ; preds = %70, %136, %127, %126
+._crit_edge191:                                   ; preds = %70, %136, %127, %126
   %exitcond.not = icmp eq i64 %74, %.sroa.0.0.insert.ext155
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %70, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph183, %25
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph182, %25
   ret void
 
 138:                                              ; preds = %2

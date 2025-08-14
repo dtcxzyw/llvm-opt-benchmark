@@ -389,7 +389,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %171 = icmp ne i32 %.0417689.us, 15
   %or.cond15.us = and i1 %171, %170
   %spec.select.v = select i1 %or.cond15.us, i32 3, i32 2
-  %spec.select = add i32 %168, %spec.select.v
+  %spec.select = add nsw i32 %168, %spec.select.v
   %172 = add nuw nsw i32 %.0417689.us, 1
   %exitcond712.not = icmp eq i32 %172, 16
   br i1 %exitcond712.not, label %202, label %167, !llvm.loop !25
@@ -1424,7 +1424,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %185 = icmp ne i32 %.0417699.us, 15
   %or.cond15.us = and i1 %185, %184
   %spec.select.v = select i1 %or.cond15.us, i32 3, i32 2
-  %spec.select = add i32 %182, %spec.select.v
+  %spec.select = add nsw i32 %182, %spec.select.v
   %186 = add nuw nsw i32 %.0417699.us, 1
   %exitcond722.not = icmp eq i32 %186, 16
   br i1 %exitcond722.not, label %216, label %181, !llvm.loop !56

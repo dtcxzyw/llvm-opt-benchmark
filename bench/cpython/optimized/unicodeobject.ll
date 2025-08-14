@@ -31749,7 +31749,7 @@ _PyUnicode_DATA.exit477:                          ; preds = %165, %163, %160
   %175 = mul i64 %.0.i469510, %170
   %176 = add i64 %175, %.val414
   %177 = icmp eq i64 %176, 0
-  br i1 %177, label %266, label %178
+  br i1 %177, label %267, label %178
 
 178:                                              ; preds = %._crit_edge623
   %179 = zext nneg i32 %.0279 to i64
@@ -31795,11 +31795,7 @@ _PyUnicode_DATA.exit485:                          ; preds = %187, %189
   %193 = mul i64 %.val.fr, %179
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i483, ptr align 1 %.6311, i64 %193, i1 false)
   %194 = icmp eq i64 %.0.i469510, 1
-  br i1 %194, label %._crit_edge, label %.lr.ph633.preheader
-
-.lr.ph633.preheader:                              ; preds = %.lr.ph
-  %invariant.op = add i64 1, %.val.fr
-  br label %.lr.ph633
+  br i1 %194, label %._crit_edge, label %.lr.ph633
 
 .preheader:                                       ; preds = %_PyUnicode_DATA.exit485
   br i1 %192, label %.lr.ph607, label %._crit_edge608
@@ -31892,10 +31888,10 @@ _PyUnicode_DATA.exit485:                          ; preds = %187, %189
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %240, ptr align 1 %242, i64 %244, i1 false)
   br label %.thread498
 
-.lr.ph633:                                        ; preds = %.lr.ph633.preheader, %.lr.ph633
-  %245 = phi i64 [ %.reass, %.lr.ph633 ], [ %.val.fr, %.lr.ph633.preheader ]
-  %.1291598632 = phi i64 [ %246, %.lr.ph633 ], [ %.0.i469510, %.lr.ph633.preheader ]
-  %.1289599631 = phi i64 [ %252, %.lr.ph633 ], [ 0, %.lr.ph633.preheader ]
+.lr.ph633:                                        ; preds = %.lr.ph, %.lr.ph633
+  %245 = phi i64 [ %255, %.lr.ph633 ], [ %.val.fr, %.lr.ph ]
+  %.1291598632 = phi i64 [ %246, %.lr.ph633 ], [ %.0.i469510, %.lr.ph ]
+  %.1289599631 = phi i64 [ %252, %.lr.ph633 ], [ 0, %.lr.ph ]
   %246 = add nsw i64 %.1291598632, -1
   %247 = mul i64 %245, %179
   %248 = getelementptr i8, ptr %.0.i483, i64 %247
@@ -31907,66 +31903,66 @@ _PyUnicode_DATA.exit485:                          ; preds = %187, %189
   %253 = mul i64 %251, %179
   %254 = getelementptr i8, ptr %.0.i483, i64 %253
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %254, ptr align 1 %.6311, i64 %193, i1 false)
-  %.reass = add i64 %245, %invariant.op
-  %255 = icmp eq i64 %246, 1
-  br i1 %255, label %._crit_edge, label %.lr.ph633
+  %255 = add i64 %251, %.val.fr
+  %256 = icmp eq i64 %246, 1
+  br i1 %256, label %._crit_edge, label %.lr.ph633
 
 ._crit_edge:                                      ; preds = %.lr.ph633, %.lr.ph, %.preheader597
   %.1289.lcssa = phi i64 [ 0, %.preheader597 ], [ 0, %.lr.ph ], [ %252, %.lr.ph633 ]
-  %.4 = phi i64 [ 0, %.preheader597 ], [ %.val.fr, %.lr.ph ], [ %.reass, %.lr.ph633 ]
-  %256 = mul i64 %.4, %179
-  %257 = getelementptr i8, ptr %.0.i483, i64 %256
-  %258 = mul i64 %.1289.lcssa, %179
-  %259 = getelementptr i8, ptr %.6, i64 %258
-  %260 = sub i64 %.val414, %.1289.lcssa
-  %261 = mul i64 %260, %179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %257, ptr align 1 %259, i64 %261, i1 false)
+  %.4 = phi i64 [ 0, %.preheader597 ], [ %.val.fr, %.lr.ph ], [ %255, %.lr.ph633 ]
+  %257 = mul i64 %.4, %179
+  %258 = getelementptr i8, ptr %.0.i483, i64 %257
+  %259 = mul i64 %.1289.lcssa, %179
+  %260 = getelementptr i8, ptr %.6, i64 %259
+  %261 = sub i64 %.val414, %.1289.lcssa
+  %262 = mul i64 %261, %179
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr align 1 %260, i64 %262, i1 false)
   br label %.thread498
 
 .thread498:                                       ; preds = %.lr.ph618, %114, %_PyUnicode_DATA.exit468, %._crit_edge, %238, %._crit_edge608, %.thread
-  %262 = phi ptr [ %70, %.thread ], [ %183, %._crit_edge608 ], [ %183, %238 ], [ %183, %._crit_edge ], [ %95, %_PyUnicode_DATA.exit468 ], [ %95, %114 ], [ %95, %.lr.ph618 ]
+  %263 = phi ptr [ %70, %.thread ], [ %183, %._crit_edge608 ], [ %183, %238 ], [ %183, %._crit_edge ], [ %95, %_PyUnicode_DATA.exit468 ], [ %95, %114 ], [ %95, %.lr.ph618 ]
   %.4337 = phi i32 [ 0, %.thread ], [ %.6339, %._crit_edge608 ], [ %.6339, %238 ], [ %.6339, %._crit_edge ], [ %.3336, %_PyUnicode_DATA.exit468 ], [ %.3336, %114 ], [ %.3336, %.lr.ph618 ]
   %.6327 = phi i32 [ 0, %.thread ], [ %.9330, %._crit_edge608 ], [ %.9330, %238 ], [ %.9330, %._crit_edge ], [ %.4325, %_PyUnicode_DATA.exit468 ], [ %.4325, %114 ], [ %.4325, %.lr.ph618 ]
   %.4317 = phi i32 [ 0, %.thread ], [ %.6319, %._crit_edge608 ], [ %.6319, %238 ], [ %.6319, %._crit_edge ], [ %.3316, %_PyUnicode_DATA.exit468 ], [ %.3316, %114 ], [ %.3316, %.lr.ph618 ]
   %.4309 = phi ptr [ %.0.i431, %.thread ], [ %.6311, %._crit_edge608 ], [ %.6311, %238 ], [ %.6311, %._crit_edge ], [ %.3308, %_PyUnicode_DATA.exit468 ], [ %.3308, %114 ], [ %.3308, %.lr.ph618 ]
   %.6299 = phi ptr [ %.0.i423, %.thread ], [ %.9, %._crit_edge608 ], [ %.9, %238 ], [ %.9, %._crit_edge ], [ %.4297, %_PyUnicode_DATA.exit468 ], [ %.4297, %114 ], [ %.4297, %.lr.ph618 ]
   %.4287 = phi ptr [ %.0.i, %.thread ], [ %.6, %._crit_edge608 ], [ %.6, %238 ], [ %.6, %._crit_edge ], [ %.3286, %_PyUnicode_DATA.exit468 ], [ %.3286, %114 ], [ %.3286, %.lr.ph618 ]
-  br i1 %46, label %263, label %266
+  br i1 %46, label %264, label %267
 
-263:                                              ; preds = %.thread498
+264:                                              ; preds = %.thread498
   call fastcc void @unicode_adjust_maxchar(ptr noundef %5)
-  %264 = load ptr, ptr %5, align 8, !tbaa !183
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %.thread489, label %266
+  %265 = load ptr, ptr %5, align 8, !tbaa !183
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %.thread489, label %267
 
-266:                                              ; preds = %._crit_edge623, %.thread498, %263
-  %267 = phi ptr [ %264, %263 ], [ %262, %.thread498 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), %._crit_edge623 ]
-  %.7340 = phi i32 [ %.4337, %263 ], [ %.4337, %.thread498 ], [ %.6339, %._crit_edge623 ]
-  %.11332 = phi i32 [ %.6327, %263 ], [ %.6327, %.thread498 ], [ %.9330, %._crit_edge623 ]
-  %.7320 = phi i32 [ %.4317, %263 ], [ %.4317, %.thread498 ], [ %.6319, %._crit_edge623 ]
-  %.7312 = phi ptr [ %.4309, %263 ], [ %.4309, %.thread498 ], [ %.6311, %._crit_edge623 ]
-  %.11 = phi ptr [ %.6299, %263 ], [ %.6299, %.thread498 ], [ %.9, %._crit_edge623 ]
-  %.7 = phi ptr [ %.4287, %263 ], [ %.4287, %.thread498 ], [ %.6, %._crit_edge623 ]
+267:                                              ; preds = %._crit_edge623, %.thread498, %264
+  %268 = phi ptr [ %265, %264 ], [ %263, %.thread498 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), %._crit_edge623 ]
+  %.7340 = phi i32 [ %.4337, %264 ], [ %.4337, %.thread498 ], [ %.6339, %._crit_edge623 ]
+  %.11332 = phi i32 [ %.6327, %264 ], [ %.6327, %.thread498 ], [ %.9330, %._crit_edge623 ]
+  %.7320 = phi i32 [ %.4317, %264 ], [ %.4317, %.thread498 ], [ %.6319, %._crit_edge623 ]
+  %.7312 = phi ptr [ %.4309, %264 ], [ %.4309, %.thread498 ], [ %.6311, %._crit_edge623 ]
+  %.11 = phi ptr [ %.6299, %264 ], [ %.6299, %.thread498 ], [ %.9, %._crit_edge623 ]
+  %.7 = phi ptr [ %.4287, %264 ], [ %.4287, %.thread498 ], [ %.6, %._crit_edge623 ]
   %.not403 = icmp eq i32 %.7320, 0
-  br i1 %.not403, label %269, label %268
+  br i1 %.not403, label %270, label %269
 
-268:                                              ; preds = %266
+269:                                              ; preds = %267
   tail call void @PyMem_Free(ptr noundef %.7) #41
-  br label %269
+  br label %270
 
-269:                                              ; preds = %268, %266
+270:                                              ; preds = %269, %267
   %.not404 = icmp eq i32 %.11332, 0
-  br i1 %.not404, label %271, label %270
+  br i1 %.not404, label %272, label %271
 
-270:                                              ; preds = %269
+271:                                              ; preds = %270
   tail call void @PyMem_Free(ptr noundef %.11) #41
-  br label %271
+  br label %272
 
-271:                                              ; preds = %270, %269
+272:                                              ; preds = %271, %270
   %.not405 = icmp eq i32 %.7340, 0
-  br i1 %.not405, label %.thread563, label %272
+  br i1 %.not405, label %.thread563, label %273
 
-272:                                              ; preds = %271
+273:                                              ; preds = %272
   tail call void @PyMem_Free(ptr noundef %.7312) #41
   br label %.thread563
 
@@ -31974,28 +31970,28 @@ _PyUnicode_DATA.exit485:                          ; preds = %187, %189
   %.0321 = phi i32 [ %.2323, %75 ], [ %.7328, %anylib_count.exit ], [ %.7328, %124 ], [ %.7328, %133 ], [ %.7328, %142 ]
   %.0293 = phi ptr [ %.2295, %75 ], [ %.7300, %anylib_count.exit ], [ %.7300, %124 ], [ %.7300, %133 ], [ %.7300, %142 ]
   %.not410 = icmp eq i32 %.0321, 0
-  br i1 %.not410, label %.thread539, label %273
+  br i1 %.not410, label %.thread539, label %274
 
-273:                                              ; preds = %.thread530
+274:                                              ; preds = %.thread530
   tail call void @PyMem_Free(ptr noundef %.0293) #41
   br label %.thread539
 
-.thread539:                                       ; preds = %PyUnicode_READ.exit, %36, %49, %PyUnicode_MAX_CHAR_VALUE.exit, %38, %_PyUnicode_DATA.exit433, %.thread530, %273
-  %274 = tail call fastcc ptr @unicode_result_unchanged(ptr noundef nonnull %0)
+.thread539:                                       ; preds = %PyUnicode_READ.exit, %36, %49, %PyUnicode_MAX_CHAR_VALUE.exit, %38, %_PyUnicode_DATA.exit433, %.thread530, %274
+  %275 = tail call fastcc ptr @unicode_result_unchanged(ptr noundef nonnull %0)
   br label %.thread563
 
 .thread489.sink.split:                            ; preds = %178, %171
-  %275 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !183
-  tail call void @PyErr_SetString(ptr noundef %275, ptr noundef nonnull @.str.208) #41
+  %276 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !183
+  tail call void @PyErr_SetString(ptr noundef %276, ptr noundef nonnull @.str.208) #41
   br label %.thread489
 
-.thread489:                                       ; preds = %.thread489.sink.split, %182, %94, %263
-  %.1334 = phi i32 [ %.4337, %263 ], [ %.3336, %94 ], [ %.6339, %182 ], [ %.6339, %.thread489.sink.split ]
-  %.1322 = phi i32 [ %.6327, %263 ], [ %.4325, %94 ], [ %.9330, %182 ], [ %.9330, %.thread489.sink.split ]
-  %.1314 = phi i32 [ %.4317, %263 ], [ %.3316, %94 ], [ %.6319, %182 ], [ %.6319, %.thread489.sink.split ]
-  %.1306 = phi ptr [ %.4309, %263 ], [ %.3308, %94 ], [ %.6311, %182 ], [ %.6311, %.thread489.sink.split ]
-  %.1294 = phi ptr [ %.6299, %263 ], [ %.4297, %94 ], [ %.9, %182 ], [ %.9, %.thread489.sink.split ]
-  %.1284 = phi ptr [ %.4287, %263 ], [ %.3286, %94 ], [ %.6, %182 ], [ %.6, %.thread489.sink.split ]
+.thread489:                                       ; preds = %.thread489.sink.split, %182, %94, %264
+  %.1334 = phi i32 [ %.4337, %264 ], [ %.3336, %94 ], [ %.6339, %182 ], [ %.6339, %.thread489.sink.split ]
+  %.1322 = phi i32 [ %.6327, %264 ], [ %.4325, %94 ], [ %.9330, %182 ], [ %.9330, %.thread489.sink.split ]
+  %.1314 = phi i32 [ %.4317, %264 ], [ %.3316, %94 ], [ %.6319, %182 ], [ %.6319, %.thread489.sink.split ]
+  %.1306 = phi ptr [ %.4309, %264 ], [ %.3308, %94 ], [ %.6311, %182 ], [ %.6311, %.thread489.sink.split ]
+  %.1294 = phi ptr [ %.6299, %264 ], [ %.4297, %94 ], [ %.9, %182 ], [ %.9, %.thread489.sink.split ]
+  %.1284 = phi ptr [ %.4287, %264 ], [ %.3286, %94 ], [ %.6, %182 ], [ %.6, %.thread489.sink.split ]
   %.not406 = icmp eq i32 %.1314, 0
   br i1 %.not406, label %.thread489.thread, label %.thread489.thread575
 
@@ -32014,22 +32010,22 @@ _PyUnicode_DATA.exit485:                          ; preds = %187, %189
   %.1322552 = phi i32 [ %.1322584, %.thread489.thread575 ], [ %.1322, %.thread489 ], [ %.7328, %154 ], [ %.7328, %158 ], [ %.2323, %80 ]
   %.1334551 = phi i32 [ %.1334583, %.thread489.thread575 ], [ %.1334, %.thread489 ], [ 0, %154 ], [ 0, %158 ], [ 0, %80 ]
   %.not407 = icmp eq i32 %.1322552, 0
-  br i1 %.not407, label %277, label %276
+  br i1 %.not407, label %278, label %277
 
-276:                                              ; preds = %.thread489.thread
+277:                                              ; preds = %.thread489.thread
   tail call void @PyMem_Free(ptr noundef %.1294554) #41
-  br label %277
+  br label %278
 
-277:                                              ; preds = %276, %.thread489.thread
+278:                                              ; preds = %277, %.thread489.thread
   %.not408 = icmp eq i32 %.1334551, 0
-  br i1 %.not408, label %.thread563, label %278
+  br i1 %.not408, label %.thread563, label %279
 
-278:                                              ; preds = %277
+279:                                              ; preds = %278
   tail call void @PyMem_Free(ptr noundef %.1306553) #41
   br label %.thread563
 
-.thread563:                                       ; preds = %271, %272, %120, %73, %_PyUnicode_DATA.exit460, %PyUnicode_READ.exit452, %277, %278, %.thread539
-  %.0 = phi ptr [ %274, %.thread539 ], [ null, %278 ], [ null, %277 ], [ null, %PyUnicode_READ.exit452 ], [ null, %_PyUnicode_DATA.exit460 ], [ null, %73 ], [ null, %120 ], [ %267, %272 ], [ %267, %271 ]
+.thread563:                                       ; preds = %272, %273, %120, %73, %_PyUnicode_DATA.exit460, %PyUnicode_READ.exit452, %278, %279, %.thread539
+  %.0 = phi ptr [ %275, %.thread539 ], [ null, %279 ], [ null, %278 ], [ null, %PyUnicode_READ.exit452 ], [ null, %_PyUnicode_DATA.exit460 ], [ null, %73 ], [ null, %120 ], [ %268, %273 ], [ %268, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

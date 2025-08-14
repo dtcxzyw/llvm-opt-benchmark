@@ -5942,8 +5942,8 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
 14:                                               ; preds = %15
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
-  %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 100
-  br i1 %exitcond14.not.i.i, label %__cxx_global_var_init.exit, label %11, !llvm.loop !172
+  %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 100
+  br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.exit, label %11, !llvm.loop !172
 
 15:                                               ; preds = %15, %11
   %indvars.iv.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i, %15 ]

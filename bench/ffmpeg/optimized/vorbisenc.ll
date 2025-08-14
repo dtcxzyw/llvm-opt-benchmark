@@ -5644,16 +5644,16 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   %778 = sext i32 %750 to i64
   %779 = sext i32 %754 to i64
   %wide.trip.count390.i = zext nneg i32 %756 to i64
-  %invariant.op.i = add nsw i64 %779, %778
   %780 = icmp sgt i32 %750, 0
   %wide.trip.count.i215 = zext nneg i32 %772 to i64
+  %invariant.op = add nsw i64 %779, %778
   br label %781
 
 781:                                              ; preds = %._crit_edge.us.i219, %.lr.ph313.split.us.i
   %indvars.iv430 = phi i32 [ %indvars.iv.next431, %._crit_edge.us.i219 ], [ %754, %.lr.ph313.split.us.i ]
   %indvars.iv387.i = phi i64 [ %indvars.iv.next388.i, %._crit_edge.us.i219 ], [ 0, %.lr.ph313.split.us.i ]
   %782 = mul nsw i64 %indvars.iv387.i, %778
-  %.reass.i = add i64 %invariant.op.i, %782
+  %.reass = add i64 %782, %invariant.op
   br i1 %780, label %.lr.ph.us.preheader.i, label %.preheader293.us.i
 
 .lr.ph.us.preheader.i:                            ; preds = %781
@@ -5711,7 +5711,7 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   %807 = fcmp nsz ogt float %.0198304.us.i, %806
   %.in217.us.i = select i1 %807, float %.0198304.us.i, float %806
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, 2
-  %808 = icmp sgt i64 %.reass.i, %indvars.iv.next433
+  %808 = icmp sgt i64 %.reass, %indvars.iv.next433
   br i1 %808, label %.lr.ph.us.i, label %.preheader293.us.i, !llvm.loop !229
 
 .preheader293.us.i:                               ; preds = %.lr.ph.us.i, %781

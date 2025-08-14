@@ -2943,7 +2943,7 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  br i1 %9, label %10, label %133
+  br i1 %9, label %10, label %134
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2957,7 +2957,7 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = call i32 @lv_ll_get_len(ptr noundef nonnull %15) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %132, label %18
+  br i1 %17, label %133, label %18
 
 18:                                               ; preds = %10
   %19 = ptrtoint ptr %11 to i64
@@ -3005,17 +3005,16 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %49, ptr %50, align 4, !tbaa !68
   %51 = load i32, ptr %22, align 4, !tbaa !20
-  %.not106 = icmp eq i32 %51, 0
-  br i1 %.not106, label %._crit_edge105, label %.lr.ph104
+  %.not104 = icmp eq i32 %51, 0
+  br i1 %.not104, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph104:                                        ; preds = %18
+.lr.ph102:                                        ; preds = %18
   %52 = ptrtoint ptr %12 to i64
   %.sroa.0.0.extract.trunc.i87 = trunc i64 %52 to i32
   %53 = sub nsw i32 %13, %27
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %invariant.op = add nsw i32 %spec.store.select, -1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = add nsw i32 %spec.store.select, %.sroa.0.0.extract.trunc.i89
@@ -3028,9 +3027,9 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %66 = add i32 %64, %.sroa.0.0.extract.trunc.i90
   br label %67
 
-67:                                               ; preds = %.lr.ph104, %._crit_edge
-  %68 = phi i32 [ %51, %.lr.ph104 ], [ %130, %._crit_edge ]
-  %.079102 = phi i32 [ 0, %.lr.ph104 ], [ %129, %._crit_edge ]
+67:                                               ; preds = %.lr.ph102, %._crit_edge
+  %68 = phi i32 [ %51, %.lr.ph102 ], [ %131, %._crit_edge ]
+  %.079100 = phi i32 [ 0, %.lr.ph102 ], [ %130, %._crit_edge ]
   %69 = icmp ult i32 %68, 2
   br i1 %69, label %70, label %72
 
@@ -3039,7 +3038,7 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   br label %78
 
 72:                                               ; preds = %67
-  %73 = mul i32 %.079102, %53
+  %73 = mul i32 %.079100, %53
   %74 = add i32 %68, -1
   %75 = udiv i32 %73, %74
   %76 = load i32, ptr %7, align 8, !tbaa !32
@@ -3048,20 +3047,20 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
 
 78:                                               ; preds = %72, %70
   %.pn = phi i32 [ %71, %70 ], [ %77, %72 ]
-  store i32 %.079102, ptr %54, align 8, !tbaa !71
+  store i32 %.079100, ptr %54, align 8, !tbaa !71
   store i32 0, ptr %55, align 4, !tbaa !72
   %79 = call ptr @lv_ll_get_head(ptr noundef nonnull %15) #8
-  %.not98 = icmp eq ptr %79, null
-  br i1 %.not98, label %._crit_edge, label %.lr.ph.preheader
+  %.not96 = icmp eq ptr %79, null
+  br i1 %.not96, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %78
   %.080 = add i32 %38, %.pn
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
-  %.1100 = phi i32 [ %.2, %.thread ], [ %.080, %.lr.ph.preheader ]
-  %.08199 = phi ptr [ %128, %.thread ], [ %79, %.lr.ph.preheader ]
-  %80 = getelementptr inbounds nuw i8, ptr %.08199, i64 24
+  %.198 = phi i32 [ %.2, %.thread ], [ %.080, %.lr.ph.preheader ]
+  %.08197 = phi ptr [ %129, %.thread ], [ %79, %.lr.ph.preheader ]
+  %80 = getelementptr inbounds nuw i8, ptr %.08197, i64 24
   %81 = load i8, ptr %80, align 8
   %82 = and i8 %81, 1
   %.not84 = icmp eq i8 %82, 0
@@ -3074,91 +3073,91 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %.08199, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %.08197, i64 20
   %89 = load i32, ptr %88, align 4, !tbaa !76
   br label %90
 
 90:                                               ; preds = %83, %87
   %91 = phi i32 [ %89, %87 ], [ 0, %83 ]
-  store i32 %.1100, ptr %5, align 4, !tbaa !65
-  %92 = add nsw i32 %.1100, %spec.store.select
-  %.reass = add i32 %.1100, %invariant.op
-  store i32 %.reass, ptr %58, align 4, !tbaa !66
-  %93 = add nsw i32 %59, %.1100
-  %94 = load i32, ptr %3, align 4, !tbaa !65
-  %.not85 = icmp sgt i32 %92, %94
-  br i1 %.not85, label %95, label %.thread.sink.split
+  store i32 %.198, ptr %5, align 4, !tbaa !65
+  %92 = add nsw i32 %.198, %spec.store.select
+  %93 = add nsw i32 %92, -1
+  store i32 %93, ptr %58, align 4, !tbaa !66
+  %94 = add nsw i32 %59, %.198
+  %95 = load i32, ptr %3, align 4, !tbaa !65
+  %.not85 = icmp sgt i32 %92, %95
+  br i1 %.not85, label %96, label %.thread.sink.split
 
-95:                                               ; preds = %90
-  %96 = load i32, ptr %56, align 4, !tbaa !66
-  %97 = icmp sgt i32 %.1100, %96
-  br i1 %97, label %._crit_edge, label %98
+96:                                               ; preds = %90
+  %97 = load i32, ptr %56, align 4, !tbaa !66
+  %98 = icmp sgt i32 %.198, %97
+  br i1 %98, label %._crit_edge, label %99
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %.08199, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %60, ptr noundef nonnull align 8 dereferenceable(3) %99, i64 3, i1 false), !tbaa.struct !56
-  %100 = add i32 %91, %.079102
-  %101 = load i32, ptr %22, align 4, !tbaa !20
-  %102 = urem i32 %100, %101
-  %103 = getelementptr inbounds nuw i8, ptr %.08199, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !23
-  %105 = sext i32 %102 to i64
-  %106 = getelementptr inbounds i32, ptr %104, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !3
-  %108 = load i8, ptr %80, align 8
-  %109 = lshr i8 %108, 4
-  %110 = and i8 %109, 1
-  %111 = zext nneg i8 %110 to i64
-  %112 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 0, i64 %111
-  %113 = load i32, ptr %112, align 4, !tbaa !3
-  %114 = sub nsw i32 %107, %113
-  %115 = mul nsw i32 %114, %14
-  %116 = getelementptr inbounds nuw [2 x i32], ptr %62, i64 0, i64 %111
-  %117 = load i32, ptr %116, align 4, !tbaa !3
-  %118 = sub nsw i32 %117, %113
-  %119 = sdiv i32 %115, %118
-  %120 = load i32, ptr %63, align 4, !tbaa !43
-  %121 = add i32 %39, %119
-  %122 = sub i32 %66, %121
-  %123 = add i32 %122, %120
-  store i32 %123, ptr %65, align 4, !tbaa !67
-  %124 = load i32, ptr %106, align 4, !tbaa !3
-  %.not86 = icmp eq i32 %124, 2147483647
-  br i1 %.not86, label %.thread.sink.split, label %125
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %.08197, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %60, ptr noundef nonnull align 8 dereferenceable(3) %100, i64 3, i1 false), !tbaa.struct !56
+  %101 = add i32 %91, %.079100
+  %102 = load i32, ptr %22, align 4, !tbaa !20
+  %103 = urem i32 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.08197, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !23
+  %106 = sext i32 %103 to i64
+  %107 = getelementptr inbounds i32, ptr %105, i64 %106
+  %108 = load i32, ptr %107, align 4, !tbaa !3
+  %109 = load i8, ptr %80, align 8
+  %110 = lshr i8 %109, 4
+  %111 = and i8 %110, 1
+  %112 = zext nneg i8 %111 to i64
+  %113 = getelementptr inbounds nuw [2 x i32], ptr %61, i64 0, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !3
+  %115 = sub nsw i32 %108, %114
+  %116 = mul nsw i32 %115, %14
+  %117 = getelementptr inbounds nuw [2 x i32], ptr %62, i64 0, i64 %112
+  %118 = load i32, ptr %117, align 4, !tbaa !3
+  %119 = sub nsw i32 %118, %114
+  %120 = sdiv i32 %116, %119
+  %121 = load i32, ptr %63, align 4, !tbaa !43
+  %122 = add i32 %39, %120
+  %123 = sub i32 %66, %122
+  %124 = add i32 %123, %121
+  store i32 %124, ptr %65, align 4, !tbaa !67
+  %125 = load i32, ptr %107, align 4, !tbaa !3
+  %.not86 = icmp eq i32 %125, 2147483647
+  br i1 %.not86, label %.thread.sink.split, label %126
 
-125:                                              ; preds = %98
+126:                                              ; preds = %99
   call void @lv_draw_rect(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %98, %125, %90
-  %126 = load i32, ptr %55, align 4, !tbaa !72
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %55, align 4, !tbaa !72
+.thread.sink.split:                               ; preds = %99, %126, %90
+  %127 = load i32, ptr %55, align 4, !tbaa !72
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %55, align 4, !tbaa !72
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.lr.ph
-  %.2 = phi i32 [ %.1100, %.lr.ph ], [ %93, %.thread.sink.split ]
-  %128 = call ptr @lv_ll_get_next(ptr noundef nonnull %15, ptr noundef nonnull %.08199) #8
-  %.not = icmp eq ptr %128, null
+  %.2 = phi i32 [ %.198, %.lr.ph ], [ %94, %.thread.sink.split ]
+  %129 = call ptr @lv_ll_get_next(ptr noundef nonnull %15, ptr noundef nonnull %.08197) #8
+  %.not = icmp eq ptr %129, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %.thread, %95, %78
-  %129 = add nuw i32 %.079102, 1
-  %130 = load i32, ptr %22, align 4, !tbaa !20
-  %131 = icmp ult i32 %129, %130
-  br i1 %131, label %67, label %._crit_edge105, !llvm.loop !96
+._crit_edge:                                      ; preds = %.thread, %96, %78
+  %130 = add nuw i32 %.079100, 1
+  %131 = load i32, ptr %22, align 4, !tbaa !20
+  %132 = icmp ult i32 %130, %131
+  br i1 %132, label %67, label %._crit_edge103, !llvm.loop !96
 
-._crit_edge105:                                   ; preds = %._crit_edge, %18
+._crit_edge103:                                   ; preds = %._crit_edge, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %132
-
-132:                                              ; preds = %10, %._crit_edge105
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %133
 
-133:                                              ; preds = %2, %132
+133:                                              ; preds = %10, %._crit_edge103
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %134
+
+134:                                              ; preds = %2, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

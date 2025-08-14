@@ -60,7 +60,7 @@ define range(i32 -12, 1) i32 @ff_h264_parse_sprop_parameter_sets(ptr noundef %0,
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %14, %.critedge43
-  %.be = phi i8 [ %.pr, %14 ], [ %44, %.critedge43 ]
+  %.be = phi i8 [ %.pr, %14 ], [ %45, %.critedge43 ]
   %.134.be = phi ptr [ %15, %14 ], [ %spec.select, %.critedge43 ]
   %.032.be = phi ptr [ %16, %14 ], [ %5, %.critedge43 ]
   br label %.preheader, !llvm.loop !7
@@ -80,42 +80,42 @@ define range(i32 -12, 1) i32 @ff_h264_parse_sprop_parameter_sets(ptr noundef %0,
   %23 = zext nneg i32 %19 to i64
   %24 = load i32, ptr %2, align 4, !tbaa !12
   %25 = sext i32 %24 to i64
-  %.reass = add nuw nsw i64 %23, 68
-  %26 = add nsw i64 %.reass, %25
-  %27 = call ptr @av_realloc(ptr noundef %22, i64 noundef %26) #10
-  %.not41.not = icmp eq ptr %27, null
-  br i1 %.not41.not, label %.thread, label %28
+  %26 = add nuw nsw i64 %23, 68
+  %27 = add nsw i64 %26, %25
+  %28 = call ptr @av_realloc(ptr noundef %22, i64 noundef %27) #10
+  %.not41.not = icmp eq ptr %28, null
+  br i1 %.not41.not, label %.thread, label %29
 
 .thread:                                          ; preds = %21
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str) #10
   br label %.loopexit
 
-28:                                               ; preds = %21
-  %29 = add nuw i32 %19, 4
-  store ptr %27, ptr %1, align 8, !tbaa !9
-  %30 = load i32, ptr %2, align 4, !tbaa !12
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %27, i64 %31
-  store i32 16777216, ptr %32, align 1
-  %33 = load i32, ptr %2, align 4, !tbaa !12
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %27, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 16 %6, i64 %23, i1 false)
-  %37 = load i32, ptr %2, align 4, !tbaa !12
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %41, i8 0, i64 64, i1 false)
-  %42 = load i32, ptr %2, align 4, !tbaa !12
-  %43 = add i32 %42, %29
-  store i32 %43, ptr %2, align 4, !tbaa !12
+29:                                               ; preds = %21
+  %30 = add nuw i32 %19, 4
+  store ptr %28, ptr %1, align 8, !tbaa !9
+  %31 = load i32, ptr %2, align 4, !tbaa !12
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %28, i64 %32
+  store i32 16777216, ptr %33, align 1
+  %34 = load i32, ptr %2, align 4, !tbaa !12
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %28, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 16 %6, i64 %23, i1 false)
+  %38 = load i32, ptr %2, align 4, !tbaa !12
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %28, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %42, i8 0, i64 64, i1 false)
+  %43 = load i32, ptr %2, align 4, !tbaa !12
+  %44 = add i32 %43, %30
+  store i32 %44, ptr %2, align 4, !tbaa !12
   br label %.critedge43, !llvm.loop !14
 
-.critedge43:                                      ; preds = %28, %.critedge
-  %44 = load i8, ptr %spec.select, align 1, !tbaa !4
-  %.not = icmp eq i8 %44, 0
+.critedge43:                                      ; preds = %29, %.critedge
+  %45 = load i8, ptr %spec.select, align 1, !tbaa !4
+  %.not = icmp eq i8 %45, 0
   br i1 %.not, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %.critedge43, %4, %.thread

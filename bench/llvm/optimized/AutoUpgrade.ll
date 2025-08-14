@@ -33052,7 +33052,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 
 24:                                               ; preds = %7
   %25 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef nonnull %18) #21
-  br label %63
+  br label %64
 
 26:                                               ; preds = %7
   %27 = icmp samesign ugt i32 %.039, 16
@@ -33085,10 +33085,10 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 35:                                               ; preds = %35, %.preheader.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %35 ], [ 0, %.preheader.us ]
   %36 = trunc nuw nsw i64 %indvars.iv53 to i32
-  %.035.reass.us.us = add i32 %invariant.op.us, %36
+  %.035.us.reass.us = add i32 %invariant.op.us, %36
   %37 = add nuw nsw i64 %indvars.iv53, %indvars.iv56
   %38 = getelementptr inbounds nuw [64 x i32], ptr %9, i64 0, i64 %37
-  store i32 %.035.reass.us.us, ptr %38, align 4, !tbaa !252
+  store i32 %.035.us.reass.us, ptr %38, align 4, !tbaa !252
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %.not44.us.us = icmp eq i64 %indvars.iv.next54, 16
   br i1 %.not44.us.us, label %.split.us.us, label %35, !llvm.loop !530
@@ -33101,7 +33101,6 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.split ], [ 0, %.preheader.lr.ph ]
   %40 = trunc nuw i64 %indvars.iv50 to i32
-  %invariant.op = add i32 %.1, %40
   br label %57
 
 ._crit_edge:                                      ; preds = %.split, %.split.us.us, %31
@@ -33138,7 +33137,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
 _ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit: ; preds = %46, %48
   %.1.i = phi ptr [ %55, %48 ], [ %43, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %63
+  br label %64
 
 .split:                                           ; preds = %57
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 16
@@ -33147,20 +33146,20 @@ _ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultIns
 
 57:                                               ; preds = %.preheader, %57
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %57 ]
-  %indvars49 = trunc i64 %indvars.iv to i32
-  %58 = add i32 %.1, %indvars49
-  %59 = icmp ult i32 %58, 16
-  %spec.select = select i1 %59, i32 0, i32 %32
-  %.035.reass = add i32 %invariant.op, %indvars49
-  %60 = add i32 %.035.reass, %spec.select
-  %61 = add nuw nsw i64 %indvars.iv, %indvars.iv50
-  %62 = getelementptr inbounds nuw [64 x i32], ptr %9, i64 0, i64 %61
-  store i32 %60, ptr %62, align 4, !tbaa !252
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
+  %59 = add i32 %.1, %58
+  %60 = icmp ult i32 %59, 16
+  %spec.select = select i1 %60, i32 0, i32 %32
+  %.035 = add i32 %59, %40
+  %61 = add i32 %.035, %spec.select
+  %62 = add nuw nsw i64 %indvars.iv, %indvars.iv50
+  %63 = getelementptr inbounds nuw [64 x i32], ptr %9, i64 0, i64 %62
+  store i32 %61, ptr %63, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not44 = icmp eq i64 %indvars.iv.next, 16
   br i1 %.not44, label %.split, label %57, !llvm.loop !534
 
-63:                                               ; preds = %_ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit, %24
+64:                                               ; preds = %_ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit, %24
   %.0 = phi ptr [ %25, %24 ], [ %.1.i, %_ZL13emitX86SelectRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueES6_S6_.exit ]
   ret ptr %.0
 }
@@ -33190,7 +33189,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %16) #21
   %21 = icmp ult i32 %2, 16
-  br i1 %21, label %22, label %35
+  br i1 %21, label %22, label %36
 
 22:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -33205,7 +33204,6 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
 .preheader:                                       ; preds = %.preheader.lr.ph, %28
   %indvars.iv44 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next45, %28 ]
   %24 = trunc nuw i64 %indvars.iv44 to i32
-  %invariant.op = add i32 %23, %24
   br label %29
 
 ._crit_edge:                                      ; preds = %28, %22
@@ -33216,7 +33214,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   %27 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %20, ptr noundef %19, ptr nonnull %5, i64 %25, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %35
+  br label %36
 
 28:                                               ; preds = %29
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 16
@@ -33226,30 +33224,30 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
-  %indvars43 = trunc i64 %indvars.iv to i32
-  %30 = add i32 %23, %indvars43
-  %31 = icmp ult i32 %30, %12
-  %.neg42 = select i1 %31, i32 %.neg, i32 0
-  %.0.reass = add i32 %invariant.op, %indvars43
-  %32 = add i32 %.0.reass, %.neg42
-  %33 = add nuw nsw i64 %indvars.iv, %indvars.iv44
-  %34 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %33
-  store i32 %32, ptr %34, align 4, !tbaa !252
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = add i32 %23, %30
+  %32 = icmp ult i32 %31, %12
+  %.neg42 = select i1 %32, i32 %.neg, i32 0
+  %.0 = add i32 %31, %24
+  %33 = add i32 %.0, %.neg42
+  %34 = add nuw nsw i64 %indvars.iv, %indvars.iv44
+  %35 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %34
+  store i32 %33, ptr %35, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not37 = icmp eq i64 %indvars.iv.next, 16
   br i1 %.not37, label %28, label %29, !llvm.loop !536
 
-35:                                               ; preds = %._crit_edge, %3
+36:                                               ; preds = %._crit_edge, %3
   %.033 = phi ptr [ %27, %._crit_edge ], [ %20, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %37, align 1, !tbaa !195
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %38, align 1, !tbaa !195
   store ptr @.str.27, ptr %7, align 8, !tbaa !60
-  store i8 3, ptr %36, align 8, !tbaa !189
-  %38 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %.033, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null, i64 0)
+  store i8 3, ptr %37, align 8, !tbaa !189
+  %39 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %.033, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null, i64 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret ptr %38
+  ret ptr %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33288,45 +33286,44 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSRLDQIntrinsicsRN4llvm9IRBui
   %23 = add i32 %12, -16
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %29
-  %indvars.iv41 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next42, %29 ]
-  %24 = trunc i64 %indvars.iv41 to i32
-  %25 = or disjoint i32 %2, %24
-  br label %30
+.preheader:                                       ; preds = %.preheader.lr.ph, %28
+  %indvars.iv41 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next42, %28 ]
+  %24 = trunc nuw i64 %indvars.iv41 to i32
+  br label %29
 
-._crit_edge:                                      ; preds = %29, %22
-  %26 = zext i32 %12 to i64
+._crit_edge:                                      ; preds = %28, %22
+  %25 = zext i32 %12 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i16 257, ptr %27, align 8
-  %28 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %19, ptr noundef %20, ptr nonnull %5, i64 %26, ptr noundef nonnull align 8 dereferenceable(34) %6)
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i16 257, ptr %26, align 8
+  %27 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %19, ptr noundef %20, ptr nonnull %5, i64 %25, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
-29:                                               ; preds = %30
+28:                                               ; preds = %29
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 16
   %indvars = trunc i64 %indvars.iv.next42 to i32
   %.not = icmp eq i32 %12, %indvars
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !537
 
-30:                                               ; preds = %.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
-  %indvars40 = trunc i64 %indvars.iv to i32
-  %31 = add i32 %2, %indvars40
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = add i32 %2, %30
   %32 = icmp ugt i32 %31, 15
   %33 = select i1 %32, i32 %23, i32 0
-  %.0.reass = add i32 %25, %indvars40
-  %34 = add i32 %.0.reass, %33
+  %.0 = add i32 %31, %24
+  %34 = add i32 %.0, %33
   %35 = add nuw nsw i64 %indvars.iv, %indvars.iv41
   %36 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not36 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not36, label %29, label %30, !llvm.loop !538
+  br i1 %.not36, label %28, label %29, !llvm.loop !538
 
 37:                                               ; preds = %._crit_edge, %3
-  %.031 = phi ptr [ %28, %._crit_edge ], [ %20, %3 ]
+  %.031 = phi ptr [ %27, %._crit_edge ], [ %20, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 33

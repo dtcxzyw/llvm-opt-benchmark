@@ -2223,69 +2223,68 @@ define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef initializes((0, 2)) 
   %6 = getelementptr i8, ptr %0, i64 1
   store i8 0, ptr %6, align 1, !tbaa !11
   %7 = add i32 %1, -1
-  %invariant.op = and i32 %2, 954
   br label %8
 
-8:                                                ; preds = %4, %24
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %24 ]
-  %.03260 = phi i32 [ 0, %4 ], [ %.3.ph, %24 ]
-  %.03658 = phi i32 [ %7, %4 ], [ %.238.ph, %24 ]
-  %.03957 = phi ptr [ %6, %4 ], [ %.241.ph, %24 ]
+8:                                                ; preds = %4, %25
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %25 ]
+  %.03260 = phi i32 [ 0, %4 ], [ %.3.ph, %25 ]
+  %.03658 = phi i32 [ %7, %4 ], [ %.238.ph, %25 ]
+  %.03957 = phi ptr [ %6, %4 ], [ %.241.ph, %25 ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = shl nuw nsw i32 1, %9
   %11 = and i32 %10, %2
   %.not45 = icmp eq i32 %11, 0
-  br i1 %.not45, label %24, label %12
+  br i1 %.not45, label %25, label %12
 
 12:                                               ; preds = %8
-  %.reass = and i32 %10, %invariant.op
-  %.not46 = icmp eq i32 %.reass, 0
-  br i1 %.not46, label %14, label %13
+  %13 = and i32 %11, 954
+  %.not46 = icmp eq i32 %13, 0
+  br i1 %.not46, label %15, label %14
 
-13:                                               ; preds = %12
+14:                                               ; preds = %12
   %.not47 = icmp eq i32 %.03260, 0
-  br i1 %.not47, label %14, label %24
+  br i1 %.not47, label %15, label %25
 
-14:                                               ; preds = %13, %12
-  %.234 = phi i32 [ %.03260, %12 ], [ 1, %13 ]
-  %15 = sext i32 %.03658 to i64
-  %16 = getelementptr ptr, ptr %spec.store.select, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
-  %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03957, i64 noundef %15, ptr noundef nonnull @.str.13, ptr noundef %17) #18
-  %19 = icmp sgt i32 %18, -1
-  %.not48 = icmp slt i32 %18, %.03658
-  %or.cond = select i1 %19, i1 %.not48, i1 false
-  br i1 %or.cond, label %20, label %.loopexit
+15:                                               ; preds = %14, %12
+  %.234 = phi i32 [ %.03260, %12 ], [ 1, %14 ]
+  %16 = sext i32 %.03658 to i64
+  %17 = getelementptr ptr, ptr %spec.store.select, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03957, i64 noundef %16, ptr noundef nonnull @.str.13, ptr noundef %18) #18
+  %20 = icmp sgt i32 %19, -1
+  %.not48 = icmp slt i32 %19, %.03658
+  %or.cond = select i1 %20, i1 %.not48, i1 false
+  br i1 %or.cond, label %21, label %.loopexit
 
-20:                                               ; preds = %14
-  %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr i8, ptr %.03957, i64 %21
-  %23 = sub nsw i32 %.03658, %18
-  br label %24
+21:                                               ; preds = %15
+  %22 = zext nneg i32 %19 to i64
+  %23 = getelementptr i8, ptr %.03957, i64 %22
+  %24 = sub nsw i32 %.03658, %19
+  br label %25
 
-24:                                               ; preds = %13, %20, %8
-  %.241.ph = phi ptr [ %.03957, %8 ], [ %22, %20 ], [ %.03957, %13 ]
-  %.238.ph = phi i32 [ %.03658, %8 ], [ %23, %20 ], [ %.03658, %13 ]
-  %.3.ph = phi i32 [ %.03260, %8 ], [ %.234, %20 ], [ 1, %13 ]
+25:                                               ; preds = %14, %21, %8
+  %.241.ph = phi ptr [ %.03957, %8 ], [ %23, %21 ], [ %.03957, %14 ]
+  %.238.ph = phi i32 [ %.03658, %8 ], [ %24, %21 ], [ %.03658, %14 ]
+  %.3.ph = phi i32 [ %.03260, %8 ], [ %.234, %21 ], [ 1, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %25, label %8, !llvm.loop !70
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !70
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   %.not = icmp eq ptr %.241.ph, %6
   %spec.select.idx = select i1 %.not, i64 0, i64 -2
   %spec.select = getelementptr i8, ptr %.241.ph, i64 %spec.select.idx
-  %26 = getelementptr i8, ptr %spec.select, i64 1
+  %27 = getelementptr i8, ptr %spec.select, i64 1
   store i8 93, ptr %spec.select, align 1, !tbaa !11
-  store i8 0, ptr %26, align 1, !tbaa !11
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %0 to i64
-  %29 = sub i64 %27, %28
-  %30 = trunc i64 %29 to i32
+  store i8 0, ptr %27, align 1, !tbaa !11
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %0 to i64
+  %30 = sub i64 %28, %29
+  %31 = trunc i64 %30 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %25
-  %.2 = phi i32 [ %30, %25 ], [ -1, %14 ]
+.loopexit:                                        ; preds = %15, %26
+  %.2 = phi i32 [ %31, %26 ], [ -1, %15 ]
   ret i32 %.2
 }
 

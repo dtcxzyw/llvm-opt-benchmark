@@ -41451,272 +41451,272 @@ define dso_local void @_ZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDecl
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.neg87 = sext i1 %2 to i32
-  %invariant.op = select i1 %2, i32 4, i32 3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  br label %14
+  %13 = zext i1 %2 to i32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  br label %15
 
 ._crit_edge:                                      ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", %.preheader
-  br i1 %2, label %78, label %.critedge
+  br i1 %2, label %81, label %.critedge
 
-14:                                               ; preds = %.lr.ph, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit"
-  %.080 = phi i32 [ 0, %.lr.ph ], [ %75, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit" ]
-  %15 = load ptr, ptr %12, align 8, !tbaa !1186
-  %16 = zext i32 %.080 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !1223
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 256
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %22
+15:                                               ; preds = %.lr.ph, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit"
+  %.080 = phi i32 [ 0, %.lr.ph ], [ %78, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit" ]
+  %16 = load ptr, ptr %12, align 8, !tbaa !1186
+  %17 = zext i32 %.080 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !1223
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 256
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %23
 
-22:                                               ; preds = %14
-  %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %18) #30
-  %24 = load ptr, ptr %23, align 8, !tbaa !1036
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !1037
-  %27 = zext i32 %26 to i64
-  %.idx.i.i = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i
-  %.not.i.i = icmp eq i32 %26, 0
+23:                                               ; preds = %15
+  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #30
+  %25 = load ptr, ptr %24, align 8, !tbaa !1036
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !1037
+  %28 = zext i32 %27 to i64
+  %.idx.i.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
+  %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %22, %33
-  %.sroa.07.1.i.i.i.i = phi ptr [ %34, %33 ], [ %24, %22 ]
-  %29 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1108
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i16, ptr %30, align 8
-  %32 = icmp eq i16 %31, 64
-  br i1 %32, label %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %33
+.lr.ph.i.i.i.i.i:                                 ; preds = %23, %34
+  %.sroa.07.1.i.i.i.i = phi ptr [ %35, %34 ], [ %25, %23 ]
+  %30 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1108
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load i16, ptr %31, align 8
+  %33 = icmp eq i16 %32, 64
+  br i1 %33, label %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %34
 
-33:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %34, %28
+34:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %35, %29
   br i1 %.not.i.i.i.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !1550
 
 _ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %28
-  br i1 %.not5.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %35
+  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
+  br i1 %.not5.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %36
 
-35:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
-  %36 = load ptr, ptr %24, align 8, !tbaa !1108
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load i16, ptr %37, align 8
-  %39 = icmp eq i16 %38, 64
-  br i1 %39, label %.loopexit, label %.lr.ph.i.i.i.i
+36:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
+  %37 = load ptr, ptr %25, align 8, !tbaa !1108
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load i16, ptr %38, align 8
+  %40 = icmp eq i16 %39, 64
+  br i1 %40, label %.loopexit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
-  %40 = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %24, %35 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !1108
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load i16, ptr %43, align 8
-  %45 = icmp eq i16 %44, 64
-  br i1 %45, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1551
+.lr.ph.i.i.i.i:                                   ; preds = %36, %.lr.ph.i.i.i.i
+  %41 = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %25, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !1108
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load i16, ptr %44, align 8
+  %46 = icmp eq i16 %45, 64
+  br i1 %46, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1551
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %35
-  %46 = phi ptr [ %36, %35 ], [ %42, %.lr.ph.i.i.i.i ]
-  %.reass = add i32 %.080, %invariant.op
-  %or.cond.i.i = icmp ult i32 %.reass, 2
-  br i1 %or.cond.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", label %47
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %36
+  %47 = phi ptr [ %37, %36 ], [ %43, %.lr.ph.i.i.i.i ]
+  %48 = add nuw i32 %.080, %13
+  %49 = add i32 %48, 3
+  %or.cond.i.i = icmp ult i32 %49, 2
+  br i1 %or.cond.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", label %50
 
-47:                                               ; preds = %.loopexit
-  %48 = icmp eq i32 %.080, %.neg87
-  %or.cond3.i.i = and i1 %2, %48
-  br i1 %or.cond3.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", label %49
+50:                                               ; preds = %.loopexit
+  %51 = icmp eq i32 %48, 0
+  %or.cond3.i.i = and i1 %2, %51
+  br i1 %or.cond3.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", label %52
 
-49:                                               ; preds = %47
-  %50 = sext i32 %.080 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !1063
+52:                                               ; preds = %50
+  %53 = sext i32 %.080 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !1063
   br label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i"
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i": ; preds = %47, %49, %.loopexit
-  %.0.i.i = phi ptr [ %52, %49 ], [ null, %.loopexit ], [ %3, %47 ]
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !1552
-  %55 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %56 = load i32, ptr %55, align 4, !tbaa !1557
-  %57 = zext i32 %56 to i64
-  %.idx.i = shl nuw nsw i64 %57, 2
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i
-  %.not1624.i = icmp eq i32 %56, 0
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i": ; preds = %50, %52, %.loopexit
+  %.0.i.i = phi ptr [ %55, %52 ], [ null, %.loopexit ], [ %3, %50 ]
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %57 = load ptr, ptr %56, align 8, !tbaa !1552
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  %59 = load i32, ptr %58, align 4, !tbaa !1557
+  %60 = zext i32 %59 to i64
+  %.idx.i = shl nuw nsw i64 %60, 2
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i
+  %.not1624.i = icmp eq i32 %59, 0
   br i1 %.not1624.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", %73
-  %.025.i = phi ptr [ %74, %73 ], [ %54, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i" ]
-  %59 = load i32, ptr %.025.i, align 4, !tbaa !1059
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %67, label %.split.i
+.lr.ph.i:                                         ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i", %76
+  %.025.i = phi ptr [ %77, %76 ], [ %57, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i" ]
+  %62 = load i32, ptr %.025.i, align 4, !tbaa !1059
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %70, label %.split.i
 
 .split.i:                                         ; preds = %.lr.ph.i
-  %61 = add i32 %59, 3
-  %or.cond.i17.i = icmp ult i32 %61, 2
-  br i1 %or.cond.i17.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", label %62
+  %64 = add i32 %62, 3
+  %or.cond.i17.i = icmp ult i32 %64, 2
+  br i1 %or.cond.i17.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", label %65
 
-62:                                               ; preds = %.split.i
-  %63 = add i32 %59, %.neg87
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %4, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !1063
+65:                                               ; preds = %.split.i
+  %66 = sub nsw i32 %62, %13
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %67
+  %69 = load ptr, ptr %68, align 8, !tbaa !1063
   br label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i"
 
-67:                                               ; preds = %.lr.ph.i
-  %68 = load i32, ptr %13, align 4
-  %69 = and i32 %68, 127
-  %70 = icmp eq i32 %69, 36
-  br i1 %70, label %73, label %.split13.i
+70:                                               ; preds = %.lr.ph.i
+  %71 = load i32, ptr %14, align 4
+  %72 = and i32 %71, 127
+  %73 = icmp eq i32 %72, 36
+  br i1 %73, label %76, label %.split13.i
 
-.split13.i:                                       ; preds = %67
-  br i1 %2, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", label %71
+.split13.i:                                       ; preds = %70
+  br i1 %2, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", label %74
 
-71:                                               ; preds = %.split13.i
-  %72 = load ptr, ptr %4, align 8, !tbaa !1063
+74:                                               ; preds = %.split13.i
+  %75 = load ptr, ptr %4, align 8, !tbaa !1063
   br label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i"
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i": ; preds = %.split13.i, %71, %62, %.split.i
-  %phi.call.i = phi ptr [ %66, %62 ], [ null, %.split.i ], [ %72, %71 ], [ %3, %.split13.i ]
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i": ; preds = %.split13.i, %74, %65, %.split.i
+  %phi.call.i = phi ptr [ %69, %65 ], [ null, %.split.i ], [ %75, %74 ], [ %3, %.split13.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %phi.call.i, ptr %8, align 8, !tbaa !1558
   call void @_ZN5clang4sema22checkCaptureByLifetimeERNS_4SemaERKNS0_15CapturingEntityEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.0.i.i) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %73
+  br label %76
 
-73:                                               ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", %67
-  %74 = getelementptr inbounds nuw i8, ptr %.025.i, i64 4
-  %.not16.i = icmp eq ptr %74, %58
+76:                                               ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i", %70
+  %77 = getelementptr inbounds nuw i8, ptr %.025.i, i64 4
+  %.not16.i = icmp eq ptr %77, %61
   br i1 %.not16.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit", label %.lr.ph.i
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit": ; preds = %33, %73, %22, %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %14, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i"
-  %75 = add nuw i32 %.080, 1
-  %76 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
-  %77 = icmp ult i32 %75, %76
-  br i1 %77, label %14, label %._crit_edge, !llvm.loop !1560
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit": ; preds = %34, %76, %23, %_ZN5clangneENS_22specific_attr_iteratorINS_21LifetimeCaptureByAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %15, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i"
+  %78 = add nuw i32 %.080, 1
+  %79 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
+  %80 = icmp ult i32 %78, %79
+  br i1 %80, label %15, label %._crit_edge, !llvm.loop !1560
 
-78:                                               ; preds = %._crit_edge
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %79, align 8
-  %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %.not.i13 = icmp eq i64 %80, 0
-  %81 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %82 = inttoptr i64 %81 to ptr
-  br i1 %.not.i13, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit, label %83
+81:                                               ; preds = %._crit_edge
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %82, align 8
+  %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %.not.i13 = icmp eq i64 %83, 0
+  %84 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %85 = inttoptr i64 %84 to ptr
+  br i1 %.not.i13, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit, label %86
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %85 = load ptr, ptr %84, align 8, !tbaa !1561
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %88 = load ptr, ptr %87, align 8, !tbaa !1561
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
-_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %78, %83
-  %86 = phi ptr [ %85, %83 ], [ %82, %78 ]
-  %.not11.not = icmp eq ptr %86, null
-  br i1 %.not11.not, label %.critedge, label %87
+_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %81, %86
+  %89 = phi ptr [ %88, %86 ], [ %85, %81 ]
+  %.not11.not = icmp eq ptr %89, null
+  br i1 %.not11.not, label %.critedge, label %90
 
-87:                                               ; preds = %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
+90:                                               ; preds = %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.sroa.0.0.copyload.i = load i64, ptr %86, align 8, !tbaa !1035
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %89 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  store ptr %89, ptr %9, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %88, ptr %90, align 8
-  %91 = call { ptr, ptr } @_ZNK5clang7TypeLoc13getAsAdjustedINS_17AttributedTypeLocEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %92 = extractvalue { ptr, ptr } %91, 0
-  %.not7782 = icmp eq ptr %92, null
+  %.sroa.0.0.copyload.i = load i64, ptr %89, align 8, !tbaa !1035
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %92 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
+  store ptr %92, ptr %9, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %91, ptr %93, align 8
+  %94 = call { ptr, ptr } @_ZNK5clang7TypeLoc13getAsAdjustedINS_17AttributedTypeLocEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %95 = extractvalue { ptr, ptr } %94, 0
+  %.not7782 = icmp eq ptr %95, null
   br i1 %.not7782, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  br label %94
+.lr.ph84:                                         ; preds = %90
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  br label %97
 
-._crit_edge85:                                    ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", %87
+._crit_edge85:                                    ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", %90
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-94:                                               ; preds = %.lr.ph84, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28"
-  %.pn = phi { ptr, ptr } [ %91, %.lr.ph84 ], [ %135, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28" ]
-  %95 = phi ptr [ %92, %.lr.ph84 ], [ %136, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28" ]
-  %96 = extractvalue { ptr, ptr } %.pn, 1
-  %97 = load ptr, ptr %96, align 8, !tbaa !1567
-  %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", label %98
+97:                                               ; preds = %.lr.ph84, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28"
+  %.pn = phi { ptr, ptr } [ %94, %.lr.ph84 ], [ %138, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28" ]
+  %98 = phi ptr [ %95, %.lr.ph84 ], [ %139, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28" ]
+  %99 = extractvalue { ptr, ptr } %.pn, 1
+  %100 = load ptr, ptr %99, align 8, !tbaa !1567
+  %.not.i.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", label %101
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %100 = load i16, ptr %99, align 8
-  %101 = icmp eq i16 %100, 64
-  br i1 %101, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16", label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28"
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %103 = load i16, ptr %102, align 8
+  %104 = icmp eq i16 %103, 64
+  br i1 %104, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16", label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28"
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16": ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !1552
-  %104 = getelementptr inbounds nuw i8, ptr %97, i64 36
-  %105 = load i32, ptr %104, align 4, !tbaa !1557
-  %106 = zext i32 %105 to i64
-  %.idx.i18 = shl nuw nsw i64 %106, 2
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i18
-  %.not1624.i19 = icmp eq i32 %105, 0
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16": ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %106 = load ptr, ptr %105, align 8, !tbaa !1552
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 36
+  %108 = load i32, ptr %107, align 4, !tbaa !1557
+  %109 = zext i32 %108 to i64
+  %.idx.i18 = shl nuw nsw i64 %109, 2
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i18
+  %.not1624.i19 = icmp eq i32 %108, 0
   br i1 %.not1624.i19, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16", %120
-  %.025.i21 = phi ptr [ %121, %120 ], [ %103, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16" ]
-  %108 = load i32, ptr %.025.i21, align 4, !tbaa !1059
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %116, label %.split.i22
+.lr.ph.i20:                                       ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16", %123
+  %.025.i21 = phi ptr [ %124, %123 ], [ %106, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16" ]
+  %111 = load i32, ptr %.025.i21, align 4, !tbaa !1059
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %119, label %.split.i22
 
 .split.i22:                                       ; preds = %.lr.ph.i20
-  %110 = add i32 %108, 3
-  %or.cond.i17.i23 = icmp ult i32 %110, 2
-  br i1 %or.cond.i17.i23, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24", label %111
+  %113 = add i32 %111, 3
+  %or.cond.i17.i23 = icmp ult i32 %113, 2
+  br i1 %or.cond.i17.i23, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24", label %114
 
-111:                                              ; preds = %.split.i22
-  %112 = add i32 %108, -1
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %4, i64 %113
-  %115 = load ptr, ptr %114, align 8, !tbaa !1063
+114:                                              ; preds = %.split.i22
+  %115 = add i32 %111, -1
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds nuw ptr, ptr %4, i64 %116
+  %118 = load ptr, ptr %117, align 8, !tbaa !1063
   br label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24"
 
-116:                                              ; preds = %.lr.ph.i20
-  %117 = load i32, ptr %93, align 4
-  %118 = and i32 %117, 127
-  %119 = icmp eq i32 %118, 36
-  br i1 %119, label %120, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24"
+119:                                              ; preds = %.lr.ph.i20
+  %120 = load i32, ptr %96, align 4
+  %121 = and i32 %120, 127
+  %122 = icmp eq i32 %121, 36
+  br i1 %122, label %123, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24"
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24": ; preds = %116, %111, %.split.i22
-  %phi.call.i25 = phi ptr [ %115, %111 ], [ null, %.split.i22 ], [ %3, %116 ]
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24": ; preds = %119, %114, %.split.i22
+  %phi.call.i25 = phi ptr [ %118, %114 ], [ null, %.split.i22 ], [ %3, %119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %phi.call.i25, ptr %7, align 8, !tbaa !1558
   call void @_ZN5clang4sema22checkCaptureByLifetimeERNS_4SemaERKNS0_15CapturingEntityEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %120
+  br label %123
 
-120:                                              ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24", %116
-  %121 = getelementptr inbounds nuw i8, ptr %.025.i21, i64 4
-  %.not16.i26 = icmp eq ptr %121, %107
+123:                                              ; preds = %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit20.i24", %119
+  %124 = getelementptr inbounds nuw i8, ptr %.025.i21, i64 4
+  %.not16.i26 = icmp eq ptr %124, %110
   br i1 %.not16.i26, label %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28", label %.lr.ph.i20
 
-"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28": ; preds = %120, %94, %98, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16"
-  %122 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %122, align 8, !tbaa !1035
-  %123 = ptrtoint ptr %96 to i64
-  %124 = add i64 %123, 8
-  %125 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #30
-  %126 = icmp ne i64 %124, 0
-  %127 = zext i1 %126 to i64
-  %128 = sub i64 %124, %127
-  %129 = zext i32 %125 to i64
-  %130 = udiv i64 %128, %129
-  %131 = add i64 %130, %127
-  %132 = mul i64 %131, %129
-  %133 = inttoptr i64 %132 to ptr
-  %134 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  store ptr %134, ptr %9, align 8, !tbaa !1134
-  store ptr %133, ptr %90, align 8
-  %135 = call { ptr, ptr } @_ZNK5clang7TypeLoc13getAsAdjustedINS_17AttributedTypeLocEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %136 = extractvalue { ptr, ptr } %135, 0
-  %.not77 = icmp eq ptr %136, null
-  br i1 %.not77, label %._crit_edge85, label %94, !llvm.loop !1569
+"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_1clEPKNS_21LifetimeCaptureByAttrEj.exit28": ; preds = %123, %97, %101, %"_ZZN5clang4Sema22checkLifetimeCaptureByEPNS_12FunctionDeclEbPKNS_4ExprEN4llvm8ArrayRefIS5_EEENK3$_0clEi.exit.i16"
+  %125 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %125, align 8, !tbaa !1035
+  %126 = ptrtoint ptr %99 to i64
+  %127 = add i64 %126, 8
+  %128 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #30
+  %129 = icmp ne i64 %127, 0
+  %130 = zext i1 %129 to i64
+  %131 = sub i64 %127, %130
+  %132 = zext i32 %128 to i64
+  %133 = udiv i64 %131, %132
+  %134 = add i64 %133, %130
+  %135 = mul i64 %134, %132
+  %136 = inttoptr i64 %135 to ptr
+  %137 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  store ptr %137, ptr %9, align 8, !tbaa !1134
+  store ptr %136, ptr %93, align 8
+  %138 = call { ptr, ptr } @_ZNK5clang7TypeLoc13getAsAdjustedINS_17AttributedTypeLocEEET_v(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %139 = extractvalue { ptr, ptr } %138, 0
+  %.not77 = icmp eq ptr %139, null
+  br i1 %.not77, label %._crit_edge85, label %97, !llvm.loop !1569
 
 .critedge:                                        ; preds = %._crit_edge, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit, %._crit_edge85, %6
   ret void

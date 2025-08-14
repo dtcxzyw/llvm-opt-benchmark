@@ -203,15 +203,15 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %73 = trunc i32 %spec.select222 to i8
   br label %.outer
 
-.outer:                                           ; preds = %152, %.preheader
-  %.3.ph = phi i32 [ %.4, %152 ], [ %.0199.lcssa, %.preheader ]
-  %.2202.ph = phi i32 [ %110, %152 ], [ 0, %.preheader ]
-  %.0193.ph = phi i32 [ %.2195.lcssa, %152 ], [ %spec.select222, %.preheader ]
-  %.0191.ph = phi i32 [ %spec.select223, %152 ], [ 0, %.preheader ]
-  %.0187.ph = phi i32 [ %149, %152 ], [ %70, %.preheader ]
-  %.0185.ph = phi i32 [ %.1186, %152 ], [ 0, %.preheader ]
-  %.0181.ph = phi i32 [ %129, %152 ], [ -1, %.preheader ]
-  %.0179.ph = phi ptr [ %133, %152 ], [ %72, %.preheader ]
+.outer:                                           ; preds = %153, %.preheader
+  %.3.ph = phi i32 [ %.4, %153 ], [ %.0199.lcssa, %.preheader ]
+  %.2202.ph = phi i32 [ %110, %153 ], [ 0, %.preheader ]
+  %.0193.ph = phi i32 [ %.2195.lcssa, %153 ], [ %spec.select222, %.preheader ]
+  %.0191.ph = phi i32 [ %spec.select223, %153 ], [ 0, %.preheader ]
+  %.0187.ph = phi i32 [ %150, %153 ], [ %70, %.preheader ]
+  %.0185.ph = phi i32 [ %.1186, %153 ], [ 0, %.preheader ]
+  %.0181.ph = phi i32 [ %129, %153 ], [ -1, %.preheader ]
+  %.0179.ph = phi ptr [ %133, %153 ], [ %72, %.preheader ]
   %74 = shl nuw i32 1, %.0193.ph
   br label %75
 
@@ -293,7 +293,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 
 116:                                              ; preds = %106
   %117 = icmp eq i32 %.3, %.0198246
-  br i1 %117, label %164, label %118
+  br i1 %117, label %165, label %118
 
 118:                                              ; preds = %116
   %119 = zext i32 %110 to i64
@@ -330,11 +330,10 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 
 .lr.ph262.preheader:                              ; preds = %130
   %137 = sub i32 %.0198246, %spec.select223
-  %invariant.op = add i32 %spec.select223, 1
   br label %.lr.ph262
 
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %145
-  %138 = phi i32 [ %.reass, %145 ], [ %.4, %.lr.ph262.preheader ]
+  %138 = phi i32 [ %148, %145 ], [ %.4, %.lr.ph262.preheader ]
   %.1190260 = phi i32 [ %147, %145 ], [ %135, %.lr.ph262.preheader ]
   %.2195259 = phi i32 [ %146, %145 ], [ %134, %.lr.ph262.preheader ]
   %139 = zext i32 %138 to i64
@@ -348,9 +347,9 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 145:                                              ; preds = %.lr.ph262
   %146 = add i32 %.2195259, 1
   %147 = shl nuw i32 %143, 1
-  %.reass = add i32 %.2195259, %invariant.op
-  %148 = icmp ult i32 %.reass, %.0198246
-  br i1 %148, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !21
+  %148 = add i32 %146, %spec.select223
+  %149 = icmp ult i32 %148, %.0198246
+  br i1 %149, label %.lr.ph262, label %._crit_edge263.loopexit, !llvm.loop !21
 
 ._crit_edge263.loopexit:                          ; preds = %.lr.ph262, %145
   %.2195.lcssa.ph = phi i32 [ %137, %145 ], [ %.2195259, %.lr.ph262 ]
@@ -360,54 +359,54 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 ._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %130
   %.pre-phi = phi i32 [ %.pre, %._crit_edge263.loopexit ], [ %135, %130 ]
   %.2195.lcssa = phi i32 [ %.2195.lcssa.ph, %._crit_edge263.loopexit ], [ %134, %130 ]
-  %149 = add i32 %.pre-phi, %.0187.ph
-  %150 = icmp ugt i32 %149, 852
-  %or.cond7 = select i1 %69, i1 %150, i1 false
-  %151 = icmp ugt i32 %149, 592
-  %or.cond9 = select i1 %68, i1 %151, i1 false
+  %150 = add i32 %.pre-phi, %.0187.ph
+  %151 = icmp ugt i32 %150, 852
+  %or.cond7 = select i1 %69, i1 %151, i1 false
+  %152 = icmp ugt i32 %150, 592
+  %or.cond9 = select i1 %68, i1 %152, i1 false
   %or.cond224 = select i1 %or.cond7, i1 true, i1 %or.cond9
-  br i1 %or.cond224, label %.loopexit, label %152
+  br i1 %or.cond224, label %.loopexit, label %153
 
-152:                                              ; preds = %._crit_edge263
-  %153 = trunc i32 %.2195.lcssa to i8
-  %154 = load ptr, ptr %3, align 8, !tbaa !12
-  %155 = zext nneg i32 %129 to i64
-  %156 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155
-  store i8 %153, ptr %156, align 2, !tbaa !22
-  %157 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 1
-  store i8 %73, ptr %157, align 1, !tbaa !24
-  %158 = ptrtoint ptr %133 to i64
-  %159 = ptrtoint ptr %154 to i64
-  %160 = sub i64 %158, %159
-  %161 = lshr exact i64 %160, 2
-  %162 = trunc i64 %161 to i16
-  %163 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 2
-  store i16 %162, ptr %163, align 2, !tbaa !25
+153:                                              ; preds = %._crit_edge263
+  %154 = trunc i32 %.2195.lcssa to i8
+  %155 = load ptr, ptr %3, align 8, !tbaa !12
+  %156 = zext nneg i32 %129 to i64
+  %157 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156
+  store i8 %154, ptr %157, align 2, !tbaa !22
+  %158 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156, i32 1
+  store i8 %73, ptr %158, align 1, !tbaa !24
+  %159 = ptrtoint ptr %133 to i64
+  %160 = ptrtoint ptr %155 to i64
+  %161 = sub i64 %159, %160
+  %162 = lshr exact i64 %161, 2
+  %163 = trunc i64 %162 to i16
+  %164 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156, i32 2
+  store i16 %163, ptr %164, align 2, !tbaa !25
   br label %.outer
 
-164:                                              ; preds = %116
+165:                                              ; preds = %116
   %.not220 = icmp eq i32 %.1186, 0
-  br i1 %.not220, label %168, label %165
+  br i1 %.not220, label %169, label %166
 
-165:                                              ; preds = %164
-  %166 = zext i32 %.1186 to i64
-  %167 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %166
-  store i8 64, ptr %167, align 2, !tbaa !14
-  %.sroa.11.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %167, i64 1
+166:                                              ; preds = %165
+  %167 = zext i32 %.1186 to i64
+  %168 = getelementptr inbounds nuw %struct.code, ptr %.0179.ph, i64 %167
+  store i8 64, ptr %168, align 2, !tbaa !14
+  %.sroa.11.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %168, i64 1
   store i8 %77, ptr %.sroa.11.0..sroa_idx25, align 1, !tbaa !14
-  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %167, i64 2
+  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %168, i64 2
   store i16 0, ptr %.sroa.14.0..sroa_idx31, align 2, !tbaa !3
-  br label %168
+  br label %169
 
-168:                                              ; preds = %165, %164
-  %169 = load ptr, ptr %3, align 8, !tbaa !12
-  %170 = zext i32 %.0187.ph to i64
-  %171 = getelementptr inbounds nuw %struct.code, ptr %169, i64 %170
-  store ptr %171, ptr %3, align 8, !tbaa !12
+169:                                              ; preds = %166, %165
+  %170 = load ptr, ptr %3, align 8, !tbaa !12
+  %171 = zext i32 %.0187.ph to i64
+  %172 = getelementptr inbounds nuw %struct.code, ptr %170, i64 %171
+  store ptr %172, ptr %3, align 8, !tbaa !12
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %23, %168
-  %spec.select222.sink = phi i32 [ %spec.select222, %168 ], [ 1, %23 ]
+.loopexit.sink.split:                             ; preds = %23, %169
+  %spec.select222.sink = phi i32 [ %spec.select222, %169 ], [ 1, %23 ]
   store i32 %spec.select222.sink, ptr %4, align 4, !tbaa !9
   br label %.loopexit
 

@@ -3413,7 +3413,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   br label %36
 
 36:                                               ; preds = %.lr.ph67, %._crit_edge
-  %.04666 = phi i64 [ 0, %.lr.ph67 ], [ %93, %._crit_edge ]
+  %.04666 = phi i64 [ 0, %.lr.ph67 ], [ %94, %._crit_edge ]
   %37 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::VC5CodeTag>::CodeSymbol", ptr %22, i64 %.04666
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i8, ptr %38, align 4, !tbaa !250
@@ -3458,7 +3458,6 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   %67 = xor i32 %notmask53, -1
   %68 = add i32 %51, -1
   %69 = shl nuw i32 1, %68
-  %invariant.op = and i32 %69, %67
   %.neg.i = add nuw nsw i32 %notmask53, 1
   %70 = icmp ne i32 %51, 0
   br i1 %53, label %.lr.ph.split.us.preheader, label %.lr.ph.split
@@ -3467,8 +3466,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
   %spec.select = select i1 %62, i32 %63, i32 %60
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %86
-  %.04562.us = phi i16 [ %87, %86 ], [ %46, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %87
+  %.04562.us = phi i16 [ %88, %87 ], [ %46, %.lr.ph.split.us.preheader ]
   %71 = zext i16 %.04562.us to i64
   %72 = icmp ugt i64 %34, %71
   br i1 %72, label %73, label %.split65.us
@@ -3482,58 +3481,58 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %13, %15, %16, %18
 
 76:                                               ; preds = %74
   store i32 %64, ptr %75, align 4, !tbaa !35
-  br i1 %.not, label %86, label %.split.us
+  br i1 %.not, label %87, label %.split.us
 
 .split.us:                                        ; preds = %76
   tail call void @llvm.assume(i1 %65)
   %77 = zext i16 %.04562.us to i32
   %78 = lshr i32 %77, %66
   %79 = and i32 %78, %67
-  %.reass.us = and i32 %78, %invariant.op
-  %80 = icmp eq i32 %.reass.us, 0
-  %81 = select i1 %80, i32 %.neg.i, i32 0
-  %.0.i.us = add nsw i32 %81, %79
-  %82 = shl i32 %.0.i.us, 9
+  %80 = and i32 %79, %69
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i32 %.neg.i, i32 0
+  %.0.i.us = add nsw i32 %82, %79
+  %83 = shl i32 %.0.i.us, 9
   br label %.split49.us
 
 .split49.us:                                      ; preds = %74, %.split.us
-  %83 = phi i32 [ %64, %.split.us ], [ %spec.select, %74 ]
-  %phi.call.us = phi i32 [ %82, %.split.us ], [ -16777216, %74 ]
-  %84 = or i32 %83, %phi.call.us
-  store i32 %84, ptr %75, align 4, !tbaa !35
-  br label %86
+  %84 = phi i32 [ %64, %.split.us ], [ %spec.select, %74 ]
+  %phi.call.us = phi i32 [ %83, %.split.us ], [ -16777216, %74 ]
+  %85 = or i32 %84, %phi.call.us
+  store i32 %85, ptr %75, align 4, !tbaa !35
+  br label %87
 
 .thread.us:                                       ; preds = %73
   tail call void @llvm.assume(i1 %70)
-  %85 = getelementptr inbounds nuw i32, ptr %30, i64 %71
-  store i32 %55, ptr %85, align 4, !tbaa !35
-  br label %86
+  %86 = getelementptr inbounds nuw i32, ptr %30, i64 %71
+  store i32 %55, ptr %86, align 4, !tbaa !35
+  br label %87
 
-86:                                               ; preds = %.thread.us, %.split49.us, %76
-  %87 = add i16 %.04562.us, 1
-  %.not52.us = icmp ugt i16 %87, %49
+87:                                               ; preds = %.thread.us, %.split49.us, %76
+  %88 = add i16 %.04562.us, 1
+  %.not52.us = icmp ugt i16 %88, %49
   br i1 %.not52.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !274
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %90
-  %.04562 = phi i16 [ %92, %90 ], [ %46, %.lr.ph ]
-  %88 = zext i16 %.04562 to i64
-  %89 = icmp ugt i64 %34, %88
-  br i1 %89, label %90, label %.split65.us
+.lr.ph.split:                                     ; preds = %.lr.ph, %91
+  %.04562 = phi i16 [ %93, %91 ], [ %46, %.lr.ph ]
+  %89 = zext i16 %.04562 to i64
+  %90 = icmp ugt i64 %34, %89
+  br i1 %90, label %91, label %.split65.us
 
 .split65.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.51, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20PrefixCodeLUTDecoderINS_10VC5CodeTagENS_23PrefixCodeVectorDecoderIS1_EEE5setupEbb) #22
   unreachable
 
-90:                                               ; preds = %.lr.ph.split
-  %91 = getelementptr inbounds nuw i32, ptr %30, i64 %88
-  store i32 %56, ptr %91, align 4, !tbaa !35
-  %92 = add i16 %.04562, 1
-  %.not52 = icmp ugt i16 %92, %49
+91:                                               ; preds = %.lr.ph.split
+  %92 = getelementptr inbounds nuw i32, ptr %30, i64 %89
+  store i32 %56, ptr %92, align 4, !tbaa !35
+  %93 = add i16 %.04562, 1
+  %.not52 = icmp ugt i16 %93, %49
   br i1 %.not52, label %._crit_edge, label %.lr.ph.split, !llvm.loop !276
 
-._crit_edge:                                      ; preds = %90, %86, %42
-  %93 = add nuw i64 %.04666, 1
-  %exitcond.not = icmp eq i64 %93, %26
+._crit_edge:                                      ; preds = %91, %87, %42
+  %94 = add nuw i64 %.04666, 1
+  %exitcond.not = icmp eq i64 %94, %26
   br i1 %exitcond.not, label %.critedge, label %36, !llvm.loop !277
 
 .critedge:                                        ; preds = %._crit_edge, %36, %_ZNSt6vectorIiSaIiEE6resizeEm.exit

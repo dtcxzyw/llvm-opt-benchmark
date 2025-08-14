@@ -7447,7 +7447,6 @@ declare i32 @xdi_diff(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef range(i32 0, 11) %10, i32 noundef range(i32 -2147483648, 2147483647) %11, ptr noundef nonnull %12) unnamed_addr #1 {
   %14 = alloca %struct.hashmap_iter, align 8
   %15 = alloca %struct.hashmap_iter, align 8
-  %invariant.op = add nuw nsw i32 %10, 1
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.lr.ph, label %._crit_edge.thread
 
@@ -7490,354 +7489,354 @@ define internal fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %0, i
   %42 = sub nsw i32 %41, %10
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %42, i32 0)
   %43 = add nsw i32 %41, %10
-  %.reass = add i32 %41, %invariant.op
+  %44 = add nsw i32 %43, 1
   %.not69.i = icmp slt i32 %43, %2
-  %spec.select.i = select i1 %.not69.i, i32 %.reass, i32 %2
-  %44 = icmp slt i32 %spec.store.select.i, %spec.select.i
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.thread.i
+  %spec.select.i = select i1 %.not69.i, i32 %44, i32 %2
+  %45 = icmp slt i32 %spec.store.select.i, %spec.select.i
+  br i1 %45, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %27
-  %45 = sext i32 %41 to i64
-  %46 = sub nsw i64 0, %45
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %46
-  %47 = mul nuw nsw i64 %indvars.iv, %23
-  %invariant.gep83.i = getelementptr i32, ptr %gep, i64 %47
-  %48 = getelementptr inbounds nuw %struct.fingerprint, ptr %5, i64 %indvars.iv
-  %49 = zext nneg i32 %spec.store.select.i to i64
+  %46 = sext i32 %41 to i64
+  %47 = sub nsw i64 0, %46
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %47
+  %48 = mul nuw nsw i64 %indvars.iv, %23
+  %invariant.gep83.i = getelementptr i32, ptr %gep, i64 %48
+  %49 = getelementptr inbounds nuw %struct.fingerprint, ptr %5, i64 %indvars.iv
+  %50 = zext nneg i32 %spec.store.select.i to i64
   %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
-  br label %50
+  br label %51
 
-50:                                               ; preds = %75, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %49, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
-  %.077.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %75 ]
-  %.05776.i = phi i32 [ 0, %.lr.ph.i ], [ %.158.i, %75 ]
-  %.05975.i = phi i32 [ 0, %.lr.ph.i ], [ %.160.i, %75 ]
-  %.06174.i = phi i32 [ 0, %.lr.ph.i ], [ %.162.i, %75 ]
+51:                                               ; preds = %76, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %50, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
+  %.077.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %76 ]
+  %.05776.i = phi i32 [ 0, %.lr.ph.i ], [ %.158.i, %76 ]
+  %.05975.i = phi i32 [ 0, %.lr.ph.i ], [ %.160.i, %76 ]
+  %.06174.i = phi i32 [ 0, %.lr.ph.i ], [ %.162.i, %76 ]
   %gep.i = getelementptr i32, ptr %invariant.gep83.i, i64 %indvars.iv.i
-  %51 = load i32, ptr %gep.i, align 4, !tbaa !23
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %._crit_edge186
+  %52 = load i32, ptr %gep.i, align 4, !tbaa !23
+  %53 = icmp eq i32 %52, -1
+  br i1 %53, label %54, label %._crit_edge186
 
-._crit_edge186:                                   ; preds = %50
+._crit_edge186:                                   ; preds = %51
   %.pre187 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %70
+  br label %71
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw %struct.fingerprint, ptr %4, i64 %indvars.iv.i
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw %struct.fingerprint, ptr %4, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @hashmap_iter_init(ptr noundef %54, ptr noundef nonnull %15) #21
-  %55 = call ptr @hashmap_iter_next(ptr noundef nonnull %15) #21
-  %.not15.i.i = icmp eq ptr %55, null
+  call void @hashmap_iter_init(ptr noundef %55, ptr noundef nonnull %15) #21
+  %56 = call ptr @hashmap_iter_next(ptr noundef nonnull %15) #21
+  %.not15.i.i = icmp eq ptr %56, null
   br i1 %.not15.i.i, label %fingerprint_similarity.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %53, %63
-  %.017.i.i = phi ptr [ %64, %63 ], [ %55, %53 ]
-  %.01016.i.i = phi i32 [ %.1.i.i, %63 ], [ 0, %53 ]
-  %56 = call ptr @hashmap_get(ptr noundef %48, ptr noundef nonnull %.017.i.i, ptr noundef null) #21
-  %.not14.i.i = icmp eq ptr %56, null
-  br i1 %.not14.i.i, label %63, label %57
+.lr.ph.i.i:                                       ; preds = %54, %64
+  %.017.i.i = phi ptr [ %65, %64 ], [ %56, %54 ]
+  %.01016.i.i = phi i32 [ %.1.i.i, %64 ], [ 0, %54 ]
+  %57 = call ptr @hashmap_get(ptr noundef %49, ptr noundef nonnull %.017.i.i, ptr noundef null) #21
+  %.not14.i.i = icmp eq ptr %57, null
+  br i1 %.not14.i.i, label %64, label %58
 
-57:                                               ; preds = %.lr.ph.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %59 = load i32, ptr %58, align 8, !tbaa !317
-  %60 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !317
-  %..i.i = call i32 @llvm.smin.i32(i32 %59, i32 %61)
-  %62 = add nsw i32 %..i.i, %.01016.i.i
-  br label %63
+58:                                               ; preds = %.lr.ph.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %60 = load i32, ptr %59, align 8, !tbaa !317
+  %61 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
+  %62 = load i32, ptr %61, align 8, !tbaa !317
+  %..i.i = call i32 @llvm.smin.i32(i32 %60, i32 %62)
+  %63 = add nsw i32 %..i.i, %.01016.i.i
+  br label %64
 
-63:                                               ; preds = %57, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %62, %57 ], [ %.01016.i.i, %.lr.ph.i.i ]
-  %64 = call ptr @hashmap_iter_next(ptr noundef nonnull %15) #21
-  %.not.i.i = icmp eq ptr %64, null
+64:                                               ; preds = %58, %.lr.ph.i.i
+  %.1.i.i = phi i32 [ %63, %58 ], [ %.01016.i.i, %.lr.ph.i.i ]
+  %65 = call ptr @hashmap_iter_next(ptr noundef nonnull %15) #21
+  %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %fingerprint_similarity.exit.i, label %.lr.ph.i.i, !llvm.loop !328
 
-fingerprint_similarity.exit.i:                    ; preds = %63, %53
-  %.010.lcssa.i.i = phi i32 [ 0, %53 ], [ %.1.i.i, %63 ]
+fingerprint_similarity.exit.i:                    ; preds = %64, %54
+  %.010.lcssa.i.i = phi i32 [ 0, %54 ], [ %.1.i.i, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %65 = trunc i64 %indvars.iv.i to i32
-  %66 = sub i32 %65, %41
-  %67 = call i32 @llvm.abs.i32(i32 %66, i1 true)
-  %68 = sub nsw i32 1000, %67
-  %69 = mul nsw i32 %.010.lcssa.i.i, %68
-  store i32 %69, ptr %gep.i, align 4, !tbaa !23
-  br label %70
+  %66 = trunc i64 %indvars.iv.i to i32
+  %67 = sub i32 %66, %41
+  %68 = call i32 @llvm.abs.i32(i32 %67, i1 true)
+  %69 = sub nsw i32 1000, %68
+  %70 = mul nsw i32 %.010.lcssa.i.i, %69
+  store i32 %70, ptr %gep.i, align 4, !tbaa !23
+  br label %71
 
-70:                                               ; preds = %._crit_edge186, %fingerprint_similarity.exit.i
-  %.pre-phi = phi i32 [ %.pre187, %._crit_edge186 ], [ %65, %fingerprint_similarity.exit.i ]
-  %71 = phi i32 [ %51, %._crit_edge186 ], [ %69, %fingerprint_similarity.exit.i ]
-  %72 = icmp sgt i32 %71, %.06174.i
-  br i1 %72, label %75, label %73
+71:                                               ; preds = %._crit_edge186, %fingerprint_similarity.exit.i
+  %.pre-phi = phi i32 [ %.pre187, %._crit_edge186 ], [ %66, %fingerprint_similarity.exit.i ]
+  %72 = phi i32 [ %52, %._crit_edge186 ], [ %70, %fingerprint_similarity.exit.i ]
+  %73 = icmp sgt i32 %72, %.06174.i
+  br i1 %73, label %76, label %74
 
-73:                                               ; preds = %70
-  %74 = icmp sgt i32 %71, %.05975.i
-  %spec.select70.i = call i32 @llvm.smax.i32(i32 %71, i32 %.05975.i)
-  %spec.select71.i = select i1 %74, i32 %.pre-phi, i32 %.077.i
-  br label %75
+74:                                               ; preds = %71
+  %75 = icmp sgt i32 %72, %.05975.i
+  %spec.select70.i = call i32 @llvm.smax.i32(i32 %72, i32 %.05975.i)
+  %spec.select71.i = select i1 %75, i32 %.pre-phi, i32 %.077.i
+  br label %76
 
-75:                                               ; preds = %73, %70
-  %.162.i = phi i32 [ %71, %70 ], [ %.06174.i, %73 ]
-  %.160.i = phi i32 [ %.06174.i, %70 ], [ %spec.select70.i, %73 ]
-  %.158.i = phi i32 [ %.pre-phi, %70 ], [ %.05776.i, %73 ]
-  %.1.i = phi i32 [ %.05776.i, %70 ], [ %spec.select71.i, %73 ]
+76:                                               ; preds = %74, %71
+  %.162.i = phi i32 [ %72, %71 ], [ %.06174.i, %74 ]
+  %.160.i = phi i32 [ %.06174.i, %71 ], [ %spec.select70.i, %74 ]
+  %.158.i = phi i32 [ %.pre-phi, %71 ], [ %.05776.i, %74 ]
+  %.1.i = phi i32 [ %.05776.i, %71 ], [ %spec.select71.i, %74 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %50, !llvm.loop !336
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %51, !llvm.loop !336
 
-._crit_edge.i:                                    ; preds = %75
-  %76 = icmp eq i32 %.162.i, 0
-  br i1 %76, label %._crit_edge.thread.i, label %77
+._crit_edge.i:                                    ; preds = %76
+  %77 = icmp eq i32 %.162.i, 0
+  br i1 %77, label %._crit_edge.thread.i, label %78
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %27
   store i32 -2, ptr %25, align 4, !tbaa !23
   br label %.sink.split.i
 
-77:                                               ; preds = %._crit_edge.i
-  %78 = shl nuw nsw i32 %.162.i, 1
-  %79 = sub nsw i32 %78, %.160.i
-  store i32 %79, ptr %25, align 4, !tbaa !23
-  %80 = add nsw i32 %.158.i, %0
-  %81 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  store i32 %80, ptr %81, align 4, !tbaa !23
-  %82 = add nsw i32 %.1.i, %0
+78:                                               ; preds = %._crit_edge.i
+  %79 = shl nuw nsw i32 %.162.i, 1
+  %80 = sub nsw i32 %79, %.160.i
+  store i32 %80, ptr %25, align 4, !tbaa !23
+  %81 = add nsw i32 %.158.i, %0
+  %82 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  store i32 %81, ptr %82, align 4, !tbaa !23
+  %83 = add nsw i32 %.1.i, %0
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %77, %._crit_edge.thread.i
-  %.sink90.i = phi ptr [ %9, %._crit_edge.thread.i ], [ %8, %77 ]
-  %.sink.i = phi i32 [ -1, %._crit_edge.thread.i ], [ %82, %77 ]
-  %83 = getelementptr inbounds nuw i32, ptr %.sink90.i, i64 %indvars.iv
-  store i32 %.sink.i, ptr %83, align 4, !tbaa !23
+.sink.split.i:                                    ; preds = %78, %._crit_edge.thread.i
+  %.sink90.i = phi ptr [ %9, %._crit_edge.thread.i ], [ %8, %78 ]
+  %.sink.i = phi i32 [ -1, %._crit_edge.thread.i ], [ %83, %78 ]
+  %84 = getelementptr inbounds nuw i32, ptr %.sink90.i, i64 %indvars.iv
+  store i32 %.sink.i, ptr %84, align 4, !tbaa !23
   %.pre = load i32, ptr %25, align 4, !tbaa !23
   br label %find_best_line_matches.exit
 
 find_best_line_matches.exit:                      ; preds = %24, %.sink.split.i
-  %84 = phi i32 [ %26, %24 ], [ %.pre, %.sink.split.i ]
-  %85 = icmp sgt i32 %84, %.0130156
-  %86 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %85, i32 %86, i32 %.0132155
-  %spec.select147 = call i32 @llvm.smax.i32(i32 %84, i32 %.0130156)
+  %85 = phi i32 [ %26, %24 ], [ %.pre, %.sink.split.i ]
+  %86 = icmp sgt i32 %85, %.0130156
+  %87 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %86, i32 %87, i32 %.0132155
+  %spec.select147 = call i32 @llvm.smax.i32(i32 %85, i32 %.0130156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !337
 
 ._crit_edge:                                      ; preds = %find_best_line_matches.exit
-  %87 = icmp eq i32 %spec.select, -1
-  br i1 %87, label %._crit_edge.thread, label %88
+  %88 = icmp eq i32 %spec.select, -1
+  br i1 %88, label %._crit_edge.thread, label %89
 
-88:                                               ; preds = %._crit_edge
-  %89 = sext i32 %spec.select to i64
-  %90 = getelementptr inbounds i32, ptr %9, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !23
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds %struct.fingerprint, ptr %4, i64 %92
-  %94 = sext i32 %0 to i64
-  %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %struct.fingerprint, ptr %93, i64 %95
-  %97 = getelementptr inbounds %struct.fingerprint, ptr %5, i64 %89
+89:                                               ; preds = %._crit_edge
+  %90 = sext i32 %spec.select to i64
+  %91 = getelementptr inbounds i32, ptr %9, i64 %90
+  %92 = load i32, ptr %91, align 4, !tbaa !23
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds %struct.fingerprint, ptr %4, i64 %93
+  %95 = sext i32 %0 to i64
+  %96 = sub nsw i64 0, %95
+  %97 = getelementptr inbounds %struct.fingerprint, ptr %94, i64 %96
+  %98 = getelementptr inbounds %struct.fingerprint, ptr %5, i64 %90
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @hashmap_iter_init(ptr noundef %97, ptr noundef nonnull %14) #21
-  call void @hashmap_iter_init(ptr noundef %97, ptr noundef nonnull %14) #21
-  %98 = call ptr @hashmap_iter_next(ptr noundef nonnull %14) #21
-  %.not17.i = icmp eq ptr %98, null
+  call void @hashmap_iter_init(ptr noundef %98, ptr noundef nonnull %14) #21
+  call void @hashmap_iter_init(ptr noundef %98, ptr noundef nonnull %14) #21
+  %99 = call ptr @hashmap_iter_next(ptr noundef nonnull %14) #21
+  %.not17.i = icmp eq ptr %99, null
   br i1 %.not17.i, label %fingerprint_subtract.exit, label %.lr.ph.i149
 
-.lr.ph.i149:                                      ; preds = %88, %109
-  %.018.i = phi ptr [ %110, %109 ], [ %98, %88 ]
-  %99 = call ptr @hashmap_get(ptr noundef %96, ptr noundef nonnull %.018.i, ptr noundef null) #21
-  %.not15.i = icmp eq ptr %99, null
-  br i1 %.not15.i, label %109, label %100
+.lr.ph.i149:                                      ; preds = %89, %110
+  %.018.i = phi ptr [ %111, %110 ], [ %99, %89 ]
+  %100 = call ptr @hashmap_get(ptr noundef %97, ptr noundef nonnull %.018.i, ptr noundef null) #21
+  %.not15.i = icmp eq ptr %100, null
+  br i1 %.not15.i, label %110, label %101
 
-100:                                              ; preds = %.lr.ph.i149
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %102 = load i32, ptr %101, align 8, !tbaa !317
-  %103 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %104 = load i32, ptr %103, align 8, !tbaa !317
-  %.not16.i = icmp sgt i32 %102, %104
-  br i1 %.not16.i, label %107, label %105
+101:                                              ; preds = %.lr.ph.i149
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %103 = load i32, ptr %102, align 8, !tbaa !317
+  %104 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
+  %105 = load i32, ptr %104, align 8, !tbaa !317
+  %.not16.i = icmp sgt i32 %103, %105
+  br i1 %.not16.i, label %108, label %106
 
-105:                                              ; preds = %100
-  %106 = call ptr @hashmap_remove(ptr noundef %96, ptr noundef nonnull %.018.i, ptr noundef null) #21
-  br label %109
+106:                                              ; preds = %101
+  %107 = call ptr @hashmap_remove(ptr noundef %97, ptr noundef nonnull %.018.i, ptr noundef null) #21
+  br label %110
 
-107:                                              ; preds = %100
-  %108 = sub nsw i32 %102, %104
-  store i32 %108, ptr %101, align 8, !tbaa !317
-  br label %109
+108:                                              ; preds = %101
+  %109 = sub nsw i32 %103, %105
+  store i32 %109, ptr %102, align 8, !tbaa !317
+  br label %110
 
-109:                                              ; preds = %107, %105, %.lr.ph.i149
-  %110 = call ptr @hashmap_iter_next(ptr noundef nonnull %14) #21
-  %.not.i150 = icmp eq ptr %110, null
+110:                                              ; preds = %108, %106, %.lr.ph.i149
+  %111 = call ptr @hashmap_iter_next(ptr noundef nonnull %14) #21
+  %.not.i150 = icmp eq ptr %111, null
   br i1 %.not.i150, label %fingerprint_subtract.exit, label %.lr.ph.i149, !llvm.loop !338
 
-fingerprint_subtract.exit:                        ; preds = %109, %88
+fingerprint_subtract.exit:                        ; preds = %110, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %111 = sub nsw i32 %spec.select, %11
-  %112 = add nsw i32 %spec.select, %11
-  %113 = add nsw i32 %112, 1
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %111, i32 0)
-  %.not = icmp slt i32 %112, %3
-  %spec.select148 = select i1 %.not, i32 %113, i32 %3
-  %114 = icmp slt i32 %spec.store.select, %spec.select148
-  br i1 %114, label %.lr.ph161, label %.preheader
+  %112 = sub nsw i32 %spec.select, %11
+  %113 = add nsw i32 %spec.select, %11
+  %114 = add nsw i32 %113, 1
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %112, i32 0)
+  %.not = icmp slt i32 %113, %3
+  %spec.select148 = select i1 %.not, i32 %114, i32 %3
+  %115 = icmp slt i32 %spec.store.select, %spec.select148
+  br i1 %115, label %.lr.ph161, label %.preheader
 
 .lr.ph161:                                        ; preds = %fingerprint_subtract.exit
-  %115 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %116 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %117 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %118 = sub nsw i32 %91, %0
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %6, i64 %119
-  %121 = zext nneg i32 %10 to i64
-  %invariant.gep162 = getelementptr i32, ptr %120, i64 %121
-  %122 = shl nuw nsw i32 %10, 1
-  %123 = or disjoint i32 %122, 1
-  %124 = zext nneg i32 %spec.store.select to i64
-  %125 = zext nneg i32 %123 to i64
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %119 = sub nsw i32 %92, %0
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i32, ptr %6, i64 %120
+  %122 = zext nneg i32 %10 to i64
+  %invariant.gep162 = getelementptr i32, ptr %121, i64 %122
+  %123 = shl nuw nsw i32 %10, 1
+  %124 = or disjoint i32 %123, 1
+  %125 = zext nneg i32 %spec.store.select to i64
+  %126 = zext nneg i32 %124 to i64
   %wide.trip.count177 = zext nneg i32 %spec.select148 to i64
-  br label %127
+  br label %128
 
-.preheader:                                       ; preds = %150, %fingerprint_subtract.exit
+.preheader:                                       ; preds = %151, %fingerprint_subtract.exit
   %.not142.not165 = icmp sgt i32 %spec.select, %spec.store.select
   br i1 %.not142.not165, label %.lr.ph167.preheader, label %._crit_edge168
 
 .lr.ph167.preheader:                              ; preds = %.preheader
-  %126 = zext nneg i32 %spec.store.select to i64
+  %127 = zext nneg i32 %spec.store.select to i64
   br label %.lr.ph167
 
-127:                                              ; preds = %.lr.ph161, %150
-  %indvars.iv174 = phi i64 [ %124, %.lr.ph161 ], [ %indvars.iv.next175, %150 ]
-  %128 = load i32, ptr %115, align 4, !tbaa !325
-  %129 = trunc i64 %indvars.iv174 to i32
-  %130 = add i32 %1, %129
-  %131 = sub i32 %130, %128
-  %132 = shl nsw i32 %131, 1
-  %133 = or disjoint i32 %132, 1
-  %134 = load i32, ptr %116, align 4, !tbaa !324
-  %135 = mul nsw i32 %133, %134
-  %136 = load i32, ptr %117, align 4, !tbaa !326
-  %137 = shl nsw i32 %136, 1
-  %138 = sdiv i32 %135, %137
-  %139 = load i32, ptr %12, align 4, !tbaa !322
-  %140 = sub i32 %138, %0
-  %141 = add i32 %140, %139
-  %142 = sub nsw i32 %118, %141
-  %143 = call i32 @llvm.abs.i32(i32 %142, i1 true)
-  %144 = icmp samesign ugt i32 %143, %10
-  br i1 %144, label %150, label %145
+128:                                              ; preds = %.lr.ph161, %151
+  %indvars.iv174 = phi i64 [ %125, %.lr.ph161 ], [ %indvars.iv.next175, %151 ]
+  %129 = load i32, ptr %116, align 4, !tbaa !325
+  %130 = trunc i64 %indvars.iv174 to i32
+  %131 = add i32 %1, %130
+  %132 = sub i32 %131, %129
+  %133 = shl nsw i32 %132, 1
+  %134 = or disjoint i32 %133, 1
+  %135 = load i32, ptr %117, align 4, !tbaa !324
+  %136 = mul nsw i32 %134, %135
+  %137 = load i32, ptr %118, align 4, !tbaa !326
+  %138 = shl nsw i32 %137, 1
+  %139 = sdiv i32 %136, %138
+  %140 = load i32, ptr %12, align 4, !tbaa !322
+  %141 = sub i32 %139, %0
+  %142 = add i32 %141, %140
+  %143 = sub nsw i32 %119, %142
+  %144 = call i32 @llvm.abs.i32(i32 %143, i1 true)
+  %145 = icmp samesign ugt i32 %144, %10
+  br i1 %145, label %151, label %146
 
-145:                                              ; preds = %127
-  %146 = sext i32 %141 to i64
-  %147 = sub nsw i64 0, %146
-  %gep163 = getelementptr i32, ptr %invariant.gep162, i64 %147
-  %148 = mul nuw nsw i64 %indvars.iv174, %125
-  %149 = getelementptr inbounds nuw i32, ptr %gep163, i64 %148
-  store i32 -1, ptr %149, align 4, !tbaa !23
-  br label %150
+146:                                              ; preds = %128
+  %147 = sext i32 %142 to i64
+  %148 = sub nsw i64 0, %147
+  %gep163 = getelementptr i32, ptr %invariant.gep162, i64 %148
+  %149 = mul nuw nsw i64 %indvars.iv174, %126
+  %150 = getelementptr inbounds nuw i32, ptr %gep163, i64 %149
+  store i32 -1, ptr %150, align 4, !tbaa !23
+  br label %151
 
-150:                                              ; preds = %127, %145
+151:                                              ; preds = %128, %146
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %.preheader, label %127, !llvm.loop !339
+  br i1 %exitcond178.not, label %.preheader, label %128, !llvm.loop !339
 
-.lr.ph167:                                        ; preds = %.lr.ph167.preheader, %161
-  %indvars.iv179 = phi i64 [ %89, %.lr.ph167.preheader ], [ %indvars.iv.next180, %161 ]
+.lr.ph167:                                        ; preds = %.lr.ph167.preheader, %162
+  %indvars.iv179 = phi i64 [ %90, %.lr.ph167.preheader ], [ %indvars.iv.next180, %162 ]
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, -1
-  %151 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next180
-  %152 = load i32, ptr %151, align 4, !tbaa !23
-  %153 = icmp sgt i32 %152, -1
-  br i1 %153, label %154, label %161
+  %152 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next180
+  %153 = load i32, ptr %152, align 4, !tbaa !23
+  %154 = icmp sgt i32 %153, -1
+  br i1 %154, label %155, label %162
 
-154:                                              ; preds = %.lr.ph167
-  %155 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next180
-  %156 = load i32, ptr %155, align 4, !tbaa !23
-  %.not145 = icmp slt i32 %156, %91
-  br i1 %.not145, label %157, label %160
+155:                                              ; preds = %.lr.ph167
+  %156 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next180
+  %157 = load i32, ptr %156, align 4, !tbaa !23
+  %.not145 = icmp slt i32 %157, %92
+  br i1 %.not145, label %158, label %161
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next180
-  %159 = load i32, ptr %158, align 4, !tbaa !23
-  %.not146 = icmp slt i32 %159, %91
-  br i1 %.not146, label %161, label %160
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next180
+  %160 = load i32, ptr %159, align 4, !tbaa !23
+  %.not146 = icmp slt i32 %160, %92
+  br i1 %.not146, label %162, label %161
 
-160:                                              ; preds = %157, %154
-  store i32 -1, ptr %151, align 4, !tbaa !23
-  br label %161
+161:                                              ; preds = %158, %155
+  store i32 -1, ptr %152, align 4, !tbaa !23
+  br label %162
 
-161:                                              ; preds = %.lr.ph167, %157, %160
-  %.not142.not = icmp sgt i64 %indvars.iv.next180, %126
+162:                                              ; preds = %.lr.ph167, %158, %161
+  %.not142.not = icmp sgt i64 %indvars.iv.next180, %127
   br i1 %.not142.not, label %.lr.ph167, label %._crit_edge168, !llvm.loop !340
 
-._crit_edge168:                                   ; preds = %161, %.preheader
-  %162 = add nuw nsw i32 %spec.select, 1
-  %163 = icmp slt i32 %162, %spec.select148
-  br i1 %163, label %.lr.ph171.preheader, label %._crit_edge172
+._crit_edge168:                                   ; preds = %162, %.preheader
+  %163 = add nuw nsw i32 %spec.select, 1
+  %164 = icmp slt i32 %163, %spec.select148
+  br i1 %164, label %.lr.ph171.preheader, label %._crit_edge172
 
 .lr.ph171.preheader:                              ; preds = %._crit_edge168
-  %164 = sext i32 %162 to i64
+  %165 = sext i32 %163 to i64
   br label %.lr.ph171
 
-.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %175
-  %indvars.iv182 = phi i64 [ %164, %.lr.ph171.preheader ], [ %indvars.iv.next183, %175 ]
-  %165 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv182
-  %166 = load i32, ptr %165, align 4, !tbaa !23
-  %167 = icmp sgt i32 %166, -1
-  br i1 %167, label %168, label %175
+.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %176
+  %indvars.iv182 = phi i64 [ %165, %.lr.ph171.preheader ], [ %indvars.iv.next183, %176 ]
+  %166 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv182
+  %167 = load i32, ptr %166, align 4, !tbaa !23
+  %168 = icmp sgt i32 %167, -1
+  br i1 %168, label %169, label %176
 
-168:                                              ; preds = %.lr.ph171
-  %169 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv182
-  %170 = load i32, ptr %169, align 4, !tbaa !23
-  %.not143 = icmp sgt i32 %170, %91
-  br i1 %.not143, label %171, label %174
+169:                                              ; preds = %.lr.ph171
+  %170 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv182
+  %171 = load i32, ptr %170, align 4, !tbaa !23
+  %.not143 = icmp sgt i32 %171, %92
+  br i1 %.not143, label %172, label %175
 
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv182
-  %173 = load i32, ptr %172, align 4, !tbaa !23
-  %.not144 = icmp sgt i32 %173, %91
-  br i1 %.not144, label %175, label %174
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv182
+  %174 = load i32, ptr %173, align 4, !tbaa !23
+  %.not144 = icmp sgt i32 %174, %92
+  br i1 %.not144, label %176, label %175
 
-174:                                              ; preds = %171, %168
-  store i32 -1, ptr %165, align 4, !tbaa !23
-  br label %175
+175:                                              ; preds = %172, %169
+  store i32 -1, ptr %166, align 4, !tbaa !23
+  br label %176
 
-175:                                              ; preds = %.lr.ph171, %171, %174
+176:                                              ; preds = %.lr.ph171, %172, %175
   %indvars.iv.next183 = add nsw i64 %indvars.iv182, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next183 to i32
   %exitcond185.not = icmp eq i32 %spec.select148, %lftr.wideiv
   br i1 %exitcond185.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !341
 
-._crit_edge172:                                   ; preds = %175, %._crit_edge168
-  %176 = icmp sgt i32 %spec.select, 0
-  br i1 %176, label %177, label %179
+._crit_edge172:                                   ; preds = %176, %._crit_edge168
+  %177 = icmp sgt i32 %spec.select, 0
+  br i1 %177, label %178, label %180
 
-177:                                              ; preds = %._crit_edge172
-  %reass.sub = sub i32 %91, %0
-  %178 = add i32 %reass.sub, 1
-  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %0, i32 noundef %1, i32 noundef %178, i32 noundef %spec.select, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
-  br label %179
+178:                                              ; preds = %._crit_edge172
+  %reass.sub = sub i32 %92, %0
+  %179 = add i32 %reass.sub, 1
+  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %0, i32 noundef %1, i32 noundef %179, i32 noundef %spec.select, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12)
+  br label %180
 
-179:                                              ; preds = %177, %._crit_edge172
-  %180 = icmp slt i32 %162, %3
-  br i1 %180, label %181, label %._crit_edge.thread
+180:                                              ; preds = %178, %._crit_edge172
+  %181 = icmp slt i32 %163, %3
+  br i1 %181, label %182, label %._crit_edge.thread
 
-181:                                              ; preds = %179
-  %182 = add nsw i32 %162, %1
-  %183 = add nsw i32 %2, %0
-  %184 = sub i32 %183, %91
-  %185 = sub i32 %3, %162
-  %186 = sext i32 %162 to i64
-  %187 = getelementptr inbounds %struct.fingerprint, ptr %5, i64 %186
-  %188 = shl nuw nsw i32 %10, 1
-  %189 = or disjoint i32 %188, 1
-  %190 = mul nsw i32 %162, %189
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i32, ptr %6, i64 %191
-  %193 = getelementptr inbounds i32, ptr %7, i64 %186
-  %194 = getelementptr inbounds i32, ptr %8, i64 %186
-  %195 = getelementptr inbounds i32, ptr %9, i64 %186
-  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %91, i32 noundef %182, i32 noundef %184, i32 noundef %185, ptr noundef %96, ptr noundef nonnull %187, ptr noundef nonnull %192, ptr noundef nonnull %193, ptr noundef nonnull %194, ptr noundef nonnull %195, i32 noundef %10, i32 noundef %11, ptr noundef %12)
+182:                                              ; preds = %180
+  %183 = add nsw i32 %163, %1
+  %184 = add nsw i32 %2, %0
+  %185 = sub i32 %184, %92
+  %186 = sub i32 %3, %163
+  %187 = sext i32 %163 to i64
+  %188 = getelementptr inbounds %struct.fingerprint, ptr %5, i64 %187
+  %189 = shl nuw nsw i32 %10, 1
+  %190 = or disjoint i32 %189, 1
+  %191 = mul nsw i32 %163, %190
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds i32, ptr %6, i64 %192
+  %194 = getelementptr inbounds i32, ptr %7, i64 %187
+  %195 = getelementptr inbounds i32, ptr %8, i64 %187
+  %196 = getelementptr inbounds i32, ptr %9, i64 %187
+  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %92, i32 noundef %183, i32 noundef %185, i32 noundef %186, ptr noundef %97, ptr noundef nonnull %188, ptr noundef nonnull %193, ptr noundef nonnull %194, ptr noundef nonnull %195, ptr noundef nonnull %196, i32 noundef %10, i32 noundef %11, ptr noundef %12)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %179, %181, %._crit_edge
+._crit_edge.thread:                               ; preds = %13, %180, %182, %._crit_edge
   ret void
 }
 

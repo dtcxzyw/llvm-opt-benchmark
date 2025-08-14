@@ -27728,9 +27728,9 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   br label %68
 
 68:                                               ; preds = %68, %64
-  %.1128.i = phi ptr [ %65, %64 ], [ %169, %68 ]
-  %.1104127.i = phi i32 [ 0, %64 ], [ %170, %68 ]
-  %.0105126.i = phi ptr [ %0, %64 ], [ %168, %68 ]
+  %.1128.i = phi ptr [ %65, %64 ], [ %170, %68 ]
+  %.1104127.i = phi i32 [ 0, %64 ], [ %171, %68 ]
+  %.0105126.i = phi ptr [ %0, %64 ], [ %169, %68 ]
   %69 = getelementptr inbounds i8, ptr %.1128.i, i64 -32
   %70 = load i16, ptr %69, align 2, !tbaa !100, !noalias !815
   %71 = sext i16 %70 to i32
@@ -27789,60 +27789,60 @@ define internal void @avg_h264_qpel4_mc22_10_c(ptr noundef captures(none) %0, pt
   %122 = mul nsw i32 %121, 20
   %123 = add nsw i32 %90, %78
   %.neg107.i = mul nsw i32 %123, -5
-  %.reass.i = add nsw i32 %74, 10742
-  %124 = add nsw i32 %.reass.i, %94
-  %125 = add nsw i32 %124, %122
-  %126 = add nsw i32 %125, %.neg107.i
-  %127 = ashr i32 %126, 10
-  %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 0)
-  %129 = tail call i32 @llvm.umin.i32(i32 %128, i32 1023)
-  %130 = add nuw nsw i32 %120, 1
-  %131 = add nuw nsw i32 %130, %129
-  %132 = lshr i32 %131, 1
-  %133 = trunc nuw i32 %132 to i16
-  store i16 %133, ptr %118, align 2, !tbaa !100, !noalias !815
-  %134 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
-  %135 = load i16, ptr %134, align 2, !tbaa !100, !noalias !815
-  %136 = zext i16 %135 to i32
-  %137 = add nsw i32 %90, %86
-  %138 = mul nsw i32 %137, 20
-  %139 = add nsw i32 %94, %82
-  %.neg108.i = mul nsw i32 %139, -5
-  %140 = add nsw i32 %77, 10742
-  %141 = add nsw i32 %140, %98
-  %142 = add nsw i32 %141, %138
-  %143 = add nsw i32 %142, %.neg108.i
-  %144 = ashr i32 %143, 10
-  %145 = tail call i32 @llvm.smax.i32(i32 %144, i32 0)
-  %146 = tail call i32 @llvm.umin.i32(i32 %145, i32 1023)
-  %147 = add nuw nsw i32 %136, 1
-  %148 = add nuw nsw i32 %147, %146
-  %149 = lshr i32 %148, 1
-  %150 = trunc nuw i32 %149 to i16
-  store i16 %150, ptr %134, align 2, !tbaa !100, !noalias !815
-  %151 = getelementptr inbounds i16, ptr %.0105126.i, i64 %67
-  %152 = load i16, ptr %151, align 2, !tbaa !100, !noalias !815
-  %153 = zext i16 %152 to i32
-  %154 = add nsw i32 %94, %90
-  %155 = mul nsw i32 %154, 20
-  %156 = add nsw i32 %98, %86
-  %.neg109.i = mul nsw i32 %156, -5
-  %157 = add nsw i32 %81, 20972
-  %158 = add nsw i32 %157, %101
-  %159 = add nsw i32 %158, %155
-  %160 = add nsw i32 %159, %.neg109.i
-  %161 = ashr i32 %160, 10
-  %162 = tail call i32 @llvm.smax.i32(i32 %161, i32 0)
-  %163 = tail call i32 @llvm.umin.i32(i32 %162, i32 1023)
-  %164 = add nuw nsw i32 %163, 1
-  %165 = add nuw nsw i32 %164, %153
-  %166 = lshr i32 %165, 1
-  %167 = trunc nuw i32 %166 to i16
-  store i16 %167, ptr %151, align 2, !tbaa !100, !noalias !815
-  %168 = getelementptr inbounds nuw i8, ptr %.0105126.i, i64 2
-  %169 = getelementptr inbounds nuw i8, ptr %.1128.i, i64 2
-  %170 = add nuw nsw i32 %.1104127.i, 1
-  %exitcond129.not.i = icmp eq i32 %170, 4
+  %124 = add nsw i32 %74, 10742
+  %125 = add nsw i32 %124, %94
+  %126 = add nsw i32 %125, %122
+  %127 = add nsw i32 %126, %.neg107.i
+  %128 = ashr i32 %127, 10
+  %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
+  %130 = tail call i32 @llvm.umin.i32(i32 %129, i32 1023)
+  %131 = add nuw nsw i32 %120, 1
+  %132 = add nuw nsw i32 %131, %130
+  %133 = lshr i32 %132, 1
+  %134 = trunc nuw i32 %133 to i16
+  store i16 %134, ptr %118, align 2, !tbaa !100, !noalias !815
+  %135 = getelementptr inbounds i16, ptr %.0105126.i, i64 %8
+  %136 = load i16, ptr %135, align 2, !tbaa !100, !noalias !815
+  %137 = zext i16 %136 to i32
+  %138 = add nsw i32 %90, %86
+  %139 = mul nsw i32 %138, 20
+  %140 = add nsw i32 %94, %82
+  %.neg108.i = mul nsw i32 %140, -5
+  %141 = add nsw i32 %77, 10742
+  %142 = add nsw i32 %141, %98
+  %143 = add nsw i32 %142, %139
+  %144 = add nsw i32 %143, %.neg108.i
+  %145 = ashr i32 %144, 10
+  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 1023)
+  %148 = add nuw nsw i32 %137, 1
+  %149 = add nuw nsw i32 %148, %147
+  %150 = lshr i32 %149, 1
+  %151 = trunc nuw i32 %150 to i16
+  store i16 %151, ptr %135, align 2, !tbaa !100, !noalias !815
+  %152 = getelementptr inbounds i16, ptr %.0105126.i, i64 %67
+  %153 = load i16, ptr %152, align 2, !tbaa !100, !noalias !815
+  %154 = zext i16 %153 to i32
+  %155 = add nsw i32 %94, %90
+  %156 = mul nsw i32 %155, 20
+  %157 = add nsw i32 %98, %86
+  %.neg109.i = mul nsw i32 %157, -5
+  %158 = add nsw i32 %81, 20972
+  %159 = add nsw i32 %158, %101
+  %160 = add nsw i32 %159, %156
+  %161 = add nsw i32 %160, %.neg109.i
+  %162 = ashr i32 %161, 10
+  %163 = tail call i32 @llvm.smax.i32(i32 %162, i32 0)
+  %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 1023)
+  %165 = add nuw nsw i32 %164, 1
+  %166 = add nuw nsw i32 %165, %154
+  %167 = lshr i32 %166, 1
+  %168 = trunc nuw i32 %167 to i16
+  store i16 %168, ptr %152, align 2, !tbaa !100, !noalias !815
+  %169 = getelementptr inbounds nuw i8, ptr %.0105126.i, i64 2
+  %170 = getelementptr inbounds nuw i8, ptr %.1128.i, i64 2
+  %171 = add nuw nsw i32 %.1104127.i, 1
+  %exitcond129.not.i = icmp eq i32 %171, 4
   br i1 %exitcond129.not.i, label %avg_h264_qpel4_hv_lowpass_10.exit, label %68, !llvm.loop !819
 
 avg_h264_qpel4_hv_lowpass_10.exit:                ; preds = %68
@@ -51766,9 +51766,9 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   br label %72
 
 72:                                               ; preds = %64, %72
-  %.1120 = phi ptr [ %66, %64 ], [ %153, %72 ]
-  %.196119 = phi i32 [ 0, %64 ], [ %154, %72 ]
-  %.097118 = phi ptr [ %0, %64 ], [ %152, %72 ]
+  %.1120 = phi ptr [ %66, %64 ], [ %154, %72 ]
+  %.196119 = phi i32 [ 0, %64 ], [ %155, %72 ]
+  %.097118 = phi ptr [ %0, %64 ], [ %153, %72 ]
   %73 = getelementptr inbounds i8, ptr %.1120, i64 -32
   %74 = load i16, ptr %73, align 2, !tbaa !100
   %75 = sext i16 %74 to i32
@@ -51819,51 +51819,51 @@ define internal fastcc void @put_h264_qpel4_hv_lowpass_10(ptr noundef writeonly 
   %118 = mul nsw i32 %117, 20
   %119 = add nsw i32 %94, %82
   %.neg99 = mul nsw i32 %119, -5
-  %.reass = add nsw i32 %78, 10742
-  %120 = add nsw i32 %.reass, %98
-  %121 = add nsw i32 %120, %118
-  %122 = add nsw i32 %121, %.neg99
-  %123 = ashr i32 %122, 10
-  %124 = tail call i32 @llvm.smax.i32(i32 %123, i32 0)
-  %125 = tail call i32 @llvm.umin.i32(i32 %124, i32 1023)
-  %126 = trunc nuw nsw i32 %125 to i16
-  %127 = getelementptr inbounds i16, ptr %.097118, i64 %67
-  store i16 %126, ptr %127, align 2, !tbaa !100
-  %128 = add nsw i32 %94, %90
-  %129 = mul nsw i32 %128, 20
-  %130 = add nsw i32 %98, %86
-  %.neg100 = mul nsw i32 %130, -5
-  %131 = add nsw i32 %81, 10742
-  %132 = add nsw i32 %131, %102
-  %133 = add nsw i32 %132, %129
-  %134 = add nsw i32 %133, %.neg100
-  %135 = ashr i32 %134, 10
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
-  %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 1023)
-  %138 = trunc nuw nsw i32 %137 to i16
-  %139 = getelementptr inbounds i16, ptr %.097118, i64 %69
-  store i16 %138, ptr %139, align 2, !tbaa !100
-  %140 = add nsw i32 %98, %94
-  %141 = mul nsw i32 %140, 20
-  %142 = add nsw i32 %102, %90
-  %.neg101 = mul nsw i32 %142, -5
-  %143 = add nsw i32 %85, 20972
-  %144 = add nsw i32 %143, %105
-  %145 = add nsw i32 %144, %141
-  %146 = add nsw i32 %145, %.neg101
-  %147 = ashr i32 %146, 10
-  %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 0)
-  %149 = tail call i32 @llvm.umin.i32(i32 %148, i32 1023)
-  %150 = trunc nuw nsw i32 %149 to i16
-  %151 = getelementptr inbounds i16, ptr %.097118, i64 %71
-  store i16 %150, ptr %151, align 2, !tbaa !100
-  %152 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
-  %153 = getelementptr inbounds nuw i8, ptr %.1120, i64 2
-  %154 = add nuw nsw i32 %.196119, 1
-  %exitcond121.not = icmp eq i32 %154, 4
-  br i1 %exitcond121.not, label %155, label %72, !llvm.loop !1411
+  %120 = add nsw i32 %78, 10742
+  %121 = add nsw i32 %120, %98
+  %122 = add nsw i32 %121, %118
+  %123 = add nsw i32 %122, %.neg99
+  %124 = ashr i32 %123, 10
+  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 1023)
+  %127 = trunc nuw nsw i32 %126 to i16
+  %128 = getelementptr inbounds i16, ptr %.097118, i64 %67
+  store i16 %127, ptr %128, align 2, !tbaa !100
+  %129 = add nsw i32 %94, %90
+  %130 = mul nsw i32 %129, 20
+  %131 = add nsw i32 %98, %86
+  %.neg100 = mul nsw i32 %131, -5
+  %132 = add nsw i32 %81, 10742
+  %133 = add nsw i32 %132, %102
+  %134 = add nsw i32 %133, %130
+  %135 = add nsw i32 %134, %.neg100
+  %136 = ashr i32 %135, 10
+  %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
+  %138 = tail call i32 @llvm.umin.i32(i32 %137, i32 1023)
+  %139 = trunc nuw nsw i32 %138 to i16
+  %140 = getelementptr inbounds i16, ptr %.097118, i64 %69
+  store i16 %139, ptr %140, align 2, !tbaa !100
+  %141 = add nsw i32 %98, %94
+  %142 = mul nsw i32 %141, 20
+  %143 = add nsw i32 %102, %90
+  %.neg101 = mul nsw i32 %143, -5
+  %144 = add nsw i32 %85, 20972
+  %145 = add nsw i32 %144, %105
+  %146 = add nsw i32 %145, %142
+  %147 = add nsw i32 %146, %.neg101
+  %148 = ashr i32 %147, 10
+  %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
+  %150 = tail call i32 @llvm.umin.i32(i32 %149, i32 1023)
+  %151 = trunc nuw nsw i32 %150 to i16
+  %152 = getelementptr inbounds i16, ptr %.097118, i64 %71
+  store i16 %151, ptr %152, align 2, !tbaa !100
+  %153 = getelementptr inbounds nuw i8, ptr %.097118, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %.1120, i64 2
+  %155 = add nuw nsw i32 %.196119, 1
+  %exitcond121.not = icmp eq i32 %155, 4
+  br i1 %exitcond121.not, label %156, label %72, !llvm.loop !1411
 
-155:                                              ; preds = %72
+156:                                              ; preds = %72
   ret void
 }
 
@@ -51926,9 +51926,9 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef writeonly 
   br label %48
 
 48:                                               ; preds = %44, %48
-  %.176 = phi ptr [ %46, %44 ], [ %98, %48 ]
+  %.176 = phi ptr [ %46, %44 ], [ %99, %48 ]
   %49 = phi i1 [ true, %44 ], [ false, %48 ]
-  %.06374 = phi ptr [ %0, %44 ], [ %97, %48 ]
+  %.06374 = phi ptr [ %0, %44 ], [ %98, %48 ]
   %50 = getelementptr inbounds i8, ptr %.176, i64 -16
   %51 = load i16, ptr %50, align 2, !tbaa !100
   %52 = sext i16 %51 to i32
@@ -51971,21 +51971,21 @@ define internal fastcc void @put_h264_qpel2_hv_lowpass_10(ptr noundef writeonly 
   %87 = mul nsw i32 %86, 20
   %88 = add nsw i32 %71, %59
   %.neg65 = mul nsw i32 %88, -5
-  %.reass = add nsw i32 %55, 20972
-  %89 = add nsw i32 %.reass, %74
-  %90 = add nsw i32 %89, %87
-  %91 = add nsw i32 %90, %.neg65
-  %92 = ashr i32 %91, 10
-  %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
-  %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 1023)
-  %95 = trunc nuw nsw i32 %94 to i16
-  %96 = getelementptr inbounds i16, ptr %.06374, i64 %47
-  store i16 %95, ptr %96, align 2, !tbaa !100
-  %97 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
-  %98 = getelementptr inbounds nuw i8, ptr %.176, i64 2
-  br i1 %49, label %48, label %99, !llvm.loop !1413
+  %89 = add nsw i32 %55, 20972
+  %90 = add nsw i32 %89, %74
+  %91 = add nsw i32 %90, %87
+  %92 = add nsw i32 %91, %.neg65
+  %93 = ashr i32 %92, 10
+  %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 1023)
+  %96 = trunc nuw nsw i32 %95 to i16
+  %97 = getelementptr inbounds i16, ptr %.06374, i64 %47
+  store i16 %96, ptr %97, align 2, !tbaa !100
+  %98 = getelementptr inbounds nuw i8, ptr %.06374, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.176, i64 2
+  br i1 %49, label %48, label %100, !llvm.loop !1413
 
-99:                                               ; preds = %48
+100:                                              ; preds = %48
   ret void
 }
 

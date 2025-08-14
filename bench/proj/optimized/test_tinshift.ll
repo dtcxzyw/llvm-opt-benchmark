@@ -10073,7 +10073,6 @@ define internal fastcc void @_ZN12TestTINShiftL13BuildQuadTreeERKNS_12TINShiftFi
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 452
   %9 = load i32, ptr %8, align 4, !tbaa !126, !noalias !226
   %10 = zext i32 %9 to i64
-  %invariant.op.i = add nsw i64 %10, -1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %12 = load ptr, ptr %11, align 8, !tbaa !129, !noalias !226
   %13 = load ptr, ptr %7, align 8, !tbaa !128, !noalias !226
@@ -10081,8 +10080,9 @@ define internal fastcc void @_ZN12TestTINShiftL13BuildQuadTreeERKNS_12TINShiftFi
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = icmp ult i64 %invariant.op.i, %17
-  br i1 %18, label %.lr.ph.i, label %..loopexit_crit_edge
+  %18 = add nsw i64 %10, -1
+  %19 = icmp ult i64 %18, %17
+  br i1 %19, label %.lr.ph.i, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 448
@@ -10093,47 +10093,47 @@ define internal fastcc void @_ZN12TestTINShiftL13BuildQuadTreeERKNS_12TINShiftFi
   br label %.loopexit
 
 .lr.ph.i:                                         ; preds = %3
-  %19 = xor i1 %2, true
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %21 = load i8, ptr %20, align 8, !tbaa !111, !range !120, !noalias !226, !noundef !121
-  %22 = trunc nuw i8 %21 to i1
-  %23 = and i1 %19, %22
-  %24 = select i1 %23, i64 2, i64 0
-  %invariant.gep.i = getelementptr double, ptr %13, i64 %24
-  %25 = select i1 %23, i64 3, i64 1
-  %invariant.gep32.i = getelementptr double, ptr %13, i64 %25
-  br label %26
+  %20 = xor i1 %2, true
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %22 = load i8, ptr %21, align 8, !tbaa !111, !range !120, !noalias !226, !noundef !121
+  %23 = trunc nuw i8 %22 to i1
+  %24 = and i1 %20, %23
+  %25 = select i1 %24, i64 2, i64 0
+  %invariant.gep.i = getelementptr double, ptr %13, i64 %25
+  %26 = select i1 %24, i64 3, i64 1
+  %invariant.gep32.i = getelementptr double, ptr %13, i64 %26
+  br label %27
 
-26:                                               ; preds = %26, %.lr.ph.i
-  %27 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated.i, %26 ]
-  %28 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated25.i, %26 ]
-  %29 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated22.i, %26 ]
-  %30 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated28.i, %26 ]
-  %31 = phi i64 [ %10, %.lr.ph.i ], [ %38, %26 ]
-  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %26 ]
+27:                                               ; preds = %27, %.lr.ph.i
+  %28 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated.i, %27 ]
+  %29 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated25.i, %27 ]
+  %30 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated22.i, %27 ]
+  %31 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.speculated28.i, %27 ]
+  %32 = phi i64 [ %10, %.lr.ph.i ], [ %39, %27 ]
+  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %27 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %.031.i
-  %32 = load double, ptr %gep.i, align 8, !tbaa !153, !noalias !226
+  %33 = load double, ptr %gep.i, align 8, !tbaa !153, !noalias !226
   %gep33.i = getelementptr double, ptr %invariant.gep32.i, i64 %.031.i
-  %33 = load double, ptr %gep33.i, align 8, !tbaa !153, !noalias !226
-  %34 = fcmp olt double %32, %30
-  %.sroa.speculated28.i = select i1 %34, double %32, double %30
-  %35 = fcmp olt double %33, %29
-  %.sroa.speculated22.i = select i1 %35, double %33, double %29
-  %36 = fcmp olt double %28, %32
-  %.sroa.speculated25.i = select i1 %36, double %32, double %28
-  %37 = fcmp olt double %27, %33
-  %.sroa.speculated.i = select i1 %37, double %33, double %27
-  %38 = add i64 %31, %10
-  %.reass.i = add i64 %31, %invariant.op.i
-  %39 = icmp ult i64 %.reass.i, %17
-  br i1 %39, label %26, label %.loopexit, !llvm.loop !229
+  %34 = load double, ptr %gep33.i, align 8, !tbaa !153, !noalias !226
+  %35 = fcmp olt double %33, %31
+  %.sroa.speculated28.i = select i1 %35, double %33, double %31
+  %36 = fcmp olt double %34, %30
+  %.sroa.speculated22.i = select i1 %36, double %34, double %30
+  %37 = fcmp olt double %29, %33
+  %.sroa.speculated25.i = select i1 %37, double %33, double %29
+  %38 = fcmp olt double %28, %34
+  %.sroa.speculated.i = select i1 %38, double %34, double %28
+  %39 = add i64 %32, %10
+  %40 = add i64 %39, -1
+  %41 = icmp ult i64 %40, %17
+  br i1 %41, label %27, label %.loopexit, !llvm.loop !229
 
-.loopexit:                                        ; preds = %26, %..loopexit_crit_edge
-  %.pre-phi93 = phi i1 [ %.pre92, %..loopexit_crit_edge ], [ %23, %26 ]
-  %.sroa.0.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated28.i, %26 ]
-  %.sroa.6.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated22.i, %26 ]
-  %.sroa.8.0 = phi double [ 0xFFEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated25.i, %26 ]
-  %.sroa.10.0 = phi double [ 0xFFEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated.i, %26 ]
+.loopexit:                                        ; preds = %27, %..loopexit_crit_edge
+  %.pre-phi93 = phi i1 [ %.pre92, %..loopexit_crit_edge ], [ %24, %27 ]
+  %.sroa.0.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated28.i, %27 ]
+  %.sroa.6.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated22.i, %27 ]
+  %.sroa.8.0 = phi double [ 0xFFEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated25.i, %27 ]
+  %.sroa.10.0 = phi double [ 0xFFEFFFFFFFFFFFFF, %..loopexit_crit_edge ], [ %.sroa.speculated.i, %27 ]
   store double %.sroa.0.0, ptr %6, align 8, !tbaa !153
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !153
@@ -10141,112 +10141,112 @@ define internal fastcc void @_ZN12TestTINShiftL13BuildQuadTreeERKNS_12TINShiftFi
   store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !153
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !153
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 8, ptr %41, align 8, !tbaa !230
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double 5.500000e-01, ptr %42, align 8, !tbaa !240
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, i8 0, i64 48, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i32 8, ptr %43, align 8, !tbaa !230
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store double 5.500000e-01, ptr %44, align 8, !tbaa !240
   store ptr %6, ptr %0, align 8, !tbaa !211
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %44 = select i1 %.pre-phi93, i32 2, i32 0
-  %45 = select i1 %.pre-phi93, i32 3, i32 1
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %47 = load ptr, ptr %46, align 8, !tbaa !162
-  %48 = load ptr, ptr %43, align 8, !tbaa !161
-  %.not = icmp eq ptr %47, %48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 480
+  %46 = select i1 %.pre-phi93, i32 2, i32 0
+  %47 = select i1 %.pre-phi93, i32 3, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 488
+  %49 = load ptr, ptr %48, align 8, !tbaa !162
+  %50 = load ptr, ptr %45, align 8, !tbaa !161
+  %.not = icmp eq ptr %49, %50
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %52
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %54
 
-52:                                               ; preds = %.lr.ph, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit
-  %53 = phi ptr [ %48, %.lr.ph ], [ %99, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
-  %.05188 = phi i64 [ 0, %.lr.ph ], [ %97, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
-  %54 = getelementptr inbounds nuw %"struct.TestTINShift::TINShiftFile::VertexIndices", ptr %53, i64 %.05188
-  %55 = load i32, ptr %54, align 4, !tbaa !222
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !224
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = load i32, ptr %58, align 4, !tbaa !225
-  %60 = mul i32 %55, %9
-  %61 = add i32 %60, %44
-  %62 = zext i32 %61 to i64
-  %63 = load ptr, ptr %7, align 8, !tbaa !128
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %62
-  %65 = load double, ptr %64, align 8, !tbaa !153
-  %66 = add i32 %60, %45
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw double, ptr %63, i64 %67
-  %69 = load double, ptr %68, align 8, !tbaa !153
-  %70 = mul i32 %57, %9
-  %71 = add i32 %70, %44
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw double, ptr %63, i64 %72
-  %74 = load double, ptr %73, align 8, !tbaa !153
-  %75 = add i32 %70, %45
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw double, ptr %63, i64 %76
-  %78 = load double, ptr %77, align 8, !tbaa !153
-  %79 = mul i32 %59, %9
-  %80 = add i32 %79, %44
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw double, ptr %63, i64 %81
-  %83 = load double, ptr %82, align 8, !tbaa !153
-  %84 = add i32 %79, %45
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw double, ptr %63, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !153
+54:                                               ; preds = %.lr.ph, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit
+  %55 = phi ptr [ %50, %.lr.ph ], [ %101, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
+  %.05188 = phi i64 [ 0, %.lr.ph ], [ %99, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit ]
+  %56 = getelementptr inbounds nuw %"struct.TestTINShift::TINShiftFile::VertexIndices", ptr %55, i64 %.05188
+  %57 = load i32, ptr %56, align 4, !tbaa !222
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !224
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %61 = load i32, ptr %60, align 4, !tbaa !225
+  %62 = mul i32 %57, %9
+  %63 = add i32 %62, %46
+  %64 = zext i32 %63 to i64
+  %65 = load ptr, ptr %7, align 8, !tbaa !128
+  %66 = getelementptr inbounds nuw double, ptr %65, i64 %64
+  %67 = load double, ptr %66, align 8, !tbaa !153
+  %68 = add i32 %62, %47
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw double, ptr %65, i64 %69
+  %71 = load double, ptr %70, align 8, !tbaa !153
+  %72 = mul i32 %59, %9
+  %73 = add i32 %72, %46
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw double, ptr %65, i64 %74
+  %76 = load double, ptr %75, align 8, !tbaa !153
+  %77 = add i32 %72, %47
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw double, ptr %65, i64 %78
+  %80 = load double, ptr %79, align 8, !tbaa !153
+  %81 = mul i32 %61, %9
+  %82 = add i32 %81, %46
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw double, ptr %65, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !153
+  %86 = add i32 %81, %47
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw double, ptr %65, i64 %87
+  %89 = load double, ptr %88, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %88 = fcmp olt double %74, %65
-  %.sroa.speculated85 = select i1 %88, double %74, double %65
-  %89 = fcmp olt double %78, %69
-  %.sroa.speculated77 = select i1 %89, double %78, double %69
-  %90 = fcmp olt double %65, %74
-  %.sroa.speculated82 = select i1 %90, double %74, double %65
-  %91 = fcmp olt double %69, %78
-  %.sroa.speculated74 = select i1 %91, double %78, double %69
-  %92 = fcmp olt double %83, %.sroa.speculated85
-  %.sroa.speculated69 = select i1 %92, double %83, double %.sroa.speculated85
+  %90 = fcmp olt double %76, %67
+  %.sroa.speculated85 = select i1 %90, double %76, double %67
+  %91 = fcmp olt double %80, %71
+  %.sroa.speculated77 = select i1 %91, double %80, double %71
+  %92 = fcmp olt double %67, %76
+  %.sroa.speculated82 = select i1 %92, double %76, double %67
+  %93 = fcmp olt double %71, %80
+  %.sroa.speculated74 = select i1 %93, double %80, double %71
+  %94 = fcmp olt double %85, %.sroa.speculated85
+  %.sroa.speculated69 = select i1 %94, double %85, double %.sroa.speculated85
   store double %.sroa.speculated69, ptr %4, align 8, !tbaa !241
-  %93 = fcmp olt double %87, %.sroa.speculated77
-  %.sroa.speculated63 = select i1 %93, double %87, double %.sroa.speculated77
-  store double %.sroa.speculated63, ptr %49, align 8, !tbaa !242
-  %94 = fcmp olt double %.sroa.speculated82, %83
-  %.sroa.speculated66 = select i1 %94, double %83, double %.sroa.speculated82
-  store double %.sroa.speculated66, ptr %50, align 8, !tbaa !243
-  %95 = fcmp olt double %.sroa.speculated74, %87
-  %.sroa.speculated = select i1 %95, double %87, double %.sroa.speculated74
-  store double %.sroa.speculated, ptr %51, align 8, !tbaa !244
+  %95 = fcmp olt double %89, %.sroa.speculated77
+  %.sroa.speculated63 = select i1 %95, double %89, double %.sroa.speculated77
+  store double %.sroa.speculated63, ptr %51, align 8, !tbaa !242
+  %96 = fcmp olt double %.sroa.speculated82, %85
+  %.sroa.speculated66 = select i1 %96, double %85, double %.sroa.speculated82
+  store double %.sroa.speculated66, ptr %52, align 8, !tbaa !243
+  %97 = fcmp olt double %.sroa.speculated74, %89
+  %.sroa.speculated = select i1 %97, double %89, double %.sroa.speculated74
+  store double %.sroa.speculated, ptr %53, align 8, !tbaa !244
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %96 = trunc i64 %.05188 to i32
-  store i32 %96, ptr %5, align 4, !tbaa !184
+  %98 = trunc i64 %.05188 to i32
+  store i32 %98, ptr %5, align 4, !tbaa !184
   invoke void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERNS3_4NodeERKjRKNS1_7RectObjE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit unwind label %105
+          to label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit unwind label %107
 
-_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit: ; preds = %52
+_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit: ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %97 = add nuw i64 %.05188, 1
-  %98 = load ptr, ptr %46, align 8, !tbaa !162
-  %99 = load ptr, ptr %43, align 8, !tbaa !161
-  %100 = ptrtoint ptr %98 to i64
-  %101 = ptrtoint ptr %99 to i64
-  %102 = sub i64 %100, %101
-  %103 = sdiv exact i64 %102, 12
-  %104 = icmp ult i64 %97, %103
-  br i1 %104, label %52, label %._crit_edge, !llvm.loop !245
+  %99 = add nuw i64 %.05188, 1
+  %100 = load ptr, ptr %48, align 8, !tbaa !162
+  %101 = load ptr, ptr %45, align 8, !tbaa !161
+  %102 = ptrtoint ptr %100 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = sdiv exact i64 %104, 12
+  %106 = icmp ult i64 %99, %105
+  br i1 %106, label %54, label %._crit_edge, !llvm.loop !245
 
-105:                                              ; preds = %52
-  %106 = landingpad { ptr, i32 }
+107:                                              ; preds = %54
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #32
-  resume { ptr, i32 } %106
+  resume { ptr, i32 } %108
 
 ._crit_edge:                                      ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERKjRKNS1_7RectObjE.exit, %.loopexit
   ret void

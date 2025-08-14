@@ -1214,7 +1214,7 @@ tok_next.exit:                                    ; preds = %65
 .thread146:                                       ; preds = %65, %59
   %.145161 = phi double [ 0.000000e+00, %59 ], [ %20, %65 ]
   %72 = fcmp ogt double %.145161, 0.000000e+00
-  br i1 %72, label %.preheader, label %.loopexit
+  br i1 %72, label %.preheader, label %.loopexit.preheader
 
 .preheader:                                       ; preds = %.thread146
   %.not212 = icmp eq i64 %63, 0
@@ -1259,7 +1259,7 @@ tok_next.exit:                                    ; preds = %65
 86:                                               ; preds = %85, %.lr.ph211
   %87 = add nuw i64 %.039209, 1
   %exitcond235.not = icmp eq i64 %.039209, %.sroa.25.0188
-  br i1 %exitcond235.not, label %.loopexit, label %.lr.ph211, !llvm.loop !122
+  br i1 %exitcond235.not, label %.loopexit.preheader, label %.lr.ph211, !llvm.loop !122
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.sroa.25.1157252263282 = phi i64 [ %63, %._crit_edge ], [ 0, %.preheader ]
@@ -1270,28 +1270,27 @@ tok_next.exit:                                    ; preds = %65
   %92 = load double, ptr %91, align 8, !tbaa !120
   %93 = fadd double %.145161, %92
   store double %93, ptr %91, align 8, !tbaa !120
+  br label %.loopexit.preheader
+
+.loopexit.preheader:                              ; preds = %86, %._crit_edge.thread, %.thread146
+  %.sroa.25.3.ph = phi i64 [ %63, %.thread146 ], [ %.sroa.25.1157252263282, %._crit_edge.thread ], [ %63, %86 ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %86, %._crit_edge.thread, %.thread146
-  %.sroa.25.1157251 = phi i64 [ %.sroa.25.1157252263282, %._crit_edge.thread ], [ %63, %.thread146 ], [ %63, %86 ]
-  %invariant.op = add i64 %.sroa.15.4, -1
-  br label %94
+.loopexit:                                        ; preds = %.loopexit.preheader, %95
+  %.sroa.25.3 = phi i64 [ %96, %95 ], [ %.sroa.25.3.ph, %.loopexit.preheader ]
+  %94 = icmp eq i64 %.sroa.25.3, 0
+  br i1 %94, label %102, label %95
 
-94:                                               ; preds = %96, %.loopexit
-  %.sroa.25.3 = phi i64 [ %.sroa.25.1157251, %.loopexit ], [ %97, %96 ]
-  %95 = icmp eq i64 %.sroa.25.3, 0
-  br i1 %95, label %102, label %96
-
-96:                                               ; preds = %94
-  %97 = add i64 %.sroa.25.3, -1
-  %.reass = add i64 %.sroa.25.3, %invariant.op
-  %98 = urem i64 %.reass, %.sroa.38.3
+95:                                               ; preds = %.loopexit
+  %96 = add i64 %.sroa.25.3, -1
+  %97 = add i64 %96, %.sroa.15.4
+  %98 = urem i64 %97, %.sroa.38.3
   %99 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %98, i32 1
   %100 = load double, ptr %99, align 8, !tbaa !120
   %101 = fcmp ogt double %100, 0.000000e+00
-  br i1 %101, label %102, label %94, !llvm.loop !123
+  br i1 %101, label %102, label %.loopexit, !llvm.loop !123
 
-102:                                              ; preds = %96, %94
+102:                                              ; preds = %95, %.loopexit
   store ptr %.sroa.075.3, ptr %1, align 8, !tbaa !124
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.15.4, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !125

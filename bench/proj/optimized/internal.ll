@@ -502,7 +502,6 @@ define noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringI
 
 .lr.ph:                                           ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !9
-  %invariant.op = add i64 %3, 1
   br label %7
 
 7:                                                ; preds = %.lr.ph, %11
@@ -514,8 +513,8 @@ define noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringI
 
 11:                                               ; preds = %7
   %12 = add i64 %.01114, 1
-  %.reass = add i64 %.01114, %invariant.op
-  %.not = icmp ugt i64 %.reass, %5
+  %13 = add i64 %12, %3
+  %.not = icmp ugt i64 %13, %5
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %11, %7, %2
@@ -536,7 +535,6 @@ define hidden noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_
 .lr.ph:                                           ; preds = %3
   %9 = load ptr, ptr %0, align 8, !tbaa !9
   %10 = load ptr, ptr %1, align 8, !tbaa !9
-  %invariant.op = add i64 %5, 1
   br label %11
 
 11:                                               ; preds = %.lr.ph, %15
@@ -548,8 +546,8 @@ define hidden noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_
 
 15:                                               ; preds = %11
   %16 = add i64 %.01215, 1
-  %.reass = add i64 %.01215, %invariant.op
-  %.not = icmp ugt i64 %.reass, %7
+  %17 = add i64 %16, %5
+  %.not = icmp ugt i64 %17, %7
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %15, %11, %3

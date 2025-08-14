@@ -139,11 +139,11 @@ define void @_ZN7rocksdb17BloomBlockBuilder13AddKeysHashesERKSt6vectorIjSaIjEE(p
   ret void
 
 9:                                                ; preds = %.lr.ph, %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit
-  %.sroa.04.09 = phi ptr [ %3, %.lr.ph ], [ %50, %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit ]
+  %.sroa.04.09 = phi ptr [ %3, %.lr.ph ], [ %51, %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit ]
   %10 = load i32, ptr %.sroa.04.09, align 4, !tbaa !22
   %11 = load i32, ptr %6, align 4, !tbaa !15
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %33, label %12
+  br i1 %.not.i, label %34, label %12
 
 12:                                               ; preds = %9
   %13 = load i32, ptr %7, align 8, !tbaa !16
@@ -158,53 +158,53 @@ define void @_ZN7rocksdb17BloomBlockBuilder13AddKeysHashesERKSt6vectorIjSaIjEE(p
   br i1 %21, label %.lr.ph.i.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
-  %.022.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ %10, %12 ]
-  %.02021.i.i = phi i32 [ %32, %.lr.ph.i.i ], [ 0, %12 ]
-  %.reass.i.i = and i32 %.022.i.i, 7
-  %22 = shl nuw nsw i32 1, %.reass.i.i
-  %23 = lshr i32 %.022.i.i, 3
-  %24 = and i32 %23, 63
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !23
-  %28 = trunc nuw i32 %22 to i8
-  %29 = or i8 %27, %28
-  store i8 %29, ptr %26, align 1, !tbaa !23
-  %30 = tail call i32 @llvm.fshl.i32(i32 %.022.i.i, i32 %.022.i.i, i32 23)
-  %31 = add i32 %30, %20
-  %32 = add nuw nsw i32 %.02021.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %32, %13
+  %.022.i.i = phi i32 [ %32, %.lr.ph.i.i ], [ %10, %12 ]
+  %.02021.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %12 ]
+  %22 = and i32 %.022.i.i, 7
+  %23 = shl nuw nsw i32 1, %22
+  %24 = lshr i32 %.022.i.i, 3
+  %25 = and i32 %24, 63
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !23
+  %29 = trunc nuw i32 %23 to i8
+  %30 = or i8 %28, %29
+  store i8 %30, ptr %27, align 1, !tbaa !23
+  %31 = tail call i32 @llvm.fshl.i32(i32 %.022.i.i, i32 %.022.i.i, i32 23)
+  %32 = add i32 %31, %20
+  %33 = add nuw nsw i32 %.02021.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %33, %13
   br i1 %exitcond.not.i.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %.lr.ph.i.i, !llvm.loop !24
 
-33:                                               ; preds = %9
-  %34 = load i32, ptr %0, align 8, !tbaa !11
-  %35 = load i32, ptr %7, align 8, !tbaa !16
-  %36 = load ptr, ptr %8, align 8, !tbaa !17
-  %37 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 15)
-  %38 = icmp sgt i32 %35, 0
-  br i1 %38, label %.lr.ph.i2.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit
+34:                                               ; preds = %9
+  %35 = load i32, ptr %0, align 8, !tbaa !11
+  %36 = load i32, ptr %7, align 8, !tbaa !16
+  %37 = load ptr, ptr %8, align 8, !tbaa !17
+  %38 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 15)
+  %39 = icmp sgt i32 %36, 0
+  br i1 %39, label %.lr.ph.i2.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit
 
-.lr.ph.i2.i:                                      ; preds = %33, %.lr.ph.i2.i
-  %.013.i.i = phi i32 [ %48, %.lr.ph.i2.i ], [ %10, %33 ]
-  %.01112.i.i = phi i32 [ %49, %.lr.ph.i2.i ], [ 0, %33 ]
-  %39 = urem i32 %.013.i.i, %34
-  %40 = and i32 %39, 7
-  %41 = shl nuw nsw i32 1, %40
-  %42 = lshr i32 %39, 3
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !23
-  %46 = trunc nuw i32 %41 to i8
-  %47 = or i8 %45, %46
-  store i8 %47, ptr %44, align 1, !tbaa !23
-  %48 = add i32 %.013.i.i, %37
-  %49 = add nuw nsw i32 %.01112.i.i, 1
-  %exitcond.not.i3.i = icmp eq i32 %49, %35
+.lr.ph.i2.i:                                      ; preds = %34, %.lr.ph.i2.i
+  %.013.i.i = phi i32 [ %49, %.lr.ph.i2.i ], [ %10, %34 ]
+  %.01112.i.i = phi i32 [ %50, %.lr.ph.i2.i ], [ 0, %34 ]
+  %40 = urem i32 %.013.i.i, %35
+  %41 = and i32 %40, 7
+  %42 = shl nuw nsw i32 1, %41
+  %43 = lshr i32 %40, 3
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !23
+  %47 = trunc nuw i32 %42 to i8
+  %48 = or i8 %46, %47
+  store i8 %48, ptr %45, align 1, !tbaa !23
+  %49 = add i32 %.013.i.i, %38
+  %50 = add nuw nsw i32 %.01112.i.i, 1
+  %exitcond.not.i3.i = icmp eq i32 %50, %36
   br i1 %exitcond.not.i3.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %.lr.ph.i2.i, !llvm.loop !26
 
-_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %.lr.ph.i.i, %.lr.ph.i2.i, %12, %33
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 4
-  %.not = icmp eq ptr %50, %5
+_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %.lr.ph.i.i, %.lr.ph.i2.i, %12, %34
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 4
+  %.not = icmp eq ptr %51, %5
   br i1 %.not, label %._crit_edge, label %9
 }
 

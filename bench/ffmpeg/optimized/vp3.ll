@@ -5749,7 +5749,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !50
   %10 = icmp sgt i32 %9, 197119
-  %.pre245 = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre244 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
@@ -5759,7 +5759,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %15 = load i32, ptr %14, align 8, !tbaa !57
   %16 = lshr i32 %13, 3
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %.pre245, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %.pre244, i64 %17
   %19 = load i32, ptr %18, align 1, !tbaa !60
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
   %21 = and i32 %13, 7
@@ -5818,7 +5818,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %7, %.loopexit
-  %58 = phi ptr [ %46, %.loopexit ], [ %.pre245, %7 ]
+  %58 = phi ptr [ %46, %.loopexit ], [ %.pre244, %7 ]
   %.0144 = phi i32 [ %57, %.loopexit ], [ 16, %7 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5827,12 +5827,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %64
 
 63:                                               ; preds = %64
-  %.pre246 = load i32, ptr %60, align 8, !tbaa !57
+  %.pre245 = load i32, ptr %60, align 8, !tbaa !57
   %.promoted.pre = load i32, ptr %59, align 8, !tbaa !59
   br i1 %10, label %78, label %90
 
 64:                                               ; preds = %.thread, %64
-  %indvars.iv214 = phi i64 [ 0, %.thread ], [ %indvars.iv.next215, %64 ]
+  %indvars.iv213 = phi i64 [ 0, %.thread ], [ %indvars.iv.next214, %64 ]
   %65 = load i32, ptr %59, align 8, !tbaa !59
   %66 = load i32, ptr %60, align 8, !tbaa !57
   %67 = lshr i32 %65, 3
@@ -5846,11 +5846,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %75 = add i32 %65, %.0144
   %76 = tail call i32 @llvm.umin.i32(i32 %66, i32 %75)
   store i32 %76, ptr %59, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw [64 x i32], ptr %62, i64 0, i64 %indvars.iv214
+  %77 = getelementptr inbounds nuw [64 x i32], ptr %62, i64 0, i64 %indvars.iv213
   store i32 %74, ptr %77, align 4, !tbaa !42
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond217.not = icmp eq i64 %indvars.iv.next215, 64
-  br i1 %exitcond217.not, label %63, label %64, !llvm.loop !214
+  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
+  %exitcond216.not = icmp eq i64 %indvars.iv.next214, 64
+  br i1 %exitcond216.not, label %63, label %64, !llvm.loop !214
 
 78:                                               ; preds = %63
   %79 = lshr i32 %.promoted.pre, 3
@@ -5862,7 +5862,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %85 = shl i32 %83, %84
   %86 = lshr i32 %85, 28
   %87 = add i32 %.promoted.pre, 4
-  %88 = tail call i32 @llvm.umin.i32(i32 %.pre246, i32 %87)
+  %88 = tail call i32 @llvm.umin.i32(i32 %.pre245, i32 %87)
   store i32 %88, ptr %59, align 8, !tbaa !59
   %89 = add nuw nsw i32 %86, 1
   br label %90
@@ -5879,7 +5879,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br i1 %10, label %110, label %.preheader193
 
 95:                                               ; preds = %90, %95
-  %indvars.iv218 = phi i64 [ 0, %90 ], [ %indvars.iv.next219, %95 ]
+  %indvars.iv217 = phi i64 [ 0, %90 ], [ %indvars.iv.next218, %95 ]
   %96 = phi i32 [ %.promoted, %90 ], [ %106, %95 ]
   %97 = lshr i32 %96, 3
   %98 = zext nneg i32 %97 to i64
@@ -5890,16 +5890,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %103 = shl i32 %101, %102
   %104 = lshr i32 %103, %91
   %105 = add i32 %96, %.1145
-  %106 = tail call i32 @llvm.umin.i32(i32 %.pre246, i32 %105)
+  %106 = tail call i32 @llvm.umin.i32(i32 %.pre245, i32 %105)
   store i32 %106, ptr %59, align 8, !tbaa !59
   %107 = trunc nuw i32 %104 to i16
-  %108 = getelementptr inbounds nuw [64 x i16], ptr %93, i64 0, i64 %indvars.iv218
+  %108 = getelementptr inbounds nuw [64 x i16], ptr %93, i64 0, i64 %indvars.iv217
   store i16 %107, ptr %108, align 2, !tbaa !76
-  %109 = getelementptr inbounds nuw [64 x i16], ptr %92, i64 0, i64 %indvars.iv218
+  %109 = getelementptr inbounds nuw [64 x i16], ptr %92, i64 0, i64 %indvars.iv217
   store i16 %107, ptr %109, align 2, !tbaa !76
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond221.not = icmp eq i64 %indvars.iv.next219, 64
-  br i1 %exitcond221.not, label %94, label %95, !llvm.loop !215
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %exitcond220.not = icmp eq i64 %indvars.iv.next218, 64
+  br i1 %exitcond220.not, label %94, label %95, !llvm.loop !215
 
 110:                                              ; preds = %94
   %111 = lshr i32 %106, 3
@@ -5911,16 +5911,16 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %117 = shl i32 %115, %116
   %118 = lshr i32 %117, 23
   %119 = add i32 %106, 9
-  %120 = tail call i32 @llvm.umin.i32(i32 %.pre246, i32 %119)
+  %120 = tail call i32 @llvm.umin.i32(i32 %.pre245, i32 %119)
   store i32 %120, ptr %59, align 8, !tbaa !59
   %121 = add nuw nsw i32 %118, 1
   %122 = icmp ugt i32 %117, -1073741825
   br i1 %122, label %124, label %.preheader193
 
 .preheader193:                                    ; preds = %94, %110
-  %.0143253 = phi i32 [ %121, %110 ], [ 3, %94 ]
+  %.0143252 = phi i32 [ %121, %110 ], [ 3, %94 ]
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 1552
-  %wide.trip.count = zext nneg i32 %.0143253 to i64
+  %wide.trip.count = zext nneg i32 %.0143252 to i64
   br label %.preheader192
 
 124:                                              ; preds = %110
@@ -5928,31 +5928,30 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %.thread184
 
 .preheader192:                                    ; preds = %.preheader193, %133
-  %indvars.iv226 = phi i64 [ 0, %.preheader193 ], [ %indvars.iv.next227, %133 ]
-  %125 = getelementptr inbounds nuw [384 x [64 x i8]], ptr %123, i64 0, i64 %indvars.iv226
+  %indvars.iv225 = phi i64 [ 0, %.preheader193 ], [ %indvars.iv.next226, %133 ]
+  %125 = getelementptr inbounds nuw [384 x [64 x i8]], ptr %123, i64 0, i64 %indvars.iv225
   br label %134
 
 .preheader191:                                    ; preds = %133
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 26128
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 26134
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 26518
-  %129 = add nsw i32 %.0143253, -1
-  %.not11.i = icmp ult i32 %.0143253, 257
+  %129 = add nsw i32 %.0143252, -1
+  %.not11.i = icmp ult i32 %.0143252, 257
   %130 = lshr i32 %129, 8
   %.110.i = select i1 %.not11.i, i32 %129, i32 %130
   %.1.i = select i1 %.not11.i, i32 0, i32 8
   %131 = zext nneg i32 %.110.i to i64
   %132 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %131
-  %invariant.op207 = or disjoint i32 %.1.i, 1
   br label %.preheader190
 
 133:                                              ; preds = %134
-  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %exitcond229.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count
-  br i1 %exitcond229.not, label %.preheader191, label %.preheader192, !llvm.loop !216
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond228.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count
+  br i1 %exitcond228.not, label %.preheader191, label %.preheader192, !llvm.loop !216
 
 134:                                              ; preds = %.preheader192, %134
-  %indvars.iv222 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next223, %134 ]
+  %indvars.iv221 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next222, %134 ]
   %135 = load i32, ptr %59, align 8, !tbaa !59
   %136 = load i32, ptr %60, align 8, !tbaa !57
   %137 = load ptr, ptr %1, align 8, !tbaa !54
@@ -5968,20 +5967,20 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %147 = tail call i32 @llvm.umin.i32(i32 %136, i32 %146)
   store i32 %147, ptr %59, align 8, !tbaa !59
   %148 = trunc nuw i32 %145 to i8
-  %149 = getelementptr inbounds nuw [64 x i8], ptr %125, i64 0, i64 %indvars.iv222
+  %149 = getelementptr inbounds nuw [64 x i8], ptr %125, i64 0, i64 %indvars.iv221
   store i8 %148, ptr %149, align 1, !tbaa !60
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
-  %exitcond225.not = icmp eq i64 %indvars.iv.next223, 64
-  br i1 %exitcond225.not, label %133, label %134, !llvm.loop !217
+  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
+  %exitcond224.not = icmp eq i64 %indvars.iv.next222, 64
+  br i1 %exitcond224.not, label %133, label %134, !llvm.loop !217
 
 .preheader190:                                    ; preds = %.preheader191, %269
   %.not151 = phi i1 [ true, %.preheader191 ], [ false, %269 ]
-  %indvars.iv238 = phi i64 [ 0, %.preheader191 ], [ 1, %269 ]
-  %150 = mul nuw nsw i64 %indvars.iv238, 3
+  %indvars.iv237 = phi i64 [ 0, %.preheader191 ], [ 1, %269 ]
+  %150 = mul nuw nsw i64 %indvars.iv237, 3
   %151 = add nuw nsw i64 %150, 4294967295
-  %152 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %126, i64 0, i64 %indvars.iv238
-  %153 = getelementptr inbounds nuw [2 x [3 x [64 x i8]]], ptr %127, i64 0, i64 %indvars.iv238
-  %154 = getelementptr inbounds nuw [2 x [3 x [64 x i16]]], ptr %128, i64 0, i64 %indvars.iv238
+  %152 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %126, i64 0, i64 %indvars.iv237
+  %153 = getelementptr inbounds nuw [2 x [3 x [64 x i8]]], ptr %127, i64 0, i64 %indvars.iv237
+  %154 = getelementptr inbounds nuw [2 x [3 x [64 x i16]]], ptr %128, i64 0, i64 %indvars.iv237
   br label %156
 
 .preheader:                                       ; preds = %269
@@ -5989,25 +5988,25 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %271
 
 156:                                              ; preds = %.preheader190, %268
-  %indvars.iv233 = phi i64 [ 0, %.preheader190 ], [ %indvars.iv.next234, %268 ]
-  %indvars.iv233.masked = and i64 %indvars.iv233, 4294967295
-  %157 = or i64 %indvars.iv233.masked, %indvars.iv238
+  %indvars.iv232 = phi i64 [ 0, %.preheader190 ], [ %indvars.iv.next233, %268 ]
+  %indvars.iv232.masked = and i64 %indvars.iv232, 4294967295
+  %157 = or i64 %indvars.iv232.masked, %indvars.iv237
   %or.cond.not = icmp eq i64 %157, 0
-  %.pre248 = load i32, ptr %59, align 8, !tbaa !59
-  %.pre249 = load i32, ptr %60, align 8, !tbaa !57
-  %.pre250 = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre247 = load i32, ptr %59, align 8, !tbaa !59
+  %.pre248 = load i32, ptr %60, align 8, !tbaa !57
+  %.pre249 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %or.cond.not, label %.critedge, label %158
 
 158:                                              ; preds = %156
-  %159 = lshr i32 %.pre248, 3
+  %159 = lshr i32 %.pre247, 3
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i8, ptr %.pre250, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %.pre249, i64 %160
   %162 = load i8, ptr %161, align 1, !tbaa !60
-  %163 = icmp slt i32 %.pre248, %.pre249
+  %163 = icmp slt i32 %.pre247, %.pre248
   %164 = zext i1 %163 to i32
-  %spec.select.i161 = add i32 %.pre248, %164
+  %spec.select.i161 = add i32 %.pre247, %164
   %165 = zext i8 %162 to i32
-  %166 = and i32 %.pre248, 7
+  %166 = and i32 %.pre247, 7
   store i32 %spec.select.i161, ptr %59, align 8, !tbaa !59
   %167 = lshr exact i32 128, %166
   %168 = and i32 %167, %165
@@ -6020,9 +6019,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
 171:                                              ; preds = %170
   %172 = lshr i32 %spec.select.i161, 3
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw i8, ptr %.pre250, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %.pre249, i64 %173
   %175 = load i8, ptr %174, align 1, !tbaa !60
-  %176 = icmp slt i32 %spec.select.i161, %.pre249
+  %176 = icmp slt i32 %spec.select.i161, %.pre248
   %177 = zext i1 %176 to i32
   %spec.select.i162 = add i32 %spec.select.i161, %177
   %178 = zext i8 %175 to i32
@@ -6034,58 +6033,58 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br i1 %.not153, label %182, label %189
 
 182:                                              ; preds = %171, %170
-  %183 = add nuw i64 %151, %indvars.iv233
+  %183 = add nuw i64 %151, %indvars.iv232
   %184 = trunc i64 %183 to i32
   %185 = sdiv i32 %184, 3
-  %.cmp = icmp eq i64 %indvars.iv233, 0
-  %186 = add nuw i64 %indvars.iv233, 4294967295
+  %.cmp = icmp eq i64 %indvars.iv232, 0
+  %186 = add nuw i64 %indvars.iv232, 4294967295
   %187 = select i1 %.cmp, i64 2, i64 %186
   %188 = zext nneg i32 %185 to i64
   br label %189
 
 189:                                              ; preds = %171, %182
   %.0126 = phi i64 [ %188, %182 ], [ 0, %171 ]
-  %.0125 = phi i64 [ %187, %182 ], [ %indvars.iv233, %171 ]
+  %.0125 = phi i64 [ %187, %182 ], [ %indvars.iv232, %171 ]
   %190 = getelementptr inbounds nuw [2 x [3 x i8]], ptr %126, i64 0, i64 %.0126
   %191 = and i64 %.0125, 4294967295
   %192 = getelementptr inbounds nuw [3 x i8], ptr %190, i64 0, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !60
-  %194 = getelementptr inbounds nuw [3 x i8], ptr %152, i64 0, i64 %indvars.iv233
+  %194 = getelementptr inbounds nuw [3 x i8], ptr %152, i64 0, i64 %indvars.iv232
   store i8 %193, ptr %194, align 1, !tbaa !60
-  %195 = getelementptr inbounds nuw [3 x [64 x i8]], ptr %153, i64 0, i64 %indvars.iv233
+  %195 = getelementptr inbounds nuw [3 x [64 x i8]], ptr %153, i64 0, i64 %indvars.iv232
   %196 = getelementptr inbounds nuw [2 x [3 x [64 x i8]]], ptr %127, i64 0, i64 %.0126
   %197 = getelementptr inbounds nuw [3 x [64 x i8]], ptr %196, i64 0, i64 %191
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %195, ptr noundef nonnull align 2 dereferenceable(64) %197, i64 64, i1 false)
-  %198 = getelementptr inbounds nuw [3 x [64 x i16]], ptr %154, i64 0, i64 %indvars.iv233
+  %198 = getelementptr inbounds nuw [3 x [64 x i16]], ptr %154, i64 0, i64 %indvars.iv232
   %199 = getelementptr inbounds nuw [2 x [3 x [64 x i16]]], ptr %128, i64 0, i64 %.0126
   %200 = getelementptr inbounds nuw [3 x [64 x i16]], ptr %199, i64 0, i64 %191
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %198, ptr noundef nonnull align 2 dereferenceable(128) %200, i64 128, i1 false)
   br label %268
 
 .critedge:                                        ; preds = %156, %158
-  %201 = phi i32 [ %.pre248, %156 ], [ %spec.select.i161, %158 ]
+  %201 = phi i32 [ %.pre247, %156 ], [ %spec.select.i161, %158 ]
   %202 = load i8, ptr %132, align 1, !tbaa !60
   %203 = zext i8 %202 to i32
   %204 = add nuw nsw i32 %.1.i, %203
   %205 = sub nsw i32 31, %204
-  %invariant.op.reass = add nuw nsw i32 %invariant.op207, %203
+  %invariant.op = add nuw nsw i32 %204, 1
   %206 = lshr i32 %201, 3
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw i8, ptr %.pre250, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %.pre249, i64 %207
   %209 = load i32, ptr %208, align 1, !tbaa !60
   %210 = tail call i32 @llvm.bswap.i32(i32 %209)
   %211 = and i32 %201, 7
   %212 = shl i32 %210, %211
   %213 = lshr i32 %212, %205
-  %.reass202 = add i32 %201, %invariant.op.reass
-  %214 = tail call i32 @llvm.umin.i32(i32 %.pre249, i32 %.reass202)
+  %.reass202 = add i32 %201, %invariant.op
+  %214 = tail call i32 @llvm.umin.i32(i32 %.pre248, i32 %.reass202)
   store i32 %214, ptr %59, align 8, !tbaa !59
-  %.not154203 = icmp slt i32 %213, %.0143253
+  %.not154203 = icmp slt i32 %213, %.0143252
   br i1 %.not154203, label %.lr.ph, label %.thread163
 
 .lr.ph:                                           ; preds = %.critedge
-  %215 = getelementptr inbounds nuw [3 x [64 x i16]], ptr %154, i64 0, i64 %indvars.iv233
-  %216 = getelementptr inbounds nuw [3 x [64 x i8]], ptr %153, i64 0, i64 %indvars.iv233
+  %215 = getelementptr inbounds nuw [3 x [64 x i16]], ptr %154, i64 0, i64 %indvars.iv232
+  %216 = getelementptr inbounds nuw [3 x [64 x i8]], ptr %153, i64 0, i64 %indvars.iv232
   br label %217
 
 .thread163:                                       ; preds = %.critedge, %225
@@ -6093,14 +6092,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %.thread184
 
 217:                                              ; preds = %.lr.ph, %225
-  %indvars.iv230 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next231, %225 ]
+  %indvars.iv229 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next230, %225 ]
   %218 = phi i32 [ %214, %.lr.ph ], [ %262, %225 ]
   %219 = phi i32 [ %213, %.lr.ph ], [ %261, %225 ]
-  %220 = phi ptr [ %.pre250, %.lr.ph ], [ %253, %225 ]
-  %221 = phi i32 [ %.pre249, %.lr.ph ], [ %252, %225 ]
+  %220 = phi ptr [ %.pre249, %.lr.ph ], [ %253, %225 ]
+  %221 = phi i32 [ %.pre248, %.lr.ph ], [ %252, %225 ]
   %.0122205 = phi i32 [ 0, %.lr.ph ], [ %250, %225 ]
   %222 = trunc i32 %219 to i16
-  %223 = getelementptr inbounds nuw [64 x i16], ptr %215, i64 0, i64 %indvars.iv230
+  %223 = getelementptr inbounds nuw [64 x i16], ptr %215, i64 0, i64 %indvars.iv229
   store i16 %222, ptr %223, align 2, !tbaa !76
   %224 = icmp sgt i32 %.0122205, 62
   br i1 %224, label %263, label %225
@@ -6136,8 +6135,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   store i32 %246, ptr %59, align 8, !tbaa !59
   %247 = add i32 %243, 1
   %248 = trunc i32 %247 to i8
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %249 = getelementptr inbounds nuw [64 x i8], ptr %216, i64 0, i64 %indvars.iv230
+  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
+  %249 = getelementptr inbounds nuw [64 x i8], ptr %216, i64 0, i64 %indvars.iv229
   store i8 %248, ptr %249, align 1, !tbaa !60
   %250 = add nsw i32 %247, %.0122205
   %251 = load i32, ptr %59, align 8, !tbaa !59
@@ -6151,10 +6150,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %259 = and i32 %251, 7
   %260 = shl i32 %258, %259
   %261 = lshr i32 %260, %205
-  %.reass = add i32 %251, %invariant.op.reass
+  %.reass = add i32 %251, %invariant.op
   %262 = tail call i32 @llvm.umin.i32(i32 %252, i32 %.reass)
   store i32 %262, ptr %59, align 8, !tbaa !59
-  %.not154 = icmp slt i32 %261, %.0143253
+  %.not154 = icmp slt i32 %261, %.0143252
   br i1 %.not154, label %217, label %.thread163
 
 263:                                              ; preds = %217
@@ -6166,27 +6165,27 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   br label %.thread184
 
 265:                                              ; preds = %263
-  %266 = trunc i64 %indvars.iv230 to i8
-  %267 = getelementptr inbounds nuw [3 x i8], ptr %152, i64 0, i64 %indvars.iv233
+  %266 = trunc i64 %indvars.iv229 to i8
+  %267 = getelementptr inbounds nuw [3 x i8], ptr %152, i64 0, i64 %indvars.iv232
   store i8 %266, ptr %267, align 1, !tbaa !60
   br label %268
 
 268:                                              ; preds = %265, %189
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %exitcond237.not = icmp eq i64 %indvars.iv.next234, 3
-  br i1 %exitcond237.not, label %269, label %156, !llvm.loop !218
+  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
+  %exitcond236.not = icmp eq i64 %indvars.iv.next233, 3
+  br i1 %exitcond236.not, label %269, label %156, !llvm.loop !218
 
 269:                                              ; preds = %268
   br i1 %.not151, label %.preheader190, label %.preheader, !llvm.loop !219
 
 270:                                              ; preds = %271
-  %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
-  %exitcond244 = icmp eq i64 %indvars.iv.next242, 80
-  br i1 %exitcond244, label %276, label %271, !llvm.loop !220
+  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
+  %exitcond243 = icmp eq i64 %indvars.iv.next241, 80
+  br i1 %exitcond243, label %276, label %271, !llvm.loop !220
 
 271:                                              ; preds = %.preheader, %270
-  %indvars.iv241 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next242, %270 ]
-  %272 = getelementptr inbounds nuw [80 x %struct.HuffTable], ptr %155, i64 0, i64 %indvars.iv241
+  %indvars.iv240 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next241, %270 ]
+  %272 = getelementptr inbounds nuw [80 x %struct.HuffTable], ptr %155, i64 0, i64 %indvars.iv240
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 64
   store i8 0, ptr %273, align 1, !tbaa !205
   %274 = tail call fastcc i32 @read_huffman_tree(ptr noundef nonnull %272, ptr noundef %1, i32 noundef 0, ptr noundef %0)

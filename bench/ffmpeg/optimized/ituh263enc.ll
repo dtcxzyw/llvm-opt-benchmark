@@ -6269,8 +6269,8 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
 
 8:                                                ; preds = %34
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond32.not = icmp eq i64 %indvars.iv.next29, 8
-  br i1 %exitcond32.not, label %7, label %.preheader, !llvm.loop !159
+  %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
+  br i1 %exitcond31.not, label %7, label %.preheader, !llvm.loop !159
 
 9:                                                ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ -8192, %.preheader ], [ %indvars.iv.next, %34 ]

@@ -355,84 +355,84 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   %63 = getelementptr inbounds i8, ptr %.09097, i64 %62
   %64 = getelementptr inbounds i8, ptr %.087100, i64 %50
   %65 = add nuw nsw i32 %.086101, 2
-  %.reass = add nuw nsw i32 %.086101, 3
-  %66 = icmp slt i32 %.reass, %31
-  br i1 %66, label %51, label %._crit_edge, !llvm.loop !28
+  %66 = add nuw nsw i32 %.086101, 3
+  %67 = icmp slt i32 %66, %31
+  br i1 %67, label %51, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51, %27
   %.090.lcssa = phi ptr [ %44, %27 ], [ %63, %51 ]
   %.089.lcssa = phi ptr [ %38, %27 ], [ %56, %51 ]
   %.088.lcssa = phi ptr [ %37, %27 ], [ %55, %51 ]
   %.087.lcssa = phi ptr [ %46, %27 ], [ %64, %51 ]
-  %67 = icmp sgt i32 %31, 1
-  %68 = and i32 %31, 1
-  %.not95 = icmp eq i32 %68, 0
-  %or.cond = and i1 %67, %.not95
-  br i1 %or.cond, label %69, label %70
+  %68 = icmp sgt i32 %31, 1
+  %69 = and i32 %31, 1
+  %.not95 = icmp eq i32 %69, 0
+  %or.cond = and i1 %68, %.not95
+  br i1 %or.cond, label %70, label %71
 
-69:                                               ; preds = %._crit_edge
+70:                                               ; preds = %._crit_edge
   tail call void %40(ptr noundef %.090.lcssa, ptr noundef null, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.088.lcssa, ptr noundef %.089.lcssa, ptr noundef %.087.lcssa, ptr noundef null, i32 noundef %29) #9
-  br label %70
+  br label %71
 
-70:                                               ; preds = %69, %._crit_edge
-  %71 = load i32, ptr %16, align 4, !tbaa !22
-  %72 = and i32 %71, 4
-  %.not96 = icmp ne i32 %72, 0
-  %73 = icmp sgt i32 %31, 0
-  %or.cond111 = select i1 %.not96, i1 %73, i1 false
+71:                                               ; preds = %70, %._crit_edge
+  %72 = load i32, ptr %16, align 4, !tbaa !22
+  %73 = and i32 %72, 4
+  %.not96 = icmp ne i32 %73, 0
+  %74 = icmp sgt i32 %31, 0
+  %or.cond111 = select i1 %.not96, i1 %74, i1 false
   br i1 %or.cond111, label %.lr.ph110, label %.loopexit
 
-.lr.ph110:                                        ; preds = %70
-  %74 = load ptr, ptr %35, align 8, !tbaa !12
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %76 = load ptr, ptr %75, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %78 = icmp sgt i32 %29, 0
-  br i1 %78, label %.lr.ph107.us.preheader, label %.loopexit
+.lr.ph110:                                        ; preds = %71
+  %75 = load ptr, ptr %35, align 8, !tbaa !12
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !19
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %79 = icmp sgt i32 %29, 0
+  br i1 %79, label %.lr.ph107.us.preheader, label %.loopexit
 
 .lr.ph107.us.preheader:                           ; preds = %.lr.ph110
   %wide.trip.count = zext nneg i32 %29 to i64
   br label %.lr.ph107.us
 
 .lr.ph107.us:                                     ; preds = %.lr.ph107.us.preheader, %._crit_edge108.us
-  %.1109.us = phi i32 [ %96, %._crit_edge108.us ], [ 0, %.lr.ph107.us.preheader ]
-  %79 = load i32, ptr %32, align 8, !tbaa !15
-  %80 = mul nsw i32 %79, %.1109.us
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %74, i64 %81
-  %83 = load i32, ptr %77, align 8, !tbaa !20
-  %84 = mul nsw i32 %83, %.1109.us
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %76, i64 %85
-  br label %87
+  %.1109.us = phi i32 [ %97, %._crit_edge108.us ], [ 0, %.lr.ph107.us.preheader ]
+  %80 = load i32, ptr %32, align 8, !tbaa !15
+  %81 = mul nsw i32 %80, %.1109.us
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %75, i64 %82
+  %84 = load i32, ptr %78, align 8, !tbaa !20
+  %85 = mul nsw i32 %84, %.1109.us
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i8, ptr %77, i64 %86
+  br label %88
 
-87:                                               ; preds = %.lr.ph107.us, %87
-  %indvars.iv = phi i64 [ 0, %.lr.ph107.us ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
-  %89 = load i32, ptr %88, align 4, !tbaa !29
-  %90 = and i32 %89, 16777215
-  %91 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv
-  %92 = load i8, ptr %91, align 1, !tbaa !30
-  %93 = zext i8 %92 to i32
-  %94 = shl nuw i32 %93, 24
-  %95 = or disjoint i32 %94, %90
-  store i32 %95, ptr %88, align 4, !tbaa !29
+88:                                               ; preds = %.lr.ph107.us, %88
+  %indvars.iv = phi i64 [ 0, %.lr.ph107.us ], [ %indvars.iv.next, %88 ]
+  %89 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %90 = load i32, ptr %89, align 4, !tbaa !29
+  %91 = and i32 %90, 16777215
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv
+  %93 = load i8, ptr %92, align 1, !tbaa !30
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw i32 %94, 24
+  %96 = or disjoint i32 %95, %91
+  store i32 %96, ptr %89, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge108.us, label %87, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge108.us, label %88, !llvm.loop !31
 
-._crit_edge108.us:                                ; preds = %87
-  %96 = add nuw nsw i32 %.1109.us, 1
-  %exitcond117.not = icmp eq i32 %96, %31
+._crit_edge108.us:                                ; preds = %88
+  %97 = add nuw nsw i32 %.1109.us, 1
+  %exitcond117.not = icmp eq i32 %97, %31
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph107.us, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %23, %19, %3, %7, %11
   %.sink = phi i32 [ 3, %11 ], [ 3, %7 ], [ 3, %3 ], [ 3, %19 ], [ 4, %23 ]
-  %97 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #9
+  %98 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %.sink) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge108.us, %.loopexit.sink.split, %.lr.ph110, %70, %25, %1
-  %.085 = phi i32 [ 0, %1 ], [ 0, %25 ], [ 1, %70 ], [ 1, %.lr.ph110 ], [ %97, %.loopexit.sink.split ], [ 1, %._crit_edge108.us ]
+.loopexit:                                        ; preds = %._crit_edge108.us, %.loopexit.sink.split, %.lr.ph110, %71, %25, %1
+  %.085 = phi i32 [ 0, %1 ], [ 0, %25 ], [ 1, %71 ], [ 1, %.lr.ph110 ], [ %98, %.loopexit.sink.split ], [ 1, %._crit_edge108.us ]
   ret i32 %.085
 }
 

@@ -2280,7 +2280,6 @@ for.body32.us.preheader:                          ; preds = %for.body32.lr.ph
   %27 = icmp eq i32 %24, 1
   %unroll_iter = and i64 %wide.trip.count, 4294967294
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  %invariant.op = shl i32 %conv, 1
   br i1 %27, label %for.body32.us.us, label %for.body32.us.preheader.split
 
 for.body32.us.us:                                 ; preds = %for.body32.us.preheader, %for.cond41.for.cond.cleanup44_crit_edge.us.us
@@ -2320,7 +2319,7 @@ for.body32.us.us6:                                ; preds = %for.body32.us.prehe
 
 for.body45.us.us:                                 ; preds = %for.body45.us.us, %for.body32.us.us6
   %indvars.iv.us = phi i64 [ %indvars.iv.next.1.us, %for.body45.us.us ], [ 0, %for.body32.us.us6 ]
-  %src_x39.0133.us.us = phi i32 [ %add53.us.1.reass.us, %for.body45.us.us ], [ 0, %for.body32.us.us6 ]
+  %src_x39.0133.us.us = phi i32 [ %add53.us.1.us, %for.body45.us.us ], [ 0, %for.body32.us.us6 ]
   %shr46.us.us = ashr i32 %src_x39.0133.us.us, 18
   %idxprom47.us.us = sext i32 %shr46.us.us to i64
   %arrayidx48.us.us = getelementptr inbounds i16, ptr %add.ptr38.us.us13, i64 %idxprom47.us.us
@@ -2335,7 +2334,7 @@ for.body45.us.us:                                 ; preds = %for.body45.us.us, %
   %arrayidx50.us.1.us = getelementptr inbounds nuw i8, ptr %arrayidx50.us.us, i64 2
   store i16 %30, ptr %arrayidx50.us.1.us, align 2, !tbaa !27
   %indvars.iv.next.1.us = add nuw i64 %indvars.iv.us, 2
-  %add53.us.1.reass.us = add i32 %src_x39.0133.us.us, %invariant.op
+  %add53.us.1.us = add nsw i32 %add53.us.us, %conv
   %niter.ncmp.1.us = icmp eq i64 %indvars.iv.next.1.us, %unroll_iter
   br i1 %niter.ncmp.1.us, label %for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit.us, label %for.body45.us.us, !llvm.loop !82
 
@@ -2358,7 +2357,7 @@ for.body32.us:                                    ; preds = %for.body32.us.prehe
 
 for.body45.us:                                    ; preds = %for.body32.us, %for.body45.us
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.body45.us ], [ 0, %for.body32.us ]
-  %src_x39.0133.us = phi i32 [ %add53.us.1.reass, %for.body45.us ], [ 0, %for.body32.us ]
+  %src_x39.0133.us = phi i32 [ %add53.us.1, %for.body45.us ], [ 0, %for.body32.us ]
   %shr46.us = ashr i32 %src_x39.0133.us, 18
   %idxprom47.us = sext i32 %shr46.us to i64
   %arrayidx48.us = getelementptr inbounds i16, ptr %add.ptr38.us, i64 %idxprom47.us
@@ -2373,12 +2372,12 @@ for.body45.us:                                    ; preds = %for.body32.us, %for
   %arrayidx50.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx50.us, i64 2
   store i16 %32, ptr %arrayidx50.us.1, align 2, !tbaa !27
   %indvars.iv.next.1 = add nuw i64 %indvars.iv, 2
-  %add53.us.1.reass = add i32 %src_x39.0133.us, %invariant.op
+  %add53.us.1 = add nsw i32 %add53.us, %conv
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.1, %unroll_iter
   br i1 %niter.ncmp.1, label %for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit, label %for.body45.us, !llvm.loop !82
 
 for.cond41.for.cond.cleanup44_crit_edge.us.unr-lcssa.loopexit: ; preds = %for.body45.us
-  %shr46.us.epil = ashr i32 %add53.us.1.reass, 18
+  %shr46.us.epil = ashr i32 %add53.us.1, 18
   %idxprom47.us.epil = sext i32 %shr46.us.epil to i64
   %arrayidx48.us.epil = getelementptr inbounds i16, ptr %add.ptr38.us, i64 %idxprom47.us.epil
   %33 = load i16, ptr %arrayidx48.us.epil, align 2, !tbaa !27

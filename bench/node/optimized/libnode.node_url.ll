@@ -4183,7 +4183,6 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %add31 = phi i64 [ %add.reass, %for.inc ], [ 2, %for.body.preheader ]
   %first_percent.030 = phi i64 [ %first_percent.1, %for.inc ], [ -1, %for.body.preheader ]
   %i.029 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %add.ptr.i = getelementptr i8, ptr %3, i64 %i.029
@@ -4200,7 +4199,7 @@ if.end15:                                         ; preds = %for.body
   br i1 %cmp22, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %if.end15
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %3, i64 %add31
+  %add.ptr.i18 = getelementptr i8, ptr %add.ptr.i, i64 2
   %9 = load i8, ptr %add.ptr.i18, align 1
   %10 = and i8 %9, -33
   %cmp26 = icmp eq i8 %10, 70
@@ -4218,7 +4217,6 @@ if.then27:                                        ; preds = %land.lhs.true
 for.inc:                                          ; preds = %if.end15, %land.lhs.true, %for.body
   %first_percent.1 = phi i64 [ %first_percent.030, %for.body ], [ %spec.select, %land.lhs.true ], [ %spec.select, %if.end15 ]
   %inc = add nuw i64 %i.029, 1
-  %add.reass = add nuw i64 %i.029, 3
   %exitcond.not = icmp eq i64 %i.029, %5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 

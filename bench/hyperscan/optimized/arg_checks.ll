@@ -8976,28 +8976,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
 .lr.ph:                                           ; preds = %148
   %151 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %.026257
   %152 = load i32, ptr %151, align 4
-  %invariant.op = or i32 %152, 2
   br label %153
 
 153:                                              ; preds = %.lr.ph, %.critedge68
-  %.0256 = phi i64 [ %149, %.lr.ph ], [ %427, %.critedge68 ]
+  %.0256 = phi i64 [ %149, %.lr.ph ], [ %428, %.critedge68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %154 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN12_GLOBAL__N_145HyperscanArgChecks_SingleCompileSOMModes_Test8TestBodyEvE9som_modes, i64 0, i64 %.0256
   %155 = load i32, ptr %154, align 4
-  %.reass = or i32 %155, %invariant.op
-  %156 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %.reass, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %156 = or i32 %155, %152
+  %157 = or i32 %156, 2
+  %158 = call i32 @hs_compile(ptr noundef nonnull @.str.305, i32 noundef 256, i32 noundef %157, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %157 = icmp eq i32 %156, -4
-  br i1 %157, label %158, label %159
+  %159 = icmp eq i32 %158, -4
+  br i1 %159, label %160, label %161
 
-158:                                              ; preds = %153
+160:                                              ; preds = %153
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
   br label %_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
-159:                                              ; preds = %153
+161:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !38
@@ -9008,44 +9008,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   store i8 0, ptr %26, align 1, !noalias !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !noalias !38
   store ptr %28, ptr %2, align 8, !noalias !38
-  %160 = load i64, ptr %30, align 8, !noalias !38
-  %161 = getelementptr inbounds i8, ptr %2, i64 %160
-  store ptr %29, ptr %161, align 8, !noalias !38
+  %162 = load i64, ptr %30, align 8, !noalias !38
+  %163 = getelementptr inbounds i8, ptr %2, i64 %162
+  store ptr %29, ptr %163, align 8, !noalias !38
   store i64 0, ptr %31, align 8, !noalias !38
-  %162 = load ptr, ptr %2, align 8, !noalias !38
-  %163 = getelementptr i8, ptr %162, i64 -24
-  %164 = load i64, ptr %163, align 8, !noalias !38
-  %165 = getelementptr inbounds i8, ptr %2, i64 %164
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %165, ptr noundef null)
-          to label %.noexc.i137 unwind label %183, !noalias !38
+  %164 = load ptr, ptr %2, align 8, !noalias !38
+  %165 = getelementptr i8, ptr %164, i64 -24
+  %166 = load i64, ptr %165, align 8, !noalias !38
+  %167 = getelementptr inbounds i8, ptr %2, i64 %166
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %167, ptr noundef null)
+          to label %.noexc.i137 unwind label %185, !noalias !38
 
-.noexc.i137:                                      ; preds = %159
+.noexc.i137:                                      ; preds = %161
   store ptr %33, ptr %32, align 8, !noalias !38
-  %166 = load i64, ptr %35, align 8, !noalias !38
-  %167 = getelementptr inbounds i8, ptr %32, i64 %166
-  store ptr %34, ptr %167, align 8, !noalias !38
-  %168 = load ptr, ptr %32, align 8, !noalias !38
-  %169 = getelementptr i8, ptr %168, i64 -24
-  %170 = load i64, ptr %169, align 8, !noalias !38
-  %171 = getelementptr inbounds i8, ptr %32, i64 %170
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %171, ptr noundef null)
-          to label %176 unwind label %172, !noalias !38
+  %168 = load i64, ptr %35, align 8, !noalias !38
+  %169 = getelementptr inbounds i8, ptr %32, i64 %168
+  store ptr %34, ptr %169, align 8, !noalias !38
+  %170 = load ptr, ptr %32, align 8, !noalias !38
+  %171 = getelementptr i8, ptr %170, i64 -24
+  %172 = load i64, ptr %171, align 8, !noalias !38
+  %173 = getelementptr inbounds i8, ptr %32, i64 %172
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %173, ptr noundef null)
+          to label %178 unwind label %174, !noalias !38
 
-172:                                              ; preds = %.noexc.i137
-  %173 = landingpad { ptr, i32 }
+174:                                              ; preds = %.noexc.i137
+  %175 = landingpad { ptr, i32 }
           cleanup
   store ptr %28, ptr %2, align 8, !noalias !38
-  %174 = load i64, ptr %30, align 8, !noalias !38
-  %175 = getelementptr inbounds i8, ptr %2, i64 %174
-  store ptr %29, ptr %175, align 8, !noalias !38
+  %176 = load i64, ptr %30, align 8, !noalias !38
+  %177 = getelementptr inbounds i8, ptr %2, i64 %176
+  store ptr %29, ptr %177, align 8, !noalias !38
   store i64 0, ptr %31, align 8, !noalias !38
   br label %.body.i135
 
-176:                                              ; preds = %.noexc.i137
+178:                                              ; preds = %.noexc.i137
   store ptr %36, ptr %2, align 8, !noalias !38
-  %177 = load i64, ptr %38, align 8, !noalias !38
-  %178 = getelementptr inbounds i8, ptr %2, i64 %177
-  store ptr %37, ptr %178, align 8, !noalias !38
+  %179 = load i64, ptr %38, align 8, !noalias !38
+  %180 = getelementptr inbounds i8, ptr %2, i64 %179
+  store ptr %37, ptr %180, align 8, !noalias !38
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %2, align 8, !noalias !38
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 104), ptr %23, align 8, !noalias !38
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %32, align 8, !noalias !38
@@ -9057,41 +9057,41 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i78: ; preds 
   store ptr %44, ptr %43, align 8, !noalias !38
   store i64 0, ptr %45, align 8, !noalias !38
   store i8 0, ptr %44, align 8, !noalias !38
-  %179 = load ptr, ptr %2, align 8, !noalias !38
-  %180 = getelementptr i8, ptr %179, i64 -24
-  %181 = load i64, ptr %180, align 8, !noalias !38
-  %182 = getelementptr inbounds i8, ptr %2, i64 %181
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %182, ptr noundef nonnull %39)
-          to label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138 unwind label %185, !noalias !38
+  %181 = load ptr, ptr %2, align 8, !noalias !38
+  %182 = getelementptr i8, ptr %181, i64 -24
+  %183 = load i64, ptr %182, align 8, !noalias !38
+  %184 = getelementptr inbounds i8, ptr %2, i64 %183
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %184, ptr noundef nonnull %39)
+          to label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138 unwind label %187, !noalias !38
 
-183:                                              ; preds = %159
-  %184 = landingpad { ptr, i32 }
+185:                                              ; preds = %161
+  %186 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i135
 
-185:                                              ; preds = %176
-  %186 = landingpad { ptr, i32 }
+187:                                              ; preds = %178
+  %188 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %39) #27, !noalias !38
   store ptr %28, ptr %2, align 8, !noalias !38
-  %187 = load i64, ptr %30, align 8, !noalias !38
-  %188 = getelementptr inbounds i8, ptr %2, i64 %187
-  store ptr %29, ptr %188, align 8, !noalias !38
+  %189 = load i64, ptr %30, align 8, !noalias !38
+  %190 = getelementptr inbounds i8, ptr %2, i64 %189
+  store ptr %29, ptr %190, align 8, !noalias !38
   store i64 0, ptr %31, align 8, !noalias !38
   br label %.body.i135
 
-common.resume:                                    ; preds = %127, %429, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i, %.body.i119, %.body.i135
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i136, %.body.i135 ], [ %eh.lpad-body.i120, %.body.i119 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %.pn53.pn.pn.pn, %429 ], [ %.pn.pn, %127 ]
+common.resume:                                    ; preds = %127, %430, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i, %.body.i119, %.body.i135
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i136, %.body.i135 ], [ %eh.lpad-body.i120, %.body.i119 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %.pn53.pn.pn.pn, %430 ], [ %.pn.pn, %127 ]
   resume { ptr, i32 } %common.resume.op
 
-.body.i135:                                       ; preds = %185, %183, %172
-  %.pn.pn.i136 = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ], [ %173, %172 ]
+.body.i135:                                       ; preds = %187, %185, %174
+  %.pn.pn.i136 = phi { ptr, i32 } [ %188, %187 ], [ %186, %185 ], [ %175, %174 ]
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %23) #27, !noalias !38
   br label %common.resume
 
-_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138: ; preds = %176
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef -4)
-          to label %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121 unwind label %212, !noalias !38
+_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138: ; preds = %178
+  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef -4)
+          to label %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121 unwind label %214, !noalias !38
 
 _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121: ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138
   call void @llvm.experimental.noalias.scope.decl(metadata !39), !noalias !32
@@ -9099,72 +9099,72 @@ _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121: ; preds =
   store ptr %46, ptr %4, align 8, !alias.scope !45, !noalias !32
   store i64 0, ptr %47, align 8, !alias.scope !45, !noalias !32
   store i8 0, ptr %46, align 8, !alias.scope !45, !noalias !32
-  %190 = load ptr, ptr %48, align 8, !noalias !46
-  %.not.i.not.i.i.i122 = icmp eq ptr %190, null
-  %191 = load ptr, ptr %49, align 8, !noalias !46
-  %192 = icmp ugt ptr %190, %191
-  %.08.i.i.i.i123 = select i1 %192, ptr %190, ptr %191
+  %192 = load ptr, ptr %48, align 8, !noalias !46
+  %.not.i.not.i.i.i122 = icmp eq ptr %192, null
+  %193 = load ptr, ptr %49, align 8, !noalias !46
+  %194 = icmp ugt ptr %192, %193
+  %.08.i.i.i.i123 = select i1 %194, ptr %192, ptr %193
   %.not5.i.i.i124 = icmp eq ptr %.08.i.i.i.i123, null
   %.not.i.i.i125 = select i1 %.not.i.not.i.i.i122, i1 true, i1 %.not5.i.i.i124
-  br i1 %.not.i.i.i125, label %205, label %193
+  br i1 %.not.i.i.i125, label %207, label %195
 
-193:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121
-  %194 = load ptr, ptr %50, align 8, !noalias !46
-  %195 = ptrtoint ptr %.08.i.i.i.i123 to i64
-  %196 = ptrtoint ptr %194 to i64
-  %197 = sub i64 %195, %196
-  %198 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef 0, ptr noundef %194, i64 noundef %197)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128 unwind label %199, !noalias !32
+195:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121
+  %196 = load ptr, ptr %50, align 8, !noalias !46
+  %197 = ptrtoint ptr %.08.i.i.i.i123 to i64
+  %198 = ptrtoint ptr %196 to i64
+  %199 = sub i64 %197, %198
+  %200 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef 0, ptr noundef %196, i64 noundef %199)
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128 unwind label %201, !noalias !32
 
-199:                                              ; preds = %205, %193
-  %200 = landingpad { ptr, i32 }
+201:                                              ; preds = %207, %195
+  %202 = landingpad { ptr, i32 }
           cleanup
-  %201 = load ptr, ptr %4, align 8, !alias.scope !45, !noalias !32
-  %202 = icmp eq ptr %201, %46
-  br i1 %202, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126
+  %203 = load ptr, ptr %4, align 8, !alias.scope !45, !noalias !32
+  %204 = icmp eq ptr %203, %46
+  br i1 %204, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127: ; preds = %199
-  %203 = load i64, ptr %47, align 8, !alias.scope !45, !noalias !32
-  %204 = icmp ult i64 %203, 16
-  call void @llvm.assume(i1 %204), !noalias !32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127: ; preds = %201
+  %205 = load i64, ptr %47, align 8, !alias.scope !45, !noalias !32
+  %206 = icmp ult i64 %205, 16
+  call void @llvm.assume(i1 %206), !noalias !32
   br label %.body.i119
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126: ; preds = %199
-  call void @_ZdlPv(ptr noundef %201) #31, !noalias !32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126: ; preds = %201
+  call void @_ZdlPv(ptr noundef %203) #31, !noalias !32
   br label %.body.i119
 
-205:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121
+207:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i121
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %43)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128 unwind label %199, !noalias !32
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128 unwind label %201, !noalias !32
 
-_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128: ; preds = %205, %193
+_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128: ; preds = %207, %195
   store ptr %51, ptr %2, align 8, !noalias !38
-  %206 = load i64, ptr %53, align 8, !noalias !32
-  %207 = getelementptr inbounds i8, ptr %2, i64 %206
-  store ptr %52, ptr %207, align 8, !noalias !38
+  %208 = load i64, ptr %53, align 8, !noalias !32
+  %209 = getelementptr inbounds i8, ptr %2, i64 %208
+  store ptr %52, ptr %209, align 8, !noalias !38
   store ptr %54, ptr %32, align 8, !noalias !38
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %39, align 8, !noalias !38
-  %208 = load ptr, ptr %43, align 8, !noalias !38
-  %209 = icmp eq ptr %208, %44
-  br i1 %209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i129
+  %210 = load ptr, ptr %43, align 8, !noalias !38
+  %211 = icmp eq ptr %210, %44
+  br i1 %211, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i129
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i130: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128
-  %210 = load i64, ptr %45, align 8, !noalias !38
-  %211 = icmp ult i64 %210, 16
-  call void @llvm.assume(i1 %211), !noalias !32
+  %212 = load i64, ptr %45, align 8, !noalias !38
+  %213 = icmp ult i64 %212, 16
+  call void @llvm.assume(i1 %213), !noalias !32
   br label %_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i129: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i128
-  call void @_ZdlPv(ptr noundef %208) #31, !noalias !32
+  call void @_ZdlPv(ptr noundef %210) #31, !noalias !32
   br label %_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit131
 
-212:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138
-  %213 = landingpad { ptr, i32 }
+214:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit138
+  %215 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i119
 
-.body.i119:                                       ; preds = %212, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127
-  %eh.lpad-body.i120 = phi { ptr, i32 } [ %213, %212 ], [ %200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126 ], [ %200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127 ]
+.body.i119:                                       ; preds = %214, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127
+  %eh.lpad-body.i120 = phi { ptr, i32 } [ %215, %214 ], [ %202, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i126 ], [ %202, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i127 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #27, !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !38
   br label %common.resume
@@ -9173,9 +9173,9 @@ _ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %39, align 8, !noalias !38
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #27, !noalias !32
   store ptr %28, ptr %2, align 8, !noalias !38
-  %214 = load i64, ptr %30, align 8, !noalias !32
-  %215 = getelementptr inbounds i8, ptr %2, i64 %214
-  store ptr %29, ptr %215, align 8, !noalias !38
+  %216 = load i64, ptr %30, align 8, !noalias !32
+  %217 = getelementptr inbounds i8, ptr %2, i64 %216
+  store ptr %29, ptr %217, align 8, !noalias !38
   store i64 0, ptr %31, align 8, !noalias !38
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %23) #27, !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !38
@@ -9189,44 +9189,44 @@ _ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i8 0, ptr %58, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   store ptr %28, ptr %3, align 8
-  %216 = load i64, ptr %30, align 8
-  %217 = getelementptr inbounds i8, ptr %3, i64 %216
-  store ptr %29, ptr %217, align 8
+  %218 = load i64, ptr %30, align 8
+  %219 = getelementptr inbounds i8, ptr %3, i64 %218
+  store ptr %29, ptr %219, align 8
   store i64 0, ptr %60, align 8
-  %218 = load ptr, ptr %3, align 8
-  %219 = getelementptr i8, ptr %218, i64 -24
-  %220 = load i64, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %3, i64 %220
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %221, ptr noundef null)
-          to label %.noexc.i unwind label %239
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr i8, ptr %220, i64 -24
+  %222 = load i64, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %3, i64 %222
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %223, ptr noundef null)
+          to label %.noexc.i unwind label %241
 
 .noexc.i:                                         ; preds = %_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit131
   store ptr %33, ptr %61, align 8
-  %222 = load i64, ptr %35, align 8
-  %223 = getelementptr inbounds i8, ptr %61, i64 %222
-  store ptr %34, ptr %223, align 8
-  %224 = load ptr, ptr %61, align 8
-  %225 = getelementptr i8, ptr %224, i64 -24
-  %226 = load i64, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %61, i64 %226
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %227, ptr noundef null)
-          to label %232 unwind label %228
+  %224 = load i64, ptr %35, align 8
+  %225 = getelementptr inbounds i8, ptr %61, i64 %224
+  store ptr %34, ptr %225, align 8
+  %226 = load ptr, ptr %61, align 8
+  %227 = getelementptr i8, ptr %226, i64 -24
+  %228 = load i64, ptr %227, align 8
+  %229 = getelementptr inbounds i8, ptr %61, i64 %228
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %229, ptr noundef null)
+          to label %234 unwind label %230
 
-228:                                              ; preds = %.noexc.i
-  %229 = landingpad { ptr, i32 }
+230:                                              ; preds = %.noexc.i
+  %231 = landingpad { ptr, i32 }
           cleanup
   store ptr %28, ptr %3, align 8
-  %230 = load i64, ptr %30, align 8
-  %231 = getelementptr inbounds i8, ptr %3, i64 %230
-  store ptr %29, ptr %231, align 8
+  %232 = load i64, ptr %30, align 8
+  %233 = getelementptr inbounds i8, ptr %3, i64 %232
+  store ptr %29, ptr %233, align 8
   store i64 0, ptr %60, align 8
   br label %.body.i132
 
-232:                                              ; preds = %.noexc.i
+234:                                              ; preds = %.noexc.i
   store ptr %36, ptr %3, align 8
-  %233 = load i64, ptr %38, align 8
-  %234 = getelementptr inbounds i8, ptr %3, i64 %233
-  store ptr %37, ptr %234, align 8
+  %235 = load i64, ptr %38, align 8
+  %236 = getelementptr inbounds i8, ptr %3, i64 %235
+  store ptr %37, ptr %236, align 8
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 104), ptr %55, align 8
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), ptr %61, align 8
@@ -9238,37 +9238,37 @@ _ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %67, ptr %66, align 8
   store i64 0, ptr %68, align 8
   store i8 0, ptr %67, align 8
-  %235 = load ptr, ptr %3, align 8
-  %236 = getelementptr i8, ptr %235, i64 -24
-  %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %3, i64 %237
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %238, ptr noundef nonnull %62)
-          to label %.noexc unwind label %241
+  %237 = load ptr, ptr %3, align 8
+  %238 = getelementptr i8, ptr %237, i64 -24
+  %239 = load i64, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %3, i64 %239
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %240, ptr noundef nonnull %62)
+          to label %.noexc unwind label %243
 
-239:                                              ; preds = %_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit131
-  %240 = landingpad { ptr, i32 }
+241:                                              ; preds = %_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit131
+  %242 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i132
 
-241:                                              ; preds = %232
-  %242 = landingpad { ptr, i32 }
+243:                                              ; preds = %234
+  %244 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %62) #27
   store ptr %28, ptr %3, align 8
-  %243 = load i64, ptr %30, align 8
-  %244 = getelementptr inbounds i8, ptr %3, i64 %243
-  store ptr %29, ptr %244, align 8
+  %245 = load i64, ptr %30, align 8
+  %246 = getelementptr inbounds i8, ptr %3, i64 %245
+  store ptr %29, ptr %246, align 8
   store i64 0, ptr %60, align 8
   br label %.body.i132
 
-.body.i132:                                       ; preds = %241, %239, %228
-  %.pn.pn.i = phi { ptr, i32 } [ %242, %241 ], [ %240, %239 ], [ %229, %228 ]
+.body.i132:                                       ; preds = %243, %241, %230
+  %.pn.pn.i = phi { ptr, i32 } [ %244, %243 ], [ %242, %241 ], [ %231, %230 ]
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %55) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
 
-.noexc:                                           ; preds = %232
-  %245 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %156)
-          to label %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i unwind label %268, !noalias !50
+.noexc:                                           ; preds = %234
+  %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %158)
+          to label %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i unwind label %270, !noalias !50
 
 _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i: ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !51), !noalias !32
@@ -9276,72 +9276,72 @@ _ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i: ; preds = %.
   store ptr %69, ptr %5, align 8, !alias.scope !57, !noalias !32
   store i64 0, ptr %70, align 8, !alias.scope !57, !noalias !32
   store i8 0, ptr %69, align 8, !alias.scope !57, !noalias !32
-  %246 = load ptr, ptr %71, align 8, !noalias !58
-  %.not.i.not.i.i.i = icmp eq ptr %246, null
-  %247 = load ptr, ptr %72, align 8, !noalias !58
-  %248 = icmp ugt ptr %246, %247
-  %.08.i.i.i.i = select i1 %248, ptr %246, ptr %247
+  %248 = load ptr, ptr %71, align 8, !noalias !58
+  %.not.i.not.i.i.i = icmp eq ptr %248, null
+  %249 = load ptr, ptr %72, align 8, !noalias !58
+  %250 = icmp ugt ptr %248, %249
+  %.08.i.i.i.i = select i1 %250, ptr %248, ptr %249
   %.not5.i.i.i = icmp eq ptr %.08.i.i.i.i, null
   %.not.i.i.i116 = select i1 %.not.i.not.i.i.i, i1 true, i1 %.not5.i.i.i
-  br i1 %.not.i.i.i116, label %261, label %249
+  br i1 %.not.i.i.i116, label %263, label %251
 
-249:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i
-  %250 = load ptr, ptr %73, align 8, !noalias !58
-  %251 = ptrtoint ptr %.08.i.i.i.i to i64
-  %252 = ptrtoint ptr %250 to i64
-  %253 = sub i64 %251, %252
-  %254 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef %250, i64 noundef %253)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i unwind label %255, !noalias !32
+251:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i
+  %252 = load ptr, ptr %73, align 8, !noalias !58
+  %253 = ptrtoint ptr %.08.i.i.i.i to i64
+  %254 = ptrtoint ptr %252 to i64
+  %255 = sub i64 %253, %254
+  %256 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef %252, i64 noundef %255)
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i unwind label %257, !noalias !32
 
-255:                                              ; preds = %261, %249
-  %256 = landingpad { ptr, i32 }
+257:                                              ; preds = %263, %251
+  %258 = landingpad { ptr, i32 }
           cleanup
-  %257 = load ptr, ptr %5, align 8, !alias.scope !57, !noalias !32
-  %258 = icmp eq ptr %257, %69
-  br i1 %258, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117
+  %259 = load ptr, ptr %5, align 8, !alias.scope !57, !noalias !32
+  %260 = icmp eq ptr %259, %69
+  br i1 %260, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118: ; preds = %255
-  %259 = load i64, ptr %70, align 8, !alias.scope !57, !noalias !32
-  %260 = icmp ult i64 %259, 16
-  call void @llvm.assume(i1 %260), !noalias !32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118: ; preds = %257
+  %261 = load i64, ptr %70, align 8, !alias.scope !57, !noalias !32
+  %262 = icmp ult i64 %261, 16
+  call void @llvm.assume(i1 %262), !noalias !32
   br label %.body.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117: ; preds = %255
-  call void @_ZdlPv(ptr noundef %257) #31, !noalias !32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117: ; preds = %257
+  call void @_ZdlPv(ptr noundef %259) #31, !noalias !32
   br label %.body.i
 
-261:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i
+263:                                              ; preds = %_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo.exit.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %66)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i unwind label %255, !noalias !32
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i unwind label %257, !noalias !32
 
-_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i: ; preds = %261, %249
+_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i: ; preds = %263, %251
   store ptr %51, ptr %3, align 8, !noalias !50
-  %262 = load i64, ptr %53, align 8, !noalias !32
-  %263 = getelementptr inbounds i8, ptr %3, i64 %262
-  store ptr %52, ptr %263, align 8, !noalias !50
+  %264 = load i64, ptr %53, align 8, !noalias !32
+  %265 = getelementptr inbounds i8, ptr %3, i64 %264
+  store ptr %52, ptr %265, align 8, !noalias !50
   store ptr %54, ptr %61, align 8, !noalias !50
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %62, align 8, !noalias !50
-  %264 = load ptr, ptr %66, align 8, !noalias !50
-  %265 = icmp eq ptr %264, %67
-  br i1 %265, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  %266 = load ptr, ptr %66, align 8, !noalias !50
+  %267 = icmp eq ptr %266, %67
+  br i1 %267, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i
-  %266 = load i64, ptr %68, align 8, !noalias !50
-  %267 = icmp ult i64 %266, 16
-  call void @llvm.assume(i1 %267), !noalias !32
+  %268 = load i64, ptr %68, align 8, !noalias !50
+  %269 = icmp ult i64 %268, 16
+  call void @llvm.assume(i1 %269), !noalias !32
   br label %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.i
-  call void @_ZdlPv(ptr noundef %264) #31, !noalias !32
+  call void @_ZdlPv(ptr noundef %266) #31, !noalias !32
   br label %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
 
-268:                                              ; preds = %.noexc
-  %269 = landingpad { ptr, i32 }
+270:                                              ; preds = %.noexc
+  %271 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %268, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118
-  %eh.lpad-body.i = phi { ptr, i32 } [ %269, %268 ], [ %256, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117 ], [ %256, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118 ]
+.body.i:                                          ; preds = %270, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118
+  %eh.lpad-body.i = phi { ptr, i32 } [ %271, %270 ], [ %258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i117 ], [ %258, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i118 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #27, !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
@@ -9350,502 +9350,501 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_s
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %62, align 8, !noalias !50
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #27, !noalias !32
   store ptr %28, ptr %3, align 8, !noalias !50
-  %270 = load i64, ptr %30, align 8, !noalias !32
-  %271 = getelementptr inbounds i8, ptr %3, i64 %270
-  store ptr %29, ptr %271, align 8, !noalias !50
+  %272 = load i64, ptr %30, align 8, !noalias !32
+  %273 = getelementptr inbounds i8, ptr %3, i64 %272
+  store ptr %29, ptr %273, align 8, !noalias !50
   store i64 0, ptr %60, align 8, !noalias !50
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %55) #27, !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15, ptr noundef nonnull @.str.301, ptr noundef nonnull @.str.302, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
-          to label %272 unwind label %281
+          to label %274 unwind label %283
 
-272:                                              ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
-  %273 = load ptr, ptr %5, align 8, !noalias !32
-  %274 = icmp eq ptr %273, %69
-  br i1 %274, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+274:                                              ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
+  %275 = load ptr, ptr %5, align 8, !noalias !32
+  %276 = icmp eq ptr %275, %69
+  br i1 %276, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %272
-  %275 = load i64, ptr %70, align 8, !noalias !32
-  %276 = icmp ult i64 %275, 16
-  call void @llvm.assume(i1 %276)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %274
+  %277 = load i64, ptr %70, align 8, !noalias !32
+  %278 = icmp ult i64 %277, 16
+  call void @llvm.assume(i1 %278)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %272
-  call void @_ZdlPv(ptr noundef %273) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %274
+  call void @_ZdlPv(ptr noundef %275) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
-  %277 = load ptr, ptr %4, align 8, !noalias !32
-  %278 = icmp eq ptr %277, %46
-  br i1 %278, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
+  %279 = load ptr, ptr %4, align 8, !noalias !32
+  %280 = icmp eq ptr %279, %46
+  br i1 %280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %279 = load i64, ptr %47, align 8, !noalias !32
-  %280 = icmp ult i64 %279, 16
-  call void @llvm.assume(i1 %280)
+  %281 = load i64, ptr %47, align 8, !noalias !32
+  %282 = icmp ult i64 %281, 16
+  call void @llvm.assume(i1 %282)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %277) #31
+  call void @_ZdlPv(ptr noundef %279) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   br label %_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
-281:                                              ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
-  %282 = landingpad { ptr, i32 }
+283:                                              ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i
+  %284 = landingpad { ptr, i32 }
           cleanup
-  %283 = load ptr, ptr %5, align 8, !noalias !32
-  %284 = icmp eq ptr %283, %69
-  br i1 %284, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i
+  %285 = load ptr, ptr %5, align 8, !noalias !32
+  %286 = icmp eq ptr %285, %69
+  br i1 %286, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i: ; preds = %281
-  %285 = load i64, ptr %70, align 8, !noalias !32
-  %286 = icmp ult i64 %285, 16
-  call void @llvm.assume(i1 %286)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i: ; preds = %283
+  %287 = load i64, ptr %70, align 8, !noalias !32
+  %288 = icmp ult i64 %287, 16
+  call void @llvm.assume(i1 %288)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i: ; preds = %281
-  call void @_ZdlPv(ptr noundef %283) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i: ; preds = %283
+  call void @_ZdlPv(ptr noundef %285) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i: ; preds = %.body.i, %.body.i132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i
-  %.pn.i = phi { ptr, i32 } [ %282, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i ], [ %282, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i ], [ %eh.lpad-body.i, %.body.i ], [ %.pn.pn.i, %.body.i132 ]
+  %.pn.i = phi { ptr, i32 } [ %284, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15.i ], [ %284, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i ], [ %eh.lpad-body.i, %.body.i ], [ %.pn.pn.i, %.body.i132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
-  %287 = load ptr, ptr %4, align 8, !noalias !32
-  %288 = icmp eq ptr %287, %46
-  br i1 %288, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i
+  %289 = load ptr, ptr %4, align 8, !noalias !32
+  %290 = icmp eq ptr %289, %46
+  br i1 %290, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
-  %289 = load i64, ptr %47, align 8, !noalias !32
-  %290 = icmp ult i64 %289, 16
-  call void @llvm.assume(i1 %290)
+  %291 = load i64, ptr %47, align 8, !noalias !32
+  %292 = icmp ult i64 %291, 16
+  call void @llvm.assume(i1 %292)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i
-  call void @_ZdlPv(ptr noundef %287) #31
+  call void @_ZdlPv(ptr noundef %289) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   br label %common.resume
 
-_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i
-  %291 = load i8, ptr %15, align 8, !range !14, !noundef !15
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %.critedge64, label %293
+_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i
+  %293 = load i8, ptr %15, align 8, !range !14, !noundef !15
+  %294 = trunc nuw i8 %293 to i1
+  br i1 %294, label %.critedge64, label %295
 
-293:                                              ; preds = %_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
-  %294 = or i32 %155, %152
+295:                                              ; preds = %_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %295 unwind label %338
+          to label %296 unwind label %339
 
-295:                                              ; preds = %293
-  %296 = load ptr, ptr %16, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %298 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %297, ptr noundef nonnull @.str.316, i64 noundef 29)
-          to label %_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit unwind label %340
+296:                                              ; preds = %295
+  %297 = load ptr, ptr %16, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  %299 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %298, ptr noundef nonnull @.str.316, i64 noundef 29)
+          to label %_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit unwind label %341
 
-_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit:       ; preds = %295
-  %299 = load ptr, ptr %16, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %301 = zext i32 %294 to i64
-  %302 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %300, i64 noundef %301)
-          to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit unwind label %340
+_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit:       ; preds = %296
+  %300 = load ptr, ptr %16, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %302 = zext i32 %156 to i64
+  %303 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %301, i64 noundef %302)
+          to label %_ZN7testing7MessagelsIjEERS0_RKT_.exit unwind label %341
 
 _ZN7testing7MessagelsIjEERS0_RKT_.exit:           ; preds = %_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %303 = load ptr, ptr %74, align 8
-  %.not.i.i81 = icmp eq ptr %303, null
-  br i1 %.not.i.i81, label %_ZNK7testing15AssertionResult15failure_messageEv.exit82, label %304
+  %304 = load ptr, ptr %74, align 8
+  %.not.i.i81 = icmp eq ptr %304, null
+  br i1 %.not.i.i81, label %_ZNK7testing15AssertionResult15failure_messageEv.exit82, label %305
 
-304:                                              ; preds = %_ZN7testing7MessagelsIjEERS0_RKT_.exit
-  %305 = load ptr, ptr %303, align 8
+305:                                              ; preds = %_ZN7testing7MessagelsIjEERS0_RKT_.exit
+  %306 = load ptr, ptr %304, align 8
   br label %_ZNK7testing15AssertionResult15failure_messageEv.exit82
 
-_ZNK7testing15AssertionResult15failure_messageEv.exit82: ; preds = %304, %_ZN7testing7MessagelsIjEERS0_RKT_.exit
-  %306 = phi ptr [ %305, %304 ], [ @.str.292, %_ZN7testing7MessagelsIjEERS0_RKT_.exit ]
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 2, ptr noundef nonnull @.str.286, i32 noundef 271, ptr noundef %306)
-          to label %307 unwind label %342
+_ZNK7testing15AssertionResult15failure_messageEv.exit82: ; preds = %305, %_ZN7testing7MessagelsIjEERS0_RKT_.exit
+  %307 = phi ptr [ %306, %305 ], [ @.str.292, %_ZN7testing7MessagelsIjEERS0_RKT_.exit ]
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 2, ptr noundef nonnull @.str.286, i32 noundef 271, ptr noundef %307)
+          to label %308 unwind label %343
 
-307:                                              ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit82
+308:                                              ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit82
   invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %308 unwind label %344
+          to label %309 unwind label %345
 
-308:                                              ; preds = %307
+309:                                              ; preds = %308
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %309 = load ptr, ptr %16, align 8
-  %.not.i.i.i83 = icmp eq ptr %309, null
-  br i1 %.not.i.i.i83, label %_ZN7testing7MessageD2Ev.exit85, label %310
+  %310 = load ptr, ptr %16, align 8
+  %.not.i.i.i83 = icmp eq ptr %310, null
+  br i1 %.not.i.i.i83, label %_ZN7testing7MessageD2Ev.exit85, label %311
 
-310:                                              ; preds = %308
-  %311 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-          to label %.noexc.i.i84 unwind label %319
+311:                                              ; preds = %309
+  %312 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+          to label %.noexc.i.i84 unwind label %320
 
-.noexc.i.i84:                                     ; preds = %310
-  br i1 %311, label %312, label %_ZN7testing7MessageD2Ev.exit85
+.noexc.i.i84:                                     ; preds = %311
+  br i1 %312, label %313, label %_ZN7testing7MessageD2Ev.exit85
 
-312:                                              ; preds = %.noexc.i.i84
-  %313 = load ptr, ptr %16, align 8
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %_ZN7testing7MessageD2Ev.exit85, label %315
+313:                                              ; preds = %.noexc.i.i84
+  %314 = load ptr, ptr %16, align 8
+  %315 = icmp eq ptr %314, null
+  br i1 %315, label %_ZN7testing7MessageD2Ev.exit85, label %316
 
-315:                                              ; preds = %312
-  %316 = load ptr, ptr %313, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  %318 = load ptr, ptr %317, align 8
-  call void %318(ptr noundef nonnull align 8 dereferenceable(128) %313) #27
+316:                                              ; preds = %313
+  %317 = load ptr, ptr %314, align 8
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
+  %319 = load ptr, ptr %318, align 8
+  call void %319(ptr noundef nonnull align 8 dereferenceable(128) %314) #27
   br label %_ZN7testing7MessageD2Ev.exit85
 
-319:                                              ; preds = %310
-  %320 = landingpad { ptr, i32 }
+320:                                              ; preds = %311
+  %321 = landingpad { ptr, i32 }
           catch ptr null
-  %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #28
+  %322 = extractvalue { ptr, i32 } %321, 0
+  call void @__clang_call_terminate(ptr %322) #28
   unreachable
 
-_ZN7testing7MessageD2Ev.exit85:                   ; preds = %.noexc.i.i84, %312, %315, %308
+_ZN7testing7MessageD2Ev.exit85:                   ; preds = %.noexc.i.i84, %313, %316, %309
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %322 = load ptr, ptr %74, align 8
-  %.not.i.i.i86 = icmp eq ptr %322, null
-  br i1 %.not.i.i.i86, label %_ZN7testing15AssertionResultD2Ev.exit91, label %323
+  %323 = load ptr, ptr %74, align 8
+  %.not.i.i.i86 = icmp eq ptr %323, null
+  br i1 %.not.i.i.i86, label %_ZN7testing15AssertionResultD2Ev.exit91, label %324
 
-323:                                              ; preds = %_ZN7testing7MessageD2Ev.exit85
-  %324 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-          to label %.noexc.i.i87 unwind label %335
+324:                                              ; preds = %_ZN7testing7MessageD2Ev.exit85
+  %325 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+          to label %.noexc.i.i87 unwind label %336
 
-.noexc.i.i87:                                     ; preds = %323
-  br i1 %324, label %325, label %_ZN7testing15AssertionResultD2Ev.exit91
+.noexc.i.i87:                                     ; preds = %324
+  br i1 %325, label %326, label %_ZN7testing15AssertionResultD2Ev.exit91
 
-325:                                              ; preds = %.noexc.i.i87
-  %326 = load ptr, ptr %74, align 8
-  %327 = icmp eq ptr %326, null
-  br i1 %327, label %_ZN7testing15AssertionResultD2Ev.exit91, label %328
+326:                                              ; preds = %.noexc.i.i87
+  %327 = load ptr, ptr %74, align 8
+  %328 = icmp eq ptr %327, null
+  br i1 %328, label %_ZN7testing15AssertionResultD2Ev.exit91, label %329
 
-328:                                              ; preds = %325
-  %329 = load ptr, ptr %326, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %331 = icmp eq ptr %329, %330
-  br i1 %331, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i88
+329:                                              ; preds = %326
+  %330 = load ptr, ptr %327, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %327, i64 16
+  %332 = icmp eq ptr %330, %331
+  br i1 %332, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i88
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i90: ; preds = %328
-  %332 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  %333 = load i64, ptr %332, align 8
-  %334 = icmp ult i64 %333, 16
-  call void @llvm.assume(i1 %334)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i90: ; preds = %329
+  %333 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  %334 = load i64, ptr %333, align 8
+  %335 = icmp ult i64 %334, 16
+  call void @llvm.assume(i1 %335)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i89
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i88: ; preds = %328
-  call void @_ZdlPv(ptr noundef %329) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i88: ; preds = %329
+  call void @_ZdlPv(ptr noundef %330) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i89
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i89: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i90
-  call void @_ZdlPv(ptr noundef nonnull %326) #31
+  call void @_ZdlPv(ptr noundef nonnull %327) #31
   br label %_ZN7testing15AssertionResultD2Ev.exit91
 
-335:                                              ; preds = %323
-  %336 = landingpad { ptr, i32 }
+336:                                              ; preds = %324
+  %337 = landingpad { ptr, i32 }
           catch ptr null
-  %337 = extractvalue { ptr, i32 } %336, 0
-  call void @__clang_call_terminate(ptr %337) #28
+  %338 = extractvalue { ptr, i32 } %337, 0
+  call void @__clang_call_terminate(ptr %338) #28
   unreachable
 
-_ZN7testing15AssertionResultD2Ev.exit91:          ; preds = %.noexc.i.i87, %325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i89, %_ZN7testing7MessageD2Ev.exit85
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %428
-
-338:                                              ; preds = %293
-  %339 = landingpad { ptr, i32 }
-          cleanup
-  br label %348
-
-340:                                              ; preds = %_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit, %295
-  %341 = landingpad { ptr, i32 }
-          cleanup
-  br label %347
-
-342:                                              ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit82
-  %343 = landingpad { ptr, i32 }
-          cleanup
-  br label %346
-
-344:                                              ; preds = %307
-  %345 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #27
-  br label %346
-
-346:                                              ; preds = %344, %342
-  %.pn49 = phi { ptr, i32 } [ %345, %344 ], [ %343, %342 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %347
-
-347:                                              ; preds = %346, %340
-  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %346 ], [ %341, %340 ]
-  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #27
-  br label %348
-
-348:                                              ; preds = %347, %338
-  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %347 ], [ %339, %338 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+_ZN7testing15AssertionResultD2Ev.exit91:          ; preds = %.noexc.i.i87, %326, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i89, %_ZN7testing7MessageD2Ev.exit85
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %429
 
+339:                                              ; preds = %295
+  %340 = landingpad { ptr, i32 }
+          cleanup
+  br label %349
+
+341:                                              ; preds = %_ZN7testing7MessagelsIA30_cEERS0_RKT_.exit, %296
+  %342 = landingpad { ptr, i32 }
+          cleanup
+  br label %348
+
+343:                                              ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit82
+  %344 = landingpad { ptr, i32 }
+          cleanup
+  br label %347
+
+345:                                              ; preds = %308
+  %346 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #27
+  br label %347
+
+347:                                              ; preds = %345, %343
+  %.pn49 = phi { ptr, i32 } [ %346, %345 ], [ %344, %343 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  br label %348
+
+348:                                              ; preds = %347, %341
+  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %347 ], [ %342, %341 ]
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #27
+  br label %349
+
+349:                                              ; preds = %348, %339
+  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %348 ], [ %340, %339 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %430
+
 .critedge64:                                      ; preds = %_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
-  %349 = load ptr, ptr %74, align 8
-  %.not.i.i.i92 = icmp eq ptr %349, null
-  br i1 %.not.i.i.i92, label %365, label %350
+  %350 = load ptr, ptr %74, align 8
+  %.not.i.i.i92 = icmp eq ptr %350, null
+  br i1 %.not.i.i.i92, label %366, label %351
 
-350:                                              ; preds = %.critedge64
-  %351 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-          to label %.noexc.i.i93 unwind label %362
+351:                                              ; preds = %.critedge64
+  %352 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+          to label %.noexc.i.i93 unwind label %363
 
-.noexc.i.i93:                                     ; preds = %350
-  br i1 %351, label %352, label %365
+.noexc.i.i93:                                     ; preds = %351
+  br i1 %352, label %353, label %366
 
-352:                                              ; preds = %.noexc.i.i93
-  %353 = load ptr, ptr %74, align 8
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %365, label %355
+353:                                              ; preds = %.noexc.i.i93
+  %354 = load ptr, ptr %74, align 8
+  %355 = icmp eq ptr %354, null
+  br i1 %355, label %366, label %356
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %353, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %353, i64 16
-  %358 = icmp eq ptr %356, %357
-  br i1 %358, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i94
+356:                                              ; preds = %353
+  %357 = load ptr, ptr %354, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  %359 = icmp eq ptr %357, %358
+  br i1 %359, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i94
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i96: ; preds = %355
-  %359 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  %360 = load i64, ptr %359, align 8
-  %361 = icmp ult i64 %360, 16
-  call void @llvm.assume(i1 %361)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i96: ; preds = %356
+  %360 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  %361 = load i64, ptr %360, align 8
+  %362 = icmp ult i64 %361, 16
+  call void @llvm.assume(i1 %362)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i95
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i94: ; preds = %355
-  call void @_ZdlPv(ptr noundef %356) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i94: ; preds = %356
+  call void @_ZdlPv(ptr noundef %357) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i95
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i96
-  call void @_ZdlPv(ptr noundef nonnull %353) #31
-  br label %365
+  call void @_ZdlPv(ptr noundef nonnull %354) #31
+  br label %366
 
-362:                                              ; preds = %350
-  %363 = landingpad { ptr, i32 }
+363:                                              ; preds = %351
+  %364 = landingpad { ptr, i32 }
           catch ptr null
-  %364 = extractvalue { ptr, i32 } %363, 0
-  call void @__clang_call_terminate(ptr %364) #28
+  %365 = extractvalue { ptr, i32 } %364, 0
+  call void @__clang_call_terminate(ptr %365) #28
   unreachable
 
-365:                                              ; preds = %.noexc.i.i93, %352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i95, %.critedge64
+366:                                              ; preds = %.noexc.i.i93, %353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i95, %.critedge64
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %366 = load ptr, ptr %14, align 8
-  %367 = icmp ne ptr %366, null
-  %368 = zext i1 %367 to i8
-  store i8 %368, ptr %18, align 8
+  %367 = load ptr, ptr %14, align 8
+  %368 = icmp ne ptr %367, null
+  %369 = zext i1 %368 to i8
+  store i8 %369, ptr %18, align 8
   store ptr null, ptr %75, align 8
-  br i1 %367, label %.critedge68, label %369
+  br i1 %368, label %.critedge68, label %370
 
-369:                                              ; preds = %365
+370:                                              ; preds = %366
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %370 unwind label %410
+          to label %371 unwind label %411
 
-370:                                              ; preds = %369
+371:                                              ; preds = %370
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull @.str.304, ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.295)
-          to label %371 unwind label %412
+          to label %372 unwind label %413
 
-371:                                              ; preds = %370
-  %372 = load ptr, ptr %21, align 8
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 2, ptr noundef nonnull @.str.286, i32 noundef 273, ptr noundef %372)
-          to label %373 unwind label %414
+372:                                              ; preds = %371
+  %373 = load ptr, ptr %21, align 8
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 2, ptr noundef nonnull @.str.286, i32 noundef 273, ptr noundef %373)
+          to label %374 unwind label %415
 
-373:                                              ; preds = %371
+374:                                              ; preds = %372
   invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %374 unwind label %416
+          to label %375 unwind label %417
 
-374:                                              ; preds = %373
+375:                                              ; preds = %374
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
-  %375 = load ptr, ptr %21, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %377 = icmp eq ptr %375, %376
-  br i1 %377, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %376 = load ptr, ptr %21, align 8
+  %377 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %378 = icmp eq ptr %376, %377
+  br i1 %378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %374
-  %378 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %379 = load i64, ptr %378, align 8
-  %380 = icmp ult i64 %379, 16
-  call void @llvm.assume(i1 %380)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %375
+  %379 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %380 = load i64, ptr %379, align 8
+  %381 = icmp ult i64 %380, 16
+  call void @llvm.assume(i1 %381)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %374
-  call void @_ZdlPv(ptr noundef %375) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %375
+  call void @_ZdlPv(ptr noundef %376) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %381 = load ptr, ptr %19, align 8
-  %.not.i.i.i98 = icmp eq ptr %381, null
-  br i1 %.not.i.i.i98, label %_ZN7testing7MessageD2Ev.exit100, label %382
+  %382 = load ptr, ptr %19, align 8
+  %.not.i.i.i98 = icmp eq ptr %382, null
+  br i1 %.not.i.i.i98, label %_ZN7testing7MessageD2Ev.exit100, label %383
 
-382:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %383 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-          to label %.noexc.i.i99 unwind label %391
+383:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %384 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+          to label %.noexc.i.i99 unwind label %392
 
-.noexc.i.i99:                                     ; preds = %382
-  br i1 %383, label %384, label %_ZN7testing7MessageD2Ev.exit100
+.noexc.i.i99:                                     ; preds = %383
+  br i1 %384, label %385, label %_ZN7testing7MessageD2Ev.exit100
 
-384:                                              ; preds = %.noexc.i.i99
-  %385 = load ptr, ptr %19, align 8
-  %386 = icmp eq ptr %385, null
-  br i1 %386, label %_ZN7testing7MessageD2Ev.exit100, label %387
+385:                                              ; preds = %.noexc.i.i99
+  %386 = load ptr, ptr %19, align 8
+  %387 = icmp eq ptr %386, null
+  br i1 %387, label %_ZN7testing7MessageD2Ev.exit100, label %388
 
-387:                                              ; preds = %384
-  %388 = load ptr, ptr %385, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  %390 = load ptr, ptr %389, align 8
-  call void %390(ptr noundef nonnull align 8 dereferenceable(128) %385) #27
+388:                                              ; preds = %385
+  %389 = load ptr, ptr %386, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
+  %391 = load ptr, ptr %390, align 8
+  call void %391(ptr noundef nonnull align 8 dereferenceable(128) %386) #27
   br label %_ZN7testing7MessageD2Ev.exit100
 
-391:                                              ; preds = %382
-  %392 = landingpad { ptr, i32 }
+392:                                              ; preds = %383
+  %393 = landingpad { ptr, i32 }
           catch ptr null
-  %393 = extractvalue { ptr, i32 } %392, 0
-  call void @__clang_call_terminate(ptr %393) #28
+  %394 = extractvalue { ptr, i32 } %393, 0
+  call void @__clang_call_terminate(ptr %394) #28
   unreachable
 
-_ZN7testing7MessageD2Ev.exit100:                  ; preds = %.noexc.i.i99, %384, %387, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZN7testing7MessageD2Ev.exit100:                  ; preds = %.noexc.i.i99, %385, %388, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %394 = load ptr, ptr %75, align 8
-  %.not.i.i.i101 = icmp eq ptr %394, null
-  br i1 %.not.i.i.i101, label %_ZN7testing15AssertionResultD2Ev.exit106, label %395
+  %395 = load ptr, ptr %75, align 8
+  %.not.i.i.i101 = icmp eq ptr %395, null
+  br i1 %.not.i.i.i101, label %_ZN7testing15AssertionResultD2Ev.exit106, label %396
 
-395:                                              ; preds = %_ZN7testing7MessageD2Ev.exit100
-  %396 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-          to label %.noexc.i.i102 unwind label %407
+396:                                              ; preds = %_ZN7testing7MessageD2Ev.exit100
+  %397 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+          to label %.noexc.i.i102 unwind label %408
 
-.noexc.i.i102:                                    ; preds = %395
-  br i1 %396, label %397, label %_ZN7testing15AssertionResultD2Ev.exit106
+.noexc.i.i102:                                    ; preds = %396
+  br i1 %397, label %398, label %_ZN7testing15AssertionResultD2Ev.exit106
 
-397:                                              ; preds = %.noexc.i.i102
-  %398 = load ptr, ptr %75, align 8
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %_ZN7testing15AssertionResultD2Ev.exit106, label %400
+398:                                              ; preds = %.noexc.i.i102
+  %399 = load ptr, ptr %75, align 8
+  %400 = icmp eq ptr %399, null
+  br i1 %400, label %_ZN7testing15AssertionResultD2Ev.exit106, label %401
 
-400:                                              ; preds = %397
-  %401 = load ptr, ptr %398, align 8
-  %402 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  %403 = icmp eq ptr %401, %402
-  br i1 %403, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i103
+401:                                              ; preds = %398
+  %402 = load ptr, ptr %399, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %399, i64 16
+  %404 = icmp eq ptr %402, %403
+  br i1 %404, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i103
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105: ; preds = %400
-  %404 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  %405 = load i64, ptr %404, align 8
-  %406 = icmp ult i64 %405, 16
-  call void @llvm.assume(i1 %406)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105: ; preds = %401
+  %405 = getelementptr inbounds nuw i8, ptr %399, i64 8
+  %406 = load i64, ptr %405, align 8
+  %407 = icmp ult i64 %406, 16
+  call void @llvm.assume(i1 %407)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i104
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i103: ; preds = %400
-  call void @_ZdlPv(ptr noundef %401) #31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i103: ; preds = %401
+  call void @_ZdlPv(ptr noundef %402) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i104
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i104: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105
-  call void @_ZdlPv(ptr noundef nonnull %398) #31
+  call void @_ZdlPv(ptr noundef nonnull %399) #31
   br label %_ZN7testing15AssertionResultD2Ev.exit106
 
-407:                                              ; preds = %395
-  %408 = landingpad { ptr, i32 }
+408:                                              ; preds = %396
+  %409 = landingpad { ptr, i32 }
           catch ptr null
-  %409 = extractvalue { ptr, i32 } %408, 0
-  call void @__clang_call_terminate(ptr %409) #28
+  %410 = extractvalue { ptr, i32 } %409, 0
+  call void @__clang_call_terminate(ptr %410) #28
   unreachable
 
-_ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %.noexc.i.i102, %397, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i104, %_ZN7testing7MessageD2Ev.exit100
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %428
-
-410:                                              ; preds = %369
-  %411 = landingpad { ptr, i32 }
-          cleanup
-  br label %425
-
-412:                                              ; preds = %370
-  %413 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
-
-414:                                              ; preds = %371
-  %415 = landingpad { ptr, i32 }
-          cleanup
-  br label %418
-
-416:                                              ; preds = %373
-  %417 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
-  br label %418
-
-418:                                              ; preds = %416, %414
-  %.pn53 = phi { ptr, i32 } [ %417, %416 ], [ %415, %414 ]
-  %419 = load ptr, ptr %21, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %421 = icmp eq ptr %419, %420
-  br i1 %421, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108: ; preds = %418
-  %422 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %423 = load i64, ptr %422, align 8
-  %424 = icmp ult i64 %423, 16
-  call void @llvm.assume(i1 %424)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107: ; preds = %418
-  call void @_ZdlPv(ptr noundef %419) #31
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, %412
-  %.pn53.pn = phi { ptr, i32 } [ %413, %412 ], [ %.pn53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108 ], [ %.pn53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #27
-  br label %425
-
-425:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %410
-  %.pn53.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %411, %410 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
+_ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %.noexc.i.i102, %398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i104, %_ZN7testing7MessageD2Ev.exit100
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %429
 
-.critedge68:                                      ; preds = %365
+411:                                              ; preds = %370
+  %412 = landingpad { ptr, i32 }
+          cleanup
+  br label %426
+
+413:                                              ; preds = %371
+  %414 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
+
+415:                                              ; preds = %372
+  %416 = landingpad { ptr, i32 }
+          cleanup
+  br label %419
+
+417:                                              ; preds = %374
+  %418 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
+  br label %419
+
+419:                                              ; preds = %417, %415
+  %.pn53 = phi { ptr, i32 } [ %418, %417 ], [ %416, %415 ]
+  %420 = load ptr, ptr %21, align 8
+  %421 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %422 = icmp eq ptr %420, %421
+  br i1 %422, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108: ; preds = %419
+  %423 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %424 = load i64, ptr %423, align 8
+  %425 = icmp ult i64 %424, 16
+  call void @llvm.assume(i1 %425)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107: ; preds = %419
+  call void @_ZdlPv(ptr noundef %420) #31
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, %413
+  %.pn53.pn = phi { ptr, i32 } [ %414, %413 ], [ %.pn53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108 ], [ %.pn53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i107 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #27
+  br label %426
+
+426:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %411
+  %.pn53.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %412, %411 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %426 = call i32 @hs_free_compile_error(ptr noundef nonnull %366)
+  br label %430
+
+.critedge68:                                      ; preds = %366
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  %427 = call i32 @hs_free_compile_error(ptr noundef nonnull %367)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %427 = add nuw nsw i64 %.0256, 1
-  %exitcond272 = icmp eq i64 %427, 3
+  %428 = add nuw nsw i64 %.0256, 1
+  %exitcond272 = icmp eq i64 %428, 3
   br i1 %exitcond272, label %.critedge62.loopexit, label %153, !llvm.loop !59
 
-428:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit106, %_ZN7testing15AssertionResultD2Ev.exit91
+429:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit106, %_ZN7testing15AssertionResultD2Ev.exit91
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-429:                                              ; preds = %425, %348
-  %.pn53.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn, %425 ], [ %.pn49.pn.pn, %348 ]
+430:                                              ; preds = %426, %349
+  %.pn53.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn, %426 ], [ %.pn49.pn.pn, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
-.loopexit:                                        ; preds = %.critedge62.loopexit, %428, %.critedge60
+.loopexit:                                        ; preds = %.critedge62.loopexit, %429, %.critedge60
   ret void
 }
 

@@ -1980,16 +1980,15 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 define void @Gia_ManAutomTranspose64(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %20
-  %.032 = phi i64 [ 4294967295, %1 ], [ %24, %20 ]
-  %.02831 = phi i32 [ 32, %1 ], [ %21, %20 ]
+.preheader:                                       ; preds = %1, %21
+  %.032 = phi i64 [ 4294967295, %1 ], [ %25, %21 ]
+  %.02831 = phi i32 [ 32, %1 ], [ %22, %21 ]
   %2 = zext nneg i32 %.02831 to i64
-  %invariant.op = add nuw nsw i32 %.02831, 1
   %3 = xor i32 %.02831, -1
   br label %4
 
 4:                                                ; preds = %.preheader, %4
-  %.02930 = phi i32 [ 0, %.preheader ], [ %18, %4 ]
+  %.02930 = phi i32 [ 0, %.preheader ], [ %19, %4 ]
   %5 = sext i32 %.02930 to i64
   %6 = getelementptr inbounds i64, ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !62
@@ -2005,20 +2004,20 @@ define void @Gia_ManAutomTranspose64(ptr noundef captures(none) %0) local_unname
   %16 = shl i64 %14, %2
   %17 = xor i64 %16, %11
   store i64 %17, ptr %10, align 8, !tbaa !62
-  %.reass = add i32 %.02930, %invariant.op
-  %18 = and i32 %.reass, %3
-  %19 = icmp slt i32 %18, 64
-  br i1 %19, label %4, label %20, !llvm.loop !63
+  %18 = add nsw i32 %8, 1
+  %19 = and i32 %18, %3
+  %20 = icmp slt i32 %19, 64
+  br i1 %20, label %4, label %21, !llvm.loop !63
 
-20:                                               ; preds = %4
-  %21 = lshr i32 %.02831, 1
-  %22 = zext nneg i32 %21 to i64
-  %23 = shl i64 %.032, %22
-  %24 = xor i64 %23, %.032
+21:                                               ; preds = %4
+  %22 = lshr i32 %.02831, 1
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl i64 %.032, %23
+  %25 = xor i64 %24, %.032
   %.not = icmp samesign ult i32 %.02831, 2
-  br i1 %.not, label %25, label %.preheader, !llvm.loop !64
+  br i1 %.not, label %26, label %.preheader, !llvm.loop !64
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   ret void
 }
 
@@ -2213,16 +2212,15 @@ define i64 @Gia_ManAutomStep(ptr noundef readonly captures(none) %0, i64 noundef
 .preheader.i.preheader:                           ; preds = %.lr.ph127.preheader, %.critedge6
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %98
-  %.032.i = phi i64 [ %102, %98 ], [ 4294967295, %.preheader.i.preheader ]
-  %.02831.i = phi i32 [ %99, %98 ], [ 32, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %99
+  %.032.i = phi i64 [ %103, %99 ], [ 4294967295, %.preheader.i.preheader ]
+  %.02831.i = phi i32 [ %100, %99 ], [ 32, %.preheader.i.preheader ]
   %80 = zext nneg i32 %.02831.i to i64
-  %invariant.op.i = add nuw nsw i32 %.02831.i, 1
   %81 = xor i32 %.02831.i, -1
   br label %82
 
 82:                                               ; preds = %82, %.preheader.i
-  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %96, %82 ]
+  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %97, %82 ]
   %83 = sext i32 %.02930.i to i64
   %84 = getelementptr inbounds i64, ptr %2, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !62
@@ -2238,40 +2236,40 @@ define i64 @Gia_ManAutomStep(ptr noundef readonly captures(none) %0, i64 noundef
   %94 = shl i64 %92, %80
   %95 = xor i64 %94, %89
   store i64 %95, ptr %88, align 8, !tbaa !62
-  %.reass.i = add i32 %invariant.op.i, %.02930.i
-  %96 = and i32 %.reass.i, %81
-  %97 = icmp slt i32 %96, 64
-  br i1 %97, label %82, label %98, !llvm.loop !63
+  %96 = add nsw i32 %86, 1
+  %97 = and i32 %96, %81
+  %98 = icmp slt i32 %97, 64
+  br i1 %98, label %82, label %99, !llvm.loop !63
 
-98:                                               ; preds = %82
-  %99 = lshr i32 %.02831.i, 1
-  %100 = zext nneg i32 %99 to i64
-  %101 = shl i64 %.032.i, %100
-  %102 = xor i64 %101, %.032.i
+99:                                               ; preds = %82
+  %100 = lshr i32 %.02831.i, 1
+  %101 = zext nneg i32 %100 to i64
+  %102 = shl i64 %.032.i, %101
+  %103 = xor i64 %102, %.032.i
   %.not.i101 = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i101, label %Gia_ManAutomTranspose64.exit, label %.preheader.i, !llvm.loop !64
 
-Gia_ManAutomTranspose64.exit:                     ; preds = %98
-  %103 = getelementptr i8, ptr %0, i64 32
-  %.val83 = load ptr, ptr %103, align 8, !tbaa !28
-  %104 = getelementptr i8, ptr %0, i64 72
-  %.val84 = load ptr, ptr %104, align 8, !tbaa !40
-  %105 = getelementptr i8, ptr %.val84, i64 8
-  %.val84.val = load ptr, ptr %105, align 8, !tbaa !30
+Gia_ManAutomTranspose64.exit:                     ; preds = %99
+  %104 = getelementptr i8, ptr %0, i64 32
+  %.val83 = load ptr, ptr %104, align 8, !tbaa !28
+  %105 = getelementptr i8, ptr %0, i64 72
+  %.val84 = load ptr, ptr %105, align 8, !tbaa !40
+  %106 = getelementptr i8, ptr %.val84, i64 8
+  %.val84.val = load ptr, ptr %106, align 8, !tbaa !30
   %.val84.val.val = load i32, ptr %.val84.val, align 4, !tbaa !32
-  %106 = sext i32 %.val84.val.val to i64
-  %107 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val83, i64 %106
-  %.val.i102 = load i64, ptr %107, align 4
-  %108 = and i64 %.val.i102, 536870911
-  %109 = sub nsw i64 %106, %108
-  %sext12.i105 = shl i64 %109, 32
-  %110 = ashr exact i64 %sext12.i105, 29
-  %111 = getelementptr inbounds i8, ptr %.val87, i64 %110
-  %112 = load i64, ptr %111, align 8, !tbaa !62
-  %113 = shl i64 %.val.i102, 34
-  %sext.i106 = ashr i64 %113, 63
-  %114 = xor i64 %sext.i106, %112
-  ret i64 %114
+  %107 = sext i32 %.val84.val.val to i64
+  %108 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val83, i64 %107
+  %.val.i102 = load i64, ptr %108, align 4
+  %109 = and i64 %.val.i102, 536870911
+  %110 = sub nsw i64 %107, %109
+  %sext12.i105 = shl i64 %110, 32
+  %111 = ashr exact i64 %sext12.i105, 29
+  %112 = getelementptr inbounds i8, ptr %.val87, i64 %111
+  %113 = load i64, ptr %112, align 8, !tbaa !62
+  %114 = shl i64 %.val.i102, 34
+  %sext.i106 = ashr i64 %114, 63
+  %115 = xor i64 %sext.i106, %113
+  ret i64 %115
 }
 
 ; Function Attrs: nounwind uwtable

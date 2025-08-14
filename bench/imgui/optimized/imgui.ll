@@ -9047,443 +9047,436 @@ thread-pre-split.i:                               ; preds = %.critedge.i, %91
   %234 = fpext float %233 to double
   %235 = load i32, ptr %27, align 8
   %236 = add nsw i32 %235, -1
-  br label %279
+  br label %281
 
-._crit_edge.i:                                    ; preds = %318, %225
+._crit_edge.i:                                    ; preds = %320, %225
   %237 = load i32, ptr %42, align 4, !tbaa !382
   %238 = sub nsw i32 %229, %237
   %239 = icmp slt i32 %238, 2
   br i1 %239, label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i, label %.preheader47.i.i
 
 .preheader47.i.i:                                 ; preds = %._crit_edge.i
-  %invariant.op.i.i = add i32 %237, -1
   %240 = sext i32 %237 to i64
-  br label %.preheader45.i.i
+  %241 = zext nneg i32 %238 to i64
+  br label %.lr.ph.preheader.i.i
 
-.loopexit46.i.i:                                  ; preds = %252, %.preheader45.i.i
-  %241 = icmp sgt i32 %.043.in50.i.i, 2
-  br i1 %241, label %.preheader45.i.i, label %.preheader.i.i, !llvm.loop !421
+.loopexit46.i.i:                                  ; preds = %253
+  %242 = icmp sgt i64 %indvars.iv56.i.i, 2
+  br i1 %242, label %.lr.ph.preheader.i.i, label %.preheader.i.i, !llvm.loop !421
 
-.preheader45.i.i:                                 ; preds = %.loopexit46.i.i, %.preheader47.i.i
-  %indvars.iv57.in.i.i = phi i32 [ %229, %.preheader47.i.i ], [ %indvars.iv57.i.i, %.loopexit46.i.i ]
-  %.043.in50.i.i = phi i32 [ %238, %.preheader47.i.i ], [ %.04351.i.i, %.loopexit46.i.i ]
-  %indvars.iv57.i.i = add i32 %indvars.iv57.in.i.i, -1
-  %.04351.i.i = add nsw i32 %.043.in50.i.i, -1
-  %.reass.i.i = add i32 %invariant.op.i.i, %.043.in50.i.i
-  %242 = icmp slt i32 %237, %.reass.i.i
-  br i1 %242, label %.lr.ph.preheader.i.i, label %.loopexit46.i.i
-
-.lr.ph.preheader.i.i:                             ; preds = %.preheader45.i.i
-  %wide.trip.count.i.i = sext i32 %indvars.iv57.i.i to i64
+.lr.ph.preheader.i.i:                             ; preds = %.loopexit46.i.i, %.preheader47.i.i
+  %indvars.iv56.i.i = phi i64 [ %241, %.preheader47.i.i ], [ %indvars.iv.next57.i.i, %.loopexit46.i.i ]
+  %indvars.iv.next57.i.i = add nsw i64 %indvars.iv56.i.i, -1
+  %243 = add nsw i64 %indvars.iv.next57.i.i, %240
   br label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit46.i.i
-  %.052.i.i = add nsw i32 %237, 1
-  %243 = load i32, ptr %226, align 8, !tbaa !396
-  %244 = icmp slt i32 %.052.i.i, %243
-  br i1 %244, label %.lr.ph55.i.i, label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i
+  %.051.i.i = add nsw i32 %237, 1
+  %244 = load i32, ptr %226, align 8, !tbaa !396
+  %245 = icmp slt i32 %.051.i.i, %244
+  br i1 %245, label %.lr.ph54.i.i, label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i
 
-.lr.ph.i.i:                                       ; preds = %252, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %240, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %252 ]
-  %245 = load ptr, ptr %227, align 8, !tbaa !389
-  %246 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %245, i64 %indvars.iv.i.i
-  %247 = load i32, ptr %246, align 4, !tbaa !399
+.lr.ph.i.i:                                       ; preds = %253, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %240, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %253 ]
+  %246 = load ptr, ptr %227, align 8, !tbaa !389
+  %247 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %246, i64 %indvars.iv.i.i
+  %248 = load i32, ptr %247, align 4, !tbaa !399
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %248 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %245, i64 %indvars.iv.next.i.i
-  %249 = load i32, ptr %248, align 4, !tbaa !399
-  %250 = icmp sgt i32 %247, %249
-  br i1 %250, label %251, label %252
+  %249 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %246, i64 %indvars.iv.next.i.i
+  %250 = load i32, ptr %249, align 4, !tbaa !399
+  %251 = icmp sgt i32 %248, %250
+  br i1 %251, label %252, label %253
 
-251:                                              ; preds = %.lr.ph.i.i
+252:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %246, i64 12, i1 false), !tbaa.struct !422
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %246, ptr noundef nonnull align 4 dereferenceable(12) %248, i64 12, i1 false), !tbaa.struct !422
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %248, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !422
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %247, i64 12, i1 false), !tbaa.struct !422
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %247, ptr noundef nonnull align 4 dereferenceable(12) %249, i64 12, i1 false), !tbaa.struct !422
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %249, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !422
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %252
+  br label %253
 
-252:                                              ; preds = %251, %.lr.ph.i.i
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit46.i.i, label %.lr.ph.i.i, !llvm.loop !423
+253:                                              ; preds = %252, %.lr.ph.i.i
+  %254 = icmp slt i64 %indvars.iv.next.i.i, %243
+  br i1 %254, label %.lr.ph.i.i, label %.loopexit46.i.i, !llvm.loop !423
 
-.lr.ph55.i.i:                                     ; preds = %.preheader.i.i, %276
-  %253 = phi i32 [ %277, %276 ], [ %243, %.preheader.i.i ]
-  %.054.i.i = phi i32 [ %.0.i.i, %276 ], [ %.052.i.i, %.preheader.i.i ]
-  %.0.in53.i.i = phi i32 [ %.1.i.i, %276 ], [ %237, %.preheader.i.i ]
-  %254 = load ptr, ptr %227, align 8, !tbaa !389
-  %255 = sext i32 %.0.in53.i.i to i64
-  %256 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %254, i64 %255
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  %258 = load i32, ptr %257, align 4, !tbaa !401
-  %259 = sext i32 %.054.i.i to i64
-  %260 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %254, i64 %259
-  %261 = load i32, ptr %260, align 4, !tbaa !399
-  %262 = icmp slt i32 %258, %261
-  br i1 %262, label %276, label %263
+.lr.ph54.i.i:                                     ; preds = %.preheader.i.i, %278
+  %255 = phi i32 [ %279, %278 ], [ %244, %.preheader.i.i ]
+  %.053.i.i = phi i32 [ %.0.i.i, %278 ], [ %.051.i.i, %.preheader.i.i ]
+  %.0.in52.i.i = phi i32 [ %.1.i.i, %278 ], [ %237, %.preheader.i.i ]
+  %256 = load ptr, ptr %227, align 8, !tbaa !389
+  %257 = sext i32 %.0.in52.i.i to i64
+  %258 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %256, i64 %257
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %260 = load i32, ptr %259, align 4, !tbaa !401
+  %261 = sext i32 %.053.i.i to i64
+  %262 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %256, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !399
+  %264 = icmp slt i32 %260, %263
+  br i1 %264, label %278, label %265
 
-263:                                              ; preds = %.lr.ph55.i.i
-  %264 = load i32, ptr %256, align 4, !tbaa !399
-  %265 = call noundef i32 @llvm.smin.i32(i32 %264, i32 %261)
-  store i32 %265, ptr %256, align 4, !tbaa !399
-  %266 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %267 = load i32, ptr %266, align 4, !tbaa !401
-  %268 = call noundef i32 @llvm.smax.i32(i32 %258, i32 %267)
-  store i32 %268, ptr %257, align 4, !tbaa !401
-  %269 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  %270 = sext i32 %253 to i64
-  %271 = xor i64 %259, -1
-  %272 = add nsw i64 %271, %270
-  %273 = mul nsw i64 %272, 12
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %260, ptr nonnull align 4 %269, i64 %273, i1 false)
-  %274 = load i32, ptr %226, align 8, !tbaa !396
-  %275 = add nsw i32 %274, -1
-  store i32 %275, ptr %226, align 8, !tbaa !396
-  br label %276
+265:                                              ; preds = %.lr.ph54.i.i
+  %266 = load i32, ptr %258, align 4, !tbaa !399
+  %267 = call noundef i32 @llvm.smin.i32(i32 %266, i32 %263)
+  store i32 %267, ptr %258, align 4, !tbaa !399
+  %268 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  %269 = load i32, ptr %268, align 4, !tbaa !401
+  %270 = call noundef i32 @llvm.smax.i32(i32 %260, i32 %269)
+  store i32 %270, ptr %259, align 4, !tbaa !401
+  %271 = getelementptr inbounds nuw i8, ptr %262, i64 12
+  %272 = sext i32 %255 to i64
+  %273 = xor i64 %261, -1
+  %274 = add nsw i64 %273, %272
+  %275 = mul nsw i64 %274, 12
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %262, ptr nonnull align 4 %271, i64 %275, i1 false)
+  %276 = load i32, ptr %226, align 8, !tbaa !396
+  %277 = add nsw i32 %276, -1
+  store i32 %277, ptr %226, align 8, !tbaa !396
+  br label %278
 
-276:                                              ; preds = %263, %.lr.ph55.i.i
-  %277 = phi i32 [ %253, %.lr.ph55.i.i ], [ %275, %263 ]
-  %.1.i.i = phi i32 [ %.054.i.i, %.lr.ph55.i.i ], [ %.0.in53.i.i, %263 ]
+278:                                              ; preds = %265, %.lr.ph54.i.i
+  %279 = phi i32 [ %255, %.lr.ph54.i.i ], [ %277, %265 ]
+  %.1.i.i = phi i32 [ %.053.i.i, %.lr.ph54.i.i ], [ %.0.in52.i.i, %265 ]
   %.0.i.i = add nsw i32 %.1.i.i, 1
-  %278 = icmp slt i32 %.0.i.i, %277
-  br i1 %278, label %.lr.ph55.i.i, label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i, !llvm.loop !424
+  %280 = icmp slt i32 %.0.i.i, %279
+  br i1 %280, label %.lr.ph54.i.i, label %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i, !llvm.loop !424
 
-279:                                              ; preds = %318, %.lr.ph.i
-  %.0185249.i = phi ptr [ %228, %.lr.ph.i ], [ %319, %318 ]
-  %280 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 8
-  %281 = load i8, ptr %280, align 4, !tbaa !425, !range !95, !noundef !225
-  %282 = trunc nuw i8 %281 to i1
-  br i1 %282, label %283, label %318
+281:                                              ; preds = %320, %.lr.ph.i
+  %.0185249.i = phi ptr [ %228, %.lr.ph.i ], [ %321, %320 ]
+  %282 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 8
+  %283 = load i8, ptr %282, align 4, !tbaa !425, !range !95, !noundef !225
+  %284 = trunc nuw i8 %283 to i1
+  br i1 %284, label %285, label %320
 
-283:                                              ; preds = %279
-  %284 = load i32, ptr %.0185249.i, align 4, !tbaa !399
-  %285 = sitofp i32 %284 to double
-  %286 = load float, ptr %232, align 4, !tbaa !348
-  %287 = fpext float %286 to double
-  %288 = fsub double %285, %287
-  %289 = load float, ptr %121, align 8, !tbaa !392
-  %290 = fpext float %289 to double
-  %291 = fsub double %288, %290
-  %292 = fdiv double %291, %234
-  %293 = fptosi double %292 to i32
-  %294 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 4
-  %295 = load i32, ptr %294, align 4, !tbaa !401
-  %296 = sitofp i32 %295 to double
-  %297 = fsub double %296, %287
-  %298 = fsub double %297, %290
-  %299 = fdiv double %298, %234
-  %300 = fadd double %299, 0x3FEFFFFDE0000000
-  %301 = fptosi double %300 to i32
-  %302 = add nsw i32 %119, %293
-  %303 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 9
-  %304 = load i8, ptr %303, align 1, !tbaa !426
-  %305 = sext i8 %304 to i32
-  %306 = add nsw i32 %302, %305
-  %307 = icmp slt i32 %306, %119
-  %308 = call i32 @llvm.smin.i32(i32 %306, i32 %236)
-  %309 = select i1 %307, i32 %119, i32 %308
-  store i32 %309, ptr %.0185249.i, align 4, !tbaa !399
-  %310 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 10
-  %311 = load i8, ptr %310, align 2, !tbaa !427
-  %312 = sext i8 %311 to i32
-  %313 = add i32 %119, %312
-  %314 = add i32 %313, %301
-  %315 = add nsw i32 %309, 1
-  %.not247.i = icmp sgt i32 %314, %309
-  %316 = call i32 @llvm.smin.i32(i32 %314, i32 %235)
-  %317 = select i1 %.not247.i, i32 %316, i32 %315
-  store i32 %317, ptr %294, align 4, !tbaa !401
-  store i8 0, ptr %280, align 4, !tbaa !425
-  br label %318
+285:                                              ; preds = %281
+  %286 = load i32, ptr %.0185249.i, align 4, !tbaa !399
+  %287 = sitofp i32 %286 to double
+  %288 = load float, ptr %232, align 4, !tbaa !348
+  %289 = fpext float %288 to double
+  %290 = fsub double %287, %289
+  %291 = load float, ptr %121, align 8, !tbaa !392
+  %292 = fpext float %291 to double
+  %293 = fsub double %290, %292
+  %294 = fdiv double %293, %234
+  %295 = fptosi double %294 to i32
+  %296 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 4
+  %297 = load i32, ptr %296, align 4, !tbaa !401
+  %298 = sitofp i32 %297 to double
+  %299 = fsub double %298, %289
+  %300 = fsub double %299, %292
+  %301 = fdiv double %300, %234
+  %302 = fadd double %301, 0x3FEFFFFDE0000000
+  %303 = fptosi double %302 to i32
+  %304 = add nsw i32 %119, %295
+  %305 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 9
+  %306 = load i8, ptr %305, align 1, !tbaa !426
+  %307 = sext i8 %306 to i32
+  %308 = add nsw i32 %304, %307
+  %309 = icmp slt i32 %308, %119
+  %310 = call i32 @llvm.smin.i32(i32 %308, i32 %236)
+  %311 = select i1 %309, i32 %119, i32 %310
+  store i32 %311, ptr %.0185249.i, align 4, !tbaa !399
+  %312 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 10
+  %313 = load i8, ptr %312, align 2, !tbaa !427
+  %314 = sext i8 %313 to i32
+  %315 = add i32 %119, %314
+  %316 = add i32 %315, %303
+  %317 = add nsw i32 %311, 1
+  %.not247.i = icmp sgt i32 %316, %311
+  %318 = call i32 @llvm.smin.i32(i32 %316, i32 %235)
+  %319 = select i1 %.not247.i, i32 %318, i32 %317
+  store i32 %319, ptr %296, align 4, !tbaa !401
+  store i8 0, ptr %282, align 4, !tbaa !425
+  br label %320
 
-318:                                              ; preds = %283, %279
-  %319 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 12
-  %.not196.i = icmp eq ptr %319, %231
-  br i1 %.not196.i, label %._crit_edge.i, label %279
+320:                                              ; preds = %285, %281
+  %321 = getelementptr inbounds nuw i8, ptr %.0185249.i, i64 12
+  %.not196.i = icmp eq ptr %321, %231
+  br i1 %.not196.i, label %._crit_edge.i, label %281
 
-_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i: ; preds = %276, %.preheader.i.i, %._crit_edge.i, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i
-  %.pre252.i = phi i32 [ %.pre252.pre.i, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %229, %._crit_edge.i ], [ %243, %.preheader.i.i ], [ %277, %276 ]
-  %320 = phi i32 [ %117, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %119, %._crit_edge.i ], [ %119, %.preheader.i.i ], [ %119, %276 ]
-  %321 = phi ptr [ %116, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %120, %._crit_edge.i ], [ %120, %.preheader.i.i ], [ %120, %276 ]
-  %322 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %323 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 32
+_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i: ; preds = %278, %.preheader.i.i, %._crit_edge.i, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i
+  %.pre252.i = phi i32 [ %.pre252.pre.i, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %229, %._crit_edge.i ], [ %244, %.preheader.i.i ], [ %279, %278 ]
+  %322 = phi i32 [ %117, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %119, %._crit_edge.i ], [ %119, %.preheader.i.i ], [ %119, %278 ]
+  %323 = phi ptr [ %116, %._ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit_crit_edge.i ], [ %120, %._crit_edge.i ], [ %120, %.preheader.i.i ], [ %120, %278 ]
+  %324 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre251.i = load i32, ptr %42, align 4, !tbaa !382
-  %327 = icmp slt i32 %.pre251.i, %.pre252.i
-  br label %328
+  %329 = icmp slt i32 %.pre251.i, %.pre252.i
+  br label %330
 
-328:                                              ; preds = %395, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i
-  %329 = phi i1 [ true, %395 ], [ %327, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i ]
-  %330 = phi i32 [ %393, %395 ], [ %.pre251.i, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i ]
-  br i1 %329, label %331, label %398
+330:                                              ; preds = %397, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i
+  %331 = phi i1 [ true, %397 ], [ %329, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i ]
+  %332 = phi i32 [ %395, %397 ], [ %.pre251.i, %_ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit.i ]
+  br i1 %331, label %333, label %400
 
-331:                                              ; preds = %328
-  %332 = load ptr, ptr %323, align 8, !tbaa !389
-  %333 = sext i32 %330 to i64
-  %334 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %332, i64 %333
-  %335 = load i32, ptr %334, align 4, !tbaa !399
-  %336 = call noundef i32 @llvm.smax.i32(i32 %335, i32 %320)
-  store i32 %336, ptr %324, align 8, !tbaa !386
-  %337 = getelementptr inbounds nuw i8, ptr %334, i64 4
-  %338 = load i32, ptr %337, align 4, !tbaa !401
-  %339 = load i32, ptr %27, align 8, !tbaa !344
-  %340 = call noundef i32 @llvm.smin.i32(i32 %338, i32 %339)
-  store i32 %340, ptr %321, align 4, !tbaa !387
-  %341 = icmp sgt i32 %335, %320
-  br i1 %341, label %342, label %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i
+333:                                              ; preds = %330
+  %334 = load ptr, ptr %325, align 8, !tbaa !389
+  %335 = sext i32 %332 to i64
+  %336 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %334, i64 %335
+  %337 = load i32, ptr %336, align 4, !tbaa !399
+  %338 = call noundef i32 @llvm.smax.i32(i32 %337, i32 %322)
+  store i32 %338, ptr %326, align 8, !tbaa !386
+  %339 = getelementptr inbounds nuw i8, ptr %336, i64 4
+  %340 = load i32, ptr %339, align 4, !tbaa !401
+  %341 = load i32, ptr %27, align 8, !tbaa !344
+  %342 = call noundef i32 @llvm.smin.i32(i32 %340, i32 %341)
+  store i32 %342, ptr %323, align 4, !tbaa !387
+  %343 = icmp sgt i32 %337, %322
+  br i1 %343, label %344, label %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i
 
-342:                                              ; preds = %331
-  %343 = load float, ptr %325, align 8, !tbaa !345
-  %344 = fpext float %343 to double
-  %345 = load double, ptr %326, align 8, !tbaa !346
-  %346 = fadd double %345, %344
-  %347 = sitofp i32 %336 to double
-  %348 = load float, ptr %11, align 4, !tbaa !347
-  %349 = fpext float %348 to double
-  %350 = call double @llvm.fmuladd.f64(double %347, double %349, double %346)
-  %351 = fptrunc double %350 to float
-  %352 = load ptr, ptr @GImGui, align 8, !tbaa !215
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 5016
-  %354 = load ptr, ptr %353, align 8, !tbaa !321
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 284
-  %356 = load float, ptr %355, align 4, !tbaa !348
-  %357 = fsub float %351, %356
-  store float %351, ptr %355, align 4, !tbaa !348
-  %358 = getelementptr inbounds nuw i8, ptr %354, i64 308
-  %359 = load float, ptr %358, align 4, !tbaa !349
-  %360 = getelementptr inbounds nuw i8, ptr %352, i64 3180
-  %361 = load float, ptr %360, align 4, !tbaa !350
-  %362 = fsub float %351, %361
-  %363 = fcmp oge float %359, %362
-  %364 = select i1 %363, float %359, float %362
-  store float %364, ptr %358, align 4, !tbaa !349
-  %365 = fsub float %351, %348
-  %366 = getelementptr inbounds nuw i8, ptr %354, i64 292
-  store float %365, ptr %366, align 4, !tbaa !351
-  %367 = fsub float %348, %361
-  %368 = getelementptr inbounds nuw i8, ptr %354, i64 332
-  store float %367, ptr %368, align 4, !tbaa !352
-  %369 = getelementptr inbounds nuw i8, ptr %354, i64 448
-  %370 = load ptr, ptr %369, align 8, !tbaa !353
-  %.not.i.i.i = icmp eq ptr %370, null
-  br i1 %.not.i.i.i, label %373, label %371
+344:                                              ; preds = %333
+  %345 = load float, ptr %327, align 8, !tbaa !345
+  %346 = fpext float %345 to double
+  %347 = load double, ptr %328, align 8, !tbaa !346
+  %348 = fadd double %347, %346
+  %349 = sitofp i32 %338 to double
+  %350 = load float, ptr %11, align 4, !tbaa !347
+  %351 = fpext float %350 to double
+  %352 = call double @llvm.fmuladd.f64(double %349, double %351, double %348)
+  %353 = fptrunc double %352 to float
+  %354 = load ptr, ptr @GImGui, align 8, !tbaa !215
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 5016
+  %356 = load ptr, ptr %355, align 8, !tbaa !321
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 284
+  %358 = load float, ptr %357, align 4, !tbaa !348
+  %359 = fsub float %353, %358
+  store float %353, ptr %357, align 4, !tbaa !348
+  %360 = getelementptr inbounds nuw i8, ptr %356, i64 308
+  %361 = load float, ptr %360, align 4, !tbaa !349
+  %362 = getelementptr inbounds nuw i8, ptr %354, i64 3180
+  %363 = load float, ptr %362, align 4, !tbaa !350
+  %364 = fsub float %353, %363
+  %365 = fcmp oge float %361, %364
+  %366 = select i1 %365, float %361, float %364
+  store float %366, ptr %360, align 4, !tbaa !349
+  %367 = fsub float %353, %350
+  %368 = getelementptr inbounds nuw i8, ptr %356, i64 292
+  store float %367, ptr %368, align 4, !tbaa !351
+  %369 = fsub float %350, %363
+  %370 = getelementptr inbounds nuw i8, ptr %356, i64 332
+  store float %369, ptr %370, align 4, !tbaa !352
+  %371 = getelementptr inbounds nuw i8, ptr %356, i64 448
+  %372 = load ptr, ptr %371, align 8, !tbaa !353
+  %.not.i.i.i = icmp eq ptr %372, null
+  br i1 %.not.i.i.i, label %375, label %373
 
-371:                                              ; preds = %342
-  %372 = getelementptr inbounds nuw i8, ptr %370, i64 28
-  store float %351, ptr %372, align 4, !tbaa !354
-  br label %373
+373:                                              ; preds = %344
+  %374 = getelementptr inbounds nuw i8, ptr %372, i64 28
+  store float %353, ptr %374, align 4, !tbaa !354
+  br label %375
 
-373:                                              ; preds = %371, %342
-  %374 = getelementptr inbounds nuw i8, ptr %352, i64 8640
-  %375 = load ptr, ptr %374, align 8, !tbaa !358
-  %.not29.i.i.i = icmp eq ptr %375, null
-  br i1 %.not29.i.i.i, label %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i, label %376
+375:                                              ; preds = %373, %344
+  %376 = getelementptr inbounds nuw i8, ptr %354, i64 8640
+  %377 = load ptr, ptr %376, align 8, !tbaa !358
+  %.not29.i.i.i = icmp eq ptr %377, null
+  br i1 %.not29.i.i.i, label %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i, label %378
 
-376:                                              ; preds = %373
-  %377 = getelementptr inbounds nuw i8, ptr %375, i64 568
-  %378 = load i8, ptr %377, align 8, !tbaa !359, !range !95, !noundef !225
-  %379 = trunc nuw i8 %378 to i1
-  br i1 %379, label %380, label %381
+378:                                              ; preds = %375
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 568
+  %380 = load i8, ptr %379, align 8, !tbaa !359, !range !95, !noundef !225
+  %381 = trunc nuw i8 %380 to i1
+  br i1 %381, label %382, label %383
 
-380:                                              ; preds = %376
-  call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %375)
-  %.pre.i.i.i = load float, ptr %355, align 4, !tbaa !348
+382:                                              ; preds = %378
+  call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %377)
+  %.pre.i.i.i = load float, ptr %357, align 4, !tbaa !348
   %.pre253.pre.i = load i32, ptr %42, align 4, !tbaa !382
-  %.pre254.pre.i = load i32, ptr %324, align 8, !tbaa !386
-  %.pre255.pre.i = load i32, ptr %321, align 4, !tbaa !387
-  br label %381
+  %.pre254.pre.i = load i32, ptr %326, align 8, !tbaa !386
+  %.pre255.pre.i = load i32, ptr %323, align 4, !tbaa !387
+  br label %383
 
-381:                                              ; preds = %380, %376
-  %.pre255.i = phi i32 [ %.pre255.pre.i, %380 ], [ %340, %376 ]
-  %.pre254.i = phi i32 [ %.pre254.pre.i, %380 ], [ %336, %376 ]
-  %.pre253.i = phi i32 [ %.pre253.pre.i, %380 ], [ %330, %376 ]
-  %382 = phi float [ %.pre.i.i.i, %380 ], [ %351, %376 ]
-  %383 = getelementptr inbounds nuw i8, ptr %375, i64 128
-  store float %382, ptr %383, align 8, !tbaa !375
-  %384 = fdiv float %357, %348
-  %385 = fadd float %384, 5.000000e-01
-  %386 = fptosi float %385 to i32
-  %387 = getelementptr inbounds nuw i8, ptr %375, i64 152
-  %388 = load i32, ptr %387, align 8, !tbaa !376
-  %389 = add nsw i32 %388, %386
-  store i32 %389, ptr %387, align 8, !tbaa !376
+383:                                              ; preds = %382, %378
+  %.pre255.i = phi i32 [ %.pre255.pre.i, %382 ], [ %342, %378 ]
+  %.pre254.i = phi i32 [ %.pre254.pre.i, %382 ], [ %338, %378 ]
+  %.pre253.i = phi i32 [ %.pre253.pre.i, %382 ], [ %332, %378 ]
+  %384 = phi float [ %.pre.i.i.i, %382 ], [ %353, %378 ]
+  %385 = getelementptr inbounds nuw i8, ptr %377, i64 128
+  store float %384, ptr %385, align 8, !tbaa !375
+  %386 = fdiv float %359, %350
+  %387 = fadd float %386, 5.000000e-01
+  %388 = fptosi float %387 to i32
+  %389 = getelementptr inbounds nuw i8, ptr %377, i64 152
+  %390 = load i32, ptr %389, align 8, !tbaa !376
+  %391 = add nsw i32 %390, %388
+  store i32 %391, ptr %389, align 8, !tbaa !376
   br label %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i
 
-_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i: ; preds = %381, %373, %331
-  %390 = phi i32 [ %.pre255.i, %381 ], [ %340, %373 ], [ %340, %331 ]
-  %391 = phi i32 [ %.pre254.i, %381 ], [ %336, %373 ], [ %336, %331 ]
-  %392 = phi i32 [ %.pre253.i, %381 ], [ %330, %373 ], [ %330, %331 ]
-  %393 = add nsw i32 %392, 1
-  store i32 %393, ptr %42, align 4, !tbaa !382
-  %394 = icmp eq i32 %391, %390
-  br i1 %394, label %395, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit
+_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i: ; preds = %383, %375, %333
+  %392 = phi i32 [ %.pre255.i, %383 ], [ %342, %375 ], [ %342, %333 ]
+  %393 = phi i32 [ %.pre254.i, %383 ], [ %338, %375 ], [ %338, %333 ]
+  %394 = phi i32 [ %.pre253.i, %383 ], [ %332, %375 ], [ %332, %333 ]
+  %395 = add nsw i32 %394, 1
+  store i32 %395, ptr %42, align 4, !tbaa !382
+  %396 = icmp eq i32 %393, %392
+  br i1 %396, label %397, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit
 
-395:                                              ; preds = %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i
-  %396 = load i32, ptr %322, align 8, !tbaa !377
-  %397 = icmp slt i32 %393, %396
-  br i1 %397, label %328, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit, !llvm.loop !428
+397:                                              ; preds = %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i
+  %398 = load i32, ptr %324, align 8, !tbaa !377
+  %399 = icmp slt i32 %395, %398
+  br i1 %399, label %330, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit, !llvm.loop !428
 
-398:                                              ; preds = %328
-  %399 = load i32, ptr %27, align 8, !tbaa !344
-  %.not197.i = icmp eq i32 %399, 2147483647
-  br i1 %.not197.i, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread, label %400
+400:                                              ; preds = %330
+  %401 = load i32, ptr %27, align 8, !tbaa !344
+  %.not197.i = icmp eq i32 %401, 2147483647
+  br i1 %.not197.i, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread, label %402
 
-400:                                              ; preds = %398
-  %401 = load float, ptr %325, align 8, !tbaa !345
-  %402 = fpext float %401 to double
-  %403 = load double, ptr %326, align 8, !tbaa !346
-  %404 = fadd double %403, %402
-  %405 = sitofp i32 %399 to double
-  %406 = load float, ptr %11, align 4, !tbaa !347
-  %407 = fpext float %406 to double
-  %408 = call double @llvm.fmuladd.f64(double %405, double %407, double %404)
-  %409 = fptrunc double %408 to float
-  %410 = load ptr, ptr @GImGui, align 8, !tbaa !215
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 5016
-  %412 = load ptr, ptr %411, align 8, !tbaa !321
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 284
-  %414 = load float, ptr %413, align 4, !tbaa !348
-  %415 = fsub float %409, %414
-  store float %409, ptr %413, align 4, !tbaa !348
-  %416 = getelementptr inbounds nuw i8, ptr %412, i64 308
-  %417 = load float, ptr %416, align 4, !tbaa !349
-  %418 = getelementptr inbounds nuw i8, ptr %410, i64 3180
-  %419 = load float, ptr %418, align 4, !tbaa !350
-  %420 = fsub float %409, %419
-  %421 = fcmp oge float %417, %420
-  %422 = select i1 %421, float %417, float %420
-  store float %422, ptr %416, align 4, !tbaa !349
-  %423 = fsub float %409, %406
-  %424 = getelementptr inbounds nuw i8, ptr %412, i64 292
-  store float %423, ptr %424, align 4, !tbaa !351
-  %425 = fsub float %406, %419
-  %426 = getelementptr inbounds nuw i8, ptr %412, i64 332
-  store float %425, ptr %426, align 4, !tbaa !352
-  %427 = getelementptr inbounds nuw i8, ptr %412, i64 448
-  %428 = load ptr, ptr %427, align 8, !tbaa !353
-  %.not.i.i235.i = icmp eq ptr %428, null
-  br i1 %.not.i.i235.i, label %431, label %429
+402:                                              ; preds = %400
+  %403 = load float, ptr %327, align 8, !tbaa !345
+  %404 = fpext float %403 to double
+  %405 = load double, ptr %328, align 8, !tbaa !346
+  %406 = fadd double %405, %404
+  %407 = sitofp i32 %401 to double
+  %408 = load float, ptr %11, align 4, !tbaa !347
+  %409 = fpext float %408 to double
+  %410 = call double @llvm.fmuladd.f64(double %407, double %409, double %406)
+  %411 = fptrunc double %410 to float
+  %412 = load ptr, ptr @GImGui, align 8, !tbaa !215
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 5016
+  %414 = load ptr, ptr %413, align 8, !tbaa !321
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 284
+  %416 = load float, ptr %415, align 4, !tbaa !348
+  %417 = fsub float %411, %416
+  store float %411, ptr %415, align 4, !tbaa !348
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 308
+  %419 = load float, ptr %418, align 4, !tbaa !349
+  %420 = getelementptr inbounds nuw i8, ptr %412, i64 3180
+  %421 = load float, ptr %420, align 4, !tbaa !350
+  %422 = fsub float %411, %421
+  %423 = fcmp oge float %419, %422
+  %424 = select i1 %423, float %419, float %422
+  store float %424, ptr %418, align 4, !tbaa !349
+  %425 = fsub float %411, %408
+  %426 = getelementptr inbounds nuw i8, ptr %414, i64 292
+  store float %425, ptr %426, align 4, !tbaa !351
+  %427 = fsub float %408, %421
+  %428 = getelementptr inbounds nuw i8, ptr %414, i64 332
+  store float %427, ptr %428, align 4, !tbaa !352
+  %429 = getelementptr inbounds nuw i8, ptr %414, i64 448
+  %430 = load ptr, ptr %429, align 8, !tbaa !353
+  %.not.i.i235.i = icmp eq ptr %430, null
+  br i1 %.not.i.i235.i, label %433, label %431
 
-429:                                              ; preds = %400
-  %430 = getelementptr inbounds nuw i8, ptr %428, i64 28
-  store float %409, ptr %430, align 4, !tbaa !354
-  br label %431
+431:                                              ; preds = %402
+  %432 = getelementptr inbounds nuw i8, ptr %430, i64 28
+  store float %411, ptr %432, align 4, !tbaa !354
+  br label %433
 
-431:                                              ; preds = %429, %400
-  %432 = getelementptr inbounds nuw i8, ptr %410, i64 8640
-  %433 = load ptr, ptr %432, align 8, !tbaa !358
-  %.not29.i.i236.i = icmp eq ptr %433, null
-  br i1 %.not29.i.i236.i, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread, label %434
+433:                                              ; preds = %431, %402
+  %434 = getelementptr inbounds nuw i8, ptr %412, i64 8640
+  %435 = load ptr, ptr %434, align 8, !tbaa !358
+  %.not29.i.i236.i = icmp eq ptr %435, null
+  br i1 %.not29.i.i236.i, label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread, label %436
 
-434:                                              ; preds = %431
-  %435 = getelementptr inbounds nuw i8, ptr %433, i64 568
-  %436 = load i8, ptr %435, align 8, !tbaa !359, !range !95, !noundef !225
-  %437 = trunc nuw i8 %436 to i1
-  br i1 %437, label %438, label %439
+436:                                              ; preds = %433
+  %437 = getelementptr inbounds nuw i8, ptr %435, i64 568
+  %438 = load i8, ptr %437, align 8, !tbaa !359, !range !95, !noundef !225
+  %439 = trunc nuw i8 %438 to i1
+  br i1 %439, label %440, label %441
 
-438:                                              ; preds = %434
-  call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %433)
-  %.pre.i.i237.i = load float, ptr %413, align 4, !tbaa !348
-  br label %439
+440:                                              ; preds = %436
+  call void @_ZN5ImGui11TableEndRowEP10ImGuiTable(ptr noundef nonnull %435)
+  %.pre.i.i237.i = load float, ptr %415, align 4, !tbaa !348
+  br label %441
 
-439:                                              ; preds = %438, %434
-  %440 = phi float [ %.pre.i.i237.i, %438 ], [ %409, %434 ]
-  %441 = getelementptr inbounds nuw i8, ptr %433, i64 128
-  store float %440, ptr %441, align 8, !tbaa !375
-  %442 = fdiv float %415, %406
-  %443 = fadd float %442, 5.000000e-01
-  %444 = fptosi float %443 to i32
-  %445 = getelementptr inbounds nuw i8, ptr %433, i64 152
-  %446 = load i32, ptr %445, align 8, !tbaa !376
-  %447 = add nsw i32 %446, %444
-  store i32 %447, ptr %445, align 8, !tbaa !376
+441:                                              ; preds = %440, %436
+  %442 = phi float [ %.pre.i.i237.i, %440 ], [ %411, %436 ]
+  %443 = getelementptr inbounds nuw i8, ptr %435, i64 128
+  store float %442, ptr %443, align 8, !tbaa !375
+  %444 = fdiv float %417, %408
+  %445 = fadd float %444, 5.000000e-01
+  %446 = fptosi float %445 to i32
+  %447 = getelementptr inbounds nuw i8, ptr %435, i64 152
+  %448 = load i32, ptr %447, align 8, !tbaa !376
+  %449 = add nsw i32 %448, %446
+  store i32 %449, ptr %447, align 8, !tbaa !376
   br label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
 
-_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit: ; preds = %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i, %395
+_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit: ; preds = %_ZN16ImGuiListClipper17SeekCursorForItemEi.exit.i, %397
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre18 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !387
   br label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
 
 _ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit: ; preds = %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit, %_ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i, %57, %49
-  %448 = phi i32 [ %.pre18, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit ], [ %85, %_ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i ], [ %54, %57 ], [ %54, %49 ]
-  %449 = phi i32 [ %391, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit ], [ %80, %_ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i ], [ %51, %57 ], [ %51, %49 ]
-  %450 = icmp ne i32 %449, %448
+  %450 = phi i32 [ %.pre18, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit ], [ %85, %_ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i ], [ %54, %57 ], [ %54, %49 ]
+  %451 = phi i32 [ %393, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.loopexit ], [ %80, %_ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i ], [ %51, %57 ], [ %51, %49 ]
+  %452 = icmp ne i32 %451, %450
   br label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
 
-_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread: ; preds = %thread-pre-split.i, %439, %431, %398, %26, %_ZL26GetSkipItemForListClippingv.exit.i, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
-  %.0.shrunk = phi i1 [ %450, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit ], [ false, %_ZL26GetSkipItemForListClippingv.exit.i ], [ false, %26 ], [ false, %398 ], [ false, %431 ], [ false, %439 ], [ false, %thread-pre-split.i ]
-  %451 = load ptr, ptr %18, align 8, !tbaa !358
-  %.not = icmp eq ptr %451, null
-  br i1 %.not, label %461, label %452
+_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread: ; preds = %thread-pre-split.i, %441, %433, %400, %26, %_ZL26GetSkipItemForListClippingv.exit.i, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
+  %.0.shrunk = phi i1 [ %452, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit ], [ false, %_ZL26GetSkipItemForListClippingv.exit.i ], [ false, %26 ], [ false, %400 ], [ false, %433 ], [ false, %441 ], [ false, %thread-pre-split.i ]
+  %453 = load ptr, ptr %18, align 8, !tbaa !358
+  %.not = icmp eq ptr %453, null
+  br i1 %.not, label %463, label %454
 
-452:                                              ; preds = %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
-  %453 = getelementptr inbounds nuw i8, ptr %451, i64 579
-  %454 = load i8, ptr %453, align 1, !tbaa !398, !range !95, !noundef !225
-  %455 = icmp eq i8 %454, 0
-  br i1 %455, label %456, label %461
+454:                                              ; preds = %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 579
+  %456 = load i8, ptr %455, align 1, !tbaa !398, !range !95, !noundef !225
+  %457 = icmp eq i8 %456, 0
+  br i1 %457, label %458, label %463
 
-456:                                              ; preds = %452
-  %457 = getelementptr inbounds nuw i8, ptr %10, i64 9964
-  %458 = load i32, ptr %457, align 4, !tbaa !247
-  %459 = and i32 %458, 32
-  %.not12 = icmp eq i32 %459, 0
-  br i1 %.not12, label %461, label %460
+458:                                              ; preds = %454
+  %459 = getelementptr inbounds nuw i8, ptr %10, i64 9964
+  %460 = load i32, ptr %459, align 4, !tbaa !247
+  %461 = and i32 %460, 32
+  %.not12 = icmp eq i32 %461, 0
+  br i1 %.not12, label %463, label %462
 
-460:                                              ; preds = %456
+462:                                              ; preds = %458
   call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.7)
-  br label %461
+  br label %463
 
-461:                                              ; preds = %456, %460, %452, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
-  br i1 %13, label %471, label %462
+463:                                              ; preds = %458, %462, %454, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
+  br i1 %13, label %473, label %464
 
-462:                                              ; preds = %461
-  %463 = load float, ptr %11, align 4, !tbaa !347
-  %464 = fcmp ogt float %463, 0.000000e+00
-  br i1 %464, label %465, label %471
+464:                                              ; preds = %463
+  %465 = load float, ptr %11, align 4, !tbaa !347
+  %466 = fcmp ogt float %465, 0.000000e+00
+  br i1 %466, label %467, label %473
 
-465:                                              ; preds = %462
-  %466 = getelementptr inbounds nuw i8, ptr %10, i64 9964
-  %467 = load i32, ptr %466, align 4, !tbaa !247
-  %468 = and i32 %467, 32
-  %.not13 = icmp eq i32 %468, 0
-  br i1 %.not13, label %471, label %469
+467:                                              ; preds = %464
+  %468 = getelementptr inbounds nuw i8, ptr %10, i64 9964
+  %469 = load i32, ptr %468, align 4, !tbaa !247
+  %470 = and i32 %469, 32
+  %.not13 = icmp eq i32 %470, 0
+  br i1 %.not13, label %473, label %471
 
-469:                                              ; preds = %465
-  %470 = fpext float %463 to double
-  call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.8, double noundef %470)
-  br label %471
+471:                                              ; preds = %467
+  %472 = fpext float %465 to double
+  call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.8, double noundef %472)
+  br label %473
 
-471:                                              ; preds = %465, %469, %462, %461
-  %472 = getelementptr inbounds nuw i8, ptr %10, i64 9964
-  %473 = load i32, ptr %472, align 4, !tbaa !247
-  %474 = and i32 %473, 32
-  %.not15 = icmp eq i32 %474, 0
-  br i1 %.0.shrunk, label %475, label %481
+473:                                              ; preds = %467, %471, %464, %463
+  %474 = getelementptr inbounds nuw i8, ptr %10, i64 9964
+  %475 = load i32, ptr %474, align 4, !tbaa !247
+  %476 = and i32 %475, 32
+  %.not15 = icmp eq i32 %476, 0
+  br i1 %.0.shrunk, label %477, label %483
 
-475:                                              ; preds = %471
-  br i1 %.not15, label %484, label %476
+477:                                              ; preds = %473
+  br i1 %.not15, label %486, label %478
 
-476:                                              ; preds = %475
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %478 = load i32, ptr %477, align 8, !tbaa !386
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %480 = load i32, ptr %479, align 4, !tbaa !387
-  call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.9, i32 noundef %478, i32 noundef %480)
-  br label %484
+478:                                              ; preds = %477
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %480 = load i32, ptr %479, align 8, !tbaa !386
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %482 = load i32, ptr %481, align 4, !tbaa !387
+  call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.9, i32 noundef %480, i32 noundef %482)
+  br label %486
 
-481:                                              ; preds = %471
-  br i1 %.not15, label %483, label %482
+483:                                              ; preds = %473
+  br i1 %.not15, label %485, label %484
 
-482:                                              ; preds = %481
+484:                                              ; preds = %483
   call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.10)
-  br label %483
+  br label %485
 
-483:                                              ; preds = %482, %481
+485:                                              ; preds = %484, %483
   call void @_ZN16ImGuiListClipper3EndEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %484
+  br label %486
 
-484:                                              ; preds = %475, %476, %483
+486:                                              ; preds = %477, %478, %485
   ret i1 %.0.shrunk
 }
 

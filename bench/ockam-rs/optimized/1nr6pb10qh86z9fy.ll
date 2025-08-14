@@ -836,7 +836,7 @@ common.resume:                                    ; preds = %25, %.body, %16
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #32
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %64
 
 27:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a2850656f4f6ccaE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -869,7 +869,6 @@ common.resume:                                    ; preds = %25, %.body, %16
 
 .lr.ph.i.i:                                       ; preds = %29
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %invariant.op.i.i = add i64 %2, 1
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %36
 
@@ -941,9 +940,9 @@ switch.lookup20:                                  ; preds = %switch.lookup18
   %45 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !199, !noundef !4
   %46 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !199, !noundef !4
   %47 = icmp eq i64 %45, %46
-  br i1 %47, label %55, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i"
+  br i1 %47, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i": ; preds = %60, %55, %44
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i": ; preds = %61, %56, %44
   %48 = load ptr, ptr %11, align 8, !alias.scope !199, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %48, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -953,46 +952,46 @@ switch.lookup20:                                  ; preds = %switch.lookup18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i)
   %51 = add i64 %37, 1
-  %.reass.i.i = add i64 %invariant.op.i.i, %37
-  %52 = icmp ugt i64 %.reass.i.i, 3
-  br i1 %52, label %.loopexit, label %36
+  %52 = add i64 %51, %2
+  %53 = icmp ugt i64 %52, 3
+  br i1 %53, label %.loopexit, label %36
 
-53:                                               ; preds = %60
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %61
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #32
-          to label %.body unwind label %61
+          to label %.body unwind label %62
 
-55:                                               ; preds = %44
-  %56 = add i64 %37, %2
-  %57 = icmp ugt i64 %56, 2
-  %58 = sub i64 4, %56
-  %59 = select i1 %57, i64 1, i64 %58
-  %.not12.i.i = icmp eq i64 %59, 0
-  br i1 %.not12.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", label %60
+56:                                               ; preds = %44
+  %57 = add i64 %37, %2
+  %58 = icmp ugt i64 %57, 2
+  %59 = sub i64 4, %57
+  %60 = select i1 %58, i64 1, i64 %59
+  %.not12.i.i = icmp eq i64 %60, 0
+  br i1 %.not12.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", label %61
 
-60:                                               ; preds = %55
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbdead17bf6eec748E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %45, i64 noundef range(i64 1, 0) %59)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" unwind label %53
+61:                                               ; preds = %56
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbdead17bf6eec748E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %45, i64 noundef range(i64 1, 0) %60)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i" unwind label %54
 
-61:                                               ; preds = %53
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %54
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable
 
-.body:                                            ; preds = %39, %53
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %39 ], [ %54, %53 ]
+.body:                                            ; preds = %39, %54
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %39 ], [ %55, %54 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h15994deaeaf2094aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #32
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %64
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb11464bd8a11e3dbE.exit.i.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a2850656f4f6ccaE.exit.i.i", %36, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %24
 
-63:                                               ; preds = %25, %.body
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %25, %.body
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable

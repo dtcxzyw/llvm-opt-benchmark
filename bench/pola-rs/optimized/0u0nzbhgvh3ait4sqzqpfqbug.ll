@@ -19531,7 +19531,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2664)
@@ -19559,7 +19559,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -19593,82 +19592,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2677, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2677, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i32, ptr %41, align 4, !alias.scope !2664, !noalias !2667, !noundef !3
-  %43 = uitofp i32 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i32, ptr %42, align 4, !alias.scope !2664, !noalias !2667, !noundef !3
+  %44 = uitofp i32 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2669, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2669
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2669, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2669
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h418947323c6f9899E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2673, !noalias !2669, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h03a272e32336e3d9E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h03a272e32336e3d9E(ptr noalias noundef nonnull readonly align 4 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h03a272e32336e3d9E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h03a272e32336e3d9E(ptr noalias noundef nonnull readonly align 4 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h418947323c6f9899E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h418947323c6f9899E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h418947323c6f9899E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h418947323c6f9899E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -19678,7 +19677,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2678)
@@ -19706,7 +19705,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -19740,82 +19738,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2691, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2691, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i8, ptr %41, align 1, !alias.scope !2678, !noalias !2681, !noundef !3
-  %43 = uitofp i8 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i8, ptr %42, align 1, !alias.scope !2678, !noalias !2681, !noundef !3
+  %44 = uitofp i8 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2683, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2683
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2683, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2683
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hda91016558ab4ee7E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2687, !noalias !2683, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h0ac23d9c96a2aff4E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h0ac23d9c96a2aff4E(ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h0ac23d9c96a2aff4E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h0ac23d9c96a2aff4E(ptr noalias noundef nonnull readonly align 1 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hda91016558ab4ee7E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hda91016558ab4ee7E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hda91016558ab4ee7E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hda91016558ab4ee7E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -19825,7 +19823,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2692)
@@ -19853,7 +19851,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -19887,82 +19884,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2705, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2705, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i128, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i128, ptr %41, align 16, !alias.scope !2692, !noalias !2695, !noundef !3
-  %43 = sitofp i128 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i128, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i128, ptr %42, align 16, !alias.scope !2692, !noalias !2695, !noundef !3
+  %44 = sitofp i128 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2697, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2697
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2697, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2697
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f3ad41c20cff32eE.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2701, !noalias !2697, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i128, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h35151f1159dd1bc2E(ptr noalias noundef nonnull readonly align 16 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h35151f1159dd1bc2E(ptr noalias noundef nonnull readonly align 16 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i128, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h35151f1159dd1bc2E(ptr noalias noundef nonnull readonly align 16 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h35151f1159dd1bc2E(ptr noalias noundef nonnull readonly align 16 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f3ad41c20cff32eE.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f3ad41c20cff32eE.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f3ad41c20cff32eE.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h5f3ad41c20cff32eE.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -19972,7 +19969,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2706)
@@ -20000,7 +19997,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20034,82 +20030,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2719, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2719, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i64, ptr %41, align 8, !alias.scope !2706, !noalias !2709, !noundef !3
-  %43 = sitofp i64 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i64, ptr %42, align 8, !alias.scope !2706, !noalias !2709, !noundef !3
+  %44 = sitofp i64 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2711, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2711
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2711, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2711
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he0c5ac9c82f35d47E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2715, !noalias !2711, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h37039c19a9479a5eE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h37039c19a9479a5eE(ptr noalias noundef nonnull readonly align 8 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h37039c19a9479a5eE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h37039c19a9479a5eE(ptr noalias noundef nonnull readonly align 8 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he0c5ac9c82f35d47E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he0c5ac9c82f35d47E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he0c5ac9c82f35d47E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17he0c5ac9c82f35d47E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -20119,7 +20115,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2720)
@@ -20147,7 +20143,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20181,82 +20176,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2733, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2733, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i16, ptr %41, align 2, !alias.scope !2720, !noalias !2723, !noundef !3
-  %43 = uitofp i16 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i16, ptr %42, align 2, !alias.scope !2720, !noalias !2723, !noundef !3
+  %44 = uitofp i16 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2725, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2725
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2725, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2725
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha25b4580f02070d6E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2729, !noalias !2725, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i16, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4b25f3a1fc7a31e4E(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4b25f3a1fc7a31e4E(ptr noalias noundef nonnull readonly align 2 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4b25f3a1fc7a31e4E(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4b25f3a1fc7a31e4E(ptr noalias noundef nonnull readonly align 2 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha25b4580f02070d6E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha25b4580f02070d6E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha25b4580f02070d6E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17ha25b4580f02070d6E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -20266,7 +20261,7 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_su
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %56
+  br i1 %.not, label %7, label %57
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2734)
@@ -20294,7 +20289,6 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_su
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17he679e05f5b58ea16E.exit.i.i"
@@ -20328,81 +20322,81 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_su
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2747, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2747, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load float, ptr %41, align 4, !alias.scope !2734, !noalias !2737, !noundef !3
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load float, ptr %42, align 4, !alias.scope !2734, !noalias !2737, !noundef !3
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi float [ %42, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %43 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.03.019.i
-  %44 = load float, ptr %43, align 4, !noalias !2739, !noundef !3
-  %45 = fadd float %.sroa.02.0.i, %44
-  store float %45, ptr %43, align 4, !noalias !2739
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi float [ %43, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %44 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.03.019.i
+  %45 = load float, ptr %44, align 4, !noalias !2739, !noundef !3
+  %46 = fadd float %.sroa.02.0.i, %45
+  store float %46, ptr %44, align 4, !noalias !2739
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h8ca3614f312622c9E.exit": ; preds = %.loopexit.i.i
-  %46 = load float, ptr %4, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %48 = load float, ptr %47, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
-  %49 = fadd float %46, %48
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %51 = load float, ptr %50, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %53 = load float, ptr %52, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
-  %54 = fadd float %51, %53
-  %55 = fadd float %49, %54
+  %47 = load float, ptr %4, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %49 = load float, ptr %48, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
+  %50 = fadd float %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %52 = load float, ptr %51, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %54 = load float, ptr %53, align 4, !alias.scope !2743, !noalias !2739, !noundef !3
+  %55 = fadd float %52, %54
+  %56 = fadd float %50, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %79
+  br label %80
 
-56:                                               ; preds = %3
-  %57 = lshr i64 %1, 1
-  %58 = and i64 %57, 9223372036854775680
-  %59 = sub nuw i64 %1, %58
-  %60 = getelementptr inbounds nuw float, ptr %0, i64 %58
-  %61 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load i64, ptr %62, align 8, !noundef !3
-  store ptr %61, ptr %6, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %66 = load i64, ptr %65, align 8, !noundef !3
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %58, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %70 = load i64, ptr %69, align 8, !noundef !3
-  %71 = sub i64 %70, %58
-  %72 = add i64 %66, %58
-  store ptr %61, ptr %5, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %63, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %72, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %71, ptr %75, align 8
-  %76 = call fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4fd146b4c296bcacE(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %58, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %77 = call fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4fd146b4c296bcacE(ptr noalias noundef nonnull readonly align 4 %60, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %78 = fadd float %76, %77
-  br label %79
+57:                                               ; preds = %3
+  %58 = lshr i64 %1, 1
+  %59 = and i64 %58, 9223372036854775680
+  %60 = sub nuw i64 %1, %59
+  %61 = getelementptr inbounds nuw float, ptr %0, i64 %59
+  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load i64, ptr %63, align 8, !noundef !3
+  store ptr %62, ptr %6, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %67 = load i64, ptr %66, align 8, !noundef !3
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %59, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %71 = load i64, ptr %70, align 8, !noundef !3
+  %72 = sub i64 %71, %59
+  %73 = add i64 %67, %59
+  store ptr %62, ptr %5, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %64, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %73, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %72, ptr %76, align 8
+  %77 = call fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4fd146b4c296bcacE(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %78 = call fastcc noundef float @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17h4fd146b4c296bcacE(ptr noalias noundef nonnull readonly align 4 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %79 = fadd float %77, %78
+  br label %80
 
-79:                                               ; preds = %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h8ca3614f312622c9E.exit"
-  %.sroa.0.0 = phi float [ %55, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h8ca3614f312622c9E.exit" ], [ %78, %56 ]
+80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h8ca3614f312622c9E.exit"
+  %.sroa.0.0 = phi float [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h8ca3614f312622c9E.exit" ], [ %79, %57 ]
   ret float %.sroa.0.0
 }
 
@@ -20412,7 +20406,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2748)
@@ -20440,7 +20434,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20474,82 +20467,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2761, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2761, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load float, ptr %41, align 4, !alias.scope !2748, !noalias !2751, !noundef !3
-  %43 = fpext float %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw float, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load float, ptr %42, align 4, !alias.scope !2748, !noalias !2751, !noundef !3
+  %44 = fpext float %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2753, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2753
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2753, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2753
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd54c5d492fefb1e6E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2757, !noalias !2753, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw float, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17ha0cfb82ee2e19b35E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17ha0cfb82ee2e19b35E(ptr noalias noundef nonnull readonly align 4 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw float, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17ha0cfb82ee2e19b35E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17ha0cfb82ee2e19b35E(ptr noalias noundef nonnull readonly align 4 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd54c5d492fefb1e6E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd54c5d492fefb1e6E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd54c5d492fefb1e6E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd54c5d492fefb1e6E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -20559,7 +20552,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2762)
@@ -20587,7 +20580,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20621,82 +20613,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2775, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2775, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i32, ptr %41, align 4, !alias.scope !2762, !noalias !2765, !noundef !3
-  %43 = sitofp i32 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i32, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i32, ptr %42, align 4, !alias.scope !2762, !noalias !2765, !noundef !3
+  %44 = sitofp i32 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2767, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2767
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2767, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2767
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h886b768f798da4b5E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2771, !noalias !2767, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb2ce799a5c5c570dE(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb2ce799a5c5c570dE(ptr noalias noundef nonnull readonly align 4 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb2ce799a5c5c570dE(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb2ce799a5c5c570dE(ptr noalias noundef nonnull readonly align 4 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h886b768f798da4b5E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h886b768f798da4b5E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h886b768f798da4b5E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h886b768f798da4b5E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -20706,7 +20698,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2776)
@@ -20734,7 +20726,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20768,82 +20759,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2789, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2789, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i8, ptr %41, align 1, !alias.scope !2776, !noalias !2779, !noundef !3
-  %43 = sitofp i8 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i8, ptr %42, align 1, !alias.scope !2776, !noalias !2779, !noundef !3
+  %44 = sitofp i8 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2781, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2781
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2781, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2781
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd4ca5e776ff748deE.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2785, !noalias !2781, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb310fc77df1c1994E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb310fc77df1c1994E(ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb310fc77df1c1994E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hb310fc77df1c1994E(ptr noalias noundef nonnull readonly align 1 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd4ca5e776ff748deE.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd4ca5e776ff748deE.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd4ca5e776ff748deE.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17hd4ca5e776ff748deE.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -20853,7 +20844,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2790)
@@ -20881,7 +20872,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -20915,82 +20905,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2803, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2803, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i64, ptr %41, align 8, !alias.scope !2790, !noalias !2793, !noundef !3
-  %43 = uitofp i64 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i64, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i64, ptr %42, align 8, !alias.scope !2790, !noalias !2793, !noundef !3
+  %44 = uitofp i64 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2795, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2795
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2795, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2795
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h4420f7839ef71124E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2799, !noalias !2795, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hbb0572ba1795b83fE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hbb0572ba1795b83fE(ptr noalias noundef nonnull readonly align 8 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hbb0572ba1795b83fE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hbb0572ba1795b83fE(ptr noalias noundef nonnull readonly align 8 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h4420f7839ef71124E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h4420f7839ef71124E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h4420f7839ef71124E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h4420f7839ef71124E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 
@@ -21000,7 +20990,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %56
+  br i1 %.not, label %7, label %57
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2804)
@@ -21028,7 +21018,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -21062,81 +21051,81 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2817, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2817, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load double, ptr %41, align 8, !alias.scope !2804, !noalias !2807, !noundef !3
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load double, ptr %42, align 8, !alias.scope !2804, !noalias !2807, !noundef !3
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %42, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %43 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %44 = load double, ptr %43, align 8, !noalias !2809, !noundef !3
-  %45 = fadd double %.sroa.02.0.i, %44
-  store double %45, ptr %43, align 8, !noalias !2809
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %43, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %45 = load double, ptr %44, align 8, !noalias !2809, !noundef !3
+  %46 = fadd double %.sroa.02.0.i, %45
+  store double %46, ptr %44, align 8, !noalias !2809
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h845da406b4e84d28E.exit": ; preds = %.loopexit.i.i
-  %46 = load double, ptr %4, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %48 = load double, ptr %47, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
-  %49 = fadd double %46, %48
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %51 = load double, ptr %50, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %53 = load double, ptr %52, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
-  %54 = fadd double %51, %53
-  %55 = fadd double %49, %54
+  %47 = load double, ptr %4, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %49 = load double, ptr %48, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
+  %50 = fadd double %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = load double, ptr %51, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %54 = load double, ptr %53, align 8, !alias.scope !2813, !noalias !2809, !noundef !3
+  %55 = fadd double %52, %54
+  %56 = fadd double %50, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %79
+  br label %80
 
-56:                                               ; preds = %3
-  %57 = lshr i64 %1, 1
-  %58 = and i64 %57, 9223372036854775680
-  %59 = sub nuw i64 %1, %58
-  %60 = getelementptr inbounds nuw double, ptr %0, i64 %58
-  %61 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load i64, ptr %62, align 8, !noundef !3
-  store ptr %61, ptr %6, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %66 = load i64, ptr %65, align 8, !noundef !3
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %58, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %70 = load i64, ptr %69, align 8, !noundef !3
-  %71 = sub i64 %70, %58
-  %72 = add i64 %66, %58
-  store ptr %61, ptr %5, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %63, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %72, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %71, ptr %75, align 8
-  %76 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hdecebb99dda683d9E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %58, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hdecebb99dda683d9E(ptr noalias noundef nonnull readonly align 8 %60, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %78 = fadd double %76, %77
-  br label %79
+57:                                               ; preds = %3
+  %58 = lshr i64 %1, 1
+  %59 = and i64 %58, 9223372036854775680
+  %60 = sub nuw i64 %1, %59
+  %61 = getelementptr inbounds nuw double, ptr %0, i64 %59
+  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load i64, ptr %63, align 8, !noundef !3
+  store ptr %62, ptr %6, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %67 = load i64, ptr %66, align 8, !noundef !3
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %59, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %71 = load i64, ptr %70, align 8, !noundef !3
+  %72 = sub i64 %71, %59
+  %73 = add i64 %67, %59
+  store ptr %62, ptr %5, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %64, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %73, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %72, ptr %76, align 8
+  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hdecebb99dda683d9E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hdecebb99dda683d9E(ptr noalias noundef nonnull readonly align 8 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %79 = fadd double %77, %78
+  br label %80
 
-79:                                               ; preds = %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h845da406b4e84d28E.exit"
-  %.sroa.0.0 = phi double [ %55, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h845da406b4e84d28E.exit" ], [ %78, %56 ]
+80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h845da406b4e84d28E.exit"
+  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h845da406b4e84d28E.exit" ], [ %79, %57 ]
   ret double %.sroa.0.0
 }
 
@@ -21146,7 +21135,7 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %.not = icmp eq i64 %1, 128
-  br i1 %.not, label %7, label %57
+  br i1 %.not, label %7, label %58
 
 7:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2818)
@@ -21174,7 +21163,6 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   %.sroa.57.021.i = phi i64 [ 128, %7 ], [ %16, %.loopexit.i ]
   %.sroa.0.020.i = phi ptr [ %0, %7 ], [ %15, %.loopexit.i ]
   %20 = shl i64 %.sroa.12.022.i, 4
-  %invariant.op.i = add i64 %20, %11
   br label %28
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core5array88_$LT$impl$u20$core..ops..index..IndexMut$LT$I$GT$$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9index_mut17heb485fed2c2b21e3E.exit.i.i"
@@ -21208,82 +21196,82 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_s
   br i1 %31, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
 _ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i: ; preds = %28
-  %.reass.i = add i64 %invariant.op.i, %.sroa.03.019.i
-  %32 = lshr i64 %.reass.i, 3
-  %33 = icmp ult i64 %32, %14
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %32
-  %35 = load i8, ptr %34, align 1, !noalias !2831, !noundef !3
-  %36 = trunc i64 %.reass.i to i8
-  %37 = and i8 %36, 7
-  %38 = lshr i8 %35, %37
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
+  %32 = add i64 %30, %11
+  %33 = lshr i64 %32, 3
+  %34 = icmp ult i64 %33, %14
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %33
+  %36 = load i8, ptr %35, align 1, !noalias !2831, !noundef !3
+  %37 = trunc i64 %32 to i8
+  %38 = and i8 %37, 7
+  %39 = lshr i8 %36, %38
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-40:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
-  %41 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
-  %42 = load i16, ptr %41, align 2, !alias.scope !2818, !noalias !2821, !noundef !3
-  %43 = sitofp i16 %42 to double
+41:                                               ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i
+  %42 = getelementptr inbounds nuw i16, ptr %.sroa.0.020.i, i64 %.sroa.03.019.i
+  %43 = load i16, ptr %42, align 2, !alias.scope !2818, !noalias !2821, !noundef !3
+  %44 = sitofp i16 %43 to double
   br label %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i
 
-_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %40, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
-  %.sroa.02.0.i = phi double [ %43, %40 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
-  %44 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
-  %45 = load double, ptr %44, align 8, !noalias !2823, !noundef !3
-  %46 = fadd double %.sroa.02.0.i, %45
-  store double %46, ptr %44, align 8, !noalias !2823
+_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.thread.i: ; preds = %41, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i, %28
+  %.sroa.02.0.i = phi double [ %44, %41 ], [ 0.000000e+00, %_ZN12polars_arrow6bitmap7bitmask7BitMask3get17hd33977e22ac376b8E.exit.i ], [ 0.000000e+00, %28 ]
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.sroa.03.019.i
+  %46 = load double, ptr %45, align 8, !noalias !2823, !noundef !3
+  %47 = fadd double %.sroa.02.0.i, %46
+  store double %47, ptr %45, align 8, !noalias !2823
   %exitcond.not.i = icmp eq i64 %29, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %28
 
 "_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h495b4f58d5077be6E.exit": ; preds = %.loopexit.i.i
-  %47 = load double, ptr %4, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %49 = load double, ptr %48, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
-  %50 = fadd double %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = load double, ptr %51, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = load double, ptr %53, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
-  %55 = fadd double %52, %54
-  %56 = fadd double %50, %55
+  %48 = load double, ptr %4, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %50 = load double, ptr %49, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
+  %51 = fadd double %48, %50
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = load double, ptr %52, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = load double, ptr %54, align 8, !alias.scope !2827, !noalias !2823, !noundef !3
+  %56 = fadd double %53, %55
+  %57 = fadd double %51, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-57:                                               ; preds = %3
-  %58 = lshr i64 %1, 1
-  %59 = and i64 %58, 9223372036854775680
-  %60 = sub nuw i64 %1, %59
-  %61 = getelementptr inbounds nuw i16, ptr %0, i64 %59
-  %62 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  store ptr %62, ptr %6, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %59, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = sub i64 %71, %59
-  %73 = add i64 %67, %59
-  store ptr %62, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %64, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %73, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %72, ptr %76, align 8
-  %77 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hf03a0696b7a8b99cE(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %59, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hf03a0696b7a8b99cE(ptr noalias noundef nonnull readonly align 2 %61, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-  %79 = fadd double %77, %78
-  br label %80
+58:                                               ; preds = %3
+  %59 = lshr i64 %1, 1
+  %60 = and i64 %59, 9223372036854775680
+  %61 = sub nuw i64 %1, %60
+  %62 = getelementptr inbounds nuw i16, ptr %0, i64 %60
+  %63 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  store ptr %63, ptr %6, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %68 = load i64, ptr %67, align 8, !noundef !3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %60, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load i64, ptr %71, align 8, !noundef !3
+  %73 = sub i64 %72, %60
+  %74 = add i64 %68, %60
+  store ptr %63, ptr %5, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %74, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %73, ptr %77, align 8
+  %78 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hf03a0696b7a8b99cE(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %60, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+  %79 = call fastcc noundef double @_ZN14polars_compute9float_sum22pairwise_sum_with_mask17hf03a0696b7a8b99cE(ptr noalias noundef nonnull readonly align 2 %62, i64 noundef %61, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+  %80 = fadd double %78, %79
+  br label %81
 
-80:                                               ; preds = %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h495b4f58d5077be6E.exit"
-  %.sroa.0.0 = phi double [ %56, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h495b4f58d5077be6E.exit" ], [ %79, %57 ]
+81:                                               ; preds = %58, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h495b4f58d5077be6E.exit"
+  %.sroa.0.0 = phi double [ %57, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$30sum_block_vectorized_with_mask17h495b4f58d5077be6E.exit" ], [ %80, %58 ]
   ret double %.sroa.0.0
 }
 

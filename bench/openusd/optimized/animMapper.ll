@@ -33986,43 +33986,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10
   %70 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
   %71 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
-  %invariant.op = mul nuw nsw i64 %22, 72
   %.not74 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not74, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
-  %.04273 = phi i64 [ %88, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50 ], [ 0, %64 ]
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.04273
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %75, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
+.lr.ph:                                           ; preds = %64
+  %gepdiff = mul nuw nsw i64 %22, 72
+  br label %72
 
-75:                                               ; preds = %.lr.ph
-  %76 = zext nneg i32 %73 to i64
-  %77 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %78 = icmp ugt i64 %77, %76
-  br i1 %78, label %79, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
+72:                                               ; preds = %.lr.ph, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
+  %.04273 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50 ]
+  %73 = getelementptr inbounds i32, ptr %71, i64 %.04273
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
 
-79:                                               ; preds = %75
-  %80 = mul i64 %.04273, %22
-  %81 = add nuw i64 %.04273, 1
-  %82 = mul i64 %81, %22
-  %.not.i.i.i.i.i49 = icmp eq i64 %82, %80
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50, label %83
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %74 to i64
+  %78 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %79 = icmp ugt i64 %78, %77
+  br i1 %79, label %80, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
 
-83:                                               ; preds = %79
-  %.idx71.reass = mul i64 %.04273, %invariant.op
-  %84 = getelementptr inbounds i8, ptr %65, i64 %.idx71.reass
-  %85 = mul nuw nsw i32 %73, %3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %66, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 8 %84, i64 %invariant.op, i1 false)
+80:                                               ; preds = %76
+  %81 = mul i64 %.04273, %22
+  %82 = add nuw i64 %.04273, 1
+  %83 = mul i64 %82, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %83, %81
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50, label %84
+
+84:                                               ; preds = %80
+  %.idx71 = mul nsw i64 %81, 72
+  %85 = getelementptr inbounds i8, ptr %65, i64 %.idx71
+  %86 = mul nuw nsw i32 %74, %3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %66, i64 %87
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %88, ptr align 8 %85, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50
 
-_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50: ; preds = %83, %79, %.lr.ph, %75
-  %88 = add nuw i64 %.04273, 1
-  %89 = icmp ult i64 %88, %.sroa.speculated
-  br i1 %89, label %.lr.ph, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit, !llvm.loop !264
+_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50: ; preds = %84, %80, %72, %76
+  %89 = add nuw i64 %.04273, 1
+  %90 = icmp ult i64 %89, %.sroa.speculated
+  br i1 %90, label %72, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit, !llvm.loop !264
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50, %64, %57, %47, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10GfMatrix3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %31, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %31 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_10GfMatrix3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %47 ], [ true, %57 ], [ true, %64 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit50 ]
@@ -39558,43 +39561,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7G
   %70 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
   %71 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
-  %invariant.op = mul nuw nsw i64 %22, 12
   %.not74 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not74, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
-  %.04273 = phi i64 [ %88, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50 ], [ 0, %64 ]
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.04273
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %75, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
+.lr.ph:                                           ; preds = %64
+  %gepdiff = mul nuw nsw i64 %22, 12
+  br label %72
 
-75:                                               ; preds = %.lr.ph
-  %76 = zext nneg i32 %73 to i64
-  %77 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %78 = icmp ugt i64 %77, %76
-  br i1 %78, label %79, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
+72:                                               ; preds = %.lr.ph, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
+  %.04273 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50 ]
+  %73 = getelementptr inbounds i32, ptr %71, i64 %.04273
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
 
-79:                                               ; preds = %75
-  %80 = mul i64 %.04273, %22
-  %81 = add nuw i64 %.04273, 1
-  %82 = mul i64 %81, %22
-  %.not.i.i.i.i.i49 = icmp eq i64 %82, %80
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50, label %83
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %74 to i64
+  %78 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %79 = icmp ugt i64 %78, %77
+  br i1 %79, label %80, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
 
-83:                                               ; preds = %79
-  %.idx71.reass = mul i64 %.04273, %invariant.op
-  %84 = getelementptr inbounds i8, ptr %65, i64 %.idx71.reass
-  %85 = mul nuw nsw i32 %73, %3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %66, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %87, ptr align 4 %84, i64 %invariant.op, i1 false)
+80:                                               ; preds = %76
+  %81 = mul i64 %.04273, %22
+  %82 = add nuw i64 %.04273, 1
+  %83 = mul i64 %82, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %83, %81
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50, label %84
+
+84:                                               ; preds = %80
+  %.idx71 = mul nsw i64 %81, 12
+  %85 = getelementptr inbounds i8, ptr %65, i64 %.idx71
+  %86 = mul nuw nsw i32 %74, %3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %66, i64 %87
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %88, ptr align 4 %85, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50
 
-_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50: ; preds = %83, %79, %.lr.ph, %75
-  %88 = add nuw i64 %.04273, 1
-  %89 = icmp ult i64 %88, %.sroa.speculated
-  br i1 %89, label %.lr.ph, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit, !llvm.loop !343
+_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50: ; preds = %84, %80, %72, %76
+  %89 = add nuw i64 %.04273, 1
+  %90 = icmp ult i64 %89, %.sroa.speculated
+  br i1 %90, label %72, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit, !llvm.loop !343
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50, %64, %57, %47, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3iEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %31, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %31 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3iEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %47 ], [ true, %57 ], [ true, %64 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit50 ]
@@ -40143,43 +40149,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7G
   %70 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
   %71 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
-  %invariant.op = mul nuw nsw i64 %22, 6
   %.not74 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not74, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
-  %.04273 = phi i64 [ %88, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50 ], [ 0, %64 ]
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.04273
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %75, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
+.lr.ph:                                           ; preds = %64
+  %gepdiff = mul nuw nsw i64 %22, 6
+  br label %72
 
-75:                                               ; preds = %.lr.ph
-  %76 = zext nneg i32 %73 to i64
-  %77 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %78 = icmp ugt i64 %77, %76
-  br i1 %78, label %79, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
+72:                                               ; preds = %.lr.ph, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
+  %.04273 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50 ]
+  %73 = getelementptr inbounds i32, ptr %71, i64 %.04273
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
 
-79:                                               ; preds = %75
-  %80 = mul i64 %.04273, %22
-  %81 = add nuw i64 %.04273, 1
-  %82 = mul i64 %81, %22
-  %.not.i.i.i.i.i49 = icmp eq i64 %82, %80
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50, label %83
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %74 to i64
+  %78 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %79 = icmp ugt i64 %78, %77
+  br i1 %79, label %80, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
 
-83:                                               ; preds = %79
-  %.idx71.reass = mul i64 %.04273, %invariant.op
-  %84 = getelementptr inbounds i8, ptr %65, i64 %.idx71.reass
-  %85 = mul nuw nsw i32 %73, %3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %66, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %87, ptr align 2 %84, i64 %invariant.op, i1 false)
+80:                                               ; preds = %76
+  %81 = mul i64 %.04273, %22
+  %82 = add nuw i64 %.04273, 1
+  %83 = mul i64 %82, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %83, %81
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50, label %84
+
+84:                                               ; preds = %80
+  %.idx71 = mul nsw i64 %81, 6
+  %85 = getelementptr inbounds i8, ptr %65, i64 %.idx71
+  %86 = mul nuw nsw i32 %74, %3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %66, i64 %87
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %88, ptr align 2 %85, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50
 
-_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50: ; preds = %83, %79, %.lr.ph, %75
-  %88 = add nuw i64 %.04273, 1
-  %89 = icmp ult i64 %88, %.sroa.speculated
-  br i1 %89, label %.lr.ph, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit, !llvm.loop !352
+_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50: ; preds = %84, %80, %72, %76
+  %89 = add nuw i64 %.04273, 1
+  %90 = icmp ult i64 %89, %.sroa.speculated
+  br i1 %90, label %72, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit, !llvm.loop !352
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50, %64, %57, %47, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3hEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %31, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %31 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3hEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %47 ], [ true, %57 ], [ true, %64 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit50 ]
@@ -40728,43 +40737,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7G
   %70 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
   %71 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
-  %invariant.op = mul nuw nsw i64 %22, 12
   %.not74 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not74, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
-  %.04273 = phi i64 [ %88, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50 ], [ 0, %64 ]
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.04273
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %75, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
+.lr.ph:                                           ; preds = %64
+  %gepdiff = mul nuw nsw i64 %22, 12
+  br label %72
 
-75:                                               ; preds = %.lr.ph
-  %76 = zext nneg i32 %73 to i64
-  %77 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %78 = icmp ugt i64 %77, %76
-  br i1 %78, label %79, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
+72:                                               ; preds = %.lr.ph, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
+  %.04273 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50 ]
+  %73 = getelementptr inbounds i32, ptr %71, i64 %.04273
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
 
-79:                                               ; preds = %75
-  %80 = mul i64 %.04273, %22
-  %81 = add nuw i64 %.04273, 1
-  %82 = mul i64 %81, %22
-  %.not.i.i.i.i.i49 = icmp eq i64 %82, %80
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50, label %83
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %74 to i64
+  %78 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %79 = icmp ugt i64 %78, %77
+  br i1 %79, label %80, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
 
-83:                                               ; preds = %79
-  %.idx71.reass = mul i64 %.04273, %invariant.op
-  %84 = getelementptr inbounds i8, ptr %65, i64 %.idx71.reass
-  %85 = mul nuw nsw i32 %73, %3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %66, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %87, ptr align 4 %84, i64 %invariant.op, i1 false)
+80:                                               ; preds = %76
+  %81 = mul i64 %.04273, %22
+  %82 = add nuw i64 %.04273, 1
+  %83 = mul i64 %82, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %83, %81
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50, label %84
+
+84:                                               ; preds = %80
+  %.idx71 = mul nsw i64 %81, 12
+  %85 = getelementptr inbounds i8, ptr %65, i64 %.idx71
+  %86 = mul nuw nsw i32 %74, %3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %66, i64 %87
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %88, ptr align 4 %85, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50
 
-_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50: ; preds = %83, %79, %.lr.ph, %75
-  %88 = add nuw i64 %.04273, 1
-  %89 = icmp ult i64 %88, %.sroa.speculated
-  br i1 %89, label %.lr.ph, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit, !llvm.loop !361
+_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50: ; preds = %84, %80, %72, %76
+  %89 = add nuw i64 %.04273, 1
+  %90 = icmp ult i64 %89, %.sroa.speculated
+  br i1 %90, label %72, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit, !llvm.loop !361
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50, %64, %57, %47, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3fEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %31, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %31 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3fEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %47 ], [ true, %57 ], [ true, %64 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit50 ]
@@ -41375,43 +41387,46 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7G
   %70 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %70, i64 %68)
   %71 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %69)
-  %invariant.op = mul nuw nsw i64 %22, 24
   %.not74 = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not74, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
-  %.04273 = phi i64 [ %88, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50 ], [ 0, %64 ]
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.04273
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %75, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
+.lr.ph:                                           ; preds = %64
+  %gepdiff = mul nuw nsw i64 %22, 24
+  br label %72
 
-75:                                               ; preds = %.lr.ph
-  %76 = zext nneg i32 %73 to i64
-  %77 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %78 = icmp ugt i64 %77, %76
-  br i1 %78, label %79, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
+72:                                               ; preds = %.lr.ph, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
+  %.04273 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50 ]
+  %73 = getelementptr inbounds i32, ptr %71, i64 %.04273
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %76, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
 
-79:                                               ; preds = %75
-  %80 = mul i64 %.04273, %22
-  %81 = add nuw i64 %.04273, 1
-  %82 = mul i64 %81, %22
-  %.not.i.i.i.i.i49 = icmp eq i64 %82, %80
-  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50, label %83
+76:                                               ; preds = %72
+  %77 = zext nneg i32 %74 to i64
+  %78 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %79 = icmp ugt i64 %78, %77
+  br i1 %79, label %80, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
 
-83:                                               ; preds = %79
-  %.idx71.reass = mul i64 %.04273, %invariant.op
-  %84 = getelementptr inbounds i8, ptr %65, i64 %.idx71.reass
-  %85 = mul nuw nsw i32 %73, %3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %66, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 8 %84, i64 %invariant.op, i1 false)
+80:                                               ; preds = %76
+  %81 = mul i64 %.04273, %22
+  %82 = add nuw i64 %.04273, 1
+  %83 = mul i64 %82, %22
+  %.not.i.i.i.i.i49 = icmp eq i64 %83, %81
+  br i1 %.not.i.i.i.i.i49, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50, label %84
+
+84:                                               ; preds = %80
+  %.idx71 = mul nsw i64 %81, 24
+  %85 = getelementptr inbounds i8, ptr %65, i64 %.idx71
+  %86 = mul nuw nsw i32 %74, %3
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %66, i64 %87
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %88, ptr align 8 %85, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50
 
-_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50: ; preds = %83, %79, %.lr.ph, %75
-  %88 = add nuw i64 %.04273, 1
-  %89 = icmp ult i64 %88, %.sroa.speculated
-  br i1 %89, label %.lr.ph, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit, !llvm.loop !370
+_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50: ; preds = %84, %80, %72, %76
+  %89 = add nuw i64 %.04273, 1
+  %90 = icmp ult i64 %89, %.sroa.speculated
+  br i1 %90, label %72, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit, !llvm.loop !370
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50, %64, %57, %47, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit, %31, %15, %8
   %.0 = phi i1 [ false, %15 ], [ true, %31 ], [ false, %8 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINS_7GfVec3dEEEvPNS_7VtArrayIT_EEmRKS4_.exit ], [ true, %47 ], [ true, %57 ], [ true, %64 ], [ true, %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit50 ]

@@ -21587,7 +21587,6 @@ MinHashAlgo.exit:                                 ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %26 = icmp ult i16 %6, 768
-  %invariant.op = or i1 %26, %.not7.i.not96
   br label %27
 
 27:                                               ; preds = %.lr.ph, %SupportedHashSigAlgo.exit.thread
@@ -21715,9 +21714,9 @@ switch.lookup:                                    ; preds = %66
 75:                                               ; preds = %72
   %76 = icmp ne i8 %28, 3
   %brmerge = or i1 %76, %26
-  %brmerge94.reass = or i1 %76, %invariant.op
+  %brmerge94 = or i1 %brmerge, %.not7.i.not96
   %.mux.mux = select i1 %brmerge, i8 %28, i8 %11
-  br i1 %brmerge94.reass, label %IsAtLeastTLSv1_2.exit.thread, label %77
+  br i1 %brmerge94, label %IsAtLeastTLSv1_2.exit.thread, label %77
 
 77:                                               ; preds = %75
   %78 = load i64, ptr %24, align 8

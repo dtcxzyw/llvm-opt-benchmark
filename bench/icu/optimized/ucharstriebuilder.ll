@@ -946,7 +946,6 @@ _ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit: ; pr
   %.pre-phi = phi i16 [ %.pre17, %._ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %22, %21 ]
   %31 = phi ptr [ %.pre, %._ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %25, %21 ]
   %.0.i.i.i = phi i32 [ 65535, %._ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit_crit_edge ], [ %30, %21 ]
-  %invariant.op = add i32 %11, 2
   %.not.i.i.i.i12 = icmp eq i16 %.pre-phi, 0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %33 = select i1 %.not.i.i.i.i12, ptr %31, ptr %32
@@ -963,23 +962,22 @@ _ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit: ; pr
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %37
-  %40 = trunc nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %40
-  %41 = icmp ult i32 %.reass, %19
-  br i1 %41, label %42, label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
+  %40 = trunc i64 %indvars.iv to i32
+  %41 = add i32 %40, 2
+  %42 = add i32 %41, %11
+  %43 = icmp ult i32 %42, %19
+  br i1 %43, label %44, label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
-42:                                               ; preds = %39
-  %43 = sext i32 %.reass to i64
-  %44 = getelementptr inbounds i16, ptr %33, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !11
+44:                                               ; preds = %39
+  %45 = sext i32 %42 to i64
+  %46 = getelementptr inbounds i16, ptr %33, i64 %45
+  %47 = load i16, ptr %46, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
-_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %39, %42
-  %.0.i.i.i11 = phi i16 [ %45, %42 ], [ -1, %39 ]
-  %46 = load i32, ptr %10, align 4, !tbaa !8
-  %47 = trunc i64 %indvars.iv to i32
-  %48 = add i32 %47, 2
-  %49 = add i32 %46, %48
+_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %39, %44
+  %.0.i.i.i11 = phi i16 [ %47, %44 ], [ -1, %39 ]
+  %48 = load i32, ptr %10, align 4, !tbaa !8
+  %49 = add i32 %48, %41
   %50 = icmp ult i32 %49, %19
   br i1 %50, label %51, label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15
 

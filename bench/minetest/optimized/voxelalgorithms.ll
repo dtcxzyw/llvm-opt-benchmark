@@ -4380,7 +4380,6 @@ entry:
   %m_data = getelementptr inbounds nuw i8, ptr %vm, i64 32
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %ndef, i64 312
   %sub11.i = sub nsw i32 %conv7.i, %conv10.i
-  %invariant.op = mul nsw i32 %conv3.i, %conv5.i
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond.cleanup4, %entry
@@ -4393,8 +4392,8 @@ for.cond1.preheader:                              ; preds = %for.cond.cleanup4, 
   %mul.i = mul nsw i32 %sub.i, %conv3.i
   %mul622.i = add i32 %sub11.i, %mul.i
   %add.i89 = mul i32 %mul622.i, %conv5.i
-  %add.i104.reass = mul i32 %sub.i, %invariant.op
-  %cmp21.not114 = icmp slt i32 %add.i89, %add.i104.reass
+  %add.i104 = mul i32 %mul.i, %conv5.i
+  %cmp21.not114 = icmp slt i32 %add.i89, %add.i104
   %arrayidx19.split = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv120
   br i1 %cmp21.not114, label %for.cond.cleanup4, label %for.cond1.preheader.split
 
@@ -4418,7 +4417,7 @@ for.body5:                                        ; preds = %for.cond.cleanup22.
   %sext = shl i32 %add.i, 16
   %conv16.i = ashr exact i32 %sext, 16
   %sub20.i = sub nsw i32 %conv16.i, %conv19.i
-  %add21.i108 = add nsw i32 %sub20.i, %add.i104.reass
+  %add21.i108 = add nsw i32 %sub20.i, %add.i104
   %arrayidx19 = getelementptr inbounds nuw [16 x i8], ptr %arrayidx19.split, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %arrayidx19, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i = add nsw i32 %sub20.i, %add.i89
@@ -5915,7 +5914,7 @@ for.cond26.preheader:                             ; preds = %for.cond26.preheade
   %agg.tmp33.sroa.0.0.insert.ext = zext i16 %x.0580 to i48
   %mul.i = shl i16 %x.0580, 4
   %offset.sroa.0.0.insert.ext = zext i16 %mul.i to i32
-  %invariant.op88 = or disjoint i48 %agg.tmp33.sroa.0.0.insert.ext, %retval.sroa.2.0.insert.shift.i.i410
+  %invariant.op = or disjoint i48 %agg.tmp33.sroa.0.0.insert.ext, %retval.sroa.2.0.insert.shift.i.i410
   br label %for.body32
 
 for.cond112.preheader.lr.ph:                      ; preds = %for.cond26.for.cond.cleanup31_crit_edge
@@ -5943,7 +5942,7 @@ for.body32:                                       ; preds = %while.end, %for.con
   %z.0578 = phi i16 [ %minblock.sroa.9.0.extract.trunc, %for.cond26.preheader ], [ %inc90, %while.end ]
   %agg.tmp33.sroa.3.0.insert.ext = zext i16 %z.0578 to i48
   %agg.tmp33.sroa.3.0.insert.shift = shl nuw i48 %agg.tmp33.sroa.3.0.insert.ext, 32
-  %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %agg.tmp33.sroa.3.0.insert.shift, %invariant.op88
+  %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass = or disjoint i48 %agg.tmp33.sroa.3.0.insert.shift, %invariant.op
   invoke void @_ZN7voxalgo23is_sunlight_above_blockEP3MapN3irr4core8vector3dIsEEPK14NodeDefManagerPA16_b(ptr noundef nonnull %map, i48 %agg.tmp33.sroa.0.0.insert.insert.reass.reass.reass, ptr noundef %0, ptr noundef nonnull %lights)
           to label %invoke.cont36 unwind label %lpad34
 
@@ -5965,7 +5964,6 @@ invoke.cont36:                                    ; preds = %for.body32
   %21 = load i16, ptr %m_area, align 2, !tbaa !163
   %conv19.i.i = sext i16 %21 to i32
   %sub11.i.i = sub nsw i32 %conv7.i.i, %conv10.i.i
-  %invariant.op = mul nsw i32 %conv3.i.i, %conv5.i.i
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i, %invoke.cont36
@@ -5978,8 +5976,8 @@ for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i
   %mul.i.i = mul nsw i32 %sub.i.i423, %conv3.i.i
   %mul622.i.i = add i32 %sub11.i.i, %mul.i.i
   %add.i89.i = mul i32 %mul622.i.i, %conv5.i.i
-  %add.i104.i.reass = mul i32 %sub.i.i423, %invariant.op
-  %cmp21.not114.i = icmp slt i32 %add.i89.i, %add.i104.i.reass
+  %add.i104.i = mul i32 %mul.i.i, %conv5.i.i
+  %cmp21.not114.i = icmp slt i32 %add.i89.i, %add.i104.i
   br i1 %cmp21.not114.i, label %for.cond.cleanup4.i, label %for.cond1.preheader.i.split
 
 for.cond1.preheader.i.split:                      ; preds = %for.cond1.preheader.i
@@ -5999,7 +5997,7 @@ for.body5.i:                                      ; preds = %for.cond.cleanup22.
   %sext.i = shl i32 %add.i.i, 16
   %conv16.i.i = ashr exact i32 %sext.i, 16
   %sub20.i.i = sub nsw i32 %conv16.i.i, %conv19.i.i
-  %add21.i108.i = add nsw i32 %sub20.i.i, %add.i104.i.reass
+  %add21.i108.i = add nsw i32 %sub20.i.i, %add.i104.i
   %arrayidx19.i = getelementptr inbounds nuw [16 x i8], ptr %arrayidx19.i.split, i64 0, i64 %indvars.iv.i
   %25 = load i8, ptr %arrayidx19.i, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i89.i
@@ -6394,14 +6392,14 @@ for.cond121.preheader:                            ; preds = %for.cond121.for.inc
   %storemerge370593 = phi i16 [ %minblock.sroa.7.0.extract.trunc, %for.cond112.preheader ], [ %inc265, %for.cond121.for.inc263_crit_edge ]
   %blockpos.sroa.8.0.insert.ext533 = zext i16 %storemerge370593 to i48
   %blockpos.sroa.8.0.insert.shift534 = shl nuw nsw i48 %blockpos.sroa.8.0.insert.ext533, 16
-  %invariant.op51 = or disjoint i48 %blockpos.sroa.8.0.insert.shift534, %blockpos.sroa.0.0.insert.ext530
+  %invariant.op50 = or disjoint i48 %blockpos.sroa.8.0.insert.shift534, %blockpos.sroa.0.0.insert.ext530
   br label %for.body127
 
 for.body127:                                      ; preds = %cleanup, %for.cond121.preheader
   %storemerge371591 = phi i16 [ %minblock.sroa.9.0.extract.trunc, %for.cond121.preheader ], [ %inc261, %cleanup ]
   %blockpos.sroa.11.0.insert.ext537 = zext i16 %storemerge371591 to i48
   %blockpos.sroa.11.0.insert.shift538 = shl nuw i48 %blockpos.sroa.11.0.insert.ext537, 32
-  %blockpos.sroa.0.0.insert.insert532.reass = or disjoint i48 %blockpos.sroa.11.0.insert.shift538, %invariant.op51
+  %blockpos.sroa.0.0.insert.insert532.reass = or disjoint i48 %blockpos.sroa.11.0.insert.shift538, %invariant.op50
   %call131 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %blockpos.sroa.0.0.insert.insert532.reass)
           to label %invoke.cont130 unwind label %lpad129
 
@@ -6488,14 +6486,14 @@ invoke.cont185.lr.ph:                             ; preds = %for.body164
   %add.i.i440 = add nsw i64 %mul.i.i439, %conv4.i.i
   %add13.i = add i16 %storemerge373585, %offset134.sroa.6.0.extract.trunc
   %conv23.i.i = sext i16 %add13.i to i64
-  %invariant.op50 = or disjoint i48 %relpos.sroa.13.0.insert.shift526, %relpos.sroa.0.0.insert.ext517
+  %invariant.op49 = or disjoint i48 %relpos.sroa.13.0.insert.shift526, %relpos.sroa.0.0.insert.ext517
   br label %invoke.cont185
 
 invoke.cont185:                                   ; preds = %if.end227.1, %invoke.cont185.lr.ph
   %storemerge374583 = phi i16 [ %83, %invoke.cont185.lr.ph ], [ %inc241, %if.end227.1 ]
   %relpos.sroa.9.0.insert.ext520 = zext i16 %storemerge374583 to i48
   %relpos.sroa.9.0.insert.shift521 = shl nuw nsw i48 %relpos.sroa.9.0.insert.ext520, 16
-  %relpos.sroa.0.0.insert.insert519.reass = or disjoint i48 %relpos.sroa.9.0.insert.shift521, %invariant.op50
+  %relpos.sroa.0.0.insert.insert519.reass = or disjoint i48 %relpos.sroa.9.0.insert.shift521, %invariant.op49
   %p.sroa.2.0.extract.trunc.i = zext i16 %storemerge374583 to i64
   %84 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %sext2.i = shl nuw i64 %p.sroa.2.0.extract.trunc.i, 48

@@ -5132,8 +5132,8 @@ define internal range(i32 0, 2) i32 @xyz_to_equirect(ptr noundef readonly captur
   %47 = add i32 %31, -1
   %48 = add nsw i32 %3, -1
   %49 = sdiv i32 %2, 2
-  %invariant.op = add i32 %47, %49
   %50 = shl nsw i32 %3, 1
+  %invariant.op = add i32 %47, %49
   %51 = sext i32 %33 to i64
   %52 = sext i32 %3 to i64
   br label %.preheader
@@ -6271,11 +6271,9 @@ define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none)
   %55 = sitofp i32 %52 to float
   %56 = fsub nsz float %40, %55
   store float %56, ptr %7, align 4, !tbaa !49
-  %invariant.op = add i32 %50, -1
   %57 = fptosi float %31 to i32
   %58 = sext i32 %50 to i64
   %59 = sext i32 %52 to i64
-  %invariant.op58 = sub nsw i64 0, %58
   br label %.preheader
 
 .preheader:                                       ; preds = %48, %69
@@ -6301,17 +6299,18 @@ define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none)
 
 70:                                               ; preds = %.preheader, %70
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %70 ]
-  %71 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %71
-  %..i = tail call i32 @llvm.smin.i32(i32 %.reass, i32 %57)
-  %.inv = icmp sgt i64 %indvars.iv, %invariant.op58
+  %71 = add nsw i64 %indvars.iv, %58
+  %72 = trunc i64 %71 to i32
+  %73 = add i32 %72, -1
+  %..i = tail call i32 @llvm.smin.i32(i32 %73, i32 %57)
+  %.inv = icmp sgt i64 %71, 0
   %.0.i = select i1 %.inv, i32 %..i, i32 0
-  %72 = add nsw i32 %.0.i, %.046
-  %73 = trunc i32 %72 to i16
-  %74 = getelementptr inbounds nuw [4 x i16], ptr %60, i64 0, i64 %indvars.iv
-  store i16 %73, ptr %74, align 2, !tbaa !15
-  %75 = getelementptr inbounds nuw [4 x i16], ptr %67, i64 0, i64 %indvars.iv
-  store i16 %66, ptr %75, align 2, !tbaa !15
+  %74 = add nsw i32 %.0.i, %.046
+  %75 = trunc i32 %74 to i16
+  %76 = getelementptr inbounds nuw [4 x i16], ptr %60, i64 0, i64 %indvars.iv
+  store i16 %75, ptr %76, align 2, !tbaa !15
+  %77 = getelementptr inbounds nuw [4 x i16], ptr %67, i64 0, i64 %indvars.iv
+  store i16 %66, ptr %77, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %69, label %70, !llvm.loop !203
@@ -7476,9 +7475,9 @@ define internal noundef i32 @xyz_to_tetrahedron(ptr readnone captures(none) %0, 
   %60 = sitofp i32 %57 to float
   %61 = fsub nsz float %53, %60
   store float %61, ptr %7, align 4, !tbaa !49
-  %invariant.op = add i32 %55, -1
   %62 = add nsw i32 %3, -1
   %63 = shl nsw i32 %3, 1
+  %invariant.op = add i32 %55, -1
   %64 = sext i32 %57 to i64
   %65 = sext i32 %3 to i64
   br label %.preheader
@@ -7505,8 +7504,8 @@ define internal noundef i32 @xyz_to_tetrahedron(ptr readnone captures(none) %0, 
 reflectx.exit.thread.us:                          ; preds = %reflectx.exit.thread.us, %.preheader.split.us
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %reflectx.exit.thread.us ], [ 0, %.preheader.split.us ]
   %75 = trunc nuw nsw i64 %indvars.iv127 to i32
-  %.reass.us = add i32 %invariant.op, %75
-  %76 = srem i32 %.reass.us, %2
+  %.reass = add i32 %invariant.op, %75
+  %76 = srem i32 %.reass, %2
   %77 = icmp slt i32 %76, 0
   %78 = select i1 %77, i32 %2, i32 0
   %.0.i.i.us = add nsw i32 %78, %76
@@ -7925,9 +7924,9 @@ define internal noundef i32 @xyz_to_tspyramid(ptr noundef readonly captures(none
   %65 = sitofp i32 %62 to float
   %66 = fsub nsz float %58, %65
   store float %66, ptr %7, align 4, !tbaa !49
-  %invariant.op = add i32 %60, -1
   %67 = add nsw i32 %3, -1
   %68 = shl nsw i32 %3, 1
+  %invariant.op = add i32 %60, -1
   %69 = sext i32 %62 to i64
   %70 = sext i32 %3 to i64
   br label %.preheader
@@ -7954,8 +7953,8 @@ define internal noundef i32 @xyz_to_tspyramid(ptr noundef readonly captures(none
 reflectx.exit.thread.us:                          ; preds = %reflectx.exit.thread.us, %.preheader.split.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %reflectx.exit.thread.us ], [ 0, %.preheader.split.us ]
   %80 = trunc nuw nsw i64 %indvars.iv55 to i32
-  %.reass.us = add i32 %invariant.op, %80
-  %81 = srem i32 %.reass.us, %2
+  %.reass = add i32 %invariant.op, %80
+  %81 = srem i32 %.reass, %2
   %82 = icmp slt i32 %81, 0
   %83 = select i1 %82, i32 %2, i32 0
   %.0.i.i.us = add nsw i32 %83, %81

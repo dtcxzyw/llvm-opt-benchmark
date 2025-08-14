@@ -1462,13 +1462,13 @@ define internal fastcc range(i32 0, 21) i32 @onas_ddd_watch_hierarchy(ptr nounde
 22:                                               ; preds = %16
   %23 = load i32, ptr @wdlt_len, align 4, !tbaa !11
   %.not63 = icmp ult i32 %18, %23
-  %.pre74 = load ptr, ptr @wdlt, align 8, !tbaa !9
+  %.pre72 = load ptr, ptr @wdlt, align 8, !tbaa !9
   br i1 %.not63, label %onas_ddd_grow_wdlt.exit, label %24
 
 24:                                               ; preds = %22
   %25 = shl nuw i32 %23, 1
   %26 = zext i32 %25 to i64
-  %27 = call ptr @cli_safer_realloc(ptr noundef %.pre74, i64 noundef %26) #16
+  %27 = call ptr @cli_safer_realloc(ptr noundef %.pre72, i64 noundef %26) #16
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %.onas_ddd_grow_wdlt.exit_crit_edge, label %28
 
@@ -1490,7 +1490,7 @@ define internal fastcc range(i32 0, 21) i32 @onas_ddd_watch_hierarchy(ptr nounde
   br label %onas_ddd_grow_wdlt.exit
 
 onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt.exit_crit_edge, %28, %22
-  %36 = phi ptr [ %.pre, %.onas_ddd_grow_wdlt.exit_crit_edge ], [ %27, %28 ], [ %.pre74, %22 ]
+  %36 = phi ptr [ %.pre, %.onas_ddd_grow_wdlt.exit_crit_edge ], [ %27, %28 ], [ %.pre72, %22 ]
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 %18, ptr %37, align 8, !tbaa !49
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1513,76 +1513,75 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
   br label %.thread
 
 50:                                               ; preds = %42, %onas_ddd_grow_wdlt.exit
-  %.sink79 = phi i32 [ 2, %onas_ddd_grow_wdlt.exit ], [ 1, %42 ]
+  %.sink77 = phi i32 [ 2, %onas_ddd_grow_wdlt.exit ], [ 1, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %52 = load i32, ptr %51, align 4, !tbaa !53
-  %53 = or i32 %52, %.sink79
+  %53 = or i32 %52, %.sink77
   store i32 %53, ptr %51, align 4, !tbaa !53
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !54
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %invariant.op = add i64 %1, 2
-  %invariant.op69 = add i64 %1, 1
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !55
   %59 = load ptr, ptr %56, align 8, !tbaa !57
-  %.not6471 = icmp eq ptr %58, %59
-  br i1 %.not6471, label %.thread, label %.lr.ph
+  %.not6469 = icmp eq ptr %58, %59
+  br i1 %.not6469, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %61
 
-61:                                               ; preds = %.lr.ph, %84
-  %62 = phi ptr [ %58, %.lr.ph ], [ %86, %84 ]
+61:                                               ; preds = %.lr.ph, %87
+  %62 = phi ptr [ %58, %.lr.ph ], [ %89, %87 ]
   %63 = load ptr, ptr %62, align 8, !tbaa !58
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #18
-  %.reass = add i64 %64, %invariant.op
-  %65 = call noalias ptr @malloc(i64 noundef %.reass) #22
-  %66 = icmp eq ptr %65, null
-  %67 = load ptr, ptr %60, align 8, !tbaa !52
-  br i1 %66, label %68, label %70
-
-68:                                               ; preds = %61
-  %69 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef %67) #16
-  br label %.thread
+  %65 = add i64 %64, %1
+  %66 = add i64 %65, 2
+  %67 = call noalias ptr @malloc(i64 noundef %66) #22
+  %68 = icmp eq ptr %67, null
+  %69 = load ptr, ptr %60, align 8, !tbaa !52
+  br i1 %68, label %70, label %72
 
 70:                                               ; preds = %61
-  %71 = getelementptr i8, ptr %67, i64 %1
-  %72 = getelementptr i8, ptr %71, i64 -1
-  %73 = load i8, ptr %72, align 1, !tbaa !44
-  %74 = icmp eq i8 %73, 47
-  br i1 %74, label %75, label %77
-
-75:                                               ; preds = %70
-  %.reass70 = add i64 %64, %invariant.op69
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass70, ptr noundef nonnull @.str.39, ptr noundef nonnull %67, ptr noundef nonnull %63) #16
-  br label %79
-
-77:                                               ; preds = %70
-  %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %65, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %67, ptr noundef nonnull %63) #16
-  br label %79
-
-79:                                               ; preds = %77, %75
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #18
-  %81 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %65, i64 noundef %80, i32 noundef %2, i64 noundef %3, i32 noundef %4)
-  %.not65 = icmp eq i32 %81, 0
-  br i1 %.not65, label %84, label %82
-
-82:                                               ; preds = %79
-  %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull %65) #16
+  %71 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef %69) #16
   br label %.thread
 
-84:                                               ; preds = %79
-  call void @free(ptr noundef nonnull %65) #16
-  %85 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !55
-  %87 = load ptr, ptr %56, align 8, !tbaa !57
-  %.not64 = icmp eq ptr %86, %87
+72:                                               ; preds = %61
+  %73 = getelementptr i8, ptr %69, i64 %1
+  %74 = getelementptr i8, ptr %73, i64 -1
+  %75 = load i8, ptr %74, align 1, !tbaa !44
+  %76 = icmp eq i8 %75, 47
+  br i1 %76, label %77, label %80
+
+77:                                               ; preds = %72
+  %78 = add i64 %65, 1
+  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %78, ptr noundef nonnull @.str.39, ptr noundef nonnull %69, ptr noundef nonnull %63) #16
+  br label %82
+
+80:                                               ; preds = %72
+  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %66, ptr noundef nonnull @.str.40, ptr noundef nonnull %69, ptr noundef nonnull %63) #16
+  br label %82
+
+82:                                               ; preds = %80, %77
+  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #18
+  %84 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %67, i64 noundef %83, i32 noundef %2, i64 noundef %3, i32 noundef %4)
+  %.not65 = icmp eq i32 %84, 0
+  br i1 %.not65, label %87, label %85
+
+85:                                               ; preds = %82
+  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull %67) #16
+  br label %.thread
+
+87:                                               ; preds = %82
+  call void @free(ptr noundef nonnull %67) #16
+  %88 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !55
+  %90 = load ptr, ptr %56, align 8, !tbaa !57
+  %.not64 = icmp eq ptr %89, %90
   br i1 %.not64, label %.thread, label %61
 
-.thread:                                          ; preds = %84, %50, %82, %68, %47, %20, %9
-  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 3, %82 ], [ 20, %68 ], [ 0, %50 ], [ 0, %84 ]
+.thread:                                          ; preds = %87, %50, %85, %70, %47, %20, %9
+  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 3, %85 ], [ 20, %70 ], [ 0, %50 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -1650,56 +1649,55 @@ define internal fastcc noundef range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %invariant.op = add i64 %1, 2
-  %invariant.op54 = add i64 %1, 1
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !55
   %36 = load ptr, ptr %33, align 8, !tbaa !57
-  %.not5256 = icmp eq ptr %35, %36
-  br i1 %.not5256, label %.critedge, label %.lr.ph
+  %.not5254 = icmp eq ptr %35, %36
+  br i1 %.not5254, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %38
 
-38:                                               ; preds = %.lr.ph, %53
-  %39 = phi ptr [ %35, %.lr.ph ], [ %57, %53 ]
+38:                                               ; preds = %.lr.ph, %56
+  %39 = phi ptr [ %35, %.lr.ph ], [ %60, %56 ]
   %40 = load ptr, ptr %39, align 8, !tbaa !58
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #18
-  %.reass = add i64 %41, %invariant.op
-  %42 = call noalias ptr @malloc(i64 noundef %.reass) #22
-  %.not53 = icmp eq ptr %42, null
-  br i1 %.not53, label %.critedge, label %43
+  %42 = add i64 %41, %1
+  %43 = add i64 %42, 2
+  %44 = call noalias ptr @malloc(i64 noundef %43) #22
+  %.not53 = icmp eq ptr %44, null
+  br i1 %.not53, label %.critedge, label %45
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %37, align 8, !tbaa !52
-  %45 = getelementptr i8, ptr %44, i64 %1
-  %46 = getelementptr i8, ptr %45, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !44
-  %48 = icmp eq i8 %47, 47
-  br i1 %48, label %49, label %51
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %37, align 8, !tbaa !52
+  %47 = getelementptr i8, ptr %46, i64 %1
+  %48 = getelementptr i8, ptr %47, i64 -1
+  %49 = load i8, ptr %48, align 1, !tbaa !44
+  %50 = icmp eq i8 %49, 47
+  br i1 %50, label %51, label %54
 
-49:                                               ; preds = %43
-  %.reass55 = add i64 %41, %invariant.op54
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass55, ptr noundef nonnull @.str.39, ptr noundef nonnull %44, ptr noundef nonnull %40) #16
-  br label %53
+51:                                               ; preds = %45
+  %52 = add i64 %42, 1
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %44, i64 noundef %52, ptr noundef nonnull @.str.39, ptr noundef nonnull %46, ptr noundef nonnull %40) #16
+  br label %56
 
-51:                                               ; preds = %43
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %42, i64 noundef %.reass, ptr noundef nonnull @.str.40, ptr noundef nonnull %44, ptr noundef nonnull %40) #16
-  br label %53
+54:                                               ; preds = %45
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %44, i64 noundef %43, ptr noundef nonnull @.str.40, ptr noundef nonnull %46, ptr noundef nonnull %40) #16
+  br label %56
 
-53:                                               ; preds = %51, %49
-  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #18
-  %55 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %42, i64 noundef %54, i32 noundef %2, i32 noundef %3)
-  call void @free(ptr noundef nonnull %42) #16
-  %56 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !55
-  %58 = load ptr, ptr %33, align 8, !tbaa !57
-  %.not52 = icmp eq ptr %57, %58
+56:                                               ; preds = %54, %51
+  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #18
+  %58 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %44, i64 noundef %57, i32 noundef %2, i32 noundef %3)
+  call void @free(ptr noundef nonnull %44) #16
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !55
+  %61 = load ptr, ptr %33, align 8, !tbaa !57
+  %.not52 = icmp eq ptr %60, %61
   br i1 %.not52, label %.critedge, label %38
 
-.critedge:                                        ; preds = %38, %53, %29, %24, %17, %4
-  %.1 = phi i32 [ 3, %4 ], [ 3, %17 ], [ 3, %24 ], [ 0, %29 ], [ 20, %38 ], [ 0, %53 ]
+.critedge:                                        ; preds = %38, %56, %29, %24, %17, %4
+  %.1 = phi i32 [ 3, %4 ], [ 3, %17 ], [ 3, %24 ], [ 0, %29 ], [ 20, %38 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

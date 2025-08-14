@@ -340,109 +340,101 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   br i1 %133, label %.critedge.i, label %.critedge2.preheader.i
 
 .lr.ph.i18:                                       ; preds = %127, %.lr.ph.i18
-  %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.lr.ph.i18 ], [ 0, %127 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i18 ], [ 2, %127 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i18 ], [ 0, %127 ]
   %134 = phi ptr [ %142, %.lr.ph.i18 ], [ %128, %127 ]
   %135 = getelementptr i8, ptr %134, i64 8
   %.val83.i = load ptr, ptr %135, align 8, !tbaa !34
-  %136 = getelementptr inbounds nuw i32, ptr %.val83.i, i64 %indvars.iv112.i
+  %136 = getelementptr inbounds nuw i32, ptr %.val83.i, i64 %indvars.iv.i
   %137 = load i32, ptr %136, align 4, !tbaa !67
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %139 = load float, ptr %138, align 4, !tbaa !67
-  %140 = getelementptr inbounds nuw i32, ptr %.val83.i, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %141 = load float, ptr %140, align 4, !tbaa !67
   tail call void @Abc_NtkTimeSetArrival(ptr noundef nonnull %.us-phi.i, i32 noundef %137, float noundef %139, float noundef %141) #14
-  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 3
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %142 = load ptr, ptr %23, align 8, !tbaa !35
   %143 = getelementptr i8, ptr %142, i64 4
   %.val.i = load i32, ptr %143, align 4, !tbaa !30
-  %144 = trunc i64 %indvars.iv112.i to i32
+  %144 = trunc i64 %indvars.iv.i to i32
   %145 = add i32 %144, 5
   %146 = icmp slt i32 %145, %.val.i
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 3
   br i1 %146, label %.lr.ph.i18, label %.critedge.preheader.i, !llvm.loop !68
 
 .critedge2.preheader.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %147 = load ptr, ptr %33, align 8, !tbaa !37
   %148 = getelementptr i8, ptr %147, i64 4
-  %.val81101.i = load i32, ptr %148, align 4, !tbaa !30
-  %149 = icmp sgt i32 %.val81101.i, 2
+  %.val81100.i = load i32, ptr %148, align 4, !tbaa !30
+  %149 = icmp sgt i32 %.val81100.i, 2
   br i1 %149, label %.critedge2.i, label %.critedge4.preheader.i
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
-  %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
-  %indvars.iv118.i = phi i64 [ %indvars.iv.next119.i, %.critedge.i ], [ 2, %.critedge.preheader.i ]
+  %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
   %150 = phi ptr [ %158, %.critedge.i ], [ %131, %.critedge.preheader.i ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val86.i = load ptr, ptr %151, align 8, !tbaa !34
-  %152 = getelementptr inbounds nuw i32, ptr %.val86.i, i64 %indvars.iv120.i
+  %152 = getelementptr inbounds nuw i32, ptr %.val86.i, i64 %indvars.iv110.i
   %153 = load i32, ptr %152, align 4, !tbaa !67
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %155 = load float, ptr %154, align 4, !tbaa !67
-  %156 = getelementptr inbounds nuw i32, ptr %.val86.i, i64 %indvars.iv118.i
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %157 = load float, ptr %156, align 4, !tbaa !67
   tail call void @Abc_NtkTimeSetRequired(ptr noundef nonnull %.us-phi.i, i32 noundef %153, float noundef %155, float noundef %157) #14
-  %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 3
+  %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 3
   %158 = load ptr, ptr %28, align 8, !tbaa !36
   %159 = getelementptr i8, ptr %158, i64 4
   %.val80.i = load i32, ptr %159, align 4, !tbaa !30
-  %160 = trunc i64 %indvars.iv120.i to i32
+  %160 = trunc i64 %indvars.iv110.i to i32
   %161 = add i32 %160, 5
   %162 = icmp slt i32 %161, %.val80.i
-  %indvars.iv.next119.i = add i64 %indvars.iv118.i, 3
   br i1 %162, label %.critedge.i, label %.critedge2.preheader.i, !llvm.loop !70
 
 .critedge4.preheader.i:                           ; preds = %.critedge2.i, %.critedge2.preheader.i
   %163 = load ptr, ptr %38, align 8, !tbaa !38
   %164 = getelementptr i8, ptr %163, i64 4
-  %.val82105.i = load i32, ptr %164, align 4, !tbaa !30
-  %165 = icmp sgt i32 %.val82105.i, 2
+  %.val82103.i = load i32, ptr %164, align 4, !tbaa !30
+  %165 = icmp sgt i32 %.val82103.i, 2
   br i1 %165, label %.critedge4.i, label %Io_ReadBlifCreateTiming.exit
 
 .critedge2.i:                                     ; preds = %.critedge2.preheader.i, %.critedge2.i
-  %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.critedge2.i ], [ 0, %.critedge2.preheader.i ]
-  %indvars.iv126.i = phi i64 [ %indvars.iv.next127.i, %.critedge2.i ], [ 2, %.critedge2.preheader.i ]
+  %indvars.iv113.i = phi i64 [ %indvars.iv.next114.i, %.critedge2.i ], [ 0, %.critedge2.preheader.i ]
   %166 = phi ptr [ %174, %.critedge2.i ], [ %147, %.critedge2.preheader.i ]
   %167 = getelementptr i8, ptr %166, i64 8
   %.val89.i = load ptr, ptr %167, align 8, !tbaa !34
-  %168 = getelementptr inbounds nuw i32, ptr %.val89.i, i64 %indvars.iv128.i
+  %168 = getelementptr inbounds nuw i32, ptr %.val89.i, i64 %indvars.iv113.i
   %169 = load i32, ptr %168, align 4, !tbaa !67
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load float, ptr %170, align 4, !tbaa !67
-  %172 = getelementptr inbounds nuw i32, ptr %.val89.i, i64 %indvars.iv126.i
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %173 = load float, ptr %172, align 4, !tbaa !67
   tail call void @Abc_NtkTimeSetInputDrive(ptr noundef nonnull %.us-phi.i, i32 noundef %169, float noundef %171, float noundef %173) #14
-  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 3
+  %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 3
   %174 = load ptr, ptr %33, align 8, !tbaa !37
   %175 = getelementptr i8, ptr %174, i64 4
   %.val81.i = load i32, ptr %175, align 4, !tbaa !30
-  %176 = trunc i64 %indvars.iv128.i to i32
+  %176 = trunc i64 %indvars.iv113.i to i32
   %177 = add i32 %176, 5
   %178 = icmp slt i32 %177, %.val81.i
-  %indvars.iv.next127.i = add i64 %indvars.iv126.i, 3
   br i1 %178, label %.critedge2.i, label %.critedge4.preheader.i, !llvm.loop !71
 
 .critedge4.i:                                     ; preds = %.critedge4.preheader.i, %.critedge4.i
-  %indvars.iv136.i = phi i64 [ %indvars.iv.next137.i, %.critedge4.i ], [ 0, %.critedge4.preheader.i ]
-  %indvars.iv134.i = phi i64 [ %indvars.iv.next135.i, %.critedge4.i ], [ 2, %.critedge4.preheader.i ]
+  %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %.critedge4.i ], [ 0, %.critedge4.preheader.i ]
   %179 = phi ptr [ %187, %.critedge4.i ], [ %163, %.critedge4.preheader.i ]
   %180 = getelementptr i8, ptr %179, i64 8
   %.val92.i = load ptr, ptr %180, align 8, !tbaa !34
-  %181 = getelementptr inbounds nuw i32, ptr %.val92.i, i64 %indvars.iv136.i
+  %181 = getelementptr inbounds nuw i32, ptr %.val92.i, i64 %indvars.iv116.i
   %182 = load i32, ptr %181, align 4, !tbaa !67
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %184 = load float, ptr %183, align 4, !tbaa !67
-  %185 = getelementptr inbounds nuw i32, ptr %.val92.i, i64 %indvars.iv134.i
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %186 = load float, ptr %185, align 4, !tbaa !67
   tail call void @Abc_NtkTimeSetOutputLoad(ptr noundef nonnull %.us-phi.i, i32 noundef %182, float noundef %184, float noundef %186) #14
-  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 3
+  %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 3
   %187 = load ptr, ptr %38, align 8, !tbaa !38
   %188 = getelementptr i8, ptr %187, i64 4
   %.val82.i = load i32, ptr %188, align 4, !tbaa !30
-  %189 = trunc i64 %indvars.iv136.i to i32
+  %189 = trunc i64 %indvars.iv116.i to i32
   %190 = add i32 %189, 5
   %191 = icmp slt i32 %190, %.val82.i
-  %indvars.iv.next135.i = add i64 %indvars.iv134.i, 3
   br i1 %191, label %.critedge4.i, label %Io_ReadBlifCreateTiming.exit, !llvm.loop !72
 
 Io_ReadBlifCreateTiming.exit:                     ; preds = %.critedge4.i, %.critedge4.preheader.i

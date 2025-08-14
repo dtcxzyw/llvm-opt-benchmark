@@ -18996,15 +18996,15 @@ yield_indexed_values.exit.i:                      ; preds = %113, %110
   %122 = load i64, ptr %121, align 8, !tbaa !13
   %123 = add i64 %122, 1
   store i64 %123, ptr %121, align 8, !tbaa !13
-  %.reass.i = add i64 %122, %58
-  %124 = add nuw i64 %.2.i, %.0.i28
-  %125 = icmp eq i64 %.reass.i, %124
-  br i1 %125, label %.preheader.i, label %.loopexit.i, !llvm.loop !150
+  %124 = add i64 %123, %.0.i
+  %125 = add nuw i64 %.2.i, %.0.i28
+  %126 = icmp eq i64 %124, %125
+  br i1 %126, label %.preheader.i, label %.loopexit.i, !llvm.loop !150
 
 combinate0.exit:                                  ; preds = %.preheader.i
   call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #24
-  %126 = load i64, ptr @rb_cArray, align 8, !tbaa !13
-  store i64 %126, ptr %70, align 8, !tbaa !13
+  %127 = load i64, ptr @rb_cArray, align 8, !tbaa !13
+  store i64 %127, ptr %70, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 

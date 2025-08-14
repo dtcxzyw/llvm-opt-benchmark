@@ -1190,15 +1190,15 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   br i1 %8, label %.loopexit, label %43
 
 ._crit_edge.thread:                               ; preds = %12
-  br i1 %8, label %.lr.ph137, label %43
+  br i1 %8, label %.lr.ph130, label %43
 
-.lr.ph137:                                        ; preds = %._crit_edge.thread
+.lr.ph130:                                        ; preds = %._crit_edge.thread
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %26
 
-26:                                               ; preds = %.lr.ph137, %26
-  %27 = phi i64 [ 0, %.lr.ph137 ], [ %41, %26 ]
-  %.1136 = phi i32 [ 0, %.lr.ph137 ], [ %40, %26 ]
+26:                                               ; preds = %.lr.ph130, %26
+  %27 = phi i64 [ 0, %.lr.ph130 ], [ %41, %26 ]
+  %.1129 = phi i32 [ 0, %.lr.ph130 ], [ %40, %26 ]
   %28 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = mul nsw i32 %29, %3
@@ -1213,7 +1213,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %38 = load i32, ptr %25, align 4, !tbaa !14
   %39 = add nsw i32 %37, %38
   store i32 %39, ptr %34, align 4, !tbaa !14
-  %40 = add i32 %.1136, 1
+  %40 = add i32 %.1129, 1
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ugt i64 %1, %41
   br i1 %42, label %26, label %.loopexit, !llvm.loop !17
@@ -1249,18 +1249,16 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %68 = ashr i32 %67, 5
   %factor.op.mul = mul i32 %63, %4
   %factor.op.mul123 = mul i32 %68, %4
-  %invariant.op = mul i32 %3, %68
-  %factor.op.mul128 = mul i32 %3, %63
-  br i1 %.not, label %.loopexit, label %.lr.ph134
+  br i1 %.not, label %.loopexit, label %.lr.ph127
 
-.lr.ph134:                                        ; preds = %43
+.lr.ph127:                                        ; preds = %43
   %or.cond5 = and i1 %9, %10
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  br i1 %or.cond5, label %.lr.ph134.split.us, label %.lr.ph134.split
+  br i1 %or.cond5, label %.lr.ph127.split.us, label %.lr.ph127.split
 
-.lr.ph134.split.us:                               ; preds = %.lr.ph134, %.lr.ph134.split.us
-  %70 = phi i64 [ %88, %.lr.ph134.split.us ], [ 0, %.lr.ph134 ]
-  %.2132.us = phi i32 [ %87, %.lr.ph134.split.us ], [ 0, %.lr.ph134 ]
+.lr.ph127.split.us:                               ; preds = %.lr.ph127, %.lr.ph127.split.us
+  %70 = phi i64 [ %88, %.lr.ph127.split.us ], [ 0, %.lr.ph127 ]
+  %.2125.us = phi i32 [ %87, %.lr.ph127.split.us ], [ 0, %.lr.ph127 ]
   %71 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !12
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -1279,68 +1277,70 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %85 = load i32, ptr %69, align 4, !tbaa !14
   %86 = add nsw i32 %85, %84
   store i32 %86, ptr %73, align 4, !tbaa !14
-  %87 = add i32 %.2132.us, 1
+  %87 = add i32 %.2125.us, 1
   %88 = zext i32 %87 to i64
   %89 = icmp samesign ugt i64 %1, %88
-  br i1 %89, label %.lr.ph134.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %89, label %.lr.ph127.split.us, label %.loopexit, !llvm.loop !18
 
-.lr.ph134.split:                                  ; preds = %.lr.ph134
-  br i1 %6, label %.lr.ph134.split.split.us, label %.lr.ph134.split.split
+.lr.ph127.split:                                  ; preds = %.lr.ph127
+  br i1 %6, label %.lr.ph127.split.split.us, label %.lr.ph127.split.split
 
-.lr.ph134.split.split.us:                         ; preds = %.lr.ph134.split, %.lr.ph134.split.split.us
-  %90 = phi i64 [ %104, %.lr.ph134.split.split.us ], [ 0, %.lr.ph134.split ]
-  %.2132.us135 = phi i32 [ %103, %.lr.ph134.split.split.us ], [ 0, %.lr.ph134.split ]
+.lr.ph127.split.split.us:                         ; preds = %.lr.ph127.split, %.lr.ph127.split.split.us
+  %90 = phi i64 [ %110, %.lr.ph127.split.split.us ], [ 0, %.lr.ph127.split ]
+  %.2125.us128 = phi i32 [ %109, %.lr.ph127.split.split.us ], [ 0, %.lr.ph127.split ]
   %91 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !14
-  %.reass129.us = mul i32 %92, %factor.op.mul128
-  %.reass131.us = mul i32 %94, %factor.op.mul123
-  %.reass125.us = mul i32 %92, %invariant.op
-  %.reass127.us = mul i32 %94, %factor.op.mul
-  %95 = sub nsw i32 %.reass125.us, %.reass127.us
-  %96 = ashr i32 %95, 18
-  %97 = load i32, ptr %5, align 4, !tbaa !12
-  %98 = add nsw i32 %97, %96
-  store i32 %98, ptr %91, align 4, !tbaa !12
-  %99 = add nsw i32 %.reass131.us, %.reass129.us
+  %95 = mul nsw i32 %92, %3
+  %96 = mul nsw i32 %94, %4
+  %97 = mul nsw i32 %95, %68
+  %98 = mul nsw i32 %96, %63
+  %99 = sub nsw i32 %97, %98
   %100 = ashr i32 %99, 18
-  %101 = load i32, ptr %69, align 4, !tbaa !14
+  %101 = load i32, ptr %5, align 4, !tbaa !12
   %102 = add nsw i32 %101, %100
-  store i32 %102, ptr %93, align 4, !tbaa !14
-  %103 = add i32 %.2132.us135, 1
-  %104 = zext i32 %103 to i64
-  %105 = icmp samesign ugt i64 %1, %104
-  br i1 %105, label %.lr.ph134.split.split.us, label %.loopexit, !llvm.loop !20
+  store i32 %102, ptr %91, align 4, !tbaa !12
+  %103 = mul nsw i32 %95, %63
+  %104 = mul nsw i32 %96, %68
+  %105 = add nsw i32 %104, %103
+  %106 = ashr i32 %105, 18
+  %107 = load i32, ptr %69, align 4, !tbaa !14
+  %108 = add nsw i32 %107, %106
+  store i32 %108, ptr %93, align 4, !tbaa !14
+  %109 = add i32 %.2125.us128, 1
+  %110 = zext i32 %109 to i64
+  %111 = icmp samesign ugt i64 %1, %110
+  br i1 %111, label %.lr.ph127.split.split.us, label %.loopexit, !llvm.loop !20
 
-.lr.ph134.split.split:                            ; preds = %.lr.ph134.split, %.lr.ph134.split.split
-  %106 = phi i64 [ %123, %.lr.ph134.split.split ], [ 0, %.lr.ph134.split ]
-  %.2132 = phi i32 [ %122, %.lr.ph134.split.split ], [ 0, %.lr.ph134.split ]
-  %107 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !12
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %110 = load i32, ptr %109, align 4, !tbaa !14
-  %111 = mul nsw i32 %108, %68
-  %112 = mul nsw i32 %110, %63
-  %113 = sub nsw i32 %111, %112
-  %114 = mul nsw i32 %113, %3
-  %115 = ashr i32 %114, 18
-  %116 = load i32, ptr %5, align 4, !tbaa !12
-  %117 = add nsw i32 %116, %115
-  store i32 %117, ptr %107, align 4, !tbaa !12
-  %.reass = mul i32 %108, %factor.op.mul
-  %.reass124 = mul i32 %110, %factor.op.mul123
-  %118 = add i32 %.reass124, %.reass
-  %119 = ashr i32 %118, 18
-  %120 = load i32, ptr %69, align 4, !tbaa !14
-  %121 = add nsw i32 %120, %119
-  store i32 %121, ptr %109, align 4, !tbaa !14
-  %122 = add i32 %.2132, 1
-  %123 = zext i32 %122 to i64
-  %124 = icmp samesign ugt i64 %1, %123
-  br i1 %124, label %.lr.ph134.split.split, label %.loopexit, !llvm.loop !21
+.lr.ph127.split.split:                            ; preds = %.lr.ph127.split, %.lr.ph127.split.split
+  %112 = phi i64 [ %129, %.lr.ph127.split.split ], [ 0, %.lr.ph127.split ]
+  %.2125 = phi i32 [ %128, %.lr.ph127.split.split ], [ 0, %.lr.ph127.split ]
+  %113 = getelementptr inbounds nuw %struct.lv_point_t, ptr %0, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !12
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  %116 = load i32, ptr %115, align 4, !tbaa !14
+  %117 = mul nsw i32 %114, %68
+  %118 = mul nsw i32 %116, %63
+  %119 = sub nsw i32 %117, %118
+  %120 = mul nsw i32 %119, %3
+  %121 = ashr i32 %120, 18
+  %122 = load i32, ptr %5, align 4, !tbaa !12
+  %123 = add nsw i32 %122, %121
+  store i32 %123, ptr %113, align 4, !tbaa !12
+  %.reass = mul i32 %114, %factor.op.mul
+  %.reass124 = mul i32 %116, %factor.op.mul123
+  %124 = add i32 %.reass124, %.reass
+  %125 = ashr i32 %124, 18
+  %126 = load i32, ptr %69, align 4, !tbaa !14
+  %127 = add nsw i32 %126, %125
+  store i32 %127, ptr %115, align 4, !tbaa !14
+  %128 = add i32 %.2125, 1
+  %129 = zext i32 %128 to i64
+  %130 = icmp samesign ugt i64 %1, %129
+  br i1 %130, label %.lr.ph127.split.split, label %.loopexit, !llvm.loop !21
 
-.loopexit:                                        ; preds = %26, %.lr.ph134.split.split, %.lr.ph134.split.split.us, %.lr.ph134.split.us, %._crit_edge, %43, %7
+.loopexit:                                        ; preds = %26, %.lr.ph127.split.split, %.lr.ph127.split.split.us, %.lr.ph127.split.us, %._crit_edge, %43, %7
   ret void
 }
 

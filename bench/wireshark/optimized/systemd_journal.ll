@@ -187,18 +187,18 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %12
 
-12:                                               ; preds = %65, %4
-  %.062118 = phi i64 [ 0, %4 ], [ %.365, %65 ]
-  %.066117 = phi i32 [ 0, %4 ], [ %68, %65 ]
-  %.068116 = phi i8 [ 0, %4 ], [ %.270, %65 ]
-  %.071115 = phi i8 [ 0, %4 ], [ %.374, %65 ]
-  %.075114 = phi i8 [ 0, %4 ], [ %.277, %65 ]
+12:                                               ; preds = %66, %4
+  %.062118 = phi i64 [ 0, %4 ], [ %.365, %66 ]
+  %.066117 = phi i32 [ 0, %4 ], [ %69, %66 ]
+  %.068116 = phi i8 [ 0, %4 ], [ %.270, %66 ]
+  %.071115 = phi i8 [ 0, %4 ], [ %.374, %66 ]
+  %.075114 = phi i8 [ 0, %4 ], [ %.277, %66 ]
   %13 = getelementptr i8, ptr %8, i64 %.062118
   %14 = trunc nsw i64 %.062118 to i32
   %15 = sub nsw i32 262144, %14
   %16 = call ptr @file_gets(ptr noundef %13, i32 noundef %15, ptr noundef %0)
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %69, label %17
+  br i1 %.not, label %70, label %17
 
 17:                                               ; preds = %12
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
@@ -210,7 +210,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 22:                                               ; preds = %17
   %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str, i64 noundef 9) #10
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %65, label %25
+  br i1 %24, label %66, label %25
 
 25:                                               ; preds = %22
   %26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(22) @.str.1, i64 noundef 21) #10
@@ -224,7 +224,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #11
   %32 = load i32, ptr %29, align 4
   %.not83 = icmp eq i32 %32, 0
-  br i1 %.not83, label %33, label %65
+  br i1 %.not83, label %33, label %66
 
 33:                                               ; preds = %28
   %34 = sdiv i64 %31, 1000000
@@ -234,17 +234,17 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %37 = mul nuw nsw i32 %36, 1000
   store i32 %37, ptr %10, align 8
   store i32 6, ptr %11, align 8
-  br label %65
+  br label %66
 
 38:                                               ; preds = %25
   %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(23) @.str.2, i64 noundef 22) #10
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %65, label %41
+  br i1 %40, label %66, label %41
 
 41:                                               ; preds = %38
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 61)
   %.not81 = icmp eq ptr %strchr, null
-  br i1 %.not81, label %42, label %65
+  br i1 %.not81, label %42, label %66
 
 42:                                               ; preds = %41
   %43 = icmp ugt i64 %19, 262135
@@ -254,7 +254,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   store i32 -13, ptr %2, align 4
   %45 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5)
   store ptr %45, ptr %3, align 8
-  br label %83
+  br label %84
 
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -289,67 +289,67 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %58
-  %.reass = add nuw nsw i64 %19, 9
-  %64 = add nuw nsw i64 %.reass, %51
+  %64 = add nuw nsw i64 %19, 9
+  %65 = add nuw nsw i64 %64, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %65
+  br label %66
 
-65:                                               ; preds = %63, %38, %28, %33, %22, %41
+66:                                               ; preds = %63, %38, %28, %33, %22, %41
   %.277 = phi i8 [ %.075114, %41 ], [ %.075114, %63 ], [ 1, %22 ], [ %.075114, %33 ], [ %.075114, %28 ], [ %.075114, %38 ]
   %.374 = phi i8 [ %.071115, %41 ], [ %.071115, %63 ], [ %.071115, %22 ], [ 1, %33 ], [ %.071115, %28 ], [ %.071115, %38 ]
   %.270 = phi i8 [ %.068116, %41 ], [ %.068116, %63 ], [ %.068116, %22 ], [ %.068116, %33 ], [ %.068116, %28 ], [ 1, %38 ]
-  %.365 = phi i64 [ %19, %41 ], [ %64, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
-  %66 = add i64 %.365, -262143
-  %67 = icmp ult i64 %66, -262145
-  %68 = add nuw nsw i32 %.066117, 1
-  %exitcond.not = icmp eq i32 %68, 100
-  %or.cond149 = select i1 %67, i1 true, i1 %exitcond.not
-  br i1 %or.cond149, label %69, label %12, !llvm.loop !8
+  %.365 = phi i64 [ %19, %41 ], [ %65, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
+  %67 = add i64 %.365, -262143
+  %68 = icmp ult i64 %67, -262145
+  %69 = add nuw nsw i32 %.066117, 1
+  %exitcond.not = icmp eq i32 %69, 100
+  %or.cond149 = select i1 %68, i1 true, i1 %exitcond.not
+  br i1 %or.cond149, label %70, label %12, !llvm.loop !8
 
-69:                                               ; preds = %65, %12
-  %.176 = phi i8 [ %.277, %65 ], [ %.075114, %12 ]
-  %.172 = phi i8 [ %.374, %65 ], [ %.071115, %12 ]
-  %.169 = phi i8 [ %.270, %65 ], [ %.068116, %12 ]
-  %.163 = phi i64 [ %.365, %65 ], [ %.062118, %12 ]
-  %70 = trunc nuw i8 %.176 to i1
-  %71 = trunc nuw i8 %.172 to i1
-  %or.cond = select i1 %70, i1 %71, i1 false
-  %72 = trunc nuw i8 %.169 to i1
-  %or.cond3 = select i1 %or.cond, i1 %72, i1 false
-  br i1 %or.cond3, label %76, label %83
+70:                                               ; preds = %66, %12
+  %.176 = phi i8 [ %.277, %66 ], [ %.075114, %12 ]
+  %.172 = phi i8 [ %.374, %66 ], [ %.071115, %12 ]
+  %.169 = phi i8 [ %.270, %66 ], [ %.068116, %12 ]
+  %.163 = phi i64 [ %.365, %66 ], [ %.062118, %12 ]
+  %71 = trunc nuw i8 %.176 to i1
+  %72 = trunc nuw i8 %.172 to i1
+  %or.cond = select i1 %71, i1 %72, i1 false
+  %73 = trunc nuw i8 %.169 to i1
+  %or.cond3 = select i1 %or.cond, i1 %73, i1 false
+  br i1 %or.cond3, label %77, label %84
 
 .thread:                                          ; preds = %17
-  %73 = trunc nuw i8 %.075114 to i1
-  %74 = trunc nuw i8 %.071115 to i1
-  %or.cond91 = select i1 %73, i1 %74, i1 false
-  %75 = trunc nuw i8 %.068116 to i1
-  %or.cond392 = select i1 %or.cond91, i1 %75, i1 false
-  br i1 %or.cond392, label %.thread95, label %83
+  %74 = trunc nuw i8 %.075114 to i1
+  %75 = trunc nuw i8 %.071115 to i1
+  %or.cond91 = select i1 %74, i1 %75, i1 false
+  %76 = trunc nuw i8 %.068116 to i1
+  %or.cond392 = select i1 %or.cond91, i1 %76, i1 false
+  br i1 %or.cond392, label %.thread95, label %84
 
-76:                                               ; preds = %69
-  %77 = call i32 @file_eof(ptr noundef %0)
-  %.not84 = icmp eq i32 %77, 0
-  br i1 %.not84, label %83, label %.thread95
+77:                                               ; preds = %70
+  %78 = call i32 @file_eof(ptr noundef %0)
+  %.not84 = icmp eq i32 %78, 0
+  br i1 %.not84, label %84, label %.thread95
 
-.thread95:                                        ; preds = %.thread, %76
-  %.1639498 = phi i64 [ %.163, %76 ], [ %19, %.thread ]
+.thread95:                                        ; preds = %.thread, %77
+  %.1639498 = phi i64 [ %.163, %77 ], [ %19, %.thread ]
   store i32 4, ptr %1, align 8
-  %78 = call ptr @wtap_block_create(i32 noundef 10)
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 3, ptr %80, align 4
-  %81 = trunc i64 %.1639498 to i32
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 %81, ptr %82, align 8
-  br label %83
+  %79 = call ptr @wtap_block_create(i32 noundef 10)
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 3, ptr %81, align 4
+  %82 = trunc i64 %.1639498 to i32
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i32 %82, ptr %83, align 8
+  br label %84
 
 .critedge:                                        ; preds = %58, %46, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %83
+  br label %84
 
-83:                                               ; preds = %.thread, %76, %69, %.critedge, %.thread95, %44
-  %.1 = phi i1 [ true, %.thread95 ], [ false, %44 ], [ false, %.critedge ], [ false, %69 ], [ false, %76 ], [ false, %.thread ]
+84:                                               ; preds = %.thread, %77, %70, %.critedge, %.thread95, %44
+  %.1 = phi i1 [ true, %.thread95 ], [ false, %44 ], [ false, %.critedge ], [ false, %70 ], [ false, %77 ], [ false, %.thread ]
   ret i1 %.1
 }
 

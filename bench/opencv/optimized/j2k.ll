@@ -7080,37 +7080,37 @@ define hidden ptr @j2k_get_cstr_info(ptr noundef readonly captures(none) %0) loc
   %89 = load i32, ptr %56, align 4, !tbaa !132
   %90 = mul nsw i32 %89, 3
   %91 = add nsw i32 %90, -2
-  %.reass = add i32 %90, -3
-  %or.cond = icmp ult i32 %.reass, 96
+  %92 = add i32 %90, -3
+  %or.cond = icmp ult i32 %92, 96
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %80, %88
-  %92 = phi i32 [ %91, %88 ], [ 1, %80 ]
-  %93 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %94 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %95 = getelementptr inbounds nuw i8, ptr %53, i64 420
-  %wide.trip.count = zext nneg i32 %92 to i64
-  br label %96
+  %93 = phi i32 [ %91, %88 ], [ 1, %80 ]
+  %94 = getelementptr inbounds nuw i8, ptr %51, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %53, i64 420
+  %wide.trip.count = zext nneg i32 %93 to i64
+  br label %97
 
-96:                                               ; preds = %.lr.ph, %96
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %97 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %93, i64 0, i64 %indvars.iv
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !288
-  %100 = getelementptr inbounds nuw [97 x i32], ptr %94, i64 0, i64 %indvars.iv
-  store i32 %99, ptr %100, align 4, !tbaa !125
-  %101 = load i32, ptr %97, align 4, !tbaa !290
-  %102 = getelementptr inbounds nuw [97 x i32], ptr %95, i64 0, i64 %indvars.iv
-  store i32 %101, ptr %102, align 4, !tbaa !125
+97:                                               ; preds = %.lr.ph, %97
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
+  %98 = getelementptr inbounds nuw [97 x %struct.opj_stepsize], ptr %94, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !288
+  %101 = getelementptr inbounds nuw [97 x i32], ptr %95, i64 0, i64 %indvars.iv
+  store i32 %100, ptr %101, align 4, !tbaa !125
+  %102 = load i32, ptr %98, align 4, !tbaa !290
+  %103 = getelementptr inbounds nuw [97 x i32], ptr %96, i64 0, i64 %indvars.iv
+  store i32 %102, ptr %103, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !321
+  br i1 %exitcond.not, label %.loopexit, label %97, !llvm.loop !321
 
-.loopexit:                                        ; preds = %96, %88
-  %103 = getelementptr inbounds nuw i8, ptr %51, i64 808
-  %104 = load i32, ptr %103, align 4, !tbaa !143
-  %105 = getelementptr inbounds nuw i8, ptr %53, i64 812
-  store i32 %104, ptr %105, align 4, !tbaa !322
+.loopexit:                                        ; preds = %97, %88
+  %104 = getelementptr inbounds nuw i8, ptr %51, i64 808
+  %105 = load i32, ptr %104, align 4, !tbaa !143
+  %106 = getelementptr inbounds nuw i8, ptr %53, i64 812
+  store i32 %105, ptr %106, align 4, !tbaa !322
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge, label %49, !llvm.loop !323

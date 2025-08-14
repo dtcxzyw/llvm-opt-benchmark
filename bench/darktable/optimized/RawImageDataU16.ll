@@ -599,24 +599,23 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   br i1 %66, label %.preheader.lr.ph.split.us, label %._crit_edge54
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %invariant.op = add nuw nsw i32 %47, 250
   tail call void @llvm.assume(i1 %67)
   %68 = zext nneg i32 %50 to i64
-  %69 = zext nneg i32 %invariant.op to i64
+  %69 = zext nneg i32 %47 to i64
   %70 = zext nneg i32 %30 to i64
   %71 = zext nneg i32 %49 to i64
   %72 = zext nneg i32 %32 to i64
   %73 = zext nneg i32 %35 to i64
   %74 = zext nneg i32 %36 to i64
-  %wide.trip.count64 = zext nneg i32 %64 to i64
+  %wide.trip.count63 = zext nneg i32 %64 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us ], [ 250, %.preheader.lr.ph.split.us ]
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %._crit_edge.us ], [ 250, %.preheader.lr.ph.split.us ]
   %.03252.us = phi i32 [ %.sroa.speculated19.us, %._crit_edge.us ], [ 65536, %.preheader.lr.ph.split.us ]
   %.03351.us = phi i32 [ %.sroa.speculated.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %75 = add nuw nsw i64 %indvars.iv61, %71
+  %75 = add nuw nsw i64 %indvars.iv60, %71
   %76 = icmp samesign ult i64 %75, %72
   tail call void @llvm.assume(i1 %76)
   %77 = mul nuw nsw i64 %75, %73
@@ -633,7 +632,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %82 = add nuw nsw i64 %indvars.iv, 250
   %83 = icmp samesign ult i64 %82, %68
   tail call void @llvm.assume(i1 %83)
-  %84 = add nuw nsw i64 %indvars.iv, %69
+  %84 = add nuw nsw i64 %82, %69
   %85 = icmp samesign ule i64 %84, %70
   tail call void @llvm.assume(i1 %85)
   %86 = getelementptr inbounds nuw i16, ptr %80, i64 %84
@@ -646,9 +645,9 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   br i1 %exitcond.not, label %._crit_edge.us, label %81, !llvm.loop !128
 
 ._crit_edge.us:                                   ; preds = %81
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge54.loopexit, label %.preheader.us, !llvm.loop !129
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
+  br i1 %exitcond64.not, label %._crit_edge54.loopexit, label %.preheader.us, !llvm.loop !129
 
 ._crit_edge54.loopexit:                           ; preds = %._crit_edge.us
   %89 = zext nneg i32 %.sroa.speculated.us to i64
@@ -687,9 +686,9 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %104 = load i32, ptr %103, align 8, !tbaa !130
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 4096, ptr noundef nonnull @.str.2, i32 noundef %104, i32 noundef %96, i32 noundef %102)
-  %.pre66 = load ptr, ptr %8, align 8, !tbaa !103
-  %.pre67 = load ptr, ptr %10, align 8, !tbaa !103
-  %105 = icmp eq ptr %.pre66, %.pre67
+  %.pre65 = load ptr, ptr %8, align 8, !tbaa !103
+  %.pre66 = load ptr, ptr %10, align 8, !tbaa !103
+  %105 = icmp eq ptr %.pre65, %.pre66
   br label %106
 
 106:                                              ; preds = %13, %101

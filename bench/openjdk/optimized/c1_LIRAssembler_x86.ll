@@ -803,7 +803,6 @@ _ZNK10ValueStack10locks_sizeEv.exit:              ; preds = %_ZNK8BlockEnd13numb
   %70 = shl i32 %38, 4
   %71 = add i32 %70, -16
   %72 = add nsw i32 %71, %69
-  %invariant.op = add i32 %72, 8
   %73 = icmp sgt i32 %38, 0
   br i1 %73, label %.lr.ph, label %._crit_edge
 
@@ -827,44 +826,44 @@ _ZNK10ValueStack10locks_sizeEv.exit:              ; preds = %_ZNK8BlockEnd13numb
   br label %90
 
 90:                                               ; preds = %.lr.ph, %90
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %100, %90 ]
-  %.neg20 = mul i32 %.019, -16
-  %91 = add i32 %72, %.neg20
-  %92 = load ptr, ptr %0, align 8
+  %.019 = phi i32 [ 0, %.lr.ph ], [ %102, %90 ]
+  %91 = shl i32 %.019, 4
+  %92 = sub i32 %72, %91
+  %93 = load ptr, ptr %0, align 8
   store i32 %63, ptr %3, align 8
   store i32 -1, ptr %74, align 4
   store i32 -1, ptr %75, align 8
   store i32 -1, ptr %76, align 4
-  store i32 %91, ptr %77, align 8
+  store i32 %92, ptr %77, align 8
   store i8 0, ptr %78, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   store ptr null, ptr %80, align 8
   store i32 0, ptr %81, align 8
-  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 3, ptr noundef nonnull %3) #15
-  %93 = load ptr, ptr %0, align 8
-  %94 = load ptr, ptr %40, align 8
-  %95 = call noundef i32 @_ZNK8FrameMap26sp_offset_for_monitor_lockEi(ptr noundef nonnull align 8 dereferenceable(40) %94, i32 noundef %.019) #15, !noalias !13
-  call void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %94, i32 noundef %95) #15
-  call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull %4, i32 3) #15
-  %96 = load ptr, ptr %0, align 8
-  %.reass = add i32 %.neg20, %invariant.op
+  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 3, ptr noundef nonnull %3) #15
+  %94 = load ptr, ptr %0, align 8
+  %95 = load ptr, ptr %40, align 8
+  %96 = call noundef i32 @_ZNK8FrameMap26sp_offset_for_monitor_lockEi(ptr noundef nonnull align 8 dereferenceable(40) %95, i32 noundef %.019) #15, !noalias !13
+  call void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %95, i32 noundef %96) #15
+  call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull %4, i32 3) #15
+  %97 = load ptr, ptr %0, align 8
+  %98 = add nsw i32 %92, 8
   store i32 %63, ptr %5, align 8
   store i32 -1, ptr %82, align 4
   store i32 -1, ptr %83, align 8
   store i32 -1, ptr %84, align 4
-  store i32 %.reass, ptr %85, align 8
+  store i32 %98, ptr %85, align 8
   store i8 0, ptr %86, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
   store ptr null, ptr %88, align 8
   store i32 0, ptr %89, align 8
-  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %96, i32 3, ptr noundef nonnull %5) #15
-  %97 = load ptr, ptr %0, align 8
-  %98 = load ptr, ptr %40, align 8
-  %99 = call noundef i32 @_ZNK8FrameMap28sp_offset_for_monitor_objectEi(ptr noundef nonnull align 8 dereferenceable(40) %98, i32 noundef %.019) #15, !noalias !16
-  call void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %98, i32 noundef %99) #15
-  call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef nonnull %6, i32 3) #15
-  %100 = add nuw nsw i32 %.019, 1
-  %exitcond.not = icmp eq i32 %100, %38
+  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %97, i32 3, ptr noundef nonnull %5) #15
+  %99 = load ptr, ptr %0, align 8
+  %100 = load ptr, ptr %40, align 8
+  %101 = call noundef i32 @_ZNK8FrameMap28sp_offset_for_monitor_objectEi(ptr noundef nonnull align 8 dereferenceable(40) %100, i32 noundef %.019) #15, !noalias !16
+  call void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %100, i32 noundef %101) #15
+  call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull %6, i32 3) #15
+  %102 = add nuw nsw i32 %.019, 1
+  %exitcond.not = icmp eq i32 %102, %38
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %90, %_ZNK10ValueStack10locks_sizeEv.exit

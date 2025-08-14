@@ -5227,16 +5227,15 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit234, %142,
   tail call void @free(ptr noundef nonnull %12) #26
   br label %.loopexit
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %202
-  %.032.i = phi i64 [ %206, %202 ], [ 4294967295, %.preheader.i.preheader ]
-  %.02831.i = phi i32 [ %203, %202 ], [ 32, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %203
+  %.032.i = phi i64 [ %207, %203 ], [ 4294967295, %.preheader.i.preheader ]
+  %.02831.i = phi i32 [ %204, %203 ], [ 32, %.preheader.i.preheader ]
   %184 = zext nneg i32 %.02831.i to i64
-  %invariant.op.i = add nuw nsw i32 %.02831.i, 1
   %185 = xor i32 %.02831.i, -1
   br label %186
 
 186:                                              ; preds = %186, %.preheader.i
-  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %200, %186 ]
+  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %201, %186 ]
   %187 = sext i32 %.02930.i to i64
   %188 = getelementptr inbounds i64, ptr %3, i64 %187
   %189 = load i64, ptr %188, align 8, !tbaa !106
@@ -5252,33 +5251,33 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.loopexit234, %142,
   %198 = shl i64 %196, %184
   %199 = xor i64 %198, %193
   store i64 %199, ptr %192, align 8, !tbaa !106
-  %.reass.i = add i32 %invariant.op.i, %.02930.i
-  %200 = and i32 %.reass.i, %185
-  %201 = icmp slt i32 %200, 64
-  br i1 %201, label %186, label %202, !llvm.loop !111
+  %200 = add nsw i32 %190, 1
+  %201 = and i32 %200, %185
+  %202 = icmp slt i32 %201, 64
+  br i1 %202, label %186, label %203, !llvm.loop !111
 
-202:                                              ; preds = %186
-  %203 = lshr i32 %.02831.i, 1
-  %204 = zext nneg i32 %203 to i64
-  %205 = shl i64 %.032.i, %204
-  %206 = xor i64 %205, %.032.i
+203:                                              ; preds = %186
+  %204 = lshr i32 %.02831.i, 1
+  %205 = zext nneg i32 %204 to i64
+  %206 = shl i64 %.032.i, %205
+  %207 = xor i64 %206, %.032.i
   %.not.i224 = icmp samesign ult i32 %.02831.i, 2
   br i1 %.not.i224, label %transpose64.exit, label %.preheader.i, !llvm.loop !112
 
-transpose64.exit:                                 ; preds = %202
+transpose64.exit:                                 ; preds = %203
   %.not177 = icmp eq ptr %12, null
-  br i1 %.not177, label %208, label %207
+  br i1 %.not177, label %209, label %208
 
-207:                                              ; preds = %transpose64.exit
+208:                                              ; preds = %transpose64.exit
   tail call void @free(ptr noundef nonnull %12) #26
-  br label %208
+  br label %209
 
-208:                                              ; preds = %transpose64.exit, %207
+209:                                              ; preds = %transpose64.exit, %208
   store i32 %.val190, ptr %6, align 4, !tbaa !45
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.preheader, %183, %182, %208
-  %.0 = phi i32 [ %.2158306311, %208 ], [ 0, %182 ], [ 0, %183 ], [ 0, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader.preheader, %183, %182, %209
+  %.0 = phi i32 [ %.2158306311, %209 ], [ 0, %182 ], [ 0, %183 ], [ 0, %.preheader.preheader ]
   ret i32 %.0
 }
 

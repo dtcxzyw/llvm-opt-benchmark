@@ -12089,11 +12089,10 @@ define internal fastcc range(i32 -1, 1) i32 @process_parents(ptr noundef %0, ptr
   %106 = and i32 %101, -2147479552
   %.not97 = icmp eq ptr %2, null
   %.not98 = icmp eq ptr %3, null
-  %invariant.op = or disjoint i32 %106, 536870928
   br label %107
 
 107:                                              ; preds = %.lr.ph141, %select.unfold
-  %108 = phi i64 [ %98, %.lr.ph141 ], [ %231, %select.unfold ]
+  %108 = phi i64 [ %98, %.lr.ph141 ], [ %232, %select.unfold ]
   %.172140 = phi ptr [ %.172138, %.lr.ph141 ], [ %.172, %select.unfold ]
   %109 = load ptr, ptr %.172140, align 8, !tbaa !59
   %110 = and i64 %108, 8796093022210
@@ -12296,39 +12295,39 @@ revision_sources_at.exit120:                      ; preds = %196, %201
   store i32 %221, ptr %109, align 8
   %222 = and i32 %220, 16
   %.not96 = icmp eq i32 %222, 0
-  br i1 %.not96, label %223, label %228
+  br i1 %.not96, label %223, label %229
 
 223:                                              ; preds = %219
-  %.reass = or i32 %220, %invariant.op
-  store i32 %.reass, ptr %109, align 8
-  br i1 %.not97, label %226, label %224
+  %224 = or i32 %221, 536870928
+  store i32 %224, ptr %109, align 8
+  br i1 %.not97, label %227, label %225
 
-224:                                              ; preds = %223
-  %225 = tail call ptr @commit_list_insert_by_date(ptr noundef nonnull %109, ptr noundef nonnull %2) #26
-  br label %226
+225:                                              ; preds = %223
+  %226 = tail call ptr @commit_list_insert_by_date(ptr noundef nonnull %109, ptr noundef nonnull %2) #26
+  br label %227
 
-226:                                              ; preds = %224, %223
-  br i1 %.not98, label %228, label %227
+227:                                              ; preds = %225, %223
+  br i1 %.not98, label %229, label %228
 
-227:                                              ; preds = %226
+228:                                              ; preds = %227
   tail call void @prio_queue_put(ptr noundef nonnull %3, ptr noundef nonnull %109) #26
-  br label %228
+  br label %229
 
-228:                                              ; preds = %226, %227, %219
-  %229 = load i64, ptr %10, align 8
-  %230 = and i64 %229, 274877906944
-  %.not99 = icmp eq i64 %230, 0
+229:                                              ; preds = %227, %228, %219
+  %230 = load i64, ptr %10, align 8
+  %231 = and i64 %230, 274877906944
+  %.not99 = icmp eq i64 %231, 0
   br i1 %.not99, label %select.unfold, label %.thread124
 
-select.unfold:                                    ; preds = %228, %125
-  %231 = phi i64 [ %229, %228 ], [ %.pre156, %125 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.172140, i64 8
-  %.172 = load ptr, ptr %232, align 8, !tbaa !58
+select.unfold:                                    ; preds = %229, %125
+  %232 = phi i64 [ %230, %229 ], [ %.pre156, %125 ]
+  %233 = getelementptr inbounds nuw i8, ptr %.172140, i64 8
+  %.172 = load ptr, ptr %233, align 8, !tbaa !58
   %.not88 = icmp eq ptr %.172, null
   br i1 %.not88, label %.thread124, label %107, !llvm.loop !428
 
-.thread124:                                       ; preds = %92, %.backedge, %70, %.backedge.us136, %50, %.backedge.us, %127, %select.unfold, %125, %228, %.preheader, %100, %97, %22, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %22 ], [ 0, %97 ], [ 0, %100 ], [ 0, %.preheader ], [ -1, %127 ], [ 0, %select.unfold ], [ 0, %125 ], [ 0, %228 ], [ 0, %.backedge.us ], [ 0, %50 ], [ 0, %.backedge.us136 ], [ 0, %70 ], [ 0, %.backedge ], [ 0, %92 ]
+.thread124:                                       ; preds = %92, %.backedge, %70, %.backedge.us136, %50, %.backedge.us, %127, %select.unfold, %125, %229, %.preheader, %100, %97, %22, %13, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %22 ], [ 0, %97 ], [ 0, %100 ], [ 0, %.preheader ], [ -1, %127 ], [ 0, %select.unfold ], [ 0, %125 ], [ 0, %229 ], [ 0, %.backedge.us ], [ 0, %50 ], [ 0, %.backedge.us136 ], [ 0, %70 ], [ 0, %.backedge ], [ 0, %92 ]
   ret i32 %.0
 }
 

@@ -2328,7 +2328,7 @@ define noundef i32 @Bmc_FxCompute(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %17, align 4, !tbaa !10
   store i32 %spec.store.select.i, ptr %15, align 8, !tbaa !40
   %.not.i = icmp eq i32 %spec.store.select.i, 0
-  %indvars.iv59.sroa.gep70 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv57.sroa.gep68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %18
 
 18:                                               ; preds = %1
@@ -2345,7 +2345,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %18
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit, %Vec_IntPush.exit
-  %25 = phi ptr [ %.pre.i67, %Vec_IntPush.exit ], [ %22, %Vec_IntAlloc.exit ]
+  %25 = phi ptr [ %.pre.i65, %Vec_IntPush.exit ], [ %22, %Vec_IntAlloc.exit ]
   %.04450 = phi i32 [ %48, %Vec_IntPush.exit ], [ 0, %Vec_IntAlloc.exit ]
   %26 = add nsw i32 %13, %.04450
   %27 = load i32, ptr %17, align 4, !tbaa !10
@@ -2385,62 +2385,59 @@ Vec_IntAlloc.exit:                                ; preds = %1, %18
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink69 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink67 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
   %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
-  store ptr %.sink69, ptr %23, align 8, !tbaa !3
+  store ptr %.sink67, ptr %23, align 8, !tbaa !3
   store i32 %.sink, ptr %15, align 8, !tbaa !40
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i67 = phi ptr [ %25, %.lr.ph ], [ %.sink69, %Vec_IntPush.exit.sink.split ]
+  %.pre.i65 = phi ptr [ %25, %.lr.ph ], [ %.sink67, %Vec_IntPush.exit.sink.split ]
   %45 = add nsw i32 %27, 1
   store i32 %45, ptr %17, align 4, !tbaa !10
   %46 = sext i32 %27 to i64
-  %47 = getelementptr inbounds i32, ptr %.pre.i67, i64 %46
+  %47 = getelementptr inbounds i32, ptr %.pre.i65, i64 %46
   store i32 %26, ptr %47, align 4, !tbaa !11
   %48 = add nuw nsw i32 %.04450, 1
   %exitcond.not = icmp eq i32 %48, %.val47.val
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %Vec_IntAlloc.exit
-  %49 = phi ptr [ %22, %Vec_IntAlloc.exit ], [ %.pre.i67, %Vec_IntPush.exit ]
+  %49 = phi ptr [ %22, %Vec_IntAlloc.exit ], [ %.pre.i65, %Vec_IntPush.exit ]
   %50 = shl nsw i32 %.val.val, 2
   %51 = add nsw i32 %14, %50
   tail call void @sat_solver_setnvars(ptr noundef %6, i32 noundef %51) #18
   %52 = icmp sgt i32 %.val.val, 0
-  br i1 %52, label %.preheader49.lr.ph, label %._crit_edge57
+  br i1 %52, label %.preheader49.lr.ph, label %._crit_edge55
 
 .preheader49.lr.ph:                               ; preds = %._crit_edge
-  %factor.op.mul53 = shl nuw i32 %.val.val, 1
+  %factor.op.mul52 = shl nuw i32 %.val.val, 1
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %.preheader49
 
 .preheader49:                                     ; preds = %.preheader49.lr.ph, %72
-  %indvars.iv63 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next64, %72 ]
-  %53 = shl nuw nsw i64 %indvars.iv63, 1
-  %54 = trunc nuw i64 %53 to i32
-  %invariant.op54 = add i32 %14, %54
-  %55 = trunc nuw nsw i64 %indvars.iv63 to i32
+  %indvars.iv61 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next62, %72 ]
+  %53 = shl nuw nsw i64 %indvars.iv61, 1
+  %54 = trunc nuw nsw i64 %indvars.iv61 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader49, %71
-  %56 = phi i1 [ true, %.preheader49 ], [ false, %71 ]
-  %indvars.iv59.sroa.phi = phi ptr [ %3, %.preheader49 ], [ %indvars.iv59.sroa.gep70, %71 ]
-  %indvars.iv59 = phi i32 [ 0, %.preheader49 ], [ 1, %71 ]
-  %57 = mul nuw nsw i32 %factor.op.mul53, %indvars.iv59
-  %invariant.op.reass = add i32 %57, %invariant.op54
+  %55 = phi i1 [ true, %.preheader49 ], [ false, %71 ]
+  %indvars.iv57.sroa.phi = phi ptr [ %3, %.preheader49 ], [ %indvars.iv57.sroa.gep68, %71 ]
+  %indvars.iv57 = phi i32 [ 0, %.preheader49 ], [ 1, %71 ]
+  %56 = mul nuw nsw i32 %factor.op.mul52, %indvars.iv57
+  %57 = add nsw i32 %56, %14
   br label %58
 
 58:                                               ; preds = %.preheader, %66
   %.not = phi i1 [ true, %.preheader ], [ false, %66 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %66 ]
   %59 = select i1 %.not, ptr @.str.23, ptr @.str.22
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %55, ptr noundef nonnull %59)
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %54, ptr noundef nonnull %59)
   %61 = or disjoint i64 %indvars.iv, %53
-  %62 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass52 = add i32 %invariant.op.reass, %62
-  %63 = trunc nuw i64 %61 to i32
-  %64 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %63, i32 noundef %.reass52, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
+  %62 = trunc nuw i64 %61 to i32
+  %63 = add nsw i32 %57, %62
+  %64 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
   switch i32 %64, label %66 [
     i32 0, label %.sink.split
     i32 -1, label %65
@@ -2456,29 +2453,29 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 66:                                               ; preds = %.sink.split, %58
   %67 = load i32, ptr %2, align 4, !tbaa !11
-  %68 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv59.sroa.phi, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv57.sroa.phi, i64 0, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = add nsw i32 %69, %67
   store i32 %70, ptr %68, align 4, !tbaa !11
   br i1 %.not, label %58, label %71, !llvm.loop !95
 
 71:                                               ; preds = %66
-  br i1 %56, label %.preheader, label %72, !llvm.loop !96
+  br i1 %55, label %.preheader, label %72, !llvm.loop !96
 
 72:                                               ; preds = %71
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge57, label %.preheader49, !llvm.loop !97
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
+  br i1 %exitcond64.not, label %._crit_edge55, label %.preheader49, !llvm.loop !97
 
-._crit_edge57:                                    ; preds = %72, %._crit_edge
+._crit_edge55:                                    ; preds = %72, %._crit_edge
   %.not.i48 = icmp eq ptr %49, null
   br i1 %.not.i48, label %Vec_IntFree.exit, label %73
 
-73:                                               ; preds = %._crit_edge57
+73:                                               ; preds = %._crit_edge55
   call void @free(ptr noundef nonnull %49) #18
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %._crit_edge57, %73
+Vec_IntFree.exit:                                 ; preds = %._crit_edge55, %73
   call void @free(ptr noundef nonnull %15) #18
   call void @sat_solver_delete(ptr noundef %6) #18
   call void @Cnf_DataFree(ptr noundef %5) #18

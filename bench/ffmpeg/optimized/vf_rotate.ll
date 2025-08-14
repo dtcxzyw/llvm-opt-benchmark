@@ -1381,62 +1381,59 @@ define internal noundef ptr @interpolate_bilinear8(ptr noundef returned writeonl
   %19 = and i32 %5, 65535
   %20 = mul nsw i32 %.0.i57, %3
   %21 = mul nsw i32 %.0.i, %2
-  %invariant.op = add i32 %20, %21
   %22 = mul nsw i32 %18, %3
-  %invariant.op59 = add i32 %22, %21
   %23 = mul nsw i32 %14, %2
-  %invariant.op61 = add i32 %20, %23
-  %invariant.op63 = add i32 %22, %23
   %24 = sub nuw nsw i32 65536, %9
   %25 = sub nuw nsw i32 65536, %19
   %26 = zext nneg i32 %25 to i64
   %27 = zext nneg i32 %19 to i64
+  %28 = sext i32 %20 to i64
+  %29 = sext i32 %21 to i64
+  %30 = sext i32 %23 to i64
+  %31 = sext i32 %22 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %28
+  %invariant.gep = getelementptr i8, ptr %1, i64 %29
+  %invariant.gep60 = getelementptr i8, ptr %1, i64 %29
+  %invariant.gep62 = getelementptr i8, ptr %1, i64 %30
+  %invariant.gep64 = getelementptr i8, ptr %1, i64 %30
+  br label %32
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %29
-  %30 = sext i32 %.reass to i64
-  %31 = getelementptr inbounds i8, ptr %1, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !78
-  %33 = zext i8 %32 to i32
-  %.reass60 = add i32 %invariant.op59, %29
-  %34 = sext i32 %.reass60 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !78
-  %37 = zext i8 %36 to i32
-  %.reass62 = add i32 %invariant.op61, %29
-  %38 = sext i32 %.reass62 to i64
-  %39 = getelementptr inbounds i8, ptr %1, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !78
-  %41 = zext i8 %40 to i32
-  %.reass64 = add i32 %invariant.op63, %29
-  %42 = sext i32 %.reass64 to i64
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !78
-  %45 = zext i8 %44 to i32
-  %46 = mul nuw nsw i32 %24, %33
-  %47 = mul nuw nsw i32 %9, %37
+32:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %33 = add nsw i64 %indvars.iv, %28
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %33
+  %34 = load i8, ptr %gep, align 1, !tbaa !78
+  %35 = zext i8 %34 to i32
+  %36 = add nsw i64 %indvars.iv, %31
+  %gep61 = getelementptr i8, ptr %invariant.gep60, i64 %36
+  %37 = load i8, ptr %gep61, align 1, !tbaa !78
+  %38 = zext i8 %37 to i32
+  %gep63 = getelementptr i8, ptr %invariant.gep62, i64 %33
+  %39 = load i8, ptr %gep63, align 1, !tbaa !78
+  %40 = zext i8 %39 to i32
+  %gep65 = getelementptr i8, ptr %invariant.gep64, i64 %36
+  %41 = load i8, ptr %gep65, align 1, !tbaa !78
+  %42 = zext i8 %41 to i32
+  %43 = mul nuw nsw i32 %24, %35
+  %44 = mul nuw nsw i32 %9, %38
+  %45 = add nuw nsw i32 %44, %43
+  %46 = mul nuw nsw i32 %24, %40
+  %47 = mul nuw nsw i32 %9, %42
   %48 = add nuw nsw i32 %47, %46
-  %49 = mul nuw nsw i32 %24, %41
-  %50 = mul nuw nsw i32 %9, %45
-  %51 = add nuw nsw i32 %50, %49
-  %52 = zext nneg i32 %48 to i64
-  %53 = mul nuw nsw i64 %52, %26
-  %54 = zext nneg i32 %51 to i64
-  %55 = mul nuw nsw i64 %54, %27
-  %56 = add nuw nsw i64 %55, %53
-  %57 = lshr i64 %56, 32
-  %58 = trunc i64 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %58, ptr %59, align 1, !tbaa !78
+  %49 = zext nneg i32 %45 to i64
+  %50 = mul nuw nsw i64 %49, %26
+  %51 = zext nneg i32 %48 to i64
+  %52 = mul nuw nsw i64 %51, %27
+  %53 = add nuw nsw i64 %52, %50
+  %54 = lshr i64 %53, 32
+  %55 = trunc i64 %54 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %55, ptr %56, align 1, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %28, %8
+._crit_edge:                                      ; preds = %32, %8
   ret ptr %0
 }
 
@@ -1464,60 +1461,57 @@ define internal noundef ptr @interpolate_bilinear16(ptr noundef returned writeon
   %21 = zext nneg i32 %20 to i64
   %22 = mul nsw i32 %.0.i57, %3
   %23 = mul nsw i32 %.0.i, %2
-  %invariant.op = add i32 %22, %23
   %24 = mul nsw i32 %17, %3
-  %invariant.op59 = add i32 %24, %23
   %25 = mul nsw i32 %13, %2
-  %invariant.op61 = add i32 %22, %25
-  %invariant.op63 = add i32 %24, %25
   %26 = sub nuw nsw i64 65536, %21
   %27 = sub nuw nsw i64 65536, %19
   %factor.op.mul = mul nuw nsw i64 %26, %27
-  %factor.op.mul66 = mul nuw nsw i64 %27, %21
-  %factor.op.mul68 = mul nuw nsw i64 %26, %19
-  %factor.op.mul70 = mul nuw nsw i64 %21, %19
-  %28 = zext nneg i32 %3 to i64
-  br label %29
+  %factor.op.mul59 = mul nuw nsw i64 %27, %21
+  %factor.op.mul61 = mul nuw nsw i64 %26, %19
+  %factor.op.mul63 = mul nuw nsw i64 %21, %19
+  %28 = sext i32 %22 to i64
+  %29 = sext i32 %23 to i64
+  %30 = sext i32 %25 to i64
+  %31 = sext i32 %24 to i64
+  %32 = zext nneg i32 %3 to i64
+  %invariant.gep = getelementptr i8, ptr %1, i64 %29
+  %invariant.gep66 = getelementptr i8, ptr %1, i64 %29
+  %invariant.gep68 = getelementptr i8, ptr %1, i64 %30
+  %invariant.gep70 = getelementptr i8, ptr %1, i64 %30
+  br label %33
 
-29:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %.reass = add i32 %invariant.op, %30
-  %31 = sext i32 %.reass to i64
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
-  %33 = load i16, ptr %32, align 1, !tbaa !78
-  %.reass60 = add i32 %invariant.op59, %30
-  %34 = sext i32 %.reass60 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 %34
-  %36 = load i16, ptr %35, align 1, !tbaa !78
-  %.reass62 = add i32 %invariant.op61, %30
-  %37 = sext i32 %.reass62 to i64
-  %38 = getelementptr inbounds i8, ptr %1, i64 %37
-  %39 = load i16, ptr %38, align 1, !tbaa !78
-  %.reass64 = add i32 %invariant.op63, %30
-  %40 = sext i32 %.reass64 to i64
-  %41 = getelementptr inbounds i8, ptr %1, i64 %40
-  %42 = load i16, ptr %41, align 1, !tbaa !78
-  %43 = zext i16 %33 to i64
-  %.reass65 = mul nuw nsw i64 %factor.op.mul, %43
-  %44 = zext i16 %36 to i64
-  %.reass67 = mul nuw nsw i64 %factor.op.mul66, %44
-  %45 = add nuw nsw i64 %.reass67, %.reass65
-  %46 = zext i16 %39 to i64
-  %.reass69 = mul nuw nsw i64 %factor.op.mul68, %46
-  %47 = zext i16 %42 to i64
-  %.reass71 = mul nuw nsw i64 %factor.op.mul70, %47
-  %48 = add nuw nsw i64 %.reass71, %.reass69
-  %49 = add nuw nsw i64 %48, %45
-  %50 = lshr i64 %49, 32
-  %51 = trunc i64 %50 to i16
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i16 %51, ptr %52, align 1, !tbaa !78
+33:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %34 = add nsw i64 %indvars.iv, %28
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %34
+  %35 = load i16, ptr %gep, align 1, !tbaa !78
+  %36 = add nsw i64 %indvars.iv, %31
+  %gep67 = getelementptr i8, ptr %invariant.gep66, i64 %36
+  %37 = load i16, ptr %gep67, align 1, !tbaa !78
+  %gep69 = getelementptr i8, ptr %invariant.gep68, i64 %34
+  %38 = load i16, ptr %gep69, align 1, !tbaa !78
+  %gep71 = getelementptr i8, ptr %invariant.gep70, i64 %36
+  %39 = load i16, ptr %gep71, align 1, !tbaa !78
+  %40 = zext i16 %35 to i64
+  %.reass = mul nuw nsw i64 %factor.op.mul, %40
+  %41 = zext i16 %37 to i64
+  %.reass60 = mul nuw nsw i64 %factor.op.mul59, %41
+  %42 = add nuw nsw i64 %.reass60, %.reass
+  %43 = zext i16 %38 to i64
+  %.reass62 = mul nuw nsw i64 %factor.op.mul61, %43
+  %44 = zext i16 %39 to i64
+  %.reass64 = mul nuw nsw i64 %factor.op.mul63, %44
+  %45 = add nuw nsw i64 %.reass64, %.reass62
+  %46 = add nuw nsw i64 %45, %42
+  %47 = lshr i64 %46, 32
+  %48 = trunc i64 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i16 %48, ptr %49, align 1, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %53 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %53, label %29, label %._crit_edge, !llvm.loop !104
+  %50 = icmp samesign ult i64 %indvars.iv.next, %32
+  br i1 %50, label %33, label %._crit_edge, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %29, %8
+._crit_edge:                                      ; preds = %33, %8
   ret ptr %0
 }
 
