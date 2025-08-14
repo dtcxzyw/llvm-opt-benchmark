@@ -543,11 +543,11 @@ define internal fastcc ptr @get_data(ptr noundef readonly captures(none) %0, ptr
   %10 = icmp eq i64 %4, 3
   %11 = icmp eq i64 %.pre, 3
   %12 = and i1 %10, %11
-  br i1 %12, label %13, label %63
+  br i1 %12, label %13, label %61
 
 13:                                               ; preds = %9
   store i32 0, ptr %2, align 4
-  br label %63
+  br label %61
 
 ._crit_edge:                                      ; preds = %3
   %14 = load i32, ptr %0, align 8
@@ -589,7 +589,7 @@ define internal fastcc ptr @get_data(ptr noundef readonly captures(none) %0, ptr
   tail call void asm sideeffect "74: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 74b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 74) #10, !srcloc !27
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1234, i32 2307, i64 12) #10, !srcloc !28
   tail call void asm sideeffect "75: nop\0A\09.pushsection .discard.instr_end\0A\09.long 75b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 75) #10, !srcloc !29
-  br label %63
+  br label %61
 
 42:                                               ; preds = %35, %22
   %43 = phi i64 [ %40, %35 ], [ %29, %22 ]
@@ -597,49 +597,47 @@ define internal fastcc ptr @get_data(ptr noundef readonly captures(none) %0, ptr
   %45 = trunc i64 %43 to i32
   store i32 %45, ptr %2, align 4
   %46 = load i64, ptr %1, align 8
-  %47 = add i64 %46, 7
-  %48 = and i64 %47, -8
-  %49 = icmp eq i64 %46, %48
-  br i1 %49, label %51, label %50, !prof !12
+  %47 = and i64 %46, 7
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %50, label %49, !prof !12
 
-50:                                               ; preds = %42
+49:                                               ; preds = %42
   tail call void asm sideeffect "76: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 76b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 76) #10, !srcloc !30
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1239, i32 2307, i64 12) #10, !srcloc !31
   tail call void asm sideeffect "77: nop\0A\09.pushsection .discard.instr_end\0A\09.long 77b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 77) #10, !srcloc !32
-  br label %63
+  br label %61
 
-51:                                               ; preds = %42
-  %52 = load i64, ptr %17, align 8
-  %53 = add i64 %52, 7
-  %54 = and i64 %53, -8
-  %55 = icmp eq i64 %52, %54
-  br i1 %55, label %57, label %56, !prof !12
+50:                                               ; preds = %42
+  %51 = load i64, ptr %17, align 8
+  %52 = and i64 %51, 7
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %55, label %54, !prof !12
 
-56:                                               ; preds = %51
+54:                                               ; preds = %50
   tail call void asm sideeffect "78: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 78b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 78) #10, !srcloc !33
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1240, i32 2307, i64 12) #10, !srcloc !34
   tail call void asm sideeffect "79: nop\0A\09.pushsection .discard.instr_end\0A\09.long 79b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 79) #10, !srcloc !35
-  br label %63
+  br label %61
 
-57:                                               ; preds = %51
-  %58 = icmp ult i32 %45, 8
-  br i1 %58, label %59, label %60, !prof !16
+55:                                               ; preds = %50
+  %56 = icmp ult i32 %45, 8
+  br i1 %56, label %57, label %58, !prof !16
 
-59:                                               ; preds = %57
+57:                                               ; preds = %55
   tail call void asm sideeffect "80: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 80b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 80) #10, !srcloc !36
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1245, i32 2307, i64 12) #10, !srcloc !37
   tail call void asm sideeffect "81: nop\0A\09.pushsection .discard.instr_end\0A\09.long 81b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 81) #10, !srcloc !38
-  br label %63
+  br label %61
 
-60:                                               ; preds = %57
-  %61 = add i32 %45, -8
-  store i32 %61, ptr %2, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  br label %63
+58:                                               ; preds = %55
+  %59 = add i32 %45, -8
+  store i32 %59, ptr %2, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  br label %61
 
-63:                                               ; preds = %60, %59, %56, %50, %41, %13, %9
-  %64 = phi ptr [ @.str.4, %13 ], [ %62, %60 ], [ null, %41 ], [ null, %9 ], [ null, %56 ], [ null, %50 ], [ null, %59 ]
-  ret ptr %64
+61:                                               ; preds = %58, %57, %54, %49, %41, %13, %9
+  %62 = phi ptr [ @.str.4, %13 ], [ %60, %58 ], [ null, %41 ], [ null, %9 ], [ null, %54 ], [ null, %49 ], [ null, %57 ]
+  ret ptr %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
