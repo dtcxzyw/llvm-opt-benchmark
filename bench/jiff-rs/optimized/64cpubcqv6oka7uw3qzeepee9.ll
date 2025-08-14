@@ -2882,8 +2882,8 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
   %381 = zext nneg i8 %275 to i64
   %.sroa.727.0.insert.shift.i.i.i = shl nuw nsw i64 %381, 56
   %.sroa.023.0.insert.ext.i.i.i = zext i32 %.sroa.910.0.copyload.i.i to i64
-  %.sroa.7.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.727.0.insert.shift.i.i.i, %.sroa.023.0.insert.ext.i.i.i
-  %.sroa.424.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.7.0.insert.shift.i.i.i.i, %.sroa.7.0.insert.insert.i.i.i.i
+  %.sroa.525.0.insert.insert.i.i.i = or disjoint i64 %.sroa.727.0.insert.shift.i.i.i, %.sroa.023.0.insert.ext.i.i.i
+  %.sroa.424.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.7.0.insert.shift.i.i.i.i, %.sroa.525.0.insert.insert.i.i.i
   %.sroa.023.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.424.0.insert.insert.i.i.i, %.sroa.9.0.insert.shift.i.i.i.i
   %382 = load i64, ptr %272, align 8, !alias.scope !204, !noalias !207, !noundef !3
   %383 = load i64, ptr %270, align 8, !range !209, !alias.scope !204, !noalias !207, !noundef !3

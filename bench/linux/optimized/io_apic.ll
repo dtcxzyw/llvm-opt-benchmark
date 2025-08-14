@@ -4073,47 +4073,47 @@ define internal fastcc void @ioapic_configure_entry(ptr noundef %0) unnamed_addr
   %23 = or disjoint i64 %21, %22
   store i64 %23, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %24 = load ptr, ptr %4, align 8
-  %25 = icmp eq ptr %24, %4
-  br i1 %25, label %.loopexit, label %.preheader
+  %32 = load ptr, ptr %4, align 8
+  %33 = icmp eq ptr %32, %4
+  br i1 %33, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %26 = phi ptr [ %55, %.preheader ], [ %24, %1 ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 20
-  %30 = load i32, ptr %29, align 4
-  %31 = load i64, ptr %5, align 8
-  %32 = shl i32 %30, 1
-  %33 = add i32 %32, 17
-  %34 = lshr i64 %31, 32
-  %35 = trunc nuw i64 %34 to i32
-  %36 = shl i32 %28, 12
-  %37 = add i32 %36, 2113536
-  %38 = sext i32 %37 to i64
-  %39 = sub nsw i64 -8392704, %38
-  %40 = inttoptr i64 %39 to ptr
-  %41 = sext i32 %28 to i64
-  %42 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %41, i32 2, i32 4
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %43, 4095
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr i8, ptr %40, i64 %45
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %33, ptr elementtype(i32) %46) #25, !srcloc !9
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr nonnull elementtype(i32) %47) #25, !srcloc !9
-  %48 = add i32 %32, 16
-  %49 = trunc i64 %31 to i32
-  %50 = load i32, ptr %42, align 4
-  %51 = and i32 %50, 4095
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr i8, ptr %40, i64 %52
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr elementtype(i32) %53) #25, !srcloc !9
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr nonnull elementtype(i32) %54) #25, !srcloc !9
-  %55 = load ptr, ptr %26, align 8
-  %56 = icmp eq ptr %55, %4
-  br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !82
+  %34 = phi ptr [ %63, %.preheader ], [ %32, %1 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %38 = load i32, ptr %37, align 4
+  %39 = load i64, ptr %5, align 8
+  %40 = shl i32 %38, 1
+  %41 = add i32 %40, 17
+  %42 = lshr i64 %39, 32
+  %43 = trunc nuw i64 %42 to i32
+  %44 = shl i32 %36, 12
+  %45 = add i32 %44, 2113536
+  %46 = sext i32 %45 to i64
+  %47 = sub nsw i64 -8392704, %46
+  %48 = inttoptr i64 %47 to ptr
+  %49 = sext i32 %36 to i64
+  %50 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %49, i32 2, i32 4
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 4095
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr i8, ptr %48, i64 %53
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %41, ptr elementtype(i32) %54) #25, !srcloc !9
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr nonnull elementtype(i32) %55) #25, !srcloc !9
+  %56 = add i32 %40, 16
+  %57 = trunc i64 %39 to i32
+  %58 = load i32, ptr %50, align 4
+  %59 = and i32 %58, 4095
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr i8, ptr %48, i64 %60
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %56, ptr elementtype(i32) %61) #25, !srcloc !9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %57, ptr nonnull elementtype(i32) %62) #25, !srcloc !9
+  %63 = load ptr, ptr %34, align 8
+  %64 = icmp eq ptr %63, %4
+  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.preheader, %1
   ret void

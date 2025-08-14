@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_abi_1_107CpuInfo4hostEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %"class.asmjit::_abi_1_10::CpuInfo", align 8
   %2 = load i1, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4
-  br i1 %2, label %636, label %3
+  br i1 %2, label %644, label %3
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -315,7 +315,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %242 = shl nuw nsw i64 %.zext, 20
   %243 = or disjoint i64 %237, %242
   %244 = shl i32 %193, 28
-  %245 = and i32 %244, 268435456
+  %247 = and i32 %244, 268435456
   %246 = shl i32 %193, 18
   %247 = and i32 %246, 4194304
   %248 = lshr i32 %193, 7
@@ -334,7 +334,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %261 = and i32 %260, -2147483648
   %262 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %259)
   %263 = or disjoint i32 %252, %261
-  %264 = zext i32 %263 to i64
+  %266 = zext i32 %263 to i64
   %265 = or disjoint i32 %245, %247
   %266 = zext nneg i32 %265 to i64
   %267 = lshr i32 %193, 25
@@ -343,12 +343,12 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %270 = shl nuw nsw i64 %269, 41
   %271 = lshr i32 %193, 11
   %272 = and i32 %271, 65536
-  %273 = lshr i32 %193, 13
-  %274 = and i32 %273, 32768
+  %275 = lshr i32 %193, 13
+  %276 = and i32 %275, 32768
   %275 = or disjoint i32 %272, %274
   %276 = zext nneg i32 %275 to i64
-  %277 = lshr i32 %193, 29
-  %278 = and i32 %277, 1
+  %279 = lshr i32 %193, 29
+  %280 = and i32 %279, 1
   %279 = zext nneg i32 %278 to i64
   %280 = shl nuw nsw i64 %279, 51
   %281 = lshr i32 %194, 4
@@ -375,17 +375,17 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %302 = zext nneg i32 %301 to i64
   %303 = or disjoint i64 %299, %302
   %304 = or disjoint i64 %303, %276
-  %305 = or disjoint i64 %241, %266
+  %307 = or disjoint i64 %241, %266
   %306 = or disjoint i64 %305, %264
   %307 = or i64 %306, %262
   %308 = or i64 %307, %304
-  %309 = or i64 %308, %233
+  %311 = or i64 %308, %233
   %310 = lshr i32 %194, 20
   %311 = and i32 %310, 1
   %312 = zext nneg i32 %311 to i64
   %313 = shl nuw nsw i64 %312, 38
-  %314 = or disjoint i64 %251, %270
-  %315 = or disjoint i64 %314, %313
+  %316 = or disjoint i64 %251, %270
+  %317 = or disjoint i64 %316, %313
   %316 = or disjoint i64 %315, %285
   %317 = or i64 %316, %243
   %318 = or i64 %317, %182
@@ -393,8 +393,8 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %320 = icmp eq i64 %319, 0
   br i1 %320, label %323, label %321
 
-321:                                              ; preds = %189
-  %322 = or i64 %309, 18014398509481984
+321:; preds = %189
+  %326 = or i64 %309, 18014398509481984
   store i64 %322, ptr %7, align 8, !tbaa !21
   br label %323
 
@@ -412,7 +412,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %333 = select i1 %187, i1 %332, i1 false
   br i1 %333, label %334, label %372
 
-334:                                              ; preds = %323
+334:; preds = %323
   %335 = shl i32 %192, 3
   %336 = lshr i32 %192, 1
   %337 = and i32 %336, 33554432
@@ -421,18 +421,18 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %340 = and i32 %217, 524288
   %341 = lshr i32 %192, 12
   %342 = and i32 %341, 262144
-  %343 = and i32 %200, 268435456
+  %345 = and i32 %200, 268435456
   %344 = shl i32 %193, 25
-  %345 = and i32 %344, 67108864
+  %347 = and i32 %344, 67108864
   %346 = shl i32 %193, 21
   %347 = and i32 %346, 134217728
-  %348 = and i32 %246, 536870912
+  %350 = and i32 %246, 536870912
   %349 = insertelement <4 x i32> %253, i32 %194, i64 1
   %350 = shufflevector <4 x i32> %349, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %351 = shl <4 x i32> %350, <i32 5, i32 17, i32 13, i32 11>
   %352 = and <4 x i32> %351, <i32 131072, i32 -2147483648, i32 32768, i32 16384>
   %353 = shl i32 %194, 22
-  %354 = and i32 %353, 1073741824
+  %356 = and i32 %353, 1073741824
   %355 = and i32 %194, 8388608
   %356 = and i32 %335, 17825792
   %357 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %352)
@@ -442,21 +442,21 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %361 = or disjoint i32 %360, %348
   %362 = or disjoint i32 %361, %340
   %363 = or disjoint i32 %362, %339
-  %364 = or disjoint i32 %363, %343
-  %365 = or disjoint i32 %364, %342
-  %366 = or disjoint i32 %365, %337
-  %367 = or disjoint i32 %366, %356
-  %368 = or disjoint i32 %367, %357
-  %369 = or disjoint i32 %368, 4194304
-  %370 = zext i32 %369 to i64
-  %371 = or i64 %spec.select, %370
+  %366 = or disjoint i32 %363, %345
+  %367 = or disjoint i32 %366, %342
+  %368 = or disjoint i32 %367, %337
+  %369 = or disjoint i32 %368, %356
+  %370 = or disjoint i32 %369, %357
+  %371 = or disjoint i32 %370, 4194304
+  %370 = zext i32 %371 to i64
+  %373 = or i64 %spec.select, %370
   br label %372
 
-372:                                              ; preds = %334, %323
+372:; preds = %334, %323
   %373 = phi i64 [ %371, %334 ], [ %spec.select, %323 ]
   br i1 %185, label %374, label %384
 
-374:                                              ; preds = %372
+374:; preds = %372
   %375 = and i32 %290, 256
   %376 = lshr i32 %194, 13
   %377 = and i32 %376, 2048
@@ -468,7 +468,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %383 = or i64 %373, %382
   br label %384
 
-384:                                              ; preds = %374, %372
+384:; preds = %374, %372
   %385 = phi i64 [ %383, %374 ], [ %373, %372 ]
   %386 = icmp eq i32 %191, 0
   br i1 %386, label %453, label %387
@@ -518,18 +518,18 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %429 = icmp eq i64 %428, 0
   br i1 %429, label %439, label %430
 
-430:                                              ; preds = %387
+430:; preds = %387
   %431 = insertelement <4 x i32> %394, i32 %390, i64 1
   %432 = shufflevector <4 x i32> %431, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %433 = lshr <4 x i32> %432, <i32 23, i32 4, i32 4, i32 5>
-  %434 = and <4 x i32> %433, splat (i32 1)
-  %435 = zext nneg <4 x i32> %434 to <4 x i64>
+  %436 = and <4 x i32> %433, splat (i32 1)
+  %435 = zext nneg <4 x i32> %436 to <4 x i64>
   %436 = shl nuw nsw <4 x i64> %435, <i64 32, i64 34, i64 35, i64 33>
   %437 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %436)
   %438 = or i64 %427, %437
   br label %439
 
-439:                                              ; preds = %430, %387
+439:; preds = %430, %387
   %440 = phi i64 [ %438, %430 ], [ %427, %387 ]
   %441 = and i64 %440, 4194304
   %442 = icmp eq i64 %441, 0
@@ -540,42 +540,42 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %447 = or i64 %446, %440
   br i1 %185, label %448, label %453
 
-448:                                              ; preds = %439
+448:; preds = %439
   %449 = extractelement <4 x i32> %396, i64 0
-  %450 = and i32 %449, 512
-  %451 = zext nneg i32 %450 to i64
-  %452 = or i64 %447, %451
+  %452 = and i32 %449, 512
+  %453 = zext nneg i32 %452 to i64
+  %452 = or i64 %447, %453
   store i64 %452, ptr %4, align 8, !tbaa !21
-  br label %453
+  br label %456
 
-453:                                              ; preds = %448, %439, %384
+456:                                              ; preds = %448, %439, %384
   %454 = phi i64 [ %452, %448 ], [ %447, %439 ], [ %385, %384 ]
   %455 = phi i64 [ %420, %448 ], [ %420, %439 ], [ %324, %384 ]
   %456 = icmp ugt i32 %9, 12
   br i1 %456, label %457, label %481
 
-457:                                              ; preds = %453
+457:; preds = %456
   %458 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 0) #6, !srcloc !16
   %459 = extractvalue { i32, i32, i32, i32 } %458, 0
   %460 = and i32 %183, 24
   %461 = and i32 %460, %459
-  %462 = icmp ne i32 %461, 24
-  %463 = or i1 %196, %462
+  %464 = icmp ne i32 %461, 24
+  %463 = or i1 %196, %464
   %464 = or i64 %455, 131072
   %spec.select10 = select i1 %463, i64 %455, i64 %464
-  %465 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #6, !srcloc !16
-  %466 = extractvalue { i32, i32, i32, i32 } %465, 0
+  %466 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #6, !srcloc !16
+  %467 = extractvalue { i32, i32, i32, i32 } %466, 0
   %467 = shl i32 %466, 2
-  %468 = and i32 %467, 4
+  %469 = and i32 %467, 4
   %469 = and i32 %466, 10
-  %470 = or disjoint i32 %469, %468
-  %471 = or disjoint i32 %470, %105
+  %471 = or disjoint i32 %469, %468
+  %472 = or disjoint i32 %470, %105
   %472 = zext nneg i32 %471 to i64
   store i64 %472, ptr %107, align 8, !tbaa !21
   %473 = icmp eq i32 %9, 13
   br i1 %473, label %481, label %474
 
-474:                                              ; preds = %457
+474:; preds = %457
   %475 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 14, i32 0) #6, !srcloc !16
   %476 = extractvalue { i32, i32, i32, i32 } %475, 1
   %477 = shl i32 %476, 25
@@ -585,17 +585,17 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   store i64 %480, ptr %7, align 8, !tbaa !21
   br label %481
 
-481:                                              ; preds = %474, %457, %453, %181, %30
+481:; preds = %474, %457, %453, %181, %30
   %482 = phi i64 [ 0, %30 ], [ %454, %474 ], [ %454, %457 ], [ %454, %453 ], [ %182, %181 ]
   %483 = phi i64 [ 16, %30 ], [ %480, %474 ], [ %spec.select10, %457 ], [ %455, %453 ], [ %149, %181 ]
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %485
 
-485:                                              ; preds = %604, %481
+485:; preds = %604, %481
   %486 = phi i64 [ %482, %481 ], [ %605, %604 ]
   %487 = phi i64 [ %483, %481 ], [ %606, %604 ]
-  %488 = phi i64 [ %482, %481 ], [ %607, %604 ]
-  %489 = phi i64 [ %483, %481 ], [ %608, %604 ]
+  %490 = phi i64 [ %482, %481 ], [ %607, %604 ]
+  %491 = phi i64 [ %483, %481 ], [ %608, %604 ]
   %490 = phi i32 [ -2147483648, %481 ], [ %609, %604 ]
   %491 = phi i32 [ -2147483648, %481 ], [ %612, %604 ]
   %492 = phi ptr [ %484, %481 ], [ %611, %604 ]
@@ -605,7 +605,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %496 = extractvalue { i32, i32, i32, i32 } %493, 2
   %497 = extractvalue { i32, i32, i32, i32 } %493, 3
   switch i32 %491, label %604 [
-    i32 -2147483648, label %498
+    i32 -2147483648, label %506
     i32 -2147483647, label %500
     i32 -2147483646, label %575
     i32 -2147483645, label %575
@@ -614,116 +614,116 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
     i32 -2147483617, label %598
   ]
 
-498:                                              ; preds = %485
-  %499 = tail call noundef i32 @llvm.umin.i32(i32 %494, i32 -2147483617)
+506:                                              ; preds = %485
+  %507 = tail call noundef i32 @llvm.umin.i32(i32 %494, i32 -2147483617)
   br label %604
 
-500:                                              ; preds = %485
-  %501 = insertelement <4 x i32> poison, i32 %496, i64 0
-  %502 = shufflevector <4 x i32> %501, <4 x i32> poison, <4 x i32> zeroinitializer
-  %503 = shl <4 x i32> %502, <i32 5, i32 3, i32 13, i32 19>
-  %504 = insertelement <4 x i32> %501, i32 %497, i64 1
-  %505 = shufflevector <4 x i32> %504, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
-  %506 = lshr <4 x i32> %505, <i32 2, i32 27, i32 30, i32 6>
-  %507 = and <4 x i32> %503, <i32 32, i32 256, i32 1048576, i32 134217728>
-  %508 = lshr i32 %496, 12
-  %509 = and i32 %508, 1
-  %510 = zext nneg i32 %509 to i64
-  %511 = shl nuw nsw i64 %510, 40
-  %512 = lshr i32 %496, 8
-  %513 = and i32 %512, 128
-  %514 = lshr i32 %496, 21
-  %515 = and i32 %514, 1
-  %516 = zext nneg i32 %515 to i64
-  %517 = shl nuw nsw i64 %516, 53
-  %518 = lshr i32 %496, 16
-  %519 = and i32 %518, 8192
-  %520 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %507)
-  %521 = or disjoint i32 %519, %513
-  %522 = or disjoint i32 %521, %520
-  %523 = zext nneg i32 %522 to i64
-  %524 = lshr i32 %497, 18
-  %525 = and i32 %524, 4
-  %526 = zext nneg i32 %525 to i64
-  %527 = lshr i32 %497, 21
-  %528 = and i32 %527, 1
-  %529 = zext nneg i32 %528 to i64
-  %530 = shl nuw nsw i64 %529, 62
-  %531 = or disjoint i64 %530, %526
-  %532 = lshr i32 %497, 11
-  %533 = and i32 %532, 2048
-  %534 = lshr i32 %497, 2
-  %535 = and <4 x i32> %506, splat (i32 1)
-  %536 = zext nneg <4 x i32> %535 to <4 x i64>
-  %537 = shl nuw nsw <4 x i64> %536, <i64 52, i64 36, i64 11, i64 50>
-  %538 = extractelement <4 x i64> %536, i64 2
-  %539 = shl nuw nsw i64 %538, 4
-  %540 = or disjoint i64 %539, %531
-  %541 = or i64 %540, %488
-  %542 = lshr i32 %497, 4
-  %543 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %537)
-  %544 = or disjoint i64 %517, %523
-  %545 = or i32 %534, %542
-  %546 = and i32 %545, 134217728
-  %547 = or disjoint i32 %546, %533
-  %548 = zext nneg i32 %547 to i64
-  %549 = or disjoint i64 %511, %548
-  %550 = or i64 %549, %543
-  %551 = or i64 %550, %544
-  %552 = or i64 %551, %489
-  %553 = and i64 %488, 4096
-  %554 = icmp eq i64 %553, 0
-  br i1 %554, label %565, label %555
+508:                                              ; preds = %485
+  %509 = insertelement <4 x i32> poison, i32 %496, i64 0
+  %510 = shufflevector <4 x i32> %509, <4 x i32> poison, <4 x i32> zeroinitializer
+  %511 = shl <4 x i32> %510, <i32 5, i32 3, i32 13, i32 19>
+  %512 = insertelement <4 x i32> %509, i32 %497, i64 1
+  %513 = shufflevector <4 x i32> %512, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
+  %514 = lshr <4 x i32> %513, <i32 2, i32 27, i32 30, i32 6>
+  %515 = and <4 x i32> %511, <i32 32, i32 256, i32 1048576, i32 134217728>
+  %516 = lshr i32 %496, 12
+  %517 = and i32 %516, 1
+  %518 = zext nneg i32 %517 to i64
+  %519 = shl nuw nsw i64 %518, 40
+  %520 = lshr i32 %496, 8
+  %521 = and i32 %520, 128
+  %522 = lshr i32 %496, 21
+  %523 = and i32 %522, 1
+  %524 = zext nneg i32 %523 to i64
+  %525 = shl nuw nsw i64 %524, 53
+  %526 = lshr i32 %496, 16
+  %527 = and i32 %526, 8192
+  %528 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %515)
+  %529 = or disjoint i32 %527, %521
+  %530 = or disjoint i32 %529, %528
+  %531 = zext nneg i32 %530 to i64
+  %532 = lshr i32 %497, 18
+  %533 = and i32 %532, 4
+  %534 = zext nneg i32 %533 to i64
+  %535 = lshr i32 %497, 21
+  %536 = and i32 %535, 1
+  %537 = zext nneg i32 %536 to i64
+  %538 = shl nuw nsw i64 %537, 62
+  %539 = or disjoint i64 %538, %534
+  %540 = lshr i32 %497, 11
+  %541 = and i32 %540, 2048
+  %542 = lshr i32 %497, 2
+  %543 = and <4 x i32> %514, splat (i32 1)
+  %544 = zext nneg <4 x i32> %543 to <4 x i64>
+  %545 = shl nuw nsw <4 x i64> %544, <i64 52, i64 36, i64 11, i64 50>
+  %546 = extractelement <4 x i64> %544, i64 2
+  %547 = shl nuw nsw i64 %546, 4
+  %548 = or disjoint i64 %547, %539
+  %549 = or i64 %548, %490
+  %550 = lshr i32 %497, 4
+  %551 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %545)
+  %552 = or disjoint i64 %525, %531
+  %553 = or i32 %542, %550
+  %554 = and i32 %553, 134217728
+  %555 = or disjoint i32 %554, %541
+  %556 = zext nneg i32 %555 to i64
+  %557 = or disjoint i64 %519, %556
+  %558 = or i64 %557, %551
+  %559 = or i64 %558, %552
+  %560 = or i64 %559, %489
+  %561 = and i64 %490, 4096
+  %562 = icmp eq i64 %561, 0
+  br i1 %562, label %573, label %563
 
-555:                                              ; preds = %500
-  %556 = lshr i32 %496, 11
-  %557 = and i32 %556, 1
-  %558 = zext nneg i32 %557 to i64
-  %559 = shl nuw i64 %558, 63
-  %560 = or i64 %552, %559
-  %561 = and i32 %518, 1
-  %562 = zext nneg i32 %561 to i64
-  %563 = shl nuw nsw i64 %562, 55
-  %564 = or i64 %541, %563
-  br label %565
+563:                                              ; preds = %508
+  %564 = lshr i32 %496, 11
+  %565 = and i32 %564, 1
+  %566 = zext nneg i32 %565 to i64
+  %567 = shl nuw i64 %566, 63
+  %568 = or i64 %560, %567
+  %569 = and i32 %526, 1
+  %570 = zext nneg i32 %569 to i64
+  %571 = shl nuw nsw i64 %570, 55
+  %572 = or i64 %549, %571
+  br label %573
 
-565:                                              ; preds = %555, %500
-  %566 = phi i64 [ %564, %555 ], [ %541, %500 ]
-  %567 = phi i64 [ %560, %555 ], [ %552, %500 ]
-  %568 = load i32, ptr %32, align 4
-  %569 = icmp eq i32 %568, 4476225
-  br i1 %569, label %570, label %604
+573:                                              ; preds = %563, %508
+  %574 = phi i64 [ %572, %555 ], [ %549, %500 ]
+  %575 = phi i64 [ %568, %555 ], [ %560, %500 ]
+  %576 = load i32, ptr %32, align 4
+  %577 = icmp eq i32 %576, 4476225
+  br i1 %577, label %578, label %604
 
-570:                                              ; preds = %565
-  %571 = extractelement <4 x i32> %503, i64 1
-  %572 = and i32 %571, 128
-  %573 = zext nneg i32 %572 to i64
-  %574 = or i64 %566, %573
+578:                                              ; preds = %573
+  %579 = extractelement <4 x i32> %511, i64 1
+  %580 = and i32 %579, 128
+  %581 = zext nneg i32 %580 to i64
+  %582 = or i64 %574, %581
   br label %604
 
-575:                                              ; preds = %485, %485, %485
-  %576 = getelementptr inbounds nuw i8, ptr %492, i64 4
+583:                                              ; preds = %485, %485, %485
+  %584 = getelementptr inbounds nuw i8, ptr %492, i64 4
   store i32 %494, ptr %492, align 4, !tbaa !19
-  %577 = getelementptr inbounds nuw i8, ptr %492, i64 8
-  store i32 %495, ptr %576, align 4, !tbaa !19
-  %578 = getelementptr inbounds nuw i8, ptr %492, i64 12
-  store i32 %496, ptr %577, align 4, !tbaa !19
-  %579 = getelementptr inbounds nuw i8, ptr %492, i64 16
-  store i32 %497, ptr %578, align 4, !tbaa !19
-  %580 = icmp eq i32 %491, -2147483644
-  %581 = select i1 %580, i32 -2147483641, i32 %491
+  %585 = getelementptr inbounds nuw i8, ptr %492, i64 8
+  store i32 %495, ptr %584, align 4, !tbaa !19
+  %586 = getelementptr inbounds nuw i8, ptr %492, i64 12
+  store i32 %496, ptr %585, align 4, !tbaa !19
+  %587 = getelementptr inbounds nuw i8, ptr %492, i64 16
+  store i32 %497, ptr %586, align 4, !tbaa !19
+  %588 = icmp eq i32 %491, -2147483644
+  %589 = select i1 %588, i32 -2147483641, i32 %491
   br label %604
 
-582:                                              ; preds = %485
-  %583 = and i32 %495, 1
-  %584 = zext nneg i32 %583 to i64
-  %585 = shl nuw nsw i64 %584, 45
-  %586 = or i64 %585, %488
-  %587 = shl nuw nsw i64 %584, 32
-  %588 = shl i32 %495, 1
-  %589 = and i32 %588, 512
-  %590 = zext nneg i32 %589 to i64
-  %591 = lshr i32 %495, 9
+590:                                              ; preds = %485
+  %591 = and i32 %495, 1
+  %592 = zext nneg i32 %591 to i64
+  %593 = shl nuw nsw i64 %592, 45
+  %594 = or i64 %593, %490
+  %595 = shl nuw nsw i64 %592, 32
+  %596 = shl i32 %495, 1
+  %597 = and i32 %596, 512
+  %598 = zext nneg i32 %597 to i64
+  %599 = lshr i32 %495, 9
   %592 = and i32 %591, 1
   %593 = zext nneg i32 %592 to i64
   %594 = shl nuw nsw i64 %593, 61
@@ -740,25 +740,25 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %603 = or i64 %602, %489
   br label %604
 
-604:                                              ; preds = %598, %582, %575, %570, %565, %498, %485
+604:; preds = %598, %582, %575, %570, %565, %498, %485
   %605 = phi i64 [ %486, %485 ], [ %486, %598 ], [ %586, %582 ], [ %486, %575 ], [ %574, %570 ], [ %566, %565 ], [ %486, %498 ]
   %606 = phi i64 [ %487, %485 ], [ %603, %598 ], [ %597, %582 ], [ %487, %575 ], [ %567, %570 ], [ %567, %565 ], [ %487, %498 ]
-  %607 = phi i64 [ %488, %485 ], [ %488, %598 ], [ %586, %582 ], [ %488, %575 ], [ %574, %570 ], [ %566, %565 ], [ %488, %498 ]
-  %608 = phi i64 [ %489, %485 ], [ %603, %598 ], [ %597, %582 ], [ %489, %575 ], [ %567, %570 ], [ %567, %565 ], [ %489, %498 ]
+  %607 = phi i64 [ %488, %485 ], [ %488, %598 ], [ %586, %582 ], [ %490, %575 ], [ %582, %570 ], [ %566, %565 ], [ %488, %498 ]
+  %608 = phi i64 [ %489, %485 ], [ %603, %598 ], [ %597, %582 ], [ %491, %575 ], [ %567, %570 ], [ %567, %565 ], [ %489, %498 ]
   %609 = phi i32 [ %490, %485 ], [ %490, %598 ], [ %490, %582 ], [ %490, %575 ], [ %490, %570 ], [ %490, %565 ], [ %499, %498 ]
-  %610 = phi i32 [ %491, %485 ], [ -2147483617, %598 ], [ -2147483618, %582 ], [ %581, %575 ], [ -2147483647, %570 ], [ -2147483647, %565 ], [ -2147483648, %498 ]
+  %610 = phi i32 [ %491, %485 ], [ -2147483617, %598 ], [ -2147483618, %582 ], [ %589, %575 ], [ -2147483647, %570 ], [ -2147483647, %565 ], [ -2147483648, %498 ]
   %611 = phi ptr [ %492, %485 ], [ %492, %598 ], [ %492, %582 ], [ %579, %575 ], [ %492, %570 ], [ %492, %565 ], [ %492, %498 ]
   %612 = add i32 %610, 1
   %613 = icmp ugt i32 %612, %609
   br i1 %613, label %614, label %485, !llvm.loop !24
 
-614:                                              ; preds = %604
+614: ; preds = %604
   store i64 %606, ptr %7, align 8, !tbaa !21
   store i64 %605, ptr %4, align 8, !tbaa !21
   br label %615
 
-615:                                              ; preds = %627, %614
-  %616 = phi ptr [ %630, %627 ], [ %484, %614 ]
+615:; preds = %627, %614
+  %616 = phi ptr [ %638, %627 ], [ %484, %614 ]
   %617 = phi ptr [ %628, %627 ], [ %484, %614 ]
   %618 = phi i8 [ %629, %627 ], [ 0, %614 ]
   %619 = load i8, ptr %616, align 1, !tbaa !26
@@ -768,42 +768,42 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
     i8 32, label %620
   ]
 
-620:                                              ; preds = %615
-  %621 = icmp eq i8 %618, 64
-  br i1 %621, label %627, label %622
+628:                                              ; preds = %615
+  %629 = icmp eq i8 %618, 64
+  br i1 %629, label %635, label %630
 
-622:                                              ; preds = %620
-  %623 = getelementptr inbounds nuw i8, ptr %616, i64 1
-  %624 = load i8, ptr %623, align 1, !tbaa !26
-  switch i8 %624, label %625 [
-    i8 32, label %627
-    i8 64, label %627
+630:                                              ; preds = %628
+  %631 = getelementptr inbounds nuw i8, ptr %616, i64 1
+  %632 = load i8, ptr %631, align 1, !tbaa !26
+  switch i8 %632, label %625 [
+    i8 32, label %635
+    i8 64, label %635
   ]
 
-625:                                              ; preds = %622, %615
-  %626 = getelementptr inbounds nuw i8, ptr %617, i64 1
+633:                                              ; preds = %630, %615
+  %634 = getelementptr inbounds nuw i8, ptr %617, i64 1
   store i8 %619, ptr %617, align 1, !tbaa !26
-  br label %627
+  br label %635
 
-627:                                              ; preds = %625, %622, %622, %620
-  %628 = phi ptr [ %617, %620 ], [ %617, %622 ], [ %626, %625 ], [ %617, %622 ]
-  %629 = phi i8 [ 64, %620 ], [ %618, %622 ], [ %619, %625 ], [ %618, %622 ]
-  %630 = getelementptr inbounds nuw i8, ptr %616, i64 1
+635:                                              ; preds = %633, %630, %630, %628
+  %636 = phi ptr [ %617, %620 ], [ %617, %622 ], [ %634, %625 ], [ %617, %622 ]
+  %637 = phi i8 [ 64, %620 ], [ %618, %622 ], [ %619, %625 ], [ %618, %622 ]
+  %638 = getelementptr inbounds nuw i8, ptr %616, i64 1
   br label %615, !llvm.loop !27
 
-631:                                              ; preds = %615
+639:                                              ; preds = %615
   store i8 0, ptr %617, align 1, !tbaa !26
-  %632 = tail call i64 @sysconf(i32 noundef 84) #6
-  %633 = tail call i64 @llvm.smax.i64(i64 %632, i64 1)
-  %634 = trunc i64 %633 to i32
-  %635 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %634, ptr %635, align 8, !tbaa !28
+  %640 = tail call i64 @sysconf(i32 noundef 84) #6
+  %641 = tail call i64 @llvm.smax.i64(i64 %640, i64 1)
+  %642 = trunc i64 %641 to i32
+  %643 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %642, ptr %643, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false), !tbaa.struct !29
   store i1 true, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %636
+  br label %644
 
-636:                                              ; preds = %631, %0
+644:                                              ; preds = %639, %0
   ret ptr @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE
 }
 
