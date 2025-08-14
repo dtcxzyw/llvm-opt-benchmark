@@ -2876,15 +2876,15 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
 
 "_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i": ; preds = %379, %.noexc95
   %.sroa.9.1.i90.i.i.i = phi i64 [ %374, %.noexc95 ], [ %352, %379 ]
+  %.sroa.7.0.insert.shift.i.i.i.i = shl nuw nsw i64 %.sroa.017.0.i.i.i.i, 32
+  %.sroa.9.0.insert.ext.i.i.i.i = shl nuw nsw i64 %.sroa.9.1.i90.i.i.i, 40
+  %.sroa.9.0.insert.shift.i.i.i.i = and i64 %.sroa.9.0.insert.ext.i.i.i.i, 280375465082880
   %381 = zext nneg i8 %275 to i64
   %.sroa.727.0.insert.shift.i.i.i = shl nuw nsw i64 %381, 56
-  %.sroa.021.2.extract.trunc.i.i.i = shl nuw nsw i64 %.sroa.9.1.i90.i.i.i, 40
-  %.sroa.525.0.insert.shift.i.i.i = and i64 %.sroa.021.2.extract.trunc.i.i.i, 280375465082880
-  %.sroa.424.0.insert.shift.i.i.i = shl nuw nsw i64 %.sroa.017.0.i.i.i.i, 32
   %.sroa.023.0.insert.ext.i.i.i = zext i32 %.sroa.910.0.copyload.i.i to i64
-  %.sroa.525.0.insert.insert.i.i.i = or disjoint i64 %.sroa.727.0.insert.shift.i.i.i, %.sroa.023.0.insert.ext.i.i.i
-  %.sroa.424.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.424.0.insert.shift.i.i.i, %.sroa.525.0.insert.insert.i.i.i
-  %.sroa.023.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.424.0.insert.insert.i.i.i, %.sroa.525.0.insert.shift.i.i.i
+  %.sroa.7.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.727.0.insert.shift.i.i.i, %.sroa.023.0.insert.ext.i.i.i
+  %.sroa.424.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.7.0.insert.shift.i.i.i.i, %.sroa.7.0.insert.insert.i.i.i.i
+  %.sroa.023.0.insert.insert.i.i.i = add nuw nsw i64 %.sroa.424.0.insert.insert.i.i.i, %.sroa.9.0.insert.shift.i.i.i.i
   %382 = load i64, ptr %272, align 8, !alias.scope !204, !noalias !207, !noundef !3
   %383 = load i64, ptr %270, align 8, !range !209, !alias.scope !204, !noalias !207, !noundef !3
   %384 = icmp eq i64 %382, %383
