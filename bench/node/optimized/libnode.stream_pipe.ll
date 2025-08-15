@@ -837,8 +837,8 @@ _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.e
 
 if.end:                                           ; preds = %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %25 = load ptr, ptr %stream_.i, align 8
-  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %this) #12
+  %26 = load ptr, ptr %stream_.i, align 8
+  call void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %this) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit, %if.end
@@ -848,22 +848,22 @@ cleanup:                                          ; preds = %_ZNK4node10BaseObje
 
 if.end33:                                         ; preds = %entry
   %is_eof_ = getelementptr inbounds nuw i8, ptr %1, i64 61
-  %26 = load i8, ptr %is_eof_, align 1
-  %tobool34 = trunc i8 %26 to i1
+  %27 = load i8, ptr %is_eof_, align 1
+  %tobool34 = trunc i8 %27 to i1
   br i1 %tobool34, label %if.then35, label %if.end47
 
 if.then35:                                        ; preds = %if.end33
   %realm_.i16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load ptr, ptr %realm_.i16, align 8
-  %env_.i.i17 = getelementptr inbounds nuw i8, ptr %27, i64 176
-  %28 = load ptr, ptr %env_.i.i17, align 8
-  %isolate_.i18 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %29 = load ptr, ptr %isolate_.i18, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope36, ptr noundef %29) #12
+  %28 = load ptr, ptr %realm_.i16, align 8
+  %env_.i.i17 = getelementptr inbounds nuw i8, ptr %28, i64 176
+  %29 = load ptr, ptr %env_.i.i17, align 8
+  %isolate_.i18 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %30 = load ptr, ptr %isolate_.i18, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope36, ptr noundef %30) #12
   call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope, ptr noundef nonnull %1, i32 noundef 2) #12
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %30 = load ptr, ptr %stream_.i.i, align 8
-  %call44 = call noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr null) #12
+  %31 = load ptr, ptr %stream_.i.i, align 8
+  %call44 = call noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr null) #12
   call void @_ZN4node10StreamPipe6UnpipeEb(ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext false)
   call void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope36) #12
@@ -875,8 +875,8 @@ if.end47:                                         ; preds = %if.end33
 
 do.body:                                          ; preds = %if.end47
   %previous_listener_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %31 = load ptr, ptr %previous_listener_, align 8
-  %cmp50.not = icmp eq ptr %31, null
+  %32 = load ptr, ptr %previous_listener_, align 8
+  %cmp50.not = icmp eq ptr %32, null
   br i1 %cmp50.not, label %do.body54, label %do.end56
 
 do.body54:                                        ; preds = %do.body
@@ -886,22 +886,22 @@ do.body54:                                        ; preds = %do.body
 
 do.end56:                                         ; preds = %do.body
   tail call void @_ZN4node10StreamPipe6UnpipeEb(ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext false)
-  %vtable = load ptr, ptr %31, align 8
+  %vtable = load ptr, ptr %32, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %32 = load ptr, ptr %vfn, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef %w, i32 noundef %status) #12
+  %33 = load ptr, ptr %vfn, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %w, i32 noundef %status) #12
   br label %if.end63
 
 if.end58:                                         ; preds = %if.end47
   %uses_wants_write_ = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %33 = load i8, ptr %uses_wants_write_, align 1
-  %tobool59 = trunc i8 %33 to i1
+  %34 = load i8, ptr %uses_wants_write_, align 1
+  %tobool59 = trunc i8 %34 to i1
   br i1 %tobool59, label %if.end63, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
   %vtable61 = load ptr, ptr %this, align 8
   %vfn62 = getelementptr inbounds nuw i8, ptr %vtable61, i64 48
-  %34 = load ptr, ptr %vfn62, align 8
+  %35 = load ptr, ptr %vfn62, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef 65536) #12
   br label %if.end63
 

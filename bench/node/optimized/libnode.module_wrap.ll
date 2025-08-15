@@ -1885,8 +1885,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end548
-  %181 = load ptr, ptr %isolate_.i, align 8
-  %182 = getelementptr i8, ptr %181, i64 608
+  %182 = load ptr, ptr %isolate_.i, align 8
+  %182 = getelementptr i8, ptr %182, i64 608
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then.i684, %if.end.i, %cond.false
@@ -1897,10 +1897,10 @@ cond.end:                                         ; preds = %if.then.i684, %if.e
   %contextify_context_ = getelementptr inbounds nuw i8, ptr %call569, i64 96
   store ptr %contextify_context.0, ptr %contextify_context_, align 8
   %call596 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr nonnull %context.sroa.0.0, i32 noundef 0) #19
-  %183 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %184 = load i64, ptr %add.ptr.i, align 8
-  store i64 %184, ptr %arrayidx.i, align 8
+  %184 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %184, i64 24
+  %185 = load i64, ptr %add.ptr.i, align 8
+  store i64 %185, ptr %arrayidx.i, align 8
   br label %cleanup605
 
 cleanup605:                                       ; preds = %if.end521, %cleanup486, %cond.end
@@ -1909,8 +1909,8 @@ cleanup605:                                       ; preds = %if.end521, %cleanup
   br i1 %cmp.not.i.i, label %_ZN4node29ShouldNotAbortOnUncaughtScopeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup605.thread, %cleanup605
-  %185 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
-  %dec.i.i.i = add nsw i32 %185, -1
+  %186 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
+  %dec.i.i.i = add nsw i32 %186, -1
   store i32 %dec.i.i.i, ptr %should_not_abort_scope_counter_.i.i, align 8
   br label %_ZN4node29ShouldNotAbortOnUncaughtScopeD2Ev.exit
 

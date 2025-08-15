@@ -76,13 +76,13 @@ define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef n
   br i1 %16, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.06.i = phi ptr [ %19, %.lr.ph.i ], [ %9, %6 ]
+  %.06.i = phi ptr [ %18, %.lr.ph.i ], [ %9, %6 ]
   tail call void @llvm.prefetch.p0(ptr %.06.i, i32 1, i32 1, i32 1)
-  %17 = ptrtoint ptr %.06.i to i64
-  %18 = add i64 %17, 256
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp ult i64 %18, %14
-  br i1 %20, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !9
+  %16 = ptrtoint ptr %.06.i to i64
+  %17 = add i64 %16, 256
+  %18 = inttoptr i64 %17 to ptr
+  %19 = icmp ult i64 %17, %14
+  br i1 %19, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !9
 
 _ZN5boost7context6detail14prefetch_rangeEPvm.exit: ; preds = %.lr.ph.i, %6, %1
   %.0 = phi ptr [ null, %1 ], [ %9, %6 ], [ %9, %.lr.ph.i ]
