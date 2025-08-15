@@ -996,7 +996,7 @@ define noundef ptr @_ZN5boost6fibers4numa4algo13work_stealing9pick_nextEv(ptr no
 20:                                               ; preds = %11
   %21 = ptrtoint ptr %15 to i64
   %22 = add i64 %21, 232
-  %23 = inttoptr i64 %22 to ptr
+  %23 = getelementptr i8, ptr %15, i64 232
   %24 = icmp ult ptr %15, %23
   br i1 %24, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
 
@@ -1132,7 +1132,7 @@ _ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0
 92:                                               ; preds = %91
   %93 = ptrtoint ptr %87 to i64
   %94 = add i64 %93, 232
-  %95 = inttoptr i64 %94 to ptr
+  %95 = getelementptr i8, ptr %87, i64 232
   %96 = icmp ult ptr %87, %95
   br i1 %96, label %.lr.ph.i34, label %.sink.split
 
@@ -1188,7 +1188,7 @@ _ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0
 129:                                              ; preds = %128
   %130 = ptrtoint ptr %124 to i64
   %131 = add i64 %130, 232
-  %132 = inttoptr i64 %131 to ptr
+  %132 = getelementptr i8, ptr %124, i64 232
   %133 = icmp ult ptr %124, %132
   br i1 %133, label %.lr.ph.i38, label %.sink.split
 
