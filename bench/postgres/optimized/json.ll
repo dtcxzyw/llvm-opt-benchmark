@@ -143,42 +143,40 @@ define dso_local i64 @json_send(ptr noundef readonly captures(none) %0) local_un
   %.not = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = icmp eq i8 %7, 1
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %18
 
 12:                                               ; preds = %1
   %13 = load i8, ptr %10, align 1
-  %14 = icmp eq i8 %13, 1
-  %15 = and i8 %13, -2
-  %16 = icmp eq i8 %15, 2
-  %or.cond = or i1 %14, %16
-  %17 = icmp eq i8 %13, 18
-  %18 = select i1 %17, i32 16, i32 0
-  %19 = select i1 %or.cond, i32 8, i32 %18
-  br label %28
+  %14 = add i8 %13, -1
+  %or.cond = icmp ult i8 %14, 3
+  %15 = icmp eq i8 %13, 18
+  %16 = select i1 %15, i32 16, i32 0
+  %17 = select i1 %or.cond, i32 8, i32 %16
+  br label %26
 
-20:                                               ; preds = %1
-  br i1 %.not, label %24, label %21
+18:                                               ; preds = %1
+  br i1 %.not, label %22, label %19
 
-21:                                               ; preds = %20
-  %22 = lshr i32 %8, 1
-  %23 = add nsw i32 %22, -1
-  br label %28
+19:                                               ; preds = %18
+  %20 = lshr i32 %8, 1
+  %21 = add nsw i32 %20, -1
+  br label %26
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %6, align 4
-  %26 = lshr i32 %25, 2
-  %27 = add nsw i32 %26, -4
-  br label %28
+22:                                               ; preds = %18
+  %23 = load i32, ptr %6, align 4
+  %24 = lshr i32 %23, 2
+  %25 = add nsw i32 %24, -4
+  br label %26
 
-28:                                               ; preds = %21, %24, %12
-  %29 = phi i32 [ %19, %12 ], [ %23, %21 ], [ %27, %24 ]
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %31 = select i1 %.not, ptr %30, ptr %10
-  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %31, i32 noundef %29) #10
-  %32 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #10
-  %33 = ptrtoint ptr %32 to i64
+26:                                               ; preds = %19, %22, %12
+  %27 = phi i32 [ %17, %12 ], [ %21, %19 ], [ %25, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %29 = select i1 %.not, ptr %28, ptr %10
+  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef nonnull %29, i32 noundef %27) #10
+  %30 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #10
+  %31 = ptrtoint ptr %30 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %33
+  ret i64 %31
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -911,7 +909,7 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   br i1 %5, label %13, label %19
 
 13:                                               ; preds = %12
-  switch i32 %3, label %87 [
+  switch i32 %3, label %85 [
     i32 10, label %15
     i32 9, label %15
     i32 8, label %15
@@ -936,7 +934,7 @@ define internal fastcc void @datum_to_json_internal(i64 noundef %0, i1 noundef z
   unreachable
 
 19:                                               ; preds = %12
-  switch i32 %3, label %87 [
+  switch i32 %3, label %85 [
     i32 8, label %20
     i32 9, label %21
     i32 1, label %23
@@ -1078,103 +1076,99 @@ JsonEncodeDateTime.exit:                          ; preds = %46, %47
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %67 = select i1 %.not, ptr %66, ptr %65
   %68 = icmp eq i8 %62, 1
-  br i1 %68, label %69, label %77
+  br i1 %68, label %69, label %75
 
 69:                                               ; preds = %58
   %70 = load i8, ptr %65, align 1
-  %71 = icmp eq i8 %70, 1
-  %72 = and i8 %70, -2
-  %73 = icmp eq i8 %72, 2
-  %or.cond89 = or i1 %71, %73
-  %74 = icmp eq i8 %70, 18
-  %75 = select i1 %74, i32 16, i32 0
-  %76 = select i1 %or.cond89, i32 8, i32 %75
-  br label %85
+  %71 = add i8 %70, -1
+  %or.cond89 = icmp ult i8 %71, 3
+  %72 = icmp eq i8 %70, 18
+  %73 = select i1 %72, i32 16, i32 0
+  %74 = select i1 %or.cond89, i32 8, i32 %73
+  br label %83
 
-77:                                               ; preds = %58
-  br i1 %.not, label %81, label %78
+75:                                               ; preds = %58
+  br i1 %.not, label %79, label %76
 
-78:                                               ; preds = %77
-  %79 = lshr i32 %63, 1
-  %80 = add nsw i32 %79, -1
-  br label %85
+76:                                               ; preds = %75
+  %77 = lshr i32 %63, 1
+  %78 = add nsw i32 %77, -1
+  br label %83
 
-81:                                               ; preds = %77
-  %82 = load i32, ptr %61, align 4
-  %83 = lshr i32 %82, 2
-  %84 = add nsw i32 %83, -4
-  br label %85
+79:                                               ; preds = %75
+  %80 = load i32, ptr %61, align 4
+  %81 = lshr i32 %80, 2
+  %82 = add nsw i32 %81, -4
+  br label %83
 
-85:                                               ; preds = %78, %81, %69
-  %86 = phi i32 [ %76, %69 ], [ %80, %78 ], [ %84, %81 ]
-  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull %67, i32 noundef %86) #10
+83:                                               ; preds = %76, %79, %69
+  %84 = phi i32 [ %74, %69 ], [ %78, %76 ], [ %82, %79 ]
+  tail call void @appendBinaryStringInfo(ptr noundef %2, ptr noundef nonnull %67, i32 noundef %84) #10
   tail call void @pfree(ptr noundef nonnull %61) #10
   br label %escape_json_text.exit
 
-87:                                               ; preds = %13, %19
-  switch i32 %4, label %117 [
-    i32 1047, label %88
-    i32 1045, label %88
-    i32 47, label %88
+85:                                               ; preds = %13, %19
+  switch i32 %4, label %113 [
+    i32 1047, label %86
+    i32 1045, label %86
+    i32 47, label %86
   ]
 
-88:                                               ; preds = %87, %87, %87
-  %89 = inttoptr i64 %0 to ptr
-  %90 = tail call ptr @pg_detoast_datum_packed(ptr noundef %89) #10
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = icmp eq i8 %91, 1
-  br i1 %93, label %94, label %103
+86:                                               ; preds = %85, %85, %85
+  %87 = inttoptr i64 %0 to ptr
+  %88 = tail call ptr @pg_detoast_datum_packed(ptr noundef %87) #10
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %91 = icmp eq i8 %89, 1
+  br i1 %91, label %92, label %99
 
-94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, 1
-  %98 = and i8 %96, -2
-  %99 = icmp eq i8 %98, 2
-  %or.cond.i90 = or i1 %97, %99
-  %100 = icmp eq i8 %96, 18
-  %101 = select i1 %100, i32 16, i32 0
-  %102 = select i1 %or.cond.i90, i32 8, i32 %101
-  br label %112
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  %94 = load i8, ptr %93, align 1
+  %95 = add i8 %94, -1
+  %or.cond.i90 = icmp ult i8 %95, 3
+  %96 = icmp eq i8 %94, 18
+  %97 = select i1 %96, i32 16, i32 0
+  %98 = select i1 %or.cond.i90, i32 8, i32 %97
+  br label %108
 
-103:                                              ; preds = %88
-  %104 = and i32 %92, 1
-  %.not.i = icmp eq i32 %104, 0
-  br i1 %.not.i, label %108, label %105
+99:                                               ; preds = %86
+  %100 = and i32 %90, 1
+  %.not.i = icmp eq i32 %100, 0
+  br i1 %.not.i, label %104, label %101
 
-105:                                              ; preds = %103
-  %106 = lshr i32 %92, 1
-  %107 = add nsw i32 %106, -1
-  br label %112
+101:                                              ; preds = %99
+  %102 = lshr i32 %90, 1
+  %103 = add nsw i32 %102, -1
+  br label %108
 
-108:                                              ; preds = %103
-  %109 = load i32, ptr %90, align 4
-  %110 = lshr i32 %109, 2
-  %111 = add nsw i32 %110, -4
-  br label %112
+104:                                              ; preds = %99
+  %105 = load i32, ptr %88, align 4
+  %106 = lshr i32 %105, 2
+  %107 = add nsw i32 %106, -4
+  br label %108
 
-112:                                              ; preds = %108, %105, %94
-  %113 = phi i32 [ %102, %94 ], [ %107, %105 ], [ %111, %108 ]
-  %114 = and i8 %91, 1
-  %.not18.i = icmp eq i8 %114, 0
+108:                                              ; preds = %104, %101, %92
+  %109 = phi i32 [ %98, %92 ], [ %103, %101 ], [ %107, %104 ]
+  %110 = and i8 %89, 1
+  %.not18.i = icmp eq i8 %110, 0
   %.v.i = select i1 %.not18.i, i64 4, i64 1
-  %115 = getelementptr inbounds nuw i8, ptr %90, i64 %.v.i
-  tail call void @escape_json_with_len(ptr noundef %2, ptr noundef nonnull %115, i32 noundef %113)
-  %.not19.i = icmp eq ptr %90, %89
-  br i1 %.not19.i, label %escape_json_text.exit, label %116
+  %111 = getelementptr inbounds nuw i8, ptr %88, i64 %.v.i
+  tail call void @escape_json_with_len(ptr noundef %2, ptr noundef nonnull %111, i32 noundef %109)
+  %.not19.i = icmp eq ptr %88, %87
+  br i1 %.not19.i, label %escape_json_text.exit, label %112
 
-116:                                              ; preds = %112
-  tail call void @pfree(ptr noundef nonnull %90) #10
+112:                                              ; preds = %108
+  tail call void @pfree(ptr noundef nonnull %88) #10
   br label %escape_json_text.exit
 
-117:                                              ; preds = %87
-  %118 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
-  tail call void @escape_json(ptr noundef %2, ptr noundef %118)
-  tail call void @pfree(ptr noundef %118) #10
+113:                                              ; preds = %85
+  %114 = tail call ptr @OidOutputFunctionCall(i32 noundef %4, i64 noundef %0) #10
+  tail call void @escape_json(ptr noundef %2, ptr noundef %114)
+  tail call void @pfree(ptr noundef %114) #10
   br label %escape_json_text.exit
 
-escape_json_text.exit:                            ; preds = %116, %112, %20, %21, %41, %JsonEncodeDateTime.exit, %52, %54, %56, %85, %27, %26, %117, %11
+escape_json_text.exit:                            ; preds = %112, %108, %20, %21, %41, %JsonEncodeDateTime.exit, %52, %54, %56, %83, %27, %26, %113, %11
   ret void
 }
 
@@ -2125,7 +2119,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
 
 12:                                               ; preds = %1
   %13 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #10
-  br label %125
+  br label %121
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2211,137 +2205,133 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = icmp eq i8 %54, 1
-  br i1 %56, label %57, label %66
+  br i1 %56, label %57, label %64
 
 57:                                               ; preds = %48
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, 1
-  %61 = and i8 %59, -2
-  %62 = icmp eq i8 %61, 2
-  %or.cond.i = or i1 %60, %62
-  %63 = icmp eq i8 %59, 18
-  %64 = select i1 %63, i32 16, i32 0
-  %65 = select i1 %or.cond.i, i32 8, i32 %64
-  br label %75
+  %60 = add i8 %59, -1
+  %or.cond.i = icmp ult i8 %60, 3
+  %61 = icmp eq i8 %59, 18
+  %62 = select i1 %61, i32 16, i32 0
+  %63 = select i1 %or.cond.i, i32 8, i32 %62
+  br label %73
 
-66:                                               ; preds = %48
-  %67 = and i32 %55, 1
-  %.not.i = icmp eq i32 %67, 0
-  br i1 %.not.i, label %71, label %68
+64:                                               ; preds = %48
+  %65 = and i32 %55, 1
+  %.not.i = icmp eq i32 %65, 0
+  br i1 %.not.i, label %69, label %66
 
-68:                                               ; preds = %66
-  %69 = lshr i32 %55, 1
-  %70 = add nsw i32 %69, -1
-  br label %75
+66:                                               ; preds = %64
+  %67 = lshr i32 %55, 1
+  %68 = add nsw i32 %67, -1
+  br label %73
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %53, align 4
-  %73 = lshr i32 %72, 2
-  %74 = add nsw i32 %73, -4
-  br label %75
+69:                                               ; preds = %64
+  %70 = load i32, ptr %53, align 4
+  %71 = lshr i32 %70, 2
+  %72 = add nsw i32 %71, -4
+  br label %73
 
-75:                                               ; preds = %71, %68, %57
-  %76 = phi i32 [ %65, %57 ], [ %70, %68 ], [ %74, %71 ]
-  %77 = and i8 %54, 1
-  %.not18.i = icmp eq i8 %77, 0
+73:                                               ; preds = %69, %66, %57
+  %74 = phi i32 [ %63, %57 ], [ %68, %66 ], [ %72, %69 ]
+  %75 = and i8 %54, 1
+  %.not18.i = icmp eq i8 %75, 0
   %.v.i = select i1 %.not18.i, i64 4, i64 1
-  %78 = getelementptr inbounds nuw i8, ptr %53, i64 %.v.i
-  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %78, i32 noundef %76)
+  %76 = getelementptr inbounds nuw i8, ptr %53, i64 %.v.i
+  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %76, i32 noundef %74)
   %.not19.i = icmp eq ptr %53, %52
-  br i1 %.not19.i, label %escape_json_text.exit, label %79
+  br i1 %.not19.i, label %escape_json_text.exit, label %77
 
-79:                                               ; preds = %75
+77:                                               ; preds = %73
   call void @pfree(ptr noundef nonnull %53) #10
   br label %escape_json_text.exit
 
-escape_json_text.exit:                            ; preds = %75, %79
+escape_json_text.exit:                            ; preds = %73, %77
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #10
-  %80 = load ptr, ptr %4, align 8
-  %81 = or disjoint i64 %38, 1
-  %82 = getelementptr inbounds i8, ptr %80, i64 %81
-  %83 = load i8, ptr %82, align 1, !range !4, !noundef !5
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %86
+  %78 = load ptr, ptr %4, align 8
+  %79 = or disjoint i64 %38, 1
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %81 = load i8, ptr %80, align 1, !range !4, !noundef !5
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %84
 
-85:                                               ; preds = %escape_json_text.exit
+83:                                               ; preds = %escape_json_text.exit
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #10
   br label %escape_json_text.exit23
 
-86:                                               ; preds = %escape_json_text.exit
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %81
-  %89 = load i64, ptr %88, align 8
-  %90 = inttoptr i64 %89 to ptr
-  %91 = call ptr @pg_detoast_datum_packed(ptr noundef %90) #10
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = icmp eq i8 %92, 1
-  br i1 %94, label %95, label %104
+84:                                               ; preds = %escape_json_text.exit
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds i64, ptr %85, i64 %79
+  %87 = load i64, ptr %86, align 8
+  %88 = inttoptr i64 %87 to ptr
+  %89 = call ptr @pg_detoast_datum_packed(ptr noundef %88) #10
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = icmp eq i8 %90, 1
+  br i1 %92, label %93, label %100
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  %97 = load i8, ptr %96, align 1
-  %98 = icmp eq i8 %97, 1
-  %99 = and i8 %97, -2
-  %100 = icmp eq i8 %99, 2
-  %or.cond.i22 = or i1 %98, %100
-  %101 = icmp eq i8 %97, 18
-  %102 = select i1 %101, i32 16, i32 0
-  %103 = select i1 %or.cond.i22, i32 8, i32 %102
-  br label %113
+93:                                               ; preds = %84
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = add i8 %95, -1
+  %or.cond.i22 = icmp ult i8 %96, 3
+  %97 = icmp eq i8 %95, 18
+  %98 = select i1 %97, i32 16, i32 0
+  %99 = select i1 %or.cond.i22, i32 8, i32 %98
+  br label %109
 
-104:                                              ; preds = %86
-  %105 = and i32 %93, 1
-  %.not.i18 = icmp eq i32 %105, 0
-  br i1 %.not.i18, label %109, label %106
+100:                                              ; preds = %84
+  %101 = and i32 %91, 1
+  %.not.i18 = icmp eq i32 %101, 0
+  br i1 %.not.i18, label %105, label %102
 
-106:                                              ; preds = %104
-  %107 = lshr i32 %93, 1
-  %108 = add nsw i32 %107, -1
-  br label %113
+102:                                              ; preds = %100
+  %103 = lshr i32 %91, 1
+  %104 = add nsw i32 %103, -1
+  br label %109
 
-109:                                              ; preds = %104
-  %110 = load i32, ptr %91, align 4
-  %111 = lshr i32 %110, 2
-  %112 = add nsw i32 %111, -4
-  br label %113
+105:                                              ; preds = %100
+  %106 = load i32, ptr %89, align 4
+  %107 = lshr i32 %106, 2
+  %108 = add nsw i32 %107, -4
+  br label %109
 
-113:                                              ; preds = %109, %106, %95
-  %114 = phi i32 [ %103, %95 ], [ %108, %106 ], [ %112, %109 ]
-  %115 = and i8 %92, 1
-  %.not18.i19 = icmp eq i8 %115, 0
+109:                                              ; preds = %105, %102, %93
+  %110 = phi i32 [ %99, %93 ], [ %104, %102 ], [ %108, %105 ]
+  %111 = and i8 %90, 1
+  %.not18.i19 = icmp eq i8 %111, 0
   %.v.i20 = select i1 %.not18.i19, i64 4, i64 1
-  %116 = getelementptr inbounds nuw i8, ptr %91, i64 %.v.i20
-  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %116, i32 noundef %114)
-  %.not19.i21 = icmp eq ptr %91, %90
-  br i1 %.not19.i21, label %escape_json_text.exit23, label %117
+  %112 = getelementptr inbounds nuw i8, ptr %89, i64 %.v.i20
+  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %112, i32 noundef %110)
+  %.not19.i21 = icmp eq ptr %89, %88
+  br i1 %.not19.i21, label %escape_json_text.exit23, label %113
 
-117:                                              ; preds = %113
-  call void @pfree(ptr noundef nonnull %91) #10
+113:                                              ; preds = %109
+  call void @pfree(ptr noundef nonnull %89) #10
   br label %escape_json_text.exit23
 
-escape_json_text.exit23:                          ; preds = %117, %113, %85
+escape_json_text.exit23:                          ; preds = %113, %109, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit23, %33
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
-  %118 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %118) #10
-  %119 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %119) #10
+  %114 = load ptr, ptr %3, align 8
+  call void @pfree(ptr noundef %114) #10
+  %115 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %115) #10
+  %116 = load ptr, ptr %2, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %118 = load i32, ptr %117, align 8
+  %119 = call ptr @cstring_to_text_with_len(ptr noundef %116, i32 noundef %118) #10
   %120 = load ptr, ptr %2, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %122 = load i32, ptr %121, align 8
-  %123 = call ptr @cstring_to_text_with_len(ptr noundef %120, i32 noundef %122) #10
-  %124 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %124) #10
-  br label %125
+  call void @pfree(ptr noundef %120) #10
+  br label %121
 
-125:                                              ; preds = %._crit_edge, %12
-  %.0.in = phi ptr [ %13, %12 ], [ %123, %._crit_edge ]
+121:                                              ; preds = %._crit_edge, %12
+  %.0.in = phi ptr [ %13, %12 ], [ %119, %._crit_edge ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2362,51 +2352,49 @@ define dso_local void @escape_json_text(ptr noundef %0, ptr noundef %1) local_un
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp eq i8 %4, 1
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %8, align 1
-  %10 = icmp eq i8 %9, 1
-  %11 = and i8 %9, -2
-  %12 = icmp eq i8 %11, 2
-  %or.cond = or i1 %10, %12
-  %13 = icmp eq i8 %9, 18
-  %14 = select i1 %13, i32 16, i32 0
-  %15 = select i1 %or.cond, i32 8, i32 %14
-  br label %25
+  %10 = add i8 %9, -1
+  %or.cond = icmp ult i8 %10, 3
+  %11 = icmp eq i8 %9, 18
+  %12 = select i1 %11, i32 16, i32 0
+  %13 = select i1 %or.cond, i32 8, i32 %12
+  br label %23
 
-16:                                               ; preds = %2
-  %17 = and i32 %5, 1
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %21, label %18
+14:                                               ; preds = %2
+  %15 = and i32 %5, 1
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %19, label %16
 
-18:                                               ; preds = %16
-  %19 = lshr i32 %5, 1
-  %20 = add nsw i32 %19, -1
-  br label %25
+16:                                               ; preds = %14
+  %17 = lshr i32 %5, 1
+  %18 = add nsw i32 %17, -1
+  br label %23
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %3, align 4
-  %23 = lshr i32 %22, 2
-  %24 = add nsw i32 %23, -4
-  br label %25
+19:                                               ; preds = %14
+  %20 = load i32, ptr %3, align 4
+  %21 = lshr i32 %20, 2
+  %22 = add nsw i32 %21, -4
+  br label %23
 
-25:                                               ; preds = %18, %21, %7
-  %26 = phi i32 [ %15, %7 ], [ %20, %18 ], [ %24, %21 ]
-  %27 = and i8 %4, 1
-  %.not18 = icmp eq i8 %27, 0
+23:                                               ; preds = %16, %19, %7
+  %24 = phi i32 [ %13, %7 ], [ %18, %16 ], [ %22, %19 ]
+  %25 = and i8 %4, 1
+  %.not18 = icmp eq i8 %25, 0
   %.v = select i1 %.not18, i64 4, i64 1
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.v
-  tail call void @escape_json_with_len(ptr noundef %0, ptr noundef nonnull %28, i32 noundef %26)
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.v
+  tail call void @escape_json_with_len(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %24)
   %.not19 = icmp eq ptr %3, %1
-  br i1 %.not19, label %30, label %29
+  br i1 %.not19, label %28, label %27
 
-29:                                               ; preds = %25
+27:                                               ; preds = %23
   tail call void @pfree(ptr noundef nonnull %3) #10
-  br label %30
+  br label %28
 
-30:                                               ; preds = %29, %25
+28:                                               ; preds = %27, %23
   ret void
 }
 
@@ -2459,7 +2447,7 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
 
 28:                                               ; preds = %26
   %29 = tail call ptr @cstring_to_text(ptr noundef nonnull @.str.14) #10
-  br label %131
+  br label %127
 
 30:                                               ; preds = %26
   call void @deconstruct_array_builtin(ptr noundef nonnull %12, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
@@ -2517,142 +2505,138 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = icmp eq i8 %56, 1
-  br i1 %58, label %59, label %68
+  br i1 %58, label %59, label %66
 
 59:                                               ; preds = %50
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %61 = load i8, ptr %60, align 1
-  %62 = icmp eq i8 %61, 1
-  %63 = and i8 %61, -2
-  %64 = icmp eq i8 %63, 2
-  %or.cond.i = or i1 %62, %64
-  %65 = icmp eq i8 %61, 18
-  %66 = select i1 %65, i32 16, i32 0
-  %67 = select i1 %or.cond.i, i32 8, i32 %66
-  br label %77
+  %62 = add i8 %61, -1
+  %or.cond.i = icmp ult i8 %62, 3
+  %63 = icmp eq i8 %61, 18
+  %64 = select i1 %63, i32 16, i32 0
+  %65 = select i1 %or.cond.i, i32 8, i32 %64
+  br label %75
 
-68:                                               ; preds = %50
-  %69 = and i32 %57, 1
-  %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %73, label %70
+66:                                               ; preds = %50
+  %67 = and i32 %57, 1
+  %.not.i = icmp eq i32 %67, 0
+  br i1 %.not.i, label %71, label %68
 
-70:                                               ; preds = %68
-  %71 = lshr i32 %57, 1
-  %72 = add nsw i32 %71, -1
-  br label %77
+68:                                               ; preds = %66
+  %69 = lshr i32 %57, 1
+  %70 = add nsw i32 %69, -1
+  br label %75
 
-73:                                               ; preds = %68
-  %74 = load i32, ptr %55, align 4
-  %75 = lshr i32 %74, 2
-  %76 = add nsw i32 %75, -4
-  br label %77
+71:                                               ; preds = %66
+  %72 = load i32, ptr %55, align 4
+  %73 = lshr i32 %72, 2
+  %74 = add nsw i32 %73, -4
+  br label %75
 
-77:                                               ; preds = %73, %70, %59
-  %78 = phi i32 [ %67, %59 ], [ %72, %70 ], [ %76, %73 ]
-  %79 = and i8 %56, 1
-  %.not18.i = icmp eq i8 %79, 0
+75:                                               ; preds = %71, %68, %59
+  %76 = phi i32 [ %65, %59 ], [ %70, %68 ], [ %74, %71 ]
+  %77 = and i8 %56, 1
+  %.not18.i = icmp eq i8 %77, 0
   %.v.i = select i1 %.not18.i, i64 4, i64 1
-  %80 = getelementptr inbounds nuw i8, ptr %55, i64 %.v.i
-  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %80, i32 noundef %78)
+  %78 = getelementptr inbounds nuw i8, ptr %55, i64 %.v.i
+  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %78, i32 noundef %76)
   %.not19.i = icmp eq ptr %55, %54
-  br i1 %.not19.i, label %escape_json_text.exit, label %81
+  br i1 %.not19.i, label %escape_json_text.exit, label %79
 
-81:                                               ; preds = %77
+79:                                               ; preds = %75
   call void @pfree(ptr noundef nonnull %55) #10
   br label %escape_json_text.exit
 
-escape_json_text.exit:                            ; preds = %77, %81
+escape_json_text.exit:                            ; preds = %75, %79
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #10
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv
-  %84 = load i8, ptr %83, align 1, !range !4, !noundef !5
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %87
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv
+  %82 = load i8, ptr %81, align 1, !range !4, !noundef !5
+  %83 = trunc nuw i8 %82 to i1
+  br i1 %83, label %84, label %85
 
-86:                                               ; preds = %escape_json_text.exit
+84:                                               ; preds = %escape_json_text.exit
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.19) #10
   br label %escape_json_text.exit26
 
-87:                                               ; preds = %escape_json_text.exit
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv
-  %90 = load i64, ptr %89, align 8
-  %91 = inttoptr i64 %90 to ptr
-  %92 = call ptr @pg_detoast_datum_packed(ptr noundef %91) #10
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = icmp eq i8 %93, 1
-  br i1 %95, label %96, label %105
+85:                                               ; preds = %escape_json_text.exit
+  %86 = load ptr, ptr %4, align 8
+  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv
+  %88 = load i64, ptr %87, align 8
+  %89 = inttoptr i64 %88 to ptr
+  %90 = call ptr @pg_detoast_datum_packed(ptr noundef %89) #10
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = icmp eq i8 %91, 1
+  br i1 %93, label %94, label %101
 
-96:                                               ; preds = %87
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %98 = load i8, ptr %97, align 1
-  %99 = icmp eq i8 %98, 1
-  %100 = and i8 %98, -2
-  %101 = icmp eq i8 %100, 2
-  %or.cond.i25 = or i1 %99, %101
-  %102 = icmp eq i8 %98, 18
-  %103 = select i1 %102, i32 16, i32 0
-  %104 = select i1 %or.cond.i25, i32 8, i32 %103
-  br label %114
+94:                                               ; preds = %85
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %96 = load i8, ptr %95, align 1
+  %97 = add i8 %96, -1
+  %or.cond.i25 = icmp ult i8 %97, 3
+  %98 = icmp eq i8 %96, 18
+  %99 = select i1 %98, i32 16, i32 0
+  %100 = select i1 %or.cond.i25, i32 8, i32 %99
+  br label %110
 
-105:                                              ; preds = %87
-  %106 = and i32 %94, 1
-  %.not.i21 = icmp eq i32 %106, 0
-  br i1 %.not.i21, label %110, label %107
+101:                                              ; preds = %85
+  %102 = and i32 %92, 1
+  %.not.i21 = icmp eq i32 %102, 0
+  br i1 %.not.i21, label %106, label %103
 
-107:                                              ; preds = %105
-  %108 = lshr i32 %94, 1
-  %109 = add nsw i32 %108, -1
-  br label %114
+103:                                              ; preds = %101
+  %104 = lshr i32 %92, 1
+  %105 = add nsw i32 %104, -1
+  br label %110
 
-110:                                              ; preds = %105
-  %111 = load i32, ptr %92, align 4
-  %112 = lshr i32 %111, 2
-  %113 = add nsw i32 %112, -4
-  br label %114
+106:                                              ; preds = %101
+  %107 = load i32, ptr %90, align 4
+  %108 = lshr i32 %107, 2
+  %109 = add nsw i32 %108, -4
+  br label %110
 
-114:                                              ; preds = %110, %107, %96
-  %115 = phi i32 [ %104, %96 ], [ %109, %107 ], [ %113, %110 ]
-  %116 = and i8 %93, 1
-  %.not18.i22 = icmp eq i8 %116, 0
+110:                                              ; preds = %106, %103, %94
+  %111 = phi i32 [ %100, %94 ], [ %105, %103 ], [ %109, %106 ]
+  %112 = and i8 %91, 1
+  %.not18.i22 = icmp eq i8 %112, 0
   %.v.i23 = select i1 %.not18.i22, i64 4, i64 1
-  %117 = getelementptr inbounds nuw i8, ptr %92, i64 %.v.i23
-  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %117, i32 noundef %115)
-  %.not19.i24 = icmp eq ptr %92, %91
-  br i1 %.not19.i24, label %escape_json_text.exit26, label %118
+  %113 = getelementptr inbounds nuw i8, ptr %90, i64 %.v.i23
+  call void @escape_json_with_len(ptr noundef nonnull %2, ptr noundef nonnull %113, i32 noundef %111)
+  %.not19.i24 = icmp eq ptr %90, %89
+  br i1 %.not19.i24, label %escape_json_text.exit26, label %114
 
-118:                                              ; preds = %114
-  call void @pfree(ptr noundef nonnull %92) #10
+114:                                              ; preds = %110
+  call void @pfree(ptr noundef nonnull %90) #10
   br label %escape_json_text.exit26
 
-escape_json_text.exit26:                          ; preds = %118, %114, %86
+escape_json_text.exit26:                          ; preds = %114, %110, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = load i32, ptr %7, align 4
-  %120 = sext i32 %119 to i64
-  %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %115 = load i32, ptr %7, align 4
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next, %116
+  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %escape_json_text.exit26, %37
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
-  %122 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %122) #10
-  %123 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %123) #10
-  %124 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %124) #10
-  %125 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %125) #10
+  %118 = load ptr, ptr %3, align 8
+  call void @pfree(ptr noundef %118) #10
+  %119 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %119) #10
+  %120 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %120) #10
+  %121 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %121) #10
+  %122 = load ptr, ptr %2, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %124 = load i32, ptr %123, align 8
+  %125 = call ptr @cstring_to_text_with_len(ptr noundef %122, i32 noundef %124) #10
   %126 = load ptr, ptr %2, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %128 = load i32, ptr %127, align 8
-  %129 = call ptr @cstring_to_text_with_len(ptr noundef %126, i32 noundef %128) #10
-  %130 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %130) #10
-  br label %131
+  call void @pfree(ptr noundef %126) #10
+  br label %127
 
-131:                                              ; preds = %._crit_edge, %28
-  %.0.in = phi ptr [ %29, %28 ], [ %129, %._crit_edge ]
+127:                                              ; preds = %._crit_edge, %28
+  %.0.in = phi ptr [ %29, %28 ], [ %125, %._crit_edge ]
   %.0 = ptrtoint ptr %.0.in to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

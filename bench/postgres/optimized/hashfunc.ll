@@ -354,105 +354,101 @@ define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr noundef readonly cap
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = select i1 %.not49, ptr %22, ptr %21
   %24 = icmp eq i8 %18, 1
-  br i1 %17, label %25, label %45
+  br i1 %17, label %25, label %43
 
 25:                                               ; preds = %13
-  br i1 %24, label %26, label %34
+  br i1 %24, label %26, label %32
 
 26:                                               ; preds = %25
   %27 = load i8, ptr %21, align 1
-  %28 = icmp eq i8 %27, 1
-  %29 = and i8 %27, -2
-  %30 = icmp eq i8 %29, 2
-  %or.cond = or i1 %28, %30
-  %31 = icmp eq i8 %27, 18
-  %32 = select i1 %31, i32 16, i32 0
-  %33 = select i1 %or.cond, i32 8, i32 %32
-  br label %42
+  %28 = add i8 %27, -1
+  %or.cond = icmp ult i8 %28, 3
+  %29 = icmp eq i8 %27, 18
+  %30 = select i1 %29, i32 16, i32 0
+  %31 = select i1 %or.cond, i32 8, i32 %30
+  br label %40
 
-34:                                               ; preds = %25
-  br i1 %.not49, label %38, label %35
+32:                                               ; preds = %25
+  br i1 %.not49, label %36, label %33
 
-35:                                               ; preds = %34
-  %36 = lshr i32 %19, 1
-  %37 = add nsw i32 %36, -1
-  br label %42
+33:                                               ; preds = %32
+  %34 = lshr i32 %19, 1
+  %35 = add nsw i32 %34, -1
+  br label %40
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %5, align 4
-  %40 = lshr i32 %39, 2
-  %41 = add nsw i32 %40, -4
-  br label %42
+36:                                               ; preds = %32
+  %37 = load i32, ptr %5, align 4
+  %38 = lshr i32 %37, 2
+  %39 = add nsw i32 %38, -4
+  br label %40
 
-42:                                               ; preds = %35, %38, %26
-  %43 = phi i32 [ %33, %26 ], [ %37, %35 ], [ %41, %38 ]
-  %44 = tail call i32 @hash_bytes(ptr noundef nonnull %23, i32 noundef %43) #6
-  br label %77
+40:                                               ; preds = %33, %36, %26
+  %41 = phi i32 [ %31, %26 ], [ %35, %33 ], [ %39, %36 ]
+  %42 = tail call i32 @hash_bytes(ptr noundef nonnull %23, i32 noundef %41) #6
+  br label %73
 
-45:                                               ; preds = %13
-  br i1 %24, label %46, label %54
+43:                                               ; preds = %13
+  br i1 %24, label %44, label %50
 
-46:                                               ; preds = %45
-  %47 = load i8, ptr %21, align 1
-  %48 = icmp eq i8 %47, 1
-  %49 = and i8 %47, -2
-  %50 = icmp eq i8 %49, 2
-  %or.cond53 = or i1 %48, %50
-  %51 = icmp eq i8 %47, 18
-  %52 = select i1 %51, i64 16, i64 0
-  %53 = select i1 %or.cond53, i64 8, i64 %52
-  br label %64
+44:                                               ; preds = %43
+  %45 = load i8, ptr %21, align 1
+  %46 = add i8 %45, -1
+  %or.cond53 = icmp ult i8 %46, 3
+  %47 = icmp eq i8 %45, 18
+  %48 = select i1 %47, i64 16, i64 0
+  %49 = select i1 %or.cond53, i64 8, i64 %48
+  br label %60
 
-54:                                               ; preds = %45
-  br i1 %.not49, label %59, label %55
+50:                                               ; preds = %43
+  br i1 %.not49, label %55, label %51
 
-55:                                               ; preds = %54
-  %56 = lshr i32 %19, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = add nsw i64 %57, -1
-  br label %64
+51:                                               ; preds = %50
+  %52 = lshr i32 %19, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = add nsw i64 %53, -1
+  br label %60
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %5, align 4
-  %61 = lshr i32 %60, 2
-  %62 = add nsw i32 %61, -4
-  %63 = zext i32 %62 to i64
-  br label %64
+55:                                               ; preds = %50
+  %56 = load i32, ptr %5, align 4
+  %57 = lshr i32 %56, 2
+  %58 = add nsw i32 %57, -4
+  %59 = zext i32 %58 to i64
+  br label %60
 
-64:                                               ; preds = %55, %59, %46
-  %65 = phi i64 [ %53, %46 ], [ %58, %55 ], [ %63, %59 ]
-  %66 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %23, i64 noundef %65, ptr noundef nonnull %14) #6
-  %67 = add i64 %66, 1
-  %68 = tail call ptr @palloc(i64 noundef %67) #6
-  %69 = tail call i64 @pg_strnxfrm(ptr noundef %68, i64 noundef %67, ptr noundef nonnull %23, i64 noundef %65, ptr noundef nonnull %14) #6
-  %70 = icmp ugt i64 %69, %66
-  br i1 %70, label %71, label %74
+60:                                               ; preds = %51, %55, %44
+  %61 = phi i64 [ %49, %44 ], [ %54, %51 ], [ %59, %55 ]
+  %62 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %23, i64 noundef %61, ptr noundef nonnull %14) #6
+  %63 = add i64 %62, 1
+  %64 = tail call ptr @palloc(i64 noundef %63) #6
+  %65 = tail call i64 @pg_strnxfrm(ptr noundef %64, i64 noundef %63, ptr noundef nonnull %23, i64 noundef %61, ptr noundef nonnull %14) #6
+  %66 = icmp ugt i64 %65, %62
+  br i1 %66, label %67, label %70
 
-71:                                               ; preds = %64
-  %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %72)
-  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+67:                                               ; preds = %60
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %68)
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 303, ptr noundef nonnull @__func__.hashtext) #6
   unreachable
 
-74:                                               ; preds = %64
-  %75 = trunc i64 %67 to i32
-  %76 = tail call i32 @hash_bytes(ptr noundef %68, i32 noundef %75) #6
-  tail call void @pfree(ptr noundef %68) #6
+70:                                               ; preds = %60
+  %71 = trunc i64 %63 to i32
+  %72 = tail call i32 @hash_bytes(ptr noundef %64, i32 noundef %71) #6
+  tail call void @pfree(ptr noundef %64) #6
+  br label %73
+
+73:                                               ; preds = %40, %70
+  %.0.in = phi i32 [ %42, %40 ], [ %72, %70 ]
+  %74 = load i64, ptr %2, align 8
+  %75 = inttoptr i64 %74 to ptr
+  %.not50 = icmp eq ptr %5, %75
+  br i1 %.not50, label %77, label %76
+
+76:                                               ; preds = %73
+  tail call void @pfree(ptr noundef nonnull %5) #6
   br label %77
 
-77:                                               ; preds = %42, %74
-  %.0.in = phi i32 [ %44, %42 ], [ %76, %74 ]
-  %78 = load i64, ptr %2, align 8
-  %79 = inttoptr i64 %78 to ptr
-  %.not50 = icmp eq ptr %5, %79
-  br i1 %.not50, label %81, label %80
-
-80:                                               ; preds = %77
-  tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %81
-
-81:                                               ; preds = %80, %77
+77:                                               ; preds = %76, %73
   %.0 = zext i32 %.0.in to i64
   ret i64 %.0
 }
@@ -513,109 +509,105 @@ define dso_local i64 @hashtextextended(ptr noundef readonly captures(none) %0) l
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = select i1 %.not51, ptr %22, ptr %21
   %24 = icmp eq i8 %18, 1
-  br i1 %17, label %25, label %47
+  br i1 %17, label %25, label %45
 
 25:                                               ; preds = %13
-  br i1 %24, label %26, label %34
+  br i1 %24, label %26, label %32
 
 26:                                               ; preds = %25
   %27 = load i8, ptr %21, align 1
-  %28 = icmp eq i8 %27, 1
-  %29 = and i8 %27, -2
-  %30 = icmp eq i8 %29, 2
-  %or.cond = or i1 %28, %30
-  %31 = icmp eq i8 %27, 18
-  %32 = select i1 %31, i32 16, i32 0
-  %33 = select i1 %or.cond, i32 8, i32 %32
-  br label %42
+  %28 = add i8 %27, -1
+  %or.cond = icmp ult i8 %28, 3
+  %29 = icmp eq i8 %27, 18
+  %30 = select i1 %29, i32 16, i32 0
+  %31 = select i1 %or.cond, i32 8, i32 %30
+  br label %40
 
-34:                                               ; preds = %25
-  br i1 %.not51, label %38, label %35
+32:                                               ; preds = %25
+  br i1 %.not51, label %36, label %33
 
-35:                                               ; preds = %34
-  %36 = lshr i32 %19, 1
-  %37 = add nsw i32 %36, -1
-  br label %42
+33:                                               ; preds = %32
+  %34 = lshr i32 %19, 1
+  %35 = add nsw i32 %34, -1
+  br label %40
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %5, align 4
-  %40 = lshr i32 %39, 2
-  %41 = add nsw i32 %40, -4
-  br label %42
+36:                                               ; preds = %32
+  %37 = load i32, ptr %5, align 4
+  %38 = lshr i32 %37, 2
+  %39 = add nsw i32 %38, -4
+  br label %40
 
-42:                                               ; preds = %35, %38, %26
-  %43 = phi i32 [ %33, %26 ], [ %37, %35 ], [ %41, %38 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = load i64, ptr %44, align 8
-  %46 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %23, i32 noundef %43, i64 noundef %45) #6
-  br label %81
+40:                                               ; preds = %33, %36, %26
+  %41 = phi i32 [ %31, %26 ], [ %35, %33 ], [ %39, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %43 = load i64, ptr %42, align 8
+  %44 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %23, i32 noundef %41, i64 noundef %43) #6
+  br label %77
 
-47:                                               ; preds = %13
-  br i1 %24, label %48, label %56
+45:                                               ; preds = %13
+  br i1 %24, label %46, label %52
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr %21, align 1
-  %50 = icmp eq i8 %49, 1
-  %51 = and i8 %49, -2
-  %52 = icmp eq i8 %51, 2
-  %or.cond55 = or i1 %50, %52
-  %53 = icmp eq i8 %49, 18
-  %54 = select i1 %53, i64 16, i64 0
-  %55 = select i1 %or.cond55, i64 8, i64 %54
-  br label %66
+46:                                               ; preds = %45
+  %47 = load i8, ptr %21, align 1
+  %48 = add i8 %47, -1
+  %or.cond55 = icmp ult i8 %48, 3
+  %49 = icmp eq i8 %47, 18
+  %50 = select i1 %49, i64 16, i64 0
+  %51 = select i1 %or.cond55, i64 8, i64 %50
+  br label %62
 
-56:                                               ; preds = %47
-  br i1 %.not51, label %61, label %57
+52:                                               ; preds = %45
+  br i1 %.not51, label %57, label %53
 
-57:                                               ; preds = %56
-  %58 = lshr i32 %19, 1
-  %59 = zext nneg i32 %58 to i64
-  %60 = add nsw i64 %59, -1
-  br label %66
+53:                                               ; preds = %52
+  %54 = lshr i32 %19, 1
+  %55 = zext nneg i32 %54 to i64
+  %56 = add nsw i64 %55, -1
+  br label %62
 
-61:                                               ; preds = %56
-  %62 = load i32, ptr %5, align 4
-  %63 = lshr i32 %62, 2
-  %64 = add nsw i32 %63, -4
-  %65 = zext i32 %64 to i64
-  br label %66
+57:                                               ; preds = %52
+  %58 = load i32, ptr %5, align 4
+  %59 = lshr i32 %58, 2
+  %60 = add nsw i32 %59, -4
+  %61 = zext i32 %60 to i64
+  br label %62
 
-66:                                               ; preds = %57, %61, %48
-  %67 = phi i64 [ %55, %48 ], [ %60, %57 ], [ %65, %61 ]
-  %68 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %23, i64 noundef %67, ptr noundef nonnull %14) #6
-  %69 = add i64 %68, 1
-  %70 = tail call ptr @palloc(i64 noundef %69) #6
-  %71 = tail call i64 @pg_strnxfrm(ptr noundef %70, i64 noundef %69, ptr noundef nonnull %23, i64 noundef %67, ptr noundef nonnull %14) #6
-  %72 = icmp ugt i64 %71, %68
-  br i1 %72, label %73, label %76
+62:                                               ; preds = %53, %57, %46
+  %63 = phi i64 [ %51, %46 ], [ %56, %53 ], [ %61, %57 ]
+  %64 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %23, i64 noundef %63, ptr noundef nonnull %14) #6
+  %65 = add i64 %64, 1
+  %66 = tail call ptr @palloc(i64 noundef %65) #6
+  %67 = tail call i64 @pg_strnxfrm(ptr noundef %66, i64 noundef %65, ptr noundef nonnull %23, i64 noundef %63, ptr noundef nonnull %14) #6
+  %68 = icmp ugt i64 %67, %64
+  br i1 %68, label %69, label %72
 
-73:                                               ; preds = %66
-  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %74)
-  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+69:                                               ; preds = %62
+  %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %70)
+  %71 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.hashtextextended) #6
   unreachable
 
-76:                                               ; preds = %66
-  %77 = trunc i64 %69 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %79 = load i64, ptr %78, align 8
-  %80 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef %77, i64 noundef %79) #6
-  tail call void @pfree(ptr noundef %70) #6
+72:                                               ; preds = %62
+  %73 = trunc i64 %65 to i32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i64, ptr %74, align 8
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef %73, i64 noundef %75) #6
+  tail call void @pfree(ptr noundef %66) #6
+  br label %77
+
+77:                                               ; preds = %40, %72
+  %.0 = phi i64 [ %44, %40 ], [ %76, %72 ]
+  %78 = load i64, ptr %2, align 8
+  %79 = inttoptr i64 %78 to ptr
+  %.not52 = icmp eq ptr %5, %79
+  br i1 %.not52, label %81, label %80
+
+80:                                               ; preds = %77
+  tail call void @pfree(ptr noundef nonnull %5) #6
   br label %81
 
-81:                                               ; preds = %42, %76
-  %.0 = phi i64 [ %46, %42 ], [ %80, %76 ]
-  %82 = load i64, ptr %2, align 8
-  %83 = inttoptr i64 %82 to ptr
-  %.not52 = icmp eq ptr %5, %83
-  br i1 %.not52, label %85, label %84
-
-84:                                               ; preds = %81
-  tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %85
-
-85:                                               ; preds = %84, %81
+81:                                               ; preds = %80, %77
   ret i64 %.0
 }
 
@@ -633,48 +625,46 @@ define dso_local range(i64 0, 4294967296) i64 @hashvarlena(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = select i1 %.not, ptr %10, ptr %9
   %12 = icmp eq i8 %6, 1
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %1
   %14 = load i8, ptr %9, align 1
-  %15 = icmp eq i8 %14, 1
-  %16 = and i8 %14, -2
-  %17 = icmp eq i8 %16, 2
-  %or.cond = or i1 %15, %17
-  %18 = icmp eq i8 %14, 18
-  %19 = select i1 %18, i32 16, i32 0
-  %20 = select i1 %or.cond, i32 8, i32 %19
-  br label %29
+  %15 = add i8 %14, -1
+  %or.cond = icmp ult i8 %15, 3
+  %16 = icmp eq i8 %14, 18
+  %17 = select i1 %16, i32 16, i32 0
+  %18 = select i1 %or.cond, i32 8, i32 %17
+  br label %27
 
-21:                                               ; preds = %1
-  br i1 %.not, label %25, label %22
+19:                                               ; preds = %1
+  br i1 %.not, label %23, label %20
 
-22:                                               ; preds = %21
-  %23 = lshr i32 %7, 1
-  %24 = add nsw i32 %23, -1
-  br label %29
+20:                                               ; preds = %19
+  %21 = lshr i32 %7, 1
+  %22 = add nsw i32 %21, -1
+  br label %27
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %5, align 4
-  %27 = lshr i32 %26, 2
-  %28 = add nsw i32 %27, -4
-  br label %29
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = lshr i32 %24, 2
+  %26 = add nsw i32 %25, -4
+  br label %27
 
-29:                                               ; preds = %22, %25, %13
-  %30 = phi i32 [ %20, %13 ], [ %24, %22 ], [ %28, %25 ]
-  %31 = tail call i32 @hash_bytes(ptr noundef nonnull %11, i32 noundef %30) #6
-  %32 = load i64, ptr %2, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %.not16 = icmp eq ptr %5, %33
-  br i1 %.not16, label %35, label %34
+27:                                               ; preds = %20, %23, %13
+  %28 = phi i32 [ %18, %13 ], [ %22, %20 ], [ %26, %23 ]
+  %29 = tail call i32 @hash_bytes(ptr noundef nonnull %11, i32 noundef %28) #6
+  %30 = load i64, ptr %2, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %.not16 = icmp eq ptr %5, %31
+  br i1 %.not16, label %33, label %32
 
-34:                                               ; preds = %29
+32:                                               ; preds = %27
   tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %35
+  br label %33
 
-35:                                               ; preds = %34, %29
-  %36 = zext i32 %31 to i64
-  ret i64 %36
+33:                                               ; preds = %32, %27
+  %34 = zext i32 %29 to i64
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -691,49 +681,47 @@ define dso_local i64 @hashvarlenaextended(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = select i1 %.not, ptr %10, ptr %9
   %12 = icmp eq i8 %6, 1
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %1
   %14 = load i8, ptr %9, align 1
-  %15 = icmp eq i8 %14, 1
-  %16 = and i8 %14, -2
-  %17 = icmp eq i8 %16, 2
-  %or.cond = or i1 %15, %17
-  %18 = icmp eq i8 %14, 18
-  %19 = select i1 %18, i32 16, i32 0
-  %20 = select i1 %or.cond, i32 8, i32 %19
-  br label %29
+  %15 = add i8 %14, -1
+  %or.cond = icmp ult i8 %15, 3
+  %16 = icmp eq i8 %14, 18
+  %17 = select i1 %16, i32 16, i32 0
+  %18 = select i1 %or.cond, i32 8, i32 %17
+  br label %27
 
-21:                                               ; preds = %1
-  br i1 %.not, label %25, label %22
+19:                                               ; preds = %1
+  br i1 %.not, label %23, label %20
 
-22:                                               ; preds = %21
-  %23 = lshr i32 %7, 1
-  %24 = add nsw i32 %23, -1
-  br label %29
+20:                                               ; preds = %19
+  %21 = lshr i32 %7, 1
+  %22 = add nsw i32 %21, -1
+  br label %27
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %5, align 4
-  %27 = lshr i32 %26, 2
-  %28 = add nsw i32 %27, -4
-  br label %29
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = lshr i32 %24, 2
+  %26 = add nsw i32 %25, -4
+  br label %27
 
-29:                                               ; preds = %22, %25, %13
-  %30 = phi i32 [ %20, %13 ], [ %24, %22 ], [ %28, %25 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load i64, ptr %31, align 8
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %11, i32 noundef %30, i64 noundef %32) #6
-  %34 = load i64, ptr %2, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not17 = icmp eq ptr %5, %35
-  br i1 %.not17, label %37, label %36
+27:                                               ; preds = %20, %23, %13
+  %28 = phi i32 [ %18, %13 ], [ %22, %20 ], [ %26, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = load i64, ptr %29, align 8
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %11, i32 noundef %28, i64 noundef %30) #6
+  %32 = load i64, ptr %2, align 8
+  %33 = inttoptr i64 %32 to ptr
+  %.not17 = icmp eq ptr %5, %33
+  br i1 %.not17, label %35, label %34
 
-36:                                               ; preds = %29
+34:                                               ; preds = %27
   tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %37
+  br label %35
 
-37:                                               ; preds = %36, %29
-  ret i64 %33
+35:                                               ; preds = %34, %27
+  ret i64 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -750,48 +738,46 @@ define dso_local range(i64 0, 4294967296) i64 @hashbytea(ptr noundef readonly ca
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = select i1 %.not.i, ptr %10, ptr %9
   %12 = icmp eq i8 %6, 1
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %1
   %14 = load i8, ptr %9, align 1
-  %15 = icmp eq i8 %14, 1
-  %16 = and i8 %14, -2
-  %17 = icmp eq i8 %16, 2
-  %or.cond.i = or i1 %15, %17
-  %18 = icmp eq i8 %14, 18
-  %19 = select i1 %18, i32 16, i32 0
-  %20 = select i1 %or.cond.i, i32 8, i32 %19
-  br label %29
+  %15 = add i8 %14, -1
+  %or.cond.i = icmp ult i8 %15, 3
+  %16 = icmp eq i8 %14, 18
+  %17 = select i1 %16, i32 16, i32 0
+  %18 = select i1 %or.cond.i, i32 8, i32 %17
+  br label %27
 
-21:                                               ; preds = %1
-  br i1 %.not.i, label %25, label %22
+19:                                               ; preds = %1
+  br i1 %.not.i, label %23, label %20
 
-22:                                               ; preds = %21
-  %23 = lshr i32 %7, 1
-  %24 = add nsw i32 %23, -1
-  br label %29
+20:                                               ; preds = %19
+  %21 = lshr i32 %7, 1
+  %22 = add nsw i32 %21, -1
+  br label %27
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %5, align 4
-  %27 = lshr i32 %26, 2
-  %28 = add nsw i32 %27, -4
-  br label %29
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = lshr i32 %24, 2
+  %26 = add nsw i32 %25, -4
+  br label %27
 
-29:                                               ; preds = %25, %22, %13
-  %30 = phi i32 [ %20, %13 ], [ %24, %22 ], [ %28, %25 ]
-  %31 = tail call i32 @hash_bytes(ptr noundef nonnull %11, i32 noundef %30) #6
-  %32 = load i64, ptr %2, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %.not16.i = icmp eq ptr %5, %33
-  br i1 %.not16.i, label %hashvarlena.exit, label %34
+27:                                               ; preds = %23, %20, %13
+  %28 = phi i32 [ %18, %13 ], [ %22, %20 ], [ %26, %23 ]
+  %29 = tail call i32 @hash_bytes(ptr noundef nonnull %11, i32 noundef %28) #6
+  %30 = load i64, ptr %2, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %.not16.i = icmp eq ptr %5, %31
+  br i1 %.not16.i, label %hashvarlena.exit, label %32
 
-34:                                               ; preds = %29
+32:                                               ; preds = %27
   tail call void @pfree(ptr noundef nonnull %5) #6
   br label %hashvarlena.exit
 
-hashvarlena.exit:                                 ; preds = %29, %34
-  %35 = zext i32 %31 to i64
-  ret i64 %35
+hashvarlena.exit:                                 ; preds = %27, %32
+  %33 = zext i32 %29 to i64
+  ret i64 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -808,49 +794,47 @@ define dso_local i64 @hashbyteaextended(ptr noundef readonly captures(none) %0) 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = select i1 %.not.i, ptr %10, ptr %9
   %12 = icmp eq i8 %6, 1
-  br i1 %12, label %13, label %21
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %1
   %14 = load i8, ptr %9, align 1
-  %15 = icmp eq i8 %14, 1
-  %16 = and i8 %14, -2
-  %17 = icmp eq i8 %16, 2
-  %or.cond.i = or i1 %15, %17
-  %18 = icmp eq i8 %14, 18
-  %19 = select i1 %18, i32 16, i32 0
-  %20 = select i1 %or.cond.i, i32 8, i32 %19
-  br label %29
+  %15 = add i8 %14, -1
+  %or.cond.i = icmp ult i8 %15, 3
+  %16 = icmp eq i8 %14, 18
+  %17 = select i1 %16, i32 16, i32 0
+  %18 = select i1 %or.cond.i, i32 8, i32 %17
+  br label %27
 
-21:                                               ; preds = %1
-  br i1 %.not.i, label %25, label %22
+19:                                               ; preds = %1
+  br i1 %.not.i, label %23, label %20
 
-22:                                               ; preds = %21
-  %23 = lshr i32 %7, 1
-  %24 = add nsw i32 %23, -1
-  br label %29
+20:                                               ; preds = %19
+  %21 = lshr i32 %7, 1
+  %22 = add nsw i32 %21, -1
+  br label %27
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %5, align 4
-  %27 = lshr i32 %26, 2
-  %28 = add nsw i32 %27, -4
-  br label %29
+23:                                               ; preds = %19
+  %24 = load i32, ptr %5, align 4
+  %25 = lshr i32 %24, 2
+  %26 = add nsw i32 %25, -4
+  br label %27
 
-29:                                               ; preds = %25, %22, %13
-  %30 = phi i32 [ %20, %13 ], [ %24, %22 ], [ %28, %25 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load i64, ptr %31, align 8
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %11, i32 noundef %30, i64 noundef %32) #6
-  %34 = load i64, ptr %2, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not17.i = icmp eq ptr %5, %35
-  br i1 %.not17.i, label %hashvarlenaextended.exit, label %36
+27:                                               ; preds = %23, %20, %13
+  %28 = phi i32 [ %18, %13 ], [ %22, %20 ], [ %26, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = load i64, ptr %29, align 8
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %11, i32 noundef %28, i64 noundef %30) #6
+  %32 = load i64, ptr %2, align 8
+  %33 = inttoptr i64 %32 to ptr
+  %.not17.i = icmp eq ptr %5, %33
+  br i1 %.not17.i, label %hashvarlenaextended.exit, label %34
 
-36:                                               ; preds = %29
+34:                                               ; preds = %27
   tail call void @pfree(ptr noundef nonnull %5) #6
   br label %hashvarlenaextended.exit
 
-hashvarlenaextended.exit:                         ; preds = %29, %36
-  ret i64 %33
+hashvarlenaextended.exit:                         ; preds = %27, %34
+  ret i64 %31
 }
 
 declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #2

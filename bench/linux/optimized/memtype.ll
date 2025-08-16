@@ -803,11 +803,9 @@ declare dso_local ptr @memtype_erase(i64 noundef, i64 noundef) local_unnamed_add
 define dso_local zeroext i1 @pat_pfn_immune_to_uc_mtrr(i64 noundef %0) #3 align 16 {
   %2 = shl i64 %0, 12
   %3 = tail call fastcc i32 @lookup_memtype(i64 noundef %2)
-  %4 = and i32 %3, -2
-  %5 = icmp eq i32 %4, 2
-  %6 = icmp eq i32 %3, 1
-  %7 = or i1 %6, %5
-  ret i1 %7
+  %4 = add i32 %3, -1
+  %5 = icmp ult i32 %4, 3
+  ret i1 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

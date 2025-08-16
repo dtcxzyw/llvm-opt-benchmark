@@ -34,95 +34,91 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = icmp eq i8 %10, 1
-  br i1 %16, label %17, label %25
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %1
   %18 = load i8, ptr %13, align 1
-  %19 = icmp eq i8 %18, 1
-  %20 = and i8 %18, -2
-  %21 = icmp eq i8 %20, 2
-  %or.cond = or i1 %19, %21
-  %22 = icmp eq i8 %18, 18
-  %23 = select i1 %22, i32 16, i32 0
-  %24 = select i1 %or.cond, i32 8, i32 %23
-  br label %33
+  %19 = add i8 %18, -1
+  %or.cond = icmp ult i8 %19, 3
+  %20 = icmp eq i8 %18, 18
+  %21 = select i1 %20, i32 16, i32 0
+  %22 = select i1 %or.cond, i32 8, i32 %21
+  br label %31
 
-25:                                               ; preds = %1
-  br i1 %.not, label %29, label %26
+23:                                               ; preds = %1
+  br i1 %.not, label %27, label %24
 
-26:                                               ; preds = %25
-  %27 = lshr i32 %11, 1
-  %28 = add nsw i32 %27, -1
-  br label %33
+24:                                               ; preds = %23
+  %25 = lshr i32 %11, 1
+  %26 = add nsw i32 %25, -1
+  br label %31
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %5, align 4
-  %31 = lshr i32 %30, 2
-  %32 = add nsw i32 %31, -4
-  br label %33
+27:                                               ; preds = %23
+  %28 = load i32, ptr %5, align 4
+  %29 = lshr i32 %28, 2
+  %30 = add nsw i32 %29, -4
+  br label %31
 
-33:                                               ; preds = %26, %29, %17
-  %34 = phi i32 [ %24, %17 ], [ %28, %26 ], [ %32, %29 ]
-  %35 = load i8, ptr %9, align 1
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 1
-  %.not33 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %40 = select i1 %.not33, ptr %39, ptr %38
-  %41 = icmp eq i8 %35, 1
-  br i1 %41, label %42, label %50
+31:                                               ; preds = %24, %27, %17
+  %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
+  %33 = load i8, ptr %9, align 1
+  %34 = zext i8 %33 to i32
+  %35 = and i32 %34, 1
+  %.not33 = icmp eq i32 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %38 = select i1 %.not33, ptr %37, ptr %36
+  %39 = icmp eq i8 %33, 1
+  br i1 %39, label %40, label %46
 
-42:                                               ; preds = %33
-  %43 = load i8, ptr %38, align 1
-  %44 = icmp eq i8 %43, 1
-  %45 = and i8 %43, -2
-  %46 = icmp eq i8 %45, 2
-  %or.cond38 = or i1 %44, %46
-  %47 = icmp eq i8 %43, 18
-  %48 = select i1 %47, i32 16, i32 0
-  %49 = select i1 %or.cond38, i32 8, i32 %48
-  br label %58
+40:                                               ; preds = %31
+  %41 = load i8, ptr %36, align 1
+  %42 = add i8 %41, -1
+  %or.cond38 = icmp ult i8 %42, 3
+  %43 = icmp eq i8 %41, 18
+  %44 = select i1 %43, i32 16, i32 0
+  %45 = select i1 %or.cond38, i32 8, i32 %44
+  br label %54
 
-50:                                               ; preds = %33
-  br i1 %.not33, label %54, label %51
+46:                                               ; preds = %31
+  br i1 %.not33, label %50, label %47
 
-51:                                               ; preds = %50
-  %52 = lshr i32 %36, 1
-  %53 = add nsw i32 %52, -1
-  br label %58
+47:                                               ; preds = %46
+  %48 = lshr i32 %34, 1
+  %49 = add nsw i32 %48, -1
+  br label %54
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %9, align 4
-  %56 = lshr i32 %55, 2
-  %57 = add nsw i32 %56, -4
-  br label %58
+50:                                               ; preds = %46
+  %51 = load i32, ptr %9, align 4
+  %52 = lshr i32 %51, 2
+  %53 = add nsw i32 %52, -4
+  br label %54
 
-58:                                               ; preds = %51, %54, %42
-  %59 = phi i32 [ %49, %42 ], [ %53, %51 ], [ %57, %54 ]
-  %60 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %34, ptr noundef nonnull %40, i32 noundef %59, i1 noundef zeroext false) #6
-  %61 = load i64, ptr %2, align 8
-  %62 = inttoptr i64 %61 to ptr
-  %.not34 = icmp eq ptr %5, %62
-  br i1 %.not34, label %64, label %63
+54:                                               ; preds = %47, %50, %40
+  %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
+  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext false) #6
+  %57 = load i64, ptr %2, align 8
+  %58 = inttoptr i64 %57 to ptr
+  %.not34 = icmp eq ptr %5, %58
+  br i1 %.not34, label %60, label %59
 
-63:                                               ; preds = %58
+59:                                               ; preds = %54
   tail call void @pfree(ptr noundef nonnull %5) #6
+  br label %60
+
+60:                                               ; preds = %54, %59
+  %61 = load i64, ptr %6, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %.not35 = icmp eq ptr %9, %62
+  br i1 %.not35, label %64, label %63
+
+63:                                               ; preds = %60
+  tail call void @pfree(ptr noundef nonnull %9) #6
   br label %64
 
-64:                                               ; preds = %58, %63
-  %65 = load i64, ptr %6, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %.not35 = icmp eq ptr %9, %66
-  br i1 %.not35, label %68, label %67
-
-67:                                               ; preds = %64
-  tail call void @pfree(ptr noundef nonnull %9) #6
-  br label %68
-
-68:                                               ; preds = %67, %64
-  %69 = sext i32 %60 to i64
-  ret i64 %69
+64:                                               ; preds = %63, %60
+  %65 = sext i32 %56 to i64
+  ret i64 %65
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -149,97 +145,93 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = icmp eq i8 %10, 1
-  br i1 %16, label %17, label %25
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %1
   %18 = load i8, ptr %13, align 1
-  %19 = icmp eq i8 %18, 1
-  %20 = and i8 %18, -2
-  %21 = icmp eq i8 %20, 2
-  %or.cond = or i1 %19, %21
-  %22 = icmp eq i8 %18, 18
-  %23 = select i1 %22, i32 16, i32 0
-  %24 = select i1 %or.cond, i32 8, i32 %23
-  br label %33
+  %19 = add i8 %18, -1
+  %or.cond = icmp ult i8 %19, 3
+  %20 = icmp eq i8 %18, 18
+  %21 = select i1 %20, i32 16, i32 0
+  %22 = select i1 %or.cond, i32 8, i32 %21
+  br label %31
 
-25:                                               ; preds = %1
-  br i1 %.not, label %29, label %26
+23:                                               ; preds = %1
+  br i1 %.not, label %27, label %24
 
-26:                                               ; preds = %25
-  %27 = lshr i32 %11, 1
-  %28 = add nsw i32 %27, -1
-  br label %33
+24:                                               ; preds = %23
+  %25 = lshr i32 %11, 1
+  %26 = add nsw i32 %25, -1
+  br label %31
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %5, align 4
-  %31 = lshr i32 %30, 2
-  %32 = add nsw i32 %31, -4
-  br label %33
+27:                                               ; preds = %23
+  %28 = load i32, ptr %5, align 4
+  %29 = lshr i32 %28, 2
+  %30 = add nsw i32 %29, -4
+  br label %31
 
-33:                                               ; preds = %26, %29, %17
-  %34 = phi i32 [ %24, %17 ], [ %28, %26 ], [ %32, %29 ]
-  %35 = load i8, ptr %9, align 1
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 1
-  %.not34 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %40 = select i1 %.not34, ptr %39, ptr %38
-  %41 = icmp eq i8 %35, 1
-  br i1 %41, label %42, label %50
+31:                                               ; preds = %24, %27, %17
+  %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
+  %33 = load i8, ptr %9, align 1
+  %34 = zext i8 %33 to i32
+  %35 = and i32 %34, 1
+  %.not34 = icmp eq i32 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %38 = select i1 %.not34, ptr %37, ptr %36
+  %39 = icmp eq i8 %33, 1
+  br i1 %39, label %40, label %46
 
-42:                                               ; preds = %33
-  %43 = load i8, ptr %38, align 1
-  %44 = icmp eq i8 %43, 1
-  %45 = and i8 %43, -2
-  %46 = icmp eq i8 %45, 2
-  %or.cond39 = or i1 %44, %46
-  %47 = icmp eq i8 %43, 18
-  %48 = select i1 %47, i32 16, i32 0
-  %49 = select i1 %or.cond39, i32 8, i32 %48
-  br label %58
+40:                                               ; preds = %31
+  %41 = load i8, ptr %36, align 1
+  %42 = add i8 %41, -1
+  %or.cond39 = icmp ult i8 %42, 3
+  %43 = icmp eq i8 %41, 18
+  %44 = select i1 %43, i32 16, i32 0
+  %45 = select i1 %or.cond39, i32 8, i32 %44
+  br label %54
 
-50:                                               ; preds = %33
-  br i1 %.not34, label %54, label %51
+46:                                               ; preds = %31
+  br i1 %.not34, label %50, label %47
 
-51:                                               ; preds = %50
-  %52 = lshr i32 %36, 1
-  %53 = add nsw i32 %52, -1
-  br label %58
+47:                                               ; preds = %46
+  %48 = lshr i32 %34, 1
+  %49 = add nsw i32 %48, -1
+  br label %54
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %9, align 4
-  %56 = lshr i32 %55, 2
-  %57 = add nsw i32 %56, -4
-  br label %58
+50:                                               ; preds = %46
+  %51 = load i32, ptr %9, align 4
+  %52 = lshr i32 %51, 2
+  %53 = add nsw i32 %52, -4
+  br label %54
 
-58:                                               ; preds = %51, %54, %42
-  %59 = phi i32 [ %49, %42 ], [ %53, %51 ], [ %57, %54 ]
-  %60 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %34, ptr noundef nonnull %40, i32 noundef %59, i1 noundef zeroext true) #6
-  %61 = load i64, ptr %2, align 8
-  %62 = inttoptr i64 %61 to ptr
-  %.not35 = icmp eq ptr %5, %62
-  br i1 %.not35, label %64, label %63
+54:                                               ; preds = %47, %50, %40
+  %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
+  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext true) #6
+  %57 = load i64, ptr %2, align 8
+  %58 = inttoptr i64 %57 to ptr
+  %.not35 = icmp eq ptr %5, %58
+  br i1 %.not35, label %60, label %59
 
-63:                                               ; preds = %58
+59:                                               ; preds = %54
   tail call void @pfree(ptr noundef nonnull %5) #6
+  br label %60
+
+60:                                               ; preds = %54, %59
+  %61 = load i64, ptr %6, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %.not36 = icmp eq ptr %9, %62
+  br i1 %.not36, label %64, label %63
+
+63:                                               ; preds = %60
+  tail call void @pfree(ptr noundef nonnull %9) #6
   br label %64
 
-64:                                               ; preds = %58, %63
-  %65 = load i64, ptr %6, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %.not36 = icmp eq ptr %9, %66
-  br i1 %.not36, label %68, label %67
-
-67:                                               ; preds = %64
-  tail call void @pfree(ptr noundef nonnull %9) #6
-  br label %68
-
-68:                                               ; preds = %67, %64
-  %69 = icmp slt i32 %60, 0
-  %spec.store.select = select i1 %69, i32 1, i32 %60
-  %70 = sext i32 %spec.store.select to i64
-  ret i64 %70
+64:                                               ; preds = %63, %60
+  %65 = icmp slt i32 %56, 0
+  %spec.store.select = select i1 %65, i32 1, i32 %56
+  %66 = sext i32 %spec.store.select to i64
+  ret i64 %66
 }
 
 ; Function Attrs: nounwind uwtable

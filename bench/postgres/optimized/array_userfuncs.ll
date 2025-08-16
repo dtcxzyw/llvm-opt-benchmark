@@ -1389,177 +1389,175 @@ define dso_local i64 @array_agg_deserialize(ptr noundef %0) local_unnamed_addr #
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = select i1 %.not58, ptr %18, ptr %17
   %20 = icmp eq i8 %14, 1
-  br i1 %20, label %21, label %29
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %9
   %22 = load i8, ptr %17, align 1
-  %23 = icmp eq i8 %22, 1
-  %24 = and i8 %22, -2
-  %25 = icmp eq i8 %24, 2
-  %or.cond = or i1 %23, %25
-  %26 = icmp eq i8 %22, 18
-  %27 = select i1 %26, i32 16, i32 0
-  %28 = select i1 %or.cond, i32 8, i32 %27
-  br label %37
+  %23 = add i8 %22, -1
+  %or.cond = icmp ult i8 %23, 3
+  %24 = icmp eq i8 %22, 18
+  %25 = select i1 %24, i32 16, i32 0
+  %26 = select i1 %or.cond, i32 8, i32 %25
+  br label %35
 
-29:                                               ; preds = %9
-  br i1 %.not58, label %33, label %30
+27:                                               ; preds = %9
+  br i1 %.not58, label %31, label %28
 
-30:                                               ; preds = %29
-  %31 = lshr i32 %15, 1
-  %32 = add nsw i32 %31, -1
-  br label %37
+28:                                               ; preds = %27
+  %29 = lshr i32 %15, 1
+  %30 = add nsw i32 %29, -1
+  br label %35
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %13, align 4
-  %35 = lshr i32 %34, 2
-  %36 = add nsw i32 %35, -4
-  br label %37
+31:                                               ; preds = %27
+  %32 = load i32, ptr %13, align 4
+  %33 = lshr i32 %32, 2
+  %34 = add nsw i32 %33, -4
+  br label %35
 
-37:                                               ; preds = %30, %33, %21
-  %38 = phi i32 [ %28, %21 ], [ %32, %30 ], [ %36, %33 ]
+35:                                               ; preds = %28, %31, %21
+  %36 = phi i32 [ %26, %21 ], [ %30, %28 ], [ %34, %31 ]
   store ptr %19, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %41, align 8
-  %42 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %43 = call i64 @pq_getmsgint64(ptr noundef nonnull %2) #11
-  %44 = load ptr, ptr @CurrentMemoryContext, align 8
-  %45 = trunc i64 %43 to i32
-  %46 = call ptr @initArrayResultWithSize(i32 noundef %42, ptr noundef %44, i1 noundef zeroext false, i32 noundef %45) #11
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  store i32 %45, ptr %47, align 4
-  %48 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 2) #11
-  %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  store i16 %49, ptr %50, align 4
-  %51 = call i32 @pq_getmsgbyte(ptr noundef nonnull %2) #11
-  %52 = icmp ne i32 %51, 0
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 38
-  %54 = zext i1 %52 to i8
-  store i8 %54, ptr %53, align 2
-  %55 = call i32 @pq_getmsgbyte(ptr noundef nonnull %2) #11
-  %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %46, i64 39
-  store i8 %56, ptr %57, align 1
-  %58 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %45) #11
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %60 = load ptr, ptr %59, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %58, i64 %43, i1 false)
-  %61 = load i8, ptr %53, align 2, !range !4, !noundef !5
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %69
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %36, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %39, align 8
+  %40 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  %41 = call i64 @pq_getmsgint64(ptr noundef nonnull %2) #11
+  %42 = load ptr, ptr @CurrentMemoryContext, align 8
+  %43 = trunc i64 %41 to i32
+  %44 = call ptr @initArrayResultWithSize(i32 noundef %40, ptr noundef %42, i1 noundef zeroext false, i32 noundef %43) #11
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
+  store i32 %43, ptr %45, align 4
+  %46 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 2) #11
+  %47 = trunc i32 %46 to i16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 36
+  store i16 %47, ptr %48, align 4
+  %49 = call i32 @pq_getmsgbyte(ptr noundef nonnull %2) #11
+  %50 = icmp ne i32 %49, 0
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 38
+  %52 = zext i1 %50 to i8
+  store i8 %52, ptr %51, align 2
+  %53 = call i32 @pq_getmsgbyte(ptr noundef nonnull %2) #11
+  %54 = trunc i32 %53 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 39
+  store i8 %54, ptr %55, align 1
+  %56 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %43) #11
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %58 = load ptr, ptr %57, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %56, i64 %41, i1 false)
+  %59 = load i8, ptr %51, align 2, !range !4, !noundef !5
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %61, label %67
 
-63:                                               ; preds = %37
-  %64 = shl i64 %43, 3
-  %65 = trunc i64 %64 to i32
-  %66 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %65) #11
-  %67 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %68 = load ptr, ptr %67, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 1 %66, i64 %64, i1 false)
+61:                                               ; preds = %35
+  %62 = shl i64 %41, 3
+  %63 = trunc i64 %62 to i32
+  %64 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %63) #11
+  %65 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %66 = load ptr, ptr %65, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %66, ptr align 1 %64, i64 %62, i1 false)
   br label %.loopexit
 
-69:                                               ; preds = %37
-  %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %85
+67:                                               ; preds = %35
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %83
 
-74:                                               ; preds = %69
+72:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = call ptr @MemoryContextAlloc(ptr noundef %76, i64 noundef 56) #11
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  call void @getTypeBinaryInputInfo(i32 noundef %42, ptr noundef nonnull %3, ptr noundef nonnull %78) #11
-  %79 = load i32, ptr %3, align 4
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %82 = load ptr, ptr %81, align 8
-  call void @fmgr_info_cxt(i32 noundef %79, ptr noundef %77, ptr noundef %82) #11
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr %77, ptr %84, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr @MemoryContextAlloc(ptr noundef %74, i64 noundef 56) #11
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  call void @getTypeBinaryInputInfo(i32 noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %76) #11
+  %77 = load i32, ptr %3, align 4
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
+  call void @fmgr_info_cxt(i32 noundef %77, ptr noundef %75, ptr noundef %80) #11
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store ptr %75, ptr %82, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %85
+  br label %83
 
-85:                                               ; preds = %74, %69
-  %.052 = phi ptr [ %77, %74 ], [ %72, %69 ]
-  %86 = icmp sgt i64 %43, 0
-  br i1 %86, label %.lr.ph, label %.loopexit
+83:                                               ; preds = %72, %67
+  %.052 = phi ptr [ %75, %72 ], [ %70, %67 ]
+  %84 = icmp sgt i64 %41, 0
+  br i1 %84, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %.052, i64 48
-  %91 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  br label %92
+.lr.ph:                                           ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.052, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  br label %90
 
-92:                                               ; preds = %.lr.ph, %117
-  %93 = phi i64 [ 0, %.lr.ph ], [ %121, %117 ]
-  %.060 = phi i32 [ 0, %.lr.ph ], [ %120, %117 ]
+90:                                               ; preds = %.lr.ph, %115
+  %91 = phi i64 [ 0, %.lr.ph ], [ %119, %115 ]
+  %.060 = phi i32 [ 0, %.lr.ph ], [ %118, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %94 = load ptr, ptr %59, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 %93
-  %96 = load i8, ptr %95, align 1, !range !4, !noundef !5
-  %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %117, label %98
+  %92 = load ptr, ptr %57, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 %91
+  %94 = load i8, ptr %93, align 1, !range !4, !noundef !5
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %115, label %96
 
-98:                                               ; preds = %92
-  %99 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %100 = icmp slt i32 %99, 0
-  br i1 %100, label %106, label %101
+96:                                               ; preds = %90
+  %97 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %104, label %99
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %39, align 8
-  %103 = load i32, ptr %41, align 8
-  %104 = sub i32 %102, %103
-  %105 = icmp sgt i32 %99, %104
-  br i1 %105, label %106, label %110
+99:                                               ; preds = %96
+  %100 = load i32, ptr %37, align 8
+  %101 = load i32, ptr %39, align 8
+  %102 = sub i32 %100, %101
+  %103 = icmp sgt i32 %97, %102
+  br i1 %103, label %104, label %108
 
-106:                                              ; preds = %101, %98
-  %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %107)
-  %108 = call i32 @errcode(i32 noundef 50462850) #11
-  %109 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
+104:                                              ; preds = %99, %96
+  %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %105)
+  %106 = call i32 @errcode(i32 noundef 50462850) #11
+  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 858, ptr noundef nonnull @__func__.array_agg_deserialize) #11
   unreachable
 
-110:                                              ; preds = %101
-  %111 = load ptr, ptr %2, align 8
-  %112 = sext i32 %103 to i64
-  %113 = getelementptr inbounds i8, ptr %111, i64 %112
-  store ptr %113, ptr %4, align 8
-  store i32 %99, ptr %87, align 8
-  store i32 0, ptr %88, align 4
-  store i32 0, ptr %89, align 8
-  %114 = add i32 %103, %99
-  store i32 %114, ptr %41, align 8
-  %115 = load i32, ptr %90, align 8
-  %116 = call i64 @ReceiveFunctionCall(ptr noundef %.052, ptr noundef nonnull %4, i32 noundef %115, i32 noundef -1) #11
-  br label %117
+108:                                              ; preds = %99
+  %109 = load ptr, ptr %2, align 8
+  %110 = sext i32 %101 to i64
+  %111 = getelementptr inbounds i8, ptr %109, i64 %110
+  store ptr %111, ptr %4, align 8
+  store i32 %97, ptr %85, align 8
+  store i32 0, ptr %86, align 4
+  store i32 0, ptr %87, align 8
+  %112 = add i32 %101, %97
+  store i32 %112, ptr %39, align 8
+  %113 = load i32, ptr %88, align 8
+  %114 = call i64 @ReceiveFunctionCall(ptr noundef %.052, ptr noundef nonnull %4, i32 noundef %113, i32 noundef -1) #11
+  br label %115
 
-117:                                              ; preds = %92, %110
-  %.sink = phi i64 [ %116, %110 ], [ 0, %92 ]
-  %118 = load ptr, ptr %91, align 8
-  %119 = getelementptr inbounds i64, ptr %118, i64 %93
-  store i64 %.sink, ptr %119, align 8
+115:                                              ; preds = %90, %108
+  %.sink = phi i64 [ %114, %108 ], [ 0, %90 ]
+  %116 = load ptr, ptr %89, align 8
+  %117 = getelementptr inbounds i64, ptr %116, i64 %91
+  store i64 %.sink, ptr %117, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %120 = add i32 %.060, 1
-  %121 = sext i32 %120 to i64
-  %122 = icmp sgt i64 %43, %121
-  br i1 %122, label %92, label %.loopexit, !llvm.loop !31
+  %118 = add i32 %.060, 1
+  %119 = sext i32 %118 to i64
+  %120 = icmp sgt i64 %41, %119
+  br i1 %120, label %90, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %117, %85, %63
+.loopexit:                                        ; preds = %115, %83, %61
   call void @pq_getmsgend(ptr noundef nonnull %2) #11
-  %123 = ptrtoint ptr %46 to i64
+  %121 = ptrtoint ptr %44 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %123
+  ret i64 %121
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
@@ -2152,110 +2150,108 @@ define dso_local i64 @array_agg_array_deserialize(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = select i1 %.not, ptr %11, ptr %10
   %13 = icmp eq i8 %7, 1
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %20
 
 14:                                               ; preds = %1
   %15 = load i8, ptr %10, align 1
-  %16 = icmp eq i8 %15, 1
-  %17 = and i8 %15, -2
-  %18 = icmp eq i8 %17, 2
-  %or.cond = or i1 %16, %18
-  %19 = icmp eq i8 %15, 18
-  %20 = select i1 %19, i32 16, i32 0
-  %21 = select i1 %or.cond, i32 8, i32 %20
-  br label %30
+  %16 = add i8 %15, -1
+  %or.cond = icmp ult i8 %16, 3
+  %17 = icmp eq i8 %15, 18
+  %18 = select i1 %17, i32 16, i32 0
+  %19 = select i1 %or.cond, i32 8, i32 %18
+  br label %28
 
-22:                                               ; preds = %1
-  br i1 %.not, label %26, label %23
+20:                                               ; preds = %1
+  br i1 %.not, label %24, label %21
 
-23:                                               ; preds = %22
-  %24 = lshr i32 %8, 1
-  %25 = add nsw i32 %24, -1
-  br label %30
+21:                                               ; preds = %20
+  %22 = lshr i32 %8, 1
+  %23 = add nsw i32 %22, -1
+  br label %28
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %6, align 4
-  %28 = lshr i32 %27, 2
-  %29 = add nsw i32 %28, -4
-  br label %30
+24:                                               ; preds = %20
+  %25 = load i32, ptr %6, align 4
+  %26 = lshr i32 %25, 2
+  %27 = add nsw i32 %26, -4
+  br label %28
 
-30:                                               ; preds = %23, %26, %14
-  %31 = phi i32 [ %21, %14 ], [ %25, %23 ], [ %29, %26 ]
+28:                                               ; preds = %21, %24, %14
+  %29 = phi i32 [ %19, %14 ], [ %23, %21 ], [ %27, %24 ]
   store ptr %12, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %34, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %32, align 8
+  %33 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  %34 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
   %35 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %36 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %37 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %38 = load ptr, ptr @CurrentMemoryContext, align 8
-  %39 = call ptr @initArrayResultArr(i32 noundef %36, i32 noundef %35, ptr noundef %38, i1 noundef zeroext false) #11
-  br label %40
+  %36 = load ptr, ptr @CurrentMemoryContext, align 8
+  %37 = call ptr @initArrayResultArr(i32 noundef %34, i32 noundef %33, ptr noundef %36, i1 noundef zeroext false) #11
+  br label %38
 
-40:                                               ; preds = %40, %30
-  %storemerge = phi i32 [ 1024, %30 ], [ %42, %40 ]
-  %41 = icmp slt i32 %storemerge, %37
-  %42 = shl i32 %storemerge, 1
-  br i1 %41, label %40, label %43, !llvm.loop !54
+38:                                               ; preds = %38, %28
+  %storemerge = phi i32 [ 1024, %28 ], [ %40, %38 ]
+  %39 = icmp slt i32 %storemerge, %35
+  %40 = shl i32 %storemerge, 1
+  br i1 %39, label %38, label %41, !llvm.loop !54
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store i32 %storemerge, ptr %44, align 8
-  %45 = sext i32 %storemerge to i64
-  %46 = call ptr @palloc(i64 noundef %45) #11
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %46, ptr %47, align 8
-  %48 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %37) #11
-  %49 = load ptr, ptr %47, align 8
-  %50 = sext i32 %37 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %48, i64 %50, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  store i32 %37, ptr %51, align 4
-  %52 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  store i32 %52, ptr %44, align 8
-  %53 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %54 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 %53, ptr %54, align 8
-  %55 = icmp sgt i32 %53, 0
-  br i1 %55, label %56, label %64
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i32 %storemerge, ptr %42, align 8
+  %43 = sext i32 %storemerge to i64
+  %44 = call ptr @palloc(i64 noundef %43) #11
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %44, ptr %45, align 8
+  %46 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %35) #11
+  %47 = load ptr, ptr %45, align 8
+  %48 = sext i32 %35 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %46, i64 %48, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  store i32 %35, ptr %49, align 4
+  %50 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  store i32 %50, ptr %42, align 8
+  %51 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store i32 %51, ptr %52, align 8
+  %53 = icmp sgt i32 %51, 0
+  br i1 %53, label %54, label %62
 
-56:                                               ; preds = %43
-  %57 = add nuw i32 %53, 7
-  %58 = sdiv i32 %57, 8
-  %59 = sext i32 %58 to i64
-  %60 = call ptr @palloc(i64 noundef %59) #11
-  %61 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %60, ptr %61, align 8
-  %62 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %58) #11
-  %63 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 1 %62, i64 %59, i1 false)
-  br label %66
+54:                                               ; preds = %41
+  %55 = add nuw i32 %51, 7
+  %56 = sdiv i32 %55, 8
+  %57 = sext i32 %56 to i64
+  %58 = call ptr @palloc(i64 noundef %57) #11
+  %59 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %58, ptr %59, align 8
+  %60 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef %56) #11
+  %61 = load ptr, ptr %59, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %60, i64 %57, i1 false)
+  br label %64
 
-64:                                               ; preds = %43
-  %65 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr null, ptr %65, align 8
-  br label %66
+62:                                               ; preds = %41
+  %63 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr null, ptr %63, align 8
+  br label %64
 
-66:                                               ; preds = %64, %56
+64:                                               ; preds = %62, %54
+  %65 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 36
+  store i32 %65, ptr %66, align 4
   %67 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %68 = getelementptr inbounds nuw i8, ptr %39, i64 36
-  store i32 %67, ptr %68, align 4
-  %69 = call i32 @pq_getmsgint(ptr noundef nonnull %2, i32 noundef 4) #11
-  %70 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store i32 %69, ptr %70, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store i32 %67, ptr %68, align 8
+  %69 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef 24) #11
+  %70 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %70, ptr noundef nonnull align 1 dereferenceable(24) %69, i64 24, i1 false)
   %71 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef 24) #11
-  %72 = getelementptr inbounds nuw i8, ptr %39, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %37, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %72, ptr noundef nonnull align 1 dereferenceable(24) %71, i64 24, i1 false)
-  %73 = call ptr @pq_getmsgbytes(ptr noundef nonnull %2, i32 noundef 24) #11
-  %74 = getelementptr inbounds nuw i8, ptr %39, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %74, ptr noundef nonnull align 1 dereferenceable(24) %73, i64 24, i1 false)
   call void @pq_getmsgend(ptr noundef nonnull %2) #11
-  %75 = ptrtoint ptr %39 to i64
+  %73 = ptrtoint ptr %37 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %75
+  ret i64 %73
 }
 
 ; Function Attrs: nounwind uwtable

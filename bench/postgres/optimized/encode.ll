@@ -81,74 +81,72 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = select i1 %.not, ptr %26, ptr %25
   %28 = icmp eq i8 %22, 1
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %35
 
 29:                                               ; preds = %._crit_edge
   %30 = load i8, ptr %25, align 1
-  %31 = icmp eq i8 %30, 1
-  %32 = and i8 %30, -2
-  %33 = icmp eq i8 %32, 2
-  %or.cond = or i1 %31, %33
-  %34 = icmp eq i8 %30, 18
-  %35 = select i1 %34, i64 16, i64 0
-  %36 = select i1 %or.cond, i64 8, i64 %35
-  br label %47
+  %31 = add i8 %30, -1
+  %or.cond = icmp ult i8 %31, 3
+  %32 = icmp eq i8 %30, 18
+  %33 = select i1 %32, i64 16, i64 0
+  %34 = select i1 %or.cond, i64 8, i64 %33
+  br label %45
 
-37:                                               ; preds = %._crit_edge
-  br i1 %.not, label %42, label %38
+35:                                               ; preds = %._crit_edge
+  br i1 %.not, label %40, label %36
 
-38:                                               ; preds = %37
-  %39 = lshr i32 %23, 1
-  %40 = zext nneg i32 %39 to i64
-  %41 = add nsw i64 %40, -1
-  br label %47
+36:                                               ; preds = %35
+  %37 = lshr i32 %23, 1
+  %38 = zext nneg i32 %37 to i64
+  %39 = add nsw i64 %38, -1
+  br label %45
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %5, align 4
-  %44 = lshr i32 %43, 2
-  %45 = add nsw i32 %44, -4
-  %46 = zext i32 %45 to i64
-  br label %47
+40:                                               ; preds = %35
+  %41 = load i32, ptr %5, align 4
+  %42 = lshr i32 %41, 2
+  %43 = add nsw i32 %42, -4
+  %44 = zext i32 %43 to i64
+  br label %45
 
-47:                                               ; preds = %38, %42, %29
-  %48 = phi i64 [ %36, %29 ], [ %41, %38 ], [ %46, %42 ]
-  %49 = load ptr, ptr %21, align 8
-  %50 = tail call i64 %49(ptr noundef nonnull %27, i64 noundef %48) #7
-  %51 = icmp ugt i64 %50, 1073741819
-  br i1 %51, label %52, label %56
+45:                                               ; preds = %36, %40, %29
+  %46 = phi i64 [ %34, %29 ], [ %39, %36 ], [ %44, %40 ]
+  %47 = load ptr, ptr %21, align 8
+  %48 = tail call i64 %47(ptr noundef nonnull %27, i64 noundef %46) #7
+  %49 = icmp ugt i64 %48, 1073741819
+  br i1 %49, label %50, label %54
 
-52:                                               ; preds = %47
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 261) #7
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
+50:                                               ; preds = %45
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %51)
+  %52 = tail call i32 @errcode(i32 noundef 261) #7
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.binary_encode) #7
   unreachable
 
-56:                                               ; preds = %47
-  %57 = add nuw nsw i64 %50, 4
-  %58 = tail call ptr @palloc(i64 noundef %57) #7
-  %59 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %62 = tail call i64 %60(ptr noundef nonnull %27, i64 noundef %48, ptr noundef nonnull %61) #7
-  %63 = icmp ugt i64 %62, %50
-  br i1 %63, label %64, label %67
+54:                                               ; preds = %45
+  %55 = add nuw nsw i64 %48, 4
+  %56 = tail call ptr @palloc(i64 noundef %55) #7
+  %57 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %60 = tail call i64 %58(ptr noundef nonnull %27, i64 noundef %46, ptr noundef nonnull %59) #7
+  %61 = icmp ugt i64 %60, %48
+  br i1 %61, label %62, label %65
 
-64:                                               ; preds = %56
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+62:                                               ; preds = %54
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.binary_encode) #7
   unreachable
 
-67:                                               ; preds = %56
-  %68 = trunc nuw nsw i64 %62 to i32
-  %69 = shl nuw i32 %68, 2
-  %70 = add nuw i32 %69, 16
-  store i32 %70, ptr %58, align 4
-  %71 = ptrtoint ptr %58 to i64
-  ret i64 %71
+65:                                               ; preds = %54
+  %66 = trunc nuw nsw i64 %60 to i32
+  %67 = shl nuw i32 %66, 2
+  %68 = add nuw i32 %67, 16
+  store i32 %68, ptr %56, align 4
+  %69 = ptrtoint ptr %56 to i64
+  ret i64 %69
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -213,75 +211,73 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %26 = select i1 %.not, ptr %25, ptr %24
   %27 = icmp eq i8 %21, 1
-  br i1 %27, label %28, label %36
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %._crit_edge
   %29 = load i8, ptr %24, align 1
-  %30 = icmp eq i8 %29, 1
-  %31 = and i8 %29, -2
-  %32 = icmp eq i8 %31, 2
-  %or.cond = or i1 %30, %32
-  %33 = icmp eq i8 %29, 18
-  %34 = select i1 %33, i64 16, i64 0
-  %35 = select i1 %or.cond, i64 8, i64 %34
-  br label %46
+  %30 = add i8 %29, -1
+  %or.cond = icmp ult i8 %30, 3
+  %31 = icmp eq i8 %29, 18
+  %32 = select i1 %31, i64 16, i64 0
+  %33 = select i1 %or.cond, i64 8, i64 %32
+  br label %44
 
-36:                                               ; preds = %._crit_edge
-  br i1 %.not, label %41, label %37
+34:                                               ; preds = %._crit_edge
+  br i1 %.not, label %39, label %35
 
-37:                                               ; preds = %36
-  %38 = lshr i32 %22, 1
-  %39 = zext nneg i32 %38 to i64
-  %40 = add nsw i64 %39, -1
-  br label %46
+35:                                               ; preds = %34
+  %36 = lshr i32 %22, 1
+  %37 = zext nneg i32 %36 to i64
+  %38 = add nsw i64 %37, -1
+  br label %44
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %5, align 4
-  %43 = lshr i32 %42, 2
-  %44 = add nsw i32 %43, -4
-  %45 = zext i32 %44 to i64
-  br label %46
+39:                                               ; preds = %34
+  %40 = load i32, ptr %5, align 4
+  %41 = lshr i32 %40, 2
+  %42 = add nsw i32 %41, -4
+  %43 = zext i32 %42 to i64
+  br label %44
 
-46:                                               ; preds = %37, %41, %28
-  %47 = phi i64 [ %35, %28 ], [ %40, %37 ], [ %45, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call i64 %49(ptr noundef nonnull %26, i64 noundef %47) #7
-  %51 = icmp ugt i64 %50, 1073741819
-  br i1 %51, label %52, label %56
+44:                                               ; preds = %35, %39, %28
+  %45 = phi i64 [ %33, %28 ], [ %38, %35 ], [ %43, %39 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i64 %47(ptr noundef nonnull %26, i64 noundef %45) #7
+  %49 = icmp ugt i64 %48, 1073741819
+  br i1 %49, label %50, label %54
 
-52:                                               ; preds = %46
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 261) #7
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+50:                                               ; preds = %44
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %51)
+  %52 = tail call i32 @errcode(i32 noundef 261) #7
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.binary_decode) #7
   unreachable
 
-56:                                               ; preds = %46
-  %57 = add nuw nsw i64 %50, 4
-  %58 = tail call ptr @palloc(i64 noundef %57) #7
-  %59 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %62 = tail call i64 %60(ptr noundef nonnull %26, i64 noundef %47, ptr noundef nonnull %61) #7
-  %63 = icmp ugt i64 %62, %50
-  br i1 %63, label %64, label %67
+54:                                               ; preds = %44
+  %55 = add nuw nsw i64 %48, 4
+  %56 = tail call ptr @palloc(i64 noundef %55) #7
+  %57 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %60 = tail call i64 %58(ptr noundef nonnull %26, i64 noundef %45, ptr noundef nonnull %59) #7
+  %61 = icmp ugt i64 %60, %48
+  br i1 %61, label %62, label %65
 
-64:                                               ; preds = %56
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
+62:                                               ; preds = %54
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.binary_decode) #7
   unreachable
 
-67:                                               ; preds = %56
-  %68 = trunc nuw nsw i64 %62 to i32
-  %69 = shl nuw i32 %68, 2
-  %70 = add nuw i32 %69, 16
-  store i32 %70, ptr %58, align 4
-  %71 = ptrtoint ptr %58 to i64
-  ret i64 %71
+65:                                               ; preds = %54
+  %66 = trunc nuw nsw i64 %60 to i32
+  %67 = shl nuw i32 %66, 2
+  %68 = add nuw i32 %67, 16
+  store i32 %68, ptr %56, align 4
+  %69 = ptrtoint ptr %56 to i64
+  ret i64 %69
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
