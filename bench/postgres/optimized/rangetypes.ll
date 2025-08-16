@@ -653,7 +653,7 @@ define dso_local void @range_deserialize(ptr noundef readonly captures(none) %0,
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = and i8 %11, 41
   %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %23, label %71
+  br i1 %.not, label %23, label %73
 
 23:                                               ; preds = %5
   %24 = sext i16 %15 to i32
@@ -702,180 +702,180 @@ fetch_att.exit.thread:                            ; preds = %35, %32, %29, %26, 
   %.0.i83 = phi i64 [ %40, %fetch_att.exit ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ]
   %42 = zext nneg i32 %24 to i64
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 %42
-  br label %71
+  br label %73
 
 44:                                               ; preds = %fetch_att.exit
   %45 = icmp eq i16 %15, -1
-  br i1 %45, label %46, label %67
+  br i1 %45, label %46, label %69
 
 46:                                               ; preds = %44
   %47 = load i8, ptr %21, align 1
   %48 = zext i8 %47 to i32
   %49 = icmp eq i8 %47, 1
-  br i1 %49, label %50, label %57
+  br i1 %49, label %50, label %59
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %52 = load i8, ptr %51, align 1
   %53 = add i8 %52, -1
   %or.cond = icmp ult i8 %53, 3
-  %54 = icmp eq i8 %52, 18
+  %55 = icmp eq i8 %52, 18
   %55 = select i1 %54, i64 18, i64 2
   %56 = select i1 %or.cond, i64 10, i64 %55
   br label %.thread
 
-57:                                               ; preds = %46
-  %58 = and i32 %48, 1
-  %.not59 = icmp eq i32 %58, 0
-  br i1 %.not59, label %61, label %59
+59:                                               ; preds = %46
+  %60 = and i32 %48, 1
+  %.not59 = icmp eq i32 %60, 0
+  br i1 %.not59, label %63, label %61
 
-59:                                               ; preds = %57
-  %60 = lshr i32 %48, 1
-  br label %64
+61:                                               ; preds = %59
+  %62 = lshr i32 %48, 1
+  br label %66
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr %21, align 4
-  %63 = lshr i32 %62, 2
-  br label %64
+63:                                               ; preds = %59
+  %64 = load i32, ptr %21, align 4
+  %65 = lshr i32 %64, 2
+  br label %66
 
-64:                                               ; preds = %61, %59
-  %65 = phi i32 [ %60, %59 ], [ %63, %61 ]
-  %66 = zext nneg i32 %65 to i64
+66:                                               ; preds = %63, %61
+  %67 = phi i32 [ %62, %59 ], [ %65, %61 ]
+  %68 = zext nneg i32 %67 to i64
   br label %.thread
 
-67:                                               ; preds = %44
-  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #17
-  %69 = getelementptr i8, ptr %21, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 1
-  br label %71
+69:                                               ; preds = %44
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #17
+  %71 = getelementptr i8, ptr %21, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 1
+  br label %73
 
-71:                                               ; preds = %5, %fetch_att.exit.thread, %67
-  %.054 = phi ptr [ %43, %fetch_att.exit.thread ], [ %70, %67 ], [ %21, %5 ]
+73:                                               ; preds = %5, %fetch_att.exit.thread, %69
+  %.054 = phi ptr [ %43, %fetch_att.exit.thread ], [ %72, %67 ], [ %21, %5 ]
   %.053 = phi i64 [ %.0.i83, %fetch_att.exit.thread ], [ %40, %67 ], [ 0, %5 ]
-  %72 = and i8 %11, 81
-  %.not60 = icmp eq i8 %72, 0
-  br i1 %.not60, label %76, label %fetch_att.exit67
+  %74 = and i8 %11, 81
+  %.not60 = icmp eq i8 %74, 0
+  br i1 %.not60, label %78, label %fetch_att.exit67
 
-.thread:                                          ; preds = %50, %64
-  %73 = phi i64 [ %56, %50 ], [ %66, %64 ]
-  %74 = and i8 %11, 80
-  %.not6070 = icmp eq i8 %74, 0
+.thread:                                          ; preds = %50, %66
+  %75 = phi i64 [ %56, %50 ], [ %68, %64 ]
+  %76 = and i8 %11, 80
+  %.not6070 = icmp eq i8 %76, 0
   br i1 %.not6070, label %.thread74, label %fetch_att.exit67
 
 .thread74:                                        ; preds = %.thread
-  %75 = getelementptr inbounds nuw i8, ptr %21, i64 %73
-  br label %79
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 %75
+  br label %81
 
-76:                                               ; preds = %71
-  %77 = sext i16 %15 to i32
-  %78 = icmp eq i16 %15, -1
-  br i1 %78, label %79, label %83
+78:                                               ; preds = %73
+  %79 = sext i16 %15 to i32
+  %80 = icmp eq i16 %15, -1
+  br i1 %80, label %81, label %85
 
-79:                                               ; preds = %.thread74, %76
-  %.0547180 = phi ptr [ %75, %.thread74 ], [ %.054, %76 ]
+81:                                               ; preds = %.thread74, %78
+  %.0547180 = phi ptr [ %77, %.thread74 ], [ %.054, %76 ]
   %.0537379 = phi i64 [ %40, %.thread74 ], [ %.053, %76 ]
-  %80 = load i8, ptr %.0547180, align 1
-  %.not61 = icmp eq i8 %80, 0
-  br i1 %.not61, label %83, label %81
+  %82 = load i8, ptr %.0547180, align 1
+  %.not61 = icmp eq i8 %82, 0
+  br i1 %.not61, label %85, label %83
 
-81:                                               ; preds = %79
-  %82 = ptrtoint ptr %.0547180 to i64
-  br label %95
+83:                                               ; preds = %81
+  %84 = ptrtoint ptr %.0547180 to i64
+  br label %97
 
-83:                                               ; preds = %79, %76
-  %84 = phi i32 [ -1, %79 ], [ %77, %76 ]
+85:                                               ; preds = %81, %78
+  %86 = phi i32 [ -1, %79 ], [ %79, %76 ]
   %.0547181 = phi ptr [ %.0547180, %79 ], [ %.054, %76 ]
   %.0537378 = phi i64 [ %.0537379, %79 ], [ %.053, %76 ]
-  %85 = ptrtoint ptr %.0547181 to i64
+  %87 = ptrtoint ptr %.0547181 to i64
   switch i8 %20, label %92 [
-    i8 105, label %86
-    i8 99, label %95
-    i8 100, label %89
+    i8 105, label %88
+    i8 99, label %97
+    i8 100, label %91
   ]
 
-86:                                               ; preds = %83
-  %87 = add i64 %85, 3
-  %88 = and i64 %87, -4
-  br label %95
+88:                                               ; preds = %85
+  %89 = add i64 %87, 3
+  %90 = and i64 %89, -4
+  br label %97
 
-89:                                               ; preds = %83
-  %90 = add i64 %85, 7
-  %91 = and i64 %90, -8
-  br label %95
+91:                                               ; preds = %85
+  %92 = add i64 %87, 7
+  %93 = and i64 %92, -8
+  br label %97
 
-92:                                               ; preds = %83
-  %93 = add i64 %85, 1
-  %94 = and i64 %93, -2
-  br label %95
+94:                                               ; preds = %85
+  %95 = add i64 %87, 1
+  %96 = and i64 %95, -2
+  br label %97
 
-95:                                               ; preds = %83, %86, %89, %92, %81
-  %96 = phi i32 [ -1, %81 ], [ %84, %86 ], [ %84, %89 ], [ %84, %92 ], [ %84, %83 ]
+97:                                               ; preds = %85, %88, %91, %94, %83
+  %98 = phi i32 [ -1, %81 ], [ %84, %86 ], [ %84, %89 ], [ %86, %92 ], [ %84, %83 ]
   %.0537377 = phi i64 [ %.0537379, %81 ], [ %.0537378, %86 ], [ %.0537378, %89 ], [ %.0537378, %92 ], [ %.0537378, %83 ]
-  %97 = phi i64 [ %82, %81 ], [ %88, %86 ], [ %91, %89 ], [ %94, %92 ], [ %85, %83 ]
-  %98 = inttoptr i64 %97 to ptr
-  br i1 %18, label %99, label %fetch_att.exit67
+  %99 = phi i64 [ %84, %81 ], [ %90, %86 ], [ %93, %89 ], [ %96, %92 ], [ %87, %83 ]
+  %100 = inttoptr i64 %99 to ptr
+  br i1 %18, label %101, label %fetch_att.exit67
 
-99:                                               ; preds = %95
-  switch i32 %96, label %111 [
-    i32 1, label %100
-    i32 2, label %103
-    i32 4, label %106
-    i32 8, label %109
+101:                                              ; preds = %97
+  switch i32 %98, label %111 [
+    i32 1, label %102
+    i32 2, label %105
+    i32 4, label %108
+    i32 8, label %111
   ]
 
-100:                                              ; preds = %99
-  %101 = load i8, ptr %98, align 1
-  %102 = sext i8 %101 to i64
+102:                                              ; preds = %101
+  %103 = load i8, ptr %100, align 1
+  %104 = sext i8 %103 to i64
   br label %fetch_att.exit67
 
-103:                                              ; preds = %99
-  %104 = load i16, ptr %98, align 2
-  %105 = sext i16 %104 to i64
+105:                                              ; preds = %101
+  %106 = load i16, ptr %100, align 2
+  %107 = sext i16 %106 to i64
   br label %fetch_att.exit67
 
-106:                                              ; preds = %99
-  %107 = load i32, ptr %98, align 4
-  %108 = sext i32 %107 to i64
+108:                                              ; preds = %101
+  %109 = load i32, ptr %100, align 4
+  %110 = sext i32 %109 to i64
   br label %fetch_att.exit67
 
-109:                                              ; preds = %99
-  %110 = load i64, ptr %98, align 8
+111:                                              ; preds = %101
+  %112 = load i64, ptr %100, align 8
   br label %fetch_att.exit67
 
-111:                                              ; preds = %99
-  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %112)
-  %113 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %96) #14
+113:                                              ; preds = %101
+  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %114)
+  %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %98) #14
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-fetch_att.exit67:                                 ; preds = %109, %106, %103, %100, %95, %.thread, %71
+fetch_att.exit67:                                 ; preds = %111, %108, %105, %102, %97, %.thread, %73
   %.05372 = phi i64 [ %.053, %71 ], [ %40, %.thread ], [ %.0537377, %95 ], [ %.0537377, %100 ], [ %.0537377, %103 ], [ %.0537377, %106 ], [ %.0537377, %109 ]
-  %.0 = phi i64 [ 0, %71 ], [ 0, %.thread ], [ %97, %95 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %110, %109 ]
-  %114 = and i8 %11, 1
-  store i8 %114, ptr %4, align 1
+  %.0 = phi i64 [ 0, %71 ], [ 0, %.thread ], [ %99, %95 ], [ %104, %100 ], [ %107, %103 ], [ %110, %106 ], [ %112, %109 ]
+  %116 = and i8 %11, 1
+  store i8 %116, ptr %4, align 1
   store i64 %.05372, ptr %2, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %116 = lshr i8 %11, 3
-  %.lobit = and i8 %116, 1
-  store i8 %.lobit, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %118 = lshr i8 %11, 1
-  %.lobit62 = and i8 %118, 1
-  store i8 %.lobit62, ptr %117, align 1
-  %119 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 1, ptr %119, align 2
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %118 = lshr i8 %11, 3
+  %.lobit = and i8 %118, 1
+  store i8 %.lobit, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %120 = lshr i8 %11, 1
+  %.lobit62 = and i8 %120, 1
+  store i8 %.lobit62, ptr %119, align 1
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  store i8 1, ptr %121, align 2
   store i64 %.0, ptr %3, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %121 = lshr i8 %11, 4
-  %.lobit63 = and i8 %121, 1
-  store i8 %.lobit63, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %123 = lshr i8 %11, 2
-  %.lobit64 = and i8 %123, 1
-  store i8 %.lobit64, ptr %122, align 1
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 0, ptr %124, align 2
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %123 = lshr i8 %11, 4
+  %.lobit63 = and i8 %123, 1
+  store i8 %.lobit63, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %125 = lshr i8 %11, 2
+  %.lobit64 = and i8 %125, 1
+  store i8 %.lobit64, ptr %124, align 1
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 0, ptr %126, align 2
   ret void
 }
 

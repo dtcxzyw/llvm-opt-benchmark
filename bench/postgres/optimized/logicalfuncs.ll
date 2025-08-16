@@ -514,28 +514,28 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly capture
   %21 = load i8, ptr %18, align 1
   %22 = add i8 %21, -1
   %or.cond = icmp ult i8 %22, 3
-  %23 = icmp eq i8 %21, 18
+  %24 = icmp eq i8 %21, 18
   %24 = select i1 %23, i64 16, i64 0
   %25 = select i1 %or.cond, i64 8, i64 %24
   br label %36
 
-26:                                               ; preds = %1
+26:; preds = %1
   br i1 %.not, label %31, label %27
 
-27:                                               ; preds = %26
+27:    ; preds = %26
   %28 = lshr i32 %16, 1
   %29 = zext nneg i32 %28 to i64
   %30 = add nsw i64 %29, -1
   br label %36
 
-31:                                               ; preds = %26
+31:; preds = %26
   %32 = load i32, ptr %12, align 4
   %33 = lshr i32 %32, 2
   %34 = add nsw i32 %33, -4
   %35 = zext i32 %34 to i64
   br label %36
 
-36:                                               ; preds = %27, %31, %20
+36:; preds = %27, %31, %20
   %37 = phi i64 [ %25, %20 ], [ %30, %27 ], [ %35, %31 ]
   %38 = icmp ne i64 %14, 0
   %39 = icmp ne i64 %3, 0

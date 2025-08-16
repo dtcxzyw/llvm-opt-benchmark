@@ -647,37 +647,37 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @be_lowrite(ptr noundef 
   %13 = load i8, ptr %12, align 1
   %14 = add i8 %13, -1
   %or.cond = icmp ult i8 %14, 3
-  %15 = icmp eq i8 %13, 18
+  %16 = icmp eq i8 %13, 18
   %16 = select i1 %15, i32 16, i32 0
   %17 = select i1 %or.cond, i32 8, i32 %16
   br label %27
 
-18:                                               ; preds = %1
+18:; preds = %1
   %19 = and i32 %9, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %23, label %20
 
-20:                                               ; preds = %18
+20:; preds = %18
   %21 = lshr i32 %9, 1
   %22 = add nsw i32 %21, -1
-  br label %27
+  br label %29
 
-23:                                               ; preds = %18
+23:; preds = %18
   %24 = load i32, ptr %7, align 4
   %25 = lshr i32 %24, 2
-  %26 = add nsw i32 %25, -4
+  %26 = add nsw i32 %27, -4
   br label %27
 
-27:                                               ; preds = %20, %23, %11
+27:; preds = %20, %23, %11
   %28 = phi i32 [ %17, %11 ], [ %22, %20 ], [ %26, %23 ]
-  %29 = trunc i64 %3 to i32
+  %31 = trunc i64 %3 to i32
   %30 = and i8 %8, 1
   %.not15 = icmp eq i8 %30, 0
   %.v = select i1 %.not15, i64 4, i64 1
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
-  %32 = tail call i32 @lo_write(i32 noundef %29, ptr noundef nonnull %31, i32 noundef %28)
-  %33 = sext i32 %32 to i64
-  ret i64 %33
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
+  %34 = tail call i32 @lo_write(i32 noundef %31, ptr noundef nonnull %33, i32 noundef %30)
+  %35 = sext i32 %34 to i64
+  ret i64 %35
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -1220,39 +1220,39 @@ define dso_local range(i64 0, 4294967296) i64 @be_lo_from_bytea(ptr noundef read
   %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = icmp eq i8 %12, 1
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %1
   %18 = load i8, ptr %15, align 1
   %19 = add i8 %18, -1
   %or.cond = icmp ult i8 %19, 3
-  %20 = icmp eq i8 %18, 18
+  %21 = icmp eq i8 %18, 18
   %21 = select i1 %20, i32 16, i32 0
   %22 = select i1 %or.cond, i32 8, i32 %21
   br label %31
 
-23:                                               ; preds = %1
-  br i1 %.not, label %27, label %24
+25:                                               ; preds = %1
+  br i1 %.not, label %29, label %26
 
-24:                                               ; preds = %23
-  %25 = lshr i32 %13, 1
-  %26 = add nsw i32 %25, -1
-  br label %31
+26:                                               ; preds = %25
+  %27 = lshr i32 %13, 1
+  %28 = add nsw i32 %27, -1
+  br label %33
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %8, align 4
-  %29 = lshr i32 %28, 2
-  %30 = add nsw i32 %29, -4
-  br label %31
+29:                                               ; preds = %25
+  %30 = load i32, ptr %8, align 4
+  %31 = lshr i32 %30, 2
+  %32 = add nsw i32 %31, -4
+  br label %33
 
-31:                                               ; preds = %24, %27, %17
-  %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %34 = select i1 %.not, ptr %33, ptr %15
-  %35 = tail call i32 @inv_write(ptr noundef %11, ptr noundef nonnull %34, i32 noundef %32) #10
+33:                                               ; preds = %26, %29, %17
+  %34 = phi i32 [ %22, %17 ], [ %28, %24 ], [ %32, %27 ]
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %36 = select i1 %.not, ptr %35, ptr %15
+  %37 = tail call i32 @inv_write(ptr noundef %11, ptr noundef nonnull %36, i32 noundef %34) #10
   tail call void @inv_close(ptr noundef %11) #10
-  %36 = zext i32 %9 to i64
-  ret i64 %36
+  %38 = zext i32 %9 to i64
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1277,32 +1277,32 @@ define dso_local noundef i64 @be_lo_put(ptr noundef readonly captures(none) %0) 
   %.not = icmp eq i32 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %18 = icmp eq i8 %14, 1
-  br i1 %18, label %19, label %25
+  br i1 %18, label %19, label %27
 
 19:                                               ; preds = %1
   %20 = load i8, ptr %17, align 1
   %21 = add i8 %20, -1
   %or.cond = icmp ult i8 %21, 3
-  %22 = icmp eq i8 %20, 18
+  %23 = icmp eq i8 %20, 18
   %23 = select i1 %22, i32 16, i32 0
   %24 = select i1 %or.cond, i32 8, i32 %23
   br label %33
 
-25:                                               ; preds = %1
+25:; preds = %1
   br i1 %.not, label %29, label %26
 
-26:                                               ; preds = %25
+26:    ; preds = %25
   %27 = lshr i32 %15, 1
   %28 = add nsw i32 %27, -1
-  br label %33
+  br label %35
 
-29:                                               ; preds = %25
+29:; preds = %25
   %30 = load i32, ptr %10, align 4
   %31 = lshr i32 %30, 2
   %32 = add nsw i32 %31, -4
   br label %33
 
-33:                                               ; preds = %26, %29, %19
+33:; preds = %26, %31, %19
   %34 = phi i32 [ %24, %19 ], [ %28, %26 ], [ %32, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %36 = select i1 %.not, ptr %35, ptr %17

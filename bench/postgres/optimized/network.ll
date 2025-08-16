@@ -797,29 +797,29 @@ define dso_local i64 @inet_set_masklen(ptr noundef readonly captures(none) %0) #
   %36 = load i8, ptr %22, align 1
   %37 = add i8 %36, -1
   %or.cond = icmp ult i8 %37, 3
-  %38 = icmp eq i8 %36, 18
+  %39 = icmp eq i8 %36, 18
   %39 = select i1 %38, i64 18, i64 2
   %40 = select i1 %or.cond, i64 10, i64 %39
   br label %50
 
-41:                                               ; preds = %33
+41:; preds = %33
   br i1 %.not37, label %44, label %42
 
-42:                                               ; preds = %41
+42:  ; preds = %41
   %43 = lshr i32 %20, 1
   br label %47
 
-44:                                               ; preds = %41
+44:; preds = %41
   %45 = load i32, ptr %5, align 4
   %46 = lshr i32 %45, 2
   br label %47
 
-47:                                               ; preds = %44, %42
+47:; preds = %44, %42
   %48 = phi i32 [ %43, %42 ], [ %46, %44 ]
   %49 = zext nneg i32 %48 to i64
   br label %50
 
-50:                                               ; preds = %47, %35
+50:; preds = %47, %35
   %51 = phi i64 [ %40, %35 ], [ %49, %47 ]
   %52 = tail call ptr @palloc(i64 noundef %51) #14
   %53 = load i8, ptr %5, align 1
@@ -827,35 +827,35 @@ define dso_local i64 @inet_set_masklen(ptr noundef readonly captures(none) %0) #
   %55 = icmp eq i8 %53, 1
   br i1 %55, label %56, label %62
 
-56:                                               ; preds = %50
+56:; preds = %50
   %57 = load i8, ptr %22, align 1
   %58 = add i8 %57, -1
   %or.cond43 = icmp ult i8 %58, 3
-  %59 = icmp eq i8 %57, 18
+  %60 = icmp eq i8 %57, 18
   %60 = select i1 %59, i64 18, i64 2
   %61 = select i1 %or.cond43, i64 10, i64 %60
   br label %72
 
-62:                                               ; preds = %50
+62:; preds = %50
   %63 = and i32 %54, 1
   %.not38 = icmp eq i32 %63, 0
   br i1 %.not38, label %66, label %64
 
-64:                                               ; preds = %62
+64:; preds = %62
   %65 = lshr i32 %54, 1
   br label %69
 
-66:                                               ; preds = %62
+68:                                               ; preds = %62
   %67 = load i32, ptr %5, align 4
   %68 = lshr i32 %67, 2
   br label %69
 
-69:                                               ; preds = %66, %64
+69:; preds = %66, %64
   %70 = phi i32 [ %65, %64 ], [ %68, %66 ]
   %71 = zext nneg i32 %70 to i64
   br label %72
 
-72:                                               ; preds = %69, %56
+72: ; preds = %69, %56
   %73 = phi i64 [ %61, %56 ], [ %71, %69 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %5, i64 %73, i1 false)
   %74 = trunc nuw i32 %.045 to i8
@@ -863,11 +863,11 @@ define dso_local i64 @inet_set_masklen(ptr noundef readonly captures(none) %0) #
   %76 = and i8 %75, 1
   %.not39 = icmp eq i8 %76, 0
   %.v40 = select i1 %.not39, i64 4, i64 1
-  %77 = getelementptr inbounds nuw i8, ptr %52, i64 %.v40
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  store i8 %74, ptr %78, align 1
-  %79 = ptrtoint ptr %52 to i64
-  ret i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 %.v40
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  store i8 %74, ptr %82, align 1
+  %83 = ptrtoint ptr %52 to i64
+  ret i64 %83
 }
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #2

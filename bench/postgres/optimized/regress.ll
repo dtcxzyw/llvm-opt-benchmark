@@ -1167,8 +1167,8 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %99
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %99 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %101
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
   %24 = load i32, ptr %9, align 8
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 4
@@ -1178,25 +1178,25 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 91
   %31 = load i8, ptr %30, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %99, label %33
+  br i1 %32, label %101, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1, !range !6, !noundef !7
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %99, label %37
+  br i1 %36, label %101, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %39 = load i16, ptr %38, align 4
   %.not = icmp eq i16 %39, -1
-  br i1 %.not, label %40, label %99
+  br i1 %.not, label %40, label %101
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 84
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 112
-  br i1 %43, label %99, label %44
+  br i1 %43, label %101, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
@@ -1204,13 +1204,13 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %47 = inttoptr i64 %46 to ptr
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 1
-  br i1 %49, label %50, label %58
+  br i1 %49, label %50, label %59
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %52 = load i8, ptr %51, align 1
   switch i8 %52, label %55 [
-    i8 1, label %99
+    i8 1, label %101
     i8 18, label %53
   ]
 
@@ -1220,18 +1220,18 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
 
 55:                                               ; preds = %50
   %56 = add i8 %52, -1
-  %or.cond = icmp ult i8 %56, 3
-  %57 = select i1 %or.cond, i64 10, i64 2
+  %57 = icmp ult i8 %56, 3
+  %58 = select i1 %57, i64 10, i64 2
   br label %69
 
-58:                                               ; preds = %44
-  %59 = zext i8 %48 to i32
-  %60 = and i32 %59, 1
-  %.not68 = icmp eq i32 %60, 0
-  br i1 %.not68, label %63, label %61
+59:                                               ; preds = %44
+  %60 = zext i8 %48 to i32
+  %61 = and i32 %60, 1
+  %.not68 = icmp eq i32 %61, 0
+  br i1 %.not68, label %63, label %62
 
-61:                                               ; preds = %58
-  %62 = lshr i32 %59, 1
+62:                                               ; preds = %59
+  %63 = lshr i32 %60, 1
   br label %66
 
 63:                                               ; preds = %58
@@ -1262,19 +1262,19 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %81 = select i1 %or.cond72, i64 10, i64 %80
   br label %92
 
-82:                                               ; preds = %69
+64:                                               ; preds = %69
   %83 = and i32 %73, 1
   %.not69 = icmp eq i32 %83, 0
-  br i1 %.not69, label %86, label %84
+  br i1 %.not69, label %86, label %67
 
-84:                                               ; preds = %82
+67:                                               ; preds = %64
   %85 = lshr i32 %73, 1
   br label %89
 
-86:                                               ; preds = %82
+70:                                               ; preds = %64
   %87 = load i32, ptr %47, align 4
   %88 = lshr i32 %87, 2
-  br label %89
+  br label %91
 
 89:                                               ; preds = %86, %84
   %90 = phi i32 [ %85, %84 ], [ %88, %86 ]
@@ -1284,45 +1284,45 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
 92:                                               ; preds = %89, %75
   %93 = phi i64 [ %81, %75 ], [ %91, %89 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %47, i64 %93, i1 false)
-  br label %94
+  br label %95
 
-94:                                               ; preds = %92, %53
-  %.063 = phi ptr [ %54, %53 ], [ %71, %92 ]
+95:                                               ; preds = %92, %53
+  %96 = phi ptr [ %54, %53 ], [ %71, %92 ]
   %95 = call ptr @palloc0(i64 noundef 10) #18
-  store i8 1, ptr %95, align 1
+  store i8 1, ptr %97, align 1
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store i8 1, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  store ptr %.063, ptr %97, align 1
+  store ptr %96, ptr %97, align 1
   %98 = ptrtoint ptr %95 to i64
   store i64 %98, ptr %45, align 8
   br label %99
 
-99:                                               ; preds = %50, %.lr.ph, %33, %37, %40, %94
+99:; preds = %50, %.lr.ph, %33, %37, %40, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %99, %1
-  %100 = call ptr @heap_form_tuple(ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #18
+._crit_edge:                                      ; preds = %101, %1
+  %103 = call ptr @heap_form_tuple(ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #18
   call void @pfree(ptr noundef %19) #18
   call void @pfree(ptr noundef %20) #18
-  %101 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp sgt i32 %102, -1
-  br i1 %103, label %104, label %105
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %107, label %108
 
-104:                                              ; preds = %._crit_edge
+107:                                              ; preds = %._crit_edge
   call void @DecrTupleDescRefCount(ptr noundef nonnull %9) #18
-  br label %105
+  br label %108
 
-105:                                              ; preds = %104, %._crit_edge
+108:                                              ; preds = %107, %._crit_edge
   store ptr %22, ptr @CurrentMemoryContext, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = ptrtoint ptr %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %110 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %108
+  ret i64 %111
 }
 
 declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2692,18 +2692,18 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = add i8 %44, -1
-  %or.cond = icmp ult i8 %45, 3
-  %46 = icmp eq i8 %44, 18
+  %57 = icmp ult i8 %45, 3
+  %47 = icmp eq i8 %44, 18
   %47 = select i1 %46, i64 16, i64 0
-  %48 = select i1 %or.cond, i64 8, i64 %47
+  %48 = select i1 %57, i64 8, i64 %47
   br label %60
 
-49:                                               ; preds = %36
+84:                                               ; preds = %36
   %50 = and i32 %40, 1
   %.not80 = icmp eq i32 %50, 0
   br i1 %.not80, label %55, label %51
 
-51:                                               ; preds = %49
+51:; preds = %84
   %52 = lshr i32 %40, 1
   %53 = zext nneg i32 %52 to i64
   %54 = add nsw i64 %53, -1
@@ -2766,58 +2766,58 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1163, ptr noundef nonnull @__func__.test_enc_conversion) #18
   unreachable
 
-88:                                               ; preds = %80
-  %89 = icmp ugt i64 %61, 268435454
-  %90 = trunc i64 %61 to i32
-  br i1 %89, label %91, label %96
+90:                                               ; preds = %80
+  %91 = icmp ugt i64 %61, 268435454
+  %92 = trunc i64 %61 to i32
+  br i1 %91, label %93, label %98
 
-91:                                               ; preds = %88
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %92)
-  %93 = call i32 @errcode(i32 noundef 261) #18
-  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #18
-  %95 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %90) #18
+93:                                               ; preds = %90
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  call void @llvm.assume(i1 %94)
+  %95 = call i32 @errcode(i32 noundef 261) #18
+  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #18
+  %97 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %92) #18
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1170, ptr noundef nonnull @__func__.test_enc_conversion) #18
   unreachable
 
-96:                                               ; preds = %88
-  %97 = shl nuw nsw i64 %61, 2
-  %98 = or disjoint i64 %97, 1
-  %99 = load ptr, ptr @CurrentMemoryContext, align 8
-  %100 = call ptr @MemoryContextAlloc(ptr noundef %99, i64 noundef %98) #18
-  %101 = trunc nuw nsw i64 %98 to i32
-  %102 = call i32 @pg_do_encoding_conversion_buf(i32 noundef %81, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %63, i32 noundef %90, ptr noundef %100, i32 noundef %101, i1 noundef zeroext %19) #18
-  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #20
-  %104 = trunc i64 %103 to i32
-  %105 = add i32 %104, 4
-  %106 = sext i32 %105 to i64
-  %107 = call ptr @palloc(i64 noundef %106) #18
-  %108 = shl i32 %105, 2
-  store i32 %108, ptr %107, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %sext = shl i64 %103, 32
-  %110 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %109, ptr nonnull align 1 %100, i64 %110, i1 false)
-  call void @pfree(ptr noundef nonnull %100) #18
-  %.pre = sext i32 %102 to i64
-  br label %111
+98:                                               ; preds = %90
+  %99 = shl nuw nsw i64 %61, 2
+  %100 = or disjoint i64 %99, 1
+  %101 = load ptr, ptr @CurrentMemoryContext, align 8
+  %102 = call ptr @MemoryContextAlloc(ptr noundef %101, i64 noundef %100) #18
+  %103 = trunc nuw nsw i64 %100 to i32
+  %104 = call i32 @pg_do_encoding_conversion_buf(i32 noundef %81, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %63, i32 noundef %92, ptr noundef %102, i32 noundef %103, i1 noundef zeroext %19) #18
+  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #20
+  %106 = trunc i64 %105 to i32
+  %107 = add i32 %106, 4
+  %108 = sext i32 %107 to i64
+  %109 = call ptr @palloc(i64 noundef %108) #18
+  %110 = shl i32 %107, 2
+  store i32 %110, ptr %109, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %sext = shl i64 %105, 32
+  %112 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr nonnull align 1 %102, i64 %112, i1 false)
+  call void @pfree(ptr noundef nonnull %102) #18
+  %.pre = sext i32 %104 to i64
+  br label %113
 
-111:                                              ; preds = %74, %65, %96
+113:                                              ; preds = %74, %65, %98
   %.pre-phi = phi i64 [ %68, %74 ], [ %68, %65 ], [ %.pre, %96 ]
-  %.1 = phi ptr [ %77, %74 ], [ %8, %65 ], [ %107, %96 ]
+  %.1 = phi ptr [ %77, %74 ], [ %8, %65 ], [ %109, %96 ]
   store i64 %.pre-phi, ptr %3, align 16
-  %112 = ptrtoint ptr %.1 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %112, ptr %113, align 8
-  %114 = load ptr, ptr %2, align 8
-  %115 = call ptr @heap_form_tuple(ptr noundef %114, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
-  %116 = getelementptr i8, ptr %115, i64 16
-  %.val = load ptr, ptr %116, align 8
-  %117 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #18
+  %114 = ptrtoint ptr %.1 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %114, ptr %115, align 8
+  %116 = load ptr, ptr %2, align 8
+  %117 = call ptr @heap_form_tuple(ptr noundef %116, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %118 = getelementptr i8, ptr %117, i64 16
+  %.val = load ptr, ptr %118, align 8
+  %119 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %117
+  ret i64 %119
 }
 
 declare i32 @pg_char_to_encoding_private(ptr noundef) local_unnamed_addr #2

@@ -249,7 +249,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   tail call void @check_stack_depth() #8
   %6 = load i8, ptr %0, align 4
   %7 = icmp eq i8 %6, 1
-  br i1 %7, label %8, label %138
+  br i1 %7, label %8, label %142
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -274,11 +274,11 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %22
 
-22:                                               ; preds = %.preheader, %59
+22:                                               ; preds = %.preheader, %61
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
   %.0103162 = phi double [ 0.000000e+00, %.preheader ], [ %.1104, %59 ]
   %.0109161 = phi i32 [ 0, %.preheader ], [ %.1110, %59 ]
-  %.0112159 = phi double [ 0.000000e+00, %.preheader ], [ %65, %59 ]
+  %.0112159 = phi double [ 0.000000e+00, %.preheader ], [ %67, %59 ]
   %23 = getelementptr inbounds nuw %struct.TextFreq, ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
@@ -291,81 +291,81 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -1
   %or.cond = icmp ult i8 %31, 3
-  %32 = icmp eq i8 %30, 18
+  %33 = icmp eq i8 %30, 18
   %33 = select i1 %32, i32 16, i32 0
   %34 = select i1 %or.cond, i32 8, i32 %33
   br label %44
 
-35:                                               ; preds = %22
+35:; preds = %22
   %36 = and i32 %26, 1
   %.not122 = icmp eq i32 %36, 0
   br i1 %.not122, label %40, label %37
 
-37:                                               ; preds = %35
+37:    ; preds = %35
   %38 = lshr i32 %26, 1
   %39 = add nsw i32 %38, -1
   br label %44
 
-40:                                               ; preds = %35
+40:; preds = %35
   %41 = load i32, ptr %24, align 4
   %42 = lshr i32 %41, 2
   %43 = add nsw i32 %42, -4
   br label %44
 
-44:                                               ; preds = %37, %40, %28
+44:; preds = %37, %40, %28
   %45 = phi i32 [ %34, %28 ], [ %39, %37 ], [ %43, %40 ]
   %.not123 = icmp slt i32 %45, %14
-  br i1 %.not123, label %59, label %46
+  br i1 %.not123, label %61, label %46
 
-46:                                               ; preds = %44
+46:; preds = %44
   %47 = and i8 %25, 1
   %.not124 = icmp eq i8 %47, 0
   %.v = select i1 %.not124, i64 4, i64 1
-  %48 = getelementptr inbounds nuw i8, ptr %24, i64 %.v
-  %49 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %48, i64 noundef %21) #9
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %59
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 %.v
+  %51 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %50, i64 noundef %21) #9
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %61
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %53 = load float, ptr %52, align 8
-  %54 = fpext float %53 to double
-  %55 = fneg double %.0103162
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %54, double %54)
-  %57 = fadd double %.0103162, %56
-  %58 = add i32 %.0109161, 1
-  br label %59
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %55 = load float, ptr %54, align 8
+  %56 = fpext float %55 to double
+  %57 = fneg double %.0103162
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double %56, double %56)
+  %59 = fadd double %.0103162, %58
+  %60 = add i32 %.0109161, 1
+  br label %61
 
-59:                                               ; preds = %51, %46, %44
-  %.1110 = phi i32 [ %58, %51 ], [ %.0109161, %46 ], [ %.0109161, %44 ]
-  %.1104 = phi double [ %57, %51 ], [ %.0103162, %46 ], [ %.0103162, %44 ]
-  %60 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %61 = load float, ptr %60, align 8
-  %62 = fpext float %61 to double
-  %63 = fneg double %.0112159
-  %64 = tail call double @llvm.fmuladd.f64(double %63, double %62, double %62)
-  %65 = fadd double %.0112159, %64
+61:                                               ; preds = %53, %46, %44
+  %.1110 = phi i32 [ %60, %51 ], [ %.0109161, %46 ], [ %.0109161, %44 ]
+  %.1104 = phi double [ %59, %51 ], [ %.0103162, %46 ], [ %.0103162, %44 ]
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %63 = load float, ptr %62, align 8
+  %64 = fpext float %63 to double
+  %65 = fneg double %.0112159
+  %66 = tail call double @llvm.fmuladd.f64(double %65, double %64, double %64)
+  %67 = fadd double %.0112159, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %66, label %22, !llvm.loop !8
+  br i1 %exitcond.not, label %68, label %22, !llvm.loop !8
 
-66:                                               ; preds = %59
-  %67 = fcmp olt double %.1104, 0.000000e+00
-  br i1 %67, label %71, label %68
+68:                                               ; preds = %61
+  %69 = fcmp olt double %.1104, 0.000000e+00
+  br i1 %69, label %71, label %68
 
 68:                                               ; preds = %66
   %69 = fcmp ogt double %.1104, 1.000000e+00
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68
-  br label %71
+  br label %72
 
-71:                                               ; preds = %66, %70, %68
+72:                                               ; preds = %66, %70, %68
   %.2105 = phi double [ 1.000000e+00, %70 ], [ %.1104, %68 ], [ 0.000000e+00, %66 ]
   %72 = fcmp olt double %65, 0.000000e+00
   br i1 %72, label %76, label %73
 
-73:                                               ; preds = %71
+73:                                               ; preds = %72
   %74 = fcmp ogt double %65, 1.000000e+00
   br i1 %74, label %75, label %76
 
@@ -387,120 +387,120 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %. = select i1 %86, double %85, double %81
   br label %170
 
-87:                                               ; preds = %8
+87:; preds = %8
   %.not121 = icmp eq ptr %2, null
-  br i1 %.not121, label %.thread148, label %88
+  br i1 %.not121, label %.thread148, label %90
 
-88:                                               ; preds = %87
+90:                                               ; preds = %87
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %.thread147, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %88
-  %89 = sext i32 %3 to i64
-  %90 = zext nneg i32 %14 to i64
+.lr.ph.i.preheader:                               ; preds = %90
+  %91 = sext i32 %3 to i64
+  %92 = zext nneg i32 %14 to i64
   br label %.lr.ph.i
 
-.thread147:                                       ; preds = %88
-  %91 = fmul float %4, 5.000000e-01
-  %92 = fpext float %91 to double
-  %93 = fcmp ogt double %92, 5.000000e-03
-  br i1 %93, label %.thread148, label %170
+.thread147:                                       ; preds = %90
+  %93 = fmul float %4, 5.000000e-01
+  %94 = fpext float %93 to double
+  %95 = fcmp ogt double %94, 5.000000e-03
+  br i1 %95, label %.thread148, label %174
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %compare_lexeme_textfreq.exit.thread
   %.01621.i = phi i64 [ %.1.i, %compare_lexeme_textfreq.exit.thread ], [ 0, %.lr.ph.i.preheader ]
-  %.01720.i = phi i64 [ %.118.i, %compare_lexeme_textfreq.exit.thread ], [ %89, %.lr.ph.i.preheader ]
-  %94 = add i64 %.01720.i, %.01621.i
-  %95 = lshr i64 %94, 1
-  %96 = shl i64 %95, 4
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = icmp eq i8 %99, 1
-  br i1 %101, label %102, label %109
+  %.01720.i = phi i64 [ %.118.i, %compare_lexeme_textfreq.exit.thread ], [ %91, %.lr.ph.i.preheader ]
+  %96 = add i64 %.01720.i, %.01621.i
+  %97 = lshr i64 %96, 1
+  %98 = shl i64 %97, 4
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 %98
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i32
+  %103 = icmp eq i8 %101, 1
+  br i1 %103, label %104, label %109
 
-102:                                              ; preds = %.lr.ph.i
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  %104 = load i8, ptr %103, align 1
-  %105 = add i8 %104, -1
+104:                                              ; preds = %.lr.ph.i
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  %106 = load i8, ptr %105, align 1
+  %105 = add i8 %106, -1
   %or.cond.i = icmp ult i8 %105, 3
-  %106 = icmp eq i8 %104, 18
+  %109 = icmp eq i8 %104, 18
   %107 = select i1 %106, i32 16, i32 0
   %108 = select i1 %or.cond.i, i32 8, i32 %107
   br label %118
 
-109:                                              ; preds = %.lr.ph.i
+109:; preds = %.lr.ph.i
   %110 = and i32 %100, 1
   %.not.i128 = icmp eq i32 %110, 0
   br i1 %.not.i128, label %114, label %111
 
-111:                                              ; preds = %109
+111:; preds = %109
   %112 = lshr i32 %100, 1
   %113 = add nsw i32 %112, -1
   br label %118
 
-114:                                              ; preds = %109
+114:; preds = %109
   %115 = load i32, ptr %98, align 4
   %116 = lshr i32 %115, 2
   %117 = add nsw i32 %116, -4
   br label %118
 
-118:                                              ; preds = %114, %111, %102
+118:; preds = %114, %111, %102
   %119 = phi i32 [ %108, %102 ], [ %113, %111 ], [ %117, %114 ]
   %120 = icmp sgt i32 %14, %119
   br i1 %120, label %.thread138, label %121
 
-121:                                              ; preds = %118
+121:; preds = %118
   %122 = icmp slt i32 %14, %119
   br i1 %122, label %compare_lexeme_textfreq.exit.thread, label %compare_lexeme_textfreq.exit
 
-compare_lexeme_textfreq.exit:                     ; preds = %121
+compare_lexeme_textfreq.exit:; preds = %121
   %123 = and i8 %99, 1
   %.not23.i = icmp eq i8 %123, 0
   %.v.i = select i1 %.not23.i, i64 4, i64 1
-  %124 = getelementptr inbounds nuw i8, ptr %98, i64 %.v.i
-  %125 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %124, i64 noundef %90) #9
-  %126 = icmp slt i32 %125, 0
-  br i1 %126, label %compare_lexeme_textfreq.exit.thread, label %127
+  %128 = getelementptr inbounds nuw i8, ptr %100, i64 %.v.i
+  %129 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %128, i64 noundef %92) #9
+  %130 = icmp slt i32 %129, 0
+  br i1 %130, label %compare_lexeme_textfreq.exit.thread, label %131
 
-127:                                              ; preds = %compare_lexeme_textfreq.exit
-  %.not.i = icmp eq i32 %125, 0
+131:                                              ; preds = %compare_lexeme_textfreq.exit
+  %.not.i = icmp eq i32 %129, 0
   br i1 %.not.i, label %.thread145, label %.thread138
 
-.thread138:                                       ; preds = %118, %127
-  %128 = add nuw i64 %95, 1
+.thread138:                                       ; preds = %118, %131
+  %132 = add nuw i64 %97, 1
   br label %compare_lexeme_textfreq.exit.thread
 
 compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %compare_lexeme_textfreq.exit
-  %.118.i = phi i64 [ %.01720.i, %.thread138 ], [ %95, %compare_lexeme_textfreq.exit ], [ %95, %121 ]
-  %.1.i = phi i64 [ %128, %.thread138 ], [ %.01621.i, %compare_lexeme_textfreq.exit ], [ %.01621.i, %121 ]
-  %129 = icmp ult i64 %.1.i, %.118.i
-  br i1 %129, label %.lr.ph.i, label %134, !llvm.loop !9
+  %.118.i = phi i64 [ %.01720.i, %.thread138 ], [ %97, %compare_lexeme_textfreq.exit ], [ %97, %121 ]
+  %.1.i = phi i64 [ %132, %.thread138 ], [ %.01621.i, %compare_lexeme_textfreq.exit ], [ %.01621.i, %121 ]
+  %133 = icmp ult i64 %.1.i, %.118.i
+  br i1 %133, label %.lr.ph.i, label %138, !llvm.loop !9
 
-.thread145:                                       ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 %96
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load float, ptr %131, align 8
-  %133 = fpext float %132 to double
-  br label %170
+.thread145:                                       ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 %98
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load float, ptr %135, align 8
+  %137 = fpext float %136 to double
+  br label %174
 
-134:                                              ; preds = %compare_lexeme_textfreq.exit.thread
-  %135 = fmul float %4, 5.000000e-01
-  %136 = fpext float %135 to double
-  %137 = fcmp ogt double %136, 5.000000e-03
-  br i1 %137, label %.thread148, label %170
+138:                                              ; preds = %compare_lexeme_textfreq.exit.thread
+  %139 = fmul float %4, 5.000000e-01
+  %140 = fpext float %139 to double
+  %141 = fcmp ogt double %140, 5.000000e-03
+  br i1 %141, label %.thread148, label %174
 
-138:                                              ; preds = %5
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %140 = load i8, ptr %139, align 1
-  switch i8 %140, label %165 [
-    i8 1, label %141
+142:                                              ; preds = %5
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %144 = load i8, ptr %143, align 1
+  switch i8 %144, label %165 [
+    i8 1, label %145
     i8 4, label %145
     i8 2, label %145
     i8 3, label %154
   ]
 
-141:                                              ; preds = %138
+145:                                              ; preds = %142
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %143 = tail call fastcc double @tsquery_opr_selec(ptr noundef nonnull %142, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
   %144 = fsub double 1.000000e+00, %143
@@ -517,7 +517,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   %153 = fmul double %147, %152
   br label %170
 
-154:                                              ; preds = %138
+154:; preds = %138
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %156 = tail call fastcc double @tsquery_opr_selec(ptr noundef nonnull %155, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -528,9 +528,9 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   %162 = fadd double %156, %161
   %163 = fneg double %156
   %164 = tail call double @llvm.fmuladd.f64(double %163, double %161, double %162)
-  br label %170
+  br label %174
 
-165:                                              ; preds = %138
+165:; preds = %142
   %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %166)
   %167 = load i8, ptr %139, align 1
@@ -539,19 +539,19 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__func__.tsquery_opr_selec) #8
   unreachable
 
-170:                                              ; preds = %134, %76, %.thread147, %.thread145, %141, %145, %154
-  %.6 = phi double [ %144, %141 ], [ %153, %145 ], [ %164, %154 ], [ %., %76 ], [ %136, %134 ], [ %133, %.thread145 ], [ %92, %.thread147 ]
-  %171 = fcmp olt double %.6, 0.000000e+00
-  br i1 %171, label %.thread148, label %172
+174:                                              ; preds = %138, %76, %.thread147, %.thread145, %145, %145, %154
+  %.6 = phi double [ %144, %141 ], [ %153, %145 ], [ %164, %154 ], [ %., %76 ], [ %140, %134 ], [ %137, %.thread145 ], [ %94, %.thread147 ]
+  %175 = fcmp olt double %.6, 0.000000e+00
+  br i1 %175, label %.thread148, label %176
 
-172:                                              ; preds = %170
-  %173 = fcmp ogt double %.6, 1.000000e+00
-  br i1 %173, label %174, label %.thread148
+176:                                              ; preds = %174
+  %177 = fcmp ogt double %.6, 1.000000e+00
+  br i1 %177, label %178, label %.thread148
 
-174:                                              ; preds = %172
+178:                                              ; preds = %176
   br label %.thread148
 
-.thread148:                                       ; preds = %134, %.thread147, %87, %18, %174, %172, %170
+.thread148:                                       ; preds = %138, %.thread147, %87, %18, %178, %176, %174
   %.4 = phi double [ 1.000000e+00, %174 ], [ %.6, %172 ], [ 0.000000e+00, %170 ], [ 2.000000e-02, %18 ], [ 5.000000e-03, %87 ], [ 5.000000e-03, %.thread147 ], [ 5.000000e-03, %134 ]
   ret double %.4
 }

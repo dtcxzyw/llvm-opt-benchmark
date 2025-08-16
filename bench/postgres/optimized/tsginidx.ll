@@ -40,26 +40,26 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %18 = load i8, ptr %13, align 1
   %19 = add i8 %18, -1
   %or.cond = icmp ult i8 %19, 3
-  %20 = icmp eq i8 %18, 18
+  %21 = icmp eq i8 %18, 18
   %21 = select i1 %20, i32 16, i32 0
   %22 = select i1 %or.cond, i32 8, i32 %21
   br label %31
 
-23:                                               ; preds = %1
+23:; preds = %1
   br i1 %.not, label %27, label %24
 
-24:                                               ; preds = %23
+24:  ; preds = %23
   %25 = lshr i32 %11, 1
   %26 = add nsw i32 %25, -1
   br label %31
 
-27:                                               ; preds = %23
+27:; preds = %23
   %28 = load i32, ptr %5, align 4
   %29 = lshr i32 %28, 2
   %30 = add nsw i32 %29, -4
   br label %31
 
-31:                                               ; preds = %24, %27, %17
+31:; preds = %24, %27, %17
   %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
   %33 = load i8, ptr %9, align 1
   %34 = zext i8 %33 to i32
@@ -71,16 +71,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %39 = icmp eq i8 %33, 1
   br i1 %39, label %40, label %46
 
-40:                                               ; preds = %31
+40:; preds = %31
   %41 = load i8, ptr %36, align 1
   %42 = add i8 %41, -1
   %or.cond38 = icmp ult i8 %42, 3
-  %43 = icmp eq i8 %41, 18
+  %44 = icmp eq i8 %41, 18
   %44 = select i1 %43, i32 16, i32 0
   %45 = select i1 %or.cond38, i32 8, i32 %44
   br label %54
 
-46:                                               ; preds = %31
+46:; preds = %31
   br i1 %.not33, label %50, label %47
 
 47:                                               ; preds = %46
@@ -88,13 +88,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %49 = add nsw i32 %48, -1
   br label %54
 
-50:                                               ; preds = %46
+50:; preds = %46
   %51 = load i32, ptr %9, align 4
   %52 = lshr i32 %51, 2
   %53 = add nsw i32 %52, -4
   br label %54
 
-54:                                               ; preds = %47, %50, %40
+54:; preds = %47, %50, %40
   %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
   %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext false) #6
   %57 = load i64, ptr %2, align 8
@@ -102,23 +102,23 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %.not34 = icmp eq ptr %5, %58
   br i1 %.not34, label %60, label %59
 
-59:                                               ; preds = %54
+59:; preds = %54
   tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %60
-
-60:                                               ; preds = %54, %59
-  %61 = load i64, ptr %6, align 8
-  %62 = inttoptr i64 %61 to ptr
-  %.not35 = icmp eq ptr %9, %62
-  br i1 %.not35, label %64, label %63
-
-63:                                               ; preds = %60
-  tail call void @pfree(ptr noundef nonnull %9) #6
   br label %64
 
-64:                                               ; preds = %63, %60
-  %65 = sext i32 %56 to i64
-  ret i64 %65
+64:                                               ; preds = %54, %59
+  %65 = load i64, ptr %6, align 8
+  %66 = inttoptr i64 %65 to ptr
+  %.not35 = icmp eq ptr %9, %66
+  br i1 %.not35, label %68, label %67
+
+67:                                               ; preds = %64
+  tail call void @pfree(ptr noundef nonnull %9) #6
+  br label %68
+
+68:                                               ; preds = %67, %64
+  %69 = sext i32 %56 to i64
+  ret i64 %69
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -151,26 +151,26 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %18 = load i8, ptr %13, align 1
   %19 = add i8 %18, -1
   %or.cond = icmp ult i8 %19, 3
-  %20 = icmp eq i8 %18, 18
+  %21 = icmp eq i8 %18, 18
   %21 = select i1 %20, i32 16, i32 0
   %22 = select i1 %or.cond, i32 8, i32 %21
   br label %31
 
-23:                                               ; preds = %1
+23:; preds = %1
   br i1 %.not, label %27, label %24
 
-24:                                               ; preds = %23
+24:  ; preds = %23
   %25 = lshr i32 %11, 1
   %26 = add nsw i32 %25, -1
   br label %31
 
-27:                                               ; preds = %23
+27:; preds = %23
   %28 = load i32, ptr %5, align 4
   %29 = lshr i32 %28, 2
   %30 = add nsw i32 %29, -4
   br label %31
 
-31:                                               ; preds = %24, %27, %17
+31:; preds = %24, %27, %17
   %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
   %33 = load i8, ptr %9, align 1
   %34 = zext i8 %33 to i32
@@ -182,16 +182,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %39 = icmp eq i8 %33, 1
   br i1 %39, label %40, label %46
 
-40:                                               ; preds = %31
+40:; preds = %31
   %41 = load i8, ptr %36, align 1
   %42 = add i8 %41, -1
   %or.cond39 = icmp ult i8 %42, 3
-  %43 = icmp eq i8 %41, 18
+  %44 = icmp eq i8 %41, 18
   %44 = select i1 %43, i32 16, i32 0
   %45 = select i1 %or.cond39, i32 8, i32 %44
   br label %54
 
-46:                                               ; preds = %31
+46:; preds = %31
   br i1 %.not34, label %50, label %47
 
 47:                                               ; preds = %46
@@ -199,13 +199,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %49 = add nsw i32 %48, -1
   br label %54
 
-50:                                               ; preds = %46
+50:; preds = %46
   %51 = load i32, ptr %9, align 4
   %52 = lshr i32 %51, 2
   %53 = add nsw i32 %52, -4
   br label %54
 
-54:                                               ; preds = %47, %50, %40
+54:; preds = %47, %50, %40
   %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
   %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext true) #6
   %57 = load i64, ptr %2, align 8
@@ -213,25 +213,25 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %.not35 = icmp eq ptr %5, %58
   br i1 %.not35, label %60, label %59
 
-59:                                               ; preds = %54
+59:; preds = %54
   tail call void @pfree(ptr noundef nonnull %5) #6
-  br label %60
-
-60:                                               ; preds = %54, %59
-  %61 = load i64, ptr %6, align 8
-  %62 = inttoptr i64 %61 to ptr
-  %.not36 = icmp eq ptr %9, %62
-  br i1 %.not36, label %64, label %63
-
-63:                                               ; preds = %60
-  tail call void @pfree(ptr noundef nonnull %9) #6
   br label %64
 
-64:                                               ; preds = %63, %60
-  %65 = icmp slt i32 %56, 0
-  %spec.store.select = select i1 %65, i32 1, i32 %56
-  %66 = sext i32 %spec.store.select to i64
-  ret i64 %66
+64:                                               ; preds = %54, %59
+  %65 = load i64, ptr %6, align 8
+  %66 = inttoptr i64 %65 to ptr
+  %.not36 = icmp eq ptr %9, %66
+  br i1 %.not36, label %68, label %67
+
+67:                                               ; preds = %64
+  tail call void @pfree(ptr noundef nonnull %9) #6
+  br label %68
+
+68:                                               ; preds = %67, %64
+  %69 = icmp slt i32 %56, 0
+  %spec.store.select = select i1 %69, i32 1, i32 %56
+  %70 = sext i32 %spec.store.select to i64
+  ret i64 %70
 }
 
 ; Function Attrs: nounwind uwtable

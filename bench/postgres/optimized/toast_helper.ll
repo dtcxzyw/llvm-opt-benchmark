@@ -213,7 +213,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %132 = load i8, ptr %131, align 1
   %133 = add i8 %132, -1
   %or.cond = icmp ult i8 %133, 3
-  %134 = icmp eq i8 %132, 18
+  %135 = icmp eq i8 %132, 18
   %135 = select i1 %134, i32 18, i32 2
   %136 = select i1 %or.cond, i32 10, i32 %135
   br label %144
@@ -221,9 +221,9 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 .thread:                                          ; preds = %107, %119
   %.in = phi i8 [ %.pr, %119 ], [ %108, %107 ]
   %.182 = phi ptr [ %.2, %119 ], [ %.0, %107 ]
-  %137 = zext i8 %.in to i32
-  %138 = and i32 %137, 1
-  %.not79 = icmp eq i32 %138, 0
+  %139 = zext i8 %.in to i32
+  %140 = and i32 %139, 1
+  %.not79 = icmp eq i32 %140, 0
   br i1 %.not79, label %141, label %139
 
 139:                                              ; preds = %.thread
@@ -235,14 +235,14 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %143 = lshr i32 %142, 2
   br label %144
 
-144:                                              ; preds = %139, %141, %130
+144:; preds = %139, %141, %130
   %145 = phi i32 [ %136, %130 ], [ %140, %139 ], [ %143, %141 ]
   %146 = load ptr, ptr %8, align 8
   %147 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %146, i64 %indvars.iv, i32 1
   store i32 %145, ptr %147, align 8
   br label %153
 
-148:                                              ; preds = %94
+148:; preds = %94
   %149 = load ptr, ptr %8, align 8
   %150 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %149, i64 %indvars.iv, i32 2
   %151 = load i8, ptr %150, align 4
@@ -250,7 +250,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   store i8 %152, ptr %150, align 4
   br label %153
 
-153:                                              ; preds = %144, %148, %87, %72
+153:; preds = %144, %148, %87, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !6

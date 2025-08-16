@@ -437,30 +437,30 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, -1
   %or.cond = icmp ult i8 %16, 3
-  %17 = icmp eq i8 %15, 18
+  %18 = icmp eq i8 %15, 18
   %18 = select i1 %17, i64 16, i64 0
   %19 = select i1 %or.cond, i64 8, i64 %18
   br label %31
 
-20:                                               ; preds = %1
+20:; preds = %1
   %21 = and i32 %11, 1
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %26, label %22
 
-22:                                               ; preds = %20
+22:  ; preds = %20
   %23 = lshr i32 %11, 1
   %24 = zext nneg i32 %23 to i64
   %25 = add nsw i64 %24, -1
   br label %31
 
-26:                                               ; preds = %20
+26:; preds = %20
   %27 = load i32, ptr %9, align 4
   %28 = lshr i32 %27, 2
   %29 = add nsw i32 %28, -4
   %30 = zext i32 %29 to i64
   br label %31
 
-31:                                               ; preds = %22, %26, %13
+31:; preds = %22, %26, %13
   %32 = phi i64 [ %19, %13 ], [ %25, %22 ], [ %30, %26 ]
   %33 = udiv i64 %32, 6
   %34 = trunc i64 %33 to i32
@@ -469,23 +469,23 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %36 = icmp slt i32 %34, 2
   br i1 %36, label %.sink.split, label %37
 
-37:                                               ; preds = %31
+37:; preds = %31
   %38 = and i64 %33, 2147483647
   %39 = icmp samesign ugt i64 %38, 44739242
   br i1 %39, label %.sink.split, label %40
 
-.sink.split:                                      ; preds = %37, %31
+.sink.split:; preds = %37, %31
   %.sink = phi i32 [ 2, %31 ], [ 44739242, %37 ]
   %.ph = phi i64 [ 2, %31 ], [ 44739242, %37 ]
   store i32 %.sink, ptr %35, align 8
   br label %40
 
-40:                                               ; preds = %.sink.split, %37
+40:; preds = %.sink.split, %37
   %41 = phi i64 [ %33, %37 ], [ %.ph, %.sink.split ]
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %44, align 8
   %44 = and i64 %41, 2147483647
   %45 = mul nuw nsw i64 %44, 24
   %46 = tail call ptr @palloc(i64 noundef %45) #8
@@ -500,16 +500,16 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %53 = icmp eq i8 %47, 1
   br i1 %53, label %54, label %60
 
-54:                                               ; preds = %40
+54:; preds = %40
   %55 = load i8, ptr %50, align 1
   %56 = add i8 %55, -1
   %or.cond32 = icmp ult i8 %56, 3
-  %57 = icmp eq i8 %55, 18
+  %58 = icmp eq i8 %55, 18
   %58 = select i1 %57, i32 16, i32 0
   %59 = select i1 %or.cond32, i32 8, i32 %58
   br label %68
 
-60:                                               ; preds = %40
+60:; preds = %40
   br i1 %.not28, label %64, label %61
 
 61:                                               ; preds = %60
@@ -517,29 +517,29 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %63 = add nsw i32 %62, -1
   br label %68
 
-64:                                               ; preds = %60
+64:; preds = %60
   %65 = load i32, ptr %9, align 4
   %66 = lshr i32 %65, 2
   %67 = add nsw i32 %66, -4
   br label %68
 
-68:                                               ; preds = %61, %64, %54
+68:; preds = %61, %64, %54
   %69 = phi i32 [ %59, %54 ], [ %63, %61 ], [ %67, %64 ]
   call void @parsetext(i32 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %52, i32 noundef %69) #8
   %70 = load i64, ptr %6, align 8
   %71 = inttoptr i64 %70 to ptr
   %.not29 = icmp eq ptr %9, %71
-  br i1 %.not29, label %73, label %72
+  br i1 %.not29, label %77, label %72
 
-72:                                               ; preds = %68
+72:; preds = %68
   call void @pfree(ptr noundef nonnull %9) #8
-  br label %73
+  br label %77
 
-73:                                               ; preds = %72, %68
-  %74 = call ptr @make_tsvector(ptr noundef nonnull %2)
-  %75 = ptrtoint ptr %74 to i64
+77:                                               ; preds = %72, %68
+  %78 = call ptr @make_tsvector(ptr noundef nonnull %2)
+  %79 = ptrtoint ptr %78 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %75
+  ret i64 %79
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1

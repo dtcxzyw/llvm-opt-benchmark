@@ -2858,7 +2858,7 @@ _ZNK8G1Policy11phase_timesEv.exit91:              ; preds = %7, %3
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 968
   %24 = tail call noundef i32 @_ZNK16G1CollectorState19young_gc_pause_typeEb(ptr noundef nonnull align 1 dereferenceable(7) %23, i1 noundef zeroext %1) #18
-  %spec.select.i = icmp ult i32 %24, 4
+  %switch.selectcmp.i = icmp ult i32 %24, 4
   %25 = and i32 %24, -2
   %26 = icmp eq i32 %25, 2
   %27 = load ptr, ptr %21, align 8
@@ -3163,7 +3163,7 @@ _ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit101: ; preds 
   %212 = load ptr, ptr %79, align 8
   %213 = uitofp i64 %166 to double
   %214 = fdiv double %211, %213
-  tail call void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %212, double noundef %214, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %212, double noundef %214, i1 noundef zeroext %switch.selectcmp.i) #18
   br label %215
 
 215:                                              ; preds = %_ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit101, %161
@@ -3212,7 +3212,7 @@ _ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit103: ; preds 
   %241 = load ptr, ptr %79, align 8
   %242 = uitofp i64 %218 to double
   %243 = fdiv double %240, %242
-  tail call void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %241, double noundef %243, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %241, double noundef %243, i1 noundef zeroext %switch.selectcmp.i) #18
   br label %244
 
 244:                                              ; preds = %_ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit103, %215
@@ -3229,7 +3229,7 @@ _ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit103: ; preds 
 250:                                              ; preds = %245, %244
   %.077 = phi double [ %249, %245 ], [ 0.000000e+00, %244 ]
   %251 = load ptr, ptr %79, align 8
-  tail call void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr noundef nonnull align 8 dereferenceable(2048) %251, double noundef %.077, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr noundef nonnull align 8 dereferenceable(2048) %251, double noundef %.077, i1 noundef zeroext %switch.selectcmp.i) #18
   %252 = tail call noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(872) %12, i32 noundef 18, i32 noundef 0) #18
   %253 = tail call noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(872) %12, i32 noundef 19, i32 noundef 0) #18
   %254 = add i64 %253, %252
@@ -3275,7 +3275,7 @@ _ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit105: ; preds 
   %277 = load ptr, ptr %79, align 8
   %278 = uitofp i64 %254 to double
   %279 = fdiv double %276, %278
-  tail call void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %277, double noundef %279, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %277, double noundef %279, i1 noundef zeroext %switch.selectcmp.i) #18
   br label %280
 
 280:                                              ; preds = %_ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit105, %250
@@ -3320,7 +3320,7 @@ _ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit107: ; preds 
   %302 = uitofp i64 %281 to double
   %303 = fdiv double %301, %302
   %304 = load ptr, ptr %79, align 8
-  tail call void @_ZN11G1Analytics23report_cost_per_byte_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %304, double noundef %303, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics23report_cost_per_byte_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %304, double noundef %303, i1 noundef zeroext %switch.selectcmp.i) #18
   br label %305
 
 305:                                              ; preds = %_ZNK8G1Policy15average_time_msEN14G1GCPhaseTimes11GCParPhasesE.exit107, %280
@@ -3411,15 +3411,15 @@ _ZNK8G1Policy23non_young_other_time_msEv.exit:    ; preds = %339, %343
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %363 = load i64, ptr %362, align 8
   %364 = uitofp i64 %363 to double
-  tail call void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnull align 8 dereferenceable(2048) %361, double noundef %364, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnull align 8 dereferenceable(2048) %361, double noundef %364, i1 noundef zeroext %switch.selectcmp.i) #18
   %365 = load ptr, ptr %79, align 8
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %367 = load i64, ptr %366, align 8
   %368 = uitofp i64 %367 to double
-  tail call void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %365, double noundef %368, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %365, double noundef %368, i1 noundef zeroext %switch.selectcmp.i) #18
   %369 = load ptr, ptr %79, align 8
   %370 = uitofp i64 %254 to double
-  tail call void @_ZN11G1Analytics26report_code_root_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %369, double noundef %370, i1 noundef zeroext %spec.select.i) #18
+  tail call void @_ZN11G1Analytics26report_code_root_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %369, double noundef %370, i1 noundef zeroext %switch.selectcmp.i) #18
   br label %371
 
 371:                                              ; preds = %358, %_ZN8G1Policy19maybe_start_markingEv.exit98
@@ -3454,7 +3454,7 @@ _ZNK8G1Policy23non_young_other_time_msEv.exit:    ; preds = %339, %343
   %390 = mul i64 %389, %388
   tail call void @_ZN25G1OldGenAllocationTracker14reset_after_gcEm(ptr noundef nonnull align 8 dereferenceable(40) %384, i64 noundef %390) #18
   %391 = fdiv double %.0, 1.000000e+03
-  br i1 %spec.select.i, label %407, label %392
+  br i1 %switch.selectcmp.i, label %407, label %392
 
 392:                                              ; preds = %383
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 216

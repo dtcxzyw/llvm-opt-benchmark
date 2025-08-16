@@ -72,41 +72,41 @@ tailrecurse:                                      ; preds = %9, %1
   %29 = load i8, ptr %28, align 1
   %30 = add i8 %29, -1
   %or.cond = icmp ult i8 %30, 3
-  %31 = icmp eq i8 %29, 18
+  %32 = icmp eq i8 %29, 18
   %32 = select i1 %31, i64 18, i64 2
   %33 = select i1 %or.cond, i64 10, i64 %32
   br label %44
 
-34:                                               ; preds = %20
+34:; preds = %20
   %35 = and i32 %25, 1
   %.not43 = icmp eq i32 %35, 0
   br i1 %.not43, label %38, label %36
 
-36:                                               ; preds = %34
+36:  ; preds = %34
   %37 = lshr i32 %25, 1
   br label %41
 
-38:                                               ; preds = %34
+38:; preds = %34
   %39 = load i32, ptr %.sroa.0.0.copyload, align 4
   %40 = lshr i32 %39, 2
   br label %41
 
-41:                                               ; preds = %38, %36
+41:; preds = %38, %36
   %42 = phi i32 [ %37, %36 ], [ %40, %38 ]
   %43 = zext nneg i32 %42 to i64
   br label %44
 
-44:                                               ; preds = %41, %27
+44:; preds = %41, %27
   %45 = phi i64 [ %33, %27 ], [ %43, %41 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %45, i1 false)
   br label %54
 
-46:                                               ; preds = %4
+46:; preds = %4
   %47 = and i8 %6, -2
   %48 = icmp eq i8 %47, 2
   br i1 %48, label %49, label %54
 
-49:                                               ; preds = %46
+49:; preds = %46
   %50 = ptrtoint ptr %.tr to i64
   %51 = tail call ptr @DatumGetEOHP(i64 noundef %50) #6
   %52 = tail call i64 @EOH_get_flat_size(ptr noundef %51) #6
@@ -114,7 +114,7 @@ tailrecurse:                                      ; preds = %9, %1
   tail call void @EOH_flatten_into(ptr noundef %51, ptr noundef %53, i64 noundef %52) #6
   br label %54
 
-54:                                               ; preds = %44, %tailrecurse, %7, %49, %46
+54:; preds = %44, %tailrecurse, %7, %49, %46
   %.1 = phi ptr [ %8, %7 ], [ %53, %49 ], [ %.tr, %46 ], [ %.tr, %tailrecurse ], [ %23, %44 ]
   ret ptr %.1
 }
@@ -189,7 +189,7 @@ declare void @EOH_flatten_into(ptr noundef, ptr noundef, i64 noundef) local_unna
 define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 1
-  br i1 %3, label %4, label %78
+  br i1 %3, label %4, label %82
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -253,31 +253,31 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %33 = load i8, ptr %32, align 1
   %34 = add i8 %33, -1
   %or.cond = icmp ult i8 %34, 3
-  %35 = icmp eq i8 %33, 18
+  %36 = icmp eq i8 %33, 18
   %36 = select i1 %35, i64 18, i64 2
   %37 = select i1 %or.cond, i64 10, i64 %36
   br label %48
 
-38:                                               ; preds = %27
+38:; preds = %27
   %39 = and i32 %29, 1
   %.not52 = icmp eq i32 %39, 0
   br i1 %.not52, label %42, label %40
 
-40:                                               ; preds = %38
+40:; preds = %38
   %41 = lshr i32 %29, 1
   br label %45
 
-42:                                               ; preds = %38
+42:; preds = %38
   %43 = load i32, ptr %25, align 4
   %44 = lshr i32 %43, 2
   br label %45
 
-45:                                               ; preds = %42, %40
+45:; preds = %42, %40
   %46 = phi i32 [ %41, %40 ], [ %44, %42 ]
   %47 = zext nneg i32 %46 to i64
   br label %48
 
-48:                                               ; preds = %45, %31
+48:; preds = %45, %31
   %49 = phi i64 [ %37, %31 ], [ %47, %45 ]
   %50 = tail call ptr @palloc(i64 noundef %49) #6
   %51 = load i8, ptr %25, align 1
@@ -285,101 +285,101 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %53 = icmp eq i8 %51, 1
   br i1 %53, label %54, label %61
 
-54:                                               ; preds = %48
+54:; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = add i8 %56, -1
   %or.cond56 = icmp ult i8 %57, 3
-  %58 = icmp eq i8 %56, 18
+  %59 = icmp eq i8 %56, 18
   %59 = select i1 %58, i64 18, i64 2
   %60 = select i1 %or.cond56, i64 10, i64 %59
   br label %71
 
-61:                                               ; preds = %48
+61:; preds = %48
   %62 = and i32 %52, 1
   %.not53 = icmp eq i32 %62, 0
   br i1 %.not53, label %65, label %63
 
-63:                                               ; preds = %61
+63:; preds = %61
   %64 = lshr i32 %52, 1
   br label %68
 
-65:                                               ; preds = %61
+67:                                               ; preds = %61
   %66 = load i32, ptr %25, align 4
   %67 = lshr i32 %66, 2
   br label %68
 
-68:                                               ; preds = %65, %63
+68:; preds = %65, %63
   %69 = phi i32 [ %64, %63 ], [ %67, %65 ]
   %70 = zext nneg i32 %69 to i64
   br label %71
 
-71:                                               ; preds = %68, %54
+71: ; preds = %68, %54
   %72 = phi i64 [ %60, %54 ], [ %70, %68 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %25, i64 %72, i1 false)
   br label %toast_decompress_datum.exit58
 
-73:                                               ; preds = %4
-  %74 = and i8 %6, -2
-  %75 = icmp eq i8 %74, 2
-  br i1 %75, label %76, label %.thread61
+77:                                               ; preds = %4
+  %78 = and i8 %6, -2
+  %79 = icmp eq i8 %78, 2
+  br i1 %79, label %80, label %.thread61
 
-76:                                               ; preds = %73
-  %77 = tail call ptr @detoast_external_attr(ptr noundef nonnull %0)
+80:                                               ; preds = %77
+  %81 = tail call ptr @detoast_external_attr(ptr noundef nonnull %0)
   br label %toast_decompress_datum.exit58
 
-78:                                               ; preds = %1
-  %79 = zext i8 %2 to i32
-  %80 = and i32 %79, 3
-  %81 = icmp eq i32 %80, 2
-  br i1 %81, label %82, label %93
-
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = lshr i32 %84, 30
-  switch i32 %85, label %90 [
-    i32 0, label %86
-    i32 1, label %88
-  ]
+82:                                               ; preds = %1
+  %83 = zext i8 %2 to i32
+  %84 = and i32 %83, 3
+  %85 = icmp eq i32 %84, 2
+  br i1 %85, label %86, label %97
 
 86:                                               ; preds = %82
-  %87 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %0) #6
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = lshr i32 %88, 30
+  switch i32 %89, label %90 [
+    i32 0, label %90
+    i32 1, label %92
+  ]
+
+90:                                               ; preds = %86
+  %91 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %0) #6
   br label %toast_decompress_datum.exit58
 
-88:                                               ; preds = %82
-  %89 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %0) #6
+92:                                               ; preds = %86
+  %93 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %0) #6
   br label %toast_decompress_datum.exit58
 
-90:                                               ; preds = %82
-  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %91)
-  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %85) #6
+94:                                               ; preds = %86
+  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %95)
+  %96 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %89) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #6
   unreachable
 
-93:                                               ; preds = %78
-  %94 = and i32 %79, 1
-  %.not = icmp eq i32 %94, 0
+97:                                               ; preds = %82
+  %98 = and i32 %83, 1
+  %.not = icmp eq i32 %98, 0
   br i1 %.not, label %toast_decompress_datum.exit58, label %.thread61
 
-.thread61:                                        ; preds = %73, %93
-  %95 = phi i32 [ %79, %93 ], [ 1, %73 ]
-  %96 = lshr i32 %95, 1
-  %97 = zext nneg i32 %96 to i64
-  %98 = add nsw i64 %97, -1
-  %99 = add nuw nsw i64 %97, 3
-  %100 = tail call ptr @palloc(i64 noundef %99) #6
-  %101 = trunc nuw nsw i64 %99 to i32
-  %102 = shl nuw nsw i32 %101, 2
-  store i32 %102, ptr %100, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr nonnull align 1 %104, i64 %98, i1 false)
+.thread61:                                        ; preds = %77, %97
+  %99 = phi i32 [ %83, %93 ], [ 1, %73 ]
+  %100 = lshr i32 %99, 1
+  %101 = zext nneg i32 %100 to i64
+  %102 = add nsw i64 %101, -1
+  %103 = add nuw nsw i64 %101, 3
+  %104 = tail call ptr @palloc(i64 noundef %103) #6
+  %105 = trunc nuw nsw i64 %103 to i32
+  %106 = shl nuw nsw i32 %105, 2
+  store i32 %106, ptr %104, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %107, ptr nonnull align 1 %108, i64 %102, i1 false)
   br label %toast_decompress_datum.exit58
 
-toast_decompress_datum.exit58:                    ; preds = %88, %86, %23, %71, %.thread61, %93, %76, %7, %toast_decompress_datum.exit
-  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %77, %76 ], [ %100, %.thread61 ], [ %0, %93 ], [ %50, %71 ], [ %25, %23 ], [ %87, %86 ], [ %89, %88 ]
+toast_decompress_datum.exit58:                    ; preds = %92, %90, %23, %71, %.thread61, %97, %80, %7, %toast_decompress_datum.exit
+  %.0 = phi ptr [ %.0.i, %toast_decompress_datum.exit ], [ %8, %7 ], [ %81, %76 ], [ %104, %.thread61 ], [ %0, %93 ], [ %50, %71 ], [ %25, %23 ], [ %91, %86 ], [ %93, %88 ]
   ret ptr %.0
 }
 

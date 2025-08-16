@@ -576,83 +576,83 @@ define dso_local i64 @pg_convert(ptr noundef readonly captures(none) %0) #0 {
   %26 = load i8, ptr %5, align 1
   %27 = zext i8 %26 to i32
   %28 = icmp eq i8 %26, 1
-  br i1 %28, label %29, label %36
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = add i8 %31, -1
   %or.cond = icmp ult i8 %32, 3
-  %33 = icmp eq i8 %31, 18
+  %34 = icmp eq i8 %31, 18
   %34 = select i1 %33, i32 16, i32 0
   %35 = select i1 %or.cond, i32 8, i32 %34
   br label %45
 
-36:                                               ; preds = %25
-  %37 = and i32 %27, 1
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %41, label %38
+38:                                               ; preds = %25
+  %39 = and i32 %27, 1
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %43, label %40
 
-38:                                               ; preds = %36
-  %39 = lshr i32 %27, 1
-  %40 = add nsw i32 %39, -1
-  br label %45
+40:                                               ; preds = %38
+  %41 = lshr i32 %27, 1
+  %42 = add nsw i32 %41, -1
+  br label %47
 
-41:                                               ; preds = %36
-  %42 = load i32, ptr %5, align 4
-  %43 = lshr i32 %42, 2
-  %44 = add nsw i32 %43, -4
-  br label %45
+43:                                               ; preds = %38
+  %44 = load i32, ptr %5, align 4
+  %45 = lshr i32 %44, 2
+  %46 = add nsw i32 %45, -4
+  br label %47
 
-45:                                               ; preds = %38, %41, %29
-  %46 = phi i32 [ %35, %29 ], [ %40, %38 ], [ %44, %41 ]
-  %47 = and i8 %26, 1
-  %.not47 = icmp eq i8 %47, 0
+47:                                               ; preds = %40, %43, %29
+  %48 = phi i32 [ %35, %29 ], [ %42, %40 ], [ %46, %41 ]
+  %49 = and i8 %26, 1
+  %.not47 = icmp eq i8 %49, 0
   %.v = select i1 %.not47, i64 4, i64 1
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
-  %49 = zext nneg i32 %9 to i64
-  %50 = getelementptr inbounds nuw [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %49, i32 5
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 %51(ptr noundef nonnull %48, i32 noundef %46) #13
-  %.not.i = icmp eq i32 %52, %46
-  br i1 %.not.i, label %pg_verify_mbstr.exit, label %53
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
+  %51 = zext nneg i32 %9 to i64
+  %52 = getelementptr inbounds nuw [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %51, i32 5
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call i32 %51(ptr noundef nonnull %50, i32 noundef %48) #13
+  %.not.i = icmp eq i32 %54, %48
+  br i1 %.not.i, label %pg_verify_mbstr.exit, label %55
 
-53:                                               ; preds = %45
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds i8, ptr %48, i64 %54
-  %56 = sub i32 %46, %52
-  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef nonnull %55, i32 noundef %56) #15
+55:                                               ; preds = %47
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds i8, ptr %50, i64 %56
+  %58 = sub i32 %48, %54
+  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef nonnull %57, i32 noundef %58) #15
   unreachable
 
-pg_verify_mbstr.exit:                             ; preds = %45
-  %57 = tail call ptr @pg_do_encoding_conversion(ptr noundef nonnull %48, i32 noundef %46, i32 noundef %9, i32 noundef %13)
-  %58 = icmp eq ptr %57, %48
-  br i1 %58, label %71, label %59
+pg_verify_mbstr.exit:                             ; preds = %47
+  %59 = tail call ptr @pg_do_encoding_conversion(ptr noundef nonnull %50, i32 noundef %48, i32 noundef %9, i32 noundef %13)
+  %60 = icmp eq ptr %59, %50
+  br i1 %60, label %73, label %61
 
-59:                                               ; preds = %pg_verify_mbstr.exit
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #16
-  %61 = trunc i64 %60 to i32
-  %62 = add i32 %61, 4
-  %63 = sext i32 %62 to i64
-  %64 = tail call ptr @palloc(i64 noundef %63) #13
-  %65 = shl i32 %62, 2
-  store i32 %65, ptr %64, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %sext = shl i64 %60, 32
-  %67 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr nonnull align 1 %57, i64 %67, i1 false)
-  tail call void @pfree(ptr noundef nonnull %57) #13
-  %68 = load i64, ptr %2, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %.not48 = icmp eq ptr %5, %69
-  br i1 %.not48, label %71, label %70
+61:                                               ; preds = %pg_verify_mbstr.exit
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #16
+  %63 = trunc i64 %62 to i32
+  %64 = add i32 %63, 4
+  %65 = sext i32 %64 to i64
+  %66 = tail call ptr @palloc(i64 noundef %65) #13
+  %67 = shl i32 %64, 2
+  store i32 %67, ptr %66, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %sext = shl i64 %62, 32
+  %69 = ashr exact i64 %sext, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr nonnull align 1 %59, i64 %69, i1 false)
+  tail call void @pfree(ptr noundef nonnull %59) #13
+  %70 = load i64, ptr %2, align 8
+  %71 = inttoptr i64 %70 to ptr
+  %.not48 = icmp eq ptr %5, %71
+  br i1 %.not48, label %73, label %72
 
-70:                                               ; preds = %59
+72:                                               ; preds = %61
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %71
+  br label %73
 
-71:                                               ; preds = %59, %70, %pg_verify_mbstr.exit
-  %.0.in = phi ptr [ %5, %pg_verify_mbstr.exit ], [ %64, %70 ], [ %64, %59 ]
+73:                                               ; preds = %61, %72, %pg_verify_mbstr.exit
+  %.0.in = phi ptr [ %5, %pg_verify_mbstr.exit ], [ %66, %70 ], [ %66, %59 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -712,36 +712,36 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @length_in_encoding(ptr 
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -1
   %or.cond = icmp ult i8 %22, 3
-  %23 = icmp eq i8 %21, 18
+  %24 = icmp eq i8 %21, 18
   %24 = select i1 %23, i32 16, i32 0
   %25 = select i1 %or.cond, i32 8, i32 %24
   br label %35
 
-26:                                               ; preds = %15
+26:; preds = %15
   %27 = and i32 %17, 1
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %31, label %28
 
-28:                                               ; preds = %26
+28:; preds = %26
   %29 = lshr i32 %17, 1
   %30 = add nsw i32 %29, -1
   br label %35
 
-31:                                               ; preds = %26
+31:; preds = %26
   %32 = load i32, ptr %5, align 4
   %33 = lshr i32 %32, 2
   %34 = add nsw i32 %33, -4
   br label %35
 
-35:                                               ; preds = %28, %31, %19
+35:; preds = %28, %31, %19
   %36 = phi i32 [ %25, %19 ], [ %30, %28 ], [ %34, %31 ]
   %37 = and i8 %16, 1
   %.not20 = icmp eq i8 %37, 0
   %.v = select i1 %.not20, i64 4, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
-  %39 = tail call i32 @pg_verify_mbstr_len(i32 noundef %9, ptr noundef nonnull %38, i32 noundef %36, i1 noundef zeroext false)
-  %40 = sext i32 %39 to i64
-  ret i64 %40
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
+  %41 = tail call i32 @pg_verify_mbstr_len(i32 noundef %9, ptr noundef nonnull %40, i32 noundef %38, i1 noundef zeroext false)
+  %42 = sext i32 %41 to i64
+  ret i64 %42
 }
 
 ; Function Attrs: nounwind uwtable

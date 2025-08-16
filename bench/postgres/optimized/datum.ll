@@ -18,7 +18,7 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
 
 4:                                                ; preds = %3
   %5 = sext i32 %2 to i64
-  br label %50
+  br label %52
 
 6:                                                ; preds = %3
   %7 = icmp sgt i32 %2, 0
@@ -26,7 +26,7 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %2 to i64
-  br label %50
+  br label %52
 
 10:                                               ; preds = %6
   switch i32 %2, label %47 [
@@ -58,57 +58,57 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
   %23 = load i8, ptr %22, align 1
   %24 = add i8 %23, -1
   %or.cond = icmp ult i8 %24, 3
-  %25 = icmp eq i8 %23, 18
+  %26 = icmp eq i8 %23, 18
   %26 = select i1 %25, i64 18, i64 2
   %27 = select i1 %or.cond, i64 10, i64 %26
-  br label %50
+  br label %52
 
-28:                                               ; preds = %17
+28:; preds = %17
   %29 = and i32 %19, 1
   %.not25 = icmp eq i32 %29, 0
   br i1 %.not25, label %32, label %30
 
-30:                                               ; preds = %28
+30:; preds = %28
   %31 = lshr i32 %19, 1
   br label %35
 
-32:                                               ; preds = %28
+32:; preds = %28
   %33 = load i32, ptr %12, align 4
   %34 = lshr i32 %33, 2
   br label %35
 
-35:                                               ; preds = %32, %30
+35:; preds = %32, %30
   %36 = phi i32 [ %31, %30 ], [ %34, %32 ]
   %37 = zext nneg i32 %36 to i64
-  br label %50
+  br label %52
 
-38:                                               ; preds = %10
+38:; preds = %10
   %.not = icmp eq i64 %0, 0
-  br i1 %.not, label %39, label %43
+  br i1 %.not, label %41, label %45
 
-39:                                               ; preds = %38
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 130) #9
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
+41:                                               ; preds = %38
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %42)
+  %43 = tail call i32 @errcode(i32 noundef 130) #9
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.datumGetSize) #9
   unreachable
 
-43:                                               ; preds = %38
-  %44 = inttoptr i64 %0 to ptr
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #10
-  %46 = add i64 %45, 1
-  br label %50
+45:                                               ; preds = %38
+  %46 = inttoptr i64 %0 to ptr
+  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #10
+  %48 = add i64 %47, 1
+  br label %52
 
-47:                                               ; preds = %10
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #9
+49:                                               ; preds = %10
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.datumGetSize) #9
   unreachable
 
-50:                                               ; preds = %21, %35, %8, %43, %4
-  %.0 = phi i64 [ %5, %4 ], [ %9, %8 ], [ %46, %43 ], [ %27, %21 ], [ %37, %35 ]
+52:                                               ; preds = %21, %35, %8, %45, %4
+  %.0 = phi i64 [ %5, %4 ], [ %9, %8 ], [ %48, %43 ], [ %27, %21 ], [ %37, %35 ]
   ret i64 %.0
 }
 

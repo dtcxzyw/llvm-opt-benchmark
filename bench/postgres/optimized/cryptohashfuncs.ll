@@ -40,53 +40,53 @@ define dso_local i64 @md5_text(ptr noundef readonly captures(none) %0) local_unn
   %13 = load i8, ptr %12, align 1
   %14 = add i8 %13, -1
   %or.cond = icmp ult i8 %14, 3
-  %15 = icmp eq i8 %13, 18
+  %16 = icmp eq i8 %13, 18
   %16 = select i1 %15, i64 16, i64 0
   %17 = select i1 %or.cond, i64 8, i64 %16
   br label %29
 
-18:                                               ; preds = %1
+18:; preds = %1
   %19 = and i32 %9, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %24, label %20
 
-20:                                               ; preds = %18
+20:; preds = %18
   %21 = lshr i32 %9, 1
   %22 = zext nneg i32 %21 to i64
   %23 = add nsw i64 %22, -1
   br label %29
 
-24:                                               ; preds = %18
+24:; preds = %18
   %25 = load i32, ptr %7, align 4
   %26 = lshr i32 %25, 2
   %27 = add nsw i32 %26, -4
   %28 = zext i32 %27 to i64
   br label %29
 
-29:                                               ; preds = %20, %24, %11
+29:; preds = %20, %24, %11
   %30 = phi i64 [ %17, %11 ], [ %23, %20 ], [ %28, %24 ]
   %31 = and i8 %8, 1
   %.not12 = icmp eq i8 %31, 0
   %.v = select i1 %.not12, i64 4, i64 1
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
-  %33 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %32, i64 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  br i1 %33, label %39, label %34
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
+  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  br i1 %35, label %41, label %36
 
-34:                                               ; preds = %29
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode(i32 noundef 2600) #6
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %37) #6
+36:                                               ; preds = %29
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %37)
+  %38 = call i32 @errcode(i32 noundef 2600) #6
+  %39 = load ptr, ptr %3, align 8
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 49, ptr noundef nonnull @__func__.md5_text) #6
   unreachable
 
-39:                                               ; preds = %29
-  %40 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
-  %41 = ptrtoint ptr %40 to i64
+41:                                               ; preds = %29
+  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %41
+  ret i64 %43
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
@@ -125,53 +125,53 @@ define dso_local i64 @md5_bytea(ptr noundef readonly captures(none) %0) local_un
   %13 = load i8, ptr %12, align 1
   %14 = add i8 %13, -1
   %or.cond = icmp ult i8 %14, 3
-  %15 = icmp eq i8 %13, 18
+  %16 = icmp eq i8 %13, 18
   %16 = select i1 %15, i64 16, i64 0
   %17 = select i1 %or.cond, i64 8, i64 %16
   br label %29
 
-18:                                               ; preds = %1
+18:; preds = %1
   %19 = and i32 %9, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %24, label %20
 
-20:                                               ; preds = %18
+20:; preds = %18
   %21 = lshr i32 %9, 1
   %22 = zext nneg i32 %21 to i64
   %23 = add nsw i64 %22, -1
   br label %29
 
-24:                                               ; preds = %18
+24:; preds = %18
   %25 = load i32, ptr %7, align 4
   %26 = lshr i32 %25, 2
   %27 = add nsw i32 %26, -4
   %28 = zext i32 %27 to i64
   br label %29
 
-29:                                               ; preds = %20, %24, %11
+29:; preds = %20, %24, %11
   %30 = phi i64 [ %17, %11 ], [ %23, %20 ], [ %28, %24 ]
   %31 = and i8 %8, 1
   %.not12 = icmp eq i8 %31, 0
   %.v = select i1 %.not12, i64 4, i64 1
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
-  %33 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %32, i64 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  br i1 %33, label %39, label %34
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
+  %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  br i1 %35, label %41, label %36
 
-34:                                               ; preds = %29
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode(i32 noundef 2600) #6
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %37) #6
+36:                                               ; preds = %29
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %37)
+  %38 = call i32 @errcode(i32 noundef 2600) #6
+  %39 = load ptr, ptr %3, align 8
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %39) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.md5_bytea) #6
   unreachable
 
-39:                                               ; preds = %29
-  %40 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
-  %41 = ptrtoint ptr %40 to i64
+41:                                               ; preds = %29
+  %42 = call ptr @cstring_to_text(ptr noundef nonnull %2) #6
+  %43 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %41
+  ret i64 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -208,80 +208,80 @@ switch.lookup:
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, -1
   %or.cond = icmp ult i8 %13, 3
-  %14 = icmp eq i8 %12, 18
+  %15 = icmp eq i8 %12, 18
   %15 = select i1 %14, i64 16, i64 0
   %16 = select i1 %or.cond, i64 8, i64 %15
   br label %28
 
-17:                                               ; preds = %switch.lookup
+17:; preds = %switch.lookup
   %18 = and i32 %8, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
 
-19:                                               ; preds = %17
+19:; preds = %17
   %20 = lshr i32 %8, 1
   %21 = zext nneg i32 %20 to i64
   %22 = add nsw i64 %21, -1
   br label %28
 
-23:                                               ; preds = %17
+23:; preds = %17
   %24 = load i32, ptr %1, align 4
   %25 = lshr i32 %24, 2
   %26 = add nsw i32 %25, -4
   %27 = zext i32 %26 to i64
   br label %28
 
-28:                                               ; preds = %19, %23, %10
+28:; preds = %19, %23, %10
   %29 = phi i64 [ %16, %10 ], [ %22, %19 ], [ %27, %23 ]
   %30 = tail call ptr @pg_cryptohash_create(i32 noundef %0) #6
   %31 = tail call i32 @pg_cryptohash_init(ptr noundef %30) #6
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %37
 
-33:                                               ; preds = %28
+33:; preds = %28
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %34)
-  %35 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #6
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load37, ptr noundef %35) #6
+  %36 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #7
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load37, ptr noundef %36) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
-37:                                               ; preds = %28
-  %38 = and i8 %7, 1
-  %.not33 = icmp eq i8 %38, 0
+39:                                               ; preds = %28
+  %40 = and i8 %7, 1
+  %.not33 = icmp eq i8 %40, 0
   %.v = select i1 %.not33, i64 4, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
-  %40 = tail call i32 @pg_cryptohash_update(ptr noundef %30, ptr noundef nonnull %39, i64 noundef %29) #6
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
+  %42 = tail call i32 @pg_cryptohash_update(ptr noundef %30, ptr noundef nonnull %41, i64 noundef %29) #6
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %48
 
-42:                                               ; preds = %37
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #6
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load37, ptr noundef %44) #6
+44:                                               ; preds = %39
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %45)
+  %46 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #6
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load37, ptr noundef %46) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
-46:                                               ; preds = %37
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %48 = zext nneg i32 %switch.load to i64
-  %49 = tail call i32 @pg_cryptohash_final(ptr noundef %30, ptr noundef nonnull %47, i64 noundef %48) #6
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %55
+48:                                               ; preds = %39
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %50 = zext nneg i32 %switch.load to i64
+  %51 = tail call i32 @pg_cryptohash_final(ptr noundef %30, ptr noundef nonnull %49, i64 noundef %50) #6
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %57
 
-51:                                               ; preds = %46
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #6
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load37, ptr noundef %53) #6
+53:                                               ; preds = %48
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %54)
+  %55 = tail call ptr @pg_cryptohash_error(ptr noundef %30) #6
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load37, ptr noundef %55) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 127, ptr noundef nonnull @__func__.cryptohash_internal) #6
   unreachable
 
-55:                                               ; preds = %46
+57:                                               ; preds = %48
   tail call void @pg_cryptohash_free(ptr noundef %30) #6
-  %56 = shl nuw nsw i32 %4, 2
-  store i32 %56, ptr %6, align 4
+  %58 = shl nuw nsw i32 %4, 2
+  store i32 %58, ptr %6, align 4
   ret ptr %6
 }
 

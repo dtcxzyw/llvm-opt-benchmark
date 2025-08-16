@@ -8837,8 +8837,8 @@ _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %_ZNK5clang4Type13is
 144:                                              ; preds = %143
   %145 = load i32, ptr %1, align 8
   %146 = and i32 %145, 14680064
-  %or.cond16 = icmp eq i32 %146, 0
-  br i1 %or.cond16, label %147, label %200
+  %switch = icmp eq i32 %146, 0
+  br i1 %switch, label %147, label %200
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 16

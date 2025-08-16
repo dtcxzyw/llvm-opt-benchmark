@@ -35,7 +35,7 @@ define dso_local i64 @quote_literal(ptr noundef readonly captures(none) %0) #0 {
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp eq i8 %6, 1
-  br i1 %8, label %9, label %15
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -47,107 +47,107 @@ define dso_local i64 @quote_literal(ptr noundef readonly captures(none) %0) #0 {
   %spec.select = select i1 %or.cond, i32 8, i32 %14
   br label %select.unfold
 
-15:                                               ; preds = %1
-  %16 = and i32 %7, 1
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %20, label %17
+14:                                               ; preds = %1
+  %15 = and i32 %7, 1
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %19, label %16
 
-17:                                               ; preds = %15
-  %18 = lshr i32 %7, 1
-  %19 = add nsw i32 %18, -1
+16:                                               ; preds = %14
+  %17 = lshr i32 %7, 1
+  %18 = add nsw i32 %17, -1
   br label %select.unfold
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %5, align 4
-  %22 = lshr i32 %21, 2
-  %23 = add nsw i32 %22, -4
+19:                                               ; preds = %14
+  %20 = load i32, ptr %5, align 4
+  %21 = lshr i32 %20, 2
+  %22 = add nsw i32 %21, -4
   br label %select.unfold
 
-select.unfold:                                    ; preds = %9, %17, %20
-  %24 = phi i32 [ %19, %17 ], [ %23, %20 ], [ %spec.select, %9 ]
-  %25 = shl nsw i32 %24, 1
-  %26 = add nsw i32 %25, 7
-  %27 = sext i32 %26 to i64
-  %28 = tail call ptr @palloc(i64 noundef %27) #3
-  %29 = load i8, ptr %5, align 1
-  %30 = and i8 %29, 1
-  %.not18 = icmp eq i8 %30, 0
+select.unfold:                                    ; preds = %9, %16, %19
+  %23 = phi i32 [ %18, %17 ], [ %22, %20 ], [ %spec.select, %9 ]
+  %24 = shl nsw i32 %23, 1
+  %25 = add nsw i32 %24, 7
+  %26 = sext i32 %25 to i64
+  %27 = tail call ptr @palloc(i64 noundef %26) #3
+  %28 = load i8, ptr %5, align 1
+  %29 = and i8 %28, 1
+  %.not18 = icmp eq i8 %29, 0
   %.v = select i1 %.not18, i64 4, i64 1
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %33 = sext i32 %24 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
-  %.not30.i = icmp eq i32 %24, 0
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %32 = sext i32 %23 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
+  %.not30.i = icmp eq i32 %23, 0
   br i1 %.not30.i, label %.loopexit.thread.i, label %.lr.ph.i
 
 .loopexit.thread.i:                               ; preds = %select.unfold
-  store i8 39, ptr %32, align 1
-  %.12333.i = getelementptr inbounds nuw i8, ptr %28, i64 5
+  store i8 39, ptr %31, align 1
+  %.12333.i = getelementptr inbounds nuw i8, ptr %27, i64 5
   br label %quote_literal_internal.exit
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 1
-  %37 = icmp ult ptr %36, %34
-  br i1 %37, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !4
+34:                                               ; preds = %.lr.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 1
+  %36 = icmp ult ptr %35, %33
+  br i1 %36, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !4
 
-.lr.ph.i:                                         ; preds = %select.unfold, %35
-  %.01822.i = phi ptr [ %36, %35 ], [ %31, %select.unfold ]
-  %38 = load i8, ptr %.01822.i, align 1
-  %39 = icmp eq i8 %38, 92
-  br i1 %39, label %40, label %35
+.lr.ph.i:                                         ; preds = %select.unfold, %34
+  %.01822.i = phi ptr [ %35, %35 ], [ %30, %select.unfold ]
+  %37 = load i8, ptr %.01822.i, align 1
+  %38 = icmp eq i8 %37, 92
+  br i1 %38, label %39, label %34
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 5
-  store i8 69, ptr %32, align 1
+39:                                               ; preds = %.lr.ph.i
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 5
+  store i8 69, ptr %31, align 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %35, %40
-  %.0.i = phi ptr [ %41, %40 ], [ %32, %35 ]
+.loopexit.i:                                      ; preds = %34, %39
+  %.0.i = phi ptr [ %40, %40 ], [ %31, %35 ]
   store i8 39, ptr %.0.i, align 1
   %.123.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %46, %.loopexit.i
-  %.in.i = phi i64 [ %42, %46 ], [ %33, %.loopexit.i ]
+.lr.ph28.i:                                       ; preds = %45, %.loopexit.i
+  %.in.i = phi i64 [ %41, %46 ], [ %32, %.loopexit.i ]
   %.127.i = phi ptr [ %.1.i, %46 ], [ %.123.i, %.loopexit.i ]
   %.0.pn26.i = phi ptr [ %.2.i, %46 ], [ %.0.i, %.loopexit.i ]
-  %.02025.i = phi ptr [ %48, %46 ], [ %31, %.loopexit.i ]
-  %42 = add i64 %.in.i, -1
-  %43 = load i8, ptr %.02025.i, align 1
-  switch i8 %43, label %46 [
-    i8 39, label %44
-    i8 92, label %44
+  %.02025.i = phi ptr [ %47, %46 ], [ %30, %.loopexit.i ]
+  %41 = add i64 %.in.i, -1
+  %42 = load i8, ptr %.02025.i, align 1
+  switch i8 %42, label %46 [
+    i8 39, label %43
+    i8 92, label %43
   ]
 
-44:                                               ; preds = %.lr.ph28.i, %.lr.ph28.i
-  %45 = getelementptr inbounds nuw i8, ptr %.0.pn26.i, i64 2
-  store i8 %43, ptr %.127.i, align 1
+43:                                               ; preds = %.lr.ph28.i, %.lr.ph28.i
+  %44 = getelementptr inbounds nuw i8, ptr %.0.pn26.i, i64 2
+  store i8 %42, ptr %.127.i, align 1
   %.pre.i = load i8, ptr %.02025.i, align 1
-  br label %46
+  br label %45
 
-46:                                               ; preds = %44, %.lr.ph28.i
-  %47 = phi i8 [ %.pre.i, %44 ], [ %43, %.lr.ph28.i ]
-  %.2.i = phi ptr [ %45, %44 ], [ %.127.i, %.lr.ph28.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 1
-  store i8 %47, ptr %.2.i, align 1
+45:                                               ; preds = %43, %.lr.ph28.i
+  %46 = phi i8 [ %.pre.i, %44 ], [ %42, %.lr.ph28.i ]
+  %.2.i = phi ptr [ %44, %44 ], [ %.127.i, %.lr.ph28.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %.02025.i, i64 1
+  store i8 %46, ptr %.2.i, align 1
   %.1.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  %.not.i = icmp eq i64 %42, 0
+  %.not.i = icmp eq i64 %41, 0
   br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !6
 
-quote_literal_internal.exit:                      ; preds = %46, %.loopexit.thread.i
-  %.0.pn.lcssa.i = phi ptr [ %32, %.loopexit.thread.i ], [ %.2.i, %46 ]
+quote_literal_internal.exit:                      ; preds = %45, %.loopexit.thread.i
+  %.0.pn.lcssa.i = phi ptr [ %31, %.loopexit.thread.i ], [ %.2.i, %46 ]
   %.1.lcssa.i = phi ptr [ %.12333.i, %.loopexit.thread.i ], [ %.1.i, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.0.pn.lcssa.i, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.0.pn.lcssa.i, i64 2
   store i8 39, ptr %.1.lcssa.i, align 1
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %32 to i64
-  %52 = sub i64 %50, %51
-  %53 = trunc i64 %52 to i32
-  %54 = shl i32 %53, 2
-  %55 = add i32 %54, 16
-  store i32 %55, ptr %28, align 4
-  %56 = ptrtoint ptr %28 to i64
-  ret i64 %56
+  %49 = ptrtoint ptr %48 to i64
+  %50 = ptrtoint ptr %31 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
+  %53 = shl i32 %52, 2
+  %54 = add i32 %53, 16
+  store i32 %54, ptr %27, align 4
+  %55 = ptrtoint ptr %27 to i64
+  ret i64 %55
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
