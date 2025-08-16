@@ -76595,7 +76595,7 @@ _ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.split.us.
   %93 = add nuw nsw i32 %92, 939524096
   %94 = or i32 %92, 2139095040
   %95 = icmp samesign ult i32 %82, 260046848
-  %..i.i.i = select i1 %95, i32 %93, i32 %94
+  %..i.i.i = select i1 %95, i32 %93, i32 %94, !prof !116
   %96 = bitcast i32 %..i.i.i to float
   br label %_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEET0_RKT_.exit.split.us.i.i.i
 
@@ -79245,7 +79245,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.split.us.preh
   %60 = add nuw nsw i32 %59, 939524096
   %61 = or i32 %59, 2139095040
   %62 = icmp samesign ult i32 %47, 260046848
-  %..i.i.i = select i1 %62, i32 %60, i32 %61
+  %..i.i.i = select i1 %62, i32 %60, i32 %61, !prof !116
   %63 = bitcast i32 %..i.i.i to float
   br label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.split.us.i.i.i
 

@@ -2592,7 +2592,7 @@ _ZN4llvm5APIntaSEm.exit:                          ; preds = %_ZN4llvm5APInt15cle
   %140 = zext nneg i32 %139 to i64
   %141 = lshr i64 -1, %140
   %142 = icmp eq i32 %134, 0
-  %spec.select.i85.us = select i1 %142, i64 0, i64 %141, !prof !28
+  %spec.select.i85.us = select i1 %142, i64 0, i64 %141
   br label %_ZN4llvm5APIntoREm.exit.us
 
 _ZN4llvm5APIntoREm.exit.us:                       ; preds = %_ZN4llvm5APIntoREm.exit.us, %.lr.ph.split.us
@@ -2734,7 +2734,7 @@ _ZN4llvm5APIntaSEm.exit91:                        ; preds = %_ZN4llvm5APInt15cle
   %222 = zext nneg i32 %221 to i64
   %223 = lshr i64 -1, %222
   %224 = icmp eq i32 %216, 0
-  %spec.select.i94.us = select i1 %224, i64 0, i64 %223, !prof !28
+  %spec.select.i94.us = select i1 %224, i64 0, i64 %223
   br label %_ZN4llvm5APIntoREm.exit98.us
 
 _ZN4llvm5APIntoREm.exit98.us:                     ; preds = %_ZN4llvm5APIntoREm.exit98.us, %.lr.ph124.split.us

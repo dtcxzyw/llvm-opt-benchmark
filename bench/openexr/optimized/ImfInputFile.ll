@@ -2715,7 +2715,7 @@ define void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstItera
   %brmerge = select i1 %36, i1 true, i1 %or.cond.i.i.not58
   %58 = zext i1 %brmerge to i16
   %spec.select56 = add nuw i16 %35, %58
-  %. = select i1 %40, i16 %48, i16 %47
+  %. = select i1 %40, i16 %48, i16 %47, !prof !107
   %59 = select i1 %49, i16 0, i16 %54
   %60 = or disjoint i16 %23, %59
   %spec.select = or disjoint i16 %60, 31744

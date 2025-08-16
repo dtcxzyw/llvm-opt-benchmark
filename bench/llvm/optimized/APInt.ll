@@ -24714,7 +24714,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %16, %20
   %38 = add nuw nsw i64 %30, 4294967295
   %39 = and i64 %38, 4294967295
   %40 = icmp eq i32 %.fr23, 0
-  %spec.select.i.i.i = select i1 %40, i64 0, i64 %37
+  %spec.select.i.i.i = select i1 %40, i64 0, i64 %37, !prof !11
   br i1 %8, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %44
