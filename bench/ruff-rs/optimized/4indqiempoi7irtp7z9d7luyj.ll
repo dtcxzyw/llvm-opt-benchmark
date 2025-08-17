@@ -47566,7 +47566,7 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecur
   %34 = trunc nuw i64 %33 to i1
   br i1 %34, label %35, label %105
 
-_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27detect_insecure_crypt_calls17h7dca352637dedbdeE.exit: ; preds = %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27detect_insecure_crypt_calls28_$u7b$$u7b$closure$u7d$$u7d$17h6fc11d5caaea8b6aE.exit.thread.i", %148, %149, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17h376b77fc5307963fE.exit.i", %228, %_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions20is_used_for_security17hb1751a9fe08c8c02E.exit.i, %254, %256, %289, %314, %328, %105, %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit", %2
+_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27detect_insecure_crypt_calls17h7dca352637dedbdeE.exit: ; preds = %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27detect_insecure_crypt_calls28_$u7b$$u7b$closure$u7d$$u7d$17h6fc11d5caaea8b6aE.exit.thread.i", %148, %149, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_python_ast..name..QualifiedName$GT$$GT$17h376b77fc5307963fE.exit.i", %228, %_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions20is_used_for_security17hb1751a9fe08c8c02E.exit.i, %254, %256, %289, %314, %328, %105, %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13", %2
   ret void
 
 35:                                               ; preds = %30
@@ -47608,7 +47608,7 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27de
   %.sroa.13.0.i = phi i64 [ %43, %39 ], [ %46, %44 ]
   %.sroa.0.0.i = phi ptr [ %41, %39 ], [ %26, %44 ]
   %52 = icmp eq i64 %.sroa.13.0.i, 2
-  br i1 %52, label %53, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit"
+  br i1 %52, label %53, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13"
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %.sroa.0.0.i, align 8, !noalias !3628, !nonnull !3, !align !31, !noundef !3
@@ -47635,7 +47635,7 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27de
           to label %82 unwind label %49, !noalias !3630
 
 69:                                               ; preds = %59
-  br i1 %62, label %70, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit"
+  br i1 %62, label %70, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13"
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
@@ -47655,7 +47655,7 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27de
           to label %81 unwind label %49, !noalias !3630
 
 81:                                               ; preds = %77
-  br i1 %80, label %106, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit"
+  br i1 %80, label %106, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13"
 
 82:                                               ; preds = %63
   br i1 %68, label %233, label %83
@@ -47694,7 +47694,7 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions27de
           to label %102 unwind label %49, !noalias !3630
 
 102:                                              ; preds = %98
-  br i1 %101, label %233, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit"
+  br i1 %101, label %233, label %"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13"
 
 103:                                              ; preds = %49
   %104 = landingpad { ptr, i32 }
@@ -47706,7 +47706,7 @@ common.resume:                                    ; preds = %277, %307, %317, %3
   %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %125, %124 ], [ %.pn.i, %170 ], [ %332, %331 ], [ %322, %321 ], [ %318, %317 ], [ %308, %307 ], [ %278, %277 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit": ; preds = %51, %69, %81, %102
+"_ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions31hashlib_insecure_hash_functions28_$u7b$$u7b$closure$u7d$$u7d$17he51bb47c0f13f832E.exit.thread13": ; preds = %102, %81, %69, %51
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %26), !noalias !3628
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -48050,9 +48050,9 @@ common.resume:                                    ; preds = %277, %307, %317, %3
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-233:                                              ; preds = %102, %97, %92, %87, %82
-  %.sroa.16.0.ph.ph = phi i64 [ undef, %82 ], [ 3, %87 ], [ 3, %92 ], [ 3, %97 ], [ 4, %102 ]
-  %.sroa.11.0.ph.ph = phi ptr [ null, %82 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.813, %87 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.814, %92 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.815, %97 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.816, %102 ]
+233:                                              ; preds = %102, %82, %87, %92, %97
+  %.sroa.16.0.ph = phi i64 [ 3, %97 ], [ 3, %92 ], [ 3, %87 ], [ undef, %82 ], [ 4, %102 ]
+  %.sroa.11.0.ph = phi ptr [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.815, %97 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.814, %92 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.813, %87 ], [ null, %82 ], [ @anon.faf009aaacdb3bbda30f9435f6d39aa4.816, %102 ]
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %26), !noalias !3628
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -48098,7 +48098,7 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions20is
   %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 7, ptr %.sroa.5.0..sroa_idx.i4, align 8, !noalias !3656
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3667
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sroa.16.0.ph.ph, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sroa.16.0.ph, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc.i6 unwind label %321, !noalias !3653
 
 .noexc.i6:                                        ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4e33bd25f53d5eaeE.exit.i"
@@ -48315,17 +48315,17 @@ _ZN11ruff_linter5rules13flake8_bandit5rules31hashlib_insecure_hash_functions20is
 
 323:                                              ; preds = %.noexc.i6
   %324 = load ptr, ptr %251, align 8, !noalias !3667, !nonnull !3, !noundef !3
-  %325 = icmp ule i64 %.sroa.16.0.ph.ph, %250
+  %325 = icmp ule i64 %.sroa.16.0.ph, %250
   call void @llvm.assume(i1 %325)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3667
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %324, ptr nonnull readonly align 1 %.sroa.11.0.ph.ph, i64 %.sroa.16.0.ph.ph, i1 false), !noalias !3707
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %324, ptr nonnull readonly align 1 %.sroa.11.0.ph, i64 %.sroa.16.0.ph, i1 false), !noalias !3707
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !3656
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %250, ptr %326, align 8, !noalias !3656
   %.sroa.437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %324, ptr %.sroa.437.0..sroa_idx.i, align 8, !noalias !3656
   %.sroa.538.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %.sroa.16.0.ph.ph, ptr %.sroa.538.0..sroa_idx.i, align 8, !noalias !3656
+  store i64 %.sroa.16.0.ph, ptr %.sroa.538.0..sroa_idx.i, align 8, !noalias !3656
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3656
   %327 = invoke { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %32)
           to label %328 unwind label %331, !noalias !3653

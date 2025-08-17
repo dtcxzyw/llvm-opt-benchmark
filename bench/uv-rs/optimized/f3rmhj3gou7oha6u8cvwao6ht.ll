@@ -24510,7 +24510,7 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit" unwind label %188
 
 148:                                              ; preds = %2, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit"
-  %149 = phi i64 [ %.pre102, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit" ], [ %46, %2 ]
+  %149 = phi i64 [ %.pre85, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit" ], [ %46, %2 ]
   %150 = phi ptr [ %.pre, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit" ], [ %44, %2 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload1, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8a9ace31cf1528d0E.exit" ], [ -9223372036854775808, %2 ]
   %151 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -24631,7 +24631,7 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %17, align 8
-  %.pre102 = load i64, ptr %140, align 8
+  %.pre85 = load i64, ptr %140, align 8
   br label %148
 
 190:                                              ; preds = %148
@@ -24722,8 +24722,8 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$17hf389e81c5a7c9e71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$$GT$17h1637a7e6a2cd71d5E.exit"
 
-.noexc56:                                         ; preds = %273, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit"
-  br i1 %.sroa.025.1, label %277, label %291
+.noexc74:                                         ; preds = %275, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit"
+  br i1 %cond30, label %294, label %280
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$$GT$17h1637a7e6a2cd71d5E.exit": ; preds = %215, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -24736,7 +24736,7 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   ret void
 
-216:                                              ; preds = %289, %286, %283, %280, %276, %273, %270, %267, %264, %261, %258, %255, %252, %249, %246, %243, %234, %231, %228, %225, %222, %.thread98, %290, %.thread90, %.thread77, %.thread66, %240, %238, %237, %236, %235, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$uv_settings..settings..PipOptions$GT$$GT$17h0d3e07d08b6996faE.exit", %218, %190, %188
+216:                                              ; preds = %292, %289, %286, %283, %279, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %234, %231, %228, %225, %222, %295, %293, %.noexc80, %.noexc72, %241, %240, %238, %237, %236, %235, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$uv_settings..settings..PipOptions$GT$$GT$17h0d3e07d08b6996faE.exit", %218, %190, %188
   %217 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #24
@@ -24758,31 +24758,31 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit": ; preds = %219, %222
   %223 = load i64, ptr %11, align 8, !range !392, !alias.scope !1977, !noundef !3
   %224 = icmp eq i64 %223, -9223372036854775808
-  br i1 %224, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit32", label %225
+  br i1 %224, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit50", label %225
 
 225:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit"
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit32" unwind label %216
+          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit50" unwind label %216
 
-"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit32": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit", %225
+"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit50": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit", %225
   %226 = load i64, ptr %12, align 8, !range !392, !alias.scope !1980, !noundef !3
   %227 = icmp eq i64 %226, -9223372036854775808
-  br i1 %227, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit34", label %228
+  br i1 %227, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit52", label %228
 
-228:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit32"
+228:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit50"
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
-          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit34" unwind label %216
+          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit52" unwind label %216
 
-"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit34": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit32", %228
+"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit52": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit50", %228
   %229 = load i64, ptr %13, align 8, !range !392, !alias.scope !1983, !noundef !3
   %230 = icmp eq i64 %229, -9223372036854775808
   br i1 %230, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$$GT$17h6bb7cf1da4d6dea6E.exit", label %231
 
-231:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit34"
+231:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit52"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$17h7bcf62e35cd83b7bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$$GT$17h6bb7cf1da4d6dea6E.exit" unwind label %216
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$$GT$17h6bb7cf1da4d6dea6E.exit": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit34", %231
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$$GT$17h6bb7cf1da4d6dea6E.exit": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit52", %231
   %232 = load i64, ptr %14, align 8, !range !258, !alias.scope !1986, !noundef !3
   %233 = icmp eq i64 %232, 2
   br i1 %233, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$uv_settings..settings..PipOptions$GT$$GT$17h0d3e07d08b6996faE.exit", label %234
@@ -24800,7 +24800,7 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
           to label %236 unwind label %216
 
 236:                                              ; preds = %237, %235
-  %.sroa.025.1 = phi i1 [ false, %235 ], [ true, %237 ]
+  %cond30 = phi i1 [ true, %235 ], [ false, %237 ]
   %.pn = phi { ptr, i32 } [ %191, %235 ], [ %189, %237 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_url..IndexUrl$GT$$GT$17h9b9df133dc5d38aeE"(ptr noalias noundef align 8 dereferenceable(16) %19) #23
           to label %238 unwind label %216
@@ -24814,178 +24814,178 @@ define void @"_ZN112_$LT$uv_settings..settings..Options$u20$as$u20$core..convert
           to label %239 unwind label %216
 
 239:                                              ; preds = %238
-  br i1 %.sroa.025.1, label %240, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit"
+  br i1 %cond30, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit", label %240
 
 240:                                              ; preds = %239
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$uv_pypi_types..supported_environments..SupportedEnvironments$GT$$GT$17h27c9469c70eb5971E"(ptr noalias noundef align 8 dereferenceable(24) %21) #23
-          to label %.thread66 unwind label %216
+          to label %241 unwind label %216
 
-.thread66:                                        ; preds = %240
+241:                                              ; preds = %240
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$uv_pypi_types..supported_environments..SupportedEnvironments$GT$$GT$17h27c9469c70eb5971E"(ptr noalias noundef align 8 dereferenceable(24) %22) #23
-          to label %.thread67 unwind label %216
+          to label %242 unwind label %216
 
-.thread67:                                        ; preds = %.thread66
-  %241 = load i64, ptr %23, align 8, !range !392, !alias.scope !1989, !noundef !3
-  %242 = icmp eq i64 %241, -9223372036854775808
-  br i1 %242, label %.thread68, label %243
+242:                                              ; preds = %241
+  %243 = load i64, ptr %23, align 8, !range !392, !alias.scope !1989, !noundef !3
+  %244 = icmp eq i64 %243, -9223372036854775808
+  br i1 %244, label %.noexc55, label %245
 
-243:                                              ; preds = %.thread67
+245:                                              ; preds = %242
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
-          to label %.thread68 unwind label %216
+          to label %.noexc55 unwind label %216
 
-.thread68:                                        ; preds = %243, %.thread67
-  %244 = load i64, ptr %24, align 8, !range !392, !alias.scope !1992, !noundef !3
-  %245 = icmp eq i64 %244, -9223372036854775808
-  br i1 %245, label %.thread69, label %246
+.noexc55:                                         ; preds = %245, %242
+  %246 = load i64, ptr %24, align 8, !range !392, !alias.scope !1992, !noundef !3
+  %247 = icmp eq i64 %246, -9223372036854775808
+  br i1 %247, label %.noexc57, label %248
 
-246:                                              ; preds = %.thread68
+248:                                              ; preds = %.noexc55
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %.thread69 unwind label %216
+          to label %.noexc57 unwind label %216
 
-.thread69:                                        ; preds = %246, %.thread68
-  %247 = load i64, ptr %25, align 8, !range !392, !alias.scope !1995, !noundef !3
-  %248 = icmp eq i64 %247, -9223372036854775808
-  br i1 %248, label %.thread70, label %249
+.noexc57:                                         ; preds = %248, %.noexc55
+  %249 = load i64, ptr %25, align 8, !range !392, !alias.scope !1995, !noundef !3
+  %250 = icmp eq i64 %249, -9223372036854775808
+  br i1 %250, label %.noexc59, label %251
 
-249:                                              ; preds = %.thread69
+251:                                              ; preds = %.noexc57
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-          to label %.thread70 unwind label %216
+          to label %.noexc59 unwind label %216
 
-.thread70:                                        ; preds = %249, %.thread69
-  %250 = load i64, ptr %26, align 8, !range !392, !alias.scope !1998, !noundef !3
-  %251 = icmp eq i64 %250, -9223372036854775808
-  br i1 %251, label %.thread71, label %252
+.noexc59:                                         ; preds = %251, %.noexc57
+  %252 = load i64, ptr %26, align 8, !range !392, !alias.scope !1998, !noundef !3
+  %253 = icmp eq i64 %252, -9223372036854775808
+  br i1 %253, label %.noexc61, label %254
 
-252:                                              ; preds = %.thread70
+254:                                              ; preds = %.noexc59
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$17h7bcf62e35cd83b7bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26)
-          to label %.thread71 unwind label %216
+          to label %.noexc61 unwind label %216
 
-.thread71:                                        ; preds = %252, %.thread70
-  %253 = load i64, ptr %27, align 8, !range !258, !alias.scope !2001, !noundef !3
-  %254 = icmp eq i64 %253, 2
-  br i1 %254, label %.thread72, label %255
+.noexc61:                                         ; preds = %254, %.noexc59
+  %255 = load i64, ptr %27, align 8, !range !258, !alias.scope !2001, !noundef !3
+  %256 = icmp eq i64 %255, 2
+  br i1 %256, label %.noexc63, label %257
 
-255:                                              ; preds = %.thread71
+257:                                              ; preds = %.noexc61
   invoke void @"_ZN4core3ptr54drop_in_place$LT$uv_settings..settings..PipOptions$GT$17h35e3c005db7d4868E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %27)
-          to label %.thread72 unwind label %216
+          to label %.noexc63 unwind label %216
 
-.thread72:                                        ; preds = %255, %.thread71
-  %256 = load i64, ptr %28, align 8, !range !392, !alias.scope !2004, !noundef !3
-  %257 = icmp eq i64 %256, -9223372036854775808
-  br i1 %257, label %.thread73, label %258
+.noexc63:                                         ; preds = %257, %.noexc61
+  %258 = load i64, ptr %28, align 8, !range !392, !alias.scope !2004, !noundef !3
+  %259 = icmp eq i64 %258, -9223372036854775808
+  br i1 %259, label %.noexc65, label %260
 
-258:                                              ; preds = %.thread72
+260:                                              ; preds = %.noexc63
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h30949a2141fc138bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
-          to label %.thread73 unwind label %216
+          to label %.noexc65 unwind label %216
 
-.thread73:                                        ; preds = %258, %.thread72
-  %259 = load i64, ptr %29, align 8, !range !392, !alias.scope !2007, !noundef !3
-  %260 = icmp eq i64 %259, -9223372036854775808
-  br i1 %260, label %.thread74, label %261
+.noexc65:                                         ; preds = %260, %.noexc63
+  %261 = load i64, ptr %29, align 8, !range !392, !alias.scope !2007, !noundef !3
+  %262 = icmp eq i64 %261, -9223372036854775808
+  br i1 %262, label %.noexc66, label %263
 
-261:                                              ; preds = %.thread73
+263:                                              ; preds = %.noexc65
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h30949a2141fc138bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
-          to label %.thread74 unwind label %216
+          to label %.noexc66 unwind label %216
 
-.thread74:                                        ; preds = %261, %.thread73
-  %262 = load i64, ptr %30, align 8, !range !392, !alias.scope !2010, !noundef !3
-  %263 = icmp eq i64 %262, -9223372036854775808
-  br i1 %263, label %.thread75, label %264
+.noexc66:                                         ; preds = %263, %.noexc65
+  %264 = load i64, ptr %30, align 8, !range !392, !alias.scope !2010, !noundef !3
+  %265 = icmp eq i64 %264, -9223372036854775808
+  br i1 %265, label %.noexc68, label %266
 
-264:                                              ; preds = %.thread74
+266:                                              ; preds = %.noexc66
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h30949a2141fc138bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
-          to label %.thread75 unwind label %216
+          to label %.noexc68 unwind label %216
 
-.thread75:                                        ; preds = %264, %.thread74
-  %265 = load i64, ptr %31, align 8, !range !392, !alias.scope !2013, !noundef !3
-  %266 = icmp eq i64 %265, -9223372036854775808
-  br i1 %266, label %.thread76, label %267
+.noexc68:                                         ; preds = %266, %.noexc66
+  %267 = load i64, ptr %31, align 8, !range !392, !alias.scope !2013, !noundef !3
+  %268 = icmp eq i64 %267, -9223372036854775808
+  br i1 %268, label %.noexc70, label %269
 
-267:                                              ; preds = %.thread75
+269:                                              ; preds = %.noexc68
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h75ba4805f76408d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
-          to label %.thread76 unwind label %216
+          to label %.noexc70 unwind label %216
 
-.thread76:                                        ; preds = %267, %.thread75
-  %268 = load i64, ptr %33, align 8, !range !392, !alias.scope !2016, !noundef !3
-  %269 = icmp eq i64 %268, -9223372036854775808
-  br i1 %269, label %.thread77, label %270
+.noexc70:                                         ; preds = %269, %.noexc68
+  %270 = load i64, ptr %33, align 8, !range !392, !alias.scope !2016, !noundef !3
+  %271 = icmp eq i64 %270, -9223372036854775808
+  br i1 %271, label %.noexc72, label %272
 
-270:                                              ; preds = %.thread76
+272:                                              ; preds = %.noexc70
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h30949a2141fc138bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33)
-          to label %.thread77 unwind label %216
+          to label %.noexc72 unwind label %216
 
-.thread77:                                        ; preds = %270, %.thread76
+.noexc72:                                         ; preds = %272, %.noexc70
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$uv_configuration..config_settings..ConfigSettings$GT$$GT$17hcfc29b687e331b6bE"(ptr noalias noundef align 8 dereferenceable(32) %1) #23
-          to label %.thread78 unwind label %216
+          to label %276 unwind label %216
 
-"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit": ; preds = %.thread78, %276, %239
-  %271 = load i64, ptr %35, align 8, !range !392, !alias.scope !2019, !noundef !3
-  %272 = icmp eq i64 %271, -9223372036854775808
-  br i1 %272, label %.noexc56, label %273
+"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit": ; preds = %276, %279, %239
+  %273 = load i64, ptr %35, align 8, !range !392, !alias.scope !2019, !noundef !3
+  %274 = icmp eq i64 %273, -9223372036854775808
+  br i1 %274, label %.noexc74, label %275
 
-273:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit"
+275:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit"
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$17hf389e81c5a7c9e71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
-          to label %.noexc56 unwind label %216
+          to label %.noexc74 unwind label %216
 
-.thread78:                                        ; preds = %.thread77
-  %274 = load i64, ptr %34, align 8, !range !392, !alias.scope !2022, !noundef !3
-  %275 = icmp eq i64 %274, -9223372036854775808
-  br i1 %275, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit", label %276
+276:                                              ; preds = %.noexc72
+  %277 = load i64, ptr %34, align 8, !range !392, !alias.scope !2022, !noundef !3
+  %278 = icmp eq i64 %277, -9223372036854775808
+  br i1 %278, label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit", label %279
 
-276:                                              ; preds = %.thread78
+279:                                              ; preds = %276
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$17h23adc0918c799a28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34)
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit" unwind label %216
 
-277:                                              ; preds = %.noexc56
-  %278 = load i64, ptr %36, align 8, !range !392, !alias.scope !2025, !noundef !3
-  %279 = icmp eq i64 %278, -9223372036854775808
-  br i1 %279, label %.noexc59, label %280
-
-280:                                              ; preds = %277
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$17he1bc1e475c95d1cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
-          to label %.noexc59 unwind label %216
-
-.noexc59:                                         ; preds = %280, %277
-  %281 = load i64, ptr %37, align 8, !range !392, !alias.scope !2028, !noundef !3
+280:                                              ; preds = %.noexc74
+  %281 = load i64, ptr %36, align 8, !range !392, !alias.scope !2025, !noundef !3
   %282 = icmp eq i64 %281, -9223372036854775808
-  br i1 %282, label %.thread82, label %283
+  br i1 %282, label %.noexc77, label %283
 
-283:                                              ; preds = %.noexc59
+283:                                              ; preds = %280
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$17he1bc1e475c95d1cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36)
+          to label %.noexc77 unwind label %216
+
+.noexc77:                                         ; preds = %283, %280
+  %284 = load i64, ptr %37, align 8, !range !392, !alias.scope !2028, !noundef !3
+  %285 = icmp eq i64 %284, -9223372036854775808
+  br i1 %285, label %.noexc78, label %286
+
+286:                                              ; preds = %.noexc77
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$17h52659ab866ce1bd0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37)
-          to label %.thread82 unwind label %216
+          to label %.noexc78 unwind label %216
 
-.thread82:                                        ; preds = %283, %.noexc59
-  %284 = load i64, ptr %38, align 8, !range !683, !alias.scope !2031, !noundef !3
-  %285 = icmp eq i64 %284, 3
-  br i1 %285, label %.noexc61, label %286
+.noexc78:                                         ; preds = %286, %.noexc77
+  %287 = load i64, ptr %38, align 8, !range !683, !alias.scope !2031, !noundef !3
+  %288 = icmp eq i64 %287, 3
+  br i1 %288, label %.noexc79, label %289
 
-286:                                              ; preds = %.thread82
+289:                                              ; preds = %.noexc78
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17hdb10fb0efb7a65d8E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %38)
-          to label %.noexc61 unwind label %216
+          to label %.noexc79 unwind label %216
 
-.noexc61:                                         ; preds = %286, %.thread82
-  %287 = load i64, ptr %39, align 8, !range !392, !alias.scope !2034, !noundef !3
-  %288 = icmp eq i64 %287, -9223372036854775808
-  br i1 %288, label %.thread90, label %289
+.noexc79:                                         ; preds = %289, %.noexc78
+  %290 = load i64, ptr %39, align 8, !range !392, !alias.scope !2034, !noundef !3
+  %291 = icmp eq i64 %290, -9223372036854775808
+  br i1 %291, label %.noexc80, label %292
 
-289:                                              ; preds = %.noexc61
+292:                                              ; preds = %.noexc79
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h73b5c66135fd99a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39)
-          to label %.thread90 unwind label %216
+          to label %.noexc80 unwind label %216
 
-.thread90:                                        ; preds = %289, %.noexc61
+.noexc80:                                         ; preds = %292, %.noexc79
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %40) #23
-          to label %290 unwind label %216
+          to label %293 unwind label %216
 
-290:                                              ; preds = %.thread90
+293:                                              ; preds = %.noexc80
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %41) #23
-          to label %.thread98 unwind label %216
+          to label %295 unwind label %216
 
-291:                                              ; preds = %.noexc56, %.thread98
+294:                                              ; preds = %.noexc74, %295
   resume { ptr, i32 } %.pn
 
-.thread98:                                        ; preds = %290
+295:                                              ; preds = %293
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %42) #23
-          to label %291 unwind label %216
+          to label %294 unwind label %216
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36886,7 +36886,7 @@ define void @"_ZN87_$LT$uv_settings..settings..PublishOptions$u20$as$u20$uv_sett
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h63add99fb7686093E"(ptr noalias noundef align 8 dereferenceable(88) %7) #23
-          to label %57 unwind label %53
+          to label %.thread unwind label %53
 
 25:                                               ; preds = %"_ZN4core3ptr57drop_in_place$LT$core..option..Option$LT$url..Url$GT$$GT$17h63add99fb7686093E.llvm.4525295619829394506.exit.i.i", %11, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h9e542db9582c618bE.exit.i3.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -36954,7 +36954,7 @@ default.unreachable:                              ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-53:                                               ; preds = %.thread12, %55, %23
+53:                                               ; preds = %57, %55, %23
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #24
@@ -36964,15 +36964,15 @@ default.unreachable:                              ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_url..IndexUrl$GT$$GT$17h9b9df133dc5d38aeE"(ptr noalias noundef align 8 dereferenceable(16) %2) #23
-          to label %.thread12 unwind label %53
-
-57:                                               ; preds = %23, %.thread12
-  %.pn1014 = phi { ptr, i32 } [ %56, %.thread12 ], [ %24, %23 ]
-  resume { ptr, i32 } %.pn1014
-
-.thread12:                                        ; preds = %55
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_url..IndexUrl$GT$$GT$17h9b9df133dc5d38aeE"(ptr noalias noundef align 8 dereferenceable(16) %1) #23
           to label %57 unwind label %53
+
+.thread:                                          ; preds = %23, %57
+  %.pn11 = phi { ptr, i32 } [ %56, %57 ], [ %24, %23 ]
+  resume { ptr, i32 } %.pn11
+
+57:                                               ; preds = %55
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_url..IndexUrl$GT$$GT$17h9b9df133dc5d38aeE"(ptr noalias noundef align 8 dereferenceable(16) %1) #23
+          to label %.thread unwind label %53
 }
 
 ; Function Attrs: nonlazybind uwtable

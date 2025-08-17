@@ -2904,47 +2904,51 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$8try_send17hbf6
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %7 = invoke noundef i8 @_ZN5tokio4sync15batch_semaphore9Semaphore11try_acquire17h01cdb87e2a4c4c57E(ptr noundef nonnull align 8 %6, i64 noundef 1)
-          to label %8 unwind label %14
+          to label %8 unwind label %13
 
 8:                                                ; preds = %3
-  %.not = icmp eq i8 %7, 2
-  br i1 %.not, label %12, label %9
+  switch i8 %7, label %11 [
+    i8 2, label %9
+    i8 0, label %12
+  ]
 
 9:                                                ; preds = %8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %10 = and i8 %7, 1
-  %11 = xor i8 %10, 1
-  %spec.select = zext nneg i8 %11 to i64
-  br label %13
-
-12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17hd0e2e5c9cee22a37E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %13
+  br label %10
 
-13:                                               ; preds = %9, %12
-  %.sink = phi i64 [ 2, %12 ], [ %spec.select, %9 ]
+10:                                               ; preds = %11, %12, %9
+  %.sink = phi i64 [ 0, %11 ], [ 1, %12 ], [ 2, %9 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-"_ZN4core3ptr62drop_in_place$LT$tokio_quiche..http3..driver..InboundFrame$GT$17hf9aade00d035a8dbE.exit": ; preds = %14
-  resume { ptr, i32 } %15
+11:                                               ; preds = %8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  br label %10
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  br label %10
+
+"_ZN4core3ptr62drop_in_place$LT$tokio_quiche..http3..driver..InboundFrame$GT$17hf9aade00d035a8dbE.exit": ; preds = %13
+  resume { ptr, i32 } %14
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = load i64, ptr %2, align 8, !range !218, !alias.scope !222, !noundef !3
-  %.not.i = icmp eq i64 %16, -9223372036854775808
+  %15 = load i64, ptr %2, align 8, !range !218, !alias.scope !222, !noundef !3
+  %.not.i = icmp eq i64 %15, -9223372036854775808
   %.sink.idx.i = select i1 %.not.i, i64 8, i64 0
   %.sink.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.idx.i
   invoke void @"_ZN4core3ptr82drop_in_place$LT$buffer_pool..Pooled$LT$buffer_pool..buffer..ConsumeBuffer$GT$$GT$17hd5bea45b4f67a926E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sink.i)
-          to label %"_ZN4core3ptr62drop_in_place$LT$tokio_quiche..http3..driver..InboundFrame$GT$17hf9aade00d035a8dbE.exit" unwind label %17
+          to label %"_ZN4core3ptr62drop_in_place$LT$tokio_quiche..http3..driver..InboundFrame$GT$17hf9aade00d035a8dbE.exit" unwind label %16
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable

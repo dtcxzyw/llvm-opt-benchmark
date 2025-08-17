@@ -67025,8 +67025,8 @@ define hidden void @_ZN16tracing_appender12non_blocking11NonBlocking6create17h07
   invoke void @_ZN17crossbeam_channel7channel7bounded17hb93f7ac3fdae15b3E(ptr noalias noundef nonnull sret({ { i64, ptr }, { i64, ptr } }) align 8 captures(none) dereferenceable(32) %13, i64 noundef %2)
           to label %18 unwind label %.thread
 
-16:                                               ; preds = %.thread47
-  br i1 %.13152, label %76, label %.thread61
+16:                                               ; preds = %.thread49
+  br i1 %cond, label %.thread59, label %76
 
 .thread:                                          ; preds = %5
   %17 = landingpad { ptr, i32 }
@@ -67127,7 +67127,7 @@ default.unreachable:                              ; preds = %43
 56:                                               ; preds = %57
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread47
+  br label %.thread49
 
 57:                                               ; preds = %52, %48, %44
   invoke void @_ZN16tracing_appender12non_blocking11WorkerGuard3new17h20397754680153a7E(ptr noalias noundef nonnull sret({ { i64, ptr }, { i64, ptr }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, i64 noundef %19, ptr noundef %21, i64 noundef %29, ptr noundef %31)
@@ -67180,7 +67180,7 @@ default.unreachable:                              ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-69:                                               ; preds = %.thread57, %76, %.thread47, %74, %73, %72, %71, %64
+69:                                               ; preds = %77, %76, %.thread49, %74, %73, %72, %71, %64
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
@@ -67188,7 +67188,7 @@ default.unreachable:                              ; preds = %43
 
 71:                                               ; preds = %64
   invoke void @"_ZN4core3ptr64drop_in_place$LT$tracing_appender..non_blocking..WorkerGuard$GT$17hb1e109629d8ce6b5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #32
-          to label %.thread61 unwind label %69
+          to label %.thread59 unwind label %69
 
 72:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -67199,32 +67199,32 @@ default.unreachable:                              ; preds = %43
 73:                                               ; preds = %72, %41
   %.pn.ph = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm, %72 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$crossbeam_channel..channel..Sender$LT$$LP$$RP$$GT$$GT$17h9f093e596441c79eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #32
-          to label %.thread47 unwind label %69
+          to label %.thread49 unwind label %69
 
 74:                                               ; preds = %18
   %75 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$tracing_appender..Msg$GT$$GT$17hed43612e307af3a3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #32
-          to label %.thread47 unwind label %69
+          to label %.thread49 unwind label %69
 
-.thread47:                                        ; preds = %56, %73, %74
-  %.13152 = phi i1 [ true, %74 ], [ false, %73 ], [ false, %56 ]
-  %.pn.pn3251 = phi { ptr, i32 } [ %75, %74 ], [ %.pn.ph, %73 ], [ %lpad.thr_comm.split-lp, %56 ]
+.thread49:                                        ; preds = %56, %73, %74
+  %cond = phi i1 [ false, %74 ], [ true, %73 ], [ true, %56 ]
+  %.pn.pn3453 = phi { ptr, i32 } [ %75, %74 ], [ %.pn.ph, %73 ], [ %lpad.thr_comm.split-lp, %56 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$crossbeam_channel..channel..Sender$LT$tracing_appender..Msg$GT$$GT$17hff38eab8538a6333E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #32
           to label %16 unwind label %69
 
 76:                                               ; preds = %.thread, %16
-  %.pn.pn.pn25 = phi { ptr, i32 } [ %17, %.thread ], [ %.pn.pn3251, %16 ]
+  %.pn.pn.pn26 = phi { ptr, i32 } [ %17, %.thread ], [ %.pn.pn3453, %16 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #32
-          to label %.thread57 unwind label %69
+          to label %77 unwind label %69
 
-.thread61:                                        ; preds = %71, %16, %.thread57
-  %.pn.pn.pn2459 = phi { ptr, i32 } [ %.pn.pn.pn25, %.thread57 ], [ %.pn.pn3251, %16 ], [ %65, %71 ]
-  resume { ptr, i32 } %.pn.pn.pn2459
+.thread59:                                        ; preds = %71, %16, %77
+  %.pn.pn.pn27 = phi { ptr, i32 } [ %.pn.pn3453, %16 ], [ %.pn.pn.pn26, %77 ], [ %65, %71 ]
+  resume { ptr, i32 } %.pn.pn.pn27
 
-.thread57:                                        ; preds = %76
+77:                                               ; preds = %76
   invoke void @"_ZN4core3ptr67drop_in_place$LT$tracing_appender..rolling..RollingFileAppender$GT$17hf1a064a604792168E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %1) #32
-          to label %.thread61 unwind label %69
+          to label %.thread59 unwind label %69
 }
 
 ; Function Attrs: nonlazybind uwtable

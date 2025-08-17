@@ -720,7 +720,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
           to label %46 unwind label %44
 
 39:                                               ; preds = %147, %146, %44
-  %.sroa.06.0 = phi i1 [ true, %147 ], [ false, %146 ], [ true, %44 ]
+  %cond = phi i1 [ false, %147 ], [ true, %146 ], [ false, %44 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %147 ], [ %.pn.pn.pn, %146 ], [ %45, %44 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -749,9 +749,9 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   %49 = invoke { ptr, ptr } @_ZN5tokio4sync7oneshot7channel17h0f5d3ec38c31d304E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db68c7da406fdeeb8ee4ffed877df397.43)
           to label %53 unwind label %51
 
-50:                                               ; preds = %.body15, %51
-  %.sroa.06.2 = phi i1 [ false, %.body15 ], [ true, %51 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body15 ], [ %52, %51 ]
+50:                                               ; preds = %.body17, %51
+  %.sroa.06.2 = phi i1 [ false, %.body17 ], [ true, %51 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body17 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h265b7566af0bb52fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30) #22
           to label %146 unwind label %144
 
@@ -911,7 +911,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$quinn..mutex..non_tracking..Mutex$LT$quinn..connection..State$GT$$GT$17hb17293ce57f556a7E"(ptr noalias noundef nonnull align 16 dereferenceable(6448) %22) #22
-          to label %.body15 unwind label %92, !noalias !42
+          to label %.body17 unwind label %92, !noalias !42
 
 80:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !38
@@ -961,7 +961,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   %89 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..sync..ArcInner$LT$quinn..connection..ConnectionInner$GT$$GT$17h905feb5e49da98f0E"(ptr noalias noundef nonnull align 16 dereferenceable(6688) %10) #22
-          to label %.body15 unwind label %90, !noalias !42
+          to label %.body17 unwind label %90, !noalias !42
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
@@ -1023,18 +1023,18 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   %103 = load ptr, ptr %24, align 8, !alias.scope !59, !noalias !38, !nonnull !7, !noundef !7
   %104 = atomicrmw sub ptr %103, i64 1 release, align 8, !noalias !60
   %105 = icmp eq i64 %104, 1
-  br i1 %105, label %106, label %.body15
+  br i1 %105, label %106, label %.body17
 
 106:                                              ; preds = %.noexc100.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf15aa35248c80e4fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %.body15 unwind label %92, !noalias !42
+          to label %.body17 unwind label %92, !noalias !42
 
 107:                                              ; preds = %53
   tail call void @llvm.trap()
   unreachable
 
-.body15:                                          ; preds = %106, %.noexc100.i, %88, %78, %.body
+.body17:                                          ; preds = %106, %.noexc100.i, %88, %78, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %74, %106 ], [ %74, %.noexc100.i ], [ %79, %78 ], [ %89, %88 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$tokio..sync..oneshot..Receiver$LT$bool$GT$$GT$17h533fc8a8728e4a49E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #22
           to label %50 unwind label %144
@@ -1053,7 +1053,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
 .body:                                            ; preds = %129, %common.ret.sink.split.i, %110
   %.pn = phi { ptr, i32 } [ %111, %110 ], [ %122, %common.ret.sink.split.i ], [ %130, %129 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$quinn..connection..ConnectionRef$GT$17h1fb2a409590ff0cbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28) #22
-          to label %.body15 unwind label %144
+          to label %.body17 unwind label %144
 
 110:                                              ; preds = %133, %108
   %111 = landingpad { ptr, i32 }
@@ -1097,9 +1097,9 @@ common.ret.sink.split.i:                          ; preds = %112
 
 128:                                              ; preds = %123
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 64) #24
-          to label %.noexc18 unwind label %129
+          to label %.noexc20 unwind label %129
 
-.noexc18:                                         ; preds = %128
+.noexc20:                                         ; preds = %128
   unreachable
 
 129:                                              ; preds = %128
@@ -1139,20 +1139,20 @@ common.ret.sink.split.i:                          ; preds = %112
   %140 = load ptr, ptr %32, align 8, !alias.scope !70, !nonnull !7, !noundef !7
   %141 = atomicrmw sub ptr %140, i64 1 release, align 8, !noalias !70
   %142 = icmp eq i64 %141, 1
-  br i1 %142, label %143, label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit20"
+  br i1 %142, label %143, label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit22"
 
 143:                                              ; preds = %136
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h731ef816e066564eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %32)
-  br label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit20"
+  br label %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit22"
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit": ; preds = %39, %43
-  br i1 %.sroa.06.0, label %148, label %.thread32
+  br i1 %cond, label %154, label %148
 
-"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit20": ; preds = %143, %136
+"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit22": ; preds = %143, %136
   ret void
 
-144:                                              ; preds = %152, %common.ret.sink.split.i, %43, %153, %.thread27, %.noexc21, %147, %.body, %.body15, %50
+144:                                              ; preds = %152, %common.ret.sink.split.i, %43, %155, %153, %.noexc23, %147, %.body, %.body17, %50
   %145 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
@@ -1171,27 +1171,27 @@ common.ret.sink.split.i:                          ; preds = %112
   %149 = load ptr, ptr %33, align 8, !alias.scope !77, !nonnull !7, !noundef !7
   %150 = atomicrmw sub ptr %149, i64 1 release, align 8, !noalias !77
   %151 = icmp eq i64 %150, 1
-  br i1 %151, label %152, label %.noexc21
+  br i1 %151, label %152, label %.noexc23
 
 152:                                              ; preds = %148
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf15aa35248c80e4fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %33)
-          to label %.noexc21 unwind label %144
+          to label %.noexc23 unwind label %144
 
-.noexc21:                                         ; preds = %152, %148
+.noexc23:                                         ; preds = %152, %148
   invoke void @"_ZN4core3ptr98drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$quinn..ConnectionEvent$GT$$GT$17h6cb53815bb5a0939E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34) #22
-          to label %.thread27 unwind label %144
-
-.thread27:                                        ; preds = %.noexc21
-  invoke void @"_ZN4core3ptr158drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedSender$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$quinn_proto..shared..EndpointEvent$RP$$GT$$GT$17h86f196efd3043e9bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35) #22
           to label %153 unwind label %144
 
-.thread32:                                        ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit", %153
+153:                                              ; preds = %.noexc23
+  invoke void @"_ZN4core3ptr158drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedSender$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$quinn_proto..shared..EndpointEvent$RP$$GT$$GT$17h86f196efd3043e9bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35) #22
+          to label %155 unwind label %144
+
+154:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..Runtime$GT$$GT$17hf36d905b92016b73E.exit", %155
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-153:                                              ; preds = %.thread27
+155:                                              ; preds = %153
   invoke void @"_ZN4core3ptr56drop_in_place$LT$quinn_proto..connection..Connection$GT$17he88de39105205f66E"(ptr noalias noundef nonnull align 16 dereferenceable(6000) %2) #22
-          to label %.thread32 unwind label %144
+          to label %154 unwind label %144
 }
 
 ; Function Attrs: nonlazybind uwtable

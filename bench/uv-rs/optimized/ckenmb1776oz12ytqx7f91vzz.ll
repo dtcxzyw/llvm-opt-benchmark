@@ -1843,34 +1843,34 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16uv_configuration13b
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16uv_configuration13build_options8NoBinary9from_args17h73bf10cd49682c7dE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, i8 noundef range(i8 0, 3) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 {
-  %4 = icmp eq i8 %1, 2
-  br i1 %4, label %5, label %10
+  switch i8 %1, label %12 [
+    i8 2, label %4
+    i8 0, label %10
+  ]
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ult i64 %7, 1152921504606846976
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq i64 %7, 0
-  br i1 %9, label %13, label %12
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = icmp ult i64 %6, 1152921504606846976
+  tail call void @llvm.assume(i1 %7)
+  %8 = icmp eq i64 %6, 0
+  br i1 %8, label %10, label %9
 
-10:                                               ; preds = %3
-  %11 = trunc nuw i8 %1 to i1
-  %spec.select = select i1 %11, i64 -9223372036854775807, i64 -9223372036854775808
-  br label %13
-
-12:                                               ; preds = %5
+9:                                                ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %14
+  br label %11
 
-13:                                               ; preds = %10, %5
-  %.sink = phi i64 [ -9223372036854775808, %5 ], [ %spec.select, %10 ]
+10:                                               ; preds = %4, %3, %12
+  %.sink = phi i64 [ -9223372036854775807, %12 ], [ -9223372036854775808, %3 ], [ -9223372036854775808, %4 ]
   store i64 %.sink, ptr %0, align 8
   tail call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h2aab1fe4c46a7be0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %14
+  br label %11
 
-14:                                               ; preds = %13, %12
+11:                                               ; preds = %10, %9
   ret void
+
+12:                                               ; preds = %3
+  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2366,34 +2366,34 @@ define noundef zeroext i1 @_ZN16uv_configuration13build_options8NoBinary7is_none
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16uv_configuration13build_options7NoBuild9from_args17h13dba6df318732a9E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, i8 noundef range(i8 0, 3) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 {
-  %4 = icmp eq i8 %1, 2
-  br i1 %4, label %5, label %10
+  switch i8 %1, label %12 [
+    i8 2, label %4
+    i8 0, label %10
+  ]
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = icmp ult i64 %7, 1152921504606846976
-  tail call void @llvm.assume(i1 %8)
-  %9 = icmp eq i64 %7, 0
-  br i1 %9, label %13, label %12
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = icmp ult i64 %6, 1152921504606846976
+  tail call void @llvm.assume(i1 %7)
+  %8 = icmp eq i64 %6, 0
+  br i1 %8, label %10, label %9
 
-10:                                               ; preds = %3
-  %11 = trunc nuw i8 %1 to i1
-  %spec.select = select i1 %11, i64 -9223372036854775807, i64 -9223372036854775808
-  br label %13
-
-12:                                               ; preds = %5
+9:                                                ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %14
+  br label %11
 
-13:                                               ; preds = %10, %5
-  %.sink = phi i64 [ -9223372036854775808, %5 ], [ %spec.select, %10 ]
+10:                                               ; preds = %4, %3, %12
+  %.sink = phi i64 [ -9223372036854775807, %12 ], [ -9223372036854775808, %3 ], [ -9223372036854775808, %4 ]
   store i64 %.sink, ptr %0, align 8
   tail call void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$17h2aab1fe4c46a7be0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %14
+  br label %11
 
-14:                                               ; preds = %13, %12
+11:                                               ; preds = %10, %9
   ret void
+
+12:                                               ; preds = %3
+  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable

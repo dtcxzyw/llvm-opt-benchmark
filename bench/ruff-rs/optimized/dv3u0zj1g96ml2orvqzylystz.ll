@@ -160,74 +160,68 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %35 = load i64, ptr %34, align 8, !alias.scope !5, !noalias !14
   %36 = icmp eq i64 %35, 0
   %or.cond.i = select i1 %33, i1 %36, i1 false
-  br i1 %or.cond.i, label %43, label %37
+  br i1 %or.cond.i, label %41, label %37
 
 37:                                               ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !5, !noalias !14, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !13
   call void @_ZN15ruff_python_ast5nodes9Arguments22arguments_source_order17hb5cc28e76dacf19aE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %39), !noalias !10
-  %40 = call { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40b19048c7fcafcfE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !10
-  %41 = extractvalue { i64, ptr } %40, 0
-  %.not20.i = icmp eq i64 %41, 2
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %83
 
-.lr.ph.i:                                         ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %85
+41:                                               ; preds = %3
+  %42 = load i32, ptr %30, align 8, !range !16, !noalias !10, !noundef !3
+  %43 = icmp eq i32 %42, 11
+  br i1 %43, label %44, label %55
 
-43:                                               ; preds = %3
-  %44 = load i32, ptr %30, align 8, !range !16, !noalias !10, !noundef !3
-  %45 = icmp eq i32 %44, 11
-  br i1 %45, label %46, label %57
-
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %30, i64 8
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !13
-  %48 = tail call { ptr, i1 } @"_ZN21ruff_python_formatter9generated173_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..ExprGenerator$GT$6format17hf1a568ad4cf4cd8cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47), !noalias !10
-  %49 = extractvalue { ptr, i1 } %48, 0
-  %50 = extractvalue { ptr, i1 } %48, 1
-  %51 = tail call noundef zeroext i1 @"_ZN227_$LT$ruff_python_formatter..expression..expr_generator..FormatExprGenerator$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..ExprGenerator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17h41b14752be74c5c6E"(i1 noundef zeroext %50, i1 noundef zeroext true), !noalias !10
-  %52 = zext i1 %51 to i8
-  %53 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %53)
-  store ptr %49, ptr %14, align 8, !noalias !13
-  %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i8 %52, ptr %54, align 8, !noalias !13
-  %55 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
-  %56 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h996a9a0502b8348dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.118, i8 noundef %55), !noalias !10
+  %46 = tail call { ptr, i1 } @"_ZN21ruff_python_formatter9generated173_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..ExprGenerator$GT$6format17hf1a568ad4cf4cd8cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %45), !noalias !10
+  %47 = extractvalue { ptr, i1 } %46, 0
+  %48 = extractvalue { ptr, i1 } %46, 1
+  %49 = tail call noundef zeroext i1 @"_ZN227_$LT$ruff_python_formatter..expression..expr_generator..FormatExprGenerator$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..ExprGenerator$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17h41b14752be74c5c6E"(i1 noundef zeroext %48, i1 noundef zeroext true), !noalias !10
+  %50 = zext i1 %49 to i8
+  %51 = icmp ne ptr %47, null
+  tail call void @llvm.assume(i1 %51)
+  store ptr %47, ptr %14, align 8, !noalias !13
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i8 %50, ptr %52, align 8, !noalias !13
+  %53 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
+  %54 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h996a9a0502b8348dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %45, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.118, i8 noundef %53), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !13
   br label %"_ZN155_$LT$ruff_python_formatter..other..arguments..FormatArguments$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Arguments$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h27fb6e082271b30eE.exit"
 
-57:                                               ; preds = %43
-  %58 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %25), !noalias !10
-  %59 = extractvalue { i32, i32 } %58, 1
+55:                                               ; preds = %41
+  %56 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %25), !noalias !10
+  %57 = extractvalue { i32, i32 } %56, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17
-  %60 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %30), !noalias !20
-  %61 = extractvalue { i32, i32 } %60, 1
-  %.not.i.i = icmp ugt i32 %61, %59
-  br i1 %.not.i.i, label %62, label %63, !prof !21
+  %58 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %30), !noalias !20
+  %59 = extractvalue { i32, i32 } %58, 1
+  %.not.i.i = icmp ugt i32 %59, %57
+  br i1 %.not.i.i, label %60, label %61, !prof !21
 
-62:                                               ; preds = %57
+60:                                               ; preds = %55
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.696210897bb003b1492180a2a80f4db6.121, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.696210897bb003b1492180a2a80f4db6.123) #24, !noalias !20
   unreachable
 
-63:                                               ; preds = %57
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, i32 noundef %61, i32 noundef %59), !noalias !10
+61:                                               ; preds = %55
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, i32 noundef %59, i32 noundef %57), !noalias !10
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !17
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !17
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17
-  store ptr %64, ptr %6, align 8, !noalias !22
+  store ptr %62, ptr %6, align 8, !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !22
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !27
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %66 = load i8, ptr %65, align 4, !range !28, !noalias !22, !noundef !3
-  %.not21.i2122.i.i = icmp eq i8 %66, 90
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %64 = load i8, ptr %63, align 4, !range !28, !noalias !22, !noundef !3
+  %.not21.i2122.i.i = icmp eq i8 %64, 90
   br i1 %.not21.i2122.i.i, label %.thread.i.i, label %.lr.ph.i.lr.ph.lr.ph.i.i
 
-.lr.ph.i.lr.ph.lr.ph.i.i:                         ; preds = %63
+.lr.ph.i.lr.ph.lr.ph.i.i:                         ; preds = %61
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.78.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.7.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -243,12 +237,12 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.78.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %67 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e776b8ba38b6d82E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !32
-  br i1 %67, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i.i"
+  %65 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e776b8ba38b6d82E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4), !noalias !32
+  br i1 %65, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i.i": ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
-  br label %68
+  br label %66
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %.sroa.07.0.copyload.i.i.i = load i64, ptr %4, align 8, !alias.scope !33, !noalias !35
@@ -256,26 +250,26 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.i.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.0..sroa_idx.i.i.i, i64 3, i1 false), !alias.scope !33, !noalias !35
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   %.not.i.i.i.i = icmp eq i8 %.sroa.4.0.copyload.i.i.i, 90
-  br i1 %.not.i.i.i.i, label %68, label %70
+  br i1 %.not.i.i.i.i, label %66, label %68
 
-68:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i.i"
+66:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.thread.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !22
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !27
-  %69 = load i8, ptr %65, align 4, !range !28, !noalias !22, !noundef !3
-  %.not.i.i.i = icmp eq i8 %69, 90
+  %67 = load i8, ptr %63, align 4, !range !28, !noalias !22, !noundef !3
+  %.not.i.i.i = icmp eq i8 %67, 90
   br i1 %.not.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.backedge
 
-.lr.ph.i.i.i.backedge:                            ; preds = %68, %73
+.lr.ph.i.i.i.backedge:                            ; preds = %66, %71
   br label %.lr.ph.i.i.i
 
-.thread.i.i:                                      ; preds = %.outer.i.i, %73, %68, %63
+.thread.i.i:                                      ; preds = %.outer.i.i, %71, %66, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !22
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17
   br label %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i
 
-70:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i"
+68:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx5.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.i.i.i, i64 3, i1 false), !noalias !17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78.i.i.i)
@@ -283,93 +277,94 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17
   store i64 %.sroa.07.0.copyload.i.i.i, ptr %7, align 8, !noalias !17
   store i8 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.7.0..sroa_idx3.i.i, align 8, !noalias !17
-  %71 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %7), !noalias !10
+  %69 = call noundef i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %7), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17
-  switch i8 %71, label %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i [
-    i8 6, label %72
-    i8 11, label %73
+  switch i8 %69, label %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i [
+    i8 6, label %70
+    i8 11, label %71
   ]
 
-72:                                               ; preds = %70
+70:                                               ; preds = %68
   br i1 %.sroa.06.0.ph23.i.i, label %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i, label %.outer.i.i
 
-73:                                               ; preds = %70
+71:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17
-  store ptr %64, ptr %6, align 8, !noalias !22
+  store ptr %62, ptr %6, align 8, !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !22
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !27
-  %74 = load i8, ptr %65, align 4, !range !28, !noalias !22, !noundef !3
-  %.not21.i.i.i = icmp eq i8 %74, 90
+  %72 = load i8, ptr %63, align 4, !range !28, !noalias !22, !noundef !3
+  %.not21.i.i.i = icmp eq i8 %72, 90
   br i1 %.not21.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.backedge
 
-.outer.i.i:                                       ; preds = %72
+.outer.i.i:                                       ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17
-  store ptr %64, ptr %6, align 8, !noalias !22
+  store ptr %62, ptr %6, align 8, !noalias !22
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !22
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !27
-  %75 = load i8, ptr %65, align 4, !range !28, !noalias !22, !noundef !3
-  %.not21.i21.i.i = icmp eq i8 %75, 90
+  %73 = load i8, ptr %63, align 4, !range !28, !noalias !22, !noundef !3
+  %.not21.i21.i.i = icmp eq i8 %73, 90
   br i1 %.not21.i21.i.i, label %.thread.i.i, label %.lr.ph.i.lr.ph.i.i
 
-_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i: ; preds = %72, %70, %.thread.i.i
-  %76 = phi i8 [ 2, %.thread.i.i ], [ 2, %70 ], [ 1, %72 ]
+_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i: ; preds = %70, %68, %.thread.i.i
+  %74 = phi i8 [ 2, %.thread.i.i ], [ 2, %68 ], [ 1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !17
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !13
-  %77 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %30), !noalias !10
-  %78 = extractvalue { ptr, i8 } %77, 0
-  %79 = extractvalue { ptr, i8 } %77, 1
-  %80 = call noundef i8 @"_ZN193_$LT$ruff_python_formatter..expression..FormatExpr$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..Expr$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17h2f072779e36e9967E"(i8 noundef %79, i8 noundef %76), !noalias !10
-  %81 = icmp ne ptr %78, null
-  call void @llvm.assume(i1 %81)
-  store ptr %78, ptr %13, align 8, !noalias !13
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i8 %80, ptr %82, align 8, !noalias !13
-  %83 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
-  %84 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.119, i8 noundef %83), !noalias !10
+  %75 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %30), !noalias !10
+  %76 = extractvalue { ptr, i8 } %75, 0
+  %77 = extractvalue { ptr, i8 } %75, 1
+  %78 = call noundef i8 @"_ZN193_$LT$ruff_python_formatter..expression..FormatExpr$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..Expr$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17h2f072779e36e9967E"(i8 noundef %77, i8 noundef %74), !noalias !10
+  %79 = icmp ne ptr %76, null
+  call void @llvm.assume(i1 %79)
+  store ptr %76, ptr %13, align 8, !noalias !13
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 %78, ptr %80, align 8, !noalias !13
+  %81 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
+  %82 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.119, i8 noundef %81), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !13
   br label %"_ZN155_$LT$ruff_python_formatter..other..arguments..FormatArguments$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Arguments$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h27fb6e082271b30eE.exit"
 
-85:                                               ; preds = %100, %.lr.ph.i
-  %.pn.i = phi { i64, ptr } [ %40, %.lr.ph.i ], [ %101, %100 ]
-  %86 = phi i64 [ %41, %.lr.ph.i ], [ %102, %100 ]
-  %87 = extractvalue { i64, ptr } %.pn.i, 1
-  %88 = trunc nuw i64 %86 to i1
-  %89 = icmp ne ptr %87, null
-  call void @llvm.assume(i1 %89)
-  br i1 %88, label %90, label %94
+83:                                               ; preds = %.backedge, %37
+  %84 = call { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40b19048c7fcafcfE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !10
+  %85 = extractvalue { i64, ptr } %84, 0
+  %86 = extractvalue { i64, ptr } %84, 1
+  switch i64 %85, label %88 [
+    i64 2, label %87
+    i64 0, label %93
+  ]
 
-._crit_edge.i:                                    ; preds = %100, %37
+87:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !13
   br label %"_ZN155_$LT$ruff_python_formatter..other..arguments..FormatArguments$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Arguments$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h27fb6e082271b30eE.exit"
 
-90:                                               ; preds = %85
+88:                                               ; preds = %83
+  %89 = icmp ne ptr %86, null
+  call void @llvm.assume(i1 %89)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !13
-  %91 = call noundef nonnull align 8 ptr @"_ZN21ruff_python_formatter9generated163_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..Keyword$GT$6format17h9d0e6c93daffe5ecE"(ptr noundef nonnull align 8 %87), !noalias !10
-  store ptr %91, ptr %10, align 8, !noalias !13
-  %92 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
-  %93 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hca8a9fef9a1d0c80E(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %87, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.120, i8 noundef %92), !noalias !10
+  %90 = call noundef nonnull align 8 ptr @"_ZN21ruff_python_formatter9generated163_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..nodes..Keyword$GT$6format17h9d0e6c93daffe5ecE"(ptr noundef nonnull align 8 %86), !noalias !10
+  store ptr %90, ptr %10, align 8, !noalias !13
+  %91 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
+  %92 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hca8a9fef9a1d0c80E(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %86, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.120, i8 noundef %91), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !13
-  br label %100
+  br label %.backedge
 
-94:                                               ; preds = %85
+93:                                               ; preds = %83
+  %94 = icmp ne ptr %86, null
+  call void @llvm.assume(i1 %94)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !13
-  %95 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %87), !noalias !10
+  %95 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %86), !noalias !10
   %96 = extractvalue { ptr, i8 } %95, 0
   %97 = extractvalue { ptr, i8 } %95, 1
   store ptr %96, ptr %11, align 8, !noalias !13
-  store i8 %97, ptr %42, align 8, !noalias !13
+  store i8 %97, ptr %40, align 8, !noalias !13
   %98 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !10
-  %99 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %87, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.119, i8 noundef %98), !noalias !10
+  %99 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17h0a27b67a8b4cf4fcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 %86, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.696210897bb003b1492180a2a80f4db6.119, i8 noundef %98), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !13
-  br label %100
+  br label %.backedge
 
-100:                                              ; preds = %94, %90
-  %101 = call { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h40b19048c7fcafcfE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !10
-  %102 = extractvalue { i64, ptr } %101, 0
-  %.not.i = icmp eq i64 %102, 2
-  br i1 %.not.i, label %._crit_edge.i, label %85
+.backedge:                                        ; preds = %93, %88
+  br label %83
 
-"_ZN155_$LT$ruff_python_formatter..other..arguments..FormatArguments$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Arguments$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h27fb6e082271b30eE.exit": ; preds = %46, %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i, %._crit_edge.i
+"_ZN155_$LT$ruff_python_formatter..other..arguments..FormatArguments$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Arguments$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h27fb6e082271b30eE.exit": ; preds = %44, %_ZN21ruff_python_formatter5other9arguments32is_single_argument_parenthesized17h970e87b6471b02cfE.exit.thread.i, %87
   call void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish17h62912731f10a6f0fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %15), !noalias !5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !13
   ret void

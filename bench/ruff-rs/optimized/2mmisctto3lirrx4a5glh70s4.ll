@@ -11043,67 +11043,73 @@ define void @_ZN9ty_server7session7Session22open_notebook_document17h675a31d99da
   %6 = alloca [112 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke fastcc void @_ZN9ty_server7session7Session9index_mut17h033e32bc45b8a181E(ptr noalias noundef align 8 captures(none) dereferenceable(112) %6, ptr noalias noundef align 8 dereferenceable(48) %0)
-          to label %9 unwind label %.thread6
+          to label %10 unwind label %8
 
-.thread6:                                         ; preds = %3
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %13, %8
+  %.pn = phi { ptr, i32 } [ %9, %8 ], [ %14, %13 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0, %8 ], [ %.sroa.0.2, %13 ]
+  %cond = icmp eq i8 %.sroa.0.1, 0
+  br i1 %cond, label %20, label %19
+
+8:                                                ; preds = %15, %3
+  %.sroa.0.0 = phi i8 [ 0, %15 ], [ 1, %3 ]
+  %9 = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %7
 
-8:                                                ; preds = %12
-  br i1 %.not.i, label %17, label %18
+10:                                               ; preds = %3
+  %11 = load i64, ptr %6, align 8, !range !275, !alias.scope !571, !noundef !4
+  %.not.i = icmp eq i64 %11, -9223372036854775807
+  br i1 %.not.i, label %12, label %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit", !prof !7
 
-9:                                                ; preds = %3
-  %10 = load i64, ptr %6, align 8, !range !275, !alias.scope !571, !noundef !4
-  %.not.i = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.i, label %11, label %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit", !prof !7
-
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   invoke void @_ZN4core6option13unwrap_failed17haa1cd4d2df4f1dcbE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.371c52bf24696e894bc435f77c095309.212) #25
-          to label %.noexc unwind label %12
+          to label %.noexc unwind label %13
 
-.noexc:                                           ; preds = %11
+.noexc:                                           ; preds = %12
   unreachable
 
-12:                                               ; preds = %11, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %12, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
+  %.sroa.0.2 = phi i8 [ 0, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit" ], [ 1, %12 ]
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6) #27
-          to label %8 unwind label %15
+          to label %7 unwind label %17
 
-"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit": ; preds = %9
+"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit": ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %4, ptr noundef nonnull align 8 dereferenceable(384) %2, i64 384, i1 false)
   invoke void @_ZN9ty_server7session5index5Index22open_notebook_document17h72d8d77cd55644f8E(ptr noalias noundef nonnull align 8 dereferenceable(104) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(384) %4)
-          to label %14 unwind label %12
+          to label %15 unwind label %13
 
-14:                                               ; preds = %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
+15:                                               ; preds = %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6)
+          to label %16 unwind label %8
+
+16:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-15:                                               ; preds = %.thread, %17, %12
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %21, %19, %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-17:                                               ; preds = %.thread6, %8
-  %.pn5 = phi { ptr, i32 } [ %13, %8 ], [ %7, %.thread6 ]
+19:                                               ; preds = %7
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_server..document..notebook..NotebookDocument$GT$17hba1e8a53f3e352e2E"(ptr noalias noundef nonnull align 8 dereferenceable(384) %2) #27
-          to label %.thread unwind label %15
+          to label %21 unwind label %17
 
-18:                                               ; preds = %8, %.thread
-  %.pn4 = phi { ptr, i32 } [ %13, %8 ], [ %.pn5, %.thread ]
-  resume { ptr, i32 } %.pn4
+20:                                               ; preds = %7, %21
+  resume { ptr, i32 } %.pn
 
-.thread:                                          ; preds = %17
+21:                                               ; preds = %19
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h8d88a75f5713fbc4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #27
-          to label %18 unwind label %15
+          to label %20 unwind label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11113,67 +11119,73 @@ define hidden void @_ZN9ty_server7session7Session18open_text_document17h0671a8d7
   %6 = alloca [112 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke fastcc void @_ZN9ty_server7session7Session9index_mut17h033e32bc45b8a181E(ptr noalias noundef align 8 captures(none) dereferenceable(112) %6, ptr noalias noundef align 8 dereferenceable(48) %0)
-          to label %9 unwind label %.thread6
+          to label %10 unwind label %8
 
-.thread6:                                         ; preds = %3
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %13, %8
+  %.pn = phi { ptr, i32 } [ %9, %8 ], [ %14, %13 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0, %8 ], [ %.sroa.0.2, %13 ]
+  %cond = icmp eq i8 %.sroa.0.1, 0
+  br i1 %cond, label %20, label %19
+
+8:                                                ; preds = %15, %3
+  %.sroa.0.0 = phi i8 [ 0, %15 ], [ 1, %3 ]
+  %9 = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %7
 
-8:                                                ; preds = %12
-  br i1 %.not.i, label %17, label %18
+10:                                               ; preds = %3
+  %11 = load i64, ptr %6, align 8, !range !275, !alias.scope !574, !noundef !4
+  %.not.i = icmp eq i64 %11, -9223372036854775807
+  br i1 %.not.i, label %12, label %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit", !prof !7
 
-9:                                                ; preds = %3
-  %10 = load i64, ptr %6, align 8, !range !275, !alias.scope !574, !noundef !4
-  %.not.i = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.i, label %11, label %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit", !prof !7
-
-11:                                               ; preds = %9
+12:                                               ; preds = %10
   invoke void @_ZN4core6option13unwrap_failed17haa1cd4d2df4f1dcbE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.371c52bf24696e894bc435f77c095309.212) #25
-          to label %.noexc unwind label %12
+          to label %.noexc unwind label %13
 
-.noexc:                                           ; preds = %11
+.noexc:                                           ; preds = %12
   unreachable
 
-12:                                               ; preds = %11, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %12, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
+  %.sroa.0.2 = phi i8 [ 0, %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit" ], [ 1, %12 ]
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6) #27
-          to label %8 unwind label %15
+          to label %7 unwind label %17
 
-"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit": ; preds = %9
+"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit": ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   invoke void @_ZN9ty_server7session5index5Index18open_text_document17hff38b1e20e3aa819E(ptr noalias noundef nonnull align 8 dereferenceable(104) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
-          to label %14 unwind label %12
+          to label %15 unwind label %13
 
-14:                                               ; preds = %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
+15:                                               ; preds = %"_ZN80_$LT$ty_server..session..MutIndexGuard$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hf60b2a6e4f7c0243E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6)
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$ty_server..session..MutIndexGuard$GT$17h0d9834620e3b1384E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6)
+          to label %16 unwind label %8
+
+16:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-15:                                               ; preds = %.thread, %17, %12
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %21, %19, %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-17:                                               ; preds = %.thread6, %8
-  %.pn5 = phi { ptr, i32 } [ %13, %8 ], [ %7, %.thread6 ]
+19:                                               ; preds = %7
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_server..document..text_document..TextDocument$GT$17hc3d62620c6865495E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2) #27
-          to label %.thread unwind label %15
+          to label %21 unwind label %17
 
-18:                                               ; preds = %8, %.thread
-  %.pn4 = phi { ptr, i32 } [ %13, %8 ], [ %.pn5, %.thread ]
-  resume { ptr, i32 } %.pn4
+20:                                               ; preds = %7, %21
+  resume { ptr, i32 } %.pn
 
-.thread:                                          ; preds = %17
+21:                                               ; preds = %19
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h8d88a75f5713fbc4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #27
-          to label %18 unwind label %15
+          to label %20 unwind label %17
 }
 
 ; Function Attrs: nonlazybind uwtable

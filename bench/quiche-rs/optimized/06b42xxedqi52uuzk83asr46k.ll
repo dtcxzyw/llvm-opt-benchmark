@@ -1420,7 +1420,7 @@ define internal fastcc void @_ZN6quiche6crypto4Open3new17h8628e9b83b034276E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %58
 
-58:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit34", %.thread47, %57
+58:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit34", %66, %57
   ret void
 
 59:                                               ; preds = %55
@@ -1436,7 +1436,7 @@ define internal fastcc void @_ZN6quiche6crypto4Open3new17h8628e9b83b034276E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %58
 
-61:                                               ; preds = %41, %66, %.thread37, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %14
+61:                                               ; preds = %41, %67, %.thread37, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %14
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
@@ -1450,27 +1450,27 @@ define internal fastcc void @_ZN6quiche6crypto4Open3new17h8628e9b83b034276E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.thread47 unwind label %64
+          to label %66 unwind label %64
 
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %67
 
-.thread47:                                        ; preds = %63
+66:                                               ; preds = %63
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %58
 
 .thread37:                                        ; preds = %14, %.thread42
   %.pn41 = phi { ptr, i32 } [ %26, %.thread42 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #19
-          to label %66 unwind label %61
+          to label %67 unwind label %61
 
-.thread:                                          ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %66
-  %.pn3152 = phi { ptr, i32 } [ %.pn31.ph, %66 ], [ %38, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit" ], [ %60, %59 ]
-  resume { ptr, i32 } %.pn3152
+.thread:                                          ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %67
+  %.pn3151 = phi { ptr, i32 } [ %.pn31.ph, %67 ], [ %38, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit" ], [ %60, %59 ]
+  resume { ptr, i32 } %.pn3151
 
-66:                                               ; preds = %64, %.thread37
+67:                                               ; preds = %64, %.thread37
   %.pn31.ph = phi { ptr, i32 } [ %.pn41, %.thread37 ], [ %65, %64 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #19
           to label %.thread unwind label %61
@@ -1953,7 +1953,7 @@ define internal fastcc void @_ZN6quiche6crypto4Seal3new17hc33ae2990493b2d0E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %58
 
-58:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit34", %.thread47, %57
+58:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit34", %66, %57
   ret void
 
 59:                                               ; preds = %55
@@ -1969,7 +1969,7 @@ define internal fastcc void @_ZN6quiche6crypto4Seal3new17hc33ae2990493b2d0E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %58
 
-61:                                               ; preds = %41, %66, %.thread37, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %14
+61:                                               ; preds = %41, %67, %.thread37, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %14
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
@@ -1983,27 +1983,27 @@ define internal fastcc void @_ZN6quiche6crypto4Seal3new17hc33ae2990493b2d0E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.thread47 unwind label %64
+          to label %66 unwind label %64
 
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %67
 
-.thread47:                                        ; preds = %63
+66:                                               ; preds = %63
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %58
 
 .thread37:                                        ; preds = %14, %.thread42
   %.pn41 = phi { ptr, i32 } [ %26, %.thread42 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #19
-          to label %66 unwind label %61
+          to label %67 unwind label %61
 
-.thread:                                          ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %66
-  %.pn3152 = phi { ptr, i32 } [ %.pn31.ph, %66 ], [ %38, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit" ], [ %60, %59 ]
-  resume { ptr, i32 } %.pn3152
+.thread:                                          ; preds = %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit", %59, %67
+  %.pn3151 = phi { ptr, i32 } [ %.pn31.ph, %67 ], [ %38, %"_ZN4core3ptr67drop_in_place$LT$quiche..crypto..boringssl..HeaderProtectionKey$GT$17h793e4b39f27aa8a5E.exit" ], [ %60, %59 ]
+  resume { ptr, i32 } %.pn3151
 
-66:                                               ; preds = %64, %.thread37
+67:                                               ; preds = %64, %.thread37
   %.pn31.ph = phi { ptr, i32 } [ %.pn41, %.thread37 ], [ %65, %64 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #19
           to label %.thread unwind label %61

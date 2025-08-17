@@ -5767,12 +5767,12 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   call void @_ZN6octets9OctetsMut10with_slice17hed5ec281f33c8988E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 1 %4, i64 noundef %5)
   %14 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef 0, i8 noundef 0, i64 noundef 8, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not = icmp eq i8 %14, 6
-  br i1 %.not, label %15, label %.loopexit101
+  br i1 %.not, label %15, label %.loopexit102
 
 15:                                               ; preds = %6
   %16 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef 0, i8 noundef 0, i64 noundef 7, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not48 = icmp eq i8 %16, 6
-  br i1 %.not48, label %17, label %.loopexit101
+  br i1 %.not48, label %17, label %.loopexit102
 
 17:                                               ; preds = %15
   %.idx = mul nuw nsw i64 %3, 48
@@ -5781,7 +5781,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %.sroa.046.1122 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %.sroa.046.1123 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -5798,12 +5798,12 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   br label %31
 
 31:                                               ; preds = %.lr.ph, %143
-  %.sroa.046.1124 = phi ptr [ %.sroa.046.1122, %.lr.ph ], [ %.sroa.046.1, %143 ]
-  %.sroa.046.0123 = phi ptr [ %2, %.lr.ph ], [ %.sroa.046.1124, %143 ]
-  %32 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0123)
+  %.sroa.046.1125 = phi ptr [ %.sroa.046.1123, %.lr.ph ], [ %.sroa.046.1, %143 ]
+  %.sroa.046.0124 = phi ptr [ %2, %.lr.ph ], [ %.sroa.046.1125, %143 ]
+  %32 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %33 = extractvalue { ptr, i64 } %32, 1
   %34 = icmp ugt i64 %33, 32
-  br i1 %34, label %.loopexit99, label %35
+  br i1 %34, label %.loopexit100, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.2555188e7c0d002edaa778fbad9a1afd.274, i64 %33
@@ -5813,14 +5813,14 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   %.idx.i = shl nuw nsw i64 %39, 5
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %41 = icmp eq i64 %39, 0
-  br i1 %41, label %.loopexit99, label %.lr.ph33.i
+  br i1 %41, label %.loopexit100, label %.lr.ph33.i
 
 .lr.ph33.i:                                       ; preds = %35, %58
   %.sroa.013.031.i = phi ptr [ %59, %58 ], [ %37, %35 ]
   %42 = load ptr, ptr %.sroa.013.031.i, align 8, !nonnull !3, !align !4, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i, i64 8
   %44 = load i64, ptr %43, align 8, !noundef !3
-  %45 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0123)
+  %45 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !393
@@ -5855,7 +5855,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !393
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i, i64 32
   %60 = icmp eq ptr %59, %40
-  br i1 %60, label %.loopexit99, label %.lr.ph33.i
+  br i1 %60, label %.loopexit100, label %.lr.ph33.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph33.i, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !393
@@ -5882,14 +5882,14 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
 72:                                               ; preds = %66
   %73 = load i64, ptr %63, align 8, !noundef !3
   %.not16.i = icmp eq i64 %73, 0
-  br i1 %.not16.i, label %.loopexit99, label %74
+  br i1 %.not16.i, label %.loopexit100, label %74
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %61, align 8, !nonnull !3, !align !396, !noundef !3
   br label %.loopexit
 
 76:                                               ; preds = %68
-  %77 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0123)
+  %77 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %80 = load ptr, ptr %.sroa.014.0.i, align 8, !nonnull !3, !align !4, !noundef !3
@@ -5903,14 +5903,14 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   store i64 %83, ptr %84, align 8
   br label %85
 
-85:                                               ; preds = %.loopexit101, %._crit_edge
-  %.sink = phi i8 [ 1, %.loopexit101 ], [ 0, %._crit_edge ]
+85:                                               ; preds = %.loopexit102, %._crit_edge
+  %.sink = phi i8 [ 1, %.loopexit102 ], [ 0, %._crit_edge ]
   store i8 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-.loopexit99:                                      ; preds = %58, %31, %72, %35
-  %86 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0123)
+.loopexit100:                                     ; preds = %58, %31, %72, %35
+  %86 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$4name17h0e2c197f5152d2dbE"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !405
@@ -5919,12 +5919,12 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %94
 
-91:                                               ; preds = %.loopexit99
+91:                                               ; preds = %.loopexit100
   %92 = load i8, ptr %26, align 1, !range !22, !noalias !405, !noundef !3
   %93 = icmp eq i8 %92, 1
   br i1 %93, label %99, label %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread
 
-94:                                               ; preds = %.loopexit99
+94:                                               ; preds = %.loopexit100
   %95 = load i64, ptr %25, align 8, !noalias !405, !noundef !3
   %96 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %95, i8 noundef 40, i64 noundef 3, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not.i = icmp eq i8 %96, 6
@@ -6014,16 +6014,16 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
 _ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread: ; preds = %94, %91, %99
   %.sroa.0.1.i.ph = phi i8 [ %100, %99 ], [ %92, %91 ], [ %96, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !405
-  br label %.loopexit101
+  br label %.loopexit102
 
 _ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit: ; preds = %97, %.sink.split.i
   %.sroa.0.1.i = phi i8 [ %98, %97 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !405
   %.not52 = icmp eq i8 %.sroa.0.1.i, 6
-  br i1 %.not52, label %124, label %.loopexit101
+  br i1 %.not52, label %124, label %.loopexit102
 
 124:                                              ; preds = %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit
-  %125 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0123)
+  %125 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %126 = extractvalue { ptr, i64 } %125, 0
   %127 = extractvalue { ptr, i64 } %125, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !425
@@ -6050,9 +6050,9 @@ _ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit: ; preds = %97,
 
 138:                                              ; preds = %136
   %139 = call noundef zeroext i1 @_ZN6octets9OctetsMut9put_bytes17h91640c5d6e962355E(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %126, i64 noundef %127)
-  br i1 %139, label %140, label %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread88
+  br i1 %139, label %140, label %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread89
 
-_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread88: ; preds = %138
+_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread89: ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !425
   br label %143
 
@@ -6063,37 +6063,37 @@ _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread88: ; pre
 _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread: ; preds = %133, %130, %136, %140
   %.sroa.0.1.i69.ph = phi i8 [ %141, %140 ], [ %135, %133 ], [ %131, %130 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !425
-  br label %.loopexit101
+  br label %.loopexit102
 
 _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit: ; preds = %133
   %142 = call noundef i8 @_ZN6quiche2h35qpack7huffman6encode17h82a2b953120cf0aaE(ptr noalias noundef nonnull readonly align 1 %126, i64 noundef %127, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !425
   %.not54 = icmp eq i8 %142, 6
-  br i1 %.not54, label %143, label %.loopexit101
+  br i1 %.not54, label %143, label %.loopexit102
 
-143:                                              ; preds = %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread94, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread88, %146, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit
-  %144 = icmp eq ptr %.sroa.046.1124, %18
+143:                                              ; preds = %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread95, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread89, %146, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit
+  %144 = icmp eq ptr %.sroa.046.1125, %18
   %.sroa.046.1.idx = select i1 %144, i64 0, i64 48
-  %.sroa.046.1 = getelementptr inbounds nuw i8, ptr %.sroa.046.1124, i64 %.sroa.046.1.idx
+  %.sroa.046.1 = getelementptr inbounds nuw i8, ptr %.sroa.046.1125, i64 %.sroa.046.1.idx
   br i1 %144, label %._crit_edge, label %31
 
 .loopexit:                                        ; preds = %68, %74
   %.sroa.014.0.lcssa44.sink.i.ph = phi ptr [ %75, %74 ], [ %.sroa.014.0.i, %68 ]
-  %.sroa.0.3.in.i79 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa44.sink.i.ph, i64 16
-  %.sroa.0.3.i80 = load i64, ptr %.sroa.0.3.in.i79, align 8, !noundef !3
-  %145 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %.sroa.0.3.i80, i8 noundef 80, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
+  %.sroa.0.3.in.i80 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa44.sink.i.ph, i64 16
+  %.sroa.0.3.i81 = load i64, ptr %.sroa.0.3.in.i80, align 8, !noundef !3
+  %145 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %.sroa.0.3.i81, i8 noundef 80, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not56 = icmp eq i8 %145, 6
-  br i1 %.not56, label %148, label %.loopexit101
+  br i1 %.not56, label %148, label %.loopexit102
 
 146:                                              ; preds = %76
   %.sroa.0.3.in.i = getelementptr inbounds nuw i8, ptr %.sroa.014.0.i, i64 16
   %.sroa.0.3.i = load i64, ptr %.sroa.0.3.in.i, align 8, !noundef !3
   %147 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %.sroa.0.3.i, i8 noundef -64, i64 noundef 6, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not60 = icmp eq i8 %147, 6
-  br i1 %.not60, label %143, label %.loopexit101
+  br i1 %.not60, label %143, label %.loopexit102
 
 148:                                              ; preds = %.loopexit
-  %149 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0123)
+  %149 = call { ptr, i64 } @"_ZN60_$LT$quiche..h3..Header$u20$as$u20$quiche..h3..NameValue$GT$5value17hbfbeb9ad00ea8cb9E"(ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.046.0124)
   %150 = extractvalue { ptr, i64 } %149, 0
   %151 = extractvalue { ptr, i64 } %149, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !430
@@ -6120,9 +6120,9 @@ _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit: ; preds = %133
 
 162:                                              ; preds = %160
   %163 = call noundef zeroext i1 @_ZN6octets9OctetsMut9put_bytes17h91640c5d6e962355E(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %150, i64 noundef %151)
-  br i1 %163, label %164, label %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread94
+  br i1 %163, label %164, label %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread95
 
-_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread94: ; preds = %162
+_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread95: ; preds = %162
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !430
   br label %143
 
@@ -6133,18 +6133,18 @@ _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread94: ; p
 _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread: ; preds = %157, %154, %160, %164
   %.sroa.0.1.i71.ph = phi i8 [ %165, %164 ], [ %159, %157 ], [ %155, %154 ], [ %161, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !430
-  br label %.loopexit101
+  br label %.loopexit102
 
 _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73: ; preds = %157
   %166 = call noundef i8 @_ZN6quiche2h35qpack7huffman6encode17h82a2b953120cf0aaE(ptr noalias noundef nonnull readonly align 1 %150, i64 noundef %151, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !430
   %.not58 = icmp eq i8 %166, 6
-  br i1 %.not58, label %143, label %.loopexit101
+  br i1 %.not58, label %143, label %.loopexit102
 
-.loopexit101:                                     ; preds = %146, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73, %.loopexit, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread, %15, %6
-  %.sroa.0.1.i84.sink = phi i8 [ %14, %6 ], [ %16, %15 ], [ %.sroa.0.1.i.ph, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread ], [ %.sroa.0.1.i69.ph, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread ], [ %.sroa.0.1.i71.ph, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread ], [ %.sroa.0.1.i, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit ], [ %142, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit ], [ %145, %.loopexit ], [ %166, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73 ], [ %147, %146 ]
+.loopexit102:                                     ; preds = %146, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73, %.loopexit, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread, %15, %6
+  %.sroa.0.1.i85.sink = phi i8 [ %14, %6 ], [ %16, %15 ], [ %.sroa.0.1.i.ph, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit.thread ], [ %.sroa.0.1.i69.ph, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit.thread ], [ %.sroa.0.1.i71.ph, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73.thread ], [ %.sroa.0.1.i, %_ZN6quiche2h35qpack7encoder10encode_str17h097c25f03d9fa297E.exit ], [ %142, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit ], [ %145, %.loopexit ], [ %166, %_ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit73 ], [ %147, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.0.1.i84.sink, ptr %167, align 1
+  store i8 %.sroa.0.1.i85.sink, ptr %167, align 1
   br label %85
 }
 

@@ -1142,31 +1142,29 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17he17a59722f89a90cE(pt
 
 4:                                                ; preds = %1
   %5 = tail call noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha20de58f4eebcacfE.llvm.7682112885863094546"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.989ae5196e0e7ba231ccae160b85bccb.24.llvm.7682112885863094546), !range !309, !noalias !306
-  %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i"
+  switch i8 %5, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit" [
+    i8 2, label %6
+    i8 0, label %7
+  ]
 
-7:                                                ; preds = %4
+6:                                                ; preds = %4
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.989ae5196e0e7ba231ccae160b85bccb.25.llvm.7682112885863094546, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.989ae5196e0e7ba231ccae160b85bccb.23.llvm.7682112885863094546, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.989ae5196e0e7ba231ccae160b85bccb.27.llvm.7682112885863094546) #33, !noalias !306
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i": ; preds = %4
-  %8 = trunc nuw i8 %5 to i1
-  br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit", label %9
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !alias.scope !310, !noalias !306, !nonnull !4, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf992dea77ddbe985E.llvm.7682112885863094546(ptr noundef nonnull %10, i8 noundef 4), !noalias !306
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit", label %13
 
-9:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i"
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !alias.scope !310, !noalias !306, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf992dea77ddbe985E.llvm.7682112885863094546(ptr noundef nonnull %12, i8 noundef 4), !noalias !306
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit", label %15
-
-15:                                               ; preds = %9
-  %16 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !306
-  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %16), !noalias !306
+13:                                               ; preds = %7
+  %14 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !306
+  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %14), !noalias !306
   br label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit"
 
-"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit": ; preds = %1, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i", %9, %15
+"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit": ; preds = %1, %4, %7, %13
   ret void
 }
 
@@ -1178,31 +1176,29 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17hef5b6f4ee902765cE(pt
 
 4:                                                ; preds = %1
   %5 = tail call noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha20de58f4eebcacfE.llvm.7682112885863094546"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.989ae5196e0e7ba231ccae160b85bccb.24.llvm.7682112885863094546), !range !309, !noalias !313
-  %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i"
+  switch i8 %5, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit" [
+    i8 2, label %6
+    i8 0, label %7
+  ]
 
-7:                                                ; preds = %4
+6:                                                ; preds = %4
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.989ae5196e0e7ba231ccae160b85bccb.25.llvm.7682112885863094546, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.989ae5196e0e7ba231ccae160b85bccb.23.llvm.7682112885863094546, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.989ae5196e0e7ba231ccae160b85bccb.27.llvm.7682112885863094546) #33, !noalias !313
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i": ; preds = %4
-  %8 = trunc nuw i8 %5 to i1
-  br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit", label %9
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !alias.scope !316, !noalias !313, !nonnull !4, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf992dea77ddbe985E.llvm.7682112885863094546(ptr noundef nonnull %10, i8 noundef 4), !noalias !313
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit", label %13
 
-9:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i"
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !alias.scope !316, !noalias !313, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf992dea77ddbe985E.llvm.7682112885863094546(ptr noundef nonnull %12, i8 noundef 4), !noalias !313
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit", label %15
-
-15:                                               ; preds = %9
-  %16 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !313
-  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %16), !noalias !313
+13:                                               ; preds = %7
+  %14 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !313
+  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %14), !noalias !313
   br label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit"
 
-"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit": ; preds = %1, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i", %9, %15
+"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit": ; preds = %1, %4, %7, %13
   ret void
 }
 

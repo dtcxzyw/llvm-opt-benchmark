@@ -45853,8 +45853,8 @@ _ZN3std4path8absolute17h669f884d0ed1bd39E.exit:   ; preds = %280
 376:                                              ; preds = %374
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 144
   %378 = load i64, ptr %377, align 8, !range !525, !noundef !22
-  %or.cond = icmp eq i64 %378, 1
-  br i1 %or.cond, label %379, label %_ZN4core3ops8function6FnOnce9call_once17hb9db38e43da0095aE.exit
+  %switch = icmp eq i64 %378, 1
+  br i1 %switch, label %379, label %_ZN4core3ops8function6FnOnce9call_once17hb9db38e43da0095aE.exit
 
 379:                                              ; preds = %376
   %380 = getelementptr inbounds nuw i8, ptr %375, i64 152
@@ -46505,7 +46505,7 @@ _ZN3std4sync6poison4once4Once9call_once17h119914b4674abdbbE.exit: ; preds = %.no
     i64 3, label %733
   ]
 
-.loopexit835:                                     ; preds = %524, %.loopexit1890, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.thread", %.loopexit1891, %540
+.loopexit835:                                     ; preds = %524, %.loopexit1891, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.thread", %.loopexit1892, %540
   %lpad.loopexit837 = landingpad { ptr, i32 }
           cleanup
   br label %909
@@ -46610,7 +46610,7 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit.i.i: ; preds = 
   %572 = getelementptr inbounds nuw i8, ptr %570, i64 16
   %.val.i430 = load i64, ptr %570, align 8, !range !525, !noalias !10131, !noundef !22
   %573 = icmp eq i64 %.val.i430, 1
-  br i1 %573, label %.loopexit1890, label %569
+  br i1 %573, label %.loopexit1891, label %569
 
 574:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit.i.i, %561
   %575 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12uv_normalize10group_name16DEV_DEPENDENCIES17h521de2cae7f202aeE, i64 8) acquire, align 8
@@ -46665,7 +46665,7 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit434: ; preds = %
   br i1 %583, label %591, label %589
 
 588:                                              ; preds = %584
-  br i1 %583, label %615, label %.loopexit1890
+  br i1 %583, label %615, label %.loopexit1891
 
 589:                                              ; preds = %585
   br i1 %587, label %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit436, label %590, !prof !237
@@ -46781,17 +46781,17 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit446: ; preds = %
   br i1 %or.cond.i448, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %627, %612, %601, %639
-  %.sink1888 = phi ptr [ %636, %639 ], [ %598, %601 ], [ %609, %612 ], [ %624, %627 ]
-  %.sink1885.ph = phi ptr [ %631, %639 ], [ %593, %601 ], [ %604, %612 ], [ %619, %627 ]
-  %630 = atomicrmw or ptr %.sink1888, i64 1 release, align 8, !noalias !22
+  %.sink1889 = phi ptr [ %636, %639 ], [ %598, %601 ], [ %609, %612 ], [ %624, %627 ]
+  %.sink1886.ph = phi ptr [ %631, %639 ], [ %593, %601 ], [ %604, %612 ], [ %619, %627 ]
+  %630 = atomicrmw or ptr %.sink1889, i64 1 release, align 8, !noalias !22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit446, %623, %627, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit438, %608, %612, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit436, %597, %601, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit432, %635, %639
-  %.sink1885 = phi ptr [ %631, %639 ], [ %631, %635 ], [ %631, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit432 ], [ %593, %601 ], [ %593, %597 ], [ %593, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit436 ], [ %604, %612 ], [ %604, %608 ], [ %604, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit438 ], [ %619, %627 ], [ %619, %623 ], [ %619, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit446 ], [ %.sink1885.ph, %.sink.split.sink.split ]
-  store ptr %.sink1885, ptr %177, align 8
-  br label %.loopexit1890
+  %.sink1886 = phi ptr [ %631, %639 ], [ %631, %635 ], [ %631, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit432 ], [ %593, %601 ], [ %593, %597 ], [ %593, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit436 ], [ %604, %612 ], [ %604, %608 ], [ %604, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit438 ], [ %619, %627 ], [ %619, %623 ], [ %619, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit446 ], [ %.sink1886.ph, %.sink.split.sink.split ]
+  store ptr %.sink1886, ptr %177, align 8
+  br label %.loopexit1891
 
-.loopexit1890:                                    ; preds = %571, %.sink.split, %588
+.loopexit1891:                                    ; preds = %571, %.sink.split, %588
   %.sink = phi i64 [ 1, %588 ], [ 3, %.sink.split ], [ 1, %571 ]
   store i64 %.sink, ptr %65, align 8
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..DependencyType$GT$$GT$17hac2e7b0779b0b2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64)
@@ -46818,7 +46818,7 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit432: ; preds = %
   %or.cond.i451 = icmp eq i64 %641, -9223372036854775808
   br i1 %or.cond.i451, label %.sink.split.sink.split, label %.sink.split
 
-642:                                              ; preds = %.loopexit1890
+642:                                              ; preds = %.loopexit1891
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %541
 
@@ -46972,7 +46972,7 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit.i.i462: ; preds
   %691 = getelementptr inbounds nuw i8, ptr %689, i64 16
   %.val.i470 = load i64, ptr %689, align 8, !range !525, !noalias !10164, !noundef !22
   %692 = icmp eq i64 %.val.i470, 1
-  br i1 %692, label %.loopexit1891, label %688
+  br i1 %692, label %.loopexit1892, label %688
 
 693:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit.i.i462, %680
   %694 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12uv_normalize10group_name16DEV_DEPENDENCIES17h521de2cae7f202aeE, i64 8) acquire, align 8
@@ -47016,34 +47016,34 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474: ; preds = %
   %701 = load i64, ptr %700, align 8, !noalias !10167, !noundef !22
   %702 = and i64 %701, 1
   %703 = icmp eq i64 %702, 0
-  br i1 %703, label %704, label %.sink.split1886
+  br i1 %703, label %704, label %.sink.split1887
 
 704:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474
   %705 = getelementptr inbounds nuw i8, ptr %700, i64 8
   %706 = load atomic i64, ptr %705 monotonic, align 8, !noalias !10167
   %707 = and i64 %706, 1
   %.not.i475 = icmp eq i64 %707, 0
-  br i1 %.not.i475, label %708, label %.sink.split1886
+  br i1 %.not.i475, label %708, label %.sink.split1887
 
 708:                                              ; preds = %704
   %709 = atomicrmw add ptr %705, i64 2 monotonic, align 8, !noalias !10167
   %710 = and i64 %709, -9223372036854775807
   %or.cond.i476 = icmp eq i64 %710, -9223372036854775808
-  br i1 %or.cond.i476, label %.sink.split1886.sink.split, label %.sink.split1886
+  br i1 %or.cond.i476, label %.sink.split1887.sink.split, label %.sink.split1887
 
-.sink.split1886.sink.split:                       ; preds = %708, %720
-  %.sink1889 = phi ptr [ %717, %720 ], [ %705, %708 ]
-  %.sink1887.ph = phi ptr [ %712, %720 ], [ %700, %708 ]
-  %711 = atomicrmw or ptr %.sink1889, i64 1 release, align 8, !noalias !22
-  br label %.sink.split1886
+.sink.split1887.sink.split:                       ; preds = %708, %720
+  %.sink1890 = phi ptr [ %717, %720 ], [ %705, %708 ]
+  %.sink1888.ph = phi ptr [ %712, %720 ], [ %700, %708 ]
+  %711 = atomicrmw or ptr %.sink1890, i64 1 release, align 8, !noalias !22
+  br label %.sink.split1887
 
-.sink.split1886:                                  ; preds = %.sink.split1886.sink.split, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474, %704, %708, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472, %716, %720
-  %.sink1887 = phi ptr [ %712, %720 ], [ %712, %716 ], [ %712, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472 ], [ %700, %708 ], [ %700, %704 ], [ %700, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474 ], [ %.sink1887.ph, %.sink.split1886.sink.split ]
-  store ptr %.sink1887, ptr %177, align 8
-  br label %.loopexit1891
+.sink.split1887:                                  ; preds = %.sink.split1887.sink.split, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474, %704, %708, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472, %716, %720
+  %.sink1888 = phi ptr [ %712, %720 ], [ %712, %716 ], [ %712, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472 ], [ %700, %708 ], [ %700, %704 ], [ %700, %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit474 ], [ %.sink1888.ph, %.sink.split1887.sink.split ]
+  store ptr %.sink1888, ptr %177, align 8
+  br label %.loopexit1892
 
-.loopexit1891:                                    ; preds = %690, %.sink.split1886
-  %.sink1883 = phi i64 [ 3, %.sink.split1886 ], [ 1, %690 ]
+.loopexit1892:                                    ; preds = %690, %.sink.split1887
+  %.sink1883 = phi i64 [ 3, %.sink.split1887 ], [ 1, %690 ]
   store i64 %.sink1883, ptr %65, align 8
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$uv_workspace..pyproject..DependencyType$GT$$GT$17hac2e7b0779b0b2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63)
           to label %723 unwind label %.loopexit835
@@ -47054,22 +47054,22 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472: ; preds = %
   %713 = load i64, ptr %712, align 8, !noalias !10170, !noundef !22
   %714 = and i64 %713, 1
   %715 = icmp eq i64 %714, 0
-  br i1 %715, label %716, label %.sink.split1886
+  br i1 %715, label %716, label %.sink.split1887
 
 716:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit472
   %717 = getelementptr inbounds nuw i8, ptr %712, i64 8
   %718 = load atomic i64, ptr %717 monotonic, align 8, !noalias !10170
   %719 = and i64 %718, 1
   %.not.i478 = icmp eq i64 %719, 0
-  br i1 %.not.i478, label %720, label %.sink.split1886
+  br i1 %.not.i478, label %720, label %.sink.split1887
 
 720:                                              ; preds = %716
   %721 = atomicrmw add ptr %717, i64 2 monotonic, align 8, !noalias !10170
   %722 = and i64 %721, -9223372036854775807
   %or.cond.i479 = icmp eq i64 %722, -9223372036854775808
-  br i1 %or.cond.i479, label %.sink.split1886.sink.split, label %.sink.split1886
+  br i1 %or.cond.i479, label %.sink.split1887.sink.split, label %.sink.split1887
 
-723:                                              ; preds = %.loopexit1891
+723:                                              ; preds = %.loopexit1892
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %541
 

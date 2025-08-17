@@ -8574,129 +8574,130 @@ define void @"_ZN18ty_python_semantic5types5class135_$LT$impl$u20$core..convert.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal17hd777faf879f096a6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 4 captures(none) dereferenceable(24) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(224) %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 8, !range !709, !alias.scope !1115, !noundef !3
-  %.not = icmp eq i8 %5, 13
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !alias.scope !1115
-  br i1 %.not, label %8, label %12
+  %6 = icmp eq i8 %5, 13
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4, !range !113, !alias.scope !1115
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load i32, ptr %9, align 8, !alias.scope !1115
+  %.sroa.3.0.i = select i1 %6, i32 %10, i32 undef
+  %.sroa.0.0.i = select i1 %6, i32 %8, i32 2
+  switch i32 %.sroa.0.0.i, label %13 [
+    i32 2, label %11
+    i32 0, label %16
+  ]
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !range !113, !alias.scope !1115
-  %11 = trunc nuw i32 %10 to i1
-  br i1 %11, label %14, label %17
-
-12:                                               ; preds = %4
+11:                                               ; preds = %4
   store i32 2, ptr %0, align 4
-  br label %13
+  br label %12
 
-13:                                               ; preds = %63, %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", %43, %18, %17, %12
+12:                                               ; preds = %62, %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", %42, %17, %16, %11
   ret void
 
-14:                                               ; preds = %8
-  %15 = tail call noundef i32 @"_ZN18ty_python_semantic5types5class1_64_$LT$impl$u20$ty_python_semantic..types..class..GenericAlias$GT$6origin17h1189c651a473dfdcE"(i32 noundef %7, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %16 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class12ClassLiteral8is_known17h275f4f4d8167c1d8E(i32 noundef %15, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 14)
-  br i1 %16, label %19, label %18
+13:                                               ; preds = %4
+  %14 = tail call noundef i32 @"_ZN18ty_python_semantic5types5class1_64_$LT$impl$u20$ty_python_semantic..types..class..GenericAlias$GT$6origin17h1189c651a473dfdcE"(i32 noundef %.sroa.3.0.i, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %15 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class12ClassLiteral8is_known17h275f4f4d8167c1d8E(i32 noundef %14, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 14)
+  br i1 %15, label %18, label %17
 
-17:                                               ; preds = %8
+16:                                               ; preds = %4
   store i32 2, ptr %0, align 4
-  br label %13
+  br label %12
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   store i32 2, ptr %0, align 4
-  br label %13
+  br label %12
 
-19:                                               ; preds = %14
-  %20 = tail call noundef i32 @"_ZN18ty_python_semantic5types5class1_64_$LT$impl$u20$ty_python_semantic..types..class..GenericAlias$GT$14specialization17h27729c951e9ce8faE"(i32 noundef %7, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %21 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types8generics1_69_$LT$impl$u20$ty_python_semantic..types..generics..Specialization$GT$5types17h05770cf2530ad046E"(i32 noundef %20, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-  %22 = extractvalue { ptr, i64 } %21, 1
-  %23 = icmp eq i64 %22, 3
-  br i1 %23, label %24, label %43
+18:                                               ; preds = %13
+  %19 = tail call noundef i32 @"_ZN18ty_python_semantic5types5class1_64_$LT$impl$u20$ty_python_semantic..types..class..GenericAlias$GT$14specialization17h27729c951e9ce8faE"(i32 noundef %.sroa.3.0.i, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %20 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types8generics1_69_$LT$impl$u20$ty_python_semantic..types..generics..Specialization$GT$5types17h05770cf2530ad046E"(i32 noundef %19, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
+  %21 = extractvalue { ptr, i64 } %20, 1
+  %22 = icmp eq i64 %21, 3
+  br i1 %22, label %23, label %42
 
-24:                                               ; preds = %19
-  %25 = extractvalue { ptr, i64 } %21, 0
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+23:                                               ; preds = %18
+  %24 = extractvalue { ptr, i64 } %20, 0
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1118)
-  %27 = load i8, ptr %25, align 8, !range !709, !alias.scope !1118, !noundef !3
-  switch i8 %27, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread" [
-    i8 13, label %28
-    i8 21, label %34
-    i8 22, label %39
+  %26 = load i8, ptr %24, align 8, !range !709, !alias.scope !1118, !noundef !3
+  switch i8 %26, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread" [
+    i8 13, label %27
+    i8 21, label %33
+    i8 22, label %38
   ]
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %30 = load i32, ptr %29, align 4, !range !113, !alias.scope !1118, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %32 = load i32, ptr %31, align 4, !alias.scope !1118, !noundef !3
-  %33 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_known17h43b34060d8a5bb00E(i32 noundef %30, i32 noundef %32, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 33), !noalias !1118
-  br i1 %33, label %select.unfold38, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread"
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %29 = load i32, ptr %28, align 4, !range !113, !alias.scope !1118, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %31 = load i32, ptr %30, align 4, !alias.scope !1118, !noundef !3
+  %32 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_known17h43b34060d8a5bb00E(i32 noundef %29, i32 noundef %31, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 33), !noalias !1118
+  br i1 %32, label %select.unfold38, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread"
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %36 = load i64, ptr %35, align 8, !alias.scope !1118, !noundef !3
-  %37 = add i64 %36, -2147483648
-  %or.cond.i = icmp ult i64 %37, -4294967296
-  %38 = trunc nsw i64 %36 to i32
+33:                                               ; preds = %23
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %35 = load i64, ptr %34, align 8, !alias.scope !1118, !noundef !3
+  %36 = add i64 %35, -2147483648
+  %or.cond.i = icmp ult i64 %36, -4294967296
+  %37 = trunc nsw i64 %35 to i32
   br i1 %or.cond.i, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", label %select.unfold38
 
-39:                                               ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %41 = load i8, ptr %40, align 1, !range !75, !alias.scope !1118, !noundef !3
-  %42 = zext nneg i8 %41 to i32
+38:                                               ; preds = %23
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %40 = load i8, ptr %39, align 1, !range !75, !alias.scope !1118, !noundef !3
+  %41 = zext nneg i8 %40 to i32
   br label %select.unfold38
 
-43:                                               ; preds = %19
+42:                                               ; preds = %18
   store i32 2, ptr %0, align 4
-  br label %13
+  br label %12
 
-select.unfold38:                                  ; preds = %28, %39, %34
-  %.sroa.6.0.i = phi i32 [ %38, %34 ], [ %42, %39 ], [ undef, %28 ]
-  %.sroa.0.0.i30 = phi i32 [ 1, %34 ], [ 1, %39 ], [ 0, %28 ]
-  %44 = getelementptr inbounds nuw i8, ptr %25, i64 16
+select.unfold38:                                  ; preds = %27, %38, %33
+  %.sroa.6.0.i = phi i32 [ %37, %33 ], [ %41, %38 ], [ undef, %27 ]
+  %.sroa.0.0.i30 = phi i32 [ 1, %33 ], [ 1, %38 ], [ 0, %27 ]
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
-  %45 = load i8, ptr %44, align 8, !range !709, !alias.scope !1121, !noundef !3
-  switch i8 %45, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread" [
-    i8 13, label %46
-    i8 21, label %52
-    i8 22, label %57
+  %44 = load i8, ptr %43, align 8, !range !709, !alias.scope !1121, !noundef !3
+  switch i8 %44, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread" [
+    i8 13, label %45
+    i8 21, label %51
+    i8 22, label %56
   ]
 
-46:                                               ; preds = %select.unfold38
-  %47 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %48 = load i32, ptr %47, align 4, !range !113, !alias.scope !1121, !noundef !3
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %50 = load i32, ptr %49, align 4, !alias.scope !1121, !noundef !3
-  %51 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_known17h43b34060d8a5bb00E(i32 noundef %48, i32 noundef %50, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 33), !noalias !1121
-  br i1 %51, label %select.unfold43, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread"
+45:                                               ; preds = %select.unfold38
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %47 = load i32, ptr %46, align 4, !range !113, !alias.scope !1121, !noundef !3
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %49 = load i32, ptr %48, align 4, !alias.scope !1121, !noundef !3
+  %50 = tail call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_known17h43b34060d8a5bb00E(i32 noundef %47, i32 noundef %49, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3, i8 noundef 33), !noalias !1121
+  br i1 %50, label %select.unfold43, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread"
 
-52:                                               ; preds = %select.unfold38
-  %53 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %54 = load i64, ptr %53, align 8, !alias.scope !1121, !noundef !3
-  %55 = add i64 %54, -2147483648
-  %or.cond.i33 = icmp ult i64 %55, -4294967296
-  %56 = trunc nsw i64 %54 to i32
+51:                                               ; preds = %select.unfold38
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %53 = load i64, ptr %52, align 8, !alias.scope !1121, !noundef !3
+  %54 = add i64 %53, -2147483648
+  %or.cond.i33 = icmp ult i64 %54, -4294967296
+  %55 = trunc nsw i64 %53 to i32
   br i1 %or.cond.i33, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", label %select.unfold43
 
-57:                                               ; preds = %select.unfold38
-  %58 = getelementptr inbounds nuw i8, ptr %25, i64 17
-  %59 = load i8, ptr %58, align 1, !range !75, !alias.scope !1121, !noundef !3
-  %60 = zext nneg i8 %59 to i32
+56:                                               ; preds = %select.unfold38
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 17
+  %58 = load i8, ptr %57, align 1, !range !75, !alias.scope !1121, !noundef !3
+  %59 = zext nneg i8 %58 to i32
   br label %select.unfold43
 
-"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread": ; preds = %52, %46, %select.unfold38, %34, %28, %24, %select.unfold43
+"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread": ; preds = %51, %45, %select.unfold38, %33, %27, %23, %select.unfold43
   store i32 2, ptr %0, align 4
-  br label %13
+  br label %12
 
-select.unfold43:                                  ; preds = %46, %57, %52
-  %.sroa.6.0.i31 = phi i32 [ %56, %52 ], [ %60, %57 ], [ undef, %46 ]
-  %.sroa.0.0.i32 = phi i32 [ 1, %52 ], [ 1, %57 ], [ 0, %46 ]
-  %61 = tail call fastcc { i32, i32 } @"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E"(ptr nonnull %2, ptr nonnull %3, ptr noalias noundef readonly align 8 dereferenceable(16) %26)
-  %62 = extractvalue { i32, i32 } %61, 0
-  %.not24 = icmp eq i32 %62, 2
-  br i1 %.not24, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", label %63
+select.unfold43:                                  ; preds = %45, %56, %51
+  %.sroa.6.0.i31 = phi i32 [ %55, %51 ], [ %59, %56 ], [ undef, %45 ]
+  %.sroa.0.0.i32 = phi i32 [ 1, %51 ], [ 1, %56 ], [ 0, %45 ]
+  %60 = tail call fastcc { i32, i32 } @"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E"(ptr nonnull %2, ptr nonnull %3, ptr noalias noundef readonly align 8 dereferenceable(16) %25)
+  %61 = extractvalue { i32, i32 } %60, 0
+  %.not24 = icmp eq i32 %61, 2
+  br i1 %.not24, label %"_ZN18ty_python_semantic5types5class49_$LT$impl$u20$ty_python_semantic..types..Type$GT$13slice_literal28_$u7b$$u7b$closure$u7d$$u7d$17h672eff40efd9e7a0E.exit.thread", label %62
 
-63:                                               ; preds = %select.unfold43
-  %64 = extractvalue { i32, i32 } %61, 1
+62:                                               ; preds = %select.unfold43
+  %63 = extractvalue { i32, i32 } %60, 1
   store i32 %.sroa.0.0.i30, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.6.0.i, ptr %.sroa.5.0..sroa_idx, align 4
@@ -8705,10 +8706,10 @@ select.unfold43:                                  ; preds = %46, %57, %52
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.6.0.i31, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %62, ptr %.sroa.8.0..sroa_idx, align 4
+  store i32 %61, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %64, ptr %.sroa.9.0..sroa_idx, align 4
-  br label %13
+  store i32 %63, ptr %.sroa.9.0..sroa_idx, align 4
+  br label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

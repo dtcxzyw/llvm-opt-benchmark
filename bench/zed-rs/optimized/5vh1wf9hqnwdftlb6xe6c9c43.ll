@@ -1641,7 +1641,7 @@ define void @_ZN8markdown8Markdown3new17haba4edf4a5eeb8f6E(ptr dead_on_unwind no
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-37:                                               ; preds = %46, %48, %47, %41, %.thread21, %40, %39, %34, %20
+37:                                               ; preds = %47, %49, %48, %41, %.thread23, %40, %39, %34, %20
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
@@ -1653,44 +1653,44 @@ define void @_ZN8markdown8Markdown3new17haba4edf4a5eeb8f6E(ptr dead_on_unwind no
 
 40:                                               ; preds = %39
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #31
-          to label %.thread21 unwind label %37
+          to label %.thread23 unwind label %37
 
-.thread21:                                        ; preds = %40
+.thread23:                                        ; preds = %40
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h1300cbf57e78a68eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #31
           to label %41 unwind label %37
 
-41:                                               ; preds = %.thread21, %14
-  %.sroa.07.0.ph = phi i1 [ true, %14 ], [ false, %.thread21 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %21, %.thread21 ]
+41:                                               ; preds = %.thread23, %14
+  %.sroa.07.0.ph = phi i1 [ true, %14 ], [ false, %.thread23 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %21, %.thread23 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2c3fdfb86ec647abE"(ptr noalias noundef align 8 dereferenceable(24) %5) #31
-          to label %.thread26 unwind label %37
+          to label %42 unwind label %37
 
-.noexc11:                                         ; preds = %46, %43, %.thread26
-  br i1 %.sroa.07.0.ph, label %47, label %.critedge
+.noexc11:                                         ; preds = %47, %44, %42
+  br i1 %.sroa.07.0.ph, label %48, label %.critedge
 
-.thread26:                                        ; preds = %41
-  %42 = icmp eq ptr %3, null
-  br i1 %42, label %.noexc11, label %43
+42:                                               ; preds = %41
+  %43 = icmp eq ptr %3, null
+  br i1 %43, label %.noexc11, label %44
 
-43:                                               ; preds = %.thread26
-  %44 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !245
-  %45 = icmp eq i64 %44, 1
-  br i1 %45, label %46, label %.noexc11
+44:                                               ; preds = %42
+  %45 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !245
+  %46 = icmp eq i64 %45, 1
+  br i1 %46, label %47, label %.noexc11
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h526972513742c4abE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc11 unwind label %37
 
-47:                                               ; preds = %.noexc11
+48:                                               ; preds = %.noexc11
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markdown..MarkdownStyle$GT$17hfafff8fa6a3fb039E"(ptr noalias noundef nonnull align 8 dereferenceable(2392) %2) #31
-          to label %48 unwind label %37
+          to label %49 unwind label %37
 
-.critedge:                                        ; preds = %34, %.noexc11, %48
-  %.pn.pn192936 = phi { ptr, i32 } [ %.pn.pn.ph, %.noexc11 ], [ %.pn.pn.ph, %48 ], [ %35, %34 ]
-  resume { ptr, i32 } %.pn.pn192936
+.critedge:                                        ; preds = %34, %.noexc11, %49
+  %.pn.pn2231 = phi { ptr, i32 } [ %.pn.pn.ph, %.noexc11 ], [ %.pn.pn.ph, %49 ], [ %35, %34 ]
+  resume { ptr, i32 } %.pn.pn2231
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
           to label %.critedge unwind label %37
 }
@@ -1788,7 +1788,7 @@ define void @_ZN8markdown8Markdown8new_text17h40978cbde9e45db2E(ptr dead_on_unwi
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-37:                                               ; preds = %46, %48, %47, %41, %.thread21, %40, %39, %34, %20
+37:                                               ; preds = %47, %49, %48, %41, %.thread23, %40, %39, %34, %20
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
@@ -1800,44 +1800,44 @@ define void @_ZN8markdown8Markdown8new_text17h40978cbde9e45db2E(ptr dead_on_unwi
 
 40:                                               ; preds = %39
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #31
-          to label %.thread21 unwind label %37
+          to label %.thread23 unwind label %37
 
-.thread21:                                        ; preds = %40
+.thread23:                                        ; preds = %40
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h1300cbf57e78a68eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #31
           to label %41 unwind label %37
 
-41:                                               ; preds = %.thread21, %14
-  %.sroa.07.0.ph = phi i1 [ true, %14 ], [ false, %.thread21 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %21, %.thread21 ]
+41:                                               ; preds = %.thread23, %14
+  %.sroa.07.0.ph = phi i1 [ true, %14 ], [ false, %.thread23 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %21, %.thread23 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2c3fdfb86ec647abE"(ptr noalias noundef align 8 dereferenceable(24) %5) #31
-          to label %.thread26 unwind label %37
+          to label %42 unwind label %37
 
-.noexc11:                                         ; preds = %46, %43, %.thread26
-  br i1 %.sroa.07.0.ph, label %47, label %.critedge
+.noexc11:                                         ; preds = %47, %44, %42
+  br i1 %.sroa.07.0.ph, label %48, label %.critedge
 
-.thread26:                                        ; preds = %41
-  %42 = icmp eq ptr %3, null
-  br i1 %42, label %.noexc11, label %43
+42:                                               ; preds = %41
+  %43 = icmp eq ptr %3, null
+  br i1 %43, label %.noexc11, label %44
 
-43:                                               ; preds = %.thread26
-  %44 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !255
-  %45 = icmp eq i64 %44, 1
-  br i1 %45, label %46, label %.noexc11
+44:                                               ; preds = %42
+  %45 = atomicrmw sub ptr %3, i64 1 release, align 8, !noalias !255
+  %46 = icmp eq i64 %45, 1
+  br i1 %46, label %47, label %.noexc11
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h526972513742c4abE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc11 unwind label %37
 
-47:                                               ; preds = %.noexc11
+48:                                               ; preds = %.noexc11
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markdown..MarkdownStyle$GT$17hfafff8fa6a3fb039E"(ptr noalias noundef nonnull align 8 dereferenceable(2392) %2) #31
-          to label %48 unwind label %37
+          to label %49 unwind label %37
 
-.critedge:                                        ; preds = %34, %.noexc11, %48
-  %.pn.pn192936 = phi { ptr, i32 } [ %.pn.pn.ph, %.noexc11 ], [ %.pn.pn.ph, %48 ], [ %35, %34 ]
-  resume { ptr, i32 } %.pn.pn192936
+.critedge:                                        ; preds = %34, %.noexc11, %49
+  %.pn.pn2231 = phi { ptr, i32 } [ %.pn.pn.ph, %.noexc11 ], [ %.pn.pn.ph, %49 ], [ %35, %34 ]
+  resume { ptr, i32 } %.pn.pn2231
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
           to label %.critedge unwind label %37
 }

@@ -11090,30 +11090,28 @@ define void @_ZN12pingora_core9protocols4http2v26server11HttpSession22enable_ret
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12pingora_core9protocols4http2v26server11HttpSession16get_retry_buffer17he991f5ce753369c5E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %5 = load i8, ptr %4, align 8, !range !9, !noundef !7
-  %.not = icmp eq i8 %5, 2
-  br i1 %.not, label %8, label %6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %4 = load i8, ptr %3, align 8, !range !9, !noundef !7
+  switch i8 %4, label %9 [
+    i8 2, label %5
+    i8 0, label %7
+  ]
 
-6:                                                ; preds = %2
-  %7 = trunc nuw i8 %5 to i1
-  br i1 %7, label %11, label %10
-
-8:                                                ; preds = %2
+5:                                                ; preds = %2
   store ptr null, ptr %0, align 8
-  br label %9
+  br label %6
 
-9:                                                ; preds = %10, %11, %8
+6:                                                ; preds = %7, %9, %5
   ret void
 
-10:                                               ; preds = %6
-  tail call void @_ZN12pingora_core9protocols4http11body_buffer11FixedBuffer10get_buffer17hfca16f0cdd933693E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
-  br label %9
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  tail call void @_ZN12pingora_core9protocols4http11body_buffer11FixedBuffer10get_buffer17hfca16f0cdd933693E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8)
+  br label %6
 
-11:                                               ; preds = %6
+9:                                                ; preds = %2
   store ptr null, ptr %0, align 8
-  br label %9
+  br label %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

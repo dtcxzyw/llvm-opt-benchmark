@@ -745,7 +745,7 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-24:                                               ; preds = %.thread14, %26, %16
+24:                                               ; preds = %28, %26, %16
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
@@ -754,12 +754,12 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
 26:                                               ; preds = %16, %.thread
   %.pn.pn13 = phi { ptr, i32 } [ %9, %.thread ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h1f91399a0ec39384E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #33
-          to label %.thread14 unwind label %24
+          to label %28 unwind label %24
 
-27:                                               ; preds = %.thread14
+27:                                               ; preds = %28
   resume { ptr, i32 } %.pn.pn13
 
-.thread14:                                        ; preds = %26
+28:                                               ; preds = %26
   invoke void @"_ZN4core3ptr131drop_in_place$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hd3e8b600e202c7d4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #33
           to label %27 unwind label %24
 }
@@ -830,7 +830,7 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-24:                                               ; preds = %.thread14, %26, %16
+24:                                               ; preds = %28, %26, %16
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
@@ -839,12 +839,12 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
 26:                                               ; preds = %16, %.thread
   %.pn.pn13 = phi { ptr, i32 } [ %9, %.thread ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h1f91399a0ec39384E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #33
-          to label %.thread14 unwind label %24
+          to label %28 unwind label %24
 
-27:                                               ; preds = %.thread14
+27:                                               ; preds = %28
   resume { ptr, i32 } %.pn.pn13
 
-.thread14:                                        ; preds = %26
+28:                                               ; preds = %26
   invoke void @"_ZN4core3ptr180drop_in_place$LT$ockam_transport_websocket..workers..receiver..WebSocketRecvProcessor$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17h1cdf0a2ec56d1672E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #33
           to label %27 unwind label %24
 }

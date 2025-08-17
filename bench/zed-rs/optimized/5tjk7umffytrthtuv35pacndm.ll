@@ -7714,7 +7714,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4761a2f59c0c14cE.exit"
 
-.thread93:                                        ; preds = %131, %120, %104, %.body, %147
+.body.thread:                                     ; preds = %131, %120, %104, %.body, %147
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %147 ], [ %lpad.thr_comm.split-lp, %.body ], [ %105, %104 ], [ %121, %120 ], [ %132, %131 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h277a8d5f87bc6b33E.llvm.14628675508167347910"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
           to label %.thread61 unwind label %140
@@ -7839,7 +7839,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
 .body:                                            ; preds = %115, %130
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread93
+  br label %.body.thread
 
 90:                                               ; preds = %83, %89
   %91 = load ptr, ptr %41, align 8, !alias.scope !1589, !nonnull !4, !noundef !4
@@ -7894,7 +7894,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr118drop_in_place$LT$multi_buffer..MultiBuffer..push_multiple_excerpts_with_context_lines..$u7b$$u7b$closure$u7d$$u7d$$GT$17h10a28a9d6e68a6ecE"(ptr noundef nonnull align 8 dereferenceable(576) %14) #32
-          to label %.thread93 unwind label %106
+          to label %.body.thread unwind label %106
 
 106:                                              ; preds = %104
   %107 = landingpad { ptr, i32 }
@@ -7944,7 +7944,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   %121 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h4a7b8863121621dfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #32
-          to label %.thread93 unwind label %122, !noalias !1602
+          to label %.body.thread unwind label %122, !noalias !1602
 
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
@@ -7977,7 +7977,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   %132 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h4a7b8863121621dfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #32
-          to label %.thread93 unwind label %133, !noalias !1603
+          to label %.body.thread unwind label %133, !noalias !1603
 
 133:                                              ; preds = %131
   %134 = landingpad { ptr, i32 }
@@ -8003,7 +8003,7 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   invoke void @"_ZN4core3ptr53drop_in_place$LT$language..buffer..BufferSnapshot$GT$17hdcc0a8509b545986E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %15) #32
           to label %142 unwind label %140
 
-140:                                              ; preds = %158, %.thread93, %161, %159, %147, %139
+140:                                              ; preds = %158, %.body.thread, %161, %159, %147, %139
   %141 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
@@ -8023,10 +8023,10 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
 
 147:                                              ; preds = %142, %144
   invoke void @"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17h9fe32f29c9c5a6b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #32
-          to label %.thread93 unwind label %140
+          to label %.body.thread unwind label %140
 
-.thread61:                                        ; preds = %.thread93, %.thread65
-  %.pn1664 = phi { ptr, i32 } [ %58, %.thread65 ], [ %.pn.pn, %.thread93 ]
+.thread61:                                        ; preds = %.body.thread, %.thread65
+  %.pn1664 = phi { ptr, i32 } [ %58, %.thread65 ], [ %.pn.pn, %.body.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1618)
   call void @llvm.experimental.noalias.scope.decl(metadata !1621)
   call void @llvm.experimental.noalias.scope.decl(metadata !1624)
@@ -11092,8 +11092,8 @@ _ZN12multi_buffer11MultiBuffer8snapshot17ha827b1b3c2fad2f7E.exit: ; preds = %37
   %67 = invoke noundef align 8 dereferenceable(40) ptr @_ZN12multi_buffer19MultiBufferSnapshot22excerpt_locator_for_id17h4cc6d6f6a463b9ebE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24, i64 noundef %1)
           to label %70 unwind label %68
 
-"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17hb67335ac479df313E.exit59": ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$text..Edit$LT$usize$GT$$GT$$GT$17ha40ffad3bdb82dbcE.exit", %.thread107.thread148, %201, %205, %225, %247, %.thread, %299, %68
-  %.pn14.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn1489, %299 ], [ %.pn1489, %.thread ], [ %lpad.thr_comm146, %.thread107.thread148 ], [ %248, %247 ], [ %226, %225 ], [ %202, %205 ], [ %202, %201 ], [ %.pn1489, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$text..Edit$LT$usize$GT$$GT$$GT$17ha40ffad3bdb82dbcE.exit" ]
+"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17hb67335ac479df313E.exit59": ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$text..Edit$LT$usize$GT$$GT$$GT$17ha40ffad3bdb82dbcE.exit", %.thread107.thread148, %201, %205, %225, %247, %.thread, %299, %"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57", %68
+  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn1489, %"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57" ], [ %69, %68 ], [ %.pn1489, %299 ], [ %.pn1489, %.thread ], [ %lpad.thr_comm146, %.thread107.thread148 ], [ %248, %247 ], [ %226, %225 ], [ %202, %205 ], [ %202, %201 ], [ %.pn1489, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$text..Edit$LT$usize$GT$$GT$$GT$17ha40ffad3bdb82dbcE.exit" ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17h6a362c6c5bab969cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #32
           to label %common.resume unwind label %279
 
@@ -11124,6 +11124,9 @@ _ZN12multi_buffer11MultiBuffer8snapshot17ha827b1b3c2fad2f7E.exit: ; preds = %37
   %79 = icmp eq i32 %78, 0
   %80 = zext i1 %79 to i8
   br label %81
+
+"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57": ; preds = %295, %292
+  br i1 %.sroa.06.087, label %.thread, label %"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17hb67335ac479df313E.exit59"
 
 81:                                               ; preds = %76, %72
   %.sroa.0.0.i = phi i8 [ %80, %76 ], [ 0, %72 ]
@@ -11724,10 +11727,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr67drop
           to label %.thread107.thread140 unwind label %279
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$text..Edit$LT$usize$GT$$GT$$GT$17ha40ffad3bdb82dbcE.exit": ; preds = %289, %.thread107.thread140
-  br i1 %.sroa.06.087, label %292, label %"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17hb67335ac479df313E.exit59"
+  br i1 %cond, label %"_ZN4core3ptr67drop_in_place$LT$sum_tree..SumTree$LT$multi_buffer..Excerpt$GT$$GT$17hb67335ac479df313E.exit59", label %292
 
 .thread107.thread140:                             ; preds = %281, %285, %191, %286, %.thread107, %.thread79
   %.pn1489 = phi { ptr, i32 } [ %88, %.thread79 ], [ %lpad.thr_comm.split-lp147, %.thread107 ], [ %eh.lpad-body106, %286 ], [ %192, %191 ], [ %282, %285 ], [ %282, %281 ]
+  %cond = phi i1 [ false, %.thread79 ], [ false, %.thread107 ], [ false, %286 ], [ true, %191 ], [ true, %285 ], [ true, %281 ]
   %.sroa.06.087 = phi i1 [ true, %.thread79 ], [ true, %.thread107 ], [ true, %286 ], [ false, %191 ], [ false, %285 ], [ false, %281 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2435)
   call void @llvm.experimental.noalias.scope.decl(metadata !2438)
@@ -11746,13 +11750,13 @@ common.resume:                                    ; preds = %"_ZN4core3ptr67drop
   %293 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %294 = load i32, ptr %293, align 8, !alias.scope !2450, !noundef !4
   %.not.i.i.i56 = icmp eq i32 %294, 0
-  br i1 %.not.i.i.i56, label %.thread, label %295
+  br i1 %.not.i.i.i56, label %"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57", label %295
 
 295:                                              ; preds = %292
   store i32 0, ptr %293, align 8, !alias.scope !2461
-  br label %.thread
+  br label %"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57"
 
-.thread:                                          ; preds = %292, %295
+.thread:                                          ; preds = %"_ZN4core3ptr147drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$$LP$core..option..Option$LT$$RF$text..locator..Locator$GT$$C$usize$RP$$GT$$GT$17h78198bccdb0bab2cE.exit57"
   call void @llvm.experimental.noalias.scope.decl(metadata !2464)
   call void @llvm.experimental.noalias.scope.decl(metadata !2467)
   call void @llvm.experimental.noalias.scope.decl(metadata !2470)

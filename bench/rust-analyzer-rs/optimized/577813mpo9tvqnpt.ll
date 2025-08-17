@@ -24489,7 +24489,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 37:                                               ; preds = %47, %41
-  %.2 = phi i1 [ false, %47 ], [ true, %41 ]
+  %cond = phi i1 [ true, %47 ], [ false, %41 ]
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17hcdb3a003d742990fE"(ptr noalias noundef align 8 dereferenceable(40) %11) #26
@@ -24536,31 +24536,31 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .thread:                                          ; preds = %37
-  br i1 %.2, label %.thread.thread, label %.thread58
+  br i1 %cond, label %55, label %.thread.thread54
 
 .thread34:                                        ; preds = %33, %.thread39
   %eh.lpad-body38 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread39 ], [ %34, %33 ]
   invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17hc8d518663a9cd07fE"(ptr noalias noundef align 8 dereferenceable(24) %5) #26
-          to label %.thread.thread unwind label %49
+          to label %.thread.thread54 unwind label %49
 
-.thread.thread:                                   ; preds = %.thread34, %.thread
-  %.pn3353 = phi { ptr, i32 } [ %38, %.thread ], [ %eh.lpad-body38, %.thread34 ]
+.thread.thread54:                                 ; preds = %.thread34, %.thread
+  %.pn3358 = phi { ptr, i32 } [ %38, %.thread ], [ %eh.lpad-body38, %.thread34 ]
   %51 = load i8, ptr %4, align 8, !range !2589, !alias.scope !2602, !noundef !8
   %52 = icmp eq i8 %51, 5
   br i1 %52, label %.noexc28, label %53
 
-53:                                               ; preds = %.thread.thread
+53:                                               ; preds = %.thread.thread54
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda201256e923981dE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(32) %54)
           to label %.noexc28 unwind label %49
 
-.thread58:                                        ; preds = %.thread, %.noexc28
-  %.pn335260 = phi { ptr, i32 } [ %.pn3353, %.noexc28 ], [ %38, %.thread ]
-  resume { ptr, i32 } %.pn335260
+55:                                               ; preds = %.thread, %.noexc28
+  %.pn3353 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn3358, %.noexc28 ]
+  resume { ptr, i32 } %.pn3353
 
-.noexc28:                                         ; preds = %53, %.thread.thread
+.noexc28:                                         ; preds = %53, %.thread.thread54
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ide_completion..render..RenderContext$GT$17h8018363ebf04c8ecE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1) #26
-          to label %.thread58 unwind label %49
+          to label %55 unwind label %49
 }
 
 ; Function Attrs: nonlazybind uwtable

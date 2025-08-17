@@ -91248,7 +91248,7 @@ define hidden void @"_ZN14deltalake_core10operations8optimize9MergePlan7execute2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false)
   %53 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
   %54 = icmp eq i64 %53, 5
-  br i1 %54, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306, label %55
+  br i1 %54, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308, label %55
 
 .thread.loopexit:                                 ; preds = %416, %.noexc238, %.critedge9.i236, %398, %347, %393, %375, %368, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -91264,12 +91264,12 @@ define hidden void @"_ZN14deltalake_core10operations8optimize9MergePlan7execute2
   %56 = icmp samesign ult i64 %53, 5
   tail call void @llvm.assume(i1 %56)
   %57 = icmp samesign ult i64 %53, 2
-  br i1 %57, label %58, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306
+  br i1 %57, label %58, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308
 
 58:                                               ; preds = %55
   %59 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h426dce1208630672E", i64 16) monotonic, align 8
   switch i8 %59, label %60 [
-    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306
+    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
     i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
   ]
@@ -91280,16 +91280,16 @@ define hidden void @"_ZN14deltalake_core10operations8optimize9MergePlan7execute2
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ; preds = %60
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
+  br i1 %62, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread: ; preds = %58, %58, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit
-  %.0.i305 = phi i8 [ %61, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit ], [ %59, %58 ], [ %59, %58 ]
+  %.0.i307 = phi i8 [ %61, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit ], [ %59, %58 ], [ %59, %58 ]
   %63 = load ptr, ptr @"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h426dce1208630672E", align 8, !nonnull !21, !align !258, !noundef !21
-  %64 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1745a58f02a781a1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63, i8 noundef %.0.i305)
+  %64 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1745a58f02a781a1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63, i8 noundef %.0.i307)
           to label %65 unwind label %.thread.loopexit.split-lp
 
 65:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread
-  br i1 %64, label %66, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306
+  br i1 %64, label %66, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -91307,12 +91307,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.not = icmp eq i64 %71, 0
   br i1 %.not, label %.invoke, label %121
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306: ; preds = %58, %65, %55, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit, %3
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308: ; preds = %58, %65, %55, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit, %3
   %76 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %152
 
-78:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306
+78:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308
   %79 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %80 = icmp ult i64 %79, 6
   tail call void @llvm.assume(i1 %80)
@@ -91528,7 +91528,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %152
 
-152:                                              ; preds = %"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h080ccc89aecc60e5E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread306, %78, %107
+152:                                              ; preds = %"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h080ccc89aecc60e5E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread308, %78, %107
   %153 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %154 = load ptr, ptr %153, align 8, !alias.scope !15658, !nonnull !21, !noundef !21
   %155 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -92059,7 +92059,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %296, %291, %.noexc2
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   ret void
 
-331:                                              ; preds = %.thread347, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$17hbe46217a697567d2E.llvm.3801596959246744488.exit216.thread", %340, %335, %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit", %329, %326, %316, %221, %.thread321
+331:                                              ; preds = %418, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$17hbe46217a697567d2E.llvm.3801596959246744488.exit216.thread", %340, %335, %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit", %329, %326, %316, %221, %.thread323
   %332 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #59
@@ -92072,14 +92072,14 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %296, %291, %.noexc2
 "_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit212": ; preds = %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit"
   %333 = atomicrmw sub ptr %.val177, i64 1 release, align 8, !noalias !15742
   %334 = icmp eq i64 %333, 1
-  br i1 %334, label %335, label %.thread321
+  br i1 %334, label %335, label %.thread323
 
 335:                                              ; preds = %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit212"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8c0023044aee22d6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19)
-          to label %.thread321 unwind label %331
+          to label %.thread323 unwind label %331
 
-.thread321:                                       ; preds = %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit212", %335
+.thread323:                                       ; preds = %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit212", %335
   invoke void @"_ZN4core3ptr249drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$arrow_array..record_batch..RecordBatch$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hfeb2fa7b23a94e10E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #58
           to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit244" unwind label %331
 
@@ -92100,12 +92100,12 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %296, %291, %.noexc2
   %342 = getelementptr inbounds nuw i8, ptr %.sroa.0263.0360, i64 96
   %343 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
   %344 = icmp samesign ult i64 %343, 2
-  br i1 %344, label %345, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335
+  br i1 %344, label %345, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337
 
 345:                                              ; preds = %341
   %346 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2361bd1db954800fE", i64 16) monotonic, align 8
   switch i8 %346, label %347 [
-    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335
+    i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
     i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
   ]
@@ -92116,16 +92116,16 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %296, %291, %.noexc2
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219: ; preds = %347
   %349 = icmp eq i8 %348, 0
-  br i1 %349, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
+  br i1 %349, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread: ; preds = %345, %345, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
-  %.0.i217334 = phi i8 [ %348, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219 ], [ %346, %345 ], [ %346, %345 ]
+  %.0.i217336 = phi i8 [ %348, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219 ], [ %346, %345 ], [ %346, %345 ]
   %350 = load ptr, ptr @"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h2361bd1db954800fE", align 8, !nonnull !21, !align !258, !noundef !21
-  %351 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1745a58f02a781a1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %350, i8 noundef %.0.i217334)
+  %351 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h1745a58f02a781a1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %350, i8 noundef %.0.i217336)
           to label %352 unwind label %.thread.loopexit
 
 352:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread
-  br i1 %351, label %353, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335
+  br i1 %351, label %353, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337
 
 353:                                              ; preds = %352
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -92143,12 +92143,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
   %.not358 = icmp eq i64 %358, 0
   br i1 %.not358, label %.invoke, label %398
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335: ; preds = %345, %352, %341, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337: ; preds = %345, %352, %341, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
   %363 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1
   %364 = icmp eq i8 %363, 0
   br i1 %364, label %365, label %395
 
-365:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335
+365:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337
   %366 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %367 = icmp ult i64 %366, 6
   call void @llvm.assume(i1 %367)
@@ -92234,7 +92234,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %392
 
-395:                                              ; preds = %392, %365, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread335, %"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0764a28cbe10773E.exit"
+395:                                              ; preds = %392, %365, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219.thread337, %"_ZN14deltalake_core10operations8optimize9MergePlan7execute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf0764a28cbe10773E.exit"
   %396 = icmp eq ptr %342, %157
   br i1 %396, label %._crit_edge, label %341
 
@@ -92329,15 +92329,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit219
   br label %395
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$17hbe46217a697567d2E.llvm.3801596959246744488.exit216.thread": ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %336, %340, %199
-  %.pn154303 = phi { ptr, i32 } [ %337, %336 ], [ %337, %340 ], [ %200, %199 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  %.pn154304 = phi { ptr, i32 } [ %337, %336 ], [ %337, %340 ], [ %200, %199 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$object_store..ObjectMeta$GT$$GT$17he936c97bb8b496e7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %50)
-          to label %.thread347 unwind label %331
+          to label %418 unwind label %331
 
-"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit244": ; preds = %.thread321, %.body202, %316, %329, %.noexc207, %.thread347
-  %.pn154302349 = phi { ptr, i32 } [ %.pn154303, %.thread347 ], [ %327, %329 ], [ %327, %.noexc207 ], [ %.pn, %316 ], [ %.pn, %.body202 ], [ %222, %.thread321 ]
-  resume { ptr, i32 } %.pn154302349
+"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit244": ; preds = %.thread323, %.body202, %316, %329, %.noexc207, %418
+  %.pn154305 = phi { ptr, i32 } [ %.pn154304, %418 ], [ %327, %329 ], [ %327, %.noexc207 ], [ %.pn, %316 ], [ %.pn, %.body202 ], [ %222, %.thread323 ]
+  resume { ptr, i32 } %.pn154305
 
-.thread347:                                       ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$17hbe46217a697567d2E.llvm.3801596959246744488.exit216.thread"
+418:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$17hbe46217a697567d2E.llvm.3801596959246744488.exit216.thread"
   invoke void @"_ZN4core3ptr138drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h932f0a63972b4475E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %51)
           to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit244" unwind label %331
 }
@@ -92381,7 +92381,7 @@ define hidden void @"_ZN14deltalake_core10operations8optimize9MergePlan7execute2
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$object_store..ObjectMeta$GT$$GT$17he936c97bb8b496e7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
-          to label %.body.thread.i unwind label %155
+          to label %160 unwind label %155
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h46bd437fd34d950eE.exit": ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -92422,7 +92422,7 @@ define hidden void @"_ZN14deltalake_core10operations8optimize9MergePlan7execute2
 40:                                               ; preds = %.noexc, %.noexc.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21"
+  br label %.body.thread.i
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h20e73b7d0f3f21e0E.exit": ; preds = %33
   store ptr %.val12, ptr %15, align 8
@@ -92506,7 +92506,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %126, %121, %.noexc2
   %73 = load i64, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, align 8, !noalias !15792, !noundef !21
   %74 = add i64 %73, -1
   store i64 %74, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, align 8, !noalias !15792
-  br label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21"
+  br label %.body.thread.i
 
 75:                                               ; preds = %70
   %76 = add nuw nsw i64 %71, 1
@@ -92688,13 +92688,13 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %126, %121, %.noexc2
   %132 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..rewrite_files$LT$deltalake_core..operations..optimize..MergePlan..read_zorder..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf8a5bd8ce429b98E"(ptr noundef nonnull align 16 dereferenceable(16608) %8)
-          to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21" unwind label %128, !noalias !15786
+          to label %.body.thread.i unwind label %128, !noalias !15786
 
 133:                                              ; preds = %69
   %134 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..rewrite_files$LT$deltalake_core..operations..optimize..MergePlan..read_zorder..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf8a5bd8ce429b98E"(ptr noundef nonnull align 16 dereferenceable(16608) %9)
-          to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21" unwind label %135, !noalias !15781
+          to label %.body.thread.i unwind label %135, !noalias !15781
 
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
@@ -92729,7 +92729,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %126, %121, %.noexc2
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr209drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..rewrite_files$LT$deltalake_core..operations..optimize..MergePlan..read_zorder..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf8a5bd8ce429b98E"(ptr noundef nonnull align 16 dereferenceable(16592) %16) #58
-          to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21" unwind label %141
+          to label %.body.thread.i unwind label %141
 
 141:                                              ; preds = %140
   %142 = landingpad { ptr, i32 }
@@ -92775,7 +92775,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %126, %121, %.noexc2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !15839
   ret void
 
-155:                                              ; preds = %.body.thread.i, %26, %159, %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit", %55, %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21", %.thread26
+155:                                              ; preds = %160, %26, %159, %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit", %55, %.body.thread.i, %.thread28
   %156 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #59
@@ -92788,28 +92788,28 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %126, %121, %.noexc2
 "_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$deltalake_core..operations..optimize..MergeBin$GT$17hde46775a575a8805E.exit"
   %157 = atomicrmw sub ptr %.val12, i64 1 release, align 8, !noalias !15848
   %158 = icmp eq i64 %157, 1
-  br i1 %158, label %159, label %.thread26
+  br i1 %158, label %159, label %.thread28
 
 159:                                              ; preds = %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8c0023044aee22d6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
-          to label %.thread26 unwind label %155
+          to label %.thread28 unwind label %155
 
-.thread26:                                        ; preds = %159, %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit"
+.thread28:                                        ; preds = %159, %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit"
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$deltalake_core..operations..optimize..MergePlan..read_zorder..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6f7c3d41de8e4277E"(ptr noundef nonnull align 16 %17) #58
-          to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21" unwind label %155
+          to label %.body.thread.i unwind label %155
 
-"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21": ; preds = %common.resume.i.i.i.i.i.i.i, %131, %133, %140, %40, %.thread26, %.body.thread.i
-  %.pn.pn2431 = phi { ptr, i32 } [ %27, %.body.thread.i ], [ %134, %133 ], [ %132, %131 ], [ %eh.lpad-body.i.i.i.i, %common.resume.i.i.i.i.i.i.i ], [ %lpad.thr_comm.split-lp.i, %140 ], [ %41, %40 ], [ %56, %.thread26 ]
+.body.thread.i:                                   ; preds = %160, %common.resume.i.i.i.i.i.i.i, %131, %133, %140, %40, %.thread28
+  %.pn.pn26 = phi { ptr, i32 } [ %56, %.thread28 ], [ %41, %40 ], [ %lpad.thr_comm.split-lp.i, %140 ], [ %eh.lpad-body.i.i.i.i, %common.resume.i.i.i.i.i.i.i ], [ %132, %131 ], [ %134, %133 ], [ %27, %160 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #58
-          to label %160 unwind label %155
+          to label %161 unwind label %155
 
-.body.thread.i:                                   ; preds = %26
+160:                                              ; preds = %26
   invoke void @"_ZN4core3ptr138drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h932f0a63972b4475E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19)
-          to label %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21" unwind label %155
+          to label %.body.thread.i unwind label %155
 
-160:                                              ; preds = %"_ZN4core3ptr128drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$deltalake_core..kernel..expressions..scalars..Scalar$GT$$GT$17h8e33c18989304d9aE.exit21"
-  resume { ptr, i32 } %.pn.pn2431
+161:                                              ; preds = %.body.thread.i
+  resume { ptr, i32 } %.pn.pn26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

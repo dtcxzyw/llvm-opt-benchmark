@@ -2580,8 +2580,10 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 .noexc:                                           ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %71 = extractvalue { i64, i64 } %70, 0
   %72 = extractvalue { i64, i64 } %70, 1
-  %switch.i.i = icmp eq i64 %71, 1
-  br i1 %switch.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+  switch i64 %71, label %.thread89 [
+    i64 1, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
+    i64 0, label %.loopexit
+  ]
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %.noexc
   %.sroa.4.0.i26.i.i = phi i64 [ %72, %.noexc ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
@@ -2601,16 +2603,12 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %78 = icmp eq i8 %lhsc.i, 58
   br i1 %78, label %80, label %76
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i": ; preds = %.noexc
-  %trunc.i38 = trunc nuw i64 %71 to i1
-  br i1 %trunc.i38, label %.thread89, label %.loopexit
-
-.thread89:                                        ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+.thread89:                                        ; preds = %.noexc
   %79 = getelementptr inbounds i8, ptr %59, i64 undef
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %85
 
-.loopexit:                                        ; preds = %76, %.preheader.i.i.i, %68, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+.loopexit:                                        ; preds = %.noexc, %76, %.preheader.i.i.i, %68
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.bdd343e2185cc91a1b2f57157ce52cf7.51, i64 noundef 56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bdd343e2185cc91a1b2f57157ce52cf7.52) #21
           to label %84 unwind label %.loopexit.split-lp
 

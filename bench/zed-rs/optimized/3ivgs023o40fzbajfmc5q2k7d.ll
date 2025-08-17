@@ -70966,91 +70966,89 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$futures_channel..mpsc..Recei
           to label %.noexc1 unwind label %.loopexit
 
 .noexc1:                                          ; preds = %.preheader.i
-  %5 = icmp eq i8 %4, 2
-  br i1 %5, label %7, label %6
+  switch i8 %4, label %.preheader.i.backedge [
+    i8 2, label %5
+    i8 0, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit"
+  ]
 
-6:                                                ; preds = %.noexc1
-  %trunc.i = trunc nuw i8 %4 to i1
-  br i1 %trunc.i, label %.preheader.i.backedge, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit"
+5:                                                ; preds = %.noexc1
+  %6 = load ptr, ptr %0, align 8, !alias.scope !24373, !noundef !4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %.noexc1
-  %8 = load ptr, ptr %0, align 8, !alias.scope !24373, !noundef !4
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %7
+8:                                                ; preds = %5
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3e0500fd6c73b91092dad80a3c25a65e.52) #32
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %10
+.noexc2:                                          ; preds = %8
   unreachable
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %or.cond.i = icmp eq i64 %13, 0
-  br i1 %or.cond.i, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit", label %14
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %11 = load atomic i64, ptr %10 seq_cst, align 8
+  %or.cond.i = icmp eq i64 %11, 0
+  br i1 %or.cond.i, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit", label %12
 
-14:                                               ; preds = %11
+12:                                               ; preds = %9
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %.preheader.i.backedge unwind label %.loopexit
 
-.preheader.i.backedge:                            ; preds = %14, %6
+.preheader.i.backedge:                            ; preds = %12, %.noexc1
   br label %.preheader.i
 
-.loopexit:                                        ; preds = %.preheader.i, %14
+.loopexit:                                        ; preds = %.preheader.i, %12
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %13
 
-.loopexit.split-lp:                               ; preds = %1, %10
+.loopexit.split-lp:                               ; preds = %1, %8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %13
 
-15:                                               ; preds = %.loopexit.split-lp, %.loopexit
+13:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24376)
-  %16 = load ptr, ptr %0, align 8, !alias.scope !24376, !noundef !4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit", label %18
+  %14 = load ptr, ptr %0, align 8, !alias.scope !24376, !noundef !4
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit", label %16
 
-18:                                               ; preds = %15
-  %19 = atomicrmw sub ptr %16, i64 1 release, align 8, !noalias !24379
-  %20 = icmp eq i64 %19, 1
-  br i1 %20, label %21, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit"
+16:                                               ; preds = %13
+  %17 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !24379
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %19, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit"
 
-21:                                               ; preds = %18
+19:                                               ; preds = %16
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h83369a02bc5c8fcbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit" unwind label %27
+          to label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit" unwind label %25
 
-"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit": ; preds = %11, %6
+"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit": ; preds = %9, %.noexc1
   %.pr = load ptr, ptr %0, align 8, !alias.scope !24384
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24384)
-  %22 = icmp eq ptr %.pr, null
-  br i1 %22, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5", label %23
+  %20 = icmp eq ptr %.pr, null
+  br i1 %20, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5", label %21
 
-23:                                               ; preds = %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit"
-  %24 = atomicrmw sub ptr %.pr, i64 1 release, align 8, !noalias !24387
-  %25 = icmp eq i64 %24, 1
-  br i1 %25, label %26, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5"
+21:                                               ; preds = %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit"
+  %22 = atomicrmw sub ptr %.pr, i64 1 release, align 8, !noalias !24387
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %24, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5"
 
-26:                                               ; preds = %23
+24:                                               ; preds = %21
   fence acquire
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h83369a02bc5c8fcbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5"
 
-"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5": ; preds = %.noexc, %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit", %23, %26
+"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit5": ; preds = %.noexc, %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h24048ad94cc3c088E.llvm.3586677198336180132.exit", %21, %24
   ret void
 
-27:                                               ; preds = %21
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %19
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
   unreachable
 
-"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit": ; preds = %18, %15, %21
+"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h7bb0670d870ef822E.llvm.3586677198336180132.exit": ; preds = %16, %13, %19
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -105797,36 +105795,34 @@ define hidden void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u
 
 .preheader:                                       ; preds = %1, %.preheader.backedge
   %4 = tail call noundef i8 @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h0c9200b090936583E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0), !range !1244
-  %5 = icmp eq i8 %4, 2
-  br i1 %5, label %7, label %6
+  switch i8 %4, label %.preheader.backedge [
+    i8 2, label %5
+    i8 0, label %.loopexit
+  ]
 
-6:                                                ; preds = %.preheader
-  %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %.preheader.backedge, label %.loopexit
+.preheader.backedge:                              ; preds = %.preheader, %12
+  br label %.preheader
 
-7:                                                ; preds = %.preheader
-  %8 = load ptr, ptr %0, align 8, !noundef !4
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
+5:                                                ; preds = %.preheader
+  %6 = load ptr, ptr %0, align 8, !noundef !4
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-10:                                               ; preds = %7
+8:                                                ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3e0500fd6c73b91092dad80a3c25a65e.52) #32
   unreachable
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %or.cond = icmp eq i64 %13, 0
-  br i1 %or.cond, label %.loopexit, label %14
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %11 = load atomic i64, ptr %10 seq_cst, align 8
+  %or.cond = icmp eq i64 %11, 0
+  br i1 %or.cond, label %.loopexit, label %12
 
-14:                                               ; preds = %11
+12:                                               ; preds = %9
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %14, %6
-  br label %.preheader
-
-.loopexit:                                        ; preds = %11, %6, %1
+.loopexit:                                        ; preds = %.preheader, %9, %1
   ret void
 }
 

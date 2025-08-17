@@ -59,50 +59,51 @@ define hidden void @"_ZN15ruff_python_ast4node51_$LT$impl$u20$ruff_python_ast..n
   %3 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN15ruff_python_ast5nodes9Arguments22arguments_source_order17hb5cc28e76dacf19aE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit: ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge, %2
   %4 = call { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc046f509bfa1b236E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
   %5 = extractvalue { i64, ptr } %4, 0
-  %.not4 = icmp eq i64 %5, 2
-  br i1 %.not4, label %._crit_edge, label %.lr.ph
+  %6 = extractvalue { i64, ptr } %4, 1
+  switch i64 %5, label %8 [
+    i64 2, label %7
+    i64 0, label %19
+  ]
 
-.lr.ph:                                           ; preds = %2, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
-  %.pn = phi { i64, ptr } [ %20, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit ], [ %4, %2 ]
-  %6 = phi i64 [ %21, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit ], [ %5, %2 ]
-  %7 = extractvalue { i64, ptr } %.pn, 1
-  %8 = trunc nuw i64 %6 to i1
-  %9 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %9)
-  br i1 %8, label %10, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split
-
-._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit, %2
+7:                                                ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Keyword$GT$$GT$4from17h2b7126fef7239961E"(ptr noundef nonnull align 8 %7), !noalias !5
-  %12 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !5
-  br i1 %12, label %13, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+8:                                                ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+  %9 = icmp ne ptr %6, null
+  call void @llvm.assume(i1 %9)
+  %10 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Keyword$GT$$GT$4from17h2b7126fef7239961E"(ptr noundef nonnull align 8 %6), !noalias !5
+  %11 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !5
+  br i1 %11, label %12, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 95
-  %15 = load i8, ptr %14, align 1, !range !10, !noalias !11, !noundef !4
-  %.not.i.i.i = icmp eq i8 %15, -38
-  br i1 %.not.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, label %16
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 95
+  %14 = load i8, ptr %13, align 1, !range !10, !noalias !11, !noundef !4
+  %.not.i.i.i = icmp eq i8 %14, -38
+  br i1 %.not.i.i.i, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, label %15
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %18 = call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !11
-  %19 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !11
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %17 = call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16), !noalias !11
+  %18 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !11
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split: ; preds = %.lr.ph, %13, %16
-  call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %7)
-  br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+19:                                               ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
+  %20 = icmp ne ptr %6, null
+  call void @llvm.assume(i1 %20)
+  br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit: ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, %10
-  %20 = call { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc046f509bfa1b236E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-  %21 = extractvalue { i64, ptr } %20, 0
-  %.not = icmp eq i64 %21, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split: ; preds = %12, %15, %19
+  call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %6)
+  br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge
+
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.backedge: ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit.sink.split, %8
+  br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor13visit_keyword17h9dd1e7121ccc29e1E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -150,37 +151,35 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %3 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN100_$LT$$RF$ruff_python_ast..nodes..Parameters$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdd16137bb2cb53a2E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
-  %4 = call { i64, ptr } @"_ZN101_$LT$ruff_python_ast..nodes..ParametersIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec17e5de15dbd448E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-  %5 = extractvalue { i64, ptr } %4, 0
-  %.not4 = icmp eq i64 %5, 2
-  br i1 %.not4, label %._crit_edge, label %.lr.ph
+  br label %4
 
-.lr.ph:                                           ; preds = %2, %12
-  %.pn = phi { i64, ptr } [ %13, %12 ], [ %4, %2 ]
-  %6 = phi i64 [ %14, %12 ], [ %5, %2 ]
-  %7 = extractvalue { i64, ptr } %.pn, 1
-  %8 = trunc nuw i64 %6 to i1
-  %9 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %9)
-  br i1 %8, label %10, label %11
+4:                                                ; preds = %.backedge, %2
+  %5 = call { i64, ptr } @"_ZN101_$LT$ruff_python_ast..nodes..ParametersIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec17e5de15dbd448E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = extractvalue { i64, ptr } %5, 1
+  switch i64 %6, label %9 [
+    i64 2, label %8
+    i64 0, label %11
+  ]
 
-._crit_edge:                                      ; preds = %12, %2
+8:                                                ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-10:                                               ; preds = %.lr.ph
+9:                                                ; preds = %4
+  %10 = icmp ne ptr %7, null
+  call void @llvm.assume(i1 %10)
   call void @_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor28visit_parameter_with_default17h031ed203a809a8bcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
-  br label %12
+  br label %.backedge
 
-11:                                               ; preds = %.lr.ph
+11:                                               ; preds = %4
+  %12 = icmp ne ptr %7, null
+  call void @llvm.assume(i1 %12)
   call void @_ZN15ruff_python_ast7visitor12source_order14walk_parameter17h4b28ce652143632cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
-  br label %12
+  br label %.backedge
 
-12:                                               ; preds = %11, %10
-  %13 = call { i64, ptr } @"_ZN101_$LT$ruff_python_ast..nodes..ParametersIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec17e5de15dbd448E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-  %14 = extractvalue { i64, ptr } %13, 0
-  %.not = icmp eq i64 %14, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+.backedge:                                        ; preds = %11, %9
+  br label %4
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3030,8 +3030,10 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 .noexc170:                                        ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %132 = extractvalue { i64, i64 } %131, 0
   %133 = extractvalue { i64, i64 } %131, 1
-  %switch.i.i = icmp eq i64 %132, 1
-  br i1 %switch.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+  switch i64 %132, label %.thread271 [
+    i64 1, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
+    i64 0, label %.loopexit
+  ]
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %.noexc170
   %.sroa.4.0.i26.i.i = phi i64 [ %133, %.noexc170 ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
@@ -3051,11 +3053,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %139 = icmp eq i8 %lhsc.i, 46
   br i1 %139, label %141, label %137
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i": ; preds = %.noexc170
-  %trunc.i = trunc nuw i64 %132 to i1
-  br i1 %trunc.i, label %.thread271, label %.loopexit
-
-.thread271:                                       ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+.thread271:                                       ; preds = %.noexc170
   %140 = getelementptr inbounds i8, ptr %119, i64 undef
   store ptr %119, ptr %19, align 8
   %.sroa.3222.0..sroa_idx275 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3064,7 +3062,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %.val146.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit175"
 
-.loopexit:                                        ; preds = %137, %.preheader.i.i.i, %129, %select.unfold232, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i"
+.loopexit:                                        ; preds = %.noexc170, %137, %.preheader.i.i.i, %129, %select.unfold232
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %20, ptr %8, align 8

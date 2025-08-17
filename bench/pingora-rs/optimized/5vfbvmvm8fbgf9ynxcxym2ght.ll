@@ -512,21 +512,21 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i32, ptr %7, align 8, !alias.scope !29, !noalias !34
   %.not.i.i.i56 = icmp eq i32 %.promoted, 0
-  br i1 %.not.i.i.i56, label %._crit_edge.thread, label %.lr.ph, !prof !39
+  br i1 %.not.i.i.i56, label %.thread.thread, label %.lr.ph, !prof !39
 
 .lr.ph:                                           ; preds = %2
   %8 = load ptr, ptr %1, align 8, !alias.scope !29, !noalias !34, !nonnull !7, !align !8, !noundef !7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %29
-  %.sroa.46.060 = phi i32 [ undef, %.lr.ph ], [ %.sroa.46.1, %29 ]
-  %.sroa.02.059 = phi i64 [ 0, %.lr.ph ], [ %.sroa.02.1, %29 ]
-  %.sroa.4.058 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4.1, %29 ]
-  %.sroa.04.057 = phi i32 [ 0, %.lr.ph ], [ %.sroa.04.1, %29 ]
-  %13 = phi i32 [ %.promoted, %.lr.ph ], [ %14, %29 ]
+12:                                               ; preds = %.lr.ph, %28
+  %.sroa.46.060 = phi i32 [ undef, %.lr.ph ], [ %.sroa.46.1, %28 ]
+  %.sroa.02.059 = phi i64 [ 0, %.lr.ph ], [ %.sroa.02.1, %28 ]
+  %.sroa.4.058 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4.1, %28 ]
+  %.sroa.04.057 = phi i32 [ 0, %.lr.ph ], [ %.sroa.04.1, %28 ]
+  %13 = phi i32 [ %.promoted, %.lr.ph ], [ %14, %28 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %14 = add i32 %13, -1
@@ -546,135 +546,135 @@ define hidden void @"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store i8 %15, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %16, ptr %.sroa.2.0..sroa_idx, align 1
-  br label %53
+  br label %52
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !42
-  %19 = trunc nuw i8 %16 to i1
-  br i1 %19, label %21, label %22
+  %cond = icmp eq i8 %16, 0
+  br i1 %cond, label %21, label %20
 
-._crit_edge:                                      ; preds = %29
-  %20 = trunc nuw i64 %.sroa.02.1 to i1
-  br i1 %20, label %36, label %._crit_edge.thread, !prof !44
+.thread:                                          ; preds = %28
+  %19 = trunc nuw i64 %.sroa.02.1 to i1
+  br i1 %19, label %35, label %.thread.thread, !prof !44
+
+20:                                               ; preds = %18
+  %.not13 = icmp eq i32 %.sroa.04.057, 0
+  br i1 %.not13, label %30, label %29, !prof !17
 
 21:                                               ; preds = %18
-  %.not13 = icmp eq i32 %.sroa.04.057, 0
-  br i1 %.not13, label %31, label %30, !prof !17
-
-22:                                               ; preds = %18
   %.not11 = icmp eq i64 %.sroa.02.059, 0
-  br i1 %.not11, label %24, label %23, !prof !17
+  br i1 %.not11, label %23, label %22, !prof !17
 
-23:                                               ; preds = %22
+22:                                               ; preds = %21
   tail call void @_ZN5serde2de5Error15duplicate_field17h926e58bc6d4b7d09E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.12, i64 noundef 16)
-  br label %53
+  br label %52
 
-24:                                               ; preds = %22
+23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R$C$C$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_u6417h2b103975f60d403aE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-  %25 = load i8, ptr %6, align 8, !range !43, !noundef !7
-  %.not12 = icmp eq i8 %25, 9
-  br i1 %.not12, label %27, label %26
+  %24 = load i8, ptr %6, align 8, !range !43, !noundef !7
+  %.not12 = icmp eq i8 %24, 9
+  br i1 %.not12, label %26, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %53
+  br label %52
 
-27:                                               ; preds = %24
-  %28 = load i64, ptr %10, align 8, !noundef !7
+26:                                               ; preds = %23
+  %27 = load i64, ptr %11, align 8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %34, %27
-  %.sroa.04.1 = phi i32 [ 1, %34 ], [ %.sroa.04.057, %27 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.058, %34 ], [ %28, %27 ]
-  %.sroa.02.1 = phi i64 [ %.sroa.02.059, %34 ], [ 1, %27 ]
-  %.sroa.46.1 = phi i32 [ %35, %34 ], [ %.sroa.46.060, %27 ]
+28:                                               ; preds = %33, %26
+  %.sroa.04.1 = phi i32 [ 1, %33 ], [ %.sroa.04.057, %26 ]
+  %.sroa.4.1 = phi i64 [ %.sroa.4.058, %33 ], [ %27, %26 ]
+  %.sroa.02.1 = phi i64 [ %.sroa.02.059, %33 ], [ 1, %26 ]
+  %.sroa.46.1 = phi i32 [ %34, %33 ], [ %.sroa.46.060, %26 ]
   %.not.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i, label %._crit_edge, label %12
+  br i1 %.not.i.i.i, label %.thread, label %12
 
-30:                                               ; preds = %21
+29:                                               ; preds = %20
   tail call void @_ZN5serde2de5Error15duplicate_field17h926e58bc6d4b7d09E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.13, i64 noundef 17)
-  br label %53
+  br label %52
 
-31:                                               ; preds = %21
+30:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN100_$LT$$RF$mut$u20$rmp_serde..decode..Deserializer$LT$R$C$C$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_u3217h537c08fb74b080a4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-  %32 = load i8, ptr %5, align 8, !range !43, !noundef !7
-  %.not14 = icmp eq i8 %32, 9
-  br i1 %.not14, label %34, label %33
+  %31 = load i8, ptr %5, align 8, !range !43, !noundef !7
+  %.not14 = icmp eq i8 %31, 9
+  br i1 %.not14, label %33, label %32
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %53
+  br label %52
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %11, align 4, !noundef !7
+33:                                               ; preds = %30
+  %34 = load i32, ptr %10, align 4, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %29
+  br label %28
 
-36:                                               ; preds = %._crit_edge
-  %37 = trunc nuw i32 %.sroa.04.1 to i1
-  br i1 %37, label %38, label %44, !prof !17
+35:                                               ; preds = %.thread
+  %36 = trunc nuw i32 %.sroa.04.1 to i1
+  br i1 %36, label %37, label %43, !prof !17
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge
+.thread.thread:                                   ; preds = %2, %.thread
   tail call void @_ZN5serde2de5Error13missing_field17hdce2ee57d24641caE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.12, i64 noundef 16)
-  br label %53
+  br label %52
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %39 = udiv i32 %.sroa.46.1, 1000000000
-  %40 = urem i32 %.sroa.46.1, 1000000000
-  %41 = zext nneg i32 %39 to i64
-  %42 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.4.1, i64 %41)
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit", label %.thread, !prof !6
+  %38 = udiv i32 %.sroa.46.1, 1000000000
+  %39 = urem i32 %.sroa.46.1, 1000000000
+  %40 = zext nneg i32 %38 to i64
+  %41 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.4.1, i64 %40)
+  %42 = extractvalue { i64, i1 } %41, 1
+  br i1 %42, label %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit", label %.thread30, !prof !6
 
-"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit": ; preds = %38
+"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit": ; preds = %37
   call void @"_ZN61_$LT$rmp_serde..decode..Error$u20$as$u20$serde..de..Error$GT$6custom17hf1a96405919d6710E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.42, i64 noundef 46)
   %.pr = load i8, ptr %4, align 8
   %.not10 = icmp eq i8 %.pr, 9
-  br i1 %.not10, label %46, label %45
+  br i1 %.not10, label %45, label %44
 
-44:                                               ; preds = %36
+43:                                               ; preds = %35
   tail call void @_ZN5serde2de5Error13missing_field17hdce2ee57d24641caE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.13, i64 noundef 17)
-  br label %53
+  br label %52
 
-45:                                               ; preds = %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit"
+44:                                               ; preds = %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %53
+  br label %52
 
-46:                                               ; preds = %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit"
+45:                                               ; preds = %"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$11deserialize14check_overflow17h2424ab4257744bbbE.exit"
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %46 = icmp ult i32 %.sroa.46.1, 1000000000
+  br i1 %46, label %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit, label %49
+
+.thread30:                                        ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = icmp ult i32 %.sroa.46.1, 1000000000
-  br i1 %47, label %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit, label %50
-
-.thread:                                          ; preds = %38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %48 = icmp ult i32 %.sroa.46.1, 1000000000
-  %49 = add nuw i64 %.sroa.4.1, %41
-  %spec.select = select i1 %48, i32 %.sroa.46.1, i32 %40
-  %spec.select105 = select i1 %48, i64 %.sroa.4.1, i64 %49
+  %48 = add nuw i64 %.sroa.4.1, %40
+  %spec.select = select i1 %47, i32 %.sroa.46.1, i32 %39
+  %spec.select105 = select i1 %47, i64 %.sroa.4.1, i64 %48
   br label %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit
 
-50:                                               ; preds = %46
+49:                                               ; preds = %45
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.37, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad2bc0ddad5d8a2ef529a0b9da36a3f3.39) #24
   unreachable
 
-_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit: ; preds = %.thread, %46
-  %.sroa.3.0.i = phi i32 [ %.sroa.46.1, %46 ], [ %spec.select, %.thread ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.4.1, %46 ], [ %spec.select105, %.thread ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.3.0.i, ptr %52, align 8
+_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit: ; preds = %.thread30, %45
+  %.sroa.3.0.i = phi i32 [ %.sroa.46.1, %45 ], [ %spec.select, %.thread30 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.4.1, %45 ], [ %spec.select105, %.thread30 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.0.0.i, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sroa.3.0.i, ptr %51, align 8
   store i8 9, ptr %0, align 8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %17, %33, %30, %26, %23, %._crit_edge.thread, %44, %45, %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit
+52:                                               ; preds = %17, %32, %29, %25, %22, %.thread.thread, %43, %44, %_ZN4core4time8Duration3new17h243a0eb3cc81cb09E.exit
   ret void
 }
 

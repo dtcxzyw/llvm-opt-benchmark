@@ -43244,7 +43244,7 @@ define hidden { ptr, ptr } @_ZN14language_model8provider7open_ai19OpenAiLanguage
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$language_model..provider..open_ai..OpenAiLanguageModel..stream_completion..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdb7e1c626b9635d9E"(ptr noundef nonnull align 8 dereferenceable(1696) %6) #39
-          to label %86 unwind label %44, !noalias !10004
+          to label %.body15 unwind label %44, !noalias !10004
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -43280,7 +43280,7 @@ common.ret.sink.split.i:                          ; preds = %50
   %51 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr414drop_in_place$LT$language_model..rate_limiter..RateLimiter..stream$LT$language_model..provider..open_ai..OpenAiLanguageModel..stream_completion..$u7b$$u7b$closure$u7d$$u7d$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$open_ai..ResponseStreamEvent$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heb83d29a6d42571bE"(ptr noundef nonnull align 8 %5)
-          to label %86 unwind label %52
+          to label %.body15 unwind label %52
 
 52:                                               ; preds = %common.ret.sink.split.i
   %53 = landingpad { ptr, i32 }
@@ -43301,7 +43301,7 @@ common.ret.sink.split.i:                          ; preds = %50
   %57 = insertvalue { ptr, ptr } %56, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %57
 
-58:                                               ; preds = %85, %87
+58:                                               ; preds = %85, %86
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
@@ -43372,7 +43372,7 @@ common.ret.sink.split.i:                          ; preds = %50
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$http_client..HttpClient$GT$$GT$17h99f3402a56c5e776E.llvm.14581243670548862388.exit": ; preds = %74, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -43386,21 +43386,21 @@ common.ret.sink.split.i:                          ; preds = %50
   %82 = load ptr, ptr %10, align 8, !alias.scope !10024, !nonnull !7, !noundef !7
   %83 = atomicrmw sub ptr %82, i64 1 release, align 8, !noalias !10024
   %84 = icmp eq i64 %83, 1
-  br i1 %84, label %85, label %87
+  br i1 %84, label %85, label %86
 
 85:                                               ; preds = %81
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h19dfe1d29c7b2951E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %87 unwind label %58
+          to label %86 unwind label %58
 
-86:                                               ; preds = %common.ret.sink.split.i, %42, %87
-  %.pn1356 = phi { ptr, i32 } [ %.pn13.ph, %87 ], [ %43, %42 ], [ %51, %common.ret.sink.split.i ]
+.body15:                                          ; preds = %42, %common.ret.sink.split.i, %86
+  %.pn1356 = phi { ptr, i32 } [ %.pn13.ph, %86 ], [ %43, %42 ], [ %51, %common.ret.sink.split.i ]
   resume { ptr, i32 } %.pn1356
 
-87:                                               ; preds = %79, %85, %81
+86:                                               ; preds = %79, %85, %81
   %.pn13.ph = phi { ptr, i32 } [ %80, %79 ], [ %.pn.ph, %85 ], [ %.pn.ph, %81 ]
   invoke void @"_ZN4core3ptr37drop_in_place$LT$open_ai..Request$GT$17h9e60237e87bf4e0dE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %1) #39
-          to label %86 unwind label %58
+          to label %.body15 unwind label %58
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -48219,7 +48219,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
 34:                                               ; preds = %"_ZN104_$LT$language_model..provider..open_ai..OpenAiLanguageModel$u20$as$u20$language_model..LanguageModel$GT$17max_output_tokens17h16f1bc95f712d010E.exit"
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %.critedge41.thread104
+  br label %.critedge41.thread105
 
 "_ZN104_$LT$language_model..provider..open_ai..OpenAiLanguageModel$u20$as$u20$language_model..LanguageModel$GT$17max_output_tokens17h16f1bc95f712d010E.exit": ; preds = %31
   %36 = extractvalue { i32, i32 } %33, 0
@@ -48466,7 +48466,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
   %112 = insertvalue { ptr, ptr } %111, ptr @anon.a9719d92f7b476b29ada79e1ed6e790c.145, 1
   ret { ptr, ptr } %112
 
-113:                                              ; preds = %.critedge41.thread104, %128, %.critedge40, %.critedge39, %.critedge, %120
+113:                                              ; preds = %.critedge41.thread105, %128, %.critedge40, %.critedge39, %.critedge, %120
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
@@ -48477,7 +48477,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
 
 .thread73:                                        ; preds = %59, %67, %.body45, %.thread93
   %.pn3681 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread93 ], [ %60, %59 ], [ %68, %67 ], [ %78, %.body45 ]
-  %.sroa.029.279 = phi i1 [ true, %.thread93 ], [ true, %59 ], [ true, %67 ], [ false, %.body45 ]
+  %cond = phi i1 [ false, %.thread93 ], [ false, %59 ], [ false, %67 ], [ true, %.body45 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11741)
   call void @llvm.experimental.noalias.scope.decl(metadata !11744)
   call void @llvm.experimental.noalias.scope.decl(metadata !11747)
@@ -48508,7 +48508,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
           to label %.critedge40 unwind label %113
 
 .critedge41:                                      ; preds = %.critedge40
-  br i1 %.sroa.029.279, label %.critedge41.thread104, label %.thread116
+  br i1 %cond, label %.thread114, label %.critedge41.thread105
 
 .critedge40:                                      ; preds = %.critedge39
   %124 = getelementptr inbounds nuw i8, ptr %17, i64 72
@@ -48528,39 +48528,39 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
 128:                                              ; preds = %20, %125, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i53"
   %.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %126, %125 ], [ %126, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i53" ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$language_model..request..LanguageModelRequest$GT$17hfd07492a80b4b610E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %16) #39
-          to label %.critedge41.thread104 unwind label %113
+          to label %.critedge41.thread105 unwind label %113
 
-.critedge41.thread104:                            ; preds = %34, %128, %.critedge41
-  %.pn36.pn109 = phi { ptr, i32 } [ %.pn3681, %.critedge41 ], [ %35, %34 ], [ %.pn.ph, %128 ]
+.critedge41.thread105:                            ; preds = %34, %128, %.critedge41
+  %.pn36.pn112 = phi { ptr, i32 } [ %.pn3681, %.critedge41 ], [ %35, %34 ], [ %.pn.ph, %128 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h74b7a5b81b252084E.llvm.14581243670548862388"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #39
           to label %130 unwind label %113
 
 129:                                              ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$open_ai..ToolDefinition$GT$$GT$17h6a3996058ecfb7ccE.exit"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread116
+  br label %.thread114
 
-130:                                              ; preds = %.critedge41.thread104
+130:                                              ; preds = %.critedge41.thread105
   call void @llvm.experimental.noalias.scope.decl(metadata !11768)
   call void @llvm.experimental.noalias.scope.decl(metadata !11771)
   call void @llvm.experimental.noalias.scope.decl(metadata !11774)
   call void @llvm.experimental.noalias.scope.decl(metadata !11777)
   %131 = load i64, ptr %3, align 8, !alias.scope !11780, !noalias !11783, !noundef !7
   %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.thread116, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55"
+  br i1 %132, label %.thread114, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55": ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %134 = load ptr, ptr %133, align 8, !alias.scope !11780, !noalias !11783, !nonnull !7, !noundef !7
   call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef %131, i64 noundef 1) #37, !noalias !11785
-  br label %.thread116
+  br label %.thread114
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit58": ; preds = %95, %106, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57", %.thread116
-  %.pn36.pn101114119 = phi { ptr, i32 } [ %.pn36.pn101114120, %.thread116 ], [ %.pn36.pn101114120, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57" ], [ %96, %95 ], [ %107, %106 ]
-  resume { ptr, i32 } %.pn36.pn101114119
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit58": ; preds = %95, %106, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57", %.thread114
+  %.pn36.pn102117 = phi { ptr, i32 } [ %.pn36.pn102118, %.thread114 ], [ %.pn36.pn102118, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57" ], [ %96, %95 ], [ %107, %106 ]
+  resume { ptr, i32 } %.pn36.pn102117
 
-.thread116:                                       ; preds = %.critedge41, %130, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55", %129
-  %.pn36.pn101114120 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %129 ], [ %.pn36.pn109, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55" ], [ %.pn36.pn109, %130 ], [ %.pn3681, %.critedge41 ]
+.thread114:                                       ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55", %130, %.critedge41, %129
+  %.pn36.pn102118 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %129 ], [ %.pn3681, %.critedge41 ], [ %.pn36.pn112, %130 ], [ %.pn36.pn112, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i55" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11786)
   call void @llvm.experimental.noalias.scope.decl(metadata !11789)
   call void @llvm.experimental.noalias.scope.decl(metadata !11792)
@@ -48569,7 +48569,7 @@ define { ptr, ptr } @"_ZN104_$LT$language_model..provider..open_ai..OpenAiLangua
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit58", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57": ; preds = %.thread116
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i57": ; preds = %.thread114
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %138 = load ptr, ptr %137, align 8, !alias.scope !11798, !noalias !11801, !nonnull !7, !noundef !7
   call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef %135, i64 noundef 1) #37, !noalias !11803

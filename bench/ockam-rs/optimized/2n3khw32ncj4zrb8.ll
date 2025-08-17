@@ -30150,7 +30150,7 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity10identities10identities1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load ptr, ptr %37, align 8, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val16 = load ptr, ptr %38, align 8
+  %.val17 = load ptr, ptr %38, align 8
   %39 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %41, label %42
@@ -30160,7 +30160,7 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity10identities10identities1
   unreachable
 
 42:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h98ce3e3c1115f4bbE.exit"
-  %43 = icmp ne ptr %.val16, null
+  %43 = icmp ne ptr %.val17, null
   tail call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -30184,7 +30184,7 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity10identities10identities1
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %.val, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %.val16, ptr %.sroa.10.0..sroa_idx, align 8
+  store ptr %.val17, ptr %.sroa.10.0..sroa_idx, align 8
   %46 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6258
   %47 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #38, !noalias !6258
   %48 = icmp eq ptr %47, null

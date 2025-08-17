@@ -3775,73 +3775,71 @@ define internal fastcc void @_ZN18ruff_python_parser15semantic_errors21SemanticS
   %43 = zext i1 %41 to i8
   %spec.select.i.i.i = select i1 %41, i8 1, i8 2
   %.sroa.0.0.i9.i.i = select i1 %42, i8 %43, i8 %spec.select.i.i.i
-  %.not7.i.i = icmp eq i8 %.sroa.0.0.i9.i.i, 2
-  br i1 %.not7.i.i, label %30, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit"
-
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit": ; preds = %34
-  %44 = trunc nuw i8 %.sroa.0.0.i9.i.i to i1
-  br i1 %44, label %45, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread"
+  switch i8 %.sroa.0.0.i9.i.i, label %44 [
+    i8 2, label %30
+    i8 0, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread"
+  ]
 
 .loopexit:                                        ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread", %9, %2
   ret void
 
-45:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit"
+44:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -9223372036854775806, ptr %5, align 8
-  %46 = invoke { i32, i32 } @"_ZN88_$LT$ruff_python_ast..generated..TypeParam$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h49705dea26f74e82E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0.020)
-          to label %48 unwind label %59
+  %45 = invoke { i32, i32 } @"_ZN88_$LT$ruff_python_ast..generated..TypeParam$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h49705dea26f74e82E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0.020)
+          to label %47 unwind label %58
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread": ; preds = %30, %20, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit", %52
-  %47 = icmp eq ptr %21, %13
-  br i1 %47, label %.loopexit, label %20
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread": ; preds = %34, %30, %20, %51
+  %46 = icmp eq ptr %21, %13
+  br i1 %46, label %.loopexit, label %20
 
-48:                                               ; preds = %45
+47:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !250
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %49 = invoke { i8, i8 } @"_ZN144_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_parser..semantic_errors..SemanticSyntaxContext$GT$14python_version17h6ea294d862c9d433E"(ptr noundef nonnull align 8 %1)
-          to label %52 unwind label %50, !noalias !250
+  %48 = invoke { i8, i8 } @"_ZN144_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_parser..semantic_errors..SemanticSyntaxContext$GT$14python_version17h6ea294d862c9d433E"(ptr noundef nonnull align 8 %1)
+          to label %51 unwind label %49, !noalias !250
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$GT$17hec03e9b9e84f8dbeE"(ptr noalias noundef align 8 dereferenceable(32) %3) #27
-          to label %.body.thread unwind label %57, !noalias !250
+          to label %.body.thread unwind label %56, !noalias !250
 
-52:                                               ; preds = %48
-  %53 = extractvalue { i32, i32 } %46, 1
-  %54 = extractvalue { i32, i32 } %46, 0
-  %55 = extractvalue { i8, i8 } %49, 0
-  %56 = extractvalue { i8, i8 } %49, 1
+51:                                               ; preds = %47
+  %52 = extractvalue { i32, i32 } %45, 1
+  %53 = extractvalue { i32, i32 } %45, 0
+  %54 = extractvalue { i8, i8 } %48, 0
+  %55 = extractvalue { i8, i8 } %48, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
-  store i32 %54, ptr %16, align 8, !noalias !250
-  store i32 %53, ptr %17, align 4, !noalias !250
-  store i8 %55, ptr %18, align 8, !noalias !250
-  store i8 %56, ptr %19, align 1, !noalias !250
+  store i32 %53, ptr %16, align 8, !noalias !250
+  store i32 %52, ptr %17, align 4, !noalias !250
+  store i8 %54, ptr %18, align 8, !noalias !250
+  store i8 %55, ptr %19, align 1, !noalias !250
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !250
   call void @"_ZN144_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_parser..semantic_errors..SemanticSyntaxContext$GT$21report_semantic_error17h82801c4d433cc569E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !250
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd1c4217228164d32E.exit.thread"
 
-57:                                               ; preds = %50
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %49
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28, !noalias !250
   unreachable
 
-.body.thread:                                     ; preds = %50, %59
-  %eh.lpad-body16 = phi { ptr, i32 } [ %60, %59 ], [ %51, %50 ]
+.body.thread:                                     ; preds = %49, %58
+  %eh.lpad-body16 = phi { ptr, i32 } [ %59, %58 ], [ %50, %49 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-59:                                               ; preds = %45
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %44
+  %59 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$ruff_python_parser..semantic_errors..SemanticSyntaxErrorKind$GT$17hec03e9b9e84f8dbeE"(ptr noalias noundef align 8 dereferenceable(32) %5) #27
-          to label %.body.thread unwind label %61
+          to label %.body.thread unwind label %60
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable

@@ -2513,12 +2513,12 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 .body.i.i.i:                                      ; preds = %158, %146, %.body21.i.i.i, %49
   %.pn7.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %.body21.i.i.i ], [ %50, %49 ], [ %147, %146 ], [ %159, %158 ]
-  %.sroa.01.1.i.i.i = phi i1 [ %.sroa.01.3.i.i.i, %.body21.i.i.i ], [ %.sroa.01.0.i.i.i, %49 ], [ false, %146 ], [ true, %158 ]
+  %.sroa.01.1.i.i.i = phi i8 [ %.sroa.01.3.i.i.i, %.body21.i.i.i ], [ %.sroa.01.0.i.i.i, %49 ], [ 0, %146 ], [ 1, %158 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %10) #44
           to label %167 unwind label %164, !noalias !410
 
 49:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i38.i.i.i", %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i.i.i.i", %51, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h753adfe27694285bE.exit.i.i"
-  %.sroa.01.0.i.i.i = phi i1 [ true, %51 ], [ true, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h753adfe27694285bE.exit.i.i" ], [ false, %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i.i.i.i" ], [ true, %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i38.i.i.i" ]
+  %.sroa.01.0.i.i.i = phi i8 [ 1, %51 ], [ 1, %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h753adfe27694285bE.exit.i.i" ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i.i.i.i" ], [ 1, %"_ZN4core3ptr71drop_in_place$LT$gpui..app..entity_map..Model$LT$editor..Editor$GT$$GT$17hceb43c0470856c79E.exit.i38.i.i.i" ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -2541,12 +2541,12 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 .body21.i.i.i:                                    ; preds = %118, %111, %105, %57
   %.pn.i.i.i = phi { ptr, i32 } [ %112, %111 ], [ %58, %57 ], [ %106, %105 ], [ %119, %118 ]
-  %.sroa.01.3.i.i.i = phi i1 [ true, %111 ], [ %.sroa.01.2.i.i.i, %57 ], [ true, %105 ], [ true, %118 ]
+  %.sroa.01.3.i.i.i = phi i8 [ 1, %111 ], [ %.sroa.01.2.i.i.i, %57 ], [ 1, %105 ], [ 1, %118 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17ha20554d63737e6feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #44
           to label %.body.i.i.i unwind label %164, !noalias !410
 
 57:                                               ; preds = %133, %128, %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i25.i.i.i", %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i.i.i.i", %_ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i, %97, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i14.i.i.i", %.invoke.i.i.i, %.noexc16.i.i.i, %80, %78, %_ZN4gpui3app10entity_map9EntityMap4read17ha26659fc2b00fc99E.exit.i.i.i, %76, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i.i.i.i", %.noexc9.i.i.i, %59, %55
-  %.sroa.01.2.i.i.i = phi i1 [ false, %133 ], [ true, %_ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i ], [ true, %78 ], [ true, %_ZN4gpui3app10entity_map9EntityMap4read17ha26659fc2b00fc99E.exit.i.i.i ], [ true, %55 ], [ true, %59 ], [ true, %.noexc9.i.i.i ], [ true, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i.i.i.i" ], [ true, %76 ], [ true, %80 ], [ true, %.noexc16.i.i.i ], [ true, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i14.i.i.i" ], [ true, %97 ], [ true, %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i.i.i.i" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i25.i.i.i" ], [ true, %128 ], [ true, %.invoke.i.i.i ]
+  %.sroa.01.2.i.i.i = phi i8 [ 0, %133 ], [ 1, %_ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i ], [ 1, %78 ], [ 1, %_ZN4gpui3app10entity_map9EntityMap4read17ha26659fc2b00fc99E.exit.i.i.i ], [ 1, %55 ], [ 1, %59 ], [ 1, %.noexc9.i.i.i ], [ 1, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i.i.i.i" ], [ 1, %76 ], [ 1, %80 ], [ 1, %.noexc16.i.i.i ], [ 1, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h57cb81837824f85fE.exit.i14.i.i.i" ], [ 1, %97 ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i.i.i.i" ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Model$LT$language..buffer..Buffer$GT$$GT$17hd1fe8c2bf70cce5aE.exit.i25.i.i.i" ], [ 1, %128 ], [ 1, %.invoke.i.i.i ]
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %.body21.i.i.i
@@ -2853,7 +2853,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i: ; preds 
   br label %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17ha20554d63737e6feE.exit43.i.i.i"
 
 167:                                              ; preds = %.body.i.i.i
-  br i1 %.sroa.01.1.i.i.i, label %168, label %185
+  %cond.i.i.i = icmp eq i8 %.sroa.01.1.i.i.i, 0
+  br i1 %cond.i.i.i, label %185, label %168
 
 168:                                              ; preds = %167
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2862,14 +2863,14 @@ _ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i: ; preds 
   %170 = load ptr, ptr %169, align 8, !alias.scope !458, !noalias !446, !nonnull !18, !noundef !18
   %171 = atomicrmw sub ptr %170, i64 1 release, align 8, !noalias !459
   %172 = icmp eq i64 %171, 1
-  br i1 %172, label %173, label %.thread47.i.i.i
+  br i1 %172, label %173, label %.noexc44.i.i.i
 
 173:                                              ; preds = %168
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h96cccd6d228fc6e4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %169)
-          to label %.thread47.i.i.i unwind label %164, !noalias !410
+          to label %.noexc44.i.i.i unwind label %164, !noalias !410
 
-.thread47.i.i.i:                                  ; preds = %173, %168
+.noexc44.i.i.i:                                   ; preds = %173, %168
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !460)
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
@@ -2878,7 +2879,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i: ; preds 
   %177 = icmp eq i64 %176, 1
   br i1 %177, label %178, label %185
 
-178:                                              ; preds = %.thread47.i.i.i
+178:                                              ; preds = %.noexc44.i.i.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h96cccd6d228fc6e4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %174)
           to label %185 unwind label %164, !noalias !410
@@ -2905,9 +2906,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h67de5ce6b4425d4fE.exit.i.i.i: ; preds 
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #45
   unreachable
 
-185:                                              ; preds = %182, %178, %.thread47.i.i.i, %167, %152, %.body.i.i, %33
-  %.pn.ph.i.i = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm.split-lp.i.i, %.body.i.i ], [ %lpad.thr_comm.i.i, %182 ], [ %153, %152 ], [ %.pn7.i.i.i, %.thread47.i.i.i ], [ %.pn7.i.i.i, %178 ], [ %.pn7.i.i.i, %167 ]
-  %.sroa.02.1.ph.i.i = phi i1 [ true, %33 ], [ false, %.body.i.i ], [ false, %182 ], [ false, %152 ], [ false, %.thread47.i.i.i ], [ false, %178 ], [ false, %167 ]
+185:                                              ; preds = %182, %178, %.noexc44.i.i.i, %167, %152, %.body.i.i, %33
+  %.pn.ph.i.i = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm.split-lp.i.i, %.body.i.i ], [ %lpad.thr_comm.i.i, %182 ], [ %153, %152 ], [ %.pn7.i.i.i, %.noexc44.i.i.i ], [ %.pn7.i.i.i, %178 ], [ %.pn7.i.i.i, %167 ]
+  %.sroa.02.1.ph.i.i = phi i1 [ true, %33 ], [ false, %.body.i.i ], [ false, %182 ], [ false, %152 ], [ false, %.noexc44.i.i.i ], [ false, %178 ], [ false, %167 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$gpui..app..entity_map..Lease$LT$workspace..Workspace$GT$$GT$17h6a795d71c45bcb0fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #44
           to label %24 unwind label %183, !noalias !410
 

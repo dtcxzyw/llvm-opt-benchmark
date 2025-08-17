@@ -113862,9 +113862,9 @@ define hidden noalias noundef nonnull ptr @"_ZN9ockam_api5kafka18secure_channel_
 26:                                               ; preds = %22
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2efce4831b545768E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %28 unwind label %.thread31
+          to label %28 unwind label %.thread34
 
-.thread31:                                        ; preds = %26
+.thread34:                                        ; preds = %26
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ockam_abac..abac..incoming..IncomingAbac$GT$17hf06381c822005db9E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %10) #54
@@ -113896,7 +113896,7 @@ define hidden noalias noundef nonnull ptr @"_ZN9ockam_api5kafka18secure_channel_
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr160drop_in_place$LT$ockam_api..kafka..secure_channel_map..InnerSecureChannelControllerImpl$LT$ockam_api..kafka..secure_channel_map..NodeManagerRelayCreator$GT$$GT$17h634433ccc799e1d6E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(272) %7) #54
-          to label %55 unwind label %37, !noalias !19000
+          to label %.thread31 unwind label %37, !noalias !19000
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
@@ -113932,7 +113932,7 @@ define hidden noalias noundef nonnull ptr @"_ZN9ockam_api5kafka18secure_channel_
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr222drop_in_place$LT$alloc..sync..ArcInner$LT$tokio..sync..mutex..Mutex$LT$ockam_api..kafka..secure_channel_map..InnerSecureChannelControllerImpl$LT$ockam_api..kafka..secure_channel_map..NodeManagerRelayCreator$GT$$GT$$GT$$GT$17h61f37260dbfea20bE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %5) #54
-          to label %55 unwind label %49, !noalias !19006
+          to label %.thread31 unwind label %49, !noalias !19006
 
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
@@ -113947,28 +113947,28 @@ define hidden noalias noundef nonnull ptr @"_ZN9ockam_api5kafka18secure_channel_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %44
 
-52:                                               ; preds = %.thread36, %.thread28, %54, %.thread31, %19
+52:                                               ; preds = %56, %55, %54, %.thread34, %19
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #56
   unreachable
 
-54:                                               ; preds = %.thread31, %19, %14
-  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %20, %19 ], [ %27, %.thread31 ]
+54:                                               ; preds = %.thread34, %19, %14
+  %.pn.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %20, %19 ], [ %27, %.thread34 ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$ockam_api..kafka..secure_channel_map..NodeManagerRelayCreator$GT$$GT$17h7df06db295426ba3E"(ptr noalias noundef align 8 dereferenceable(48) %2) #54
-          to label %.thread28 unwind label %52
-
-.thread28:                                        ; preds = %54
-  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$ockam_api..kafka..secure_channel_map..ConsumerNodeAddr$GT$17h352a3b9905ab84aaE"(ptr noalias noundef align 8 dereferenceable(56) %1) #54
-          to label %.thread36 unwind label %52
-
-55:                                               ; preds = %35, %47, %.thread36
-  %.pn.pn213538 = phi { ptr, i32 } [ %.pn.pn.ph, %.thread36 ], [ %36, %35 ], [ %48, %47 ]
-  resume { ptr, i32 } %.pn.pn213538
-
-.thread36:                                        ; preds = %.thread28
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..secure_channels..secure_channels..SecureChannels$GT$$GT$17hd2c03229ece4ecd3E"(ptr noalias noundef align 8 dereferenceable(8) %11) #54
           to label %55 unwind label %52
+
+55:                                               ; preds = %54
+  invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$ockam_api..kafka..secure_channel_map..ConsumerNodeAddr$GT$17h352a3b9905ab84aaE"(ptr noalias noundef align 8 dereferenceable(56) %1) #54
+          to label %56 unwind label %52
+
+.thread31:                                        ; preds = %35, %47, %56
+  %.pn.pn24 = phi { ptr, i32 } [ %.pn.pn.ph, %56 ], [ %48, %47 ], [ %36, %35 ]
+  resume { ptr, i32 } %.pn.pn24
+
+56:                                               ; preds = %55
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..secure_channels..secure_channels..SecureChannels$GT$$GT$17hd2c03229ece4ecd3E"(ptr noalias noundef align 8 dereferenceable(8) %11) #54
+          to label %.thread31 unwind label %52
 }
 
 ; Function Attrs: nonlazybind uwtable

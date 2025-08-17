@@ -2973,9 +2973,9 @@ _ZN14regex_automata4meta5regex5Regex9find_iter17h277246e2a31dd275E.exit: ; preds
   br label %"_ZN4core4iter6traits8iterator8Iterator5count28_$u7b$$u7b$closure$u7d$$u7d$17h237ab969cf7f5c9fE.exit.i.i"
 
 92:                                               ; preds = %87, %63
-  %.sroa.6.2.in.i.i.i = phi ptr [ %62, %63 ], [ %86, %87 ]
+  %.sroa.6.2.ph.in.i.i.i = phi ptr [ %86, %87 ], [ %62, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !202
-  %93 = ptrtoint ptr %.sroa.6.2.in.i.i.i to i64
+  %93 = ptrtoint ptr %.sroa.6.2.ph.in.i.i.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !217
   store i64 %.sroa.0.0.i.i, ptr %13, align 8, !noalias !217
   store i64 1, ptr %57, align 8, !noalias !217

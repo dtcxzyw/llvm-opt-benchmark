@@ -441,31 +441,29 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17h4a56052a42ca9b13E(pt
 
 4:                                                ; preds = %1
   %5 = tail call noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hac1a608ecdb43735E.llvm.606029798833714216"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.070e9c7bc5d707468c664bdbd0e35c72.77.llvm.606029798833714216), !range !87, !noalias !84
-  %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e5ec050b9dc13dbE.llvm.606029798833714216.exit.i.i"
+  switch i8 %5, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit" [
+    i8 2, label %6
+    i8 0, label %7
+  ]
 
-7:                                                ; preds = %4
+6:                                                ; preds = %4
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.070e9c7bc5d707468c664bdbd0e35c72.78.llvm.606029798833714216, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.070e9c7bc5d707468c664bdbd0e35c72.11.llvm.606029798833714216, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.070e9c7bc5d707468c664bdbd0e35c72.80.llvm.606029798833714216) #18, !noalias !84
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e5ec050b9dc13dbE.llvm.606029798833714216.exit.i.i": ; preds = %4
-  %8 = trunc nuw i8 %5 to i1
-  br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit", label %9
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8, !alias.scope !88, !noalias !84, !nonnull !10, !noundef !10
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h342f718681892cc7E.llvm.606029798833714216(ptr noundef nonnull %10, i8 noundef 4), !noalias !84
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit", label %13
 
-9:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e5ec050b9dc13dbE.llvm.606029798833714216.exit.i.i"
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !alias.scope !88, !noalias !84, !nonnull !10, !noundef !10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h342f718681892cc7E.llvm.606029798833714216(ptr noundef nonnull %12, i8 noundef 4), !noalias !84
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit", label %15
-
-15:                                               ; preds = %9
-  %16 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !84
-  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %16), !noalias !84
+13:                                               ; preds = %7
+  %14 = tail call noundef nonnull align 128 ptr @_ZN8async_io7reactor7Reactor3get17h41bc73f5c1bb141eE(), !noalias !84
+  tail call void @_ZN8async_io7reactor7Reactor6notify17h3b33321957d6f2f3E(ptr noundef nonnull align 128 %14), !noalias !84
   br label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit"
 
-"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit": ; preds = %1, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e5ec050b9dc13dbE.llvm.606029798833714216.exit.i.i", %9, %15
+"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit": ; preds = %1, %4, %7, %13
   ret void
 }
 

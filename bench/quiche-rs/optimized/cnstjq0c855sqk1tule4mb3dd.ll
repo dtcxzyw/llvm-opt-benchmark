@@ -3288,12 +3288,12 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h9e35411a5da57922E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %14 unwind label %48
+          to label %14 unwind label %49
 
 14:                                               ; preds = %3
   %15 = load i64, ptr %10, align 8, !range !79, !noundef !4
   %.not = icmp eq i64 %15, 4
-  br i1 %.not, label %47, label %16
+  br i1 %.not, label %48, label %16
 
 16:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
@@ -3373,7 +3373,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
   %.sroa.0.0.i = phi i64 [ 40, %.noexc3 ], [ 45, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !83
-  br label %43
+  br label %44
 
 35:                                               ; preds = %27
   %36 = landingpad { ptr, i32 }
@@ -3383,7 +3383,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
 37:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !83
   call void @"_ZN4core3ptr78drop_in_place$LT$tokio_quiche..http3..driver..client..PendingClientRequest$GT$17hfb9a03d63fbf7a3bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
-  br label %43
+  br label %44
 
 38:                                               ; preds = %16
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
@@ -3391,7 +3391,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h5d98a1c0680f73c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #26
           to label %41 unwind label %39, !noalias !86
 
-39:                                               ; preds = %.thread23.i, %41, %38
+39:                                               ; preds = %42, %41, %38
   %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25, !noalias !94
@@ -3400,43 +3400,43 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..client..ClientHook
 41:                                               ; preds = %38, %35
   %.pn.ph.i = phi { ptr, i32 } [ %36, %35 ], [ %lpad.thr_comm.split-lp.i, %38 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$tokio_util..sync..mpsc..PollSender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$17hba97ad1f0f15f443E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #26
-          to label %.thread23.i unwind label %39, !noalias !94
+          to label %42 unwind label %39, !noalias !94
 
-.thread23.i:                                      ; preds = %41
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  invoke void @"_ZN4core3ptr106drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h91e78dd709f75476E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %42) #26
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  invoke void @"_ZN4core3ptr106drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h91e78dd709f75476E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43) #26
           to label %.body.thread unwind label %39, !noalias !94
 
-43:                                               ; preds = %37, %34
+44:                                               ; preds = %37, %34
   %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %34 ], [ 43, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %47, %43
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1.i, %43 ], [ 45, %47 ]
-  %45 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %46 = insertvalue { i64, i64 } %45, i64 undef, 1
-  ret { i64, i64 } %46
+45:                                               ; preds = %48, %44
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1.i, %44 ], [ 45, %48 ]
+  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %47 = insertvalue { i64, i64 } %46, i64 undef, 1
+  ret { i64, i64 } %47
 
-47:                                               ; preds = %14
+48:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   tail call void @"_ZN4core3ptr71drop_in_place$LT$tokio_quiche..http3..driver..hooks..InboundHeaders$GT$17h6d3ac6edb992b138E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2)
-  br label %44
+  br label %45
 
-.body.thread:                                     ; preds = %.thread23.i, %48
-  %eh.lpad-body8 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %48 ], [ %.pn.ph.i, %.thread23.i ]
+.body.thread:                                     ; preds = %42, %49
+  %eh.lpad-body8 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %49 ], [ %.pn.ph.i, %42 ]
   resume { ptr, i32 } %eh.lpad-body8
 
-48:                                               ; preds = %3
+49:                                               ; preds = %3
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr71drop_in_place$LT$tokio_quiche..http3..driver..hooks..InboundHeaders$GT$17h6d3ac6edb992b138E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2) #26
-          to label %.body.thread unwind label %49
+          to label %.body.thread unwind label %50
 
-49:                                               ; preds = %48
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %49
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25
   unreachable

@@ -12033,7 +12033,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   %.sroa.0.0 = phi ptr [ %13, %36 ], [ %53, %52 ], [ inttoptr (i64 158913789955 to ptr), %35 ], [ null, %38 ]
   ret ptr %.sroa.0.0
 
-36:                                               ; preds = %16, %18, %20, %25
+36:                                               ; preds = %25, %20, %18, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !790
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !790
   %37 = icmp ne ptr %13, null

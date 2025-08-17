@@ -3346,7 +3346,7 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if
 "_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit.thread": ; preds = %11, %18, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !218
-  br label %25
+  br label %24
 
 "_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit": ; preds = %12
   %20 = load ptr, ptr %6, align 8, !alias.scope !227, !noalias !230, !nonnull !3, !align !4, !noundef !3
@@ -3360,25 +3360,25 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if
   %21 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !234, !noundef !3
   %23 = and i64 %22, %4
-  %24 = icmp eq i64 %23, 0
+  %.not = icmp eq i64 %23, 0
   call void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h62f635715e8cccb8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8), !noalias !234
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !218
-  br i1 %24, label %26, label %25
+  br i1 %.not, label %25, label %24
 
-25:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit", %26, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit.thread"
-  %.sink = phi i64 [ 1, %26 ], [ 0, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit.thread" ], [ 0, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit" ]
+24:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit", %25, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit.thread"
+  %.sink = phi i64 [ 1, %25 ], [ 0, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit.thread" ], [ 0, %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit" ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-26:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit"
-  %27 = icmp eq i64 %2, -1
-  %28 = select i1 %27, i64 0, i64 %2
-  %.sroa.03.0 = or i64 %4, %28
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.03.0, ptr %30, align 8
-  br label %25
+25:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$16is_enabled_inner17h35f622b42ab7dcd0E.exit"
+  %26 = icmp eq i64 %2, -1
+  %27 = select i1 %26, i64 0, i64 %2
+  %.sroa.03.0 = or i64 %4, %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.03.0, ptr %29, align 8
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -36340,7 +36340,7 @@ define hidden void @_ZN8worktree8Worktree10copy_entry17h5f5fdf98a721d4d8E(ptr de
 
 "_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.15419814201757598265.exit45.i": ; preds = %.noexc44.i, %.body34.thread.thread.i, %.body34.thread.i
   %.sroa.08.3.i = phi i8 [ %.sroa.08.5.i, %.body34.thread.i ], [ %.sroa.08.468.i, %.body34.thread.thread.i ], [ %.sroa.08.468.i, %.noexc44.i ]
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %lpad.thr_comm83.i, %.body34.thread.i ], [ %.pn.pn69.i, %.body34.thread.thread.i ], [ %.pn.pn69.i, %.noexc44.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %lpad.thr_comm82.i, %.body34.thread.i ], [ %.pn.pn69.i, %.body34.thread.thread.i ], [ %.pn.pn69.i, %.noexc44.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   call void @llvm.experimental.noalias.scope.decl(metadata !7704)
   %97 = load ptr, ptr %32, align 8, !alias.scope !7707, !noalias !7668, !nonnull !4, !noundef !4
@@ -36470,7 +36470,7 @@ define hidden void @_ZN8worktree8Worktree10copy_entry17h5f5fdf98a721d4d8E(ptr de
           to label %160 unwind label %158, !noalias !7668
 
 .body34.thread.i:                                 ; preds = %205
-  %lpad.thr_comm83.i = landingpad { ptr, i32 }
+  %lpad.thr_comm82.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Arc$LT$std..path..Path$GT$$GT$17hf0a313e5aa065b0bE.llvm.15419814201757598265.exit45.i"
 
@@ -36591,10 +36591,10 @@ define hidden void @_ZN8worktree8Worktree10copy_entry17h5f5fdf98a721d4d8E(ptr de
   %196 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %196, align 8, !noalias !7744
   %197 = invoke noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17h1c64938852a5f2ebE"(ptr noundef nonnull align 1 %183, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.9d6ce71e85d091e0f7f6a2c5b943f1cf.158, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17, i1 noundef zeroext false)
-          to label %.noexc37.i unwind label %.body34.thread.thread99.i, !noalias !7668
+          to label %.noexc37.i unwind label %.body34.thread.thread93.i, !noalias !7668
 
-.body34.thread.thread99.i:                        ; preds = %194
-  %lpad.thr_comm83101.i = landingpad { ptr, i32 }
+.body34.thread.thread93.i:                        ; preds = %194
+  %lpad.thr_comm8295.i = landingpad { ptr, i32 }
           cleanup
   br label %.body34.thread.thread.i
 
@@ -36701,7 +36701,7 @@ define hidden void @_ZN8worktree8Worktree10copy_entry17h5f5fdf98a721d4d8E(ptr de
   br label %255
 
 230:                                              ; preds = %169
-  %lpad.thr_comm.split-lp84.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp83.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h4231bf5ebade888aE"(ptr noalias noundef align 8 dereferenceable(16) %25) #50
           to label %231 unwind label %148, !noalias !7668
@@ -36711,13 +36711,13 @@ define hidden void @_ZN8worktree8Worktree10copy_entry17h5f5fdf98a721d4d8E(ptr de
           to label %232 unwind label %148, !noalias !7668
 
 232:                                              ; preds = %231, %158
-  %.pn.ph.i = phi { ptr, i32 } [ %159, %158 ], [ %lpad.thr_comm.split-lp84.i, %231 ]
+  %.pn.ph.i = phi { ptr, i32 } [ %159, %158 ], [ %lpad.thr_comm.split-lp83.i, %231 ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$17h57fe41610febc4c5E"(ptr noalias noundef align 8 dereferenceable(24) %30) #50
           to label %.body34.thread.thread.i unwind label %148, !noalias !7668
 
-.body34.thread.thread.i:                          ; preds = %232, %201, %.body34.thread.thread99.i, %186, %150, %147, %130, %.body34.i
-  %.pn.pn69.i = phi { ptr, i32 } [ %131, %130 ], [ %lpad.thr_comm.split-lp60.i, %.body34.i ], [ %lpad.thr_comm59.i, %147 ], [ %151, %150 ], [ %lpad.thr_comm83101.i, %.body34.thread.thread99.i ], [ %187, %186 ], [ %202, %201 ], [ %.pn.ph.i, %232 ]
-  %.sroa.08.468.i = phi i8 [ 0, %130 ], [ 0, %.body34.i ], [ 0, %147 ], [ 1, %150 ], [ %.sroa.08.5.i, %.body34.thread.thread99.i ], [ %.sroa.08.5.i, %186 ], [ %.sroa.08.5.i, %201 ], [ %.sroa.08.5.i, %232 ]
+.body34.thread.thread.i:                          ; preds = %232, %201, %.body34.thread.thread93.i, %186, %150, %147, %130, %.body34.i
+  %.pn.pn69.i = phi { ptr, i32 } [ %131, %130 ], [ %lpad.thr_comm.split-lp60.i, %.body34.i ], [ %lpad.thr_comm59.i, %147 ], [ %151, %150 ], [ %lpad.thr_comm8295.i, %.body34.thread.thread93.i ], [ %.pn.ph.i, %232 ], [ %187, %186 ], [ %202, %201 ]
+  %.sroa.08.468.i = phi i8 [ 0, %130 ], [ 0, %.body34.i ], [ 0, %147 ], [ 1, %150 ], [ %.sroa.08.5.i, %.body34.thread.thread93.i ], [ %.sroa.08.5.i, %232 ], [ %.sroa.08.5.i, %186 ], [ %.sroa.08.5.i, %201 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7775)
   call void @llvm.experimental.noalias.scope.decl(metadata !7778)
   %233 = atomicrmw sub ptr %108, i64 1 release, align 8, !noalias !7781

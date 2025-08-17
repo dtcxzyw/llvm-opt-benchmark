@@ -12602,7 +12602,7 @@ define void @"_ZN120_$LT$cranelift_codegen..isa..x64..abi..X64ABIMachineSpec$u20
   br i1 %trunc, label %193, label %23
 
 22:                                               ; preds = %.body
-  br i1 %.1.lpad-body, label %.thread, label %211
+  br i1 %cond, label %211, label %.thread
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -12738,7 +12738,7 @@ default.unreachable:                              ; preds = %51, %27
   br label %.body
 
 .body:                                            ; preds = %204, %176, %163, %138, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i", %101, %.body.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i", %75
-  %.1.lpad-body = phi i1 [ true, %75 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i" ], [ false, %.body.i ], [ false, %101 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i" ], [ true, %123 ], [ true, %138 ], [ false, %163 ], [ false, %176 ], [ false, %204 ]
+  %cond = phi i1 [ false, %75 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i" ], [ true, %.body.i ], [ true, %101 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i" ], [ false, %123 ], [ false, %138 ], [ true, %163 ], [ true, %176 ], [ true, %204 ]
   %eh.lpad-body = phi { ptr, i32 } [ %76, %75 ], [ %86, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i" ], [ %86, %.body.i ], [ %102, %101 ], [ %124, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i" ], [ %124, %123 ], [ %139, %138 ], [ %164, %163 ], [ %177, %176 ], [ %205, %204 ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u3b$$u20$2$u5d$$GT$$GT$17hd01863b874f7a2f4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %19) #37
           to label %22 unwind label %209
@@ -13156,16 +13156,16 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i46: ; preds = %180
   store i8 76, ptr %19, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 %5, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %201, ptr %.sroa.595.0..sroa_idx, align 8
+  %.sroa.593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %201, ptr %.sroa.593.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 6, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %195, ptr %.sroa.796.0..sroa_idx, align 4
+  %.sroa.794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 20
+  store i32 %195, ptr %.sroa.794.0..sroa_idx, align 4
   store i64 1, ptr %20, align 8, !alias.scope !1400, !noalias !1403
   br label %118
 
-209:                                              ; preds = %.thread90, %.thread, %.body
+209:                                              ; preds = %212, %.thread, %.body
   %210 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
@@ -13173,12 +13173,12 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i46: ; preds = %180
 
 .thread:                                          ; preds = %22
   invoke void @"_ZN4core3ptr113drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..machinst..abi..CallRetPair$u3b$$u20$8$u5d$$GT$$GT$17h31fb0f762a8543f6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3) #37
-          to label %.thread90 unwind label %209
+          to label %212 unwind label %209
 
-211:                                              ; preds = %22, %.thread90
+211:                                              ; preds = %22, %212
   resume { ptr, i32 } %eh.lpad-body
 
-.thread90:                                        ; preds = %.thread
+212:                                              ; preds = %.thread
   invoke void @"_ZN4core3ptr113drop_in_place$LT$smallvec..SmallVec$LT$$u5b$cranelift_codegen..machinst..abi..CallArgPair$u3b$$u20$8$u5d$$GT$$GT$17h4f72ba36262e5045E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2) #37
           to label %211 unwind label %209
 }

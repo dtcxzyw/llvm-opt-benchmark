@@ -13436,7 +13436,7 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h606a2abf47f6
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hf17d38be999925aaE.exit" unwind label %.body24.thread45
 
 .body24:                                          ; preds = %133
-  br i1 %.sroa.04.2.ph, label %134, label %.thread.thread
+  br i1 %cond, label %.thread, label %134
 
 .body24.thread45:                                 ; preds = %7
   %19 = landingpad { ptr, i32 }
@@ -13475,7 +13475,7 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h606a2abf47f6
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr309drop_in_place$LT$gpui..elements..uniform_list..uniform_list$LT$$RF$str$C$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$C$outline_panel..OutlinePanel$C$$LT$outline_panel..OutlinePanel$u20$as$u20$gpui..element..Render$GT$..render..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3719c55583c1a505E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %16) #29
-          to label %.thread37 unwind label %31
+          to label %.thread38 unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -13850,7 +13850,7 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h606a2abf47f6
           cleanup
   %.val15 = load ptr, ptr %69, align 8, !noundef !4
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$gpui..style..StyleRefinement$GT$$GT$17h38d4f7660da4377dE"(ptr %.val15) #29
-          to label %.thread.thread unwind label %130
+          to label %.thread unwind label %130
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17hd6306ddfeaa5be6dE.exit": ; preds = %120, %116, %111, %109, %106, %106, %106, %106, %58, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hd5e084e7b9ad3b21E.exit.sink.split.i.i"
   %.val = load ptr, ptr %69, align 8, !noundef !4
@@ -13861,14 +13861,14 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h606a2abf47f6
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 568, i64 noundef 8) #30
-  br label %.thread.thread
+  br label %.thread
 
 129:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17hd6306ddfeaa5be6dE.exit"
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 568, i64 noundef 8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-130:                                              ; preds = %132, %.body21, %125, %.thread, %134, %133, %.thread37, %.body13
+130:                                              ; preds = %132, %.body21, %125, %135, %134, %133, %.thread38, %.body13
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
@@ -13876,30 +13876,30 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h606a2abf47f6
 
 132:                                              ; preds = %.body13
   invoke fastcc void @"_ZN4core3ptr270drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$64$u5d$$GT$$GT$$GT$17hf4293c1bc8771f36E"(ptr nonnull %26, ptr nonnull @anon.7ad88d381a3f78aec8d248b76599f15b.75) #29
-          to label %.thread.thread unwind label %130
+          to label %.thread unwind label %130
 
-.thread37:                                        ; preds = %29
+.thread38:                                        ; preds = %29
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gpui..style..StyleRefinement$GT$17h5dc43222d6375e3aE"(ptr noalias noundef nonnull align 8 dereferenceable(568) %17) #29
           to label %133 unwind label %130
 
-133:                                              ; preds = %.thread37, %20
-  %.sroa.04.2.ph = phi i1 [ true, %20 ], [ false, %.thread37 ]
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %30, %.thread37 ]
+133:                                              ; preds = %.thread38, %20
+  %cond = phi i1 [ false, %20 ], [ true, %.thread38 ]
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %30, %.thread38 ]
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$gpui..window..ElementId$GT$17hd40a92e1625ad309E"(ptr noalias noundef align 8 dereferenceable(32) %18) #29
           to label %.body24 unwind label %130
 
 134:                                              ; preds = %.body24.thread45, %.body24
-  %.pn1148 = phi { ptr, i32 } [ %19, %.body24.thread45 ], [ %.pn.pn.pn.ph, %.body24 ]
+  %.pn1149 = phi { ptr, i32 } [ %19, %.body24.thread45 ], [ %.pn.pn.pn.ph, %.body24 ]
   invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LT$outline_panel..OutlinePanel$u20$as$u20$gpui..element..Render$GT$..render..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5f53940e9eaee072E"(ptr noalias noundef align 8 dereferenceable(48) %5) #29
-          to label %.thread unwind label %130
+          to label %135 unwind label %130
 
-.thread.thread:                                   ; preds = %132, %127, %125, %.body24, %.thread
-  %.pn113042 = phi { ptr, i32 } [ %.pn1148, %.thread ], [ %126, %125 ], [ %.pn.pn.pn.ph, %.body24 ], [ %.pn, %132 ], [ %128, %127 ]
-  resume { ptr, i32 } %.pn113042
+.thread:                                          ; preds = %132, %127, %125, %.body24, %135
+  %.pn1131 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %.body24 ], [ %.pn1149, %135 ], [ %126, %125 ], [ %.pn, %132 ], [ %128, %127 ]
+  resume { ptr, i32 } %.pn1131
 
-.thread:                                          ; preds = %134
+135:                                              ; preds = %134
   invoke void @"_ZN4core3ptr72drop_in_place$LT$gpui..view..View$LT$outline_panel..OutlinePanel$GT$$GT$17hc795c42368f6c1c5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #29
-          to label %.thread.thread unwind label %130
+          to label %.thread unwind label %130
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

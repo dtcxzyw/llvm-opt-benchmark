@@ -26185,12 +26185,12 @@ define void @_ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement16from_re
 59:                                               ; preds = %52
   %60 = atomicrmw sub ptr %50, i64 1 release, align 8, !noalias !8457
   %61 = icmp eq i64 %60, 1
-  br i1 %61, label %62, label %.thread92
+  br i1 %61, label %62, label %.thread57
 
 62:                                               ; preds = %59
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha902793b11baf999E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.thread92 unwind label %57, !noalias !8449
+          to label %.thread57 unwind label %57, !noalias !8449
 
 _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requirement17hd5b31c254342cda7E.exit: ; preds = %54
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -26211,14 +26211,14 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8465)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8468)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(88) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %66)
-          to label %83 unwind label %.thread63
+          to label %83 unwind label %.thread67
 
 68:                                               ; preds = %4
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 176
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke fastcc void @"_ZN59_$LT$uv_git_types..GitUrl$u20$as$u20$core..clone..Clone$GT$5clone17h4491e5b238bc1881E"(ptr noalias noundef align 8 captures(none) dereferenceable(176) %24, ptr noalias noundef readonly align 8 dereferenceable(176) %1)
-          to label %154 unwind label %.thread63
+          to label %154 unwind label %.thread67
 
 70:                                               ; preds = %4
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -26229,7 +26229,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %75 = load i64, ptr %74, align 8, !noundef !15
   invoke void @_ZN3std4path4Path11to_path_buf17hd41f9a49e6cf8abbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %75)
-          to label %171 unwind label %.thread63
+          to label %171 unwind label %.thread67
 
 76:                                               ; preds = %4
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -26240,9 +26240,9 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %81 = load i64, ptr %80, align 8, !noundef !15
   invoke void @_ZN3std4path4Path11to_path_buf17hd41f9a49e6cf8abbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %81)
-          to label %187 unwind label %.thread63
+          to label %187 unwind label %.thread67
 
-.thread63:                                        ; preds = %68, %171, %70, %187, %76, %65
+.thread67:                                        ; preds = %68, %171, %70, %187, %76, %65
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -26325,7 +26325,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
           to label %135 unwind label %128
 
 128:                                              ; preds = %125
-  %lpad.thr_comm.split-lp69 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp74 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -26386,7 +26386,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
 
 151:                                              ; preds = %129, %122
-  %lpad.thr_comm68 = landingpad { ptr, i32 }
+  %lpad.thr_comm73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h3c31116a9cd41d4cE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %26) #57
           to label %.thread unwind label %152
@@ -26417,7 +26417,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
           to label %169 unwind label %162
 
 162:                                              ; preds = %161
-  %lpad.thr_comm.split-lp77 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp82 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -26447,7 +26447,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   br label %136
 
 170:                                              ; preds = %163, %158
-  %lpad.thr_comm76 = landingpad { ptr, i32 }
+  %lpad.thr_comm81 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17h50ac1931b083b643E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %24) #57
           to label %.thread unwind label %152
@@ -26456,7 +26456,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %172 = invoke { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17hca300b0c192dab1dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
-          to label %173 unwind label %.thread63
+          to label %173 unwind label %.thread67
 
 173:                                              ; preds = %171
   %174 = extractvalue { ptr, i64 } %172, 0
@@ -26500,7 +26500,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %188 = invoke { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17hca300b0c192dab1dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
-          to label %189 unwind label %.thread63
+          to label %189 unwind label %.thread67
 
 189:                                              ; preds = %187
   %190 = extractvalue { ptr, i64 } %188, 0
@@ -26535,9 +26535,9 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   br label %136
 
 .noexc31:                                         ; preds = %210, %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit"
-  br i1 %.sroa.03.1, label %272, label %.thread92
+  br i1 %.sroa.03.1, label %272, label %.thread57
 
-.thread86:                                        ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
+.thread91:                                        ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
   %203 = landingpad { ptr, i32 }
           cleanup
   br label %272
@@ -26546,7 +26546,7 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %205 = load i64, ptr %204, align 8, !noundef !15
   %206 = invoke noundef nonnull ptr @_ZN11uv_resolver7pubgrub7package14PubGrubPackage12from_package17h251e02b7660718b4E(ptr noundef nonnull %138, ptr noundef %2, ptr noundef %3, i64 noundef %205)
-          to label %207 unwind label %.thread86
+          to label %207 unwind label %.thread91
 
 207:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
   store ptr %206, ptr %19, align 8
@@ -26693,10 +26693,10 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ddf7d12ab4ce51dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18)
           to label %"_ZN4core3ptr78drop_in_place$LT$version_ranges..Ranges$LT$uv_pep440..version..Version$GT$$GT$17h840a8dec1c85e5cbE.exit" unwind label %152
 
-272:                                              ; preds = %.thread86, %.noexc31
-  %.pn.pn90 = phi { ptr, i32 } [ %203, %.thread86 ], [ %.pn, %.noexc31 ]
+272:                                              ; preds = %.thread91, %.noexc31
+  %.pn.pn95 = phi { ptr, i32 } [ %203, %.thread91 ], [ %.pn, %.noexc31 ]
   invoke fastcc void @"_ZN4core3ptr57drop_in_place$LT$uv_pypi_types..parsed_url..ParsedUrl$GT$17h82c1e8f866269f0eE"(ptr noalias noundef align 8 dereferenceable(192) %28) #57
-          to label %.thread92 unwind label %152
+          to label %.thread57 unwind label %152
 
 273:                                              ; preds = %189
   %274 = landingpad { ptr, i32 }
@@ -26708,18 +26708,18 @@ _ZN11uv_resolver7pubgrub12dependencies18PubGrubRequirement25from_registry_requir
   tail call void @__rust_dealloc(ptr noundef nonnull %190, i64 noundef range(i64 1, 0) %191, i64 noundef 1) #58
   br label %.thread
 
-.thread:                                          ; preds = %276, %273, %197, %186, %183, %179, %162, %128, %170, %151, %.thread63
-  %.pn2153 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread63 ], [ %198, %197 ], [ %180, %179 ], [ %lpad.thr_comm.split-lp77, %162 ], [ %lpad.thr_comm76, %170 ], [ %lpad.thr_comm.split-lp69, %128 ], [ %lpad.thr_comm68, %151 ], [ %184, %183 ], [ %184, %186 ], [ %274, %273 ], [ %274, %276 ]
+.thread:                                          ; preds = %276, %273, %197, %186, %183, %179, %162, %128, %170, %151, %.thread67
+  %.pn2153 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %198, %197 ], [ %180, %179 ], [ %lpad.thr_comm.split-lp82, %162 ], [ %lpad.thr_comm81, %170 ], [ %lpad.thr_comm.split-lp74, %128 ], [ %lpad.thr_comm73, %151 ], [ %184, %183 ], [ %184, %186 ], [ %274, %273 ], [ %274, %276 ]
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h9529903913a8a398E"(ptr %3) #57
           to label %277 unwind label %152
 
-.thread92:                                        ; preds = %59, %62, %.noexc31, %272, %277
-  %.pn215294 = phi { ptr, i32 } [ %.pn2153, %277 ], [ %.pn, %.noexc31 ], [ %.pn.pn90, %272 ], [ %53, %62 ], [ %53, %59 ]
-  resume { ptr, i32 } %.pn215294
+.thread57:                                        ; preds = %59, %62, %.noexc31, %272, %277
+  %.pn2154 = phi { ptr, i32 } [ %.pn2153, %277 ], [ %.pn, %.noexc31 ], [ %.pn.pn95, %272 ], [ %53, %62 ], [ %53, %59 ]
+  resume { ptr, i32 } %.pn2154
 
 277:                                              ; preds = %.thread
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h607b043cf5c8c34dE"(ptr %2) #57
-          to label %.thread92 unwind label %152
+          to label %.thread57 unwind label %152
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

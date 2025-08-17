@@ -5298,9 +5298,9 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %27 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8793c2d374e6b97fE"(i64 noundef 37, i1 noundef zeroext false)
           to label %41 unwind label %33
 
-.body160:                                         ; preds = %136, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i", %120, %245, %100, %93, %84, %63, %.thread218, %33, %247
-  %.2 = phi i1 [ true, %247 ], [ %35, %33 ], [ true, %.thread218 ], [ true, %63 ], [ true, %84 ], [ true, %93 ], [ true, %100 ], [ true, %245 ], [ true, %136 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ false, %120 ]
-  %.pn120 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %247 ], [ %34, %33 ], [ %lpad.thr_comm, %.thread218 ], [ %64, %63 ], [ %85, %84 ], [ %101, %93 ], [ %101, %100 ], [ %246, %245 ], [ %137, %136 ], [ %121, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ %121, %120 ]
+.body163:                                         ; preds = %136, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i", %120, %246, %100, %93, %84, %63, %.thread218, %33, %248
+  %.2 = phi i1 [ false, %248 ], [ %35, %33 ], [ false, %.thread218 ], [ false, %63 ], [ false, %84 ], [ false, %93 ], [ false, %100 ], [ false, %246 ], [ false, %136 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ true, %120 ]
+  %.pn120 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %248 ], [ %34, %33 ], [ %lpad.thr_comm, %.thread218 ], [ %64, %63 ], [ %85, %84 ], [ %101, %93 ], [ %101, %100 ], [ %247, %246 ], [ %137, %136 ], [ %121, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ %121, %120 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !865)
   call void @llvm.experimental.noalias.scope.decl(metadata !868)
@@ -5309,17 +5309,17 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %31 = icmp eq i64 %30, 1
   br i1 %31, label %32, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit"
 
-32:                                               ; preds = %.body160
+32:                                               ; preds = %.body163
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4f3b38b9326ad878E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
-          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit" unwind label %237
+          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit" unwind label %238
 
 33:                                               ; preds = %26, %153
   %.185 = phi i8 [ %.4227, %153 ], [ 1, %26 ]
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = trunc nuw i8 %.185 to i1
-  br label %.body160
+  %35 = icmp eq i8 %.185, 0
+  br label %.body163
 
 36:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -5358,11 +5358,11 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 .thread218:                                       ; preds = %65, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body160
+  br label %.body163
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h31b4986c33a8632dE.exit": ; preds = %36
   invoke void @_ZN7parquet4file8metadata16RowGroupMetaData7builder17hafba0d7d2750cd9bE(ptr noalias noundef nonnull sret({ { { i64, i64 }, { { ptr, i64 }, i64 }, ptr, i64, { ptr, [2 x i64] }, i64, { i16, i16 }, [2 x i16] } }) align 8 captures(none) dereferenceable(96) %10, ptr noundef nonnull %.val)
-          to label %45 unwind label %247
+          to label %45 unwind label %248
 
 45:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h31b4986c33a8632dE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5404,9 +5404,9 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 256
   %62 = load i64, ptr %61, align 8, !alias.scope !881, !noalias !884, !noundef !5
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h309532866f1f670eE.llvm.14496618814205752201"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 4 %57, i64 noundef %62)
-          to label %.noexc151 unwind label %245
+          to label %.noexc154 unwind label %246
 
-.noexc151:                                        ; preds = %60
+.noexc154:                                        ; preds = %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !878
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !880
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E.exit"
@@ -5414,9 +5414,9 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 63:                                               ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E.exit"
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %.body160
+  br label %.body163
 
-"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E.exit": ; preds = %.noexc151, %59
+"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E.exit": ; preds = %.noexc154, %59
   invoke void @_ZN7parquet4file8metadata23RowGroupMetaDataBuilder19set_sorting_columns17h8d76d8faa7b25002E(ptr noalias noundef nonnull sret({ { { i64, i64 }, { { ptr, i64 }, i64 }, ptr, i64, { ptr, [2 x i64] }, i64, { i16, i16 }, [2 x i16] } }) align 8 captures(none) dereferenceable(96) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %65 unwind label %63
 
@@ -5446,9 +5446,9 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 
 77:                                               ; preds = %73
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.sroa.5187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %.sroa.5190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !886
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5187.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.570.0..sroa_idx, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5190.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.570.0..sroa_idx, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.712, i64 32, i1 false)
@@ -5474,7 +5474,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %85 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$parquet..file..metadata..RowGroupMetaData$GT$17hca5f46a58bf65d1eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %79)
-          to label %.body160 unwind label %86, !noalias !886
+          to label %.body163 unwind label %86, !noalias !886
 
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
@@ -5503,7 +5503,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 93:                                               ; preds = %100
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.body160 unwind label %237
+          to label %.body163 unwind label %238
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit": ; preds = %89
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
@@ -5530,7 +5530,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %102 = load ptr, ptr %7, align 8, !alias.scope !906, !nonnull !5, !noundef !5
   %103 = atomicrmw sub ptr %102, i64 1 release, align 8, !noalias !906
   %104 = icmp eq i64 %103, 1
-  br i1 %104, label %93, label %.body160
+  br i1 %104, label %93, label %.body163
 
 "_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit": ; preds = %96, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit", %99
   store ptr %81, ptr %16, align 8
@@ -5574,11 +5574,11 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %126 = icmp ult i64 %125, -9223372036854775807
   tail call void @llvm.assume(i1 %126)
   %127 = icmp eq i64 %123, 0
-  br i1 %127, label %.body160, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i"
+  br i1 %127, label %.body163, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i": ; preds = %120
   tail call void @__rust_dealloc(ptr noundef nonnull align 1 %106, i64 noundef %123, i64 noundef %125) #19, !noalias !920
-  br label %.body160
+  br label %.body163
 
 128:                                              ; preds = %109
   %129 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -5601,7 +5601,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 136:                                              ; preds = %152
   %137 = landingpad { ptr, i32 }
           cleanup
-  br label %.body160
+  br label %.body163
 
 138:                                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i2.i", %128
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5628,12 +5628,12 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %144 = load ptr, ptr %143, align 8, !alias.scope !931, !nonnull !5, !noundef !5
   %145 = atomicrmw sub ptr %144, i64 1 release, align 8, !noalias !931
   %146 = icmp eq i64 %145, 1
-  br i1 %146, label %147, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit157"
+  br i1 %146, label %147, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit160"
 
 147:                                              ; preds = %142
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4f3b38b9326ad878E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %143)
-          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit157" unwind label %248
+          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit160" unwind label %249
 
 148:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
@@ -5654,10 +5654,10 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 
 .thread:                                          ; preds = %2, %24
   %..val = phi ptr [ %.pr, %24 ], [ %17, %2 ]
-  %.084199 = phi i8 [ %.4227, %24 ], [ 1, %2 ]
+  %.084202 = phi i8 [ %.4227, %24 ], [ 1, %2 ]
   %154 = atomicrmw add ptr %..val, i64 1 monotonic, align 8
   %155 = icmp slt i64 %154, 0
-  br i1 %155, label %156, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit162"
+  br i1 %155, label %156, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit165"
 
 156:                                              ; preds = %.thread
   call void @llvm.trap()
@@ -5666,7 +5666,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 157:                                              ; preds = %153
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit162": ; preds = %.thread
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit165": ; preds = %.thread
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %..val, ptr %158, align 8
   store i64 6, ptr %0, align 8
@@ -5676,12 +5676,12 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   %160 = load ptr, ptr %159, align 8, !alias.scope !945, !nonnull !5, !noundef !5
   %161 = atomicrmw sub ptr %160, i64 1 release, align 8, !noalias !945
   %162 = icmp eq i64 %161, 1
-  br i1 %162, label %163, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit164"
+  br i1 %162, label %163, label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit167"
 
-163:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit162"
+163:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit165"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4f3b38b9326ad878E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %159)
-          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit164" unwind label %164
+          to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit167" unwind label %164
 
 164:                                              ; preds = %163
   %165 = landingpad { ptr, i32 }
@@ -5697,131 +5697,131 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 170:                                              ; preds = %164
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %166)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit" unwind label %237
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit" unwind label %238
 
-"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit164": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit162", %163
+"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit167": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit165", %163
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !953)
   call void @llvm.experimental.noalias.scope.decl(metadata !956)
   %172 = load ptr, ptr %171, align 8, !alias.scope !959, !nonnull !5, !noundef !5
   %173 = atomicrmw sub ptr %172, i64 1 release, align 8, !noalias !959
   %174 = icmp eq i64 %173, 1
-  br i1 %174, label %175, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit167"
+  br i1 %174, label %175, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit170"
 
-175:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit164"
+175:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit167"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %171)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit167" unwind label %182
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit170" unwind label %182
 
 "_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit": ; preds = %164, %170, %182
   %.pn108 = phi { ptr, i32 } [ %183, %182 ], [ %165, %170 ], [ %165, %164 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !960)
   %176 = load ptr, ptr %16, align 8, !alias.scope !960, !noundef !5
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169", label %178
+  br i1 %177, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172", label %178
 
 178:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit"
   %179 = atomicrmw sub ptr %176, i64 1 release, align 8, !noalias !963
   %180 = icmp eq i64 %179, 1
-  br i1 %180, label %181, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169"
+  br i1 %180, label %181, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172"
 
 181:                                              ; preds = %178
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169" unwind label %237
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172" unwind label %238
 
 182:                                              ; preds = %175
   %183 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit167": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit164", %175
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit170": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit167", %175
   call void @llvm.experimental.noalias.scope.decl(metadata !968)
   %184 = load ptr, ptr %16, align 8, !alias.scope !968, !noundef !5
   %185 = icmp eq ptr %184, null
-  br i1 %185, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171", label %186
+  br i1 %185, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174", label %186
 
-186:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit167"
+186:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit170"
   %187 = atomicrmw sub ptr %184, i64 1 release, align 8, !noalias !971
   %188 = icmp eq i64 %187, 1
-  br i1 %188, label %189, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171"
+  br i1 %188, label %189, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174"
 
 189:                                              ; preds = %186
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171" unwind label %191
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174" unwind label %191
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169": ; preds = %178, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit", %181, %191
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172": ; preds = %178, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit", %181, %191
   %.pn110 = phi { ptr, i32 } [ %192, %191 ], [ %.pn108, %181 ], [ %.pn108, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit" ], [ %.pn108, %178 ]
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %190) #17
-          to label %194 unwind label %237
+          to label %194 unwind label %238
 
 191:                                              ; preds = %189
   %192 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169"
+  br label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172"
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171": ; preds = %186, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit167", %189
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174": ; preds = %186, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit170", %189
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %193)
           to label %198 unwind label %196
 
-194:                                              ; preds = %196, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169"
-  %.pn112 = phi { ptr, i32 } [ %197, %196 ], [ %.pn110, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169" ]
-  %195 = trunc nuw i8 %.084199 to i1
-  br i1 %195, label %239, label %232
+194:                                              ; preds = %196, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172"
+  %.pn112 = phi { ptr, i32 } [ %197, %196 ], [ %.pn110, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172" ]
+  %195 = trunc nuw i8 %.084202 to i1
+  br i1 %195, label %240, label %233
 
-196:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171"
+196:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174"
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %194
 
-198:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit171"
-  %199 = trunc nuw i8 %.084199 to i1
-  br i1 %199, label %200, label %207
+198:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit174"
+  %cond = icmp eq i8 %.084202, 0
+  br i1 %cond, label %207, label %199
 
-200:                                              ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %201)
-          to label %.thread231 unwind label %202
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %200)
+          to label %203 unwind label %201
 
-202:                                              ; preds = %200
-  %203 = landingpad { ptr, i32 }
+201:                                              ; preds = %199
+  %202 = landingpad { ptr, i32 }
           cleanup
-  br label %241
+  br label %242
 
-.thread231:                                       ; preds = %200
+203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %204)
-          to label %.thread238 unwind label %205
+          to label %231 unwind label %205
 
-205:                                              ; preds = %.thread231
+205:                                              ; preds = %203
   %206 = landingpad { ptr, i32 }
           cleanup
-  br label %243
+  br label %244
 
-207:                                              ; preds = %198, %.thread238
+207:                                              ; preds = %198, %231
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val148 = load ptr, ptr %208, align 8, !noundef !5
+  %.val151 = load ptr, ptr %208, align 8, !noundef !5
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val149 = load ptr, ptr %209, align 8
-  %210 = icmp eq ptr %.val148, null
+  %.val152 = load ptr, ptr %209, align 8
+  %210 = icmp eq ptr %.val151, null
   br i1 %210, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %211
 
 211:                                              ; preds = %207
-  %212 = icmp ne ptr %.val149, null
+  %212 = icmp ne ptr %.val152, null
   call void @llvm.assume(i1 %212)
-  %213 = load ptr, ptr %.val149, align 8, !invariant.load !5, !nonnull !5
-  invoke void %213(ptr noundef nonnull align 1 %.val148)
+  %213 = load ptr, ptr %.val152, align 8, !invariant.load !5, !nonnull !5
+  invoke void %213(ptr noundef nonnull align 1 %.val151)
           to label %223 unwind label %214
 
 214:                                              ; preds = %211
   %215 = landingpad { ptr, i32 }
           cleanup
-  %216 = getelementptr inbounds nuw i8, ptr %.val149, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.val152, i64 8
   %217 = load i64, ptr %216, align 8, !range !156, !invariant.load !5
-  %218 = getelementptr inbounds nuw i8, ptr %.val149, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %.val152, i64 16
   %219 = load i64, ptr %218, align 8, !range !157, !invariant.load !5
   %220 = icmp ult i64 %219, -9223372036854775807
   call void @llvm.assume(i1 %220)
@@ -5829,13 +5829,13 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br i1 %221, label %common.resume, label %222
 
 222:                                              ; preds = %214
-  call void @__rust_dealloc(ptr noundef nonnull %.val148, i64 noundef range(i64 1, -9223372036854775808) %217, i64 noundef range(i64 1, -9223372036854775807) %219) #19
+  call void @__rust_dealloc(ptr noundef nonnull %.val151, i64 noundef range(i64 1, -9223372036854775808) %217, i64 noundef range(i64 1, -9223372036854775807) %219) #19
   br label %common.resume
 
 223:                                              ; preds = %211
-  %224 = getelementptr inbounds nuw i8, ptr %.val149, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.val152, i64 8
   %225 = load i64, ptr %224, align 8, !range !156, !invariant.load !5
-  %226 = getelementptr inbounds nuw i8, ptr %.val149, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %.val152, i64 16
   %227 = load i64, ptr %226, align 8, !range !157, !invariant.load !5
   %228 = icmp ult i64 %227, -9223372036854775807
   call void @llvm.assume(i1 %228)
@@ -5843,324 +5843,324 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br i1 %229, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %230
 
 230:                                              ; preds = %223
-  call void @__rust_dealloc(ptr noundef nonnull %.val148, i64 noundef range(i64 1, -9223372036854775808) %225, i64 noundef range(i64 1, -9223372036854775807) %227) #19
+  call void @__rust_dealloc(ptr noundef nonnull %.val151, i64 noundef range(i64 1, -9223372036854775808) %225, i64 noundef range(i64 1, -9223372036854775807) %227) #19
   br label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit"
 
-common.resume:                                    ; preds = %294, %302, %338, %312, %232, %214, %222
-  %common.resume.op = phi { ptr, i32 } [ %215, %222 ], [ %215, %214 ], [ %.pn132, %312 ], [ %.pn120, %338 ], [ %.pn118, %232 ], [ %295, %302 ], [ %295, %294 ]
+common.resume:                                    ; preds = %295, %303, %340, %313, %233, %214, %222
+  %common.resume.op = phi { ptr, i32 } [ %215, %222 ], [ %215, %214 ], [ %.pn132, %313 ], [ %.pn120, %340 ], [ %.pn118, %233 ], [ %296, %303 ], [ %296, %295 ]
   resume { ptr, i32 } %common.resume.op
 
-.thread238:                                       ; preds = %.thread231
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %231)
-          to label %207 unwind label %235
+231:                                              ; preds = %203
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %232)
+          to label %207 unwind label %236
 
-232:                                              ; preds = %194, %243, %235
-  %.pn118 = phi { ptr, i32 } [ %236, %235 ], [ %.pn116.ph, %243 ], [ %.pn112, %194 ]
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val146 = load ptr, ptr %233, align 8, !noundef !5
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val147 = load ptr, ptr %234, align 8
-  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val146, ptr %.val147) #17
-          to label %common.resume unwind label %237
+233:                                              ; preds = %194, %244, %236
+  %.pn118 = phi { ptr, i32 } [ %237, %236 ], [ %.pn116.ph, %244 ], [ %.pn112, %194 ]
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.val149 = load ptr, ptr %234, align 8, !noundef !5
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val150 = load ptr, ptr %235, align 8
+  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val149, ptr %.val150) #17
+          to label %common.resume unwind label %238
 
-235:                                              ; preds = %.thread238
-  %236 = landingpad { ptr, i32 }
+236:                                              ; preds = %231
+  %237 = landingpad { ptr, i32 }
           cleanup
-  br label %232
+  br label %233
 
-"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit": ; preds = %310, %303, %.critedge135, %230, %223, %207
+"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit": ; preds = %311, %304, %.critedge135, %230, %223, %207
   ret void
 
-237:                                              ; preds = %333, %327, %265, %254, %245, %181, %170, %93, %32, %232, %312, %338, %.thread253, %.thread252, %335, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186", %321, %319, %317, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178", %247, %243, %241, %239, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit169"
-  %238 = landingpad { ptr, i32 }
+238:                                              ; preds = %334, %328, %266, %255, %246, %181, %170, %93, %32, %233, %313, %340, %343, %338, %336, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189", %322, %320, %318, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181", %248, %244, %242, %240, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit172"
+  %239 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #18
   unreachable
 
-239:                                              ; preds = %194
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %240) #17
-          to label %241 unwind label %237
+240:                                              ; preds = %194
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %241) #17
+          to label %242 unwind label %238
 
-241:                                              ; preds = %202, %239
-  %.pn114.ph = phi { ptr, i32 } [ %.pn112, %239 ], [ %203, %202 ]
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %242) #17
-          to label %243 unwind label %237
+242:                                              ; preds = %240, %201
+  %.pn114.ph = phi { ptr, i32 } [ %.pn112, %240 ], [ %202, %201 ]
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %243) #17
+          to label %244 unwind label %238
 
-243:                                              ; preds = %205, %241
-  %.pn116.ph = phi { ptr, i32 } [ %.pn114.ph, %241 ], [ %206, %205 ]
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %244) #17
-          to label %232 unwind label %237
+244:                                              ; preds = %205, %242
+  %.pn116.ph = phi { ptr, i32 } [ %.pn114.ph, %242 ], [ %206, %205 ]
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %245) #17
+          to label %233 unwind label %238
 
-245:                                              ; preds = %60
-  %246 = landingpad { ptr, i32 }
+246:                                              ; preds = %60
+  %247 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$parquet..file..metadata..RowGroupMetaData$GT$17hca5f46a58bf65d1eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %12)
-          to label %.body160 unwind label %237
+          to label %.body163 unwind label %238
 
-247:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h31b4986c33a8632dE.exit"
+248:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h31b4986c33a8632dE.exit"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #17
-          to label %.body160 unwind label %237
+          to label %.body163 unwind label %238
 
-248:                                              ; preds = %147
-  %249 = landingpad { ptr, i32 }
+249:                                              ; preds = %147
+  %250 = landingpad { ptr, i32 }
           cleanup
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !976)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
-  %251 = load ptr, ptr %250, align 8, !alias.scope !982, !nonnull !5, !noundef !5
-  %252 = atomicrmw sub ptr %251, i64 1 release, align 8, !noalias !982
-  %253 = icmp eq i64 %252, 1
-  br i1 %253, label %254, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174"
+  %252 = load ptr, ptr %251, align 8, !alias.scope !982, !nonnull !5, !noundef !5
+  %253 = atomicrmw sub ptr %252, i64 1 release, align 8, !noalias !982
+  %254 = icmp eq i64 %253, 1
+  br i1 %254, label %255, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177"
 
-254:                                              ; preds = %248
+255:                                              ; preds = %249
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %250)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174" unwind label %237
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %251)
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177" unwind label %238
 
-"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit157": ; preds = %142, %147
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 24
+"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit160": ; preds = %142, %147
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !983)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  %256 = load ptr, ptr %255, align 8, !alias.scope !989, !nonnull !5, !noundef !5
-  %257 = atomicrmw sub ptr %256, i64 1 release, align 8, !noalias !989
-  %258 = icmp eq i64 %257, 1
-  br i1 %258, label %259, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit176"
+  %257 = load ptr, ptr %256, align 8, !alias.scope !989, !nonnull !5, !noundef !5
+  %258 = atomicrmw sub ptr %257, i64 1 release, align 8, !noalias !989
+  %259 = icmp eq i64 %258, 1
+  br i1 %259, label %260, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit179"
 
-259:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit157"
+260:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit160"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %255)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit176" unwind label %266
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %256)
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit179" unwind label %267
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174": ; preds = %248, %254, %266
-  %.pn122 = phi { ptr, i32 } [ %267, %266 ], [ %249, %254 ], [ %249, %248 ]
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177": ; preds = %249, %255, %267
+  %.pn122 = phi { ptr, i32 } [ %268, %267 ], [ %250, %255 ], [ %250, %249 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !990)
-  %260 = load ptr, ptr %16, align 8, !alias.scope !990, !noundef !5
-  %261 = icmp eq ptr %260, null
-  br i1 %261, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178", label %262
+  %261 = load ptr, ptr %16, align 8, !alias.scope !990, !noundef !5
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181", label %263
 
-262:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174"
-  %263 = atomicrmw sub ptr %260, i64 1 release, align 8, !noalias !993
-  %264 = icmp eq i64 %263, 1
-  br i1 %264, label %265, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178"
+263:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177"
+  %264 = atomicrmw sub ptr %261, i64 1 release, align 8, !noalias !993
+  %265 = icmp eq i64 %264, 1
+  br i1 %265, label %266, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181"
 
-265:                                              ; preds = %262
+266:                                              ; preds = %263
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178" unwind label %237
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181" unwind label %238
 
-266:                                              ; preds = %259
-  %267 = landingpad { ptr, i32 }
+267:                                              ; preds = %260
+  %268 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174"
+  br label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177"
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit176": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit157", %259
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit179": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit160", %260
   tail call void @llvm.experimental.noalias.scope.decl(metadata !998)
-  %268 = load ptr, ptr %16, align 8, !alias.scope !998, !noundef !5
-  %269 = icmp eq ptr %268, null
-  br i1 %269, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180", label %270
+  %269 = load ptr, ptr %16, align 8, !alias.scope !998, !noundef !5
+  %270 = icmp eq ptr %269, null
+  br i1 %270, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183", label %271
 
-270:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit176"
-  %271 = atomicrmw sub ptr %268, i64 1 release, align 8, !noalias !1001
-  %272 = icmp eq i64 %271, 1
-  br i1 %272, label %273, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180"
+271:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit179"
+  %272 = atomicrmw sub ptr %269, i64 1 release, align 8, !noalias !1001
+  %273 = icmp eq i64 %272, 1
+  br i1 %273, label %274, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183"
 
-273:                                              ; preds = %270
+274:                                              ; preds = %271
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180" unwind label %274
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183" unwind label %275
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178": ; preds = %262, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174", %265, %274
-  %.pn124 = phi { ptr, i32 } [ %275, %274 ], [ %.pn122, %265 ], [ %.pn122, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit174" ], [ %.pn122, %262 ]
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181": ; preds = %263, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177", %266, %275
+  %.pn124 = phi { ptr, i32 } [ %276, %275 ], [ %.pn122, %266 ], [ %.pn122, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit177" ], [ %.pn122, %263 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #17
-          to label %276 unwind label %237
+          to label %277 unwind label %238
 
-274:                                              ; preds = %273
-  %275 = landingpad { ptr, i32 }
+275:                                              ; preds = %274
+  %276 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178"
+  br label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181"
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180": ; preds = %270, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit176", %273
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183": ; preds = %271, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit179", %274
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-          to label %279 unwind label %277
+          to label %280 unwind label %278
 
-276:                                              ; preds = %277, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178"
-  %.pn126 = phi { ptr, i32 } [ %278, %277 ], [ %.pn124, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit178" ]
-  br i1 %.3, label %317, label %312
+277:                                              ; preds = %278, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181"
+  %.pn126 = phi { ptr, i32 } [ %279, %278 ], [ %.pn124, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit181" ]
+  br i1 %.3, label %318, label %313
 
-277:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180"
-  %278 = landingpad { ptr, i32 }
+278:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183"
+  %279 = landingpad { ptr, i32 }
           cleanup
-  br label %276
+  br label %277
 
-279:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit180"
-  br i1 %.3, label %280, label %.critedge135
+280:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit183"
+  br i1 %.3, label %281, label %.critedge135
 
-280:                                              ; preds = %279
-  %281 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %281)
-          to label %284 unwind label %282
+281:                                              ; preds = %280
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %282)
+          to label %285 unwind label %283
 
-282:                                              ; preds = %280
-  %283 = landingpad { ptr, i32 }
+283:                                              ; preds = %281
+  %284 = landingpad { ptr, i32 }
           cleanup
-  br label %319
+  br label %320
 
-284:                                              ; preds = %280
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %285)
-          to label %.critedge unwind label %286
+285:                                              ; preds = %281
+  %286 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %286)
+          to label %.critedge unwind label %287
 
-286:                                              ; preds = %284
-  %287 = landingpad { ptr, i32 }
+287:                                              ; preds = %285
+  %288 = landingpad { ptr, i32 }
           cleanup
-  br label %321
+  br label %322
 
-.critedge135:                                     ; preds = %279, %.critedge
-  %288 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val144 = load ptr, ptr %288, align 8, !noundef !5
-  %289 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val145 = load ptr, ptr %289, align 8
-  %290 = icmp eq ptr %.val144, null
-  br i1 %290, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %291
+.critedge135:                                     ; preds = %280, %.critedge
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.val147 = load ptr, ptr %289, align 8, !noundef !5
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val148 = load ptr, ptr %290, align 8
+  %291 = icmp eq ptr %.val147, null
+  br i1 %291, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %292
 
-291:                                              ; preds = %.critedge135
-  %292 = icmp ne ptr %.val145, null
-  tail call void @llvm.assume(i1 %292)
-  %293 = load ptr, ptr %.val145, align 8, !invariant.load !5, !nonnull !5
-  invoke void %293(ptr noundef nonnull align 1 %.val144)
-          to label %303 unwind label %294
+292:                                              ; preds = %.critedge135
+  %293 = icmp ne ptr %.val148, null
+  tail call void @llvm.assume(i1 %293)
+  %294 = load ptr, ptr %.val148, align 8, !invariant.load !5, !nonnull !5
+  invoke void %294(ptr noundef nonnull align 1 %.val147)
+          to label %304 unwind label %295
 
-294:                                              ; preds = %291
-  %295 = landingpad { ptr, i32 }
+295:                                              ; preds = %292
+  %296 = landingpad { ptr, i32 }
           cleanup
-  %296 = getelementptr inbounds nuw i8, ptr %.val145, i64 8
-  %297 = load i64, ptr %296, align 8, !range !156, !invariant.load !5
-  %298 = getelementptr inbounds nuw i8, ptr %.val145, i64 16
-  %299 = load i64, ptr %298, align 8, !range !157, !invariant.load !5
-  %300 = icmp ult i64 %299, -9223372036854775807
-  tail call void @llvm.assume(i1 %300)
-  %301 = icmp eq i64 %297, 0
-  br i1 %301, label %common.resume, label %302
+  %297 = getelementptr inbounds nuw i8, ptr %.val148, i64 8
+  %298 = load i64, ptr %297, align 8, !range !156, !invariant.load !5
+  %299 = getelementptr inbounds nuw i8, ptr %.val148, i64 16
+  %300 = load i64, ptr %299, align 8, !range !157, !invariant.load !5
+  %301 = icmp ult i64 %300, -9223372036854775807
+  tail call void @llvm.assume(i1 %301)
+  %302 = icmp eq i64 %298, 0
+  br i1 %302, label %common.resume, label %303
 
-302:                                              ; preds = %294
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val144, i64 noundef range(i64 1, -9223372036854775808) %297, i64 noundef range(i64 1, -9223372036854775807) %299) #19
+303:                                              ; preds = %295
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val147, i64 noundef range(i64 1, -9223372036854775808) %298, i64 noundef range(i64 1, -9223372036854775807) %300) #19
   br label %common.resume
 
-303:                                              ; preds = %291
-  %304 = getelementptr inbounds nuw i8, ptr %.val145, i64 8
-  %305 = load i64, ptr %304, align 8, !range !156, !invariant.load !5
-  %306 = getelementptr inbounds nuw i8, ptr %.val145, i64 16
-  %307 = load i64, ptr %306, align 8, !range !157, !invariant.load !5
-  %308 = icmp ult i64 %307, -9223372036854775807
-  tail call void @llvm.assume(i1 %308)
-  %309 = icmp eq i64 %305, 0
-  br i1 %309, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %310
+304:                                              ; preds = %292
+  %305 = getelementptr inbounds nuw i8, ptr %.val148, i64 8
+  %306 = load i64, ptr %305, align 8, !range !156, !invariant.load !5
+  %307 = getelementptr inbounds nuw i8, ptr %.val148, i64 16
+  %308 = load i64, ptr %307, align 8, !range !157, !invariant.load !5
+  %309 = icmp ult i64 %308, -9223372036854775807
+  tail call void @llvm.assume(i1 %309)
+  %310 = icmp eq i64 %306, 0
+  br i1 %310, label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit", label %311
 
-310:                                              ; preds = %303
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val144, i64 noundef range(i64 1, -9223372036854775808) %305, i64 noundef range(i64 1, -9223372036854775807) %307) #19
+311:                                              ; preds = %304
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val147, i64 noundef range(i64 1, -9223372036854775808) %306, i64 noundef range(i64 1, -9223372036854775807) %308) #19
   br label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit"
 
-.critedge:                                        ; preds = %284
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %311)
-          to label %.critedge135 unwind label %315
+.critedge:                                        ; preds = %285
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %312)
+          to label %.critedge135 unwind label %316
 
-312:                                              ; preds = %276, %321, %315
-  %.pn132 = phi { ptr, i32 } [ %316, %315 ], [ %.pn130.ph, %321 ], [ %.pn126, %276 ]
-  %313 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val142 = load ptr, ptr %313, align 8, !noundef !5
-  %314 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val143 = load ptr, ptr %314, align 8
-  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val142, ptr %.val143) #17
-          to label %common.resume unwind label %237
+313:                                              ; preds = %277, %322, %316
+  %.pn132 = phi { ptr, i32 } [ %317, %316 ], [ %.pn130.ph, %322 ], [ %.pn126, %277 ]
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.val145 = load ptr, ptr %314, align 8, !noundef !5
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val146 = load ptr, ptr %315, align 8
+  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val145, ptr %.val146) #17
+          to label %common.resume unwind label %238
 
-315:                                              ; preds = %.critedge
-  %316 = landingpad { ptr, i32 }
+316:                                              ; preds = %.critedge
+  %317 = landingpad { ptr, i32 }
           cleanup
-  br label %312
+  br label %313
 
-317:                                              ; preds = %276
-  %318 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %318) #17
-          to label %319 unwind label %237
+318:                                              ; preds = %277
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %319) #17
+          to label %320 unwind label %238
 
-319:                                              ; preds = %317, %282
-  %.pn128.ph = phi { ptr, i32 } [ %.pn126, %317 ], [ %283, %282 ]
-  %320 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %320) #17
-          to label %321 unwind label %237
+320:                                              ; preds = %318, %283
+  %.pn128.ph = phi { ptr, i32 } [ %.pn126, %318 ], [ %284, %283 ]
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %321) #17
+          to label %322 unwind label %238
 
-321:                                              ; preds = %319, %286
-  %.pn130.ph = phi { ptr, i32 } [ %.pn128.ph, %319 ], [ %287, %286 ]
-  %322 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %322) #17
-          to label %312 unwind label %237
+322:                                              ; preds = %320, %287
+  %.pn130.ph = phi { ptr, i32 } [ %.pn128.ph, %320 ], [ %288, %287 ]
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %323) #17
+          to label %313 unwind label %238
 
-"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit": ; preds = %.body160, %32
-  %323 = getelementptr inbounds nuw i8, ptr %1, i64 24
+"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit": ; preds = %.body163, %32
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1006)
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
-  %324 = load ptr, ptr %323, align 8, !alias.scope !1012, !nonnull !5, !noundef !5
-  %325 = atomicrmw sub ptr %324, i64 1 release, align 8, !noalias !1012
-  %326 = icmp eq i64 %325, 1
-  br i1 %326, label %327, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit184"
+  %325 = load ptr, ptr %324, align 8, !alias.scope !1012, !nonnull !5, !noundef !5
+  %326 = atomicrmw sub ptr %325, i64 1 release, align 8, !noalias !1012
+  %327 = icmp eq i64 %326, 1
+  br i1 %327, label %328, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit187"
 
-327:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit"
+328:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %323)
-          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit184" unwind label %237
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbc5b34093a3b1569E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %324)
+          to label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit187" unwind label %238
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit184": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit", %327
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit187": ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit", %328
   call void @llvm.experimental.noalias.scope.decl(metadata !1013)
-  %328 = load ptr, ptr %16, align 8, !alias.scope !1013, !noundef !5
-  %329 = icmp eq ptr %328, null
-  br i1 %329, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186", label %330
+  %329 = load ptr, ptr %16, align 8, !alias.scope !1013, !noundef !5
+  %330 = icmp eq ptr %329, null
+  br i1 %330, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189", label %331
 
-330:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit184"
-  %331 = atomicrmw sub ptr %328, i64 1 release, align 8, !noalias !1016
-  %332 = icmp eq i64 %331, 1
-  br i1 %332, label %333, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186"
+331:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit187"
+  %332 = atomicrmw sub ptr %329, i64 1 release, align 8, !noalias !1016
+  %333 = icmp eq i64 %332, 1
+  br i1 %333, label %334, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189"
 
-333:                                              ; preds = %330
+334:                                              ; preds = %331
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6a9c05ee14674738E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186" unwind label %237
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189" unwind label %238
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186": ; preds = %330, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit184", %333
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189": ; preds = %331, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit187", %334
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$parquet..file..metadata..ColumnChunkMetaData$GT$$GT$17hc8c8ed339b0ae8fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #17
-          to label %334 unwind label %237
+          to label %335 unwind label %238
 
-334:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit186"
-  br i1 %.2, label %335, label %338
+335:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit189"
+  br i1 %.2, label %340, label %336
 
-335:                                              ; preds = %334
-  %336 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %336) #17
-          to label %.thread252 unwind label %237
+336:                                              ; preds = %335
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$GT$17hae15d200f502ebbbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %337) #17
+          to label %338 unwind label %238
 
-.thread252:                                       ; preds = %335
-  %337 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %337) #17
-          to label %.thread253 unwind label %237
+338:                                              ; preds = %336
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$GT$17ha8d731576090adcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %339) #17
+          to label %343 unwind label %238
 
-338:                                              ; preds = %334, %.thread253
-  %339 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val140 = load ptr, ptr %339, align 8, !noundef !5
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val141 = load ptr, ptr %340, align 8
-  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val140, ptr %.val141) #17
-          to label %common.resume unwind label %237
+340:                                              ; preds = %335, %343
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.val143 = load ptr, ptr %341, align 8, !noundef !5
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %.val144 = load ptr, ptr %342, align 8
+  invoke fastcc void @"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E"(ptr %.val143, ptr %.val144) #17
+          to label %common.resume unwind label %238
 
-.thread253:                                       ; preds = %.thread252
-  %341 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %341) #17
-          to label %338 unwind label %237
+343:                                              ; preds = %338
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %344) #17
+          to label %340 unwind label %238
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

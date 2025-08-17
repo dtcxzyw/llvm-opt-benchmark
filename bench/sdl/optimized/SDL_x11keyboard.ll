@@ -1279,10 +1279,10 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   store i8 0, ptr %148, align 8
   br label %X11_SendEditingEvent.exit
 
-152:                                              ; preds = %161, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %161 ]
-  %.02234.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %161 ]
-  %.02333.i = phi i8 [ 0, %.lr.ph.i ], [ %.124.i, %161 ]
+152:                                              ; preds = %160, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %160 ]
+  %.02234.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %160 ]
+  %.02333.i = phi i8 [ 0, %.lr.ph.i ], [ %.124.i, %160 ]
   %153 = getelementptr inbounds nuw i64, ptr %146, i64 %indvars.iv.i
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %154, 5
@@ -1294,51 +1294,51 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %spec.select.i = select i1 %157, i8 1, i8 %.02333.i
   %158 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select27.i = select i1 %157, i32 %158, i32 %.02234.i
-  br label %161
+  br label %160
 
 159:                                              ; preds = %152
-  %160 = trunc nuw i8 %.02333.i to i1
-  br i1 %160, label %.thread.loopexit.i, label %161
+  %cond.i = icmp eq i8 %.02333.i, 0
+  br i1 %cond.i, label %160, label %.loopexit.loopexit.i
 
-161:                                              ; preds = %159, %156
+160:                                              ; preds = %159, %156
   %.124.i = phi i8 [ 0, %159 ], [ %spec.select.i, %156 ]
   %.1.i = phi i32 [ %.02234.i, %159 ], [ %spec.select27.i, %156 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %152, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %161
-  %162 = trunc nuw i8 %.124.i to i1
-  br i1 %162, label %.thread.i, label %._crit_edge.thread.i
+._crit_edge.i:                                    ; preds = %160
+  %161 = trunc nuw i8 %.124.i to i1
+  br i1 %161, label %.loopexit.i, label %._crit_edge.thread.i
 
-.thread.loopexit.i:                               ; preds = %159
-  %163 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %.thread.i
+.loopexit.loopexit.i:                             ; preds = %159
+  %162 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br label %.loopexit.i
 
-.thread.i:                                        ; preds = %.thread.loopexit.i, %._crit_edge.i
-  %.02231.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.02234.i, %.thread.loopexit.i ]
-  %.029.i = phi i32 [ %142, %._crit_edge.i ], [ %163, %.thread.loopexit.i ]
-  %164 = sub nsw i32 %.029.i, %.02231.i
-  br label %167
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i
+  %.02231.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.02234.i, %.loopexit.loopexit.i ]
+  %.029.i = phi i32 [ %142, %._crit_edge.i ], [ %162, %.loopexit.loopexit.i ]
+  %163 = sub nsw i32 %.029.i, %.02231.i
+  br label %166
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %165 = icmp slt i32 %139, 0
-  br i1 %165, label %167, label %166
+  %164 = icmp slt i32 %139, 0
+  br i1 %164, label %166, label %165
 
-166:                                              ; preds = %._crit_edge.thread.i
+165:                                              ; preds = %._crit_edge.thread.i
   %..i = call i32 @llvm.smin.i32(i32 %139, i32 %142)
-  br label %167
+  br label %166
 
-167:                                              ; preds = %166, %._crit_edge.thread.i, %.thread.i
-  %.2.i = phi i32 [ %.02231.i, %.thread.i ], [ 0, %._crit_edge.thread.i ], [ %..i, %166 ]
-  %.021.i = phi i32 [ %164, %.thread.i ], [ 0, %._crit_edge.thread.i ], [ 0, %166 ]
-  %168 = load ptr, ptr %58, align 8
-  call void @SDL_SendEditingText(ptr noundef %168, i32 noundef %.2.i, i32 noundef %.021.i) #9
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  store i8 1, ptr %169, align 8
+166:                                              ; preds = %165, %._crit_edge.thread.i, %.loopexit.i
+  %.2.i = phi i32 [ %.02231.i, %.loopexit.i ], [ 0, %._crit_edge.thread.i ], [ %..i, %165 ]
+  %.021.i = phi i32 [ %163, %.loopexit.i ], [ 0, %._crit_edge.thread.i ], [ 0, %165 ]
+  %167 = load ptr, ptr %58, align 8
+  call void @SDL_SendEditingText(ptr noundef %167, i32 noundef %.2.i, i32 noundef %.021.i) #9
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 576
+  store i8 1, ptr %168, align 8
   br label %X11_SendEditingEvent.exit
 
-X11_SendEditingEvent.exit:                        ; preds = %147, %151, %167
+X11_SendEditingEvent.exit:                        ; preds = %147, %151, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1395,10 +1395,10 @@ define internal void @preedit_caret_callback(ptr readnone captures(none) %0, ptr
   store i8 0, ptr %18, align 8
   br label %X11_SendEditingEvent.exit
 
-22:                                               ; preds = %31, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %.02234.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %31 ]
-  %.02333.i = phi i8 [ 0, %.lr.ph.i ], [ %.124.i, %31 ]
+22:                                               ; preds = %30, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+  %.02234.i = phi i32 [ -1, %.lr.ph.i ], [ %.1.i, %30 ]
+  %.02333.i = phi i8 [ 0, %.lr.ph.i ], [ %.124.i, %30 ]
   %23 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 5
@@ -1410,52 +1410,52 @@ define internal void @preedit_caret_callback(ptr readnone captures(none) %0, ptr
   %spec.select.i = select i1 %27, i8 1, i8 %.02333.i
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select27.i = select i1 %27, i32 %28, i32 %.02234.i
-  br label %31
+  br label %30
 
 29:                                               ; preds = %22
-  %30 = trunc nuw i8 %.02333.i to i1
-  br i1 %30, label %.thread.loopexit.i, label %31
+  %cond.i = icmp eq i8 %.02333.i, 0
+  br i1 %cond.i, label %30, label %.loopexit.loopexit.i
 
-31:                                               ; preds = %29, %26
+30:                                               ; preds = %29, %26
   %.124.i = phi i8 [ 0, %29 ], [ %spec.select.i, %26 ]
   %.1.i = phi i32 [ %.02234.i, %29 ], [ %spec.select27.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %31
-  %32 = trunc nuw i8 %.124.i to i1
-  br i1 %32, label %.thread.i, label %._crit_edge.thread.i
+._crit_edge.i:                                    ; preds = %30
+  %31 = trunc nuw i8 %.124.i to i1
+  br i1 %31, label %.loopexit.i, label %._crit_edge.thread.i
 
-.thread.loopexit.i:                               ; preds = %29
-  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %.thread.i
+.loopexit.loopexit.i:                             ; preds = %29
+  %32 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br label %.loopexit.i
 
-.thread.i:                                        ; preds = %.thread.loopexit.i, %._crit_edge.i
-  %.02231.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.02234.i, %.thread.loopexit.i ]
-  %.029.i = phi i32 [ %12, %._crit_edge.i ], [ %33, %.thread.loopexit.i ]
-  %34 = sub nsw i32 %.029.i, %.02231.i
-  br label %37
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i
+  %.02231.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.02234.i, %.loopexit.loopexit.i ]
+  %.029.i = phi i32 [ %12, %._crit_edge.i ], [ %32, %.loopexit.loopexit.i ]
+  %33 = sub nsw i32 %.029.i, %.02231.i
+  br label %36
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %35 = icmp slt i32 %7, 0
-  br i1 %35, label %37, label %36
+  %34 = icmp slt i32 %7, 0
+  br i1 %34, label %36, label %35
 
-36:                                               ; preds = %._crit_edge.thread.i
+35:                                               ; preds = %._crit_edge.thread.i
   %..i = tail call i32 @llvm.smin.i32(i32 %7, i32 %12)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %._crit_edge.thread.i, %.thread.i
-  %.2.i = phi i32 [ %.02231.i, %.thread.i ], [ 0, %._crit_edge.thread.i ], [ %..i, %36 ]
-  %.021.i = phi i32 [ %34, %.thread.i ], [ 0, %._crit_edge.thread.i ], [ 0, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %39 = load ptr, ptr %38, align 8
-  tail call void @SDL_SendEditingText(ptr noundef %39, i32 noundef %.2.i, i32 noundef %.021.i) #9
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  store i8 1, ptr %40, align 8
+36:                                               ; preds = %35, %._crit_edge.thread.i, %.loopexit.i
+  %.2.i = phi i32 [ %.02231.i, %.loopexit.i ], [ 0, %._crit_edge.thread.i ], [ %..i, %35 ]
+  %.021.i = phi i32 [ %33, %.loopexit.i ], [ 0, %._crit_edge.thread.i ], [ 0, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 552
+  %38 = load ptr, ptr %37, align 8
+  tail call void @SDL_SendEditingText(ptr noundef %38, i32 noundef %.2.i, i32 noundef %.021.i) #9
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 576
+  store i8 1, ptr %39, align 8
   br label %X11_SendEditingEvent.exit
 
-X11_SendEditingEvent.exit:                        ; preds = %37, %21, %17, %3, %6
+X11_SendEditingEvent.exit:                        ; preds = %36, %21, %17, %3, %6
   ret void
 }
 

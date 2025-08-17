@@ -370,12 +370,16 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2e7c47e632ee824E"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 {
   tail call void @"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48df0dbd96e17e4bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %3 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  %.not = icmp eq i8 %3, 2
-  %4 = trunc nuw i8 %3 to i1
-  %or.cond = select i1 %.not, i1 true, i1 %4
-  br i1 %or.cond, label %5, label %6
+  switch i8 %3, label %5 [
+    i8 2, label %4
+    i8 0, label %6
+  ]
 
-5:                                                ; preds = %2, %20, %13
+4:                                                ; preds = %2
+  store i8 2, ptr %0, align 8
+  br label %5
+
+5:                                                ; preds = %2, %20, %13, %4
   ret void
 
 6:                                                ; preds = %2
@@ -45606,47 +45610,48 @@ define hidden { i64, ptr } @"_ZN79_$LT$tokio..io..seek..Seek$LT$S$GT$$u20$as$u20
   %.not = icmp eq i64 %4, 3
   %5 = load ptr, ptr %3, align 8, !nonnull !4, !align !50, !noundef !4
   %6 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17hf5a3bdf0e9957bedE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %.not, label %10, label %7
+  br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
   %8 = extractvalue { i64, ptr } %6, 0
-  %9 = icmp eq i64 %8, 2
-  br i1 %9, label %25, label %11
+  switch i64 %8, label %10 [
+    i64 2, label %23
+    i64 0, label %12
+  ]
 
-10:                                               ; preds = %2, %20, %22, %25
-  %.merged = phi { i64, ptr } [ %27, %25 ], [ %21, %20 ], [ %24, %22 ], [ %6, %2 ]
+9:                                                ; preds = %2, %18, %20, %23
+  %.merged = phi { i64, ptr } [ %25, %23 ], [ %19, %18 ], [ %22, %20 ], [ %6, %2 ]
   ret { i64, ptr } %.merged
 
-11:                                               ; preds = %7
-  %12 = extractvalue { i64, ptr } %6, 1
-  %13 = trunc nuw i64 %8 to i1
-  br i1 %13, label %25, label %14
+10:                                               ; preds = %7
+  %11 = extractvalue { i64, ptr } %6, 1
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = load i64, ptr %0, align 8, !range !218, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = load ptr, ptr %3, align 8, !nonnull !4, !align !50, !noundef !4
-  %19 = tail call noundef ptr @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$10start_seek17h1045cf6b5a34cf75E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %18, i64 noundef %15, i64 noundef %17)
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %22, label %20
+12:                                               ; preds = %7
+  %13 = load i64, ptr %0, align 8, !range !218, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = load ptr, ptr %3, align 8, !nonnull !4, !align !50, !noundef !4
+  %17 = tail call noundef ptr @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$10start_seek17h1045cf6b5a34cf75E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %16, i64 noundef %13, i64 noundef %15)
+  %.not13 = icmp eq ptr %17, null
+  br i1 %.not13, label %20, label %18
 
-20:                                               ; preds = %14
-  %21 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %19, 1
-  br label %10
+18:                                               ; preds = %12
+  %19 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %17, 1
+  br label %9
 
-22:                                               ; preds = %14
+20:                                               ; preds = %12
   store i64 3, ptr %0, align 8
-  %23 = load ptr, ptr %3, align 8, !nonnull !4, !align !50, !noundef !4
-  %24 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17hf5a3bdf0e9957bedE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %23, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %10
+  %21 = load ptr, ptr %3, align 8, !nonnull !4, !align !50, !noundef !4
+  %22 = tail call { i64, ptr } @"_ZN74_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_seek..AsyncSeek$GT$13poll_complete17hf5a3bdf0e9957bedE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  br label %9
 
-25:                                               ; preds = %11, %7
-  %.sroa.6.1 = phi ptr [ undef, %7 ], [ %12, %11 ]
-  %.sroa.0.1 = phi i64 [ 2, %7 ], [ 1, %11 ]
-  %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %27 = insertvalue { i64, ptr } %26, ptr %.sroa.6.1, 1
-  br label %10
+23:                                               ; preds = %7, %10
+  %.sroa.6.1 = phi ptr [ %11, %10 ], [ undef, %7 ]
+  %.sroa.0.1 = phi i64 [ 1, %10 ], [ %8, %7 ]
+  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.6.1, 1
+  br label %9
 }
 
 ; Function Attrs: nonlazybind uwtable

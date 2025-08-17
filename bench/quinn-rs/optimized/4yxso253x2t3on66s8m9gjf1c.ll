@@ -5026,13 +5026,13 @@ define hidden void @_ZN11quinn_proto10connection7streams4recv6Chunks3new17h0154c
   %21 = load i64, ptr %20, align 8, !range !147, !alias.scope !264, !noundef !3
   %22 = getelementptr inbounds i8, ptr %15, i64 -8
   %23 = load ptr, ptr %22, align 8, !alias.scope !264
-  %.not.i = icmp eq i64 %21, 2
-  %spec.select.i = select i1 %.not.i, ptr undef, ptr %23
-  %spec.select12.i = select i1 %.not.i, i64 2, i64 1
+  %cond.i = icmp eq i64 %21, 2
+  %spec.select.i = select i1 %cond.i, ptr undef, ptr %23
+  %spec.select12.i = select i1 %cond.i, i64 2, i64 1
   store i64 %spec.select12.i, ptr %20, align 8, !alias.scope !264
   store ptr %spec.select.i, ptr %22, align 8, !alias.scope !264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  br i1 %.not.i, label %24, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
+  br i1 %cond.i, label %24, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17heba810ca56e6da61E.exit.i"
 
 24:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !270

@@ -366,7 +366,7 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-24:                                               ; preds = %.thread14, %26, %16
+24:                                               ; preds = %28, %26, %16
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29
@@ -375,12 +375,12 @@ define hidden void @"_ZN10ockam_node17processor_builder25ProcessorBuilder$LT$P$G
 26:                                               ; preds = %16, %.thread
   %.pn.pn13 = phi { ptr, i32 } [ %9, %.thread ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h247c21828056be7aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #28
-          to label %.thread14 unwind label %24
+          to label %28 unwind label %24
 
-27:                                               ; preds = %.thread14
+27:                                               ; preds = %28
   resume { ptr, i32 } %.pn.pn13
 
-.thread14:                                        ; preds = %26
+28:                                               ; preds = %26
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_transport_uds..workers..receiver..UdsRecvProcessor$GT$17hb90bcf571b86aeb8E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1) #28
           to label %27 unwind label %24
 }

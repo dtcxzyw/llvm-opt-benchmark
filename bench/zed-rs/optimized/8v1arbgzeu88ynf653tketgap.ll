@@ -84158,57 +84158,55 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN90_$LT$futures_lite..stream..NextFu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23434)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23437)
   %4 = tail call noundef i8 @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h2d0760ca53d4d48eE.llvm.14019313651612263248"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !range !2569, !noalias !23439
-  %5 = icmp eq i8 %4, 2
-  br i1 %5, label %7, label %6
+  switch i8 %4, label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit [
+    i8 2, label %5
+    i8 0, label %8
+  ]
 
-6:                                                ; preds = %2
-  %trunc.i.i = trunc nuw i8 %4 to i1
-  br i1 %trunc.i.i, label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit, label %10
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8, !alias.scope !23440, !noalias !23439, !noundef !14
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %17, label %18
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !alias.scope !23440, !noalias !23439, !noundef !14
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %19, label %20
-
-10:                                               ; preds = %6
+8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23441)
-  %11 = load ptr, ptr %3, align 8, !alias.scope !23444, !noalias !23439, !noundef !14
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", label %13
+  %9 = load ptr, ptr %3, align 8, !alias.scope !23444, !noalias !23439, !noundef !14
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", label %11
 
-13:                                               ; preds = %10
-  %14 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !23445
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i"
+11:                                               ; preds = %8
+  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !23445
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i"
 
-16:                                               ; preds = %13
+14:                                               ; preds = %11
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h937a57132d42fc00E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" unwind label %17, !noalias !23439
+          to label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" unwind label %15, !noalias !23439
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %3, align 8, !alias.scope !23440, !noalias !23439
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %16
 
-"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i": ; preds = %16, %13, %10
+"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i": ; preds = %14, %11, %8
   store ptr null, ptr %3, align 8, !alias.scope !23440, !noalias !23439
   br label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit
 
-19:                                               ; preds = %7
+17:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4dace35283e50e3919c20fd89d5e060.675.llvm.14019313651612263248) #59, !noalias !23439
   unreachable
 
-20:                                               ; preds = %7
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %22 = load ptr, ptr %1, align 8, !alias.scope !23439, !noalias !23440, !nonnull !14, !align !199, !noundef !14
-  tail call void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker8register17h111277db182dd75bE(ptr noundef nonnull align 8 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22), !noalias !23439
-  %23 = tail call noundef i8 @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h2d0760ca53d4d48eE.llvm.14019313651612263248"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !range !2569, !noalias !23439
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %20 = load ptr, ptr %1, align 8, !alias.scope !23439, !noalias !23440, !nonnull !14, !align !199, !noundef !14
+  tail call void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker8register17h111277db182dd75bE(ptr noundef nonnull align 8 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !23439
+  %21 = tail call noundef i8 @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h2d0760ca53d4d48eE.llvm.14019313651612263248"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !range !2569, !noalias !23439
   br label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit
 
-_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit: ; preds = %6, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", %20
-  %.sroa.0.0.i.i = phi i8 [ %23, %20 ], [ 1, %6 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ]
+_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit: ; preds = %2, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", %18
+  %.sroa.0.0.i.i = phi i8 [ %21, %18 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ], [ %4, %2 ]
   ret i8 %.sroa.0.0.i.i
 }
 

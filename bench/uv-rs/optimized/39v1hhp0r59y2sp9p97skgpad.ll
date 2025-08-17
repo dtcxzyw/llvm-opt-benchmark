@@ -207,59 +207,57 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN3std2io22inlined_slow_read_byte17h3b9899f50c9a544fE.llvm.13452247604522872897(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = load i8, ptr %3, align 8, !range !3, !noundef !4
-  %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %7
+  switch i8 %4, label %14 [
+    i8 2, label %5
+    i8 0, label %7
+  ]
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   store i8 2, ptr %0, align 8
-  br label %8
+  br label %6
 
-7:                                                ; preds = %2
-  %trunc = trunc nuw i8 %4 to i1
-  br i1 %trunc, label %16, label %9
-
-8:                                                ; preds = %26, %19, %16, %6
+6:                                                ; preds = %24, %17, %14, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %11 = load i8, ptr %10, align 1, !noundef !4
-  %12 = icmp eq i8 %11, 10
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = add i64 %14, 1
-  br i1 %12, label %19, label %26
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %9 = load i8, ptr %8, align 1, !noundef !4
+  %10 = icmp eq i8 %9, 10
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = add i64 %12, 1
+  br i1 %10, label %17, label %24
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   store i8 1, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %.sroa.46.0..sroa_idx, align 8
-  br label %8
+  store ptr %16, ptr %.sroa.46.0..sroa_idx, align 8
+  br label %6
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = add i64 %15, %21
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
-  store i64 0, ptr %13, align 8
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %19 = load i64, ptr %18, align 8, !noundef !4
+  %20 = add i64 %13, %19
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  store i64 0, ptr %11, align 8
   store i8 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %.sroa.4.0..sroa_idx, align 1
-  br label %8
+  br label %6
 
-26:                                               ; preds = %9
-  store i64 %15, ptr %13, align 8
+24:                                               ; preds = %7
+  store i64 %13, ptr %11, align 8
   store i8 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %11, ptr %.sroa.42.0..sroa_idx, align 1
-  br label %8
+  store i8 %9, ptr %.sroa.42.0..sroa_idx, align 1
+  br label %6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

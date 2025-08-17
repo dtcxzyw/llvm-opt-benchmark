@@ -10200,7 +10200,7 @@ split:                                            ; preds = %59, %"_ZN71_$LT$htt
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %83 = load i64, ptr %82, align 8, !alias.scope !1423, !noalias !1424, !noundef !15
   invoke void %78(ptr noalias noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %81, i64 noundef %83)
-          to label %307 unwind label %220, !noalias !1424
+          to label %308 unwind label %220, !noalias !1424
 
 84:                                               ; preds = %69
   %85 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -10651,7 +10651,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.054, i64 noundef %255, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.157) #23
   unreachable
 
-"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit": ; preds = %288, %.thread98, %248, %257, %267, %264, %.critedge68, %250
+"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit": ; preds = %248, %257, %289, %286, %267, %264, %.critedge68, %250
   ret void
 
 264:                                              ; preds = %250
@@ -10690,92 +10690,92 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   %282 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %283 = load i64, ptr %282, align 8, !alias.scope !1529, !noundef !15
   invoke void %278(ptr noalias noundef nonnull align 8 dereferenceable(8) %279, ptr noundef %281, i64 noundef %283)
-          to label %.thread98 unwind label %284
+          to label %286 unwind label %284
 
 284:                                              ; preds = %274
   %285 = landingpad { ptr, i32 }
           cleanup
-  br label %307
+  br label %308
 
-.thread98:                                        ; preds = %274
+286:                                              ; preds = %274
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1530)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1533)
-  %286 = load ptr, ptr %2, align 8, !alias.scope !1536, !noundef !15
-  %287 = icmp eq ptr %286, null
-  br i1 %287, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit", label %288
+  %287 = load ptr, ptr %2, align 8, !alias.scope !1536, !noundef !15
+  %288 = icmp eq ptr %287, null
+  br i1 %288, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit", label %289
 
-288:                                              ; preds = %.thread98
+289:                                              ; preds = %286
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1537)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1543)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1546)
-  %289 = getelementptr inbounds nuw i8, ptr %286, i64 24
-  %290 = load ptr, ptr %289, align 8, !noalias !1549, !nonnull !15, !noundef !15
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %293 = load ptr, ptr %292, align 8, !alias.scope !1549, !noundef !15
-  %294 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %295 = load i64, ptr %294, align 8, !alias.scope !1549, !noundef !15
-  tail call void %290(ptr noalias noundef nonnull align 8 dereferenceable(8) %291, ptr noundef %293, i64 noundef %295)
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 24
+  %291 = load ptr, ptr %290, align 8, !noalias !1549, !nonnull !15, !noundef !15
+  %292 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %294 = load ptr, ptr %293, align 8, !alias.scope !1549, !noundef !15
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %296 = load i64, ptr %295, align 8, !alias.scope !1549, !noundef !15
+  tail call void %291(ptr noalias noundef nonnull align 8 dereferenceable(8) %292, ptr noundef %294, i64 noundef %296)
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit"
 
 .loopexit:                                        ; preds = %64
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %296
+  br label %297
 
 .loopexit.split-lp:                               ; preds = %4, %66
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %296
+  br label %297
 
-296:                                              ; preds = %.loopexit.split-lp, %.loopexit
+297:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1556)
-  %297 = load ptr, ptr %3, align 8, !alias.scope !1559, !nonnull !15, !align !1212, !noundef !15
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
-  %299 = load ptr, ptr %298, align 8, !noalias !1559, !nonnull !15, !noundef !15
-  %300 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %301 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %302 = load ptr, ptr %301, align 8, !alias.scope !1559, !noundef !15
-  %303 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %304 = load i64, ptr %303, align 8, !alias.scope !1559, !noundef !15
-  invoke void %299(ptr noalias noundef nonnull align 8 dereferenceable(8) %300, ptr noundef %302, i64 noundef %304)
-          to label %307 unwind label %305
+  %298 = load ptr, ptr %3, align 8, !alias.scope !1559, !nonnull !15, !align !1212, !noundef !15
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
+  %300 = load ptr, ptr %299, align 8, !noalias !1559, !nonnull !15, !noundef !15
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %303 = load ptr, ptr %302, align 8, !alias.scope !1559, !noundef !15
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %305 = load i64, ptr %304, align 8, !alias.scope !1559, !noundef !15
+  invoke void %300(ptr noalias noundef nonnull align 8 dereferenceable(8) %301, ptr noundef %303, i64 noundef %305)
+          to label %308 unwind label %306
 
-305:                                              ; preds = %310, %296
-  %306 = landingpad { ptr, i32 }
+306:                                              ; preds = %311, %297
+  %307 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
-"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80": ; preds = %307, %310
+"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80": ; preds = %308, %311
   resume { ptr, i32 } %.pn.ph
 
-307:                                              ; preds = %284, %.body.i, %296
-  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %285, %284 ], [ %lpad.phi, %296 ]
+308:                                              ; preds = %284, %.body.i, %297
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %285, %284 ], [ %lpad.phi, %297 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1560)
   call void @llvm.experimental.noalias.scope.decl(metadata !1563)
-  %308 = load ptr, ptr %2, align 8, !alias.scope !1566, !noundef !15
-  %309 = icmp eq ptr %308, null
-  br i1 %309, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80", label %310
+  %309 = load ptr, ptr %2, align 8, !alias.scope !1566, !noundef !15
+  %310 = icmp eq ptr %309, null
+  br i1 %310, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80", label %311
 
-310:                                              ; preds = %307
+311:                                              ; preds = %308
   call void @llvm.experimental.noalias.scope.decl(metadata !1567)
   call void @llvm.experimental.noalias.scope.decl(metadata !1570)
   call void @llvm.experimental.noalias.scope.decl(metadata !1573)
   call void @llvm.experimental.noalias.scope.decl(metadata !1576)
-  %311 = getelementptr inbounds nuw i8, ptr %308, i64 24
-  %312 = load ptr, ptr %311, align 8, !noalias !1579, !nonnull !15, !noundef !15
-  %313 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %314 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %315 = load ptr, ptr %314, align 8, !alias.scope !1579, !noundef !15
-  %316 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %317 = load i64, ptr %316, align 8, !alias.scope !1579, !noundef !15
-  invoke void %312(ptr noalias noundef nonnull align 8 dereferenceable(8) %313, ptr noundef %315, i64 noundef %317)
-          to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80" unwind label %305
+  %312 = getelementptr inbounds nuw i8, ptr %309, i64 24
+  %313 = load ptr, ptr %312, align 8, !noalias !1579, !nonnull !15, !noundef !15
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %316 = load ptr, ptr %315, align 8, !alias.scope !1579, !noundef !15
+  %317 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %318 = load i64, ptr %317, align 8, !alias.scope !1579, !noundef !15
+  invoke void %313(ptr noalias noundef nonnull align 8 dereferenceable(8) %314, ptr noundef %316, i64 noundef %318)
+          to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit80" unwind label %306
 }
 
 ; Function Attrs: nonlazybind uwtable

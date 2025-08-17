@@ -4068,118 +4068,118 @@ _ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit18.i: ; preds = %93, %91
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN96_$LT$http..header..map..ValueIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7810ca862ca41a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !97, !noundef !35
-  %.not = icmp eq i64 %2, 2
-  br i1 %.not, label %5, label %3
+  switch i64 %2, label %4 [
+    i64 2, label %3
+    i64 0, label %12
+  ]
 
-3:                                                ; preds = %1
-  %4 = trunc nuw i64 %2 to i1
-  br i1 %4, label %6, label %14
-
-5:                                                ; preds = %1, %61, %34
-  %.sroa.0.0 = phi ptr [ %62, %61 ], [ %35, %34 ], [ null, %1 ]
+3:                                                ; preds = %1, %59, %32
+  %.sroa.0.0 = phi ptr [ %60, %59 ], [ %33, %32 ], [ null, %1 ]
   ret ptr %.sroa.0.0
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !noundef !35
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !nonnull !35, !align !36, !noundef !35
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %12 = load i64, ptr %11, align 8, !noundef !35
-  %13 = icmp ult i64 %8, %12
-  br i1 %13, label %41, label %51
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !noundef !35
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !nonnull !35, !align !36, !noundef !35
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %10 = load i64, ptr %9, align 8, !noundef !35
+  %11 = icmp ult i64 %6, %10
+  br i1 %11, label %39, label %49
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !nonnull !35, !align !36, !noundef !35
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load ptr, ptr %13, align 8, !nonnull !35, !align !36, !noundef !35
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load i64, ptr %15, align 8, !noundef !35
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %18 = load i64, ptr %17, align 8, !noundef !35
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %20 = load i64, ptr %19, align 8, !noundef !35
-  %21 = icmp ult i64 %18, %20
-  br i1 %21, label %22, label %29
+  %19 = icmp ult i64 %16, %18
+  br i1 %19, label %20, label %27
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %24 = load ptr, ptr %23, align 8, !nonnull !35, !noundef !35
-  %25 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %24, i64 %18
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !range !97, !noundef !35
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %33, label %30
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %22 = load ptr, ptr %21, align 8, !nonnull !35, !noundef !35
+  %23 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %22, i64 %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !range !97, !noundef !35
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %31, label %28
 
-29:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %18, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.84) #20
+27:                                               ; preds = %12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %16, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.84) #20
   unreachable
 
-30:                                               ; preds = %22
-  %31 = load i64, ptr %25, align 8, !range !87, !noundef !35
-  %32 = trunc nuw i64 %31 to i1
-  br i1 %32, label %36, label %40, !prof !86
+28:                                               ; preds = %20
+  %29 = load i64, ptr %23, align 8, !range !87, !noundef !35
+  %30 = trunc nuw i64 %29 to i1
+  br i1 %30, label %34, label %38, !prof !86
 
-33:                                               ; preds = %22
+31:                                               ; preds = %20
   store i64 2, ptr %0, align 8
-  store i64 2, ptr %26, align 8
-  br label %34
+  store i64 2, ptr %24, align 8
+  br label %32
 
-34:                                               ; preds = %36, %33
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  br label %5
+32:                                               ; preds = %34, %31
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  br label %3
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = load i64, ptr %37, align 8, !noundef !35
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %36 = load i64, ptr %35, align 8, !noundef !35
   store i64 1, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %38, ptr %39, align 8
-  br label %34
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %36, ptr %37, align 8
+  br label %32
 
-40:                                               ; preds = %30
+38:                                               ; preds = %28
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.1edb045931e9023cdef45a0c849faf9a.85, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.86) #20
   unreachable
 
-41:                                               ; preds = %6
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %43 = load ptr, ptr %42, align 8, !nonnull !35, !noundef !35
-  %44 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %43, i64 %8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i64, ptr %45, align 8, !range !97, !noundef !35
-  %47 = icmp eq i64 %46, 1
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %8, %49
-  %or.cond21 = select i1 %47, i1 %50, i1 false
-  br i1 %or.cond21, label %56, label %52
+39:                                               ; preds = %4
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %41 = load ptr, ptr %40, align 8, !nonnull !35, !noundef !35
+  %42 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %41, i64 %6
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i64, ptr %43, align 8, !range !97, !noundef !35
+  %.not18 = icmp ne i64 %44, 2
+  %45 = icmp eq i64 %2, %44
+  %or.cond = and i1 %.not18, %45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp eq i64 %6, %47
+  %or.cond21 = select i1 %or.cond, i1 %48, i1 false
+  br i1 %or.cond21, label %54, label %50
 
-51:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %8, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.87) #20
+49:                                               ; preds = %4
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1edb045931e9023cdef45a0c849faf9a.87) #20
   unreachable
 
-52:                                               ; preds = %41
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %54 = load i64, ptr %53, align 8, !range !87, !noundef !35
-  %55 = trunc nuw i64 %54 to i1
-  br i1 %55, label %57, label %60
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %52 = load i64, ptr %51, align 8, !range !87, !noundef !35
+  %53 = trunc nuw i64 %52 to i1
+  br i1 %53, label %55, label %58
 
-56:                                               ; preds = %41
+54:                                               ; preds = %39
   store i64 2, ptr %0, align 8
-  store i64 2, ptr %45, align 8
-  br label %61
+  store i64 2, ptr %43, align 8
+  br label %59
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %59 = load i64, ptr %58, align 8, !noundef !35
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %57 = load i64, ptr %56, align 8, !noundef !35
   store i64 1, ptr %0, align 8
-  store i64 %59, ptr %7, align 8
-  br label %61
+  store i64 %57, ptr %5, align 8
+  br label %59
 
-60:                                               ; preds = %52
+58:                                               ; preds = %50
   store i64 2, ptr %0, align 8
-  br label %61
+  br label %59
 
-61:                                               ; preds = %60, %57, %56
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  br label %5
+59:                                               ; preds = %58, %55, %54
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  br label %3
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

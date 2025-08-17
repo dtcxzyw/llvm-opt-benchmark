@@ -1712,16 +1712,14 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %73 = load i8, ptr %72, align 1, !range !84, !noalias !82, !noundef !6
   call void @_ZN3zip4read18make_crypto_reader17h63f862b57588318aE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6, i16 noundef %61, i16 %63, i32 noundef %65, i64 %.sroa.022.0.copyload.i.i, i1 noundef zeroext %69, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef readonly align 1 null, i64 undef, i8 %71, i8 noundef %73), !noalias !82
   %74 = load i64, ptr %6, align 8, !range !85, !noalias !81, !noundef !6
-  %75 = icmp eq i64 %74, 2
-  br i1 %75, label %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit", label %76
+  switch i64 %74, label %.critedge [
+    i64 2, label %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit"
+    i64 0, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit"
+  ]
 
-76:                                               ; preds = %59
-  %77 = trunc nuw i64 %74 to i1
-  br i1 %77, label %.critedge, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit"
-
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit": ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.11.8.copyload = load i64, ptr %78, align 8, !noalias !86
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit": ; preds = %59
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.11.8.copyload = load i64, ptr %75, align 8, !noalias !86
   %.sroa.19.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.19.8.copyload = load ptr, ptr %.sroa.19.8..sroa_idx, align 8, !noalias !86
   %.sroa.20.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1744,11 +1742,11 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   store i64 -9223372036854775808, ptr %.sroa.626.sroa.7.0..sroa.626.0..sroa_idx.sroa_idx, align 8
   %.sroa.626.sroa.8.0..sroa.626.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %51, ptr %.sroa.626.sroa.8.0..sroa.626.0..sroa_idx.sroa_idx, align 8
-  br label %81
+  br label %78
 
 "_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit": ; preds = %59
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.11.8.copyload8 = load i64, ptr %79, align 8, !noalias !86
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.11.8.copyload8 = load i64, ptr %76, align 8, !noalias !86
   %.sroa.19.8..sroa_idx13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.19.8.copyload14 = load ptr, ptr %.sroa.19.8..sroa_idx13, align 8, !noalias !86
   %.sroa.20.8..sroa_idx19 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1767,22 +1765,22 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %.sroa.11.254 = phi i64 [ 3, %4 ], [ %.sroa.11.254.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ 3, %._crit_edge.i.i.i ]
   %.sroa.19.253 = phi ptr [ undef, %4 ], [ %.sroa.19.253.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %._crit_edge.i.i.i ]
   %.sroa.20.252 = phi i64 [ undef, %4 ], [ %.sroa.20.252.ph, %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread.sink.split" ], [ undef, %._crit_edge.i.i.i ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.11.254, ptr %80, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.11.254, ptr %77, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.19.253, ptr %.sroa.240.0..sroa_idx, align 8
   %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.20.252, ptr %.sroa.341.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  br label %81
+  br label %78
 
-.critedge:                                        ; preds = %76
+.critedge:                                        ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !81
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !76
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.72, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.35) #30, !noalias !87
   unreachable
 
-81:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit", %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread"
+78:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e5c2ac7278ea317E.exit", %"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArchive$LT$R$GT$$GT$30by_name_with_optional_password17hed40f942a38b13b7E.exit.thread"
   ret void
 }
 

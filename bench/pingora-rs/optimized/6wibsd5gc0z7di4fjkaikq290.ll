@@ -11316,7 +11316,7 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load i16, ptr %12, align 8, !range !710, !noundef !16
   %cond = icmp eq i16 %13, 101
-  br i1 %cond, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33, label %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit.thread
+  br i1 %cond, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit.thread
 
 _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit.thread: ; preds = %1, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -11343,7 +11343,7 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %25 = and i24 %23, 65537
   %.not11.i = icmp eq i24 %25, 0
   %or.cond.i = or i1 %.not11.i, %24
-  br i1 %or.cond.i, label %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i", label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br i1 %or.cond.i, label %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i", label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
 "_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i": ; preds = %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i", %16, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -11351,7 +11351,7 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %26 = call noundef align 8 ptr @_ZN12pingora_core9protocols4http2v16client11HttpSession10get_header17h39d0df851baa2d8aE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i12 = icmp eq ptr %26, null
-  br i1 %.not.i12, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %27
+  br i1 %.not.i12, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23, label %27
 
 27:                                               ; preds = %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i"
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -11360,24 +11360,24 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4d
   %31 = load i64, ptr %30, align 8, !noundef !16
   %32 = tail call i24 @_ZN12pingora_core9protocols4http2v16common23parse_connection_header17hf4fe6b377db0efa9E(ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %31)
   %33 = trunc i24 %32 to i1
-  br i1 %33, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit
+  br i1 %33, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit
 
 _ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit: ; preds = %27
   %34 = and i24 %32, 65536
   %.not12.i = icmp eq i24 %34, 0
-  br i1 %.not12.i, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br i1 %.not12.i, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
-_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25: ; preds = %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i", %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit
+_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23: ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit, %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.thread.i"
   %35 = load ptr, ptr %9, align 8, !align !68, !noundef !16
   %.not10 = icmp eq ptr %35, null
-  br i1 %.not10, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33, label %138
+  br i1 %.not10, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %138
 
-_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread: ; preds = %27
+_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread: ; preds = %27
   %36 = tail call noundef align 8 ptr @_ZN12pingora_core9protocols4http2v16client11HttpSession10get_header17h1af5175c90981353E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 1 @anon.8e071d1b15d522c405dc2a4db65745c3.243, i64 noundef 10), !noalias !1018
   %.not.i13 = icmp eq ptr %36, null
-  br i1 %.not.i13, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33, label %37
+  br i1 %.not.i13, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %37
 
-37:                                               ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread
+37:                                               ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1018
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !1018, !noundef !16
@@ -11390,7 +11390,7 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive
 
 44:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1018
-  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
 .lr.ph.i:                                         ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -11476,7 +11476,7 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i": ; preds = %71, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1024
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1018
-  br i1 %.sroa.010.097.i, label %135, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br i1 %.sroa.010.097.i, label %135, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
 76:                                               ; preds = %._crit_edge.i.i.i, %62
   %.sroa.4.1.i.i = phi i64 [ %66, %62 ], [ %74, %._crit_edge.i.i.i ]
@@ -11622,28 +11622,28 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive
 
 _ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit: ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1018
-  br i1 %.sroa.010.1.i, label %135, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br i1 %.sroa.010.1.i, label %135, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
 135:                                              ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i", %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit
-  %.sroa.4.092.i49 = phi i64 [ %.sroa.4.098.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i" ], [ %.sroa.4.1.i, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit ]
-  %.not.i14 = icmp eq i64 %.sroa.4.092.i49, 0
-  br i1 %.not.i14, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33, label %136
+  %.sroa.4.092.i45 = phi i64 [ %.sroa.4.098.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i" ], [ %.sroa.4.1.i, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit ]
+  %.not.i14 = icmp eq i64 %.sroa.4.092.i45, 0
+  br i1 %.not.i14, label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, label %136
 
 136:                                              ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %.sroa.4.092.i49, ptr %137, align 8, !alias.scope !1045
-  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  store i64 %.sroa.4.092.i45, ptr %137, align 8, !alias.scope !1045
+  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
-138:                                              ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
+138:                                              ; preds = %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23
   %139 = tail call noundef align 8 dereferenceable(112) ptr @"_ZN72_$LT$pingora_http..ResponseHeader$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc07ad9b25a8e3ec6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %35)
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 106
   %141 = load i8, ptr %140, align 2, !range !228, !noundef !16
   %142 = icmp eq i8 %141, 2
   %spec.select = select i1 %142, i32 1000000000, i32 1000000001
-  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33
+  br label %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25
 
-_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread33: ; preds = %138, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit, %44, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i", %136, %135, %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i", %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit
-  %.sink = phi i32 [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit ], [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit ], [ 1000000001, %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i" ], [ 0, %136 ], [ 1000000000, %135 ], [ 1000000000, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i" ], [ 1000000000, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread.thread ], [ 1000000000, %44 ], [ 1000000000, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit ], [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25 ], [ %spec.select, %138 ]
+_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread25: ; preds = %138, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit, %44, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i", %136, %135, %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i", %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit
+  %.sink = phi i32 [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession10get_status17hdb4db90b4de99dc0E.exit ], [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit ], [ 1000000001, %"_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive28_$u7b$$u7b$closure$u7d$$u7d$17ha2ad16b8a198840dE.exit.i" ], [ 0, %136 ], [ 1000000000, %135 ], [ 1000000000, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h28e4e129f1ab4b02E.exit.thread66.i" ], [ 1000000000, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread ], [ 1000000000, %44 ], [ 1000000000, %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit ], [ 1000000001, %_ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive17hf74eb190852a5ab0E.exit.thread23 ], [ %spec.select, %138 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %.sink, ptr %143, align 8
   ret void
@@ -13293,7 +13293,7 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession17respect_ke
   %3 = call noundef align 8 ptr @_ZN12pingora_core9protocols4http2v16server11HttpSession10get_header17hb521452cde202c51E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread, label %4
+  br i1 %.not.i, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13302,24 +13302,24 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession17respect_ke
   %8 = load i64, ptr %7, align 8, !noundef !16
   %9 = tail call i24 @_ZN12pingora_core9protocols4http2v16common23parse_connection_header17hf4fe6b377db0efa9E(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
   %10 = trunc i24 %9 to i1
-  br i1 %10, label %.thread, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit
+  br i1 %10, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit
 
 _ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit: ; preds = %4
   %11 = and i24 %9, 65536
   %.not6.i = icmp eq i24 %11, 0
-  br i1 %.not6.i, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread, label %20
+  br i1 %.not6.i, label %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread10, label %20
 
-_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread: ; preds = %1, %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit
+_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread10: ; preds = %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %13 = load ptr, ptr %12, align 8, !align !68, !noundef !16
   %.not.i4 = icmp eq ptr %13, null
   br i1 %.not.i4, label %14, label %_ZN12pingora_core9protocols4http2v16server11HttpSession10req_header17h526ef2dd9bbd9226E.exit, !prof !102
 
-14:                                               ; preds = %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread
+14:                                               ; preds = %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread10
   tail call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.8e071d1b15d522c405dc2a4db65745c3.261, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e071d1b15d522c405dc2a4db65745c3.263) #24
   unreachable
 
-_ZN12pingora_core9protocols4http2v16server11HttpSession10req_header17h526ef2dd9bbd9226E.exit: ; preds = %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread
+_ZN12pingora_core9protocols4http2v16server11HttpSession10req_header17h526ef2dd9bbd9226E.exit: ; preds = %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread10
   %15 = tail call noundef nonnull align 8 ptr @"_ZN71_$LT$pingora_http..RequestHeader$u20$as$u20$core..ops..deref..Deref$GT$5deref17h98d190f3eba268cfE"(ptr noundef nonnull align 8 %13)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %17 = load i8, ptr %16, align 8, !range !228, !noundef !16
@@ -13332,10 +13332,10 @@ _ZN12pingora_core9protocols4http2v16server11HttpSession10req_header17h526ef2dd9b
   store i32 1000000001, ptr %21, align 8, !alias.scope !1125
   br label %22
 
-22:                                               ; preds = %24, %25, %.thread, %20
+22:                                               ; preds = %24, %25, %_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread, %20
   ret void
 
-.thread:                                          ; preds = %4
+_ZN12pingora_core9protocols4http2v16server11HttpSession23is_connection_keepalive17h850148804423af6bE.exit.thread: ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 1000000000, ptr %23, align 8, !alias.scope !1128
   br label %22

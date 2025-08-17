@@ -2952,45 +2952,49 @@ define void @"_ZN6diesel2pg5types6floats16quickcheck_impls99_$LT$impl$u20$quickc
 
 "_ZN82_$LT$core..option..Option$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hdd9b9f4bd18d4a07E.exit": ; preds = %2, %23
   %.0.i = phi i8 [ %25, %23 ], [ 2, %2 ]
-  br label %33
+  br label %32
 
-26:                                               ; preds = %33
+26:                                               ; preds = %32
   %27 = tail call noundef i16 @"_ZN56_$LT$u16$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h71dbc6ea7cf2c696E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %28 = and i16 %27, 16383
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_appropriate_length_valid_digits17hfdd5f515829e1fe2E(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i16 noundef %34, i16 noundef %28)
+  call void @_ZN6diesel2pg5types6floats16quickcheck_impls42gen_vec_of_appropriate_length_valid_digits17hfdd5f515829e1fe2E(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i16 noundef %33, i16 noundef %28)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !7
   %31 = icmp eq i64 %30, 0
+  %spec.select = select i1 %31, i16 0, i16 %33
   %spec.select9 = select i1 %31, i8 1, i8 %.0.i
-  %32 = icmp eq i8 %spec.select9, 2
-  br i1 %32, label %43, label %36
+  switch i8 %spec.select9, label %39 [
+    i8 2, label %43
+    i8 0, label %35
+  ]
 
-33:                                               ; preds = %"_ZN82_$LT$core..option..Option$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hdd9b9f4bd18d4a07E.exit", %33
-  %34 = tail call noundef i16 @"_ZN56_$LT$i16$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h12ea5a198e5e874bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-  %35 = icmp slt i16 %34, 0
-  br i1 %35, label %33, label %26
+32:                                               ; preds = %"_ZN82_$LT$core..option..Option$LT$A$GT$$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17hdd9b9f4bd18d4a07E.exit", %32
+  %33 = tail call noundef i16 @"_ZN56_$LT$i16$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h12ea5a198e5e874bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
+  %34 = icmp slt i16 %33, 0
+  br i1 %34, label %32, label %26
 
-36:                                               ; preds = %26
-  %spec.select = select i1 %31, i16 0, i16 %34
-  %37 = trunc nuw i8 %spec.select9 to i1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %spec.select, ptr %38, align 2
-  store i16 %28, ptr %39, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  br i1 %37, label %42, label %41
-
-41:                                               ; preds = %36
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %spec.select, ptr %36, align 2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %28, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i16 1, ptr %0, align 8
   br label %.thread
 
-42:                                               ; preds = %36
+39:                                               ; preds = %26
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %spec.select, ptr %40, align 2
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %28, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i16 0, ptr %0, align 8
   br label %.thread
 
-.thread:                                          ; preds = %41, %42, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2a7a49b12772b21eE.exit"
+.thread:                                          ; preds = %35, %39, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2a7a49b12772b21eE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 

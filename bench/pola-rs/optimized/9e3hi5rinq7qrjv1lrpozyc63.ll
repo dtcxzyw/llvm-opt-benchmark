@@ -39239,128 +39239,128 @@ define hidden void @"_ZN9polars_io3csv4read6reader18CsvReader$LT$R$GT$16batched_
 155:                                              ; preds = %151, %134
   %.pn.ph.i = phi { ptr, i32 } [ %135, %134 ], [ %152, %151 ]
   %156 = icmp eq ptr %126, null
-  br i1 %156, label %.thread82.i, label %157
+  br i1 %156, label %.noexc53.i, label %157
 
 157:                                              ; preds = %155
   %158 = atomicrmw sub ptr %126, i64 1 release, align 8, !noalias !4299
   %159 = icmp eq i64 %158, 1
-  br i1 %159, label %160, label %.thread82.i
+  br i1 %159, label %160, label %.noexc53.i
 
 160:                                              ; preds = %157
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h853be95730043987E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.thread82.i unwind label %153, !noalias !4279
+          to label %.noexc53.i unwind label %153, !noalias !4279
 
-.thread82.i:                                      ; preds = %160, %157, %155
+.noexc53.i:                                       ; preds = %160, %157, %155
   call void @llvm.experimental.noalias.scope.decl(metadata !4306)
   %161 = load ptr, ptr %9, align 8, !alias.scope !4306, !noalias !4284, !noundef !7
   %162 = icmp eq ptr %161, null
-  br i1 %162, label %.thread89.i, label %163
+  br i1 %162, label %.noexc54.i, label %163
 
-163:                                              ; preds = %.thread82.i
+163:                                              ; preds = %.noexc53.i
   %164 = atomicrmw sub ptr %161, i64 1 release, align 8, !noalias !4309
   %165 = icmp eq i64 %164, 1
-  br i1 %165, label %166, label %.thread89.i
+  br i1 %165, label %166, label %.noexc54.i
 
 166:                                              ; preds = %163
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf4adf8572c6c4082E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.thread89.i unwind label %153, !noalias !4279
+          to label %.noexc54.i unwind label %153, !noalias !4279
 
-.thread89.i:                                      ; preds = %166, %163, %.thread82.i
+.noexc54.i:                                       ; preds = %166, %163, %.noexc53.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4314)
   %167 = load ptr, ptr %10, align 8, !alias.scope !4314, !noalias !4284, !noundef !7
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %.thread96.i, label %169
+  br i1 %168, label %.noexc55.i, label %169
 
-169:                                              ; preds = %.thread89.i
+169:                                              ; preds = %.noexc54.i
   %170 = atomicrmw sub ptr %167, i64 1 release, align 8, !noalias !4317
   %171 = icmp eq i64 %170, 1
-  br i1 %171, label %172, label %.thread96.i
+  br i1 %171, label %172, label %.noexc55.i
 
 172:                                              ; preds = %169
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.thread96.i unwind label %153, !noalias !4279
+          to label %.noexc55.i unwind label %153, !noalias !4279
 
-.thread96.i:                                      ; preds = %172, %169, %.thread89.i
+.noexc55.i:                                       ; preds = %172, %169, %.noexc54.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4322)
   %173 = load ptr, ptr %11, align 8, !alias.scope !4322, !noalias !4284, !noundef !7
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %.thread103.i, label %175
+  br i1 %174, label %.noexc56.i, label %175
 
-175:                                              ; preds = %.thread96.i
+175:                                              ; preds = %.noexc55.i
   %176 = atomicrmw sub ptr %173, i64 1 release, align 8, !noalias !4325
   %177 = icmp eq i64 %176, 1
-  br i1 %177, label %178, label %.thread103.i
+  br i1 %177, label %178, label %.noexc56.i
 
 178:                                              ; preds = %175
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h287f2578538a449eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-          to label %.thread103.i unwind label %153, !noalias !4279
+          to label %.noexc56.i unwind label %153, !noalias !4279
 
-.thread103.i:                                     ; preds = %178, %175, %.thread96.i
+.noexc56.i:                                       ; preds = %178, %175, %.noexc55.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4330)
   %179 = load ptr, ptr %12, align 8, !alias.scope !4330, !noalias !4284, !noundef !7
   %180 = icmp eq ptr %179, null
-  br i1 %180, label %.thread110.i, label %181
+  br i1 %180, label %.noexc57.i, label %181
 
-181:                                              ; preds = %.thread103.i
+181:                                              ; preds = %.noexc56.i
   %182 = atomicrmw sub ptr %179, i64 1 release, align 8, !noalias !4333
   %183 = icmp eq i64 %182, 1
-  br i1 %183, label %184, label %.thread110.i
+  br i1 %183, label %184, label %.noexc57.i
 
 184:                                              ; preds = %181
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h27cee02655b999f5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.thread110.i unwind label %153, !noalias !4279
+          to label %.noexc57.i unwind label %153, !noalias !4279
 
-.thread110.i:                                     ; preds = %184, %181, %.thread103.i
+.noexc57.i:                                       ; preds = %184, %181, %.noexc56.i
   %185 = load i64, ptr %13, align 8, !range !356, !alias.scope !4338, !noalias !4284, !noundef !7
   %186 = icmp eq i64 %185, -9223372036854775808
   br i1 %186, label %188, label %187
 
-187:                                              ; preds = %.thread110.i
+187:                                              ; preds = %.noexc57.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hccb36d5fab5c3252E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %188 unwind label %153, !noalias !4279
 
-188:                                              ; preds = %187, %.thread110.i, %69, %48, %44
-  %.pn.pn.ph.i = phi { ptr, i32 } [ %70, %69 ], [ %45, %48 ], [ %45, %44 ], [ %.pn.ph.i, %187 ], [ %.pn.ph.i, %.thread110.i ]
+188:                                              ; preds = %187, %.noexc57.i, %69, %48, %44
+  %.pn.pn.ph.i = phi { ptr, i32 } [ %70, %69 ], [ %45, %48 ], [ %45, %44 ], [ %.pn.ph.i, %187 ], [ %.pn.ph.i, %.noexc57.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4341)
   call void @llvm.experimental.noalias.scope.decl(metadata !4344)
   %189 = load ptr, ptr %14, align 8, !alias.scope !4347, !noalias !4284, !nonnull !7, !noundef !7
   %190 = atomicrmw sub ptr %189, i64 1 release, align 8, !noalias !4348
   %191 = icmp eq i64 %190, 1
-  br i1 %191, label %192, label %.thread115.i
+  br i1 %191, label %192, label %.noexc60.i
 
 192:                                              ; preds = %188
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h249a82d1aa0d0307E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %.thread115.i unwind label %153, !noalias !4279
+          to label %.noexc60.i unwind label %153, !noalias !4279
 
-.thread115.i:                                     ; preds = %192, %188
+.noexc60.i:                                       ; preds = %192, %188
   %193 = load ptr, ptr %15, align 8, !alias.scope !4349, !noalias !4284, !noundef !7
   %194 = icmp eq ptr %193, null
-  br i1 %194, label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit58.i", label %195
+  br i1 %194, label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit63.i", label %195
 
-195:                                              ; preds = %.thread115.i
+195:                                              ; preds = %.noexc60.i
   invoke void @"_ZN4core3ptr58drop_in_place$LT$polars_utils..mmap..private..MemSlice$GT$17h9d88951fc04d84feE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %15)
-          to label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit58.i" unwind label %153, !noalias !4279
+          to label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit63.i" unwind label %153, !noalias !4279
 
-"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit58.i": ; preds = %200, %196, %195, %.thread115.i
-  %.pn.pn.pn61.i = phi { ptr, i32 } [ %197, %200 ], [ %197, %196 ], [ %.pn.pn.ph.i, %195 ], [ %.pn.pn.ph.i, %.thread115.i ]
-  resume { ptr, i32 } %.pn.pn.pn61.i
+"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit63.i": ; preds = %200, %196, %195, %.noexc60.i
+  %.pn.pn.pn66.i = phi { ptr, i32 } [ %197, %200 ], [ %197, %196 ], [ %.pn.pn.ph.i, %195 ], [ %.pn.pn.ph.i, %.noexc60.i ]
+  resume { ptr, i32 } %.pn.pn.pn66.i
 
 196:                                              ; preds = %24
   %197 = landingpad { ptr, i32 }
           cleanup
   %198 = load ptr, ptr %17, align 8, !alias.scope !4352, !noalias !4284, !noundef !7
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit58.i", label %200
+  br i1 %199, label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit63.i", label %200
 
 200:                                              ; preds = %196
   invoke void @"_ZN4core3ptr58drop_in_place$LT$polars_utils..mmap..private..MemSlice$GT$17h9d88951fc04d84feE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
-          to label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit58.i" unwind label %153, !noalias !4279
+          to label %"_ZN4core3ptr49drop_in_place$LT$polars_io..mmap..ReaderBytes$GT$17hf1c170e7e8c615eaE.exit63.i" unwind label %153, !noalias !4279
 
 "_ZN9polars_io3csv4read6reader18CsvReader$LT$R$GT$11core_reader17h34f00c082d7e50a5E.exit": ; preds = %144, %148
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 219

@@ -3153,7 +3153,7 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr184drop_in_place$LT$alloc..sync..ArcInner$LT$futures_channel..oneshot..Inner$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h9b1f37cc6d78f1c0E"(ptr noalias noundef nonnull align 8 dereferenceable(512) %13) #25
-          to label %134 unwind label %28
+          to label %132 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -3181,17 +3181,17 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   invoke void @_ZN3rpc4peer4Peer16connection_state17h6bce57bb61767da1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noundef nonnull align 8 %1, i32 noundef %2, i32 noundef %3)
           to label %36 unwind label %34
 
-34:                                               ; preds = %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i", %.thread.i, %33
-  %.sroa.01.0 = phi i1 [ true, %33 ], [ false, %.thread.i ], [ false, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
+34:                                               ; preds = %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i", %.noexc32.i, %33
+  %.sroa.01.0 = phi i1 [ true, %33 ], [ false, %.noexc32.i ], [ false, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body5
 
-.body5:                                           ; preds = %121, %105, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i", %113, %34
-  %.sroa.01.0.lpad-body = phi i1 [ %.sroa.01.0, %34 ], [ false, %113 ], [ false, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" ], [ false, %105 ], [ false, %121 ]
-  %eh.lpad-body6 = phi { ptr, i32 } [ %35, %34 ], [ %.pn23.i, %113 ], [ %.pn23.i, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" ], [ %106, %105 ], [ %122, %121 ]
+.body5:                                           ; preds = %119, %103, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i", %111, %34
+  %.sroa.01.0.lpad-body = phi i1 [ %.sroa.01.0, %34 ], [ false, %111 ], [ false, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" ], [ false, %103 ], [ false, %119 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %35, %34 ], [ %.pn23.i, %111 ], [ %.pn23.i, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" ], [ %104, %103 ], [ %120, %119 ]
   invoke void @"_ZN4core3ptr158drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17hdaee99ee326d2d10E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #25
-          to label %132 unwind label %130
+          to label %130 unwind label %128
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -3200,7 +3200,7 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   store ptr %23, ptr %37, align 8
   %38 = load ptr, ptr %17, align 8, !noundef !9
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %115, label %40
+  br i1 %39, label %113, label %40
 
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3222,16 +3222,16 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   %49 = extractvalue { i8, i1 } %48, 1
   br i1 %49, label %54, label %52
 
-"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i": ; preds = %73, %69, %50
-  %.sroa.011.1.i = phi i8 [ %.sroa.011.0.i, %50 ], [ %.sroa.011.3.i, %73 ], [ %.sroa.011.3.i, %69 ]
-  %.sroa.014.1.i = phi i8 [ %.sroa.014.0.i, %50 ], [ 1, %73 ], [ 1, %69 ]
-  %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %70, %73 ], [ %70, %69 ]
+"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i": ; preds = %72, %68, %50
+  %.sroa.011.1.i = phi i8 [ %.sroa.011.0.i, %50 ], [ %.sroa.011.3.i, %72 ], [ %.sroa.011.3.i, %68 ]
+  %.sroa.014.1.i = phi i8 [ %.sroa.014.0.i, %50 ], [ 1, %72 ], [ 1, %68 ]
+  %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %69, %72 ], [ %69, %68 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$rpc..peer..ConnectionState$GT$17h3994153844a9c29bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #25
-          to label %92 unwind label %109, !noalias !566
+          to label %91 unwind label %107, !noalias !566
 
-50:                                               ; preds = %90, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i", %84, %77, %52
-  %.sroa.011.0.i = phi i8 [ 0, %90 ], [ 0, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i" ], [ 1, %52 ], [ 1, %77 ], [ 0, %84 ]
-  %.sroa.014.0.i = phi i8 [ 0, %90 ], [ 0, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i" ], [ 1, %52 ], [ 1, %77 ], [ 1, %84 ]
+50:                                               ; preds = %89, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i", %83, %76, %52
+  %.sroa.011.0.i = phi i8 [ 0, %89 ], [ 0, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i" ], [ 1, %52 ], [ 1, %76 ], [ 0, %83 ]
+  %.sroa.014.0.i = phi i8 [ 0, %89 ], [ 0, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i" ], [ 1, %52 ], [ 1, %76 ], [ 1, %83 ]
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i"
@@ -3243,249 +3243,248 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
 54:                                               ; preds = %52, %40
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %56 = load ptr, ptr %55, align 8, !noalias !571, !noundef !9
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %64
+  %.not.i = icmp eq ptr %56, null
+  br i1 %.not.i, label %57, label %63
 
-58:                                               ; preds = %54
+57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !571
   store ptr @anon.43a77ab38de06bb62e900e8f993aba1e.56, ptr %9, align 8, !noalias !571
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %59, align 8, !noalias !571
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %60, align 8, !noalias !571
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %61, align 8, !noalias !571
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 0, ptr %62, align 8, !noalias !571
-  %63 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %9)
-          to label %74 unwind label %69, !noalias !571
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %58, align 8, !noalias !571
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %59, align 8, !noalias !571
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %60, align 8, !noalias !571
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %61, align 8, !noalias !571
+  %62 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %9)
+          to label %73 unwind label %68, !noalias !571
 
-64:                                               ; preds = %54
-  %65 = load i32, ptr %44, align 4, !alias.scope !566, !noalias !569, !noundef !9
-  %66 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  %67 = load ptr, ptr %66, align 8, !alias.scope !566, !noalias !569, !nonnull !9, !noundef !9
-  %68 = invoke noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcbaaf1914e0a6864E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %55, i32 noundef %65, ptr noundef nonnull %67)
-          to label %79 unwind label %69, !noalias !571
+63:                                               ; preds = %54
+  %64 = load i32, ptr %44, align 4, !alias.scope !566, !noalias !569, !noundef !9
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 408
+  %66 = load ptr, ptr %65, align 8, !alias.scope !566, !noalias !569, !nonnull !9, !noundef !9
+  %67 = invoke noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcbaaf1914e0a6864E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %55, i32 noundef %64, ptr noundef nonnull %66)
+          to label %78 unwind label %68, !noalias !571
 
-69:                                               ; preds = %81, %64, %58
-  %.sroa.011.3.i = phi i8 [ 1, %58 ], [ 0, %64 ], [ 0, %81 ]
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %80, %63, %57
+  %.sroa.011.3.i = phi i8 [ 1, %57 ], [ 0, %63 ], [ 0, %80 ]
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %71 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
-  %72 = extractvalue { i8, i1 } %71, 1
-  br i1 %72, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i", label %73
+  %70 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
+  %71 = extractvalue { i8, i1 } %70, 1
+  br i1 %71, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i", label %72
 
-73:                                               ; preds = %69
+72:                                               ; preds = %68
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %47, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" unwind label %109, !noalias !571
+          to label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" unwind label %107, !noalias !571
 
-74:                                               ; preds = %58
+73:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !571
-  %75 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
-  %76 = extractvalue { i8, i1 } %75, 1
-  br i1 %76, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i", label %77
+  %74 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
+  %75 = extractvalue { i8, i1 } %74, 1
+  br i1 %75, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i", label %76
 
-77:                                               ; preds = %74
+76:                                               ; preds = %73
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %47, i1 noundef zeroext false)
           to label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i" unwind label %50, !noalias !571
 
-"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i": ; preds = %77, %74
+"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i": ; preds = %76, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !571
-  br label %78
+  br label %77
 
-78:                                               ; preds = %98, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i"
-  %.sroa.014.3.i = phi i8 [ 1, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i" ], [ 0, %98 ]
-  %.sroa.0.0.i = phi ptr [ %63, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i" ], [ %91, %98 ]
+77:                                               ; preds = %97, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i"
+  %.sroa.014.3.i = phi i8 [ 1, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i" ], [ 0, %97 ]
+  %.sroa.0.0.i = phi ptr [ %62, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit28.i" ], [ %90, %97 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$rpc..peer..ConnectionState$GT$17h3994153844a9c29bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %99 unwind label %96, !noalias !566
+          to label %98 unwind label %95, !noalias !566
 
-79:                                               ; preds = %64
-  store ptr %68, ptr %12, align 8, !noalias !571
-  %80 = icmp eq ptr %68, null
-  br i1 %80, label %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i", label %81
+78:                                               ; preds = %63
+  store ptr %67, ptr %12, align 8, !noalias !571
+  %79 = icmp eq ptr %67, null
+  br i1 %79, label %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i", label %80
 
-81:                                               ; preds = %79
+80:                                               ; preds = %78
   invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
-          to label %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i" unwind label %69, !noalias !571
+          to label %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i" unwind label %68, !noalias !571
 
-"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i": ; preds = %81, %79
-  %82 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
-  %83 = extractvalue { i8, i1 } %82, 1
-  br i1 %83, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i", label %84
+"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i": ; preds = %80, %78
+  %81 = cmpxchg ptr %47, i8 1, i8 0 release monotonic, align 1, !noalias !571
+  %82 = extractvalue { i8, i1 } %81, 1
+  br i1 %82, label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i", label %83
 
-84:                                               ; preds = %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i"
+83:                                               ; preds = %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i"
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %47, i1 noundef zeroext false)
           to label %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i" unwind label %50, !noalias !571
 
-"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i": ; preds = %84, %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i"
+"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i": ; preds = %83, %"_ZN4core3ptr184drop_in_place$LT$core..option..Option$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h0a8373a5fa81fe2cE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !571
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !571
-  %85 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %10, ptr noundef nonnull align 8 dereferenceable(416) %15, i64 408, i1 false), !noalias !569
-  invoke fastcc void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17hd8739766a8e6fbdeE"(ptr noalias noundef align 8 captures(none) dereferenceable(416) %11, ptr noalias noundef readonly align 8 dereferenceable(8) %85, ptr noalias noundef align 8 captures(none) dereferenceable(408) %10)
-          to label %86 unwind label %50, !noalias !566
+  invoke fastcc void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17hd8739766a8e6fbdeE"(ptr noalias noundef align 8 captures(none) dereferenceable(416) %11, ptr noalias noundef readonly align 8 dereferenceable(8) %84, ptr noalias noundef align 8 captures(none) dereferenceable(408) %10)
+          to label %85 unwind label %50, !noalias !566
 
-86:                                               ; preds = %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i"
+85:                                               ; preds = %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit31.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !571
-  %87 = load i64, ptr %11, align 8, !range !29, !noalias !571, !noundef !9
-  %88 = icmp eq i64 %87, 232
-  br i1 %88, label %89, label %90
+  %86 = load i64, ptr %11, align 8, !range !29, !noalias !571, !noundef !9
+  %87 = icmp eq i64 %86, 232
+  br i1 %87, label %88, label %89
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !571
   invoke void @"_ZN4core3ptr47drop_in_place$LT$rpc..peer..ConnectionState$GT$17h3994153844a9c29bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" unwind label %96, !noalias !566
+          to label %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" unwind label %95, !noalias !566
 
-90:                                               ; preds = %86
+89:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %8, ptr noundef nonnull align 8 dereferenceable(416) %11, i64 416, i1 false), !noalias !571
-  %91 = invoke fastcc noundef nonnull ptr @"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h554cce1de973641aE"(ptr noalias noundef align 8 captures(none) dereferenceable(416) %8)
-          to label %98 unwind label %50, !noalias !571
+  %90 = invoke fastcc noundef nonnull ptr @"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h554cce1de973641aE"(ptr noalias noundef align 8 captures(none) dereferenceable(416) %8)
+          to label %97 unwind label %50, !noalias !571
 
-92:                                               ; preds = %96, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i"
-  %.sroa.011.2.i = phi i8 [ %.sroa.014.4.i, %96 ], [ %.sroa.011.1.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
-  %.sroa.014.2.i = phi i8 [ %.sroa.014.4.i, %96 ], [ %.sroa.014.1.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
-  %.pn23.i = phi { ptr, i32 } [ %97, %96 ], [ %.pn.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
-  %93 = trunc nuw i8 %.sroa.014.2.i to i1
-  %94 = load i64, ptr %15, align 8, !range !572, !alias.scope !566, !noalias !569
-  %95 = icmp ne i64 %94, 229
-  %or.cond.not.i = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond.not.i, label %112, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i"
+91:                                               ; preds = %95, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i"
+  %.sroa.011.2.i = phi i8 [ %.sroa.014.4.i, %95 ], [ %.sroa.011.1.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
+  %.sroa.014.2.i = phi i8 [ %.sroa.014.4.i, %95 ], [ %.sroa.014.1.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
+  %.pn23.i = phi { ptr, i32 } [ %96, %95 ], [ %.pn.i, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i" ]
+  %92 = trunc nuw i8 %.sroa.014.2.i to i1
+  %93 = load i64, ptr %15, align 8, !range !572, !alias.scope !566, !noalias !569
+  %94 = icmp ne i64 %93, 229
+  %or.cond.not.i = select i1 %92, i1 %94, i1 false
+  br i1 %or.cond.not.i, label %110, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i"
 
-96:                                               ; preds = %89, %78
-  %.sroa.014.4.i = phi i8 [ %.sroa.014.3.i, %78 ], [ 0, %89 ]
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %88, %77
+  %.sroa.014.4.i = phi i8 [ %.sroa.014.3.i, %77 ], [ 0, %88 ]
+  %96 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %91
 
-98:                                               ; preds = %90
+97:                                               ; preds = %89
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !571
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !571
-  br label %78
+  br label %77
 
-99:                                               ; preds = %78
-  %100 = trunc nuw i8 %.sroa.014.3.i to i1
-  br i1 %100, label %101, label %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit"
+98:                                               ; preds = %77
+  br i1 %.not.i, label %99, label %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit"
 
-101:                                              ; preds = %99
-  %102 = load i64, ptr %15, align 8, !range !572, !alias.scope !573, !noalias !569, !noundef !9
-  %103 = icmp eq i64 %102, 229
-  br i1 %103, label %.thread.i, label %104
+99:                                               ; preds = %98
+  %100 = load i64, ptr %15, align 8, !range !572, !alias.scope !573, !noalias !569, !noundef !9
+  %101 = icmp eq i64 %100, 229
+  br i1 %101, label %.noexc32.i, label %102
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17h07cedb66aabc670dE.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 dereferenceable(416) %15)
-          to label %.thread.i unwind label %105
+          to label %.noexc32.i unwind label %103
 
-105:                                              ; preds = %104
-  %106 = landingpad { ptr, i32 }
+103:                                              ; preds = %102
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %107 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %107) #25
-          to label %.body5 unwind label %109
+  %105 = getelementptr inbounds nuw i8, ptr %15, i64 408
+  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %105) #25
+          to label %.body5 unwind label %107
 
-.thread.i:                                        ; preds = %104, %101
-  %108 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %108)
+.noexc32.i:                                       ; preds = %102, %99
+  %106 = getelementptr inbounds nuw i8, ptr %15, i64 408
+  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %106)
           to label %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" unwind label %34
 
-109:                                              ; preds = %113, %112, %105, %73, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i"
-  %110 = landingpad { ptr, i32 }
+107:                                              ; preds = %111, %110, %103, %72, %"_ZN4core3ptr365drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$u32$C$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h718a25dbdc4e83cfE.exit.i"
+  %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i": ; preds = %112, %92
-  %111 = trunc nuw i8 %.sroa.011.2.i to i1
-  br i1 %111, label %113, label %.body5
+"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i": ; preds = %110, %91
+  %109 = trunc nuw i8 %.sroa.011.2.i to i1
+  br i1 %109, label %111, label %.body5
 
-112:                                              ; preds = %92
+110:                                              ; preds = %91
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17h07cedb66aabc670dE.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 dereferenceable(416) %15)
-          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" unwind label %109
+          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i" unwind label %107
 
-113:                                              ; preds = %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i"
-  %114 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %114) #25
-          to label %.body5 unwind label %109
+111:                                              ; preds = %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit34.i"
+  %112 = getelementptr inbounds nuw i8, ptr %15, i64 408
+  invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %112) #25
+          to label %.body5 unwind label %107
 
-115:                                              ; preds = %36
-  %116 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %117 = load ptr, ptr %116, align 8, !nonnull !9, !noundef !9
-  %118 = load i64, ptr %16, align 8, !range !572, !alias.scope !578, !noundef !9
-  %119 = icmp eq i64 %118, 229
-  br i1 %119, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i", label %120
+113:                                              ; preds = %36
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %115 = load ptr, ptr %114, align 8, !nonnull !9, !noundef !9
+  %116 = load i64, ptr %16, align 8, !range !572, !alias.scope !578, !noundef !9
+  %117 = icmp eq i64 %116, 229
+  br i1 %117, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i", label %118
 
-120:                                              ; preds = %115
+118:                                              ; preds = %113
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17h07cedb66aabc670dE.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 dereferenceable(416) %16)
-          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" unwind label %121
+          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" unwind label %119
 
-121:                                              ; preds = %120
-  %122 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37) #25
-          to label %.body5 unwind label %123
+          to label %.body5 unwind label %121
 
-"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i": ; preds = %120, %115
+"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i": ; preds = %118, %113
   invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
           to label %"_ZN4core3ptr82drop_in_place$LT$rpc..peer..Peer..request_dynamic..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcbc229bc8fa7155E.exit" unwind label %34
 
-123:                                              ; preds = %121
-  %124 = landingpad { ptr, i32 }
+121:                                              ; preds = %119
+  %122 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit": ; preds = %99, %89, %.thread.i
-  %.sroa.0.1.i = phi ptr [ null, %89 ], [ %.sroa.0.0.i, %99 ], [ %.sroa.0.0.i, %.thread.i ]
+"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit": ; preds = %98, %88, %.noexc32.i
+  %.sroa.0.1.i = phi ptr [ null, %88 ], [ %.sroa.0.0.i, %98 ], [ %.sroa.0.0.i, %.noexc32.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre = load ptr, ptr %18, align 8
   br label %"_ZN4core3ptr82drop_in_place$LT$rpc..peer..Peer..request_dynamic..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcbc229bc8fa7155E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$rpc..peer..Peer..request_dynamic..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcbc229bc8fa7155E.exit": ; preds = %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i", %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit"
-  %125 = phi ptr [ %.pre, %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" ], [ %23, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.i, %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" ], [ %117, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
+  %123 = phi ptr [ %.pre, %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" ], [ %23, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.i, %"_ZN3rpc4peer4Peer15request_dynamic28_$u7b$$u7b$closure$u7d$$u7d$17h9f327e5ad777040bE.exit" ], [ %115, %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.0.0, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %125, ptr %127, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.0.0, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %123, ptr %125, align 8
   store ptr %5, ptr %0, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 0, ptr %129, align 1
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 0, ptr %127, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-130:                                              ; preds = %137, %133, %.body5
-  %131 = landingpad { ptr, i32 }
+128:                                              ; preds = %135, %131, %.body5
+  %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-132:                                              ; preds = %.body5
-  br i1 %.sroa.01.0.lpad-body, label %133, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit"
+130:                                              ; preds = %.body5
+  br i1 %.sroa.01.0.lpad-body, label %131, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit"
 
-133:                                              ; preds = %132
+131:                                              ; preds = %130
   invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #25
-          to label %134 unwind label %130
+          to label %132 unwind label %128
 
-"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit": ; preds = %134, %137, %132
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body6, %132 ], [ %.pn.ph, %137 ], [ %.pn.ph, %134 ]
+"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit": ; preds = %132, %135, %130
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body6, %130 ], [ %.pn.ph, %135 ], [ %.pn.ph, %132 ]
   resume { ptr, i32 } %.pn14
 
-134:                                              ; preds = %133, %26
-  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body6, %133 ], [ %27, %26 ]
-  %135 = load i64, ptr %4, align 8, !range !572, !alias.scope !585, !noundef !9
-  %136 = icmp eq i64 %135, 229
-  br i1 %136, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit", label %137
+132:                                              ; preds = %131, %26
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body6, %131 ], [ %27, %26 ]
+  %133 = load i64, ptr %4, align 8, !range !572, !alias.scope !585, !noundef !9
+  %134 = icmp eq i64 %133, 229
+  br i1 %134, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit", label %135
 
-137:                                              ; preds = %134
+135:                                              ; preds = %132
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17h07cedb66aabc670dE.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 dereferenceable(408) %4)
-          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit" unwind label %130
+          to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit" unwind label %128
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable

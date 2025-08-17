@@ -5186,7 +5186,7 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
 
 8:                                                ; preds = %3
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.81, i64 noundef 14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.82) #35
-          to label %13 unwind label %.thread
+          to label %14 unwind label %.thread
 
 9:                                                ; preds = %3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5196,34 +5196,34 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8, !noundef !5
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %16, label %14
+  br i1 %.not, label %17, label %15
 
-.thread:                                          ; preds = %8
+"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit": ; preds = %34
   %12 = landingpad { ptr, i32 }
-          cleanup
-  br label %39
-
-13:                                               ; preds = %8
-  unreachable
-
-14:                                               ; preds = %9
-  %15 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context5enter17hd59c90e04874694bE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-          to label %16 unwind label %35
-
-16:                                               ; preds = %14, %9
-  %.0 = phi ptr [ %1, %9 ], [ %15, %14 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  %18 = load i64, ptr %17, align 8, !noundef !5
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %26
-
-"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread": ; preds = %34
-  %20 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.5, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   br label %39
 
-21:                                               ; preds = %16
+.thread:                                          ; preds = %8
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  br label %39
+
+14:                                               ; preds = %8
+  unreachable
+
+15:                                               ; preds = %9
+  %16 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context5enter17hd59c90e04874694bE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+          to label %17 unwind label %35
+
+17:                                               ; preds = %15, %9
+  %.0 = phi ptr [ %1, %9 ], [ %16, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 88
+  %19 = load i64, ptr %18, align 8, !noundef !5
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5237,8 +5237,8 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
-26:                                               ; preds = %16, %25
-  %.4 = phi ptr [ %24, %25 ], [ %.0, %16 ]
+26:                                               ; preds = %17, %25
+  %.4 = phi ptr [ %24, %25 ], [ %.0, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load ptr, ptr %27, align 8, !noundef !5
   %.not21 = icmp eq ptr %28, null
@@ -5258,7 +5258,7 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
 
 34:                                               ; preds = %31
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.5)
-          to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$tokio..runtime..driver..Driver$GT$$GT$17h72ffe92520d76d6bE.exit" unwind label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread"
+          to label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$tokio..runtime..driver..Driver$GT$$GT$17h72ffe92520d76d6bE.exit" unwind label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit"
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$tokio..runtime..driver..Driver$GT$$GT$17h72ffe92520d76d6bE.exit": ; preds = %31, %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.5, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
@@ -5266,41 +5266,41 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.5
 
-35:                                               ; preds = %29, %21, %14
+35:                                               ; preds = %29, %21, %15
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
-          to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit" unwind label %37
+          to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" unwind label %37
 
-37:                                               ; preds = %43, %35, %39
+37:                                               ; preds = %44, %35, %39
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 
-39:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread", %.thread
-  %.pn2346 = phi { ptr, i32 } [ %12, %.thread ], [ %20, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" ]
-  %.13742 = phi ptr [ %1, %.thread ], [ %.5, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" ]
-  %40 = getelementptr inbounds nuw i8, ptr %.13742, i64 64
+39:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit", %.thread
+  %.pn2346 = phi { ptr, i32 } [ %13, %.thread ], [ %12, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit" ]
+  %.13844 = phi ptr [ %1, %.thread ], [ %.5, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit" ]
+  %40 = getelementptr inbounds nuw i8, ptr %.13844, i64 64
   invoke void @"_ZN4core3ptr179drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17h06315cd888518bbbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %40) #36
-          to label %.thread55 unwind label %37
+          to label %41 unwind label %37
 
-.thread55:                                        ; preds = %39
-  %41 = load i64, ptr %.13742, align 8, !range !476, !alias.scope !523, !noundef !5
-  %42 = icmp eq i64 %41, 2
-  br i1 %42, label %.thread61, label %43
+41:                                               ; preds = %39
+  %42 = load i64, ptr %.13844, align 8, !range !476, !alias.scope !523, !noundef !5
+  %43 = icmp eq i64 %42, 2
+  br i1 %43, label %.noexc27, label %44
 
-43:                                               ; preds = %.thread55
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.13742)
-          to label %.thread61 unwind label %37
+44:                                               ; preds = %41
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.13844)
+          to label %.noexc27 unwind label %37
 
-"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit": ; preds = %35, %.thread61
-  %.pn23455864 = phi { ptr, i32 } [ %.pn2346, %.thread61 ], [ %36, %35 ]
-  resume { ptr, i32 } %.pn23455864
+"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread": ; preds = %35, %.noexc27
+  %.pn2347 = phi { ptr, i32 } [ %.pn2346, %.noexc27 ], [ %36, %35 ]
+  resume { ptr, i32 } %.pn2347
 
-.thread61:                                        ; preds = %43, %.thread55
-  call void @__rust_dealloc(ptr noundef nonnull %.13742, i64 noundef 112, i64 noundef 8) #24
-  br label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit"
+.noexc27:                                         ; preds = %44, %41
+  call void @__rust_dealloc(ptr noundef nonnull %.13844, i64 noundef 112, i64 noundef 8) #24
+  br label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread"
 }
 
 ; Function Attrs: nonlazybind uwtable

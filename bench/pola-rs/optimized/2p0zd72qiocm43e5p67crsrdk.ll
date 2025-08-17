@@ -64300,7 +64300,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary6nested13array_to_page
 .thread:                                          ; preds = %6, %20, %34
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread55
+  br label %.thread49
 
 20:                                               ; preds = %6
   %21 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext %18)
@@ -64318,7 +64318,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary6nested13array_to_page
   %26 = load i8, ptr %25, align 8, !range !857, !noundef !6
   %27 = trunc nuw i8 %26 to i1
   invoke void @_ZN14polars_parquet5arrow5write6nested17write_rep_and_def17h44ad389f6a723464E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %15, i1 noundef zeroext %27, ptr noundef nonnull align 8 %4, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %28 unwind label %95
+          to label %28 unwind label %96
 
 28:                                               ; preds = %22
   %29 = load i64, ptr %15, align 8, !range !2702, !noundef !6
@@ -64342,17 +64342,17 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary6nested13array_to_page
   store i64 %33, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %94 unwind label %.thread
+          to label %95 unwind label %.thread
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @_ZN14polars_parquet5arrow5write6binary5basic12encode_plain17h6a732f9265792fb4E(ptr noundef nonnull align 8 %1, i1 noundef zeroext %21, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %37 unwind label %95
+          to label %37 unwind label %96
 
 37:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %38 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write12WriteOptions14has_statistics17h4d66a470736ea929E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
-          to label %39 unwind label %95
+          to label %39 unwind label %96
 
 39:                                               ; preds = %37
   br i1 %38, label %41, label %40
@@ -64379,7 +64379,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary6nested13array_to_page
 
 47:                                               ; preds = %41
   invoke void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hd489f80762ab989fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
-          to label %.noexc unwind label %95
+          to label %.noexc unwind label %96
 
 .noexc:                                           ; preds = %47, %46
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -64446,7 +64446,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary6nested13array_to_page
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN14polars_parquet5arrow5write6binary5basic16build_statistics17h8671a9fa57c2e949E(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %13, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %12, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %71)
-          to label %72 unwind label %95
+          to label %72 unwind label %96
 
 72:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -64509,48 +64509,48 @@ _ZN12polars_arrow5array5Array10null_count17hb9892553a85c12ffE.exit: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %87
 
-87:                                               ; preds = %94, %_ZN12polars_arrow5array5Array10null_count17hb9892553a85c12ffE.exit
+87:                                               ; preds = %95, %_ZN12polars_arrow5array5Array10null_count17hb9892553a85c12ffE.exit
   ret void
 
 88:                                               ; preds = %74, %76, %60, %80, %85
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #20
-          to label %.thread48 unwind label %89
+          to label %91 unwind label %89
 
-89:                                               ; preds = %93, %.thread55, %95, %88
+89:                                               ; preds = %94, %.thread49, %96, %88
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-.thread48:                                        ; preds = %88
-  %91 = load i64, ptr %14, align 8, !range !835, !alias.scope !2712, !noundef !6
-  %92 = icmp eq i64 %91, 2
-  br i1 %92, label %.thread55, label %93
+91:                                               ; preds = %88
+  %92 = load i64, ptr %14, align 8, !range !835, !alias.scope !2712, !noundef !6
+  %93 = icmp eq i64 %92, 2
+  br i1 %93, label %.thread49, label %94
 
-93:                                               ; preds = %.thread48
+94:                                               ; preds = %91
   invoke void @"_ZN4core3ptr70drop_in_place$LT$polars_parquet_format..parquet_format..Statistics$GT$17h6874203c55bd2741E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %14)
-          to label %.thread55 unwind label %89
+          to label %.thread49 unwind label %89
 
-94:                                               ; preds = %34
+95:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
   br label %87
 
-95:                                               ; preds = %47, %62, %37, %36, %22
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %47, %62, %37, %36, %22
+  %97 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #20
-          to label %.thread55 unwind label %89
+          to label %.thread49 unwind label %89
 
-97:                                               ; preds = %.thread55
+98:                                               ; preds = %.thread49
   resume { ptr, i32 } %.pn2635
 
-.thread55:                                        ; preds = %.thread48, %93, %95, %.thread
-  %.pn2635 = phi { ptr, i32 } [ %19, %.thread ], [ %96, %95 ], [ %lpad.thr_comm, %93 ], [ %lpad.thr_comm, %.thread48 ]
+.thread49:                                        ; preds = %91, %94, %96, %.thread
+  %.pn2635 = phi { ptr, i32 } [ %19, %.thread ], [ %97, %96 ], [ %lpad.thr_comm, %94 ], [ %lpad.thr_comm, %91 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3) #20
-          to label %97 unwind label %89
+          to label %98 unwind label %89
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64574,7 +64574,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview6nested13array_to_pag
 .thread:                                          ; preds = %6, %20, %34
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread56
+  br label %.thread50
 
 20:                                               ; preds = %6
   %21 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext %18)
@@ -64592,7 +64592,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview6nested13array_to_pag
   %26 = load i8, ptr %25, align 8, !range !857, !noundef !6
   %27 = trunc nuw i8 %26 to i1
   invoke void @_ZN14polars_parquet5arrow5write6nested17write_rep_and_def17h44ad389f6a723464E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %15, i1 noundef zeroext %27, ptr noundef nonnull align 8 %4, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %28 unwind label %96
+          to label %28 unwind label %97
 
 28:                                               ; preds = %22
   %29 = load i64, ptr %15, align 8, !range !2702, !noundef !6
@@ -64616,17 +64616,17 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview6nested13array_to_pag
   store i64 %33, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %95 unwind label %.thread
+          to label %96 unwind label %.thread
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @_ZN14polars_parquet5arrow5write7binview5basic12encode_plain17hdfefb8c65e0874f7E(ptr noundef nonnull align 8 %1, i1 noundef zeroext %21, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-          to label %37 unwind label %96
+          to label %37 unwind label %97
 
 37:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %38 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write12WriteOptions14has_statistics17h4d66a470736ea929E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
-          to label %39 unwind label %96
+          to label %39 unwind label %97
 
 39:                                               ; preds = %37
   br i1 %38, label %41, label %40
@@ -64653,7 +64653,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview6nested13array_to_pag
 
 47:                                               ; preds = %41
   invoke void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hd489f80762ab989fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42)
-          to label %.noexc unwind label %96
+          to label %.noexc unwind label %97
 
 .noexc:                                           ; preds = %47, %46
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -64720,7 +64720,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview6nested13array_to_pag
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN14polars_parquet5arrow5write7binview5basic16build_statistics17hf846a662ded9971fE(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %13, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(104) %12, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %71)
-          to label %72 unwind label %96
+          to label %72 unwind label %97
 
 72:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -64786,48 +64786,48 @@ _ZN12polars_arrow5array5Array10null_count17ha8f749ff79251cdfE.exit: ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %88
 
-88:                                               ; preds = %95, %_ZN12polars_arrow5array5Array10null_count17ha8f749ff79251cdfE.exit
+88:                                               ; preds = %96, %_ZN12polars_arrow5array5Array10null_count17ha8f749ff79251cdfE.exit
   ret void
 
 89:                                               ; preds = %74, %76, %60, %78, %81, %86
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #20
-          to label %.thread49 unwind label %90
+          to label %92 unwind label %90
 
-90:                                               ; preds = %94, %.thread56, %96, %89
+90:                                               ; preds = %95, %.thread50, %97, %89
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #21
   unreachable
 
-.thread49:                                        ; preds = %89
-  %92 = load i64, ptr %14, align 8, !range !835, !alias.scope !2720, !noundef !6
-  %93 = icmp eq i64 %92, 2
-  br i1 %93, label %.thread56, label %94
+92:                                               ; preds = %89
+  %93 = load i64, ptr %14, align 8, !range !835, !alias.scope !2720, !noundef !6
+  %94 = icmp eq i64 %93, 2
+  br i1 %94, label %.thread50, label %95
 
-94:                                               ; preds = %.thread49
+95:                                               ; preds = %92
   invoke void @"_ZN4core3ptr70drop_in_place$LT$polars_parquet_format..parquet_format..Statistics$GT$17h6874203c55bd2741E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %14)
-          to label %.thread56 unwind label %90
+          to label %.thread50 unwind label %90
 
-95:                                               ; preds = %34
+96:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
   br label %88
 
-96:                                               ; preds = %47, %62, %37, %36, %22
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %47, %62, %37, %36, %22
+  %98 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #20
-          to label %.thread56 unwind label %90
+          to label %.thread50 unwind label %90
 
-98:                                               ; preds = %.thread56
+99:                                               ; preds = %.thread50
   resume { ptr, i32 } %.pn2636
 
-.thread56:                                        ; preds = %.thread49, %94, %96, %.thread
-  %.pn2636 = phi { ptr, i32 } [ %19, %.thread ], [ %97, %96 ], [ %lpad.thr_comm, %94 ], [ %lpad.thr_comm, %.thread49 ]
+.thread50:                                        ; preds = %92, %95, %97, %.thread
+  %.pn2636 = phi { ptr, i32 } [ %19, %.thread ], [ %98, %97 ], [ %lpad.thr_comm, %95 ], [ %lpad.thr_comm, %92 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3) #20
-          to label %98 unwind label %90
+          to label %99 unwind label %90
 }
 
 ; Function Attrs: nonlazybind uwtable

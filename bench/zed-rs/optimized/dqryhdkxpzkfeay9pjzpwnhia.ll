@@ -13471,8 +13471,10 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i: ; preds = %.lr.ph.split
 .noexc175:                                        ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i
   %236 = extractvalue { i64, i64 } %235, 0
   %237 = extractvalue { i64, i64 } %235, 1
-  %switch.i = icmp eq i64 %236, 1
-  br i1 %switch.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i, label %.noexc.i
+  switch i64 %236, label %._crit_edge.i.i.i.i.i.i [
+    i64 1, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i
+    i64 0, label %.noexc.i.thread.thread
+  ]
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr.ph.i.i, %.noexc175
   %.sroa.4.0.i26.i = phi i64 [ %237, %.noexc175 ], [ %.sroa.01.05.i.i, %.lr.ph.i.i ]
@@ -13493,21 +13495,17 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
   %244 = icmp eq i8 %lhsc, 10
   br i1 %244, label %._crit_edge.i.i.i.i.i.i, label %241
 
-.noexc.i:                                         ; preds = %.noexc175
-  %trunc.i.i.i.i.i = trunc nuw i64 %236 to i1
-  br i1 %trunc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.noexc.i.thread.thread
-
-.noexc.i.thread.thread:                           ; preds = %241, %.preheader.i.i, %233, %.noexc.i, %223
-  %.promoted.i182203227 = phi i64 [ %.promoted.i183, %223 ], [ %.val28.i, %.noexc.i ], [ %.val28.i, %233 ], [ %.val28.i, %.preheader.i.i ], [ %239, %241 ]
+.noexc.i.thread.thread:                           ; preds = %241, %.preheader.i.i, %.noexc175, %233, %223
+  %.promoted.i182203227 = phi i64 [ %.promoted.i183, %223 ], [ %.val28.i, %233 ], [ %.val28.i, %.preheader.i.i ], [ %239, %241 ], [ %.val28.i, %.noexc175 ]
   %.not.i.i.i.i.i.i.not = icmp eq i64 %.val28.i, %224
   br i1 %.not.i.i.i.i.i.i.not, label %.thread.i, label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i", %.noexc.i, %.noexc.i.thread.thread
-  %.promoted.i182202 = phi i64 [ %.promoted.i182203227, %.noexc.i.thread.thread ], [ %.val28.i, %.noexc.i ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
-  %.sroa.6186.5200 = phi i64 [ %.sroa.6186.1, %.noexc.i.thread.thread ], [ %.sroa.6186.1, %.noexc.i ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
-  %245 = phi i1 [ true, %.noexc.i.thread.thread ], [ false, %.noexc.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
-  %246 = phi i64 [ %224, %.noexc.i.thread.thread ], [ %.sroa.6186.1, %.noexc.i ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
-  %.sroa.6186.5209.pn = phi i64 [ %.val28.i, %.noexc.i.thread.thread ], [ %.sroa.6186.1, %.noexc.i ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i", %.noexc175, %.noexc.i.thread.thread
+  %.promoted.i182202 = phi i64 [ %.promoted.i182203227, %.noexc.i.thread.thread ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ], [ %.val28.i, %.noexc175 ]
+  %.sroa.6186.5200 = phi i64 [ %.sroa.6186.1, %.noexc.i.thread.thread ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ], [ %.sroa.6186.1, %.noexc175 ]
+  %245 = phi i1 [ true, %.noexc.i.thread.thread ], [ false, %.noexc175 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ]
+  %246 = phi i64 [ %224, %.noexc.i.thread.thread ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ], [ %.sroa.6186.1, %.noexc175 ]
+  %.sroa.6186.5209.pn = phi i64 [ %.val28.i, %.noexc.i.thread.thread ], [ %239, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i" ], [ %.sroa.6186.1, %.noexc175 ]
   %.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i, i64 %224
   %.sroa.4.1.i.i.i.i.i = sub nuw i64 %.sroa.6186.5209.pn, %224
   %247 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i.i.i.i.i, 0

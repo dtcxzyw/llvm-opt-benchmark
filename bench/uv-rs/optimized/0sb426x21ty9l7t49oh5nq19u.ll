@@ -11175,8 +11175,8 @@ define void @_ZN15uv_distribution8metadata13requires_dist12RequiresDist22from_pr
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 144
   %86 = load i64, ptr %85, align 8, !range !759, !noundef !6
-  %or.cond = icmp eq i64 %86, 1
-  br i1 %or.cond, label %87, label %_ZN4core3ops8function6FnOnce9call_once17h279cf1a7e5d898b9E.exit
+  %switch535 = icmp eq i64 %86, 1
+  br i1 %switch535, label %87, label %_ZN4core3ops8function6FnOnce9call_once17h279cf1a7e5d898b9E.exit
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 152
@@ -11204,11 +11204,11 @@ _ZN4core3ops8function6FnOnce9call_once17h279cf1a7e5d898b9E.exit: ; preds = %84, 
 .thread317:                                       ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 144
   %96 = load i64, ptr %95, align 8, !range !759, !noundef !6
-  %switch537.not = icmp samesign ugt i64 %96, 1
+  %switch538.not = icmp samesign ugt i64 %96, 1
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 200
   %98 = load i64, ptr %97, align 8, !range !364
   %99 = icmp eq i64 %98, -9223372036854775808
-  %100 = select i1 %switch537.not, i1 true, i1 %99
+  %100 = select i1 %switch538.not, i1 true, i1 %99
   %.sroa.014.0 = select i1 %100, ptr null, ptr %97
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -11286,7 +11286,7 @@ _ZN4core3ops8function6FnOnce9call_once17h279cf1a7e5d898b9E.exit: ; preds = %84, 
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.723, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.723)
-  %119 = select i1 %switch537.not, i1 true, i1 %99
+  %119 = select i1 %switch538.not, i1 true, i1 %99
   br i1 %119, label %124, label %120
 
 120:                                              ; preds = %118

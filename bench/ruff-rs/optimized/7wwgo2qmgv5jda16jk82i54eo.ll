@@ -1159,13 +1159,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   %.not21.i.i = icmp eq i8 %23, 0
   br i1 %.not21.i.i, label %24, label %30
 
-.critedge12.i.i:                                  ; preds = %._crit_edge.i.i.i.i.i, %42
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !90
-  call void @"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf57d99877f75eac1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !90
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !90
-  br label %24
-
-24:                                               ; preds = %.thread4.i.i, %.critedge12.i.i, %20
+24:                                               ; preds = %.thread6.i.i, %.thread4.i.i, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !90
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %26 = call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17h2c427e446fd48a04E"(ptr noundef nonnull align 8 %25), !noalias !90
@@ -1224,7 +1218,7 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit.i.i: ; preds 
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %52 = load i64, ptr %51, align 8, !alias.scope !95, !noalias !98, !noundef !4
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %.critedge12.i.i, label %54
+  br i1 %53, label %.thread6.i.i, label %54
 
 54:                                               ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -1273,7 +1267,7 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit.i.i: ; preds 
   %74 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i.i, splat (i8 -1)
   %75 = bitcast <16 x i1> %74 to i16
   %76 = icmp eq i16 %75, 0
-  br i1 %76, label %80, label %.critedge12.i.i, !prof !50
+  br i1 %76, label %80, label %.thread6.i.i, !prof !50
 
 77:                                               ; preds = %.noexc1.i.i.i
   %78 = add i16 %.sroa.06.0.i12.i.i.i.i.i, -1
@@ -1310,6 +1304,12 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit.i.i: ; preds 
 86:                                               ; preds = %83
   resume { ptr, i32 } %lpad.phi.i.i.i
 
+.thread6.i.i:                                     ; preds = %._crit_edge.i.i.i.i.i, %42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !90
+  call void @"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf57d99877f75eac1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !90
+  br label %24
+
 87:                                               ; preds = %.noexc1.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !90
   call void @"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf57d99877f75eac1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !90
@@ -1344,8 +1344,8 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit.i.i: ; preds 
   %100 = load i64, ptr %.sroa.019.0.i.i, align 8, !range !91, !noalias !90, !noundef !4
   %.not27.i.i = icmp eq i64 %100, 5
   %101 = icmp samesign ult i64 %18, %100
-  %or.cond14.i.i = select i1 %.not27.i.i, i1 true, i1 %101
-  br i1 %or.cond14.i.i, label %.critedge32.i.i, label %103
+  %or.cond12.i.i = select i1 %.not27.i.i, i1 true, i1 %101
+  br i1 %or.cond12.i.i, label %.critedge32.i.i, label %103
 
 102:                                              ; preds = %.critedge32.i.i
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17h309a1a406261b22dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !90

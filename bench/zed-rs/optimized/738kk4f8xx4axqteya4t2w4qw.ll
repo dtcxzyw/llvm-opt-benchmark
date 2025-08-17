@@ -101439,8 +101439,8 @@ define hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u
   %143 = extractvalue { i64, i1 } %142, 1
   %144 = extractvalue { i64, i1 } %142, 0
   %145 = icmp ne i64 %3, %144
-  %or.cond.i = or i1 %143, %145
-  br i1 %or.cond.i, label %146, label %151
+  %cond.not.i = or i1 %143, %145
+  br i1 %cond.not.i, label %146, label %151
 
 146:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !21702
@@ -104268,19 +104268,19 @@ default.unreachable:                              ; preds = %782
           to label %.body89.i.i unwind label %856, !noalias !21726
 
 877:                                              ; preds = %.noexc4, %.noexc
-  %.sroa.863.1529.i = phi i64 [ %.sroa.863.1.ph.i, %.noexc ], [ %.sroa.4169.0.copyload.i, %.noexc4 ]
-  %.sroa.14.1528.i = phi i64 [ %.sroa.14.1.ph.i, %.noexc ], [ %.sroa.5170.0.copyload.i, %.noexc4 ]
-  %.sroa.17.1527.i = phi i64 [ %.sroa.17.1.ph.i, %.noexc ], [ %.sroa.6171.0.copyload.i, %.noexc4 ]
-  %.sroa.20.1526.i = phi i64 [ %.sroa.20.1.ph.i, %.noexc ], [ %.sroa.7172.0.copyload.i, %.noexc4 ]
+  %.sroa.863.1530.i = phi i64 [ %.sroa.863.1.ph.i, %.noexc ], [ %.sroa.4169.0.copyload.i, %.noexc4 ]
+  %.sroa.14.1529.i = phi i64 [ %.sroa.14.1.ph.i, %.noexc ], [ %.sroa.5170.0.copyload.i, %.noexc4 ]
+  %.sroa.17.1528.i = phi i64 [ %.sroa.17.1.ph.i, %.noexc ], [ %.sroa.6171.0.copyload.i, %.noexc4 ]
+  %.sroa.20.1527.i = phi i64 [ %.sroa.20.1.ph.i, %.noexc ], [ %.sroa.7172.0.copyload.i, %.noexc4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !21702
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !21702
-  store i64 %.sroa.863.1529.i, ptr %6, align 8, !noalias !22303
+  store i64 %.sroa.863.1530.i, ptr %6, align 8, !noalias !22303
   %.sroa.4124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.14.1528.i, ptr %.sroa.4124.0..sroa_idx.i, align 8, !noalias !22303
+  store i64 %.sroa.14.1529.i, ptr %.sroa.4124.0..sroa_idx.i, align 8, !noalias !22303
   %.sroa.5125.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.17.1527.i, ptr %.sroa.5125.0..sroa_idx.i, align 8, !noalias !22303
+  store i64 %.sroa.17.1528.i, ptr %.sroa.5125.0..sroa_idx.i, align 8, !noalias !22303
   %.sroa.6126.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.sroa.20.1526.i, ptr %.sroa.6126.0..sroa_idx.i, align 8, !noalias !22303
+  store i64 %.sroa.20.1527.i, ptr %.sroa.6126.0..sroa_idx.i, align 8, !noalias !22303
   invoke void @_ZN5image6codecs7openexr12to_image_err17hd70e57db9b40a100E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %75, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
           to label %.noexc5 unwind label %898
 

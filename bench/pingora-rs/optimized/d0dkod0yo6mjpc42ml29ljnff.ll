@@ -6307,25 +6307,25 @@ default.unreachable1:                             ; preds = %2
 define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7a01182da8bb8992E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !114, !noundef !4
   %.not = icmp eq i64 %2, 2
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %9, label %._crit_edge
 
-3:                                                ; preds = %1
+._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8
   %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre26 = load i64, ptr %.phi.trans.insert25, align 8
-  %4 = icmp ult i64 %.pre24, %.pre26
-  br i1 %4, label %19, label %18
+  %3 = icmp eq i64 %2, 0
+  br label %4
 
-.thread27:                                        ; preds = %9
-  store i64 %12, ptr %10, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %12
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %30
+4:                                                ; preds = %._crit_edge, %18
+  %cond = phi i1 [ %3, %._crit_edge ], [ true, %18 ]
+  %5 = phi i64 [ %.pre26, %._crit_edge ], [ %16, %18 ]
+  %6 = phi i64 [ %.pre24, %._crit_edge ], [ %12, %18 ]
+  %7 = phi ptr [ %.pre, %._crit_edge ], [ %14, %18 ]
+  %8 = icmp ult i64 %6, %5
+  br i1 %8, label %19, label %25
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6338,109 +6338,110 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   %17 = icmp ult i64 %16, 96076792050570582
   tail call void @llvm.assume(i1 %17)
   %.not21 = icmp ult i64 %12, %16
-  br i1 %.not21, label %.thread27, label %52
+  br i1 %.not21, label %18, label %49
 
-18:                                               ; preds = %3
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.pre24, i64 noundef %.pre26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.395) #21
+18:                                               ; preds = %9
+  store i64 %12, ptr %10, align 8
+  store i64 0, ptr %0, align 8
+  br label %4
+
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %21, i64 %6
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8
+  br i1 %cond, label %30, label %26, !prof !407
+
+25:                                               ; preds = %4
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.395) #21
   unreachable
-
-19:                                               ; preds = %3
-  %20 = trunc nuw i64 %2 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %22, i64 %.pre24
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8
-  br i1 %20, label %26, label %30
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %28 = load i64, ptr %27, align 8, !noundef !4
-  %29 = icmp ult i64 %25, %28
-  br i1 %29, label %39, label %46
+  %29 = icmp ult i64 %24, %28
+  br i1 %29, label %36, label %43
 
-30:                                               ; preds = %.thread27, %19
-  %31 = phi ptr [ %8, %.thread27 ], [ %24, %19 ]
-  %32 = phi ptr [ %7, %.thread27 ], [ %23, %19 ]
-  %.sroa.07.0.copyload = load i64, ptr %32, align 8
-  %33 = trunc nuw i64 %.sroa.07.0.copyload to i1
-  br i1 %33, label %34, label %35
+30:                                               ; preds = %19
+  %.sroa.07.0.copyload = load i64, ptr %22, align 8
+  %31 = trunc nuw i64 %.sroa.07.0.copyload to i1
+  br i1 %31, label %32, label %33
 
-34:                                               ; preds = %30
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+32:                                               ; preds = %30
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.48.0.copyload = load i64, ptr %.sroa.48.0..sroa_idx, align 8
+  br label %33
+
+33:                                               ; preds = %30, %32
+  %.sroa.05.0 = phi i64 [ 1, %32 ], [ 2, %30 ]
+  %.sroa.56.0 = phi i64 [ %.sroa.48.0.copyload, %32 ], [ undef, %30 ]
+  store i64 %.sroa.05.0, ptr %0, align 8
+  store i64 %.sroa.56.0, ptr %23, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %35
 
-35:                                               ; preds = %30, %34
-  %.sroa.05.0 = phi i64 [ 1, %34 ], [ 2, %30 ]
-  %.sroa.56.0 = phi i64 [ %.sroa.48.0.copyload, %34 ], [ undef, %30 ]
-  store i64 %.sroa.05.0, ptr %0, align 8
-  store i64 %.sroa.56.0, ptr %31, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  br label %37
+35:                                               ; preds = %47, %33
+  %.sroa.4.1 = phi ptr [ %48, %47 ], [ %34, %33 ]
+  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  br label %49
 
-37:                                               ; preds = %50, %35
-  %38 = phi ptr [ %23, %50 ], [ %32, %35 ]
-  %.sroa.4.1 = phi ptr [ %51, %50 ], [ %36, %35 ]
-  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  br label %52
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %38, i64 %24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8, !range !65, !noundef !4
+  %42 = trunc nuw i64 %41 to i1
+  br i1 %42, label %44, label %47
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %41, i64 %25
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !range !65, !noundef !4
-  %45 = trunc nuw i64 %44 to i1
-  br i1 %45, label %47, label %50
-
-46:                                               ; preds = %26
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %25, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.397) #21
+43:                                               ; preds = %26
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %24, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.397) #21
   unreachable
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %49 = load i64, ptr %48, align 8, !noundef !4
-  store i64 %49, ptr %24, align 8
-  br label %50
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %46 = load i64, ptr %45, align 8, !noundef !4
+  store i64 %46, ptr %23, align 8
+  br label %47
 
-50:                                               ; preds = %39, %47
-  %.sink = phi i64 [ 1, %47 ], [ 2, %39 ]
+47:                                               ; preds = %36, %44
+  %.sink = phi i64 [ 1, %44 ], [ 2, %36 ]
   store i64 %.sink, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  br label %37
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  br label %35
 
-52:                                               ; preds = %9, %37
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %37 ], [ undef, %9 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %37 ], [ null, %9 ]
-  %53 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %54 = insertvalue { ptr, ptr } %53, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %54
+49:                                               ; preds = %9, %35
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %35 ], [ undef, %9 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %35 ], [ null, %9 ]
+  %50 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %51 = insertvalue { ptr, ptr } %50, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %51
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a0e8fd41d19f71fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !114, !noundef !4
   %.not = icmp eq i64 %2, 2
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %9, label %._crit_edge
 
-3:                                                ; preds = %1
+._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8
   %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre26 = load i64, ptr %.phi.trans.insert25, align 8
-  %4 = icmp ult i64 %.pre24, %.pre26
-  br i1 %4, label %19, label %18
+  %3 = icmp eq i64 %2, 0
+  br label %4
 
-.thread27:                                        ; preds = %9
-  store i64 %12, ptr %10, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %6, i64 %12
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %30
+4:                                                ; preds = %._crit_edge, %18
+  %cond = phi i1 [ %3, %._crit_edge ], [ true, %18 ]
+  %5 = phi i64 [ %.pre26, %._crit_edge ], [ %16, %18 ]
+  %6 = phi i64 [ %.pre24, %._crit_edge ], [ %12, %18 ]
+  %7 = phi ptr [ %.pre, %._crit_edge ], [ %14, %18 ]
+  %8 = icmp ult i64 %6, %5
+  br i1 %8, label %19, label %25
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6453,84 +6454,85 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   %17 = icmp ult i64 %16, 88686269585142076
   tail call void @llvm.assume(i1 %17)
   %.not21 = icmp ult i64 %12, %16
-  br i1 %.not21, label %.thread27, label %52
+  br i1 %.not21, label %18, label %49
 
-18:                                               ; preds = %3
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.pre24, i64 noundef %.pre26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.395) #21
+18:                                               ; preds = %9
+  store i64 %12, ptr %10, align 8
+  store i64 0, ptr %0, align 8
+  br label %4
+
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %21, i64 %6
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8
+  br i1 %cond, label %30, label %26, !prof !407
+
+25:                                               ; preds = %4
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %6, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.395) #21
   unreachable
-
-19:                                               ; preds = %3
-  %20 = trunc nuw i64 %2 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %22, i64 %.pre24
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8
-  br i1 %20, label %26, label %30
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %28 = load i64, ptr %27, align 8, !noundef !4
-  %29 = icmp ult i64 %25, %28
-  br i1 %29, label %39, label %46
+  %29 = icmp ult i64 %24, %28
+  br i1 %29, label %36, label %43
 
-30:                                               ; preds = %.thread27, %19
-  %31 = phi ptr [ %8, %.thread27 ], [ %24, %19 ]
-  %32 = phi ptr [ %7, %.thread27 ], [ %23, %19 ]
-  %.sroa.07.0.copyload = load i64, ptr %32, align 8
-  %33 = trunc nuw i64 %.sroa.07.0.copyload to i1
-  br i1 %33, label %34, label %35
+30:                                               ; preds = %19
+  %.sroa.07.0.copyload = load i64, ptr %22, align 8
+  %31 = trunc nuw i64 %.sroa.07.0.copyload to i1
+  br i1 %31, label %32, label %33
 
-34:                                               ; preds = %30
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+32:                                               ; preds = %30
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.48.0.copyload = load i64, ptr %.sroa.48.0..sroa_idx, align 8
+  br label %33
+
+33:                                               ; preds = %30, %32
+  %.sroa.05.0 = phi i64 [ 1, %32 ], [ 2, %30 ]
+  %.sroa.56.0 = phi i64 [ %.sroa.48.0.copyload, %32 ], [ undef, %30 ]
+  store i64 %.sroa.05.0, ptr %0, align 8
+  store i64 %.sroa.56.0, ptr %23, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %35
 
-35:                                               ; preds = %30, %34
-  %.sroa.05.0 = phi i64 [ 1, %34 ], [ 2, %30 ]
-  %.sroa.56.0 = phi i64 [ %.sroa.48.0.copyload, %34 ], [ undef, %30 ]
-  store i64 %.sroa.05.0, ptr %0, align 8
-  store i64 %.sroa.56.0, ptr %31, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  br label %37
+35:                                               ; preds = %47, %33
+  %.sroa.4.1 = phi ptr [ %48, %47 ], [ %34, %33 ]
+  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  br label %49
 
-37:                                               ; preds = %50, %35
-  %38 = phi ptr [ %23, %50 ], [ %32, %35 ]
-  %.sroa.4.1 = phi ptr [ %51, %50 ], [ %36, %35 ]
-  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  br label %52
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %38, i64 %24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8, !range !65, !noundef !4
+  %42 = trunc nuw i64 %41 to i1
+  br i1 %42, label %44, label %47
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %41, i64 %25
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !range !65, !noundef !4
-  %45 = trunc nuw i64 %44 to i1
-  br i1 %45, label %47, label %50
-
-46:                                               ; preds = %26
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %25, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.397) #21
+43:                                               ; preds = %26
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %24, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c26712e44f94f954f0ab49085fe50d1d.397) #21
   unreachable
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %49 = load i64, ptr %48, align 8, !noundef !4
-  store i64 %49, ptr %24, align 8
-  br label %50
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %46 = load i64, ptr %45, align 8, !noundef !4
+  store i64 %46, ptr %23, align 8
+  br label %47
 
-50:                                               ; preds = %39, %47
-  %.sink = phi i64 [ 1, %47 ], [ 2, %39 ]
+47:                                               ; preds = %36, %44
+  %.sink = phi i64 [ 1, %44 ], [ 2, %36 ]
   store i64 %.sink, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  br label %37
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  br label %35
 
-52:                                               ; preds = %9, %37
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %37 ], [ undef, %9 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %37 ], [ null, %9 ]
-  %53 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %54 = insertvalue { ptr, ptr } %53, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %54
+49:                                               ; preds = %9, %35
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %35 ], [ undef, %9 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %35 ], [ null, %9 ]
+  %50 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %51 = insertvalue { ptr, ptr } %50, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %51
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6539,10 +6541,10 @@ define hidden void @"_ZN68_$LT$pingora_load_balancing..Backend$u20$as$u20$core..
   tail call fastcc void @"_ZN84_$LT$pingora_core..protocols..l4..socket..SocketAddr$u20$as$u20$core..hash..Hash$GT$4hash17h65996ef8d8a1baa6E"(ptr noalias noundef readonly align 4 dereferenceable(120) %0, ptr noalias noundef align 8 dereferenceable(72) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i64, ptr %4, align 8, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !407
-  store i64 %5, ptr %3, align 8, !noalias !407
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !408
+  store i64 %5, ptr %3, align 8, !noalias !408
   call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h16e314fb9560002cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !407
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !408
   ret void
 }
 
@@ -7432,6 +7434,7 @@ attributes #24 = { cold noreturn nounwind }
 !404 = !{!405, !400, !403}
 !405 = distinct !{!405, !406, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE: argument 0"}
 !406 = distinct !{!406, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE"}
-!407 = !{!408}
-!408 = distinct !{!408, !409, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE: argument 0"}
-!409 = distinct !{!409, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE"}
+!407 = !{!"branch_weights", i32 2000, i32 2000}
+!408 = !{!409}
+!409 = distinct !{!409, !410, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE: argument 0"}
+!410 = distinct !{!410, !"_ZN4core4hash6Hasher11write_usize17he22bf35d349ab5acE"}

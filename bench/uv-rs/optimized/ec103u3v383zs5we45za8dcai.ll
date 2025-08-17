@@ -846,7 +846,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 32:                                               ; preds = %31
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread153
+  br label %.thread154
 
 33:                                               ; preds = %31, %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -874,11 +874,11 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %42 = add i32 %41, -1
   %43 = and i32 %42, -1073741825
   %or.cond.not.i.i.i = icmp eq i32 %43, -2147483648
-  br i1 %or.cond.not.i.i.i, label %44, label %.thread153, !prof !201
+  br i1 %or.cond.not.i.i.i, label %44, label %.thread154, !prof !201
 
 44:                                               ; preds = %38
   invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h78330b358cff4713E(ptr noundef nonnull align 4 %40, i32 noundef %42)
-          to label %.thread153 unwind label %46
+          to label %.thread154 unwind label %46
 
 45:                                               ; preds = %36
   unreachable
@@ -889,26 +889,26 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20, !noalias !186
   unreachable
 
-.thread160:                                       ; preds = %198, %205, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit", %52
+.thread164:                                       ; preds = %198, %205, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit", %52
   %.pn127 = phi { ptr, i32 } [ %53, %52 ], [ %.pn125, %205 ], [ %.pn125, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit" ], [ %199, %198 ]
   %48 = atomicrmw sub ptr %25, i32 1 release, align 4, !noalias !202
   %49 = add i32 %48, -1
   %50 = and i32 %49, -1073741825
   %or.cond.not.i.i = icmp eq i32 %50, -2147483648
-  br i1 %or.cond.not.i.i, label %51, label %.thread.thread, !prof !201
+  br i1 %or.cond.not.i.i, label %51, label %.thread, !prof !201
 
-51:                                               ; preds = %.thread160
+51:                                               ; preds = %.thread164
   invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h78330b358cff4713E(ptr noundef nonnull align 4 %25, i32 noundef %49)
-          to label %.thread.thread unwind label %126
+          to label %.thread unwind label %126
 
-52:                                               ; preds = %.thread182, %.thread173
+52:                                               ; preds = %.thread186, %.thread177
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread160
+  br label %.thread164
 
 54:                                               ; preds = %33
   %55 = load i64, ptr %2, align 8, !range !18, !alias.scope !207, !noundef !8
-  %.not194 = icmp eq i64 %55, -9223372036854775808
+  %.not196 = icmp eq i64 %55, -9223372036854775808
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -921,10 +921,10 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %.sroa.051.1 = phi i8 [ %.sroa.051.0, %59 ], [ %.sroa.051.3, %75 ], [ %.sroa.051.3, %71 ]
   %.pn125 = phi { ptr, i32 } [ %60, %59 ], [ %.pn, %75 ], [ %.pn, %71 ]
   %58 = trunc nuw i8 %.sroa.051.1 to i1
-  br i1 %58, label %205, label %.thread160
+  br i1 %58, label %205, label %.thread164
 
-59:                                               ; preds = %134, %200, %190, %.thread187, %173, %54
-  %.sroa.051.0 = phi i8 [ 1, %190 ], [ 0, %200 ], [ 1, %.thread187 ], [ 1, %173 ], [ 1, %54 ], [ %.sroa.051.5, %134 ]
+59:                                               ; preds = %134, %200, %190, %.thread191, %173, %54
+  %.sroa.051.0 = phi i8 [ 1, %190 ], [ 0, %200 ], [ 1, %.thread191 ], [ 1, %173 ], [ 1, %54 ], [ %.sroa.051.5, %134 ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit"
@@ -947,7 +947,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 69:                                               ; preds = %64
   %70 = load ptr, ptr %63, align 8, !nonnull !8, !noundef !8
   store ptr %70, ptr %18, align 8
-  br i1 %.not194, label %85, label %78
+  br i1 %.not196, label %85, label %78
 
 71:                                               ; preds = %162, %117, %76
   %.sroa.051.3 = phi i8 [ %.sroa.051.2, %76 ], [ 0, %162 ], [ 0, %117 ]
@@ -964,8 +964,8 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb4e8995b030469cdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit" unwind label %126
 
-76:                                               ; preds = %.invoke, %164, %.thread176, %137, %119, %.thread170, %92
-  %.sroa.051.2 = phi i8 [ 0, %164 ], [ 1, %.thread176 ], [ 1, %137 ], [ 0, %119 ], [ 1, %.thread170 ], [ 1, %92 ], [ 1, %.invoke ]
+76:                                               ; preds = %.invoke, %164, %.thread180, %137, %119, %.thread174, %92
+  %.sroa.051.2 = phi i8 [ 0, %164 ], [ 1, %.thread180 ], [ 1, %137 ], [ 0, %119 ], [ 1, %.thread174 ], [ 1, %92 ], [ 1, %.invoke ]
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -983,7 +983,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 85:                                               ; preds = %69, %78
   %86 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %90, label %.thread173
+  br i1 %87, label %90, label %.thread177
 
 88:                                               ; preds = %119
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -998,9 +998,9 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 90:                                               ; preds = %85
   %91 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h6dd8535f9d33715fE, i64 16) monotonic, align 8
   switch i8 %91, label %92 [
-    i8 0, label %.thread173
-    i8 1, label %.thread170
-    i8 2, label %.thread170
+    i8 0, label %.thread177
+    i8 1, label %.thread174
+    i8 2, label %.thread174
   ]
 
 92:                                               ; preds = %90
@@ -1009,16 +1009,16 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 
 94:                                               ; preds = %92
   %95 = icmp eq i8 %93, 0
-  br i1 %95, label %.thread173, label %.thread170
+  br i1 %95, label %.thread177, label %.thread174
 
-.thread170:                                       ; preds = %90, %90, %94
-  %.sroa.036.0172 = phi i8 [ %93, %94 ], [ %91, %90 ], [ %91, %90 ]
+.thread174:                                       ; preds = %90, %90, %94
+  %.sroa.036.0176 = phi i8 [ %93, %94 ], [ %91, %90 ], [ %91, %90 ]
   %96 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h6dd8535f9d33715fE, align 8, !nonnull !8, !align !89, !noundef !8
-  %97 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %96, i8 noundef %.sroa.036.0172)
+  %97 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %96, i8 noundef %.sroa.036.0176)
           to label %98 unwind label %76
 
-98:                                               ; preds = %.thread170
-  br i1 %97, label %99, label %.thread173
+98:                                               ; preds = %.thread174
+  br i1 %97, label %99, label %.thread177
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h6dd8535f9d33715fE, align 8, !nonnull !8, !align !89, !noundef !8
@@ -1092,8 +1092,8 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   invoke void @"_ZN4core3ptr50drop_in_place$LT$uv_auth..cache..RealmUsername$GT$17h78646d9d9144108cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)
           to label %88 unwind label %76
 
-120:                                              ; preds = %88, %.thread173
-  %121 = phi ptr [ %125, %.thread173 ], [ %89, %88 ]
+120:                                              ; preds = %88, %.thread177
+  %121 = phi ptr [ %125, %.thread177 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %122 = atomicrmw sub ptr %25, i32 1 release, align 4, !noalias !221
   %123 = add i32 %122, -1
@@ -1101,7 +1101,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %or.cond.not.i.i137 = icmp eq i32 %124, -2147483648
   br i1 %or.cond.not.i.i137, label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split", label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139", !prof !201
 
-.thread173:                                       ; preds = %90, %98, %85, %94
+.thread177:                                       ; preds = %90, %98, %85, %94
   %125 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %24)
@@ -1117,7 +1117,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %.sroa.0.0 = phi ptr [ %121, %120 ], [ null, %201 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split" ]
   ret ptr %.sroa.0.0
 
-126:                                              ; preds = %75, %51, %.thread, %.thread153, %205, %198, %162, %117
+126:                                              ; preds = %75, %51, %206, %.thread154, %205, %198, %162, %117
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #20
@@ -1126,9 +1126,9 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 128:                                              ; preds = %78
   %129 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %130 = icmp eq i64 %129, 0
-  br i1 %130, label %135, label %.thread179
+  br i1 %130, label %135, label %.thread183
 
-.thread179:                                       ; preds = %135, %139, %128, %165, %143
+.thread183:                                       ; preds = %135, %139, %128, %165, %143
   %.sroa.051.5 = phi i8 [ 0, %165 ], [ 1, %143 ], [ 1, %128 ], [ 1, %139 ], [ 1, %135 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
@@ -1137,7 +1137,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %133 = icmp eq i64 %132, 1
   br i1 %133, label %134, label %166
 
-134:                                              ; preds = %.thread179
+134:                                              ; preds = %.thread183
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb4e8995b030469cdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
           to label %166 unwind label %59
@@ -1145,9 +1145,9 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 135:                                              ; preds = %128
   %136 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h4ad39ab37656f18bE, i64 16) monotonic, align 8
   switch i8 %136, label %137 [
-    i8 0, label %.thread179
-    i8 1, label %.thread176
-    i8 2, label %.thread176
+    i8 0, label %.thread183
+    i8 1, label %.thread180
+    i8 2, label %.thread180
   ]
 
 137:                                              ; preds = %135
@@ -1156,16 +1156,16 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 
 139:                                              ; preds = %137
   %140 = icmp eq i8 %138, 0
-  br i1 %140, label %.thread179, label %.thread176
+  br i1 %140, label %.thread183, label %.thread180
 
-.thread176:                                       ; preds = %135, %135, %139
-  %.sroa.019.0178 = phi i8 [ %138, %139 ], [ %136, %135 ], [ %136, %135 ]
+.thread180:                                       ; preds = %135, %135, %139
+  %.sroa.019.0182 = phi i8 [ %138, %139 ], [ %136, %135 ], [ %136, %135 ]
   %141 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h4ad39ab37656f18bE, align 8, !nonnull !8, !align !89, !noundef !8
-  %142 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %141, i8 noundef %.sroa.019.0178)
+  %142 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %141, i8 noundef %.sroa.019.0182)
           to label %143 unwind label %76
 
-143:                                              ; preds = %.thread176
-  br i1 %142, label %144, label %.thread179
+143:                                              ; preds = %.thread180
+  br i1 %142, label %144, label %.thread183
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h4ad39ab37656f18bE, align 8, !nonnull !8, !align !89, !noundef !8
@@ -1250,25 +1250,25 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread179
+  br label %.thread183
 
-166:                                              ; preds = %134, %.thread179
+166:                                              ; preds = %134, %.thread183
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %167 = trunc nuw i8 %.sroa.051.5 to i1
-  br i1 %167, label %.thread182, label %201
+  br i1 %167, label %.thread186, label %201
 
 168:                                              ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %169 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h787ea0ba59a7d36fE monotonic, align 8
   %170 = icmp eq i64 %169, 0
-  br i1 %170, label %171, label %.thread182
+  br i1 %170, label %171, label %.thread186
 
 171:                                              ; preds = %168
   %172 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h43c50dfac952334aE, i64 16) monotonic, align 8
   switch i8 %172, label %173 [
-    i8 0, label %.thread182
-    i8 1, label %.thread187
-    i8 2, label %.thread187
+    i8 0, label %.thread186
+    i8 1, label %.thread191
+    i8 2, label %.thread191
   ]
 
 173:                                              ; preds = %171
@@ -1277,16 +1277,16 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
 
 175:                                              ; preds = %173
   %176 = icmp eq i8 %174, 0
-  br i1 %176, label %.thread182, label %.thread187
+  br i1 %176, label %.thread186, label %.thread191
 
-.thread187:                                       ; preds = %171, %171, %175
-  %.sroa.03.0189 = phi i8 [ %174, %175 ], [ %172, %171 ], [ %172, %171 ]
+.thread191:                                       ; preds = %171, %171, %175
+  %.sroa.03.0193 = phi i8 [ %174, %175 ], [ %172, %171 ], [ %172, %171 ]
   %177 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h43c50dfac952334aE, align 8, !nonnull !8, !align !89, !noundef !8
-  %178 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %177, i8 noundef %.sroa.03.0189)
+  %178 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17he997359fade3a377E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %177, i8 noundef %.sroa.03.0193)
           to label %179 unwind label %59
 
-179:                                              ; preds = %.thread187
-  br i1 %178, label %180, label %.thread182
+179:                                              ; preds = %.thread191
+  br i1 %178, label %180, label %.thread186
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm10__CALLSITE17h43c50dfac952334aE, align 8, !nonnull !8, !align !89, !noundef !8
@@ -1354,14 +1354,14 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %199 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$uv_auth..cache..RealmUsername$GT$17h78646d9d9144108cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %19) #21
-          to label %.thread160 unwind label %126
+          to label %.thread164 unwind label %126
 
 200:                                              ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @"_ZN4core3ptr50drop_in_place$LT$uv_auth..cache..RealmUsername$GT$17h78646d9d9144108cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %19)
-          to label %.thread184 unwind label %59
+          to label %.thread188 unwind label %59
 
-.thread184:                                       ; preds = %200
+.thread188:                                       ; preds = %200
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1369,7 +1369,7 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %201
 
-201:                                              ; preds = %.thread184, %.thread182, %166
+201:                                              ; preds = %.thread188, %.thread186, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %202 = atomicrmw sub ptr %25, i32 1 release, align 4, !noalias !233
   %203 = add i32 %202, -1
@@ -1377,26 +1377,26 @@ define noundef ptr @_ZN7uv_auth5cache16CredentialsCache9get_realm17h7bc670bf8522
   %or.cond.not.i.i142 = icmp eq i32 %204, -2147483648
   br i1 %or.cond.not.i.i142, label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139.sink.split", label %"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$C$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17ha8345624f4975bc8E.exit139", !prof !201
 
-.thread182:                                       ; preds = %171, %175, %168, %179, %166
+.thread186:                                       ; preds = %171, %175, %168, %179, %166
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %24)
           to label %201 unwind label %52
 
 205:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit"
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$$LP$uv_auth..realm..Realm$C$uv_auth..credentials..Username$RP$$GT$17ha4ae563bbb189f09E"(ptr noalias noundef align 8 dereferenceable(48) %24) #21
-          to label %.thread160 unwind label %126
+          to label %.thread164 unwind label %126
 
-.thread153:                                       ; preds = %38, %44, %32
-  %eh.lpad-body156 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %39, %44 ], [ %39, %38 ]
+.thread154:                                       ; preds = %38, %44, %32
+  %eh.lpad-body159 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %39, %44 ], [ %39, %38 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_auth..credentials..Username$GT$17haa2a3639addc8fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #21
-          to label %.thread unwind label %126
+          to label %206 unwind label %126
 
-.thread.thread:                                   ; preds = %51, %.thread160, %.thread
-  %.pn129152193 = phi { ptr, i32 } [ %eh.lpad-body156, %.thread ], [ %.pn127, %51 ], [ %.pn127, %.thread160 ]
-  resume { ptr, i32 } %.pn129152193
+.thread:                                          ; preds = %51, %.thread164, %206
+  %.pn129153 = phi { ptr, i32 } [ %eh.lpad-body159, %206 ], [ %.pn127, %.thread164 ], [ %.pn127, %51 ]
+  resume { ptr, i32 } %.pn129153
 
-.thread:                                          ; preds = %.thread153
+206:                                              ; preds = %.thread154
   invoke void @"_ZN4core3ptr42drop_in_place$LT$uv_auth..realm..Realm$GT$17h5e55ebfa176b4cceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #21
-          to label %.thread.thread unwind label %126
+          to label %.thread unwind label %126
 }
 
 ; Function Attrs: nonlazybind uwtable

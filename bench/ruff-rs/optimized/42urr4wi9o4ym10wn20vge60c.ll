@@ -6403,7 +6403,7 @@ define hidden noundef zeroext i1 @_ZN18tracing_subscriber6filter3env9EnvFilter7e
   %.not21 = icmp eq i8 %24, 0
   br i1 %.not21, label %25, label %31
 
-25:                                               ; preds = %.thread36, %58, %21
+25:                                               ; preds = %58, %.thread36, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %27 = call noundef align 8 ptr @"_ZN12thread_local20ThreadLocal$LT$T$GT$10get_or_try17hee263cfe6d5c7d96E"(ptr noundef nonnull align 8 %26)
@@ -6478,11 +6478,11 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   resume { ptr, i32 } %54
 
 58:                                               ; preds = %42
-  %.not42 = icmp eq ptr %52, null
+  %.not40 = icmp eq ptr %52, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN4core3ptr265drop_in_place$LT$std..sync..poison..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hebbedbc4dd28c8c2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not42, label %25, label %.critedge30
+  br i1 %.not40, label %25, label %.critedge30
 
 59:                                               ; preds = %25
   call void @_ZN4core4cell30panic_already_mutably_borrowed17h84e3060be1f0d147E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9cae28b39639e0a29bcd0780759484dc.52) #21
@@ -6512,8 +6512,8 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   %71 = load i64, ptr %.sroa.019.0, align 8, !range !457, !noundef !4
   %.not27 = icmp eq i64 %71, 5
   %72 = icmp samesign ult i64 %19, %71
-  %or.cond45 = select i1 %.not27, i1 true, i1 %72
-  br i1 %or.cond45, label %.critedge32, label %76
+  %or.cond43 = select i1 %.not27, i1 true, i1 %72
+  br i1 %or.cond43, label %.critedge32, label %76
 
 73:                                               ; preds = %.critedge32
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17hd4a90ece6d18398fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
@@ -6524,7 +6524,7 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   %75 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %.critedge30
 
-.critedge30:                                      ; preds = %.critedge, %58, %76, %74
+.critedge30:                                      ; preds = %58, %.critedge, %76, %74
   %.sroa.0.0 = phi i1 [ true, %76 ], [ %75, %74 ], [ true, %58 ], [ false, %.critedge ]
   ret i1 %.sroa.0.0
 

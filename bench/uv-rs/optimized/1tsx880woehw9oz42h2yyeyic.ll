@@ -3148,7 +3148,7 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder5build17hc9033
 
 10:                                               ; preds = %40, %11
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %26, %40 ]
-  %.sroa.01.0 = phi i1 [ true, %11 ], [ false, %40 ]
+  %cond = phi i1 [ false, %11 ], [ true, %40 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$uv_client..base_client..BaseClientBuilder$GT$17h9d8c8e5bc11936f0E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %8) #30
           to label %36 unwind label %37
 
@@ -3213,9 +3213,9 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder5build17hc9033
   ret void
 
 36:                                               ; preds = %10
-  br i1 %.sroa.01.0, label %41, label %44
+  br i1 %cond, label %44, label %41
 
-37:                                               ; preds = %25, %.thread15, %42, %41, %40, %39, %"_ZN4core3ptr59drop_in_place$LT$uv_client..cached_client..CachedClient$GT$17h7fc19e2fe247ef90E.exit", %10
+37:                                               ; preds = %25, %45, %42, %41, %40, %39, %"_ZN4core3ptr59drop_in_place$LT$uv_client..cached_client..CachedClient$GT$17h7fc19e2fe247ef90E.exit", %10
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
@@ -3240,14 +3240,14 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder5build17hc9033
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 272
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_torch..backend..TorchStrategy$GT$$GT$17h78146e50302b04edE"(ptr noalias noundef align 8 dereferenceable(64) %43) #30
-          to label %.thread15 unwind label %37
+          to label %45 unwind label %37
 
-44:                                               ; preds = %36, %.thread15
+44:                                               ; preds = %36, %45
   resume { ptr, i32 } %.pn.pn
 
-.thread15:                                        ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$uv_cache..Cache$GT$17hb374f4de66bae1b4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %45) #30
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$uv_cache..Cache$GT$17hb374f4de66bae1b4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %46) #30
           to label %44 unwind label %37
 }
 
@@ -3267,7 +3267,7 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder13wrap_existin
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution_types..index_url..IndexUrls$GT$17hc0a1eb95dda498ceE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #30
-          to label %.thread11 unwind label %34
+          to label %38 unwind label %34
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3323,7 +3323,7 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder13wrap_existin
   tail call void @"_ZN4core3ptr62drop_in_place$LT$uv_client..base_client..BaseClientBuilder$GT$17h9d8c8e5bc11936f0E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9)
   ret void
 
-34:                                               ; preds = %23, %.thread15, %39, %.thread11, %.thread, %37, %36, %"_ZN4core3ptr59drop_in_place$LT$uv_client..cached_client..CachedClient$GT$17h7fc19e2fe247ef90E.exit"
+34:                                               ; preds = %23, %40, %.thread14, %38, %.thread, %37, %36, %"_ZN4core3ptr59drop_in_place$LT$uv_client..cached_client..CachedClient$GT$17h7fc19e2fe247ef90E.exit"
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
@@ -3339,25 +3339,25 @@ define void @_ZN9uv_client15registry_client21RegistryClientBuilder13wrap_existin
 
 37:                                               ; preds = %36
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution_types..index_url..IndexUrls$GT$17hc0a1eb95dda498ceE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #30
-          to label %39 unwind label %34
+          to label %.thread14 unwind label %34
 
-.thread11:                                        ; preds = %.thread
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_torch..backend..TorchStrategy$GT$$GT$17h78146e50302b04edE"(ptr noalias noundef align 8 dereferenceable(64) %38) #30
-          to label %.thread15 unwind label %34
+38:                                               ; preds = %.thread
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$uv_torch..backend..TorchStrategy$GT$$GT$17h78146e50302b04edE"(ptr noalias noundef align 8 dereferenceable(64) %39) #30
+          to label %40 unwind label %34
 
-39:                                               ; preds = %37, %.thread15
-  %.pn.pn91317 = phi { ptr, i32 } [ %10, %.thread15 ], [ %24, %37 ]
+.thread14:                                        ; preds = %37, %40
+  %.pn.pn12 = phi { ptr, i32 } [ %10, %40 ], [ %24, %37 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$uv_client..base_client..BaseClientBuilder$GT$17h9d8c8e5bc11936f0E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %9) #30
-          to label %41 unwind label %34
+          to label %42 unwind label %34
 
-.thread15:                                        ; preds = %.thread11
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$uv_cache..Cache$GT$17hb374f4de66bae1b4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %40) #30
-          to label %39 unwind label %34
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$uv_cache..Cache$GT$17hb374f4de66bae1b4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %41) #30
+          to label %.thread14 unwind label %34
 
-41:                                               ; preds = %39
-  resume { ptr, i32 } %.pn.pn91317
+42:                                               ; preds = %.thread14
+  resume { ptr, i32 } %.pn.pn12
 }
 
 ; Function Attrs: nonlazybind uwtable

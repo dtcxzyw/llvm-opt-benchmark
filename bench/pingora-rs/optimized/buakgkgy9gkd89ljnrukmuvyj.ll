@@ -5250,7 +5250,7 @@ define hidden { i8, i8 } @"_ZN87_$LT$core..future..poll_fn..PollFn$LT$F$GT$$u20$
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb73f768e4476ccebE", i64 72), align 8, !range !121, !noalias !512, !noundef !3
   switch i8 %11, label %default.unreachable [
     i8 0, label %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i
-    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit.i"
+    i8 1, label %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i
     i8 2, label %.preheader.i
   ], !prof !515
 
@@ -5260,9 +5260,9 @@ default.unreachable:                              ; preds = %127, %44, %175, %15
 _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i: ; preds = %2
   %12 = tail call noundef ptr @"_ZN3std3sys12thread_local6native5eager16Storage$LT$T$GT$10initialize17h3260dede13f36623E"(ptr noundef nonnull align 8 @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb73f768e4476ccebE")
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.preheader.i, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit.i"
+  br i1 %13, label %.preheader.i, label %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i, %2
+_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i, %2
   %.sroa.0.0.i.i4.i.i = phi ptr [ %12, %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb73f768e4476ccebE", %2 ]
   %14 = getelementptr i8, ptr %.sroa.0.0.i.i4.i.i, i64 68
   %.val.i.i = load i8, ptr %14, align 1, !range !55, !noundef !3
@@ -5272,7 +5272,11 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i: ; preds = %
   %17 = tail call noundef zeroext i1 @_ZN5tokio4task4coop6Budget13has_remaining17h69c20c2d5684ccd8E(i1 noundef zeroext %16, i8 %.val6.i.i)
   br i1 %17, label %.preheader.i, label %.critedge.i
 
-.preheader.i:                                     ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit.i", %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i, %2
+.critedge.i:                                      ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i
+  tail call void @_ZN5tokio4task4coop14register_waker17h9711191f46dccb34E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  br label %"_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$12idle_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb48799670d027247E.exit"
+
+.preheader.i:                                     ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i, %2
   %18 = icmp ne ptr %.val, null
   %19 = icmp ne ptr %.val1, null
   %20 = getelementptr inbounds nuw i8, ptr %.val1, i64 312
@@ -5296,19 +5300,15 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i.i: ; preds = %
   tail call void @llvm.assume(i1 %18)
   br label %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer"
 
-.critedge.i:                                      ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit.i"
-  tail call void @_ZN5tokio4task4coop14register_waker17h9711191f46dccb34E(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %"_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$12idle_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb48799670d027247E.exit"
-
 35:                                               ; preds = %"_ZN15pingora_timeout12fast_timeout10fast_sleep28_$u7b$$u7b$closure$u7d$$u7d$17h4117d0c5a059fe7cE.exit.thread.i", %40
-  %.sroa.010.1.ph.i = phi i8 [ 1, %"_ZN15pingora_timeout12fast_timeout10fast_sleep28_$u7b$$u7b$closure$u7d$$u7d$17h4117d0c5a059fe7cE.exit.thread.i" ], [ %.sroa.010.0107.i.ph, %40 ]
+  %.sroa.010.1.ph.i = phi i8 [ 1, %"_ZN15pingora_timeout12fast_timeout10fast_sleep28_$u7b$$u7b$closure$u7d$$u7d$17h4117d0c5a059fe7cE.exit.thread.i" ], [ %.sroa.010.0108.i.ph, %40 ]
   %..i = or disjoint i8 %.sroa.010.1.ph.i, 4
   br label %"_ZN12pingora_pool10connection23ConnectionPool$LT$S$GT$12idle_timeout28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb48799670d027247E.exit"
 
 "_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i": ; preds = %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.backedge", %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer"
-  %.sroa.013.0108.i = phi i32 [ %.sroa.013.0108.i.ph, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer" ], [ %36, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.backedge" ]
-  %36 = add nuw nsw i32 %.sroa.013.0108.i, 1
-  switch i32 %.sroa.013.0108.i, label %default.unreachable.i [
+  %.sroa.013.0109.i = phi i32 [ %.sroa.013.0109.i.ph, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer" ], [ %36, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.backedge" ]
+  %36 = add nuw nsw i32 %.sroa.013.0109.i, 1
+  switch i32 %.sroa.013.0109.i, label %default.unreachable.i [
     i32 0, label %37
     i32 1, label %38
     i32 2, label %39
@@ -5381,8 +5381,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i.i.i.i:
   br label %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge"
 
 "_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer": ; preds = %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge", %.preheader.i
-  %.sroa.013.0108.i.ph = phi i32 [ 0, %.preheader.i ], [ %36, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge" ]
-  %.sroa.010.0107.i.ph = phi i8 [ 0, %.preheader.i ], [ 1, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge" ]
+  %.sroa.013.0109.i.ph = phi i32 [ 0, %.preheader.i ], [ %36, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge" ]
+  %.sroa.010.0108.i.ph = phi i8 [ 0, %.preheader.i ], [ 1, %"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb26f3a3ed83fdedaE.exit.thread.i.outer.backedge" ]
   %54 = load i8, ptr %.val, align 1, !noalias !512, !noundef !3
   %55 = and i8 %54, 4
   %.not18.i = icmp eq i8 %55, 0

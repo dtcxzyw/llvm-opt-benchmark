@@ -29,59 +29,57 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h308548b2d4faf5f0E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %4 = load i8, ptr %3, align 8, !range !3, !noundef !4
-  %.not = icmp eq i8 %4, 2
-  br i1 %.not, label %7, label %5
+  switch i8 %4, label %7 [
+    i8 2, label %5
+    i8 0, label %10
+  ]
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
-  br i1 %6, label %9, label %12
-
-7:                                                ; preds = %2
   store i8 2, ptr %0, align 8
-  br label %8
+  br label %6
 
-8:                                                ; preds = %26, %19, %9, %7
+6:                                                ; preds = %24, %17, %7, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   store i8 1, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %.sroa.46.0..sroa_idx, align 8
-  br label %8
+  store ptr %9, ptr %.sroa.46.0..sroa_idx, align 8
+  br label %6
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %14 = load i8, ptr %13, align 1, !noundef !4
-  %15 = icmp eq i8 %14, 10
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = add i64 %17, 1
-  br i1 %15, label %19, label %26
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %12 = load i8, ptr %11, align 1, !noundef !4
+  %13 = icmp eq i8 %12, 10
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = add i64 %15, 1
+  br i1 %13, label %17, label %24
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = add i64 %18, %21
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
-  store i64 0, ptr %16, align 8
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i64, ptr %18, align 8, !noundef !4
+  %20 = add i64 %16, %19
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  store i64 0, ptr %14, align 8
   store i8 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %.sroa.4.0..sroa_idx, align 1
-  br label %8
+  br label %6
 
-26:                                               ; preds = %12
-  store i64 %18, ptr %16, align 8
+24:                                               ; preds = %10
+  store i64 %16, ptr %14, align 8
   store i8 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %14, ptr %.sroa.42.0..sroa_idx, align 1
-  br label %8
+  store i8 %12, ptr %.sroa.42.0..sroa_idx, align 1
+  br label %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -90,59 +88,57 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9411c07b41aa628E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %4 = load i8, ptr %3, align 8, !range !3, !noundef !4
-  %.not = icmp eq i8 %4, 2
-  br i1 %.not, label %7, label %5
+  switch i8 %4, label %7 [
+    i8 2, label %5
+    i8 0, label %10
+  ]
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i8 %4 to i1
-  br i1 %6, label %9, label %12
-
-7:                                                ; preds = %2
   store i8 2, ptr %0, align 8
-  br label %8
+  br label %6
 
-8:                                                ; preds = %26, %19, %9, %7
+6:                                                ; preds = %24, %17, %7, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   store i8 1, ptr %0, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %.sroa.46.0..sroa_idx, align 8
-  br label %8
+  store ptr %9, ptr %.sroa.46.0..sroa_idx, align 8
+  br label %6
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %14 = load i8, ptr %13, align 1, !noundef !4
-  %15 = icmp eq i8 %14, 10
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = add i64 %17, 1
-  br i1 %15, label %19, label %26
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %12 = load i8, ptr %11, align 1, !noundef !4
+  %13 = icmp eq i8 %12, 10
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = add i64 %15, 1
+  br i1 %13, label %17, label %24
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = add i64 %18, %21
-  store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
-  store i64 0, ptr %16, align 8
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i64, ptr %18, align 8, !noundef !4
+  %20 = add i64 %16, %19
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  store i64 0, ptr %14, align 8
   store i8 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %.sroa.4.0..sroa_idx, align 1
-  br label %8
+  br label %6
 
-26:                                               ; preds = %12
-  store i64 %18, ptr %16, align 8
+24:                                               ; preds = %10
+  store i64 %16, ptr %14, align 8
   store i8 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %14, ptr %.sroa.42.0..sroa_idx, align 1
-  br label %8
+  store i8 %12, ptr %.sroa.42.0..sroa_idx, align 1
+  br label %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

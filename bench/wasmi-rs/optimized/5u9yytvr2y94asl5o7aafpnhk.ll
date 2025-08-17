@@ -7122,8 +7122,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %39 = load i32, ptr %38, align 4, !noundef !8
-  %.not42.not = icmp eq i16 %5, 0
-  br i1 %.not42.not, label %._crit_edge, label %42
+  %trunc = trunc nuw i16 %5 to i1
+  br i1 %trunc, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37
   %.pre = zext i32 %39 to i64
@@ -7184,7 +7184,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 58:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %59 = call fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16encode_local_set13fallback_case17h8814bd800991d169E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(248) %1, i16 noundef %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i16 noundef %5, i16 %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19)
+  %59 = call fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16encode_local_set13fallback_case17h8814bd800991d169E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(248) %1, i16 noundef %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i16 noundef 1, i16 %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit"
 
@@ -7247,7 +7247,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 81:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %82 = call fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16encode_local_set13fallback_case17h8814bd800991d169E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(248) %1, i16 noundef %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i16 noundef %5, i16 %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %16)
+  %82 = call fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16encode_local_set13fallback_case17h8814bd800991d169E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(248) %1, i16 noundef %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i16 noundef 1, i16 %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit"
@@ -7281,7 +7281,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
   br label %"_ZN4core3ptr56drop_in_place$LT$wasmi..engine..translator..FuelInfo$GT$17h13f37d136d1e2181E.exit"
 
 98:                                               ; preds = %94
-  br i1 %.not42.not, label %101, label %99
+  br i1 %trunc, label %99, label %101
 
 99:                                               ; preds = %98
   %100 = invoke noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)

@@ -326,35 +326,33 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9a687daa8a10a466E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(88) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %5 = tail call noundef i8 @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h82a8a76cfe892d22E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !31
-  %6 = icmp eq i8 %5, 2
-  br i1 %6, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %3, %9
-  %7 = phi i8 [ %10, %9 ], [ %5, %3 ]
-  %trunc = trunc nuw i8 %7 to i1
-  br i1 %trunc, label %9, label %8
+5:                                                ; preds = %9, %3
+  %6 = tail call noundef i8 @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h82a8a76cfe892d22E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !31
+  switch i8 %6, label %9 [
+    i8 2, label %7
+    i8 0, label %8
+  ]
 
-._crit_edge:                                      ; preds = %9, %3
+7:                                                ; preds = %5
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %12
+  br label %10
 
-8:                                                ; preds = %.lr.ph
+8:                                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 0, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %12
+  br label %10
 
-9:                                                ; preds = %.lr.ph
+9:                                                ; preds = %5
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1471d599435a5496E.llvm.1464196868864806666"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext true)
-  %10 = tail call noundef i8 @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h82a8a76cfe892d22E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !range !31
-  %11 = icmp eq i8 %10, 2
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  br label %5
 
-12:                                               ; preds = %8, %._crit_edge
+10:                                               ; preds = %8, %7
   ret void
 }
 

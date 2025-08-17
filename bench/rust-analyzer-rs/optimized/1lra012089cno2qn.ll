@@ -100374,7 +100374,7 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$4span17h287dd883398ccf0cE.llvm.3663151438746104753"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !28230
   %9 = load ptr, ptr %6, align 8, !noalias !28226, !noundef !4
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+  br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %5
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -100393,11 +100393,11 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h37c7ac6fa9954137E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.45.sroa.5.0.copyload.i.i, i64 noundef %.sroa.45.sroa.6.0.copyload.i.i), !noalias !28231
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-15:                                               ; preds = %5
+.thread.i:                                        ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !28226
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %11, %13, %15
+"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %11, %13, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -100604,7 +100604,7 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$4span17h287dd883398ccf0cE.llvm.3663151438746104753"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !28316
   %8 = load ptr, ptr %5, align 8, !noalias !28312, !noundef !4
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %.thread.i, label %10
 
 10:                                               ; preds = %4
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -100623,11 +100623,11 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h37c7ac6fa9954137E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.45.sroa.5.0.copyload.i.i, i64 noundef %.sroa.45.sroa.6.0.copyload.i.i), !noalias !28317
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-14:                                               ; preds = %4
+.thread.i:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28312
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %10, %12, %14
+"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %10, %12, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -100648,7 +100648,7 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$4span17h287dd883398ccf0cE.llvm.3663151438746104753"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !28334
   %11 = load ptr, ptr %5, align 8, !noalias !28330, !noundef !4
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %22, label %13
+  br i1 %12, label %.thread.i, label %13
 
 13:                                               ; preds = %4
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -100661,40 +100661,40 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.45.sroa.0.0.copyload.i.i, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !28335, !noundef !4
   %16 = and i64 %15, %9
-  %17 = icmp eq i64 %16, 0
-  %18 = call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$7release17hcd63a460ad0bdfa4E"(ptr noundef nonnull align 8 %.sroa.45.sroa.0.0.copyload.i.i), !noalias !28338
-  br i1 %18, label %19, label %21
+  %.not.i = icmp eq i64 %16, 0
+  %17 = call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$7release17hcd63a460ad0bdfa4E"(ptr noundef nonnull align 8 %.sroa.45.sroa.0.0.copyload.i.i), !noalias !28338
+  br i1 %17, label %18, label %20
 
-19:                                               ; preds = %13
-  %20 = icmp ne ptr %.sroa.45.sroa.5.0.copyload.i.i, null
-  call void @llvm.assume(i1 %20)
+18:                                               ; preds = %13
+  %19 = icmp ne ptr %.sroa.45.sroa.5.0.copyload.i.i, null
+  call void @llvm.assume(i1 %19)
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h37c7ac6fa9954137E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.45.sroa.5.0.copyload.i.i, i64 noundef %.sroa.45.sroa.6.0.copyload.i.i), !noalias !28338
-  br label %21
+  br label %20
 
-21:                                               ; preds = %19, %13
-  br i1 %17, label %23, label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
-
-22:                                               ; preds = %4
+.thread.i:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28330
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %22, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+20:                                               ; preds = %18, %13
+  br i1 %.not.i, label %21, label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %6, align 8, !noalias !28326, !align !125, !noundef !4
-  %25 = load i64, ptr %10, align 8, !noalias !28326, !noundef !4
-  %26 = icmp eq i64 %25, -1
-  %27 = select i1 %26, i64 0, i64 %25
-  %.05.i = or i64 %27, %9
+"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %.thread.i, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i64, ptr %7, align 8, !range !26, !noundef !4
-  call void @"_ZN101_$LT$rust_analyzer..tracing..hprof..SpanTree$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17h5cb0bf522ea64d4aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28, i64 noundef %29, ptr noundef align 8 %24, i64 noundef %.05.i)
-  br label %30
+  br label %28
 
-30:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread", %23
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %6, align 8, !noalias !28326, !align !125, !noundef !4
+  %23 = load i64, ptr %10, align 8, !noalias !28326, !noundef !4
+  %24 = icmp eq i64 %23, -1
+  %25 = select i1 %24, i64 0, i64 %23
+  %.05.i = or i64 %25, %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = load i64, ptr %7, align 8, !range !26, !noundef !4
+  call void @"_ZN101_$LT$rust_analyzer..tracing..hprof..SpanTree$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17h5cb0bf522ea64d4aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26, i64 noundef %27, ptr noundef align 8 %22, i64 noundef %.05.i)
+  br label %28
+
+28:                                               ; preds = %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread", %21
   ret void
 }
 
@@ -100710,7 +100710,7 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$4span17h287dd883398ccf0cE.llvm.3663151438746104753"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !28355
   %8 = load ptr, ptr %5, align 8, !noalias !28351, !noundef !4
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %.thread.i, label %10
 
 10:                                               ; preds = %4
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -100729,11 +100729,11 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h37c7ac6fa9954137E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.45.sroa.5.0.copyload.i.i, i64 noundef %.sroa.45.sroa.6.0.copyload.i.i), !noalias !28356
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-14:                                               ; preds = %4
+.thread.i:                                        ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28351
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %10, %12, %14
+"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %10, %12, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -100797,7 +100797,7 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$4span17h287dd883398ccf0cE.llvm.3663151438746104753"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !28389
   %9 = load ptr, ptr %6, align 8, !noalias !28385, !noundef !4
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+  br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %5
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -100816,11 +100816,11 @@ define hidden void @"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filte
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h37c7ac6fa9954137E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.45.sroa.5.0.copyload.i.i, i64 noundef %.sroa.45.sroa.6.0.copyload.i.i), !noalias !28390
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-15:                                               ; preds = %5
+.thread.i:                                        ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !28385
   br label %"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread"
 
-"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %11, %13, %15
+"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14if_enabled_for17h908ff6ea4238e944E.exit.thread": ; preds = %11, %13, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

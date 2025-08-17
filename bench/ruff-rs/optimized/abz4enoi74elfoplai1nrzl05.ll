@@ -2282,27 +2282,25 @@ define hidden void @"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_for
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h55f09d00f7ec3c9cE"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1, !range !230, !noundef !3
-  %.not = icmp eq i8 %4, 2
-  br i1 %.not, label %10, label %5
+  switch i8 %4, label %5 [
+    i8 2, label %8
+    i8 0, label %7
+  ]
 
 5:                                                ; preds = %3
-  %6 = trunc nuw i8 %4 to i1
-  br i1 %6, label %7, label %9
-
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  tail call void @"_ZN89_$LT$ruff_formatter..builders..Space$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17ha3d1bd2ed210fcf5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  tail call void @"_ZN89_$LT$ruff_formatter..builders..Space$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17ha3d1bd2ed210fcf5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   br label %"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h14f3917742fb70e6E.exit"
 
-9:                                                ; preds = %5
+7:                                                ; preds = %3
   store i32 4, ptr %0, align 8, !alias.scope !231, !noalias !234
   br label %"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h14f3917742fb70e6E.exit"
 
-10:                                               ; preds = %3
+8:                                                ; preds = %3
   store i32 4, ptr %0, align 8
   br label %"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h14f3917742fb70e6E.exit"
 
-"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h14f3917742fb70e6E.exit": ; preds = %9, %7, %10
+"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17h14f3917742fb70e6E.exit": ; preds = %7, %5, %8
   ret void
 }
 

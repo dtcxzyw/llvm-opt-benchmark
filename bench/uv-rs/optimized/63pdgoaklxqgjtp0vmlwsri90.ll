@@ -19349,19 +19349,19 @@ define void @_ZN15uv_distribution6source11has_sources17h1cfafd01e67397a9E(ptr de
   %.sroa.037.0.copyload = load i64, ptr %12, align 8
   %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.538.0..sroa_idx, i64 24, i1 false)
-  br i1 %11, label %13, label %15
+  br i1 %11, label %13, label %14
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.825, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.7)
-  %14 = and i64 %.sroa.037.0.copyload, -2
-  %switch = icmp ne i64 %14, 2
-  %trunc = trunc nuw i64 %.sroa.037.0.copyload to i1
-  %or.cond = select i1 %switch, i1 %trunc, i1 false
-  br i1 %or.cond, label %16, label %31
+  switch i64 %.sroa.037.0.copyload, label %15 [
+    i64 3, label %30
+    i64 2, label %30
+    i64 0, label %30
+  ]
 
-15:                                               ; preds = %3
+14:                                               ; preds = %3
   %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.317.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.614.0..sroa_idx, i64 56, i1 false)
@@ -19372,27 +19372,27 @@ define void @_ZN15uv_distribution6source11has_sources17h1cfafd01e67397a9E(ptr de
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0.copyload, ptr %.sroa.216.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.sroa.7)
-  br label %27
+  br label %26
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.825, i64 24, i1 false)
-  %17 = invoke noundef align 8 dereferenceable(24) ptr @_ZN12uv_workspace9pyproject13ToolUvSources5inner17h4e4410342a811940E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-          to label %20 unwind label %18
+  %16 = invoke noundef align 8 dereferenceable(24) ptr @_ZN12uv_workspace9pyproject13ToolUvSources5inner17h4e4410342a811940E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+          to label %19 unwind label %17
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %15
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$uv_workspace..pyproject..ToolUvSources$GT$17h84c833a9c154879dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #36
-          to label %30 unwind label %28
+          to label %29 unwind label %27
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %22 = load i64, ptr %21, align 8, !noundef !10
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %25
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %21 = load i64, ptr %20, align 8, !noundef !10
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
 
-24:                                               ; preds = %20
+23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5397
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.825, i64 24, i1 false)
@@ -19401,11 +19401,11 @@ define void @_ZN15uv_distribution6source11has_sources17h1cfafd01e67397a9E(ptr de
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1438a59472a7ff0E.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7), !noalias !5397
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5397
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %31
+  br label %30
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %26, align 8
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %25, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5404
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5404
@@ -19415,25 +19415,25 @@ define void @_ZN15uv_distribution6source11has_sources17h1cfafd01e67397a9E(ptr de
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb1438a59472a7ff0E.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !5404
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5404
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %31, %25, %15
+26:                                               ; preds = %30, %24, %14
   ret void
 
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #37
   unreachable
 
-30:                                               ; preds = %18
-  resume { ptr, i32 } %19
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-31:                                               ; preds = %13, %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %32, align 8
+30:                                               ; preds = %13, %13, %23, %13
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %31, align 8
   store i64 2, ptr %0, align 8
-  br label %27
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable
