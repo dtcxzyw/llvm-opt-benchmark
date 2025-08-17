@@ -22734,8 +22734,8 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %.0657973 = phi double [ 0.000000e+00, %.preheader869.lr.ph ], [ %.1658, %.thread842 ]
   %.0673972 = phi double [ 0.000000e+00, %.preheader869.lr.ph ], [ %.1674, %.thread842 ]
   %.0828970 = phi i32 [ %3, %.preheader869.lr.ph ], [ %.1829, %.thread842 ]
-  %.not1262 = icmp eq i32 %.0828970, 0
-  br i1 %.not1262, label %._crit_edge883.thread, label %.lr.ph879.preheader
+  %.not1261 = icmp eq i32 %.0828970, 0
+  br i1 %.not1261, label %._crit_edge883.thread, label %.lr.ph879.preheader
 
 .lr.ph879.preheader:                              ; preds = %.preheader869
   %29 = zext nneg i32 %.0828970 to i64
@@ -22771,12 +22771,12 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %46, label %._crit_edge880, label %30, !llvm.loop !418
 
 ._crit_edge880:                                   ; preds = %.lr.ph879
+  %47 = trunc nuw nsw i64 %indvars.iv1074 to i32
   br label %._crit_edge883, !llvm.loop !418
 
 ._crit_edge883:                                   ; preds = %30, %._crit_edge880
-  %indvars.iv.next1075.lcssa1246.sink = phi i64 [ %indvars.iv1074, %._crit_edge880 ], [ %indvars.iv.next1075, %30 ]
-  %47 = trunc nuw nsw i64 %indvars.iv.next1075.lcssa1246.sink to i32
-  %48 = icmp eq i32 %.0828970, %47
+  %.0601.lcssa = phi i32 [ %47, %._crit_edge880 ], [ 0, %30 ]
+  %48 = icmp eq i32 %.0601.lcssa, %.0828970
   br i1 %48, label %._crit_edge883.thread, label %58
 
 ._crit_edge883.thread:                            ; preds = %.preheader869, %._crit_edge883
@@ -22797,14 +22797,14 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 
 58:                                               ; preds = %._crit_edge883
   %59 = add nsw i32 %.0828970, -1
-  %60 = icmp eq i32 %59, %47
+  %60 = icmp eq i32 %.0601.lcssa, %59
   %61 = zext nneg i32 %.0828970 to i64
   %62 = getelementptr inbounds nuw ptr, ptr %9, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !387
   br i1 %60, label %64, label %154
 
 64:                                               ; preds = %58
-  %65 = and i64 %indvars.iv.next1075.lcssa1246.sink, 4294967295
+  %65 = zext nneg i32 %.0601.lcssa to i64
   %66 = getelementptr inbounds nuw double, ptr %63, i64 %65
   %67 = load double, ptr %66, align 8, !tbaa !45
   %68 = getelementptr inbounds nuw ptr, ptr %9, i64 %65
@@ -22823,8 +22823,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %sqrt = tail call double @llvm.sqrt.f64(double %80)
   %81 = fadd double %.0573978, %76
   store double %81, ptr %75, align 8, !tbaa !45
-  %sext1264 = shl i64 %indvars.iv.next1075.lcssa1246.sink, 32
-  %82 = ashr exact i64 %sext1264, 32
+  %82 = sext i32 %.0601.lcssa to i64
   %83 = getelementptr inbounds double, ptr %69, i64 %82
   %84 = load double, ptr %83, align 8, !tbaa !45
   %85 = fadd double %.0573978, %84
@@ -22964,7 +22963,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 154:                                              ; preds = %58
   %155 = getelementptr inbounds nuw double, ptr %63, i64 %61
   %156 = load double, ptr %155, align 8, !tbaa !45
-  %157 = icmp sgt i32 %.0828970, %47
+  %157 = icmp slt i32 %.0601.lcssa, %.0828970
   br i1 %157, label %158, label %169
 
 158:                                              ; preds = %154
@@ -23073,14 +23072,13 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %.3 = phi double [ %204, %._crit_edge895 ], [ %.0573978, %191 ], [ %171, %.thread1210 ], [ %.0573978, %169 ]
   %211 = add nsw i32 %.0602976, 1
   %212 = add nsw i32 %.0828970, -2
-  %.not719896 = icmp slt i32 %212, %47
+  %.not719896 = icmp slt i32 %212, %.0601.lcssa
   br i1 %.not719896, label %._crit_edge907, label %.lr.ph899
 
 .lr.ph899:                                        ; preds = %210
   %213 = fneg double %.2620
   %214 = sext i32 %212 to i64
-  %sext1263 = shl i64 %indvars.iv.next1075.lcssa1246.sink, 32
-  %sext = ashr exact i64 %sext1263, 32
+  %sext = sext i32 %.0601.lcssa to i64
   %.phi.trans.insert1187 = getelementptr inbounds nuw ptr, ptr %9, i64 %214
   %.pre1188 = load ptr, ptr %.phi.trans.insert1187, align 8, !tbaa !387
   %.phi.trans.insert1189 = getelementptr inbounds nuw double, ptr %.pre1188, i64 %214
@@ -23153,7 +23151,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br label %._crit_edge907, !llvm.loop !424
 
 ._crit_edge907:                                   ; preds = %215, %._crit_edge900, %210
-  %.0595.lcssa = phi i32 [ %270, %._crit_edge900 ], [ %212, %210 ], [ %47, %215 ]
+  %.0595.lcssa = phi i32 [ %270, %._crit_edge900 ], [ %212, %210 ], [ %.0601.lcssa, %215 ]
   %.4677 = phi double [ %246, %._crit_edge900 ], [ %.0673972, %210 ], [ %246, %215 ]
   %.4661 = phi double [ %247, %._crit_edge900 ], [ %.0657973, %210 ], [ %247, %215 ]
   %.10647 = phi double [ %244, %._crit_edge900 ], [ %.7644, %210 ], [ %244, %215 ]
@@ -23175,7 +23173,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %.not721.not937, label %.lr.ph946, label %.thread842
 
 .lr.ph946:                                        ; preds = %.preheader868
-  %.not724 = icmp eq i32 %.0595.lcssa, %47
+  %.not724 = icmp eq i32 %.0601.lcssa, %.0595.lcssa
   %276 = load ptr, ptr %10, align 8
   %277 = sext i32 %.0595.lcssa to i64
   %278 = add i32 %.0595.lcssa, 3

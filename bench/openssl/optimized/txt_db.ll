@@ -717,50 +717,50 @@ define range(i32 0, 2) i32 @TXT_DB_insert(ptr noundef captures(none) %0, ptr nou
   %.163 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %59, %.loopexit61.loopexit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %60, align 8, !tbaa !26
-  %61 = icmp sgt i32 %.163, 0
-  br i1 %61, label %.lr.ph69, label %.loopexit
+  %.not94 = icmp eq i32 %.163, 0
+  br i1 %.not94, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.loopexit61
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = zext nneg i32 %.163 to i64
-  br label %65
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = zext nneg i32 %.163 to i64
+  br label %64
 
-65:                                               ; preds = %.lr.ph69, %.backedge
-  %indvars.iv78 = phi i64 [ %64, %.lr.ph69 ], [ %indvars.iv.next79, %.backedge ]
+64:                                               ; preds = %.lr.ph69, %.backedge
+  %indvars.iv78 = phi i64 [ %63, %.lr.ph69 ], [ %indvars.iv.next79, %.backedge ]
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  %66 = load ptr, ptr %62, align 8, !tbaa !14
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.next79
-  %68 = load ptr, ptr %67, align 8, !tbaa !16
-  %.not56 = icmp eq ptr %68, null
-  br i1 %.not56, label %.backedge, label %69
+  %65 = load ptr, ptr %61, align 8, !tbaa !14
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next79
+  %67 = load ptr, ptr %66, align 8, !tbaa !16
+  %.not56 = icmp eq ptr %67, null
+  br i1 %.not56, label %.backedge, label %68
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %63, align 8, !tbaa !15
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.next79
-  %72 = load ptr, ptr %71, align 8, !tbaa !18
-  %.not57 = icmp eq ptr %72, null
-  br i1 %.not57, label %76, label %73
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %62, align 8, !tbaa !15
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.next79
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  %.not57 = icmp eq ptr %71, null
+  br i1 %.not57, label %75, label %72
 
-73:                                               ; preds = %69
-  %74 = tail call i32 %72(ptr noundef %1) #5
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.backedge, label %._crit_edge87
+72:                                               ; preds = %68
+  %73 = tail call i32 %71(ptr noundef %1) #5
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.backedge, label %._crit_edge87
 
-._crit_edge87:                                    ; preds = %73
-  %.pre88 = load ptr, ptr %62, align 8, !tbaa !14
+._crit_edge87:                                    ; preds = %72
+  %.pre88 = load ptr, ptr %61, align 8, !tbaa !14
   %.phi.trans.insert89 = getelementptr inbounds nuw ptr, ptr %.pre88, i64 %indvars.iv.next79
   %.pre90 = load ptr, ptr %.phi.trans.insert89, align 8, !tbaa !16
-  br label %76
+  br label %75
 
-76:                                               ; preds = %._crit_edge87, %69
-  %77 = phi ptr [ %.pre90, %._crit_edge87 ], [ %68, %69 ]
-  %78 = tail call ptr @OPENSSL_LH_delete(ptr noundef %77, ptr noundef %1) #5
+75:                                               ; preds = %._crit_edge87, %68
+  %76 = phi ptr [ %.pre90, %._crit_edge87 ], [ %67, %68 ]
+  %77 = tail call ptr @OPENSSL_LH_delete(ptr noundef %76, ptr noundef %1) #5
   br label %.backedge
 
-.backedge:                                        ; preds = %65, %76, %73
-  %79 = icmp samesign ugt i64 %indvars.iv78, 1
-  br i1 %79, label %65, label %.loopexit, !llvm.loop !39
+.backedge:                                        ; preds = %64, %75, %72
+  %78 = icmp samesign ugt i64 %indvars.iv78, 1
+  br i1 %78, label %64, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit61, %24, %._crit_edge
   %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %24 ], [ 0, %.loopexit61 ], [ 0, %.backedge ]

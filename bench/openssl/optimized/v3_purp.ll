@@ -989,7 +989,7 @@ select.unfold:                                    ; preds = %.lr.ph
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_PURPOSE_get_by_sname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @X509_PURPOSE_get_by_sname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %22, %1
@@ -1097,8 +1097,8 @@ define range(i32 0, 2) i32 @X509_PURPOSE_add(i32 noundef %0, i32 noundef %1, i32
 
 X509_PURPOSE_get_count.exit.i:                    ; preds = %22, %20
   %.0.i.i = phi i64 [ %25, %22 ], [ 10, %20 ]
-  %.not85 = icmp slt i64 %indvars.iv.i, %.0.i.i
-  br i1 %.not85, label %26, label %X509_PURPOSE_get_by_sname.exit.thread
+  %.not84 = icmp slt i64 %indvars.iv.i, %.0.i.i
+  br i1 %.not84, label %26, label %X509_PURPOSE_get_by_sname.exit.thread
 
 26:                                               ; preds = %X509_PURPOSE_get_count.exit.i
   %27 = icmp samesign ult i64 %indvars.iv.i, 10
@@ -1251,7 +1251,7 @@ select.unfold81:                                  ; preds = %65, %61
   store ptr %3, ptr %90, align 8, !tbaa !12
   %91 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store ptr %6, ptr %91, align 8, !tbaa !85
-  br i1 %.not85, label %101, label %92
+  br i1 %.not84, label %101, label %92
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr @xptable, align 8, !tbaa !3
@@ -1279,7 +1279,7 @@ select.unfold81:                                  ; preds = %65, %61
   br label %108
 
 105:                                              ; preds = %76
-  br i1 %.not85, label %108, label %.thread
+  br i1 %.not84, label %108, label %.thread
 
 .thread.sink.split:                               ; preds = %98, %95
   %.sink = phi i32 [ 241, %95 ], [ 245, %98 ]

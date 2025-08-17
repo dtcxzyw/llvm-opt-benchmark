@@ -2901,8 +2901,8 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %229 = zext nneg i32 %228 to i64
   br label %.lr.ph424
 
-.lr.ph424:                                        ; preds = %.lr.ph424.preheader, %386
-  %indvars.iv442 = phi i64 [ %229, %.lr.ph424.preheader ], [ %indvars.iv.next443, %386 ]
+.lr.ph424:                                        ; preds = %.lr.ph424.preheader, %385
+  %indvars.iv442 = phi i64 [ %229, %.lr.ph424.preheader ], [ %indvars.iv.next443, %385 ]
   %230 = mul i64 %.pre452, %indvars.iv442
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 %230
   %232 = add nuw nsw i64 %indvars.iv442, 1
@@ -3061,86 +3061,82 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
 
 338:                                              ; preds = %324, %334
   %339 = icmp samesign ugt i64 %indvars.iv439, 1
-  br i1 %339, label %.lr.ph419, label %._crit_edge420.loopexit, !llvm.loop !143
+  br i1 %339, label %.lr.ph419, label %._crit_edge420, !llvm.loop !143
 
-._crit_edge420.loopexit:                          ; preds = %338
-  %340 = trunc nuw nsw i64 %indvars.iv.next440 to i32
-  br label %._crit_edge420
+._crit_edge420:                                   ; preds = %338, %277
+  %.pre-phi = phi i64 [ %265, %277 ], [ %indvars.iv.next440, %338 ]
+  %.3.lcssa = phi i32 [ %264, %277 ], [ 0, %338 ]
+  %340 = add nsw i32 %.3.lcssa, 1
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr inbounds float, ptr %231, i64 %341
+  %343 = load float, ptr %342, align 4, !tbaa !95
+  %344 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
+  %345 = load float, ptr %344, align 4, !tbaa !95
+  %346 = getelementptr inbounds float, ptr %240, i64 %341
+  %347 = load float, ptr %346, align 4, !tbaa !95
+  %348 = fadd float %345, %347
+  %349 = tail call float @llvm.fmuladd.f32(float %348, float 5.000000e-01, float %343)
+  %350 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
+  %351 = load float, ptr %350, align 4, !tbaa !95
+  %352 = fcmp ogt float %351, %349
+  br i1 %352, label %353, label %357
 
-._crit_edge420:                                   ; preds = %._crit_edge420.loopexit, %277
-  %.pre-phi = phi i64 [ %indvars.iv.next440, %._crit_edge420.loopexit ], [ %265, %277 ]
-  %.3.lcssa = phi i32 [ %340, %._crit_edge420.loopexit ], [ %264, %277 ]
-  %341 = add nsw i32 %.3.lcssa, 1
-  %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds float, ptr %231, i64 %342
-  %344 = load float, ptr %343, align 4, !tbaa !95
-  %345 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
-  %346 = load float, ptr %345, align 4, !tbaa !95
-  %347 = getelementptr inbounds float, ptr %240, i64 %342
-  %348 = load float, ptr %347, align 4, !tbaa !95
-  %349 = fadd float %346, %348
-  %350 = tail call float @llvm.fmuladd.f32(float %349, float 5.000000e-01, float %344)
-  %351 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
-  %352 = load float, ptr %351, align 4, !tbaa !95
-  %353 = fcmp ogt float %352, %350
-  br i1 %353, label %354, label %358
+353:                                              ; preds = %._crit_edge420
+  store float %349, ptr %350, align 4, !tbaa !95
+  %354 = getelementptr inbounds i32, ptr %236, i64 %341
+  %355 = load i32, ptr %354, align 4, !tbaa !68
+  %356 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %355, ptr %356, align 4, !tbaa !68
+  %.pre462 = load float, ptr %344, align 4, !tbaa !95
+  br label %357
 
-354:                                              ; preds = %._crit_edge420
-  store float %350, ptr %351, align 4, !tbaa !95
-  %355 = getelementptr inbounds i32, ptr %236, i64 %342
-  %356 = load i32, ptr %355, align 4, !tbaa !68
-  %357 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %356, ptr %357, align 4, !tbaa !68
-  %.pre462 = load float, ptr %345, align 4, !tbaa !95
-  br label %358
+357:                                              ; preds = %353, %._crit_edge420
+  %358 = phi float [ %349, %353 ], [ %351, %._crit_edge420 ]
+  %359 = phi float [ %.pre462, %353 ], [ %345, %._crit_edge420 ]
+  %360 = getelementptr inbounds float, ptr %234, i64 %341
+  %361 = load float, ptr %360, align 4, !tbaa !95
+  %362 = getelementptr inbounds float, ptr %242, i64 %341
+  %363 = load float, ptr %362, align 4, !tbaa !95
+  %364 = fadd float %359, %363
+  %365 = tail call float @llvm.fmuladd.f32(float %364, float 0x3FE6A09E60000000, float %361)
+  %366 = fcmp ogt float %358, %365
+  br i1 %366, label %367, label %371
 
-358:                                              ; preds = %354, %._crit_edge420
-  %359 = phi float [ %350, %354 ], [ %352, %._crit_edge420 ]
-  %360 = phi float [ %.pre462, %354 ], [ %346, %._crit_edge420 ]
-  %361 = getelementptr inbounds float, ptr %234, i64 %342
-  %362 = load float, ptr %361, align 4, !tbaa !95
-  %363 = getelementptr inbounds float, ptr %242, i64 %342
-  %364 = load float, ptr %363, align 4, !tbaa !95
-  %365 = fadd float %360, %364
-  %366 = tail call float @llvm.fmuladd.f32(float %365, float 0x3FE6A09E60000000, float %362)
-  %367 = fcmp ogt float %359, %366
-  br i1 %367, label %368, label %372
+367:                                              ; preds = %357
+  store float %365, ptr %350, align 4, !tbaa !95
+  %368 = getelementptr inbounds i32, ptr %238, i64 %341
+  %369 = load i32, ptr %368, align 4, !tbaa !68
+  %370 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %369, ptr %370, align 4, !tbaa !68
+  %.pre463 = load float, ptr %344, align 4, !tbaa !95
+  br label %371
 
-368:                                              ; preds = %358
-  store float %366, ptr %351, align 4, !tbaa !95
-  %369 = getelementptr inbounds i32, ptr %238, i64 %342
-  %370 = load i32, ptr %369, align 4, !tbaa !68
-  %371 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %370, ptr %371, align 4, !tbaa !68
-  %.pre463 = load float, ptr %345, align 4, !tbaa !95
-  br label %372
+371:                                              ; preds = %367, %357
+  %372 = phi float [ %365, %367 ], [ %358, %357 ]
+  %373 = phi float [ %.pre463, %367 ], [ %359, %357 ]
+  %374 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
+  %375 = load float, ptr %374, align 4, !tbaa !95
+  %376 = getelementptr inbounds float, ptr %242, i64 %.pre-phi
+  %377 = load float, ptr %376, align 4, !tbaa !95
+  %378 = fadd float %373, %377
+  %379 = tail call float @llvm.fmuladd.f32(float %378, float 5.000000e-01, float %375)
+  %380 = fcmp ogt float %372, %379
+  br i1 %380, label %381, label %385
 
-372:                                              ; preds = %368, %358
-  %373 = phi float [ %366, %368 ], [ %359, %358 ]
-  %374 = phi float [ %.pre463, %368 ], [ %360, %358 ]
-  %375 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
-  %376 = load float, ptr %375, align 4, !tbaa !95
-  %377 = getelementptr inbounds float, ptr %242, i64 %.pre-phi
-  %378 = load float, ptr %377, align 4, !tbaa !95
-  %379 = fadd float %374, %378
-  %380 = tail call float @llvm.fmuladd.f32(float %379, float 5.000000e-01, float %376)
-  %381 = fcmp ogt float %373, %380
-  br i1 %381, label %382, label %386
+381:                                              ; preds = %371
+  store float %379, ptr %350, align 4, !tbaa !95
+  %382 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
+  %383 = load i32, ptr %382, align 4, !tbaa !68
+  %384 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %383, ptr %384, align 4, !tbaa !68
+  br label %385
 
-382:                                              ; preds = %372
-  store float %380, ptr %351, align 4, !tbaa !95
-  %383 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
-  %384 = load i32, ptr %383, align 4, !tbaa !68
-  %385 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %384, ptr %385, align 4, !tbaa !68
-  br label %386
-
-386:                                              ; preds = %372, %382
+385:                                              ; preds = %371, %381
   %indvars.iv.next443 = add nsw i64 %indvars.iv442, -1
-  %387 = icmp sgt i64 %indvars.iv442, 0
-  br i1 %387, label %.lr.ph424, label %._crit_edge425, !llvm.loop !144
+  %386 = icmp sgt i64 %indvars.iv442, 0
+  br i1 %386, label %.lr.ph424, label %._crit_edge425, !llvm.loop !144
 
-._crit_edge425:                                   ; preds = %386, %._crit_edge416
+._crit_edge425:                                   ; preds = %385, %._crit_edge416
   ret void
 }
 
@@ -9888,8 +9884,8 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %229 = zext nneg i32 %228 to i64
   br label %.lr.ph433
 
-.lr.ph433:                                        ; preds = %.lr.ph433.preheader, %386
-  %indvars.iv451 = phi i64 [ %229, %.lr.ph433.preheader ], [ %indvars.iv.next452, %386 ]
+.lr.ph433:                                        ; preds = %.lr.ph433.preheader, %385
+  %indvars.iv451 = phi i64 [ %229, %.lr.ph433.preheader ], [ %indvars.iv.next452, %385 ]
   %230 = mul i64 %.pre461, %indvars.iv451
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 %230
   %232 = add nuw nsw i64 %indvars.iv451, 1
@@ -10048,86 +10044,82 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
 
 338:                                              ; preds = %324, %334
   %339 = icmp samesign ugt i64 %indvars.iv448, 1
-  br i1 %339, label %.lr.ph428, label %._crit_edge429.loopexit, !llvm.loop !343
+  br i1 %339, label %.lr.ph428, label %._crit_edge429, !llvm.loop !343
 
-._crit_edge429.loopexit:                          ; preds = %338
-  %340 = trunc nuw nsw i64 %indvars.iv.next449 to i32
-  br label %._crit_edge429
+._crit_edge429:                                   ; preds = %338, %277
+  %.pre-phi = phi i64 [ %265, %277 ], [ %indvars.iv.next449, %338 ]
+  %.3.lcssa = phi i32 [ %264, %277 ], [ 0, %338 ]
+  %340 = add nsw i32 %.3.lcssa, 1
+  %341 = sext i32 %340 to i64
+  %342 = getelementptr inbounds float, ptr %231, i64 %341
+  %343 = load float, ptr %342, align 4, !tbaa !95
+  %344 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
+  %345 = load float, ptr %344, align 4, !tbaa !95
+  %346 = getelementptr inbounds float, ptr %240, i64 %341
+  %347 = load float, ptr %346, align 4, !tbaa !95
+  %348 = fadd float %345, %347
+  %349 = tail call float @llvm.fmuladd.f32(float %348, float 5.000000e-01, float %343)
+  %350 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
+  %351 = load float, ptr %350, align 4, !tbaa !95
+  %352 = fcmp ogt float %351, %349
+  br i1 %352, label %353, label %357
 
-._crit_edge429:                                   ; preds = %._crit_edge429.loopexit, %277
-  %.pre-phi = phi i64 [ %indvars.iv.next449, %._crit_edge429.loopexit ], [ %265, %277 ]
-  %.3.lcssa = phi i32 [ %340, %._crit_edge429.loopexit ], [ %264, %277 ]
-  %341 = add nsw i32 %.3.lcssa, 1
-  %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds float, ptr %231, i64 %342
-  %344 = load float, ptr %343, align 4, !tbaa !95
-  %345 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
-  %346 = load float, ptr %345, align 4, !tbaa !95
-  %347 = getelementptr inbounds float, ptr %240, i64 %342
-  %348 = load float, ptr %347, align 4, !tbaa !95
-  %349 = fadd float %346, %348
-  %350 = tail call float @llvm.fmuladd.f32(float %349, float 5.000000e-01, float %344)
-  %351 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
-  %352 = load float, ptr %351, align 4, !tbaa !95
-  %353 = fcmp ogt float %352, %350
-  br i1 %353, label %354, label %358
+353:                                              ; preds = %._crit_edge429
+  store float %349, ptr %350, align 4, !tbaa !95
+  %354 = getelementptr inbounds i32, ptr %236, i64 %341
+  %355 = load i32, ptr %354, align 4, !tbaa !68
+  %356 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %355, ptr %356, align 4, !tbaa !68
+  %.pre471 = load float, ptr %344, align 4, !tbaa !95
+  br label %357
 
-354:                                              ; preds = %._crit_edge429
-  store float %350, ptr %351, align 4, !tbaa !95
-  %355 = getelementptr inbounds i32, ptr %236, i64 %342
-  %356 = load i32, ptr %355, align 4, !tbaa !68
-  %357 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %356, ptr %357, align 4, !tbaa !68
-  %.pre471 = load float, ptr %345, align 4, !tbaa !95
-  br label %358
+357:                                              ; preds = %353, %._crit_edge429
+  %358 = phi float [ %349, %353 ], [ %351, %._crit_edge429 ]
+  %359 = phi float [ %.pre471, %353 ], [ %345, %._crit_edge429 ]
+  %360 = getelementptr inbounds float, ptr %234, i64 %341
+  %361 = load float, ptr %360, align 4, !tbaa !95
+  %362 = getelementptr inbounds float, ptr %242, i64 %341
+  %363 = load float, ptr %362, align 4, !tbaa !95
+  %364 = fadd float %359, %363
+  %365 = tail call float @llvm.fmuladd.f32(float %364, float 0x3FE6A09E60000000, float %361)
+  %366 = fcmp ogt float %358, %365
+  br i1 %366, label %367, label %371
 
-358:                                              ; preds = %354, %._crit_edge429
-  %359 = phi float [ %350, %354 ], [ %352, %._crit_edge429 ]
-  %360 = phi float [ %.pre471, %354 ], [ %346, %._crit_edge429 ]
-  %361 = getelementptr inbounds float, ptr %234, i64 %342
-  %362 = load float, ptr %361, align 4, !tbaa !95
-  %363 = getelementptr inbounds float, ptr %242, i64 %342
-  %364 = load float, ptr %363, align 4, !tbaa !95
-  %365 = fadd float %360, %364
-  %366 = tail call float @llvm.fmuladd.f32(float %365, float 0x3FE6A09E60000000, float %362)
-  %367 = fcmp ogt float %359, %366
-  br i1 %367, label %368, label %372
+367:                                              ; preds = %357
+  store float %365, ptr %350, align 4, !tbaa !95
+  %368 = getelementptr inbounds i32, ptr %238, i64 %341
+  %369 = load i32, ptr %368, align 4, !tbaa !68
+  %370 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %369, ptr %370, align 4, !tbaa !68
+  %.pre472 = load float, ptr %344, align 4, !tbaa !95
+  br label %371
 
-368:                                              ; preds = %358
-  store float %366, ptr %351, align 4, !tbaa !95
-  %369 = getelementptr inbounds i32, ptr %238, i64 %342
-  %370 = load i32, ptr %369, align 4, !tbaa !68
-  %371 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %370, ptr %371, align 4, !tbaa !68
-  %.pre472 = load float, ptr %345, align 4, !tbaa !95
-  br label %372
+371:                                              ; preds = %367, %357
+  %372 = phi float [ %365, %367 ], [ %358, %357 ]
+  %373 = phi float [ %.pre472, %367 ], [ %359, %357 ]
+  %374 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
+  %375 = load float, ptr %374, align 4, !tbaa !95
+  %376 = getelementptr inbounds float, ptr %242, i64 %.pre-phi
+  %377 = load float, ptr %376, align 4, !tbaa !95
+  %378 = fadd float %373, %377
+  %379 = tail call float @llvm.fmuladd.f32(float %378, float 5.000000e-01, float %375)
+  %380 = fcmp ogt float %372, %379
+  br i1 %380, label %381, label %385
 
-372:                                              ; preds = %368, %358
-  %373 = phi float [ %366, %368 ], [ %359, %358 ]
-  %374 = phi float [ %.pre472, %368 ], [ %360, %358 ]
-  %375 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
-  %376 = load float, ptr %375, align 4, !tbaa !95
-  %377 = getelementptr inbounds float, ptr %242, i64 %.pre-phi
-  %378 = load float, ptr %377, align 4, !tbaa !95
-  %379 = fadd float %374, %378
-  %380 = tail call float @llvm.fmuladd.f32(float %379, float 5.000000e-01, float %376)
-  %381 = fcmp ogt float %373, %380
-  br i1 %381, label %382, label %386
+381:                                              ; preds = %371
+  store float %379, ptr %350, align 4, !tbaa !95
+  %382 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
+  %383 = load i32, ptr %382, align 4, !tbaa !68
+  %384 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
+  store i32 %383, ptr %384, align 4, !tbaa !68
+  br label %385
 
-382:                                              ; preds = %372
-  store float %380, ptr %351, align 4, !tbaa !95
-  %383 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
-  %384 = load i32, ptr %383, align 4, !tbaa !68
-  %385 = getelementptr inbounds i32, ptr %236, i64 %.pre-phi
-  store i32 %384, ptr %385, align 4, !tbaa !68
-  br label %386
-
-386:                                              ; preds = %372, %382
+385:                                              ; preds = %371, %381
   %indvars.iv.next452 = add nsw i64 %indvars.iv451, -1
-  %387 = icmp sgt i64 %indvars.iv451, 0
-  br i1 %387, label %.lr.ph433, label %._crit_edge434, !llvm.loop !344
+  %386 = icmp sgt i64 %indvars.iv451, 0
+  br i1 %386, label %.lr.ph433, label %._crit_edge434, !llvm.loop !344
 
-._crit_edge434:                                   ; preds = %386, %._crit_edge425
+._crit_edge434:                                   ; preds = %385, %._crit_edge425
   ret void
 }
 

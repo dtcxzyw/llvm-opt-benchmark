@@ -3792,13 +3792,12 @@ _ZN26GrowableArrayWithAllocatorIP12StringConcat13GrowableArrayIS1_EE4pushERKS1_.
   %indvars.iv184 = phi i64 [ %41, %.lr.ph142.preheader ], [ %indvars.iv.next185, %283 ]
   br label %79
 
-.preheader:                                       ; preds = %283, %._crit_edge
-  %indvars.iv.next185.lcssa.sink = phi i64 [ %indvars.iv184, %._crit_edge ], [ %indvars.iv.next185, %283 ]
-  %78 = icmp sgt i64 %indvars.iv.next185.lcssa.sink, 0
+.preheader:                                       ; preds = %._crit_edge
+  %78 = icmp sgt i64 %indvars.iv184, 0
   br i1 %78, label %.lr.ph149.preheader, label %_ZN13GrowableArrayIP12StringConcatED2Ev.exit
 
 .lr.ph149.preheader:                              ; preds = %.preheader
-  %wide.trip.count = and i64 %indvars.iv.next185.lcssa.sink, 4294967295
+  %wide.trip.count = and i64 %indvars.iv184, 4294967295
   br label %.lr.ph149
 
 79:                                               ; preds = %.lr.ph142, %._crit_edge
@@ -4190,7 +4189,7 @@ _ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52: ; preds = %278, %274
 283:                                              ; preds = %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52, %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, -1
   %284 = icmp sgt i64 %indvars.iv184, 1
-  br i1 %284, label %.lr.ph142, label %.preheader
+  br i1 %284, label %.lr.ph142, label %_ZN13GrowableArrayIP12StringConcatED2Ev.exit
 
 _ZN12StringConcat17validate_mem_flowEv.exit.thread: ; preds = %._crit_edge.i, %250, %258, %242, %192, %198, %.lr.ph135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4218,7 +4217,7 @@ _ZN12StringConcat14is_SB_toStringEP4Node.exit.thread: ; preds = %_ZN12StringConc
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
   br i1 %exitcond190.not, label %_ZN13GrowableArrayIP12StringConcatED2Ev.exit, label %.lr.ph149, !llvm.loop !40
 
-_ZN13GrowableArrayIP12StringConcatED2Ev.exit:     ; preds = %.lr.ph149, %_ZN16Unique_Node_ListC2Ev.exit, %.preheader108, %.preheader
+_ZN13GrowableArrayIP12StringConcatED2Ev.exit:     ; preds = %283, %.lr.ph149, %_ZN16Unique_Node_ListC2Ev.exit, %.preheader108, %.preheader
   call void @_ZN15PhaseStringOpts17remove_dead_nodesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   ret void
 }

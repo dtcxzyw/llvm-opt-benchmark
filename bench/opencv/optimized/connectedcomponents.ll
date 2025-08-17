@@ -78983,7 +78983,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %3816 = trunc nuw nsw i64 %3810 to i32
   %..i3076 = tail call i32 @llvm.smin.i32(i32 %..i3075, i32 %3816)
   store i32 %..i3076, ptr %3789, align 4, !tbaa !16
-  %3817 = tail call i32 @llvm.smax.i32(i32 %3794, i32 %3816)
+  %3817 = tail call i32 @llvm.umax.i32(i32 %3794, i32 %3816)
   store i32 %3817, ptr %3792, align 4, !tbaa !16
   store i32 %3797, ptr %3795, align 4, !tbaa !16
   store i32 %3800, ptr %3798, align 4, !tbaa !16
@@ -79004,13 +79004,13 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %3826 = getelementptr inbounds nuw i16, ptr %3503, i64 %3810
   store i16 0, ptr %3826, align 2, !tbaa !50
   %..i3077 = tail call i32 @llvm.smin.i32(i32 %..i3076, i32 %3791)
-  %3827 = tail call i32 @llvm.smax.i32(i32 %3817, i32 %3791)
+  %3827 = tail call i32 @llvm.umax.i32(i32 %3817, i32 %3791)
   %3828 = tail call i32 @llvm.smin.i32(i32 %3797, i32 %3518)
   %3829 = tail call i32 @llvm.smax.i32(i32 %3800, i32 %3518)
   %3830 = add i64 %3819, %indvars.iv3555
   %..i3078 = tail call i32 @llvm.smin.i32(i32 %..i3077, i32 %3816)
   store i32 %..i3078, ptr %3789, align 4, !tbaa !16
-  %3831 = tail call i32 @llvm.smax.i32(i32 %3827, i32 %3816)
+  %3831 = tail call i32 @llvm.umax.i32(i32 %3827, i32 %3816)
   store i32 %3831, ptr %3792, align 4, !tbaa !16
   store i32 %3828, ptr %3795, align 4, !tbaa !16
   store i32 %3829, ptr %3798, align 4, !tbaa !16
@@ -79454,7 +79454,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4113 = getelementptr inbounds nuw i16, ptr %3859, i64 %4090
   store i16 0, ptr %4113, align 2, !tbaa !50
   %..i3090 = tail call i32 @llvm.smin.i32(i32 %..i3089, i32 %4093)
-  %4114 = tail call i32 @llvm.smax.i32(i32 %4105, i32 %4093)
+  %4114 = tail call i32 @llvm.umax.i32(i32 %4105, i32 %4093)
   %4115 = tail call i32 @llvm.smin.i32(i32 %4097, i32 %3887)
   %4116 = tail call i32 @llvm.smax.i32(i32 %4099, i32 %3887)
   %4117 = add i64 %4107, %indvars.iv3561
@@ -79917,7 +79917,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i16 0, ptr %4405, align 2, !tbaa !50
   %4406 = trunc nuw nsw i64 %4399 to i32
   %..i3102 = tail call i32 @llvm.smin.i32(i32 %..i3100, i32 %4406)
-  %4407 = tail call i32 @llvm.smax.i32(i32 %4387, i32 %4406)
+  %4407 = tail call i32 @llvm.umax.i32(i32 %4387, i32 %4406)
   %4408 = tail call i32 @llvm.smin.i32(i32 %4395, i32 %4177)
   %4409 = tail call i32 @llvm.smax.i32(i32 %4396, i32 %4177)
   store i32 %..i3102, ptr %4174, align 4, !tbaa !16
@@ -80310,7 +80310,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4659 = tail call i32 @llvm.smax.i32(i32 %4649, i32 %4658)
   %4660 = add i64 %4656, %4642
   %..i3114 = tail call i32 @llvm.smin.i32(i32 %..i3113, i32 %4647)
-  %4661 = tail call i32 @llvm.smax.i32(i32 %4659, i32 %4647)
+  %4661 = tail call i32 @llvm.umax.i32(i32 %4659, i32 %4647)
   %4662 = tail call i32 @llvm.smin.i32(i32 %4651, i32 %4457)
   %4663 = tail call i32 @llvm.smax.i32(i32 %4653, i32 %4457)
   %4664 = add i64 %4660, %indvars.iv3573
@@ -88145,7 +88145,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %3842 = add i64 %3826, %indvars.iv3557
   %..i3078 = tail call i32 @llvm.smin.i32(i32 %..i3077, i32 %3817)
   store i32 %..i3078, ptr %3789, align 4, !tbaa !16
-  %3843 = tail call i32 @llvm.smax.i32(i32 %3836, i32 %3817)
+  %3843 = tail call i32 @llvm.umax.i32(i32 %3836, i32 %3817)
   store i32 %3843, ptr %3792, align 4, !tbaa !16
   store i32 %3838, ptr %3795, align 4, !tbaa !16
   store i32 %3840, ptr %3798, align 4, !tbaa !16
@@ -89465,7 +89465,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4690 = tail call i32 @llvm.smax.i32(i32 %4680, i32 %4689)
   %4691 = add i64 %4687, %4673
   %..i3114 = tail call i32 @llvm.smin.i32(i32 %..i3113, i32 %4678)
-  %4692 = tail call i32 @llvm.smax.i32(i32 %4690, i32 %4678)
+  %4692 = tail call i32 @llvm.umax.i32(i32 %4690, i32 %4678)
   %4693 = tail call i32 @llvm.smin.i32(i32 %4682, i32 %4476)
   %4694 = tail call i32 @llvm.smax.i32(i32 %4684, i32 %4476)
   %4695 = add i64 %4691, %indvars.iv3575
@@ -128235,7 +128235,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %475 = add i64 %460, %indvars.iv1002
   %..i817 = tail call i32 @llvm.smin.i32(i32 %..i816, i32 %451)
   store i32 %..i817, ptr %423, align 4, !tbaa !16
-  %476 = tail call i32 @llvm.smax.i32(i32 %469, i32 %451)
+  %476 = tail call i32 @llvm.umax.i32(i32 %469, i32 %451)
   store i32 %476, ptr %426, align 4, !tbaa !16
   store i32 %471, ptr %429, align 4, !tbaa !16
   store i32 %473, ptr %432, align 4, !tbaa !16
@@ -129612,7 +129612,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %1390 = tail call i32 @llvm.smax.i32(i32 %1375, i32 %1389)
   %1391 = add i64 %1386, %1366
   %..i853 = tail call i32 @llvm.smin.i32(i32 %..i852, i32 %1372)
-  %1392 = tail call i32 @llvm.smax.i32(i32 %1390, i32 %1372)
+  %1392 = tail call i32 @llvm.umax.i32(i32 %1390, i32 %1372)
   %1393 = tail call i32 @llvm.smin.i32(i32 %1378, i32 %1149)
   %1394 = tail call i32 @llvm.smax.i32(i32 %1381, i32 %1149)
   %1395 = add i64 %1391, %indvars.iv1020
@@ -130284,7 +130284,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %1850 = add i64 %1834, %indvars.iv
   %..i868 = tail call i32 @llvm.smin.i32(i32 %..i867, i32 %1825)
   store i32 %..i868, ptr %1797, align 4, !tbaa !16
-  %1851 = tail call i32 @llvm.smax.i32(i32 %1844, i32 %1825)
+  %1851 = tail call i32 @llvm.umax.i32(i32 %1844, i32 %1825)
   store i32 %1851, ptr %1800, align 4, !tbaa !16
   store i32 %1846, ptr %1803, align 4, !tbaa !16
   store i32 %1848, ptr %1806, align 4, !tbaa !16
@@ -131656,7 +131656,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %2762 = tail call i32 @llvm.smax.i32(i32 %2747, i32 %2761)
   %2763 = add i64 %2758, %2738
   %..i904 = tail call i32 @llvm.smin.i32(i32 %..i903, i32 %2744)
-  %2764 = tail call i32 @llvm.smax.i32(i32 %2762, i32 %2744)
+  %2764 = tail call i32 @llvm.umax.i32(i32 %2762, i32 %2744)
   %2765 = tail call i32 @llvm.smin.i32(i32 %2750, i32 %2522)
   %2766 = tail call i32 @llvm.smax.i32(i32 %2753, i32 %2522)
   %2767 = add i64 %2763, %indvars.iv996
@@ -144388,7 +144388,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %475 = add i64 %460, %indvars.iv1002
   %..i817 = tail call i32 @llvm.smin.i32(i32 %..i816, i32 %451)
   store i32 %..i817, ptr %423, align 4, !tbaa !16
-  %476 = tail call i32 @llvm.smax.i32(i32 %469, i32 %451)
+  %476 = tail call i32 @llvm.umax.i32(i32 %469, i32 %451)
   store i32 %476, ptr %426, align 4, !tbaa !16
   store i32 %471, ptr %429, align 4, !tbaa !16
   store i32 %473, ptr %432, align 4, !tbaa !16
@@ -145765,7 +145765,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %1390 = tail call i32 @llvm.smax.i32(i32 %1375, i32 %1389)
   %1391 = add i64 %1386, %1366
   %..i853 = tail call i32 @llvm.smin.i32(i32 %..i852, i32 %1372)
-  %1392 = tail call i32 @llvm.smax.i32(i32 %1390, i32 %1372)
+  %1392 = tail call i32 @llvm.umax.i32(i32 %1390, i32 %1372)
   %1393 = tail call i32 @llvm.smin.i32(i32 %1378, i32 %1149)
   %1394 = tail call i32 @llvm.smax.i32(i32 %1381, i32 %1149)
   %1395 = add i64 %1391, %indvars.iv1020
@@ -146437,7 +146437,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %1850 = add i64 %1834, %indvars.iv
   %..i868 = tail call i32 @llvm.smin.i32(i32 %..i867, i32 %1825)
   store i32 %..i868, ptr %1797, align 4, !tbaa !16
-  %1851 = tail call i32 @llvm.smax.i32(i32 %1844, i32 %1825)
+  %1851 = tail call i32 @llvm.umax.i32(i32 %1844, i32 %1825)
   store i32 %1851, ptr %1800, align 4, !tbaa !16
   store i32 %1846, ptr %1803, align 4, !tbaa !16
   store i32 %1848, ptr %1806, align 4, !tbaa !16
@@ -147809,7 +147809,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %2762 = tail call i32 @llvm.smax.i32(i32 %2747, i32 %2761)
   %2763 = add i64 %2758, %2738
   %..i904 = tail call i32 @llvm.smin.i32(i32 %..i903, i32 %2744)
-  %2764 = tail call i32 @llvm.smax.i32(i32 %2762, i32 %2744)
+  %2764 = tail call i32 @llvm.umax.i32(i32 %2762, i32 %2744)
   %2765 = tail call i32 @llvm.smin.i32(i32 %2750, i32 %2522)
   %2766 = tail call i32 @llvm.smax.i32(i32 %2753, i32 %2522)
   %2767 = add i64 %2763, %indvars.iv996
@@ -148425,6 +148425,9 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -1388,10 +1388,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
   %26 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef 61, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %18), !noalias !231
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
-  switch i64 %27, label %35 [
-    i64 1, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
-    i64 0, label %.loopexit51
-  ]
+  %switch.i.i = icmp eq i64 %27, 1
+  br i1 %switch.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %.loopexit51
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %.sroa.4.0.i26.i.i = phi i64 [ %28, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
@@ -1411,21 +1409,19 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %34 = icmp eq i8 %lhsc.i, 61
   br i1 %34, label %35, label %32
 
-35:                                               ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2a90ab675a1ad3bfE.exit.i.i"
-  %.sroa.7.023.i = phi i64 [ %30, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2a90ab675a1ad3bfE.exit.i.i" ], [ undef, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ]
-  %.sroa.5.022.i = phi i64 [ %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2a90ab675a1ad3bfE.exit.i.i" ], [ undef, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ]
-  %36 = sub nuw i64 %2, %.sroa.7.023.i
-  %37 = getelementptr inbounds i8, ptr %1, i64 %.sroa.7.023.i
+35:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2a90ab675a1ad3bfE.exit.i.i"
+  %36 = getelementptr inbounds i8, ptr %1, i64 %31
+  %37 = sub nuw i64 %2, %30
+  %38 = getelementptr inbounds i8, ptr %1, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !238
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.sroa.5.022.i
   store ptr %1, ptr %12, align 8, !alias.scope !241, !noalias !244
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %.sroa.5.022.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
+  store i64 %31, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %38, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
+  store ptr %36, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !241, !noalias !244
   br label %39
@@ -1523,11 +1519,11 @@ default.unreachable:                              ; preds = %47, %.noexc, %.noex
   store i64 %54, ptr %.sroa.533.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !271
   %64 = getelementptr inbounds i8, ptr %1, i64 %2
-  store ptr %37, ptr %8, align 8, !alias.scope !274, !noalias !277
+  store ptr %38, ptr %8, align 8, !alias.scope !274, !noalias !277
   %.sroa.4.0..sroa_idx.i.i5 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %36, ptr %.sroa.4.0..sroa_idx.i.i5, align 8, !alias.scope !274, !noalias !277
+  store i64 %37, ptr %.sroa.4.0..sroa_idx.i.i5, align 8, !alias.scope !274, !noalias !277
   %.sroa.5.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %37, ptr %.sroa.5.0..sroa_idx.i.i6, align 8, !alias.scope !274, !noalias !277
+  store ptr %38, ptr %.sroa.5.0..sroa_idx.i.i6, align 8, !alias.scope !274, !noalias !277
   %.sroa.6.0..sroa_idx.i.i7 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %64, ptr %.sroa.6.0..sroa_idx.i.i7, align 8, !alias.scope !274, !noalias !277
   %.sroa.7.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1593,7 +1589,7 @@ default.unreachable:                              ; preds = %47, %.noexc, %.noex
   %.sroa.0.011.i17 = select i1 %switch.i12, i64 %.sroa.4.0.i11, i64 0
   br label %80
 
-.loopexit51:                                      ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %32, %.preheader.i.i.i, %24
+.loopexit51:                                      ; preds = %32, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %.preheader.i.i.i, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1640,7 +1636,7 @@ default.unreachable:                              ; preds = %47, %.noexc, %.noex
   %81 = phi i64 [ %78, %76 ], [ %.sroa.01.0.i15, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hc3c7389039b62809E.llvm.16286208896415974420.exit.i13" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !286
   %82 = sub nuw i64 %81, %.sroa.0.014.i16
-  %83 = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.014.i16
+  %83 = getelementptr inbounds i8, ptr %38, i64 %.sroa.0.014.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !271
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !301
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17he68bd1692bcae451E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %82, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)

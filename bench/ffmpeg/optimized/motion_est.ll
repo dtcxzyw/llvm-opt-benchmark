@@ -7896,10 +7896,9 @@ mid_pred.exit:                                    ; preds = %144, %146, %147, %1
     i32 3, label %159
     i32 2, label %159
     i32 1, label %159
-    i32 0, label %159
   ]
 
-159:                                              ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split.us, %.preheader.split.us, %.preheader.split.us, %.preheader.split.us
+159:                                              ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split.us, %.preheader.split.us, %.preheader.split.us
   %160 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv
   %161 = load i32, ptr %160, align 8, !tbaa !58
   %spec.store.select247.us = call i32 @llvm.smin.i32(i32 %161, i32 %104)
@@ -7923,10 +7922,9 @@ mid_pred.exit:                                    ; preds = %144, %146, %147, %1
   switch i32 %167, label %175 [
     i32 9, label %168
     i32 1, label %168
-    i32 0, label %168
   ]
 
-168:                                              ; preds = %.preheader.split, %.preheader.split, %.preheader.split
+168:                                              ; preds = %.preheader.split, %.preheader.split
   %169 = getelementptr inbounds nuw [10 x [2 x i32]], ptr %5, i64 0, i64 %indvars.iv263
   %170 = load i32, ptr %169, align 8, !tbaa !58
   %spec.store.select247 = call i32 @llvm.smin.i32(i32 %170, i32 %104)

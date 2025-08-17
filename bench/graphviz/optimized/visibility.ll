@@ -489,7 +489,7 @@ gv_calloc.exit:                                   ; preds = %18
   %30 = load i32, ptr %0, align 8, !tbaa !28
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.i, %31
-  br i1 %32, label %33, label %polyhit.exit.thread
+  br i1 %32, label %33, label %polyhit.exit.thread152
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %7, align 8, !tbaa !19
@@ -504,44 +504,44 @@ gv_calloc.exit:                                   ; preds = %18
   %42 = sub nsw i32 %41, %37
   %43 = sext i32 %42 to i64
   %44 = tail call zeroext i1 @in_poly(ptr %39, i64 %43, double %2, double %3) #15
-  br i1 %44, label %.split.loop.exit14.i, label %29, !llvm.loop !30
+  br i1 %44, label %polyhit.exit.thread, label %29, !llvm.loop !30
 
-.split.loop.exit14.i:                             ; preds = %33
+polyhit.exit.thread:                              ; preds = %33
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %polyhit.exit
+  br label %47
 
-polyhit.exit:                                     ; preds = %.split.loop.exit14.i, %gv_calloc.exit
-  %.0 = phi i32 [ %1, %gv_calloc.exit ], [ %45, %.split.loop.exit14.i ]
-  %46 = icmp sgt i32 %.0, -1
-  br i1 %46, label %47, label %polyhit.exit.thread
+polyhit.exit:                                     ; preds = %gv_calloc.exit
+  %46 = icmp sgt i32 %1, -1
+  br i1 %46, label %47, label %polyhit.exit.thread152
 
-47:                                               ; preds = %polyhit.exit
+47:                                               ; preds = %polyhit.exit.thread, %polyhit.exit
+  %.0151 = phi i32 [ %45, %polyhit.exit.thread ], [ %1, %polyhit.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !29
-  %50 = zext nneg i32 %.0 to i64
+  %50 = zext nneg i32 %.0151 to i64
   %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !22
-  br label %polyhit.exit.thread
+  br label %polyhit.exit.thread152
 
-polyhit.exit.thread:                              ; preds = %29, %polyhit.exit, %47
+polyhit.exit.thread152:                           ; preds = %29, %polyhit.exit, %47
   %.094 = phi i32 [ %52, %47 ], [ %6, %polyhit.exit ], [ %6, %29 ]
   %.093 = phi i32 [ %54, %47 ], [ %6, %polyhit.exit ], [ %6, %29 ]
   %55 = icmp sgt i32 %.094, 0
-  br i1 %55, label %.lr.ph, label %.preheader178
+  br i1 %55, label %.lr.ph, label %.preheader181
 
-.lr.ph:                                           ; preds = %polyhit.exit.thread
+.lr.ph:                                           ; preds = %polyhit.exit.thread152
   %wide.trip.count.i = zext nneg i32 %.094 to i64
   %56 = icmp slt i32 %.093, %6
   %57 = sext i32 %.093 to i64
   br label %66
 
-.preheader178:                                    ; preds = %clear.exit.thread161, %polyhit.exit.thread
+.preheader181:                                    ; preds = %clear.exit.thread164, %polyhit.exit.thread152
   %58 = icmp slt i32 %.094, %.093
-  br i1 %58, label %.lr.ph184.preheader, label %.preheader
+  br i1 %58, label %.lr.ph187.preheader, label %.preheader
 
-.lr.ph184.preheader:                              ; preds = %.preheader178
+.lr.ph187.preheader:                              ; preds = %.preheader181
   %59 = sext i32 %.094 to i64
   %60 = shl nsw i64 %59, 3
   %scevgep = getelementptr i8, ptr %20, i64 %60
@@ -553,8 +553,8 @@ polyhit.exit.thread:                              ; preds = %29, %polyhit.exit, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %65, i1 false), !tbaa !23
   br label %.preheader
 
-66:                                               ; preds = %.lr.ph, %clear.exit.thread161
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %clear.exit.thread161 ]
+66:                                               ; preds = %.lr.ph, %clear.exit.thread164
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %clear.exit.thread164 ]
   %67 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload = load double, ptr %67, align 8, !tbaa !23
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -603,11 +603,11 @@ polyhit.exit.thread:                              ; preds = %29, %polyhit.exit, 
 
 106:                                              ; preds = %66
   %107 = select i1 %narrow.not.i, i1 %narrow.not21.i, i1 false
-  br i1 %107, label %.lr.ph.preheader.i, label %clear.exit.thread161
+  br i1 %107, label %.lr.ph.preheader.i, label %clear.exit.thread164
 
 in_cone.exit:                                     ; preds = %66
   %108 = select i1 %narrow.not.i, i1 true, i1 %narrow.not21.i
-  br i1 %108, label %.lr.ph.preheader.i, label %clear.exit.thread161
+  br i1 %108, label %.lr.ph.preheader.i, label %clear.exit.thread164
 
 .lr.ph.preheader.i:                               ; preds = %in_cone.exit, %106
   %109 = fcmp une double %2, %.sroa.0.0.copyload
@@ -619,7 +619,7 @@ in_cone.exit:                                     ; preds = %66
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !25
 
 .preheader.i:                                     ; preds = %110
-  br i1 %56, label %.lr.ph27.preheader.i, label %clear.exit.thread159
+  br i1 %56, label %.lr.ph27.preheader.i, label %clear.exit.thread162
 
 .lr.ph27.preheader.i:                             ; preds = %.preheader.i
   %111 = fcmp une double %2, %.sroa.0.0.copyload
@@ -656,25 +656,25 @@ in_cone.exit:                                     ; preds = %66
   %134 = fcmp olt double %2, %117
   %135 = fcmp olt double %117, %.sroa.0.0.copyload
   %or.cond.i.i132 = and i1 %134, %135
-  br i1 %or.cond.i.i132, label %clear.exit.thread161, label %136
+  br i1 %or.cond.i.i132, label %clear.exit.thread164, label %136
 
 136:                                              ; preds = %133
   %137 = fcmp olt double %.sroa.0.0.copyload, %117
   %138 = fcmp olt double %117, %2
   %139 = and i1 %137, %138
-  br i1 %139, label %clear.exit.thread161, label %146
+  br i1 %139, label %clear.exit.thread164, label %146
 
 140:                                              ; preds = %132
   %141 = fcmp olt double %3, %119
   %142 = fcmp olt double %119, %.sroa.10.0.copyload
   %or.cond20.i.i130 = select i1 %141, i1 %142, i1 false
-  br i1 %or.cond20.i.i130, label %clear.exit.thread161, label %inBetween.exit.i131
+  br i1 %or.cond20.i.i130, label %clear.exit.thread164, label %inBetween.exit.i131
 
 inBetween.exit.i131:                              ; preds = %140
   %143 = fcmp olt double %.sroa.10.0.copyload, %119
   %144 = fcmp olt double %119, %3
   %145 = select i1 %143, i1 %144, i1 false
-  br i1 %145, label %clear.exit.thread161, label %146
+  br i1 %145, label %clear.exit.thread164, label %146
 
 146:                                              ; preds = %inBetween.exit.i131, %136, %.lr.ph.i
   %147 = fsub double %120, %.sroa.0.0.copyload
@@ -695,25 +695,25 @@ inBetween.exit.i131:                              ; preds = %140
   %158 = fcmp olt double %2, %120
   %159 = fcmp olt double %120, %.sroa.0.0.copyload
   %or.cond.i41.i129 = and i1 %158, %159
-  br i1 %or.cond.i41.i129, label %clear.exit.thread161, label %160
+  br i1 %or.cond.i41.i129, label %clear.exit.thread164, label %160
 
 160:                                              ; preds = %157
   %161 = fcmp olt double %.sroa.0.0.copyload, %120
   %162 = fcmp olt double %120, %2
   %163 = and i1 %161, %162
-  br i1 %163, label %clear.exit.thread161, label %intersect.exit133
+  br i1 %163, label %clear.exit.thread164, label %intersect.exit133
 
 164:                                              ; preds = %156
   %165 = fcmp olt double %3, %122
   %166 = fcmp olt double %122, %.sroa.10.0.copyload
   %or.cond20.i39.i127 = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond20.i39.i127, label %clear.exit.thread161, label %inBetween.exit42.i128
+  br i1 %or.cond20.i39.i127, label %clear.exit.thread164, label %inBetween.exit42.i128
 
 inBetween.exit42.i128:                            ; preds = %164
   %167 = fcmp olt double %.sroa.10.0.copyload, %122
   %168 = fcmp olt double %122, %3
   %169 = select i1 %167, i1 %168, i1 false
-  br i1 %169, label %clear.exit.thread161, label %intersect.exit133
+  br i1 %169, label %clear.exit.thread164, label %intersect.exit133
 
 intersect.exit133:                                ; preds = %146, %160, %inBetween.exit42.i128
   %170 = fsub double %119, %122
@@ -740,7 +740,7 @@ intersect.exit133:                                ; preds = %146, %160, %inBetwe
   %191 = mul nsw i32 %180, %188
   %192 = icmp slt i32 %191, 0
   %193 = select i1 %190, i1 %192, i1 false
-  br i1 %193, label %clear.exit.thread161, label %110
+  br i1 %193, label %clear.exit.thread164, label %110
 
 .lr.ph27.i:                                       ; preds = %intersect.exit, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ %57, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %intersect.exit ]
@@ -773,25 +773,25 @@ intersect.exit133:                                ; preds = %146, %160, %inBetwe
   %216 = fcmp olt double %2, %199
   %217 = fcmp olt double %199, %.sroa.0.0.copyload
   %or.cond.i.i = and i1 %216, %217
-  br i1 %or.cond.i.i, label %clear.exit.thread161, label %218
+  br i1 %or.cond.i.i, label %clear.exit.thread164, label %218
 
 218:                                              ; preds = %215
   %219 = fcmp olt double %.sroa.0.0.copyload, %199
   %220 = fcmp olt double %199, %2
   %221 = and i1 %219, %220
-  br i1 %221, label %clear.exit.thread161, label %228
+  br i1 %221, label %clear.exit.thread164, label %228
 
 222:                                              ; preds = %214
   %223 = fcmp olt double %3, %201
   %224 = fcmp olt double %201, %.sroa.10.0.copyload
   %or.cond20.i.i = select i1 %223, i1 %224, i1 false
-  br i1 %or.cond20.i.i, label %clear.exit.thread161, label %inBetween.exit.i
+  br i1 %or.cond20.i.i, label %clear.exit.thread164, label %inBetween.exit.i
 
 inBetween.exit.i:                                 ; preds = %222
   %225 = fcmp olt double %.sroa.10.0.copyload, %201
   %226 = fcmp olt double %201, %3
   %227 = select i1 %225, i1 %226, i1 false
-  br i1 %227, label %clear.exit.thread161, label %228
+  br i1 %227, label %clear.exit.thread164, label %228
 
 228:                                              ; preds = %inBetween.exit.i, %218, %.lr.ph27.i
   %229 = fsub double %202, %.sroa.0.0.copyload
@@ -812,25 +812,25 @@ inBetween.exit.i:                                 ; preds = %222
   %240 = fcmp olt double %2, %202
   %241 = fcmp olt double %202, %.sroa.0.0.copyload
   %or.cond.i41.i = and i1 %240, %241
-  br i1 %or.cond.i41.i, label %clear.exit.thread161, label %242
+  br i1 %or.cond.i41.i, label %clear.exit.thread164, label %242
 
 242:                                              ; preds = %239
   %243 = fcmp olt double %.sroa.0.0.copyload, %202
   %244 = fcmp olt double %202, %2
   %245 = and i1 %243, %244
-  br i1 %245, label %clear.exit.thread161, label %intersect.exit
+  br i1 %245, label %clear.exit.thread164, label %intersect.exit
 
 246:                                              ; preds = %238
   %247 = fcmp olt double %3, %204
   %248 = fcmp olt double %204, %.sroa.10.0.copyload
   %or.cond20.i39.i = select i1 %247, i1 %248, i1 false
-  br i1 %or.cond20.i39.i, label %clear.exit.thread161, label %inBetween.exit42.i
+  br i1 %or.cond20.i39.i, label %clear.exit.thread164, label %inBetween.exit42.i
 
 inBetween.exit42.i:                               ; preds = %246
   %249 = fcmp olt double %.sroa.10.0.copyload, %204
   %250 = fcmp olt double %204, %3
   %251 = select i1 %249, i1 %250, i1 false
-  br i1 %251, label %clear.exit.thread161, label %intersect.exit
+  br i1 %251, label %clear.exit.thread164, label %intersect.exit
 
 intersect.exit:                                   ; preds = %228, %242, %inBetween.exit42.i
   %252 = fsub double %201, %204
@@ -864,47 +864,47 @@ intersect.exit:                                   ; preds = %228, %242, %inBetwe
   br i1 %or.cond.i, label %clear.exit, label %.lr.ph27.i, !llvm.loop !31
 
 clear.exit:                                       ; preds = %intersect.exit
-  br i1 %275, label %clear.exit.thread161, label %clear.exit.thread159
+  br i1 %275, label %clear.exit.thread164, label %clear.exit.thread162
 
-clear.exit.thread159:                             ; preds = %.preheader.i, %clear.exit
+clear.exit.thread162:                             ; preds = %.preheader.i, %clear.exit
   %276 = fmul double %91, %91
   %277 = tail call double @llvm.fmuladd.f64(double %94, double %94, double %276)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %277)
-  br label %clear.exit.thread161
+  br label %clear.exit.thread164
 
-clear.exit.thread161:                             ; preds = %intersect.exit133, %inBetween.exit.i131, %inBetween.exit42.i128, %136, %160, %133, %140, %157, %164, %246, %239, %222, %215, %242, %218, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %106, %clear.exit.thread159
-  %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread159 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %218 ], [ 0.000000e+00, %242 ], [ 0.000000e+00, %215 ], [ 0.000000e+00, %222 ], [ 0.000000e+00, %239 ], [ 0.000000e+00, %246 ], [ 0.000000e+00, %164 ], [ 0.000000e+00, %157 ], [ 0.000000e+00, %140 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %160 ], [ 0.000000e+00, %136 ], [ 0.000000e+00, %inBetween.exit42.i128 ], [ 0.000000e+00, %inBetween.exit.i131 ], [ 0.000000e+00, %intersect.exit133 ]
+clear.exit.thread164:                             ; preds = %intersect.exit133, %inBetween.exit.i131, %inBetween.exit42.i128, %136, %160, %133, %140, %157, %164, %246, %239, %222, %215, %242, %218, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %106, %clear.exit.thread162
+  %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread162 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %218 ], [ 0.000000e+00, %242 ], [ 0.000000e+00, %215 ], [ 0.000000e+00, %222 ], [ 0.000000e+00, %239 ], [ 0.000000e+00, %246 ], [ 0.000000e+00, %164 ], [ 0.000000e+00, %157 ], [ 0.000000e+00, %140 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %160 ], [ 0.000000e+00, %136 ], [ 0.000000e+00, %inBetween.exit42.i128 ], [ 0.000000e+00, %inBetween.exit.i131 ], [ 0.000000e+00, %intersect.exit133 ]
   %278 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %sqrt.i.sink, ptr %278, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %.preheader178, label %66, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader181, label %66, !llvm.loop !32
 
-.preheader:                                       ; preds = %.lr.ph184.preheader, %.preheader178
+.preheader:                                       ; preds = %.lr.ph187.preheader, %.preheader181
   %279 = icmp slt i32 %.093, %6
-  br i1 %279, label %.lr.ph186, label %.preheader.._crit_edge_crit_edge
+  br i1 %279, label %.lr.ph189, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
   %.pre = sext i32 %6 to i64
   br label %._crit_edge
 
-.lr.ph186:                                        ; preds = %.preheader
+.lr.ph189:                                        ; preds = %.preheader
   %wide.trip.count.i118 = zext nneg i32 %.094 to i64
   %280 = sext i32 %.093 to i64
-  %wide.trip.count198 = sext i32 %6 to i64
+  %wide.trip.count201 = sext i32 %6 to i64
   br label %281
 
-281:                                              ; preds = %.lr.ph186, %clear.exit123.thread174
-  %indvars.iv195 = phi i64 [ %280, %.lr.ph186 ], [ %indvars.iv.next196, %clear.exit123.thread174 ]
-  %282 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv195
+281:                                              ; preds = %.lr.ph189, %clear.exit123.thread177
+  %indvars.iv198 = phi i64 [ %280, %.lr.ph189 ], [ %indvars.iv.next199, %clear.exit123.thread177 ]
+  %282 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv198
   %.sroa.0.0.copyload15 = load double, ptr %282, align 8, !tbaa !23
   %.sroa.10.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %.sroa.10.0.copyload17 = load double, ptr %.sroa.10.0..sroa_idx16, align 8, !tbaa !23
-  %283 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv195
+  %283 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv198
   %284 = load i32, ptr %283, align 4, !tbaa !22
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %285
-  %287 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv195
+  %287 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv198
   %288 = load i32, ptr %287, align 4, !tbaa !22
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %289
@@ -944,11 +944,11 @@ clear.exit.thread161:                             ; preds = %intersect.exit133, 
 
 321:                                              ; preds = %281
   %322 = select i1 %narrow.not.i102, i1 %narrow.not21.i103, i1 false
-  br i1 %322, label %324, label %clear.exit123.thread174
+  br i1 %322, label %324, label %clear.exit123.thread177
 
 in_cone.exit105:                                  ; preds = %281
   %323 = select i1 %narrow.not.i102, i1 true, i1 %narrow.not21.i103
-  br i1 %323, label %324, label %clear.exit123.thread174
+  br i1 %323, label %324, label %clear.exit123.thread177
 
 324:                                              ; preds = %321, %in_cone.exit105
   br i1 %55, label %.lr.ph.preheader.i117, label %.lr.ph27.preheader.i108
@@ -997,25 +997,25 @@ in_cone.exit105:                                  ; preds = %281
   %350 = fcmp olt double %2, %333
   %351 = fcmp olt double %333, %.sroa.0.0.copyload15
   %or.cond.i.i148 = and i1 %350, %351
-  br i1 %or.cond.i.i148, label %clear.exit123.thread174, label %352
+  br i1 %or.cond.i.i148, label %clear.exit123.thread177, label %352
 
 352:                                              ; preds = %349
   %353 = fcmp olt double %.sroa.0.0.copyload15, %333
   %354 = fcmp olt double %333, %2
   %355 = and i1 %353, %354
-  br i1 %355, label %clear.exit123.thread174, label %362
+  br i1 %355, label %clear.exit123.thread177, label %362
 
 356:                                              ; preds = %348
   %357 = fcmp olt double %3, %335
   %358 = fcmp olt double %335, %.sroa.10.0.copyload17
   %or.cond20.i.i146 = select i1 %357, i1 %358, i1 false
-  br i1 %or.cond20.i.i146, label %clear.exit123.thread174, label %inBetween.exit.i147
+  br i1 %or.cond20.i.i146, label %clear.exit123.thread177, label %inBetween.exit.i147
 
 inBetween.exit.i147:                              ; preds = %356
   %359 = fcmp olt double %.sroa.10.0.copyload17, %335
   %360 = fcmp olt double %335, %3
   %361 = select i1 %359, i1 %360, i1 false
-  br i1 %361, label %clear.exit123.thread174, label %362
+  br i1 %361, label %clear.exit123.thread177, label %362
 
 362:                                              ; preds = %inBetween.exit.i147, %352, %.lr.ph.i119
   %363 = fsub double %336, %.sroa.0.0.copyload15
@@ -1036,25 +1036,25 @@ inBetween.exit.i147:                              ; preds = %356
   %374 = fcmp olt double %2, %336
   %375 = fcmp olt double %336, %.sroa.0.0.copyload15
   %or.cond.i41.i145 = and i1 %374, %375
-  br i1 %or.cond.i41.i145, label %clear.exit123.thread174, label %376
+  br i1 %or.cond.i41.i145, label %clear.exit123.thread177, label %376
 
 376:                                              ; preds = %373
   %377 = fcmp olt double %.sroa.0.0.copyload15, %336
   %378 = fcmp olt double %336, %2
   %379 = and i1 %377, %378
-  br i1 %379, label %clear.exit123.thread174, label %intersect.exit149
+  br i1 %379, label %clear.exit123.thread177, label %intersect.exit149
 
 380:                                              ; preds = %372
   %381 = fcmp olt double %3, %338
   %382 = fcmp olt double %338, %.sroa.10.0.copyload17
   %or.cond20.i39.i143 = select i1 %381, i1 %382, i1 false
-  br i1 %or.cond20.i39.i143, label %clear.exit123.thread174, label %inBetween.exit42.i144
+  br i1 %or.cond20.i39.i143, label %clear.exit123.thread177, label %inBetween.exit42.i144
 
 inBetween.exit42.i144:                            ; preds = %380
   %383 = fcmp olt double %.sroa.10.0.copyload17, %338
   %384 = fcmp olt double %338, %3
   %385 = select i1 %383, i1 %384, i1 false
-  br i1 %385, label %clear.exit123.thread174, label %intersect.exit149
+  br i1 %385, label %clear.exit123.thread177, label %intersect.exit149
 
 intersect.exit149:                                ; preds = %362, %376, %inBetween.exit42.i144
   %386 = fsub double %335, %338
@@ -1081,7 +1081,7 @@ intersect.exit149:                                ; preds = %362, %376, %inBetwe
   %407 = mul nsw i32 %396, %404
   %408 = icmp slt i32 %407, 0
   %409 = select i1 %406, i1 %408, i1 false
-  br i1 %409, label %clear.exit123.thread174, label %326
+  br i1 %409, label %clear.exit123.thread177, label %326
 
 .lr.ph27.i109:                                    ; preds = %intersect.exit141, %.lr.ph27.preheader.i108
   %indvars.iv32.i110 = phi i64 [ %280, %.lr.ph27.preheader.i108 ], [ %indvars.iv.next33.i111, %intersect.exit141 ]
@@ -1114,25 +1114,25 @@ intersect.exit149:                                ; preds = %362, %376, %inBetwe
   %432 = fcmp olt double %2, %415
   %433 = fcmp olt double %415, %.sroa.0.0.copyload15
   %or.cond.i.i140 = and i1 %432, %433
-  br i1 %or.cond.i.i140, label %clear.exit123.thread174, label %434
+  br i1 %or.cond.i.i140, label %clear.exit123.thread177, label %434
 
 434:                                              ; preds = %431
   %435 = fcmp olt double %.sroa.0.0.copyload15, %415
   %436 = fcmp olt double %415, %2
   %437 = and i1 %435, %436
-  br i1 %437, label %clear.exit123.thread174, label %444
+  br i1 %437, label %clear.exit123.thread177, label %444
 
 438:                                              ; preds = %430
   %439 = fcmp olt double %3, %417
   %440 = fcmp olt double %417, %.sroa.10.0.copyload17
   %or.cond20.i.i138 = select i1 %439, i1 %440, i1 false
-  br i1 %or.cond20.i.i138, label %clear.exit123.thread174, label %inBetween.exit.i139
+  br i1 %or.cond20.i.i138, label %clear.exit123.thread177, label %inBetween.exit.i139
 
 inBetween.exit.i139:                              ; preds = %438
   %441 = fcmp olt double %.sroa.10.0.copyload17, %417
   %442 = fcmp olt double %417, %3
   %443 = select i1 %441, i1 %442, i1 false
-  br i1 %443, label %clear.exit123.thread174, label %444
+  br i1 %443, label %clear.exit123.thread177, label %444
 
 444:                                              ; preds = %inBetween.exit.i139, %434, %.lr.ph27.i109
   %445 = fsub double %418, %.sroa.0.0.copyload15
@@ -1153,25 +1153,25 @@ inBetween.exit.i139:                              ; preds = %438
   %456 = fcmp olt double %2, %418
   %457 = fcmp olt double %418, %.sroa.0.0.copyload15
   %or.cond.i41.i137 = and i1 %456, %457
-  br i1 %or.cond.i41.i137, label %clear.exit123.thread174, label %458
+  br i1 %or.cond.i41.i137, label %clear.exit123.thread177, label %458
 
 458:                                              ; preds = %455
   %459 = fcmp olt double %.sroa.0.0.copyload15, %418
   %460 = fcmp olt double %418, %2
   %461 = and i1 %459, %460
-  br i1 %461, label %clear.exit123.thread174, label %intersect.exit141
+  br i1 %461, label %clear.exit123.thread177, label %intersect.exit141
 
 462:                                              ; preds = %454
   %463 = fcmp olt double %3, %420
   %464 = fcmp olt double %420, %.sroa.10.0.copyload17
   %or.cond20.i39.i135 = select i1 %463, i1 %464, i1 false
-  br i1 %or.cond20.i39.i135, label %clear.exit123.thread174, label %inBetween.exit42.i136
+  br i1 %or.cond20.i39.i135, label %clear.exit123.thread177, label %inBetween.exit42.i136
 
 inBetween.exit42.i136:                            ; preds = %462
   %465 = fcmp olt double %.sroa.10.0.copyload17, %420
   %466 = fcmp olt double %420, %3
   %467 = select i1 %465, i1 %466, i1 false
-  br i1 %467, label %clear.exit123.thread174, label %intersect.exit141
+  br i1 %467, label %clear.exit123.thread177, label %intersect.exit141
 
 intersect.exit141:                                ; preds = %444, %458, %inBetween.exit42.i136
   %468 = fsub double %417, %420
@@ -1205,24 +1205,24 @@ intersect.exit141:                                ; preds = %444, %458, %inBetwe
   br i1 %or.cond.i114, label %clear.exit123, label %.lr.ph27.i109, !llvm.loop !31
 
 clear.exit123:                                    ; preds = %intersect.exit141
-  br i1 %491, label %clear.exit123.thread174, label %clear.exit123.thread172
+  br i1 %491, label %clear.exit123.thread177, label %clear.exit123.thread175
 
-clear.exit123.thread172:                          ; preds = %clear.exit123
+clear.exit123.thread175:                          ; preds = %clear.exit123
   %492 = fmul double %306, %306
   %493 = tail call double @llvm.fmuladd.f64(double %309, double %309, double %492)
   %sqrt.i124 = tail call double @llvm.sqrt.f64(double %493)
-  br label %clear.exit123.thread174
+  br label %clear.exit123.thread177
 
-clear.exit123.thread174:                          ; preds = %intersect.exit149, %inBetween.exit.i147, %inBetween.exit42.i144, %352, %376, %349, %356, %373, %380, %462, %455, %438, %431, %458, %434, %inBetween.exit42.i136, %inBetween.exit.i139, %in_cone.exit105, %clear.exit123, %321, %clear.exit123.thread172
-  %sqrt.i124.sink = phi double [ %sqrt.i124, %clear.exit123.thread172 ], [ 0.000000e+00, %321 ], [ 0.000000e+00, %clear.exit123 ], [ 0.000000e+00, %in_cone.exit105 ], [ 0.000000e+00, %inBetween.exit.i139 ], [ 0.000000e+00, %inBetween.exit42.i136 ], [ 0.000000e+00, %434 ], [ 0.000000e+00, %458 ], [ 0.000000e+00, %431 ], [ 0.000000e+00, %438 ], [ 0.000000e+00, %455 ], [ 0.000000e+00, %462 ], [ 0.000000e+00, %380 ], [ 0.000000e+00, %373 ], [ 0.000000e+00, %356 ], [ 0.000000e+00, %349 ], [ 0.000000e+00, %376 ], [ 0.000000e+00, %352 ], [ 0.000000e+00, %inBetween.exit42.i144 ], [ 0.000000e+00, %inBetween.exit.i147 ], [ 0.000000e+00, %intersect.exit149 ]
-  %494 = getelementptr inbounds double, ptr %20, i64 %indvars.iv195
+clear.exit123.thread177:                          ; preds = %intersect.exit149, %inBetween.exit.i147, %inBetween.exit42.i144, %352, %376, %349, %356, %373, %380, %462, %455, %438, %431, %458, %434, %inBetween.exit42.i136, %inBetween.exit.i139, %in_cone.exit105, %clear.exit123, %321, %clear.exit123.thread175
+  %sqrt.i124.sink = phi double [ %sqrt.i124, %clear.exit123.thread175 ], [ 0.000000e+00, %321 ], [ 0.000000e+00, %clear.exit123 ], [ 0.000000e+00, %in_cone.exit105 ], [ 0.000000e+00, %inBetween.exit.i139 ], [ 0.000000e+00, %inBetween.exit42.i136 ], [ 0.000000e+00, %434 ], [ 0.000000e+00, %458 ], [ 0.000000e+00, %431 ], [ 0.000000e+00, %438 ], [ 0.000000e+00, %455 ], [ 0.000000e+00, %462 ], [ 0.000000e+00, %380 ], [ 0.000000e+00, %373 ], [ 0.000000e+00, %356 ], [ 0.000000e+00, %349 ], [ 0.000000e+00, %376 ], [ 0.000000e+00, %352 ], [ 0.000000e+00, %inBetween.exit42.i144 ], [ 0.000000e+00, %inBetween.exit.i147 ], [ 0.000000e+00, %intersect.exit149 ]
+  %494 = getelementptr inbounds double, ptr %20, i64 %indvars.iv198
   store double %sqrt.i124.sink, ptr %494, align 8, !tbaa !23
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge, label %281, !llvm.loop !33
+  %indvars.iv.next199 = add nsw i64 %indvars.iv198, 1
+  %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
+  br i1 %exitcond202.not, label %._crit_edge, label %281, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %clear.exit123.thread174, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count198, %clear.exit123.thread174 ]
+._crit_edge:                                      ; preds = %clear.exit123.thread177, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count201, %clear.exit123.thread177 ]
   %495 = getelementptr inbounds double, ptr %20, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %495, i8 0, i64 16, i1 false)
   ret ptr %20

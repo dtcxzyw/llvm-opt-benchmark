@@ -1604,14 +1604,14 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 
 ._crit_edge.loopexit:                             ; preds = %37
   %.pre = load i32, ptr %3, align 8
-  %13 = sext i32 %.134 to i64
+  %13 = zext nneg i32 %.134 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %14 = phi i32 [ 0, %2 ], [ %.pre, %._crit_edge.loopexit ]
   %.033.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %union.LWLockPadded, ptr %15, i64 %.033.lcssa
+  %16 = getelementptr inbounds nuw %union.LWLockPadded, ptr %15, i64 %.033.lcssa
   call void @LWLockRelease(ptr noundef %16) #15
   %17 = icmp sgt i32 %14, 0
   br i1 %17, label %.lr.ph44, label %.critedge
@@ -1632,18 +1632,18 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03338 = phi i32 [ 0, %.lr.ph ], [ %.134, %37 ]
   %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %22 = ashr i32 %21, 4
+  %22 = lshr i32 %21, 4
   %.not37 = icmp eq i32 %22, %.03338
   br i1 %.not37, label %31, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %7, align 8
-  %25 = sext i32 %.03338 to i64
-  %26 = getelementptr inbounds %union.LWLockPadded, ptr %24, i64 %25
+  %25 = zext nneg i32 %.03338 to i64
+  %26 = getelementptr inbounds nuw %union.LWLockPadded, ptr %24, i64 %25
   call void @LWLockRelease(ptr noundef %26) #15
   %27 = load ptr, ptr %7, align 8
-  %28 = sext i32 %22 to i64
-  %29 = getelementptr inbounds %union.LWLockPadded, ptr %27, i64 %28
+  %28 = zext nneg i32 %22 to i64
+  %29 = getelementptr inbounds nuw %union.LWLockPadded, ptr %27, i64 %28
   %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #15
   br label %31
 

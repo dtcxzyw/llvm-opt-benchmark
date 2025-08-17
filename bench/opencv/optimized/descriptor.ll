@@ -3859,7 +3859,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 .lr.ph.us.preheader:                              ; preds = %.lr.ph69
   %58 = load i32, ptr %8, align 4, !tbaa !38
   %59 = trunc nuw nsw i64 %indvars.iv100 to i32
-  %60 = sub i32 %59, %37
+  %60 = sub nsw i32 %59, %37
   %61 = sext i32 %60 to i64
   %62 = sext i32 %38 to i64
   %63 = sext i32 %58 to i64
@@ -4058,7 +4058,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
 .lr.ph.us.preheader:                              ; preds = %.lr.ph69
   %58 = load i32, ptr %8, align 4, !tbaa !46
   %59 = trunc nuw nsw i64 %indvars.iv99 to i32
-  %60 = sub i32 %59, %37
+  %60 = sub nsw i32 %59, %37
   %61 = sext i32 %60 to i64
   %62 = sext i32 %38 to i64
   %63 = sext i32 %58 to i64
@@ -4244,7 +4244,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 .lr.ph.us.preheader:                              ; preds = %.lr.ph81
   %52 = load i32, ptr %7, align 4, !tbaa !53
   %53 = trunc nuw nsw i64 %indvars.iv109 to i32
-  %54 = sub i32 %53, %31
+  %54 = sub nsw i32 %53, %31
   %55 = sext i32 %54 to i64
   %56 = sext i32 %32 to i64
   %57 = sext i32 %52 to i64
@@ -4428,7 +4428,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi2ELi1E
 .lr.ph.us.preheader:                              ; preds = %.lr.ph81
   %52 = load i32, ptr %7, align 4, !tbaa !59
   %53 = trunc nuw nsw i64 %indvars.iv108 to i32
-  %54 = sub i32 %53, %31
+  %54 = sub nsw i32 %53, %31
   %55 = sext i32 %54 to i64
   %56 = sext i32 %32 to i64
   %57 = sext i32 %52 to i64
@@ -5169,7 +5169,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
 .lr.ph70.us78.preheader:                          ; preds = %53
   %61 = load i32, ptr %8, align 4
   %62 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %63 = sub i32 %62, %38
+  %63 = sub nsw i32 %62, %38
   %64 = sext i32 %63 to i64
   %65 = sext i32 %39 to i64
   %66 = sext i32 %61 to i64
@@ -5386,7 +5386,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 .lr.ph70.us78.preheader:                          ; preds = %53
   %60 = load i32, ptr %8, align 4
   %61 = trunc nuw nsw i64 %indvars.iv108 to i32
-  %62 = sub i32 %61, %38
+  %62 = sub nsw i32 %61, %38
   %63 = sext i32 %62 to i64
   %64 = sext i32 %39 to i64
   %65 = sext i32 %60 to i64
@@ -5578,7 +5578,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi4ELi2E
 .lr.ph80.us99.preheader:                          ; preds = %47
   %55 = load i32, ptr %7, align 4
   %56 = trunc nuw nsw i64 %indvars.iv127 to i32
-  %57 = sub i32 %56, %32
+  %57 = sub nsw i32 %56, %32
   %58 = sext i32 %57 to i64
   %59 = sext i32 %33 to i64
   %60 = sext i32 %55 to i64
@@ -5781,7 +5781,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi2ELi3ELi2E
 .lr.ph80.us99.preheader:                          ; preds = %47
   %54 = load i32, ptr %7, align 4
   %55 = trunc nuw nsw i64 %indvars.iv124 to i32
-  %56 = sub i32 %55, %32
+  %56 = sub nsw i32 %55, %32
   %57 = sext i32 %56 to i64
   %58 = sext i32 %33 to i64
   %59 = sext i32 %54 to i64
@@ -6210,7 +6210,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph69
   %60 = trunc nuw nsw i64 %indvars.iv100 to i32
-  %61 = sub i32 %60, %38
+  %61 = sub nsw i32 %60, %38
   %62 = sext i32 %61 to i64
   %63 = sext i32 %39 to i64
   %64 = sext i32 %54 to i64
@@ -6623,7 +6623,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo18CombinedDescriptorILi1ELi1ELi1E
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph81
   %54 = trunc nuw nsw i64 %indvars.iv109 to i32
-  %55 = sub i32 %54, %32
+  %55 = sub nsw i32 %54, %32
   %56 = sext i32 %55 to i64
   %57 = sext i32 %33 to i64
   %58 = sext i32 %48 to i64

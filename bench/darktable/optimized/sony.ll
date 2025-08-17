@@ -6690,17 +6690,17 @@ define void @_ZN6LibRaw12parseSonySRFEj(ptr noundef nonnull align 8 dereferencea
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 43:                                               ; preds = %37
-  %44 = add i32 %41, 1
+  %44 = add nuw nsw i32 %41, 1
   %45 = invoke noundef zeroext i8 @_ZN16checked_buffer_tixEi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %44)
           to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 46:                                               ; preds = %43
-  %47 = add i32 %41, 2
+  %47 = add nuw nsw i32 %41, 2
   %48 = invoke noundef zeroext i8 @_ZN16checked_buffer_tixEi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %47)
           to label %49 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 49:                                               ; preds = %46
-  %50 = add i32 %41, 3
+  %50 = add nuw nsw i32 %41, 3
   %51 = invoke noundef zeroext i8 @_ZN16checked_buffer_tixEi(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %50)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split-lp
 

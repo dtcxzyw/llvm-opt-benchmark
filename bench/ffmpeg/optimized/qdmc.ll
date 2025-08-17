@@ -59,7 +59,7 @@ define internal range(i32 -2147483648, 1) i32 @qdmc_decode_init(ptr noundef %0) 
 
 12:                                               ; preds = %8, %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #11
-  br label %145
+  br label %144
 
 .lr.ph.preheader:                                 ; preds = %8
   %13 = zext nneg i32 %10 to i64
@@ -100,7 +100,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 32:                                               ; preds = %bytestream2_peek_be64.exit._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %30) #11
-  br label %145
+  br label %144
 
 33:                                               ; preds = %bytestream2_peek_be64.exit._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.ph, i64 12
@@ -114,7 +114,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 41:                                               ; preds = %33
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %39, i32 noundef %36) #11
-  br label %145
+  br label %144
 
 42:                                               ; preds = %33
   %43 = load i32, ptr %34, align 1, !tbaa !30
@@ -123,7 +123,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 44:                                               ; preds = %42
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5) #11
-  br label %145
+  br label %144
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.ph, i64 20
@@ -137,7 +137,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 51:                                               ; preds = %45
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #11
-  br label %145
+  br label %144
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.ph, i64 24
@@ -192,7 +192,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 85:                                               ; preds = %52
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %82) #11
-  br label %145
+  br label %144
 
 86:                                               ; preds = %52
   %87 = icmp sgt i32 %62, 31999
@@ -247,7 +247,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 116:                                              ; preds = %95
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %80) #11
-  br label %145
+  br label %144
 
 117:                                              ; preds = %95
   %118 = shl nuw nsw i32 1, %79
@@ -256,7 +256,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
 
 119:                                              ; preds = %117
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %71) #11
-  br label %145
+  br label %144
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 935264
@@ -264,7 +264,7 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
   %123 = shl nuw nsw i32 2, %79
   %124 = call i32 @av_tx_init(ptr noundef nonnull %121, ptr noundef nonnull %122, i32 noundef 0, i32 noundef 1, i32 noundef %123, ptr noundef nonnull %2, i64 noundef 0) #11
   %125 = icmp slt i32 %124, 0
-  br i1 %125, label %145, label %126
+  br i1 %125, label %144, label %126
 
 126:                                              ; preds = %120
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 348
@@ -278,38 +278,37 @@ bytestream2_peek_be64.exit._crit_edge:            ; preds = %bytestream2_peek_be
   %notmask = shl nsw i32 -1, %129
   %130 = sub nuw nsw i64 5, %indvars.iv120
   %131 = getelementptr inbounds nuw [5 x [31 x float]], ptr %128, i64 0, i64 %130
-  %132 = call i32 @llvm.umin.i32(i32 %notmask, i32 -2)
-  %umax = xor i32 %132, -1
+  %umax = xor i32 %notmask, -1
   %wide.trip.count = zext nneg i32 %umax to i64
-  %133 = trunc i64 %indvars.iv120 to i32
-  %134 = sub i32 8, %133
-  br label %135
+  %132 = trunc i64 %indvars.iv120 to i32
+  %133 = sub i32 8, %132
+  br label %134
 
-135:                                              ; preds = %.lr.ph115, %135
-  %indvars.iv = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next, %135 ]
+134:                                              ; preds = %.lr.ph115, %134
+  %indvars.iv = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next, %134 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %136 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %137 = shl i32 %136, %134
-  %138 = and i32 %137, 511
-  %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw [512 x float], ptr @sin_table, i64 0, i64 %139
-  %141 = load float, ptr %140, align 4, !tbaa !27
-  %142 = getelementptr inbounds nuw [31 x float], ptr %131, i64 0, i64 %indvars.iv
-  store float %141, ptr %142, align 4, !tbaa !27
+  %135 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %136 = shl i32 %135, %133
+  %137 = and i32 %136, 511
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds nuw [512 x float], ptr @sin_table, i64 0, i64 %138
+  %140 = load float, ptr %139, align 4, !tbaa !27
+  %141 = getelementptr inbounds nuw [31 x float], ptr %131, i64 0, i64 %indvars.iv
+  store float %140, ptr %141, align 4, !tbaa !27
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge116, label %135, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge116, label %134, !llvm.loop !48
 
-._crit_edge116:                                   ; preds = %135
+._crit_edge116:                                   ; preds = %134
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, -1
-  %143 = icmp samesign ugt i64 %indvars.iv120, 1
-  br i1 %143, label %.lr.ph115, label %144, !llvm.loop !49
+  %142 = icmp samesign ugt i64 %indvars.iv120, 1
+  br i1 %142, label %.lr.ph115, label %143, !llvm.loop !49
 
-144:                                              ; preds = %._crit_edge116
+143:                                              ; preds = %._crit_edge116
   call fastcc void @make_noises(ptr noundef nonnull %4)
-  br label %145
+  br label %144
 
-145:                                              ; preds = %120, %144, %119, %116, %85, %51, %44, %41, %32, %12
-  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %32 ], [ -1094995529, %41 ], [ -1094995529, %44 ], [ -1094995529, %51 ], [ -1094995529, %85 ], [ -1163346256, %116 ], [ -1094995529, %119 ], [ 0, %144 ], [ %124, %120 ]
+144:                                              ; preds = %120, %143, %119, %116, %85, %51, %44, %41, %32, %12
+  %.0 = phi i32 [ -1094995529, %12 ], [ -1094995529, %32 ], [ -1094995529, %41 ], [ -1094995529, %44 ], [ -1094995529, %51 ], [ -1094995529, %85 ], [ -1163346256, %116 ], [ -1094995529, %119 ], [ 0, %143 ], [ %124, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

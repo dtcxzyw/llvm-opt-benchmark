@@ -196,7 +196,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
 .preheader.lr.ph.i:                               ; preds = %.preheader48.i
   %73 = add nsw i32 %.039.lcssa59.i, -1
   %74 = getelementptr inbounds nuw i8, ptr %.060, i64 40
-  %75 = zext i32 %73 to i64
+  %75 = zext nneg i32 %73 to i64
   %wide.trip.count.i = zext nneg i32 %.039.lcssa59.i to i64
   %76 = getelementptr inbounds nuw [200 x ptr], ptr %10, i64 0, i64 %75
   br label %.preheader.i

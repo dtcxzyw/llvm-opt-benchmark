@@ -7817,7 +7817,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %72
   %82 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %73 to i64
+  %sext86 = zext nneg i32 %73 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %96
@@ -7847,7 +7847,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 96:                                               ; preds = %.lr.ph66, %84
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %97 = icmp slt i64 %indvars.iv.next85, %sext86
+  %97 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %97, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !395
 
 .loopexit.loopexit:                               ; preds = %96
@@ -8540,7 +8540,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %72
   %82 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %73 to i64
+  %sext86 = zext nneg i32 %73 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %96
@@ -8570,7 +8570,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 96:                                               ; preds = %.lr.ph66, %84
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %97 = icmp slt i64 %indvars.iv.next85, %sext86
+  %97 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %97, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !426
 
 .loopexit.loopexit:                               ; preds = %96
@@ -9245,7 +9245,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %72
   %82 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %73 to i64
+  %sext86 = zext nneg i32 %73 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %96
@@ -9275,7 +9275,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 96:                                               ; preds = %.lr.ph66, %84
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %97 = icmp slt i64 %indvars.iv.next85, %sext86
+  %97 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %97, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !452
 
 .loopexit.loopexit:                               ; preds = %96
@@ -9950,7 +9950,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %72
   %82 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %73 to i64
+  %sext86 = zext nneg i32 %73 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %96
@@ -9980,7 +9980,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 96:                                               ; preds = %.lr.ph66, %84
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %97 = icmp slt i64 %indvars.iv.next85, %sext86
+  %97 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %97, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !477
 
 .loopexit.loopexit:                               ; preds = %96
@@ -10638,7 +10638,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %72
   %82 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %73 to i64
+  %sext86 = zext nneg i32 %73 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %96
@@ -10668,7 +10668,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 96:                                               ; preds = %.lr.ph66, %84
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %97 = icmp slt i64 %indvars.iv.next85, %sext86
+  %97 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %97, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !507
 
 .loopexit.loopexit:                               ; preds = %96
@@ -11337,7 +11337,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %74
   %84 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %75 to i64
+  %sext86 = zext nneg i32 %75 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %98
@@ -11367,7 +11367,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 98:                                               ; preds = %.lr.ph66, %86
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %99 = icmp slt i64 %indvars.iv.next85, %sext86
+  %99 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %99, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !532
 
 .loopexit.loopexit:                               ; preds = %98
@@ -11946,7 +11946,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %74
   %84 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %75 to i64
+  %sext86 = zext nneg i32 %75 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %98
@@ -11976,7 +11976,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 98:                                               ; preds = %.lr.ph66, %86
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %99 = icmp slt i64 %indvars.iv.next85, %sext86
+  %99 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %99, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !555
 
 .loopexit.loopexit:                               ; preds = %98
@@ -12539,7 +12539,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %74
   %84 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %75 to i64
+  %sext86 = zext nneg i32 %75 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %98
@@ -12569,7 +12569,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 98:                                               ; preds = %.lr.ph66, %86
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %99 = icmp slt i64 %indvars.iv.next85, %sext86
+  %99 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %99, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !578
 
 .loopexit.loopexit:                               ; preds = %98
@@ -13132,7 +13132,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %74
   %84 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %75 to i64
+  %sext86 = zext nneg i32 %75 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %98
@@ -13162,7 +13162,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 98:                                               ; preds = %.lr.ph66, %86
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %99 = icmp slt i64 %indvars.iv.next85, %sext86
+  %99 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %99, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !601
 
 .loopexit.loopexit:                               ; preds = %98
@@ -13715,7 +13715,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %74
   %84 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %75 to i64
+  %sext86 = zext nneg i32 %75 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %98
@@ -13745,7 +13745,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 98:                                               ; preds = %.lr.ph66, %86
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %99 = icmp slt i64 %indvars.iv.next85, %sext86
+  %99 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %99, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !624
 
 .loopexit.loopexit:                               ; preds = %98
@@ -14314,7 +14314,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %78
   %88 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %79 to i64
+  %sext86 = zext nneg i32 %79 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
@@ -14344,7 +14344,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %25
 
 102:                                              ; preds = %.lr.ph66, %90
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %103 = icmp slt i64 %indvars.iv.next85, %sext86
+  %103 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %103, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !647
 
 .loopexit.loopexit:                               ; preds = %102
@@ -15003,7 +15003,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %78
   %88 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %79 to i64
+  %sext86 = zext nneg i32 %79 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
@@ -15033,7 +15033,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 102:                                              ; preds = %.lr.ph66, %90
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %103 = icmp slt i64 %indvars.iv.next85, %sext86
+  %103 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %103, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !670
 
 .loopexit.loopexit:                               ; preds = %102
@@ -15660,7 +15660,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %78
   %88 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %79 to i64
+  %sext86 = zext nneg i32 %79 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
@@ -15690,7 +15690,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 102:                                              ; preds = %.lr.ph66, %90
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %103 = icmp slt i64 %indvars.iv.next85, %sext86
+  %103 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %103, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !693
 
 .loopexit.loopexit:                               ; preds = %102
@@ -16317,7 +16317,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %78
   %88 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %79 to i64
+  %sext86 = zext nneg i32 %79 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
@@ -16347,7 +16347,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 102:                                              ; preds = %.lr.ph66, %90
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %103 = icmp slt i64 %indvars.iv.next85, %sext86
+  %103 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %103, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !716
 
 .loopexit.loopexit:                               ; preds = %102
@@ -16960,7 +16960,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph66.preheader:                               ; preds = %78
   %88 = zext nneg i32 %.sroa.speculated44 to i64
-  %sext86 = sext i32 %79 to i64
+  %sext86 = zext nneg i32 %79 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %102
@@ -16990,7 +16990,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %25
 
 102:                                              ; preds = %.lr.ph66, %90
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %103 = icmp slt i64 %indvars.iv.next85, %sext86
+  %103 = icmp samesign ult i64 %indvars.iv.next85, %sext86
   br i1 %103, label %.lr.ph66, label %.loopexit.loopexit, !llvm.loop !739
 
 .loopexit.loopexit:                               ; preds = %102

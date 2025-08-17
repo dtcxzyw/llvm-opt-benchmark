@@ -740,10 +740,9 @@ Extra_TruthCopy.exit.thread.i.i:                  ; preds = %Abc_NodeDecomposeSo
 
 .lr.ph.us.i.i:                                    ; preds = %.preheader288.us.i.i
   %314 = trunc nuw nsw i64 %indvars.iv374.i.i to i32
-  %315 = shl nuw i32 1, %314
+  %315 = shl nuw nsw i32 1, %314
   %316 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv374.i.i
   %317 = sext i32 %.0180300.us.i.i to i64
-  %smax372.i.i = tail call i32 @llvm.smax.i32(i32 %315, i32 1)
   %318 = load i32, ptr %316, align 4, !tbaa !40
   br label %select.unfold.preheader.i211.us.us.i.i
 
@@ -790,7 +789,7 @@ Extra_TruthCopy.exit221.loopexit.us.us.i.i:       ; preds = %select.unfold.i218.
   tail call void @Extra_TruthCofactor1(ptr noundef %336, i32 noundef %.val71117.i, i32 noundef %318) #16
   %indvars.iv.next370.i.i = add nsw i64 %indvars.iv369.i.i, 2
   %337 = add nuw nsw i32 %.0182298.us.us.i.i, 1
-  %exitcond373.not.i.i = icmp eq i32 %337, %smax372.i.i
+  %exitcond373.not.i.i = icmp eq i32 %337, %315
   br i1 %exitcond373.not.i.i, label %._crit_edge.split.us.us.loopexit.i.i, label %select.unfold.preheader.i211.us.us.i.i, !llvm.loop !82
 
 .preheader288.i.i:                                ; preds = %Extra_TruthCopy.exit.thread.i.i, %._crit_edge.split.i.i
