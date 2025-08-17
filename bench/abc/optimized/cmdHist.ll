@@ -31,7 +31,7 @@ define void @Cmd_HistoryAddCommand(ptr noundef readonly captures(none) %0, ptr n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %53
+  br i1 %.not, label %6, label %54
 
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -55,12 +55,12 @@ define void @Cmd_HistoryAddCommand(ptr noundef readonly captures(none) %0, ptr n
 18:                                               ; preds = %17, %11, %6
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %20 = icmp ugt i64 %19, 3
-  br i1 %20, label %21, label %53
+  br i1 %20, label %21, label %54
 
 21:                                               ; preds = %18
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %.not26 = icmp eq i32 %bcmp, 0
-  br i1 %.not26, label %53, label %22
+  br i1 %.not26, label %54, label %22
 
 22:                                               ; preds = %21
   %bcmp27 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
@@ -75,97 +75,97 @@ switch.early.test:                                ; preds = %22
     i32 1701669236, label %53
   ]
 
-23:                                               ; preds = %switch.early.test
+24:                                               ; preds = %switch.early.test
   %bcmp34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.4, i64 5)
   %.not35 = icmp eq i32 %bcmp34, 0
-  br i1 %.not35, label %53, label %24
-
-24:                                               ; preds = %23
-  %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %3, ptr noundef nonnull dereferenceable(13) @.str.5, i64 13)
-  %.not37 = icmp eq i32 %bcmp36, 0
-  br i1 %.not37, label %53, label %25
+  br i1 %.not35, label %54, label %25
 
 25:                                               ; preds = %24
-  %bcmp38 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @.str.6, i64 16)
-  %.not39 = icmp eq i32 %bcmp38, 0
-  br i1 %.not39, label %53, label %26
+  %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %3, ptr noundef nonnull dereferenceable(13) @.str.5, i64 13)
+  %.not37 = icmp eq i32 %bcmp36, 0
+  br i1 %.not37, label %54, label %26
 
 26:                                               ; preds = %25
-  %bcmp40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.7, i64 7)
-  %.not41 = icmp eq i32 %bcmp40, 0
-  br i1 %.not41, label %53, label %27
+  %bcmp38 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @.str.6, i64 16)
+  %.not39 = icmp eq i32 %bcmp38, 0
+  br i1 %.not39, label %54, label %27
 
 27:                                               ; preds = %26
-  %bcmp42 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
-  %.not43 = icmp eq i32 %bcmp42, 0
-  br i1 %.not43, label %53, label %28
+  %bcmp40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.7, i64 7)
+  %.not41 = icmp eq i32 %bcmp40, 0
+  br i1 %.not41, label %54, label %28
 
 28:                                               ; preds = %27
-  %bcmp44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.9, i64 3)
-  %.not45 = icmp eq i32 %bcmp44, 0
-  br i1 %.not45, label %53, label %29
+  %bcmp42 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
+  %.not43 = icmp eq i32 %bcmp42, 0
+  br i1 %.not43, label %54, label %29
 
 29:                                               ; preds = %28
-  %30 = add i64 %19, -1
-  %31 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !23
-  %.not46 = icmp eq i8 %32, 63
-  br i1 %.not46, label %53, label %33
+  %bcmp44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.9, i64 3)
+  %.not45 = icmp eq i32 %bcmp44, 0
+  br i1 %.not45, label %54, label %30
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr i8, ptr %35, i64 4
-  %.val = load i32, ptr %36, align 4, !tbaa !25
-  %37 = call i32 @llvm.smax.i32(i32 %.val, i32 10)
-  %38 = add nsw i32 %37, -10
-  %39 = icmp slt i32 %38, %.val
-  br i1 %39, label %.lr.ph, label %.critedge
+30:                                               ; preds = %29
+  %31 = add i64 %19, -1
+  %32 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !23
+  %.not46 = icmp eq i8 %33, 63
+  br i1 %.not46, label %54, label %34
 
-.lr.ph:                                           ; preds = %33
-  %40 = getelementptr i8, ptr %35, i64 8
-  %.val51 = load ptr, ptr %40, align 8, !tbaa !27
-  %41 = zext nneg i32 %37 to i64
-  %42 = add nsw i64 %41, -10
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = getelementptr i8, ptr %36, i64 4
+  %.val = load i32, ptr %37, align 4, !tbaa !25
+  %38 = call i32 @llvm.smax.i32(i32 %.val, i32 10)
+  %39 = add nsw i32 %38, -10
+  %40 = icmp slt i32 %39, %.val
+  br i1 %40, label %.lr.ph, label %.critedge
+
+.lr.ph:                                           ; preds = %34
+  %41 = getelementptr i8, ptr %36, i64 8
+  %.val51 = load ptr, ptr %41, align 8, !tbaa !27
+  %42 = zext nneg i32 %38 to i64
+  %43 = add nsw i64 %42, -10
   %wide.trip.count = zext nneg i32 %.val to i64
-  br label %43
+  br label %44
 
-43:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %44 = getelementptr inbounds ptr, ptr %.val51, i64 %indvars.iv
-  %45 = load ptr, ptr %44, align 8, !tbaa !28
-  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %3) #17
-  %.not47 = icmp eq i32 %46, 0
-  br i1 %.not47, label %.critedge.loopexit, label %47
+44:                                               ; preds = %.lr.ph, %48
+  %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %47 ]
+  %45 = getelementptr inbounds ptr, ptr %.val51, i64 %indvars.iv
+  %46 = load ptr, ptr %45, align 8, !tbaa !28
+  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %3) #17
+  %.not47 = icmp eq i32 %47, 0
+  br i1 %.not47, label %.critedge.loopexit, label %48
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %43, !llvm.loop !29
+  br i1 %exitcond.not, label %.critedge.thread, label %44, !llvm.loop !29
 
-.critedge.loopexit:                               ; preds = %43
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
+.critedge.loopexit:                               ; preds = %44
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %33
-  %.0.lcssa = phi i32 [ %38, %33 ], [ %48, %.critedge.loopexit ]
-  %.1 = phi ptr [ null, %33 ], [ %45, %.critedge.loopexit ]
-  %49 = icmp eq i32 %.0.lcssa, %.val
-  br i1 %49, label %.critedge.thread, label %51
+.critedge:                                        ; preds = %.critedge.loopexit, %34
+  %.0.lcssa = phi i32 [ %39, %33 ], [ %49, %.critedge.loopexit ]
+  %.1 = phi ptr [ null, %33 ], [ %46, %.critedge.loopexit ]
+  %50 = icmp eq i32 %.0.lcssa, %.val
+  br i1 %50, label %.critedge.thread, label %52
 
-.critedge.thread:                                 ; preds = %47, %.critedge
-  %50 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %3) #18
-  call fastcc void @Vec_PtrPush(ptr noundef nonnull %35, ptr noundef %50)
+.critedge.thread:                                 ; preds = %48, %.critedge
+  %51 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %3) #18
+  call fastcc void @Vec_PtrPush(ptr noundef nonnull %36, ptr noundef %51)
   call void @Cmd_HistoryWrite(ptr noundef %0, i32 noundef 10000)
-  br label %53
+  br label %54
 
-51:                                               ; preds = %.critedge
-  call fastcc void @Vec_PtrRemove(ptr noundef nonnull %35, ptr noundef %.1)
-  %52 = load ptr, ptr %34, align 8, !tbaa !24
-  call fastcc void @Vec_PtrPush(ptr noundef %52, ptr noundef %.1)
-  br label %53
+52:                                               ; preds = %.critedge
+  call fastcc void @Vec_PtrRemove(ptr noundef nonnull %36, ptr noundef %.1)
+  %53 = load ptr, ptr %35, align 8, !tbaa !24
+  call fastcc void @Vec_PtrPush(ptr noundef %53, ptr noundef %.1)
+  br label %54
 
-53:                                               ; preds = %switch.early.test, %switch.early.test, %22, %18, %21, %23, %24, %25, %26, %27, %28, %29, %51, %.critedge.thread, %2
+54:                                               ; preds = %switch.early.test, %switch.early.test, %22, %18, %21, %23, %24, %25, %26, %27, %28, %29, %52, %.critedge.thread, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

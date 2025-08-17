@@ -3991,25 +3991,25 @@ define internal fastcc void @handle_push_default(ptr noundef %0, ptr noundef %1)
   call void @repo_config(ptr noundef %8, ptr noundef nonnull @config_read_push_default, ptr noundef nonnull %3) #19
   %9 = load i32, ptr %4, align 8, !tbaa !131
   %10 = icmp ugt i32 %9, 4
-  br i1 %10, label %29, label %11
+  br i1 %10, label %35, label %11
 
 11:                                               ; preds = %2
   %12 = icmp samesign ugt i32 %9, 2
-  br i1 %12, label %13, label %20
+  br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @the_repository, align 8, !tbaa !26
   %15 = call i32 @repo_config_set_gently(ptr noundef %14, ptr noundef nonnull @.str.85, ptr noundef %1) #19
-  %cond = icmp eq ptr %1, null
-  br i1 %cond, label %switch.early.test15, label %switch.early.test
+  %16 = icmp eq ptr %1, null
+  br i1 %16, label %switch.early.test15, label %22
 
-switch.early.test:                                ; preds = %13
+22:                                               ; preds = %13
   switch i32 %15, label %16 [
-    i32 5, label %29
+    i32 5, label %35
     i32 0, label %29
   ]
 
-16:                                               ; preds = %switch.early.test
+switch.early.test:                                ; preds = %22
   %17 = call fastcc ptr @_(ptr noundef nonnull @.str.86)
   call void (ptr, ...) @die(ptr noundef %17, ptr noundef nonnull @.str.85) #20
   unreachable
@@ -4020,37 +4020,37 @@ switch.early.test15:                              ; preds = %13
     i32 0, label %29
   ]
 
-18:                                               ; preds = %switch.early.test15
-  %19 = call fastcc ptr @_(ptr noundef nonnull @.str.87)
-  call void (ptr, ...) @die(ptr noundef %19, ptr noundef nonnull @.str.85) #20
+24:                                               ; preds = %switch.early.test15
+  %25 = call fastcc ptr @_(ptr noundef nonnull @.str.87)
+  call void (ptr, ...) @die(ptr noundef %25, ptr noundef nonnull @.str.85) #20
   unreachable
 
-20:                                               ; preds = %11
+26:                                               ; preds = %11
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %29, label %21
+  br i1 %.not, label %35, label %27
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i = icmp eq i32 %22, 0
-  br i1 %.not4.i, label %_.exit, label %23
+27:                                               ; preds = %26
+  %28 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i = icmp eq i32 %28, 0
+  br i1 %.not4.i, label %_.exit, label %29
 
-23:                                               ; preds = %21
-  %24 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.88, i32 noundef 5) #19
+29:                                               ; preds = %27
+  %30 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.88, i32 noundef 5) #19
   %.pre = load i32, ptr %4, align 8, !tbaa !131
   br label %_.exit
 
-_.exit:                                           ; preds = %21, %23
-  %25 = phi i32 [ %.pre, %23 ], [ %9, %21 ]
-  %.0.i = phi ptr [ %24, %23 ], [ @.str.88, %21 ]
-  %26 = call ptr @config_scope_name(i32 noundef %25) #19
-  %27 = load ptr, ptr %5, align 8, !tbaa !132
-  %28 = load i32, ptr %6, align 8, !tbaa !130
-  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %0) #19
-  br label %29
+_.exit:                                           ; preds = %27, %29
+  %31 = phi i32 [ %.pre, %23 ], [ %9, %21 ]
+  %.0.i = phi ptr [ %30, %23 ], [ @.str.88, %21 ]
+  %32 = call ptr @config_scope_name(i32 noundef %31) #19
+  %33 = load ptr, ptr %5, align 8, !tbaa !132
+  %34 = load i32, ptr %6, align 8, !tbaa !130
+  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %0) #19
+  br label %35
 
-29:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test15, %switch.early.test15, %_.exit, %20, %2
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @strbuf_release(ptr noundef nonnull %30) #19
+35:                                               ; preds = %22, %switch.early.test, %switch.early.test15, %switch.early.test15, %_.exit, %26, %2
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @strbuf_release(ptr noundef nonnull %36) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

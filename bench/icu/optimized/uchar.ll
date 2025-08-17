@@ -1168,8 +1168,8 @@ define signext range(i8 0, 2) i8 @u_isWhitespace_77(i32 noundef %0) local_unname
   %36 = and i16 %35, 31
   %37 = zext nneg i16 %36 to i32
   %38 = shl nuw i32 1, %37
-  %.fr28 = freeze i32 %38
-  %39 = and i32 %.fr28, 28672
+  %.fr27 = freeze i32 %38
+  %39 = and i32 %.fr27, 28672
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %switch.early.test
 

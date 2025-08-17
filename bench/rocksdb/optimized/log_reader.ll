@@ -8693,7 +8693,7 @@ switch.early.test:                                ; preds = %.critedge112
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %98
 
-98:                                               ; preds = %113, %90
+98:                                               ; preds = %117, %90
   %.0 = phi ptr [ %95, %90 ], [ null, %113 ]
   %99 = load ptr, ptr %83, align 8, !tbaa !76
   %100 = load ptr, ptr %97, align 8, !tbaa !84
@@ -8707,41 +8707,41 @@ switch.early.test:                                ; preds = %.critedge112
 106:                                              ; preds = %98
   store ptr @.str.28, ptr %18, align 8, !tbaa !56
   store i64 0, ptr %9, align 8, !tbaa !57
-  br label %120
+  br label %124
 
 107:                                              ; preds = %98
   %108 = load i64, ptr %8, align 8, !tbaa !65
   %.not = icmp eq i64 %108, 0
-  br i1 %.not, label %113, label %109
+  br i1 %.not, label %117, label %109
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %97, align 8, !tbaa !84
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %110, i64 noundef %108)
   %.pre137 = load i64, ptr %8, align 8
-  %112 = icmp eq i64 %.pre137, 32768
-  br label %113
+  %116 = icmp eq i64 %.pre137, 32768
+  br label %117
 
-113:                                              ; preds = %107, %109
-  %114 = phi i1 [ false, %107 ], [ %112, %109 ]
-  %115 = icmp ne i32 %104, 0
-  %116 = select i1 %115, i1 true, i1 %114
-  br i1 %116, label %98, label %117, !llvm.loop !290
+117:                                              ; preds = %107, %109
+  %118 = phi i1 [ false, %107 ], [ %116, %109 ]
+  %119 = icmp ne i32 %104, 0
+  %120 = select i1 %119, i1 true, i1 %118
+  br i1 %120, label %98, label %121, !llvm.loop !290
 
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %91, align 8, !tbaa !83
-  %119 = load i64, ptr %92, align 8, !tbaa !68
-  store ptr %118, ptr %1, align 8, !tbaa !84
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %91, align 8, !tbaa !83
+  %123 = load i64, ptr %92, align 8, !tbaa !68
+  store ptr %122, ptr %1, align 8, !tbaa !84
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %119, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !65
-  br label %120
+  store i64 %123, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !65
+  br label %124
 
-120:                                              ; preds = %117, %106
+124:                                              ; preds = %121, %106
   %storemerge = phi i8 [ %27, %117 ], [ -123, %106 ]
   store i8 %storemerge, ptr %3, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %120, %.critedge, %.critedge110
+.loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %124, %.critedge, %.critedge110
   %.2 = phi i1 [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %.thread ], [ false, %62 ], [ false, %45 ], [ false, %15 ]
   ret i1 %.2
 }

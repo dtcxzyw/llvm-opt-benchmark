@@ -842,24 +842,24 @@ decode_pivot.exit62:                              ; preds = %63
 
 .preheader.i:                                     ; preds = %.loopexit.i
   %114 = icmp sgt i32 %.152.i.i, 0
-  br i1 %114, label %.lr.ph83.i, label %._crit_edge.i
+  br i1 %114, label %.lr.ph81.i, label %._crit_edge.i
 
-.lr.ph83.i:                                       ; preds = %.preheader.i
+.lr.ph81.i:                                       ; preds = %.preheader.i
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 87140
   %116 = zext nneg i32 %.152.i.i to i64
   %scevgep = getelementptr i8, ptr %0, i64 87141
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %scevgep, ptr nonnull align 1 %115, i64 %116, i1 false), !tbaa !10
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph83.i, %.preheader.i
+._crit_edge.i:                                    ; preds = %.lr.ph81.i, %.preheader.i
   %117 = trunc i32 %.050.i.i to i8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 87140
   store i8 %117, ptr %118, align 4, !tbaa !10
   br label %decode_pixel.exit.i
 
 decode_pixel.exit.i:                              ; preds = %._crit_edge.i, %.loopexit.i, %100
-  %.050.i95.i = phi i32 [ %.050.i.i, %.loopexit.i ], [ %.050.i.i, %._crit_edge.i ], [ %103, %100 ]
-  %119 = icmp slt i32 %.050.i95.i, 0
+  %.050.i94.i = phi i32 [ %.050.i.i, %.loopexit.i ], [ %.050.i.i, %._crit_edge.i ], [ %103, %100 ]
+  %119 = icmp slt i32 %.050.i94.i, 0
   br i1 %119, label %decode_region_inter.exit, label %120
 
 120:                                              ; preds = %decode_pixel.exit.i
@@ -875,29 +875,29 @@ decode_pixel.exit.i:                              ; preds = %._crit_edge.i, %.lo
   %127 = load ptr, ptr %126, align 8, !tbaa !60
   %.fr.i = freeze ptr %127
   %cond.i = icmp eq ptr %.fr.i, null
-  br i1 %cond.i, label %switch.early.test68.i, label %switch.early.test.i
+  br i1 %cond.i, label %switch.early.test.i, label %switch.early.test82.i
 
-switch.early.test.i:                              ; preds = %125
-  switch i32 %.050.i95.i, label %decode_region_inter.exit [
+switch.early.test82.i:                            ; preds = %125
+  switch i32 %.050.i94.i, label %decode_region_inter.exit [
     i32 2, label %129
     i32 4, label %165
     i32 1, label %233
   ]
 
-switch.early.test68.i:                            ; preds = %125
-  switch i32 %.050.i95.i, label %decode_region_inter.exit [
+switch.early.test.i:                              ; preds = %125
+  switch i32 %.050.i94.i, label %decode_region_inter.exit [
     i32 128, label %copy_rectangles.exit.i
     i32 255, label %233
   ]
 
 128:                                              ; preds = %120
-  switch i32 %.050.i95.i, label %233 [
+  switch i32 %.050.i94.i, label %233 [
     i32 2, label %129
     i32 4, label %165
     i32 128, label %copy_rectangles.exit.i
   ]
 
-129:                                              ; preds = %128, %switch.early.test.i
+129:                                              ; preds = %128, %switch.early.test82.i
   %130 = getelementptr inbounds nuw i8, ptr %74, i64 1080
   %131 = load ptr, ptr %130, align 8, !tbaa !61
   %.not.i.i = icmp ne ptr %131, null
@@ -946,7 +946,7 @@ switch.early.test68.i:                            ; preds = %125
   %164 = icmp slt i64 %indvars.iv.next.i.i, %146
   br i1 %164, label %147, label %copy_rectangles.exit.i, !llvm.loop !66
 
-165:                                              ; preds = %128, %switch.early.test.i
+165:                                              ; preds = %128, %switch.early.test82.i
   %166 = getelementptr inbounds nuw i8, ptr %74, i64 1104
   %167 = load i32, ptr %166, align 8, !tbaa !67
   %168 = add nsw i32 %167, %2
@@ -977,8 +977,8 @@ switch.early.test68.i:                            ; preds = %125
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %74, i64 1072
   %187 = load ptr, ptr %186, align 8, !tbaa !60
-  %.not.i69.i = icmp eq ptr %187, null
-  br i1 %.not.i69.i, label %decode_region_inter.exit, label %188
+  %.not.i68.i = icmp eq ptr %187, null
+  br i1 %.not.i68.i, label %decode_region_inter.exit, label %188
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %74, i64 1032
@@ -1011,9 +1011,9 @@ switch.early.test68.i:                            ; preds = %125
   %.sink81.i.i = phi ptr [ %209, %207 ], [ %190, %188 ]
   %.sink77.i.i = phi ptr [ %206, %207 ], [ %187, %188 ]
   %211 = icmp sgt i32 %5, 0
-  br i1 %211, label %.lr.ph.i70.i, label %decode_region_inter.exit
+  br i1 %211, label %.lr.ph.i69.i, label %decode_region_inter.exit
 
-.lr.ph.i70.i:                                     ; preds = %210
+.lr.ph.i69.i:                                     ; preds = %210
   %212 = mul nuw nsw i32 %168, 3
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw i8, ptr %.sink77.i.i, i64 %213
@@ -1029,7 +1029,7 @@ switch.early.test68.i:                            ; preds = %125
   %224 = sext i32 %223 to i64
   br label %225
 
-225:                                              ; preds = %225, %.lr.ph.i70.i
+225:                                              ; preds = %225, %.lr.ph.i69.i
   %.074.i.i = phi i32 [ 0, %.lr.ph.i70.i ], [ %232, %225 ]
   %.173.i.i = phi ptr [ %217, %.lr.ph.i70.i ], [ %231, %225 ]
   %.16172.i.i = phi ptr [ %221, %.lr.ph.i70.i ], [ %228, %225 ]
@@ -1047,7 +1047,7 @@ switch.early.test68.i:                            ; preds = %125
   %exitcond.not.i.i = icmp eq i32 %232, %5
   br i1 %exitcond.not.i.i, label %decode_region_inter.exit, label %225, !llvm.loop !71
 
-233:                                              ; preds = %128, %switch.early.test68.i, %switch.early.test.i
+233:                                              ; preds = %128, %switch.early.test.i, %switch.early.test82.i
   %234 = tail call fastcc i32 @decode_region_intra(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   br label %decode_region_inter.exit
 
@@ -1294,17 +1294,17 @@ copy_rectangles.exit.us.loopexit128.i.i:          ; preds = %325, %313
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %383, %.lr.ph.us.preheader.i.i
-  %indvars.iv.i71.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next.i72.i, %383 ]
-  %379 = getelementptr inbounds nuw [12 x i8], ptr %265, i64 0, i64 %indvars.iv.i71.i
+  %indvars.iv.i70.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next.i71.i, %383 ]
+  %379 = getelementptr inbounds nuw [12 x i8], ptr %265, i64 0, i64 %indvars.iv.i70.i
   %380 = load i8, ptr %379, align 1, !tbaa !10
   %381 = zext i8 %380 to i32
   %382 = icmp eq i32 %375, %381
   br i1 %382, label %.loopexit.us.loopexit.split.loop.exit150.i.i, label %383
 
 383:                                              ; preds = %.lr.ph.us.i.i
-  %indvars.iv.next.i72.i = add nuw nsw i64 %indvars.iv.i71.i, 1
-  %exitcond.not.i73.i = icmp eq i64 %indvars.iv.next.i72.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i73.i, label %.loopexit.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !41
+  %indvars.iv.next.i71.i = add nuw nsw i64 %indvars.iv.i70.i, 1
+  %exitcond.not.i72.i = icmp eq i64 %indvars.iv.next.i71.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i72.i, label %.loopexit.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !41
 
 384:                                              ; preds = %368
   %385 = sext i32 %370 to i64
@@ -1314,7 +1314,7 @@ copy_rectangles.exit.us.loopexit128.i.i:          ; preds = %325, %313
   br label %.loopexit.us.i.i
 
 .loopexit.us.loopexit.split.loop.exit150.i.i:     ; preds = %.lr.ph.us.i.i
-  %389 = trunc nuw nsw i64 %indvars.iv.i71.i to i32
+  %389 = trunc nuw nsw i64 %indvars.iv.i70.i to i32
   br label %.loopexit.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %383, %.loopexit.us.loopexit.split.loop.exit150.i.i, %384
@@ -1384,14 +1384,14 @@ copy_rectangles.exit.us.i.i:                      ; preds = %396, %392, %.lr.ph.
   %exitcond145.not.i.i = icmp eq i64 %indvars.iv.next142.i.i, %wide.trip.count144.i.i
   br i1 %exitcond145.not.i.i, label %decode_region_inter.exit, label %.preheader113.us.i.i, !llvm.loop !76
 
-copy_rectangles.exit.i:                           ; preds = %147, %129, %128, %switch.early.test68.i
+copy_rectangles.exit.i:                           ; preds = %147, %129, %128, %switch.early.test.i
   br label %decode_region_inter.exit
 
 417:                                              ; preds = %69, %40
   br label %decode_region_inter.exit
 
-decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test68.i, %switch.early.test.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %417, %77
-  %.0 = phi i32 [ 0, %417 ], [ %78, %77 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ -1, %69 ], [ -1, %10 ], [ 0, %copy_rectangles.exit.i ], [ %234, %233 ], [ %.050.i95.i, %decode_pixel.exit.i ], [ -1, %switch.early.test68.i ], [ -1, %switch.early.test.i ], [ -1, %235 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ -1, %165 ], [ 0, %210 ], [ 0, %244 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1094995529, %83 ], [ -1, %24 ], [ -1, %34 ], [ -1, %53 ], [ -1, %63 ], [ 0, %225 ], [ -1094995529, %365 ], [ -1, %295 ], [ -1, %301 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1, %291 ], [ -1, %292 ], [ 0, %._crit_edge123.us.i.i ]
+decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test.i, %switch.early.test82.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %417, %77
+  %.0 = phi i32 [ 0, %417 ], [ %78, %77 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ -1, %69 ], [ -1, %10 ], [ 0, %copy_rectangles.exit.i ], [ %234, %233 ], [ %.050.i94.i, %decode_pixel.exit.i ], [ -1, %switch.early.test68.i ], [ -1, %switch.early.test.i ], [ -1, %235 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ -1, %165 ], [ 0, %210 ], [ 0, %244 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1094995529, %83 ], [ -1, %24 ], [ -1, %34 ], [ -1, %53 ], [ -1, %63 ], [ 0, %225 ], [ -1094995529, %365 ], [ -1, %295 ], [ -1, %301 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1, %291 ], [ -1, %292 ], [ 0, %._crit_edge123.us.i.i ]
   ret i32 %.0
 }
 

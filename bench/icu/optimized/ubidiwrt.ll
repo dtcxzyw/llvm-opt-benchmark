@@ -362,7 +362,7 @@ define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(p
   %152 = icmp eq i32 %151, 8204
   br i1 %152, label %.loopexit, label %switch.early.test
 
-switch.early.test:                                ; preds = %150
+switch.early.test:; preds = %150
   switch i32 %.4133.fr, label %153 [
     i32 8297, label %.loopexit
     i32 8296, label %.loopexit
@@ -375,7 +375,7 @@ switch.early.test:                                ; preds = %150
     i32 8234, label %.loopexit
   ]
 
-153:                                              ; preds = %switch.early.test, %.critedge3
+171:                                              ; preds = %switch.early.test, %.critedge3
   br i1 %.not161, label %171, label %154
 
 154:                                              ; preds = %153
@@ -402,37 +402,37 @@ switch.early.test:                                ; preds = %150
   %.sink = phi i16 [ %158, %157 ], [ %162, %159 ]
   %.0 = phi i32 [ 1, %157 ], [ 2, %159 ]
   store i16 %.sink, ptr %.4125, align 2, !tbaa !7
-  %168 = zext nneg i32 %.0 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %.4125, i64 %168
-  %170 = add nsw i32 %.0, %.9
-  br label %171
+  %172 = zext nneg i32 %.0 to i64
+  %173 = getelementptr inbounds nuw i16, ptr %.4125, i64 %172
+  %174 = add nsw i32 %.0, %.9
+  br label %175
 
-171:                                              ; preds = %167, %153
-  %.2139 = phi i32 [ %170, %167 ], [ %.9, %153 ]
-  %.6127 = phi ptr [ %169, %167 ], [ %.4125, %153 ]
-  %172 = icmp slt i32 %.2139, %.6
-  br i1 %172, label %.lr.ph.preheader, label %.loopexit
+175:                                              ; preds = %167, %153
+  %.2139 = phi i32 [ %174, %167 ], [ %.9, %153 ]
+  %.6127 = phi ptr [ %173, %167 ], [ %.4125, %153 ]
+  %176 = icmp slt i32 %.2139, %.6
+  br i1 %176, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %171
-  %173 = sext i32 %.2139 to i64
+.lr.ph.preheader:                                 ; preds = %175
+  %177 = sext i32 %.2139 to i64
   %wide.trip.count = sext i32 %.6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv205 = phi i64 [ %173, %.lr.ph.preheader ], [ %indvars.iv.next206, %.lr.ph ]
-  %.7128195 = phi ptr [ %.6127, %.lr.ph.preheader ], [ %176, %.lr.ph ]
+  %indvars.iv205 = phi i64 [ %177, %.lr.ph.preheader ], [ %indvars.iv.next206, %.lr.ph ]
+  %.7128195 = phi ptr [ %.6127, %.lr.ph.preheader ], [ %180, %.lr.ph ]
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
-  %174 = getelementptr inbounds i16, ptr %.0117, i64 %indvars.iv205
-  %175 = load i16, ptr %174, align 2, !tbaa !7
-  %176 = getelementptr inbounds nuw i8, ptr %.7128195, i64 2
-  store i16 %175, ptr %.7128195, align 2, !tbaa !7
+  %178 = getelementptr inbounds i16, ptr %.0117, i64 %indvars.iv205
+  %179 = load i16, ptr %178, align 2, !tbaa !7
+  %180 = getelementptr inbounds nuw i8, ptr %.7128195, i64 2
+  store i16 %179, ptr %.7128195, align 2, !tbaa !7
   %exitcond.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.lr.ph, %171, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %150
-  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %176, %.lr.ph ]
-  %177 = icmp sgt i32 %.9, 0
-  br i1 %177, label %97, label %.loopexit186, !llvm.loop !17
+.loopexit:                                        ; preds = %.lr.ph, %175, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %150
+  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %180, %.lr.ph ]
+  %181 = icmp sgt i32 %.9, 0
+  br i1 %181, label %97, label %.loopexit186, !llvm.loop !17
 
 .loopexit186.sink.split:                          ; preds = %92, %35, %9
   %.0116.ph = phi i32 [ %1, %9 ], [ %1, %35 ], [ %.0141, %92 ]
@@ -1038,8 +1038,8 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   switch i16 %8, label %.unreachabledefault [
     i16 0, label %9
     i16 1, label %17
-    i16 4, label %.preheader179
-    i16 5, label %.preheader181
+    i16 4, label %.preheader178
+    i16 5, label %.preheader180
   ]
 
 9:                                                ; preds = %6
@@ -1064,13 +1064,13 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
 
 17:                                               ; preds = %6
   %18 = icmp slt i32 %3, %1
-  br i1 %18, label %19, label %.preheader176
+  br i1 %18, label %19, label %.preheader175
 
 19:                                               ; preds = %17
   store i32 15, ptr %5, align 4, !tbaa !3
   br label %.loopexit
 
-.preheader176:                                    ; preds = %17, %58
+.preheader175:                                    ; preds = %17, %58
   %.0125 = phi i32 [ %.2127, %58 ], [ 0, %17 ]
   %.0123 = phi i32 [ %.1124, %58 ], [ 0, %17 ]
   %20 = add nsw i32 %.0125, 1
@@ -1084,7 +1084,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   %or.cond165 = select i1 %26, i1 true, i1 %.not149
   br i1 %or.cond165, label %39, label %27
 
-27:                                               ; preds = %.preheader176
+27:                                               ; preds = %.preheader175
   %28 = sext i32 %20 to i64
   %29 = getelementptr inbounds i16, ptr %0, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !7
@@ -1100,7 +1100,7 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
   %38 = add nuw nsw i32 %37, %31
   br label %39
 
-39:                                               ; preds = %27, %34, %.preheader176
+39:                                               ; preds = %27, %34, %.preheader175
   %.2127 = phi i32 [ %20, %.preheader176 ], [ %35, %34 ], [ %20, %27 ]
   %.1122 = phi i32 [ %24, %.preheader176 ], [ %38, %34 ], [ %24, %27 ]
   %40 = tail call i32 @u_charMirror_77(i32 noundef %.1122)
@@ -1133,22 +1133,22 @@ define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(p
 58:                                               ; preds = %42, %47
   %.1124 = phi i32 [ %44, %42 ], [ %56, %47 ]
   %59 = icmp slt i32 %.2127, %1
-  br i1 %59, label %.preheader176, label %.loopexit, !llvm.loop !50
+  br i1 %59, label %.preheader175, label %.loopexit, !llvm.loop !50
 
-.preheader179:                                    ; preds = %6, %82
+.preheader178:                                    ; preds = %6, %82
   %.1134 = phi ptr [ %.2135, %82 ], [ %2, %6 ]
   %.0129 = phi i32 [ %83, %82 ], [ %1, %6 ]
   %.1117 = phi ptr [ %60, %82 ], [ %0, %6 ]
   %.0112 = phi i32 [ %.3115, %82 ], [ %3, %6 ]
   %60 = getelementptr inbounds nuw i8, ptr %.1117, i64 2
   %61 = load i16, ptr %.1117, align 2, !tbaa !7
-  %.fr171 = freeze i16 %61
-  %62 = and i16 %.fr171, -4
+  %.fr199 = freeze i16 %61
+  %62 = and i16 %.fr199, -4
   %63 = icmp eq i16 %62, 8204
   br i1 %63, label %82, label %switch.early.test
 
-switch.early.test:                                ; preds = %.preheader179
-  switch i16 %.fr171, label %64 [
+switch.early.test:                                ; preds = %.preheader178
+  switch i16 %.fr199, label %64 [
     i16 8297, label %82
     i16 8296, label %82
     i16 8295, label %82
@@ -1168,41 +1168,41 @@ switch.early.test:                                ; preds = %.preheader179
 67:                                               ; preds = %64
   store i32 15, ptr %5, align 4, !tbaa !3
   %68 = icmp sgt i32 %.0129, 1
-  br i1 %68, label %.lr.ph198, label %.loopexit178
+  br i1 %68, label %.lr.ph197, label %.loopexit177
 
-.lr.ph198:                                        ; preds = %67, %.lr.ph198
-  %.1113196 = phi i32 [ %.2114, %.lr.ph198 ], [ %65, %67 ]
-  %.2118195 = phi ptr [ %70, %.lr.ph198 ], [ %60, %67 ]
-  %.1130194 = phi i32 [ %69, %.lr.ph198 ], [ %.0129, %67 ]
-  %69 = add nsw i32 %.1130194, -1
-  %70 = getelementptr inbounds nuw i8, ptr %.2118195, i64 2
-  %71 = load i16, ptr %.2118195, align 2, !tbaa !7
+.lr.ph197:                                        ; preds = %67, %.lr.ph197
+  %.1113195 = phi i32 [ %.2114, %.lr.ph198 ], [ %65, %67 ]
+  %.2118194 = phi ptr [ %70, %.lr.ph198 ], [ %60, %67 ]
+  %.1130193 = phi i32 [ %69, %.lr.ph198 ], [ %.0129, %67 ]
+  %69 = add nsw i32 %.1130193, -1
+  %70 = getelementptr inbounds nuw i8, ptr %.2118194, i64 2
+  %71 = load i16, ptr %.2118194, align 2, !tbaa !7
   %72 = and i16 %71, -4
   %73 = icmp ne i16 %72, 8204
   %74 = add i16 %71, -8239
   %75 = icmp ult i16 %74, -5
-  %or.cond154.not175 = and i1 %73, %75
+  %or.cond154.not174 = and i1 %73, %75
   %76 = add i16 %71, -8298
   %77 = icmp ult i16 %76, -4
-  %or.cond156.not = and i1 %77, %or.cond154.not175
+  %or.cond156.not = and i1 %77, %or.cond154.not174
   %78 = sext i1 %or.cond156.not to i32
-  %.2114 = add nsw i32 %.1113196, %78
-  %79 = icmp samesign ugt i32 %.1130194, 2
-  br i1 %79, label %.lr.ph198, label %.loopexit178, !llvm.loop !51
+  %.2114 = add nsw i32 %.1113195, %78
+  %79 = icmp samesign ugt i32 %.1130193, 2
+  br i1 %79, label %.lr.ph197, label %.loopexit177, !llvm.loop !51
 
 80:                                               ; preds = %64
   %81 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
-  store i16 %.fr171, ptr %.1134, align 2, !tbaa !7
+  store i16 %.fr199, ptr %.1134, align 2, !tbaa !7
   br label %82
 
-82:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.preheader179, %80
+82:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.preheader178, %80
   %.2135 = phi ptr [ %.1134, %switch.early.test ], [ %81, %80 ], [ %.1134, %.preheader179 ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ], [ %.1134, %switch.early.test ]
   %.3115 = phi i32 [ %.0112, %switch.early.test ], [ %65, %80 ], [ %.0112, %.preheader179 ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ], [ %.0112, %switch.early.test ]
   %83 = add nsw i32 %.0129, -1
   %84 = icmp sgt i32 %.0129, 1
-  br i1 %84, label %.preheader179, label %.loopexit178, !llvm.loop !52
+  br i1 %84, label %.preheader178, label %.loopexit177, !llvm.loop !52
 
-.loopexit178:                                     ; preds = %82, %.lr.ph198, %67
+.loopexit177:                                     ; preds = %82, %.lr.ph197, %67
   %.3115.pn = phi i32 [ %65, %67 ], [ %.2114, %.lr.ph198 ], [ %.3115, %82 ]
   %.3 = sub nsw i32 %3, %.3115.pn
   br label %.loopexit
@@ -1210,7 +1210,7 @@ switch.early.test:                                ; preds = %.preheader179
 .unreachabledefault:                              ; preds = %6
   unreachable
 
-.preheader181:                                    ; preds = %6, %141
+.preheader180:                                    ; preds = %6, %141
   %.2131 = phi i32 [ %102, %141 ], [ %1, %6 ]
   %.3119 = phi ptr [ %101, %141 ], [ %0, %6 ]
   %.0108 = phi i32 [ %.3111, %141 ], [ %3, %6 ]
@@ -1220,10 +1220,10 @@ switch.early.test:                                ; preds = %.preheader179
   %87 = and i32 %86, 64512
   %88 = icmp ne i32 %87, 55296
   %.not = icmp eq i32 %.2131, 1
-  %or.cond = select i1 %88, i1 true, i1 %.not
-  br i1 %or.cond, label %99, label %89
+  %or.cond166 = select i1 %88, i1 true, i1 %.not
+  br i1 %or.cond166, label %99, label %89
 
-89:                                               ; preds = %.preheader181
+89:                                               ; preds = %.preheader180
   %90 = getelementptr inbounds nuw i8, ptr %.3119, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !7
   %92 = zext i16 %91 to i32
@@ -1237,7 +1237,7 @@ switch.early.test:                                ; preds = %.preheader179
   %98 = add nuw nsw i32 %97, %92
   br label %99
 
-99:                                               ; preds = %89, %95, %.preheader181
+99:                                               ; preds = %89, %95, %.preheader180
   %.1107 = phi i32 [ 1, %.preheader181 ], [ 2, %95 ], [ 1, %89 ]
   %.1103 = phi i32 [ %86, %.preheader181 ], [ %98, %95 ], [ %86, %89 ]
   %.1103.fr = freeze i32 %.1103
@@ -1248,7 +1248,7 @@ switch.early.test:                                ; preds = %.preheader179
   %104 = icmp eq i32 %103, 8204
   br i1 %104, label %141, label %switch.early.test166
 
-switch.early.test166:                             ; preds = %99
+switch.early.test166:; preds = %99
   switch i32 %.1103.fr, label %105 [
     i32 8297, label %141
     i32 8296, label %141
@@ -1261,17 +1261,17 @@ switch.early.test166:                             ; preds = %99
     i32 8234, label %141
   ]
 
-105:                                              ; preds = %switch.early.test166
-  %106 = sub nsw i32 %.0108, %.1107
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %108, label %122
+126:                                              ; preds = %switch.early.test166
+  %106 = sub nsw i32 %.0129, %.1107
+  %128 = icmp slt i32 %106, 0
+  br i1 %128, label %129, label %134
 
-108:                                              ; preds = %105
+129:                                              ; preds = %126
   store i32 15, ptr %5, align 4, !tbaa !3
   %109 = icmp sgt i32 %102, 0
   br i1 %109, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %108, %.lr.ph
+.lr.ph:; preds = %108, %.lr.ph
   %.1109193 = phi i32 [ %.2110, %.lr.ph ], [ %106, %108 ]
   %.4120192 = phi ptr [ %110, %.lr.ph ], [ %101, %108 ]
   %.3132191 = phi i32 [ %119, %.lr.ph ], [ %102, %108 ]
@@ -1296,12 +1296,12 @@ switch.early.test166:                             ; preds = %99
   %121 = sub nsw i32 %3, %.1109.lcssa
   br label %.loopexit
 
-122:                                              ; preds = %105
+134:                                              ; preds = %126
   %123 = tail call i32 @u_charMirror_77(i32 noundef %.1103.fr)
   %124 = icmp ult i32 %123, 65536
   br i1 %124, label %125, label %130
 
-125:                                              ; preds = %122
+125: ; preds = %134
   %126 = trunc nuw i32 %123 to i16
   %127 = add nsw i32 %.0104, 1
   %128 = sext i32 %.0104 to i64
@@ -1309,7 +1309,7 @@ switch.early.test166:                             ; preds = %99
   store i16 %126, ptr %129, align 2, !tbaa !7
   br label %141
 
-130:                                              ; preds = %122
+130:; preds = %134
   %131 = lshr i32 %123, 10
   %132 = trunc i32 %131 to i16
   %133 = add i16 %132, -10304

@@ -219,9 +219,9 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %111, label %32, label %.preheader, !llvm.loop !4
 
 112:                                              ; preds = %.lr.ph146, %177
-  %indvars.iv164 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next165, %177 ]
+  %indvars.iv162 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next163, %177 ]
   %.4145 = phi i1 [ %.0.lcssa, %.lr.ph146 ], [ %.8, %177 ]
-  %113 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv164
+  %113 = getelementptr inbounds nuw [0 x ptr], ptr %31, i64 0, i64 %indvars.iv162
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 80
   %.val141 = load ptr, ptr %115, align 8
@@ -324,10 +324,10 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 177:                                              ; preds = %170, %172, %162
   %.8 = phi i1 [ %.7, %162 ], [ false, %172 ], [ false, %170 ]
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %178 = load i32, ptr %28, align 8
   %179 = sext i32 %178 to i64
-  %180 = icmp slt i64 %indvars.iv.next165, %179
+  %180 = icmp slt i64 %indvars.iv.next163, %179
   br i1 %180, label %112, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %177, %.preheader
@@ -349,9 +349,9 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %187
 
 187:                                              ; preds = %.lr.ph158, %206
-  %indvars.iv166 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next167, %206 ]
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next167, %206 ]
   %.0117148157 = phi ptr [ null, %.lr.ph158 ], [ %.1118, %206 ]
-  %188 = getelementptr inbounds nuw %union.ListCell, ptr %186, i64 %indvars.iv166
+  %188 = getelementptr inbounds nuw %union.ListCell, ptr %186, i64 %indvars.iv164
   %189 = load ptr, ptr %188, align 8
   %190 = load i32, ptr %189, align 8
   %191 = icmp eq i32 %190, %16
@@ -360,19 +360,19 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 .critedge:                                        ; preds = %206
   %.not133 = icmp eq ptr %.1118, null
   %192 = getelementptr inbounds nuw i8, ptr %.1118, i64 16
-  br i1 %.not133, label %.critedge.split.us.preheader, label %.critedge.split
+  br i1 %.not133, label %.critedge.split.us.preheader, label %198
 
 .critedge.split.us.preheader:                     ; preds = %.lr.ph151, %._crit_edge, %.critedge
-  br label %.critedge.split.us
+  br label %.critedge213
 
-.critedge.split.us:                               ; preds = %.critedge.split.us.preheader, %200
+.critedge213:; preds = %.critedge.split.us.preheader, %200
   %.9161.us = phi i1 [ %.10.us, %200 ], [ %.4.lcssa, %.critedge.split.us.preheader ]
   %.2122160.us = phi i32 [ %201, %200 ], [ 1, %.critedge.split.us.preheader ]
   %193 = and i32 %.2122160.us, 12
   %194 = icmp eq i32 %193, 8
   br i1 %194, label %200, label %switch.early.test.us
 
-switch.early.test.us:                             ; preds = %.critedge.split.us
+switch.early.test.us:; preds = %.critedge213
   switch i32 %.2122160.us, label %195 [
     i32 12, label %200
     i32 4, label %200
@@ -408,8 +408,8 @@ switch.early.test.us:                             ; preds = %.critedge.split.us
   %exitcond.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %187
 
-.critedge.split:                                  ; preds = %.critedge, %219
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %219 ], [ 1, %.critedge ]
+198:                                              ; preds = %.critedge, %212
+  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %219 ], [ 1, %.critedge ]
   %.9161 = phi i1 [ %.10, %219 ], [ %.4.lcssa, %.critedge ]
   %207 = load i64, ptr %192, align 8
   %208 = shl nuw nsw i64 1, %indvars.iv169
@@ -417,36 +417,36 @@ switch.early.test.us:                             ; preds = %.critedge.split.us
   %.not134 = icmp eq i64 %209, 0
   br i1 %.not134, label %210, label %219
 
-210:                                              ; preds = %.critedge.split
+210:; preds = %198
   %211 = trunc nuw nsw i64 %indvars.iv169 to i32
   %212 = and i32 %211, 12
   %213 = icmp eq i32 %212, 8
   br i1 %213, label %219, label %switch.early.test
 
-switch.early.test:                                ; preds = %210
+switch.early.test:; preds = %210
   switch i32 %211, label %214 [
     i32 12, label %219
     i32 4, label %219
     i32 3, label %219
   ]
 
-214:                                              ; preds = %switch.early.test
-  %215 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
-  br i1 %215, label %216, label %219
+207:                                              ; preds = %switch.early.test
+  %208 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  br i1 %208, label %209, label %212
 
-216:                                              ; preds = %214
-  %217 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %218 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef %211) #4
+209:                                              ; preds = %207
+  %210 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %211 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef %211) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 271, ptr noundef nonnull @__func__.gistvalidate) #4
-  br label %219
+  br label %212
 
-219:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %210, %214, %216, %.critedge.split
+212:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %210, %207, %209, %198
   %.10 = phi i1 [ %.9161, %.critedge.split ], [ %.9161, %switch.early.test ], [ false, %216 ], [ false, %214 ], [ %.9161, %210 ], [ %.9161, %switch.early.test ], [ %.9161, %switch.early.test ]
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next170, 13
-  br i1 %exitcond171.not, label %.split.us, label %.critedge.split, !llvm.loop !9
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next168, 13
+  br i1 %exitcond169.not, label %213, label %198, !llvm.loop !9
 
-.split.us:                                        ; preds = %219, %200
+213:                                              ; preds = %219, %200
   %.us-phi162 = phi i1 [ %.10.us, %200 ], [ %.10, %219 ]
   tail call void @ReleaseCatCacheList(ptr noundef %23) #4
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %22) #4

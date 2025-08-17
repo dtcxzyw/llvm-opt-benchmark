@@ -29196,8 +29196,8 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_25AppleAccel
   %15 = load i16, ptr %14, align 4, !tbaa !1754
   %16 = icmp eq i16 %15, 74
   %17 = icmp eq i64 %5, 0
-  %or.cond = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond, label %38, label %18
+  %or.cond18 = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond18, label %38, label %18
 
 18:                                               ; preds = %13
   %.not = icmp eq i32 %11, 2
@@ -29278,8 +29278,8 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_23AppleAccel
   %15 = load i16, ptr %14, align 4, !tbaa !1754
   %16 = icmp eq i16 %15, 74
   %17 = icmp eq i64 %5, 0
-  %or.cond = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond, label %38, label %18
+  %or.cond18 = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond18, label %38, label %18
 
 18:                                               ; preds = %13
   %.not = icmp eq i32 %11, 2

@@ -122,13 +122,13 @@ switch.early.test.i:                              ; preds = %39
     i32 0, label %keep_alive.exit
   ]
 
-59:                                               ; preds = %switch.early.test.i
+59:; preds = %switch.early.test.i
   br label %keep_alive.exit
 
-keep_alive.exit:                                  ; preds = %39, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %59
+keep_alive.exit:; preds = %39, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %59
   %.0.i = phi i32 [ 0, %59 ], [ %55, %switch.early.test.i ], [ 0, %39 ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ]
-  %60 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %31, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %43, i32 noundef %30, ptr noundef %45, ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef %49, ptr noundef %50, i32 noundef 0, ptr noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 1, i64 noundef 102400, i32 noundef %53, i32 noundef %.0.i) #5
-  %61 = call i32 @BIO_free(ptr noundef nonnull %13) #5
+  %67 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %31, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %43, i32 noundef %30, ptr noundef %45, ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef %49, ptr noundef %50, i32 noundef 0, ptr noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 1, i64 noundef 102400, i32 noundef %53, i32 noundef %.0.i) #5
+  %68 = call i32 @BIO_free(ptr noundef nonnull %13) #5
   %62 = call ptr @ASN1_item_d2i_bio(ptr noundef %6, ptr noundef %60, ptr noundef null) #5
   %63 = call i32 @BIO_free(ptr noundef %60) #5
   %64 = load ptr, ptr %31, align 8, !tbaa !29

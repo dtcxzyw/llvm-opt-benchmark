@@ -52,7 +52,7 @@ define internal range(i32 -2147483648, 1) i32 @hevc_mp4toannexb_init(ptr noundef
 
 29:                                               ; preds = %26, %10, %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.1) #7
-  br label %108
+  br label %110
 
 bytestream2_get_byte.exit.i:                      ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -75,7 +75,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %26
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i.preheader, %._crit_edge.i
-  %.046115.i = phi i32 [ %96, %._crit_edge.i ], [ 0, %.lr.ph116.i.preheader ]
+  %.046115.i = phi i32 [ %98, %._crit_edge.i ], [ 0, %.lr.ph116.i.preheader ]
   %.048114.i = phi i64 [ %.2.lcssa.i, %._crit_edge.i ], [ 0, %.lr.ph116.i.preheader ]
   %.sroa.0.0113.i = phi ptr [ %.sroa.0.2.lcssa.i, %._crit_edge.i ], [ %39, %.lr.ph116.i.preheader ]
   %40 = ptrtoint ptr %.sroa.0.0113.i to i64
@@ -112,9 +112,9 @@ bytestream2_get_be16.exit.i:                      ; preds = %50, %bytestream2_ge
   %.0.i63.i = phi i32 [ %54, %50 ], [ 0, %bytestream2_get_byte.exit62.i ]
   %55 = and i32 %.0.i61.i, 62
   %or.cond.i = icmp eq i32 %55, 32
-  br i1 %or.cond.i, label %57, label %switch.early.test.i
+  br i1 %or.cond.i, label %57, label %59
 
-switch.early.test.i:                              ; preds = %bytestream2_get_be16.exit.i
+59:                                               ; preds = %bytestream2_get_be16.exit.i
   switch i32 %47, label %56 [
     i32 40, label %57
     i32 39, label %57
@@ -125,11 +125,11 @@ switch.early.test.i:                              ; preds = %bytestream2_get_be1
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %47) #7
   br label %hevc_extradata_to_annexb.exit
 
-57:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %bytestream2_get_be16.exit.i
+.lr.ph.i:                                         ; preds = %59, %59, %59, %bytestream2_get_be16.exit.i
   %.not120.i = icmp eq i32 %.0.i63.i, 0
   br i1 %.not120.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %57, %80
+.lr.ph.i:; preds = %.lr.ph.i, %80
   %.047111.i = phi i32 [ %95, %80 ], [ 0, %57 ]
   %.2110.i = phi i64 [ %92, %80 ], [ %.048114.i, %57 ]
   %.sroa.0.2109.i = phi ptr [ %89, %80 ], [ %.sroa.0.7.i, %57 ]
@@ -139,35 +139,35 @@ switch.early.test.i:                              ; preds = %bytestream2_get_be1
   br i1 %60, label %hevc_extradata_to_annexb.exit, label %bytestream2_get_be16.exit65.i
 
 bytestream2_get_be16.exit65.i:                    ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.2109.i, i64 2
-  %62 = load i16, ptr %.sroa.0.2109.i, align 1, !tbaa !22
-  %63 = call i16 @llvm.bswap.i16(i16 %62)
-  %64 = zext i16 %63 to i32
-  %.not58.i = icmp eq i16 %62, 0
-  br i1 %.not58.i, label %hevc_extradata_to_annexb.exit, label %65
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.2109.i, i64 2
+  %64 = load i16, ptr %.sroa.0.2109.i, align 1, !tbaa !22
+  %65 = call i16 @llvm.bswap.i16(i16 %64)
+  %66 = zext i16 %65 to i32
+  %.not58.i = icmp eq i16 %64, 0
+  br i1 %.not58.i, label %hevc_extradata_to_annexb.exit, label %67
 
-65:                                               ; preds = %bytestream2_get_be16.exit65.i
-  %66 = ptrtoint ptr %61 to i64
-  %67 = sub i64 %32, %66
-  %68 = trunc i64 %67 to i32
-  %69 = icmp sgt i32 %64, %68
-  br i1 %69, label %hevc_extradata_to_annexb.exit, label %70
+67:                                               ; preds = %bytestream2_get_be16.exit65.i
+  %68 = ptrtoint ptr %63 to i64
+  %69 = sub i64 %32, %68
+  %70 = trunc i64 %69 to i32
+  %71 = icmp sgt i32 %66, %70
+  br i1 %71, label %hevc_extradata_to_annexb.exit, label %72
 
-70:                                               ; preds = %65
-  %71 = sub nuw nsw i32 -69, %64
-  %72 = sext i32 %71 to i64
-  %73 = icmp ugt i64 %.2110.i, %72
-  br i1 %73, label %hevc_extradata_to_annexb.exit, label %74
+72:                                               ; preds = %67
+  %73 = sub nuw nsw i32 -69, %66
+  %74 = sext i32 %73 to i64
+  %75 = icmp ugt i64 %.2110.i, %74
+  br i1 %75, label %hevc_extradata_to_annexb.exit, label %76
 
-74:                                               ; preds = %70
-  %75 = zext i16 %63 to i64
-  %76 = add nuw i64 %.2110.i, 68
-  %77 = add i64 %76, %75
-  %78 = call i32 @av_reallocp(ptr noundef nonnull %2, i64 noundef %77) #7
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %hevc_extradata_to_annexb.exit, label %80
+76:                                               ; preds = %72
+  %77 = zext i16 %65 to i64
+  %78 = add nuw i64 %.2110.i, 68
+  %79 = add i64 %78, %77
+  %80 = call i32 @av_reallocp(ptr noundef nonnull %2, i64 noundef %79) #7
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %hevc_extradata_to_annexb.exit, label %82
 
-80:                                               ; preds = %74
+82:                                               ; preds = %76
   %81 = load ptr, ptr %2, align 8, !tbaa !23
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.2110.i
   store i32 16777216, ptr %82, align 1, !tbaa !22
@@ -189,47 +189,47 @@ bytestream2_get_be16.exit65.i:                    ; preds = %.lr.ph.i
   %exitcond.not.i = icmp eq i32 %95, %.0.i63.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %80, %57
+._crit_edge.i:                                    ; preds = %82, %.lr.ph.i
   %.sroa.0.2.lcssa.i = phi ptr [ %.sroa.0.7.i, %57 ], [ %89, %80 ]
   %.2.lcssa.i = phi i64 [ %.048114.i, %57 ], [ %92, %80 ]
-  %96 = add nuw nsw i32 %.046115.i, 1
-  %exitcond125.not.i = icmp eq i32 %96, %38
+  %98 = add nuw nsw i32 %.046115.i, 1
+  %exitcond125.not.i = icmp eq i32 %98, %38
   br i1 %exitcond125.not.i, label %._crit_edge117.i, label %.lr.ph116.i, !llvm.loop !26
 
 ._crit_edge117.i:                                 ; preds = %._crit_edge.i, %bytestream2_get_byte.exit.i
   %.048.lcssa.i = phi i64 [ 0, %bytestream2_get_byte.exit.i ], [ %.2.lcssa.i, %._crit_edge.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %98 = load ptr, ptr %97, align 8, !tbaa !27
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  call void @av_freep(ptr noundef nonnull %99) #7
-  %100 = load ptr, ptr %2, align 8, !tbaa !23
-  %101 = load ptr, ptr %97, align 8, !tbaa !27
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %100, ptr %102, align 8, !tbaa !21
-  %103 = trunc i64 %.048.lcssa.i to i32
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store i32 %103, ptr %104, align 8, !tbaa !15
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !27
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  call void @av_freep(ptr noundef nonnull %101) #7
+  %102 = load ptr, ptr %2, align 8, !tbaa !23
+  %103 = load ptr, ptr %99, align 8, !tbaa !27
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  store ptr %102, ptr %104, align 8, !tbaa !21
+  %105 = trunc i64 %.048.lcssa.i to i32
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  store i32 %105, ptr %106, align 8, !tbaa !15
   %.not.i = icmp eq i64 %.048.lcssa.i, 0
-  br i1 %.not.i, label %105, label %106
+  br i1 %.not.i, label %107, label %108
 
-105:                                              ; preds = %._crit_edge117.i
+107:                                              ; preds = %._crit_edge117.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3) #7
-  br label %106
+  br label %108
 
-hevc_extradata_to_annexb.exit:                    ; preds = %.lr.ph.i, %bytestream2_get_be16.exit65.i, %65, %70, %74, %56
-  %.151.ph.i = phi i32 [ -1094995529, %56 ], [ %78, %74 ], [ -1094995529, %bytestream2_get_be16.exit65.i ], [ -1094995529, %65 ], [ -1094995529, %70 ], [ -1094995529, %.lr.ph.i ]
+hevc_extradata_to_annexb.exit:                    ; preds = %.lr.ph.i, %bytestream2_get_be16.exit65.i, %67, %72, %76, %56
+  %.151.ph.i = phi i32 [ -1094995529, %56 ], [ %80, %74 ], [ -1094995529, %bytestream2_get_be16.exit65.i ], [ -1094995529, %65 ], [ -1094995529, %70 ], [ -1094995529, %.lr.ph.i ]
   call void @av_freep(ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %108
+  br label %110
 
-106:                                              ; preds = %105, %._crit_edge117.i
+108:                                              ; preds = %107, %._crit_edge117.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 %narrow.i, ptr %4, align 4, !tbaa !28
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 1, ptr %107, align 4, !tbaa !30
-  br label %108
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 1, ptr %109, align 4, !tbaa !30
+  br label %110
 
-108:                                              ; preds = %hevc_extradata_to_annexb.exit, %29, %106
+110:                                              ; preds = %hevc_extradata_to_annexb.exit, %29, %108
   %.0 = phi i32 [ %.151.ph.i, %hevc_extradata_to_annexb.exit ], [ 0, %106 ], [ 0, %29 ]
   ret i32 %.0
 }

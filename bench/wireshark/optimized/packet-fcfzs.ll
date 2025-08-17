@@ -398,9 +398,9 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 111:                                              ; preds = %108, %103
   %.1 = phi i32 [ %25, %103 ], [ %., %108 ]
   %.0143 = phi i32 [ 0, %103 ], [ %.157, %108 ]
-  %.not170 = icmp eq i32 %.1, 32769
+  %.not169 = icmp eq i32 %.1, 32769
   %112 = load ptr, ptr %9, align 8
-  br i1 %.not170, label %.thread167, label %114
+  br i1 %.not169, label %.thread167, label %114
 
 .thread167:                                       ; preds = %111
   %113 = call ptr @val_to_str(i32 noundef %.0143, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
@@ -670,8 +670,8 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcfzs_rjt.exit
 
 238:                                              ; preds = %118
-  %.not172 = icmp eq ptr %.0141, null
-  br i1 %.not172, label %dissect_fcfzs_rjt.exit, label %switch.early.test
+  %.not174 = icmp eq ptr %.0141, null
+  br i1 %.not174, label %dissect_fcfzs_rjt.exit, label %switch.early.test
 
 switch.early.test:                                ; preds = %238
   switch i16 %24, label %239 [
@@ -705,16 +705,16 @@ switch.early.test:                                ; preds = %238
   br label %dissect_fcfzs_rjt.exit
 
 250:                                              ; preds = %118
-  %.not171 = icmp eq ptr %.0141, null
-  br i1 %.not171, label %dissect_fcfzs_rjt.exit, label %switch.early.test169
+  %.not173 = icmp eq ptr %.0141, null
+  br i1 %.not173, label %dissect_fcfzs_rjt.exit, label %switch.early.test172
 
-switch.early.test169:                             ; preds = %250
+switch.early.test172:                             ; preds = %250
   switch i16 %24, label %251 [
     i16 640, label %dissect_fcfzs_rjt.exit
     i16 384, label %dissect_fcfzs_rjt.exit
   ]
 
-251:                                              ; preds = %switch.early.test169
+251:                                              ; preds = %switch.early.test172
   %252 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
   %253 = zext i8 %252 to i32
   %254 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
@@ -727,7 +727,7 @@ switch.early.test169:                             ; preds = %250
   %259 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %dissect_fcfzs_rjt.exit
 
-dissect_fcfzs_rjt.exit:                           ; preds = %220, %.lr.ph.i159, %.lr.ph.i, %switch.early.test169, %switch.early.test169, %250, %switch.early.test, %switch.early.test, %238, %236, %236, %234, %234, %223, %134, %127, %251, %118, %239, %237, %235, %233, %226, %224, %198, %191, %171, %164, %162, %143, %141, %135, %128, %120, %119, %258, %249, %248, %247, %246
+dissect_fcfzs_rjt.exit:                           ; preds = %220, %.lr.ph.i159, %.lr.ph.i, %switch.early.test172, %switch.early.test172, %250, %switch.early.test, %switch.early.test, %238, %236, %236, %234, %234, %223, %134, %127, %251, %118, %239, %237, %235, %233, %226, %224, %198, %191, %171, %164, %162, %143, %141, %135, %128, %120, %119, %258, %249, %248, %247, %246
   %260 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %261
 

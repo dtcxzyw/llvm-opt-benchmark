@@ -116,10 +116,10 @@ switch.early.test.i:                              ; preds = %.noexc
     i32 136, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
   ]
 
-18:                                               ; preds = %switch.early.test.i
+12:                                               ; preds = %switch.early.test.i
   br label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
 
-_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit: ; preds = %18, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.noexc
+_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit:; preds = %18, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.noexc
   %19 = phi i1 [ false, %switch.early.test.i ], [ true, %18 ], [ false, %.noexc ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ]
   %20 = icmp ult i32 %2, 2
   %or.cond = and i1 %20, %19
@@ -127,7 +127,7 @@ _ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0E
   %spec.select9 = select i1 %or.cond, i32 %21, i32 %2
   br label %22
 
-22:                                               ; preds = %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit, %11
+22:; preds = %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit, %11
   %.0 = phi i32 [ %spec.select, %11 ], [ %spec.select9, %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit ]
   ret i32 %.0
 }
@@ -140,10 +140,10 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal14RtfTermContext21hasNestedTe
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 1023
   %7 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %6)
-  %.not = icmp eq i32 %7, 1
-  br i1 %.not, label %switch.edge, label %switch.early.test
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %switch.edge, label %switch.early.test
 
-switch.early.test:                                ; preds = %1
+switch.early.test:; preds = %1
   switch i32 %6, label %8 [
     i32 251, label %switch.edge
     i32 250, label %switch.edge

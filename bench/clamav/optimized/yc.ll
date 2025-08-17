@@ -37,12 +37,12 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 198
   %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7)
   switch i32 %27, label %29 [
-    i32 2, label %.loopexit
+    i32 2, label %.thread
     i32 1, label %28
   ]
 
 28:                                               ; preds = %9
-  br label %.loopexit
+  br label %.thread
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -70,14 +70,14 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %63, label %45
 
-45:                                               ; preds = %36
+45: ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %.fr = freeze i32 %47
-  %48 = icmp eq i32 %.fr, 0
+  %49 = icmp eq i32 %.fr, 0
   br i1 %48, label %63, label %switch.early.test
 
-switch.early.test:                                ; preds = %45
+switch.early.test:; preds = %45
   switch i32 %41, label %49 [
     i32 1936487470, label %63
     i32 1920168494, label %63
@@ -89,7 +89,7 @@ switch.early.test:                                ; preds = %45
     i32 1633969454, label %63
   ]
 
-49:                                               ; preds = %switch.early.test
+78:                                               ; preds = %switch.early.test
   %50 = and i32 %41, 65535
   %51 = icmp eq i32 %50, 17273
   br i1 %51, label %63, label %52
@@ -122,34 +122,34 @@ switch.early.test:                                ; preds = %45
   br i1 %exitcond.not, label %._crit_edge, label %36
 
 ._crit_edge:                                      ; preds = %63, %29
-  %64 = trunc i32 %4 to i16
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  store i16 %64, ptr %65, align 2, !tbaa !14
-  %66 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store i64 0, ptr %66, align 2
-  %67 = getelementptr inbounds nuw i8, ptr %24, i64 2575
-  %68 = load i32, ptr %67, align 1, !tbaa !12
-  %69 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %68, ptr %69, align 2, !tbaa !12
-  %70 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %71 = load i32, ptr %70, align 2, !tbaa !12
-  %72 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !15
-  %74 = sub i32 %71, %73
-  store i32 %74, ptr %70, align 2, !tbaa !12
-  %75 = zext i32 %32 to i64
-  %76 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef nonnull %1, i64 noundef %75) #3
-  %77 = icmp eq i64 %76, -1
-  br i1 %77, label %78, label %.loopexit
+  %79 = trunc i32 %4 to i16
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  store i16 %79, ptr %80, align 2, !tbaa !14
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  store i64 0, ptr %81, align 2
+  %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
+  %83 = load i32, ptr %82, align 1, !tbaa !12
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i32 %83, ptr %84, align 2, !tbaa !12
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %86 = load i32, ptr %85, align 2, !tbaa !12
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %88 = load i32, ptr %87, align 4, !tbaa !15
+  %89 = sub i32 %86, %88
+  store i32 %89, ptr %85, align 2, !tbaa !12
+  %90 = zext i32 %32 to i64
+  %91 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef nonnull %1, i64 noundef %90) #3
+  %92 = icmp eq i64 %91, -1
+  br i1 %92, label %93, label %.thread
 
-78:                                               ; preds = %._crit_edge
+93:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  br label %.loopexit
+  br label %.thread
 
-.loopexit.loopexit:                               ; preds = %57
-  br label %.loopexit
+.thread.loopexit:                                 ; preds = %57
+  br label %.thread
 
-.loopexit:                                        ; preds = %57, %.loopexit.loopexit, %56, %._crit_edge, %9, %78, %28
+.thread:                                          ; preds = %57, %.thread.loopexit, %56, %._crit_edge, %9, %93, %28
   %.0 = phi i32 [ 7, %78 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %56 ], [ 1, %.loopexit.loopexit ], [ 7, %57 ]
   ret i32 %.0
 }

@@ -7405,59 +7405,59 @@ define internal fastcc void @csv_print_field(ptr noundef readonly %0, ptr nounde
   %4 = sext i8 %2 to i32
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %4) #20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %12
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strcspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #20
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %.not15 = icmp eq i64 %7, %8
-  br i1 %.not15, label %9, label %12
+  br i1 %.not15, label %sub_0, label %15
 
-9:                                                ; preds = %6
+sub_0:                                            ; preds = %6
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.43) #20
   %.fr = freeze i32 %10
   %11 = icmp eq i32 %.fr, 0
   br i1 %11, label %12, label %switch.early.test
 
-switch.early.test:                                ; preds = %9
+switch.early.test:; preds = %sub_0
   switch i8 %2, label %24 [
     i8 92, label %12
     i8 46, label %12
   ]
 
-12:                                               ; preds = %switch.early.test, %switch.early.test, %9, %6, %3
-  %13 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
-  br label %14
+15:                                               ; preds = %switch.early.test, %switch.early.test, %9, %6, %3
+  %16 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+  br label %17
 
-14:                                               ; preds = %18, %12
-  %.0.i = phi ptr [ %0, %12 ], [ %22, %18 ]
-  %15 = load i8, ptr %.0.i, align 1
-  switch i8 %15, label %18 [
+17:                                               ; preds = %21, %15
+  %.0.i = phi ptr [ %0, %12 ], [ %25, %18 ]
+  %18 = load i8, ptr %.0.i, align 1
+  switch i8 %18, label %18 [
     i8 0, label %csv_escaped_print.exit
-    i8 34, label %16
+    i8 34, label %19
   ]
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+19:                                               ; preds = %17
+  %20 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
   %.pre.i = load i8, ptr %.0.i, align 1
-  br label %18
+  br label %21
 
-18:                                               ; preds = %16, %14
-  %19 = phi i8 [ %15, %14 ], [ %.pre.i, %16 ]
-  %20 = sext i8 %19 to i32
-  %21 = tail call i32 @fputc(i32 noundef %20, ptr noundef %1)
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %14, !llvm.loop !91
+21:                                               ; preds = %19, %17
+  %22 = phi i8 [ %18, %14 ], [ %.pre.i, %16 ]
+  %23 = sext i8 %22 to i32
+  %24 = tail call i32 @fputc(i32 noundef %23, ptr noundef %1)
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  br label %17, !llvm.loop !91
 
-csv_escaped_print.exit:                           ; preds = %14
-  %23 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
-  br label %26
+csv_escaped_print.exit:                           ; preds = %17
+  %26 = tail call i32 @fputc(i32 noundef 34, ptr noundef %1)
+  br label %29
 
-24:                                               ; preds = %switch.early.test
-  %25 = tail call i32 @fputs(ptr noundef nonnull %0, ptr noundef %1)
-  br label %26
+27:                                               ; preds = %switch.early.test
+  %28 = tail call i32 @fputs(ptr noundef nonnull %0, ptr noundef %1)
+  br label %29
 
-26:                                               ; preds = %24, %csv_escaped_print.exit
+29:                                               ; preds = %27, %csv_escaped_print.exit
   ret void
 }
 

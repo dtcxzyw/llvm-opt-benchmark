@@ -2977,7 +2977,7 @@ define noundef i32 @res_findResource_77(ptr noundef readonly captures(none) %0, 
   br label %18
 
 18:                                               ; preds = %.preheader, %77
-  %.0.fr79 = phi i32 [ %9, %.preheader ], [ %78, %77 ]
+  %.079 = phi i32 [ %9, %.preheader ], [ %78, %77 ]
   %.06878 = phi i32 [ %1, %.preheader ], [ %.067.fr, %77 ]
   %.07077 = phi ptr [ %7, %.preheader ], [ %79, %77 ]
   %19 = load i8, ptr %.07077, align 1, !tbaa !13
@@ -2987,7 +2987,7 @@ define noundef i32 @res_findResource_77(ptr noundef readonly captures(none) %0, 
   br i1 %or.cond9, label %22, label %.critedge
 
 22:                                               ; preds = %18
-  %23 = icmp eq i32 %.0.fr79, 2
+  %23 = icmp eq i32 %.079, 2
   %24 = and i32 %.0.fr79, 14
   %25 = icmp eq i32 %24, 4
   %or.cond13 = or i1 %23, %25

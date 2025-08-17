@@ -588,13 +588,13 @@ _load_cluster_settings.exit:                      ; preds = %63, %65, %67
   %79 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %80 = load i32, ptr %78, align 8
   %81 = load i32, ptr %79, align 4
-  %.not139236 = icmp eq i32 %80, %81
-  br i1 %.not139236, label %.loopexit, label %.lr.ph
+  %.not139235 = icmp eq i32 %80, %81
+  br i1 %.not139235, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %578
-  %.196239 = phi i32 [ %.398, %578 ], [ 0, %.preheader ]
-  %.1107238 = phi ptr [ %.3109, %578 ], [ null, %.preheader ]
-  %.1112237 = phi ptr [ %.3114208, %578 ], [ null, %.preheader ]
+  %.196238 = phi i32 [ %.398, %578 ], [ 0, %.preheader ]
+  %.1107237 = phi ptr [ %.3109, %578 ], [ null, %.preheader ]
+  %.1112236 = phi ptr [ %.3114208, %578 ], [ null, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %82 = load i16, ptr %12, align 2
@@ -808,19 +808,19 @@ split:                                            ; preds = %94, %96, %100, %104
 197:                                              ; preds = %191
   %198 = and i64 %131, 282624
   %or.cond193 = icmp eq i64 %198, 0
-  %or.cond216 = or i1 %or.cond, %or.cond193
-  br i1 %or.cond216, label %208, label %199
+  %or.cond215 = or i1 %or.cond, %or.cond193
+  br i1 %or.cond215, label %208, label %199
 
 199:                                              ; preds = %197
   %200 = and i32 %89, -67391489
-  %.not165 = icmp eq ptr %.1112237, null
+  %.not165 = icmp eq ptr %.1112236, null
   %201 = load ptr, ptr %14, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 272
   %203 = load ptr, ptr %202, align 8
   br i1 %.not165, label %206, label %204
 
 204:                                              ; preds = %199
-  %205 = call i32 @hostset_insert(ptr noundef nonnull %.1112237, ptr noundef %203) #15
+  %205 = call i32 @hostset_insert(ptr noundef nonnull %.1112236, ptr noundef %203) #15
   br label %208
 
 206:                                              ; preds = %199
@@ -828,7 +828,7 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %208
 
 208:                                              ; preds = %204, %206, %197
-  %.5116 = phi ptr [ %.1112237, %197 ], [ %.1112237, %204 ], [ %207, %206 ]
+  %.5116 = phi ptr [ %.1112236, %197 ], [ %.1112236, %204 ], [ %207, %206 ]
   %.0100 = phi i32 [ %89, %197 ], [ %200, %204 ], [ %200, %206 ]
   %209 = and i32 %.0100, 15
   %210 = icmp eq i32 %209, 6
@@ -896,14 +896,14 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %250
 
 .critedge:                                        ; preds = %234
-  %.not156 = icmp eq ptr %.1112237, null
+  %.not156 = icmp eq ptr %.1112236, null
   %243 = load ptr, ptr %14, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 272
   %245 = load ptr, ptr %244, align 8
   br i1 %.not156, label %248, label %246
 
 246:                                              ; preds = %.critedge
-  %247 = call i32 @hostset_insert(ptr noundef nonnull %.1112237, ptr noundef %245) #15
+  %247 = call i32 @hostset_insert(ptr noundef nonnull %.1112236, ptr noundef %245) #15
   br label %250
 
 248:                                              ; preds = %.critedge
@@ -911,7 +911,7 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %250
 
 250:                                              ; preds = %242, %248, %246, %240
-  %.7 = phi ptr [ %.1112237, %240 ], [ %.1112237, %242 ], [ %.1112237, %246 ], [ %249, %248 ]
+  %.7 = phi ptr [ %.1112236, %240 ], [ %.1112236, %242 ], [ %.1112236, %246 ], [ %249, %248 ]
   %251 = load ptr, ptr %14, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 112
   %253 = load i16, ptr %252, align 8
@@ -954,7 +954,7 @@ split:                                            ; preds = %94, %96, %100, %104
 
 280:                                              ; preds = %232, %250
   %281 = phi ptr [ %254, %250 ], [ %192, %232 ]
-  %.6 = phi ptr [ %.7, %250 ], [ %.1112237, %232 ]
+  %.6 = phi ptr [ %.7, %250 ], [ %.1112236, %232 ]
   %282 = and i64 %131, 32768
   %.not157 = icmp eq i64 %282, 0
   br i1 %.not157, label %287, label %283
@@ -1021,7 +1021,7 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %314
 
 314:                                              ; preds = %218, %299, %310, %312, %302, %221, %190
-  %.4115 = phi ptr [ %.1112237, %190 ], [ %.5116, %218 ], [ %.6, %302 ], [ %.6, %310 ], [ %313, %312 ], [ %.6, %299 ], [ %.1112237, %221 ]
+  %.4115 = phi ptr [ %.1112236, %190 ], [ %.5116, %218 ], [ %.6, %302 ], [ %.6, %310 ], [ %313, %312 ], [ %.6, %299 ], [ %.1112236, %221 ]
   %315 = load ptr, ptr %9, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 128
   %317 = load ptr, ptr %316, align 8
@@ -1139,19 +1139,19 @@ split:                                            ; preds = %94, %96, %100, %104
 376:                                              ; preds = %169
   %377 = and i64 %131, 282624
   %or.cond196 = icmp eq i64 %377, 0
-  %or.cond217 = or i1 %or.cond, %or.cond196
-  br i1 %or.cond217, label %387, label %378
+  %or.cond216 = or i1 %or.cond, %or.cond196
+  br i1 %or.cond216, label %387, label %378
 
 378:                                              ; preds = %376
   %379 = and i32 %89, -282625
-  %.not174 = icmp eq ptr %.1112237, null
+  %.not174 = icmp eq ptr %.1112236, null
   %380 = load ptr, ptr %14, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 272
   %382 = load ptr, ptr %381, align 8
   br i1 %.not174, label %385, label %383
 
 383:                                              ; preds = %378
-  %384 = call i32 @hostset_insert(ptr noundef nonnull %.1112237, ptr noundef %382) #15
+  %384 = call i32 @hostset_insert(ptr noundef nonnull %.1112236, ptr noundef %382) #15
   br label %387
 
 385:                                              ; preds = %378
@@ -1159,7 +1159,7 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %387
 
 387:                                              ; preds = %383, %385, %376
-  %.8 = phi ptr [ %.1112237, %376 ], [ %.1112237, %383 ], [ %386, %385 ]
+  %.8 = phi ptr [ %.1112236, %376 ], [ %.1112236, %383 ], [ %386, %385 ]
   %.2102 = phi i32 [ %89, %376 ], [ %379, %383 ], [ %379, %385 ]
   %388 = load ptr, ptr %9, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 320
@@ -1168,8 +1168,8 @@ split:                                            ; preds = %94, %96, %100, %104
   %.not175 = icmp eq i32 %391, 0
   %392 = and i32 %.2102, 67633152
   %or.cond197 = icmp eq i32 %392, 0
-  %or.cond218 = select i1 %.not175, i1 %or.cond197, i1 false
-  br i1 %or.cond218, label %.thread204, label %393
+  %or.cond217 = select i1 %.not175, i1 %or.cond197, i1 false
+  br i1 %or.cond217, label %.thread204, label %393
 
 393:                                              ; preds = %387
   %394 = load ptr, ptr %14, align 8
@@ -1361,9 +1361,9 @@ split:                                            ; preds = %94, %96, %100, %104
 
 ._crit_edge:                                      ; preds = %509, %.thread275, %.thread204
   %514 = phi ptr [ %504, %.thread204 ], [ %365, %.thread275 ], [ %.pre270.pre, %509 ]
-  %.3114207 = phi ptr [ %.8, %.thread204 ], [ %.4115, %.thread275 ], [ %.1112237, %509 ]
+  %.3114207 = phi ptr [ %.8, %.thread204 ], [ %.4115, %.thread275 ], [ %.1112236, %509 ]
   %515 = phi ptr [ %507, %.thread204 ], [ %368, %.thread275 ], [ %.pr.pre, %509 ]
-  %516 = add nsw i32 %.196239, 1
+  %516 = add nsw i32 %.196238, 1
   %517 = getelementptr inbounds nuw i8, ptr %514, i64 280
   %518 = load i32, ptr %517, align 8
   %519 = getelementptr inbounds nuw i8, ptr %515, i64 280
@@ -1375,13 +1375,13 @@ split:                                            ; preds = %94, %96, %100, %104
   br i1 %523, label %524, label %531
 
 524:                                              ; preds = %._crit_edge
-  %.not181 = icmp eq ptr %.1107238, null
+  %.not181 = icmp eq ptr %.1107237, null
   %525 = getelementptr inbounds nuw i8, ptr %514, i64 272
   %526 = load ptr, ptr %525, align 8
   br i1 %.not181, label %529, label %527
 
 527:                                              ; preds = %524
-  %528 = call i32 @hostlist_push(ptr noundef nonnull %.1107238, ptr noundef %526) #15
+  %528 = call i32 @hostlist_push(ptr noundef nonnull %.1107237, ptr noundef %526) #15
   br label %531
 
 529:                                              ; preds = %524
@@ -1389,7 +1389,7 @@ split:                                            ; preds = %94, %96, %100, %104
   br label %531
 
 531:                                              ; preds = %527, %529, %._crit_edge
-  %.4110 = phi ptr [ %.1107238, %527 ], [ %530, %529 ], [ %.1107238, %._crit_edge ]
+  %.4110 = phi ptr [ %.1107237, %527 ], [ %530, %529 ], [ %.1107237, %._crit_edge ]
   %532 = load ptr, ptr %14, align 8
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 408
   %534 = load i64, ptr %533, align 8
@@ -1400,13 +1400,13 @@ split:                                            ; preds = %94, %96, %100, %104
 535:                                              ; preds = %531
   %536 = getelementptr inbounds nuw i8, ptr %.pre268, i64 320
   %537 = load i32, ptr %536, align 8
-  %.fr215 = freeze i32 %537
-  %538 = and i32 %.fr215, 15
+  %.fr241 = freeze i32 %537
+  %538 = and i32 %.fr241, 15
   %539 = icmp eq i32 %538, 1
   br i1 %539, label %542, label %540
 
 540:                                              ; preds = %535
-  %541 = and i32 %.fr215, 512
+  %541 = and i32 %.fr241, 512
   %.not183 = icmp eq i32 %541, 0
   br i1 %.not183, label %544, label %switch.early.test
 
@@ -1490,9 +1490,9 @@ switch.early.test:                                ; preds = %540
 
 578:                                              ; preds = %509, %570, %574, %563
   %579 = phi ptr [ %532, %563 ], [ %532, %570 ], [ %.pre269, %574 ], [ %.pre270.pre, %509 ]
-  %.3114208 = phi ptr [ %.3114207, %563 ], [ %.3114207, %570 ], [ %.3114207, %574 ], [ %.1112237, %509 ]
-  %.3109 = phi ptr [ %.4110, %563 ], [ %.4110, %570 ], [ %.4110, %574 ], [ %.1107238, %509 ]
-  %.398 = phi i32 [ %516, %563 ], [ %516, %570 ], [ %516, %574 ], [ %.196239, %509 ]
+  %.3114208 = phi ptr [ %.3114207, %563 ], [ %.3114207, %570 ], [ %.3114207, %574 ], [ %.1112236, %509 ]
+  %.3109 = phi ptr [ %.4110, %563 ], [ %.4110, %570 ], [ %.4110, %574 ], [ %.1107237, %509 ]
+  %.398 = phi i32 [ %516, %563 ], [ %516, %570 ], [ %516, %574 ], [ %.196238, %509 ]
   call void @purge_node_rec(ptr noundef %579) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %580 = load i32, ptr %78, align 8
@@ -1563,9 +1563,9 @@ switch.early.test:                                ; preds = %540
   br label %606
 
 600:                                              ; preds = %.thread209, %_load_cluster_settings.exit, %35, %75, %58, %46
-  %.0111 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1112237, %.thread209 ]
-  %.0106 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1107238, %.thread209 ]
-  %.095 = phi i32 [ 0, %58 ], [ 0, %_load_cluster_settings.exit ], [ 0, %75 ], [ 0, %46 ], [ 0, %35 ], [ %.196239, %.thread209 ]
+  %.0111 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1112236, %.thread209 ]
+  %.0106 = phi ptr [ null, %58 ], [ null, %_load_cluster_settings.exit ], [ null, %75 ], [ null, %46 ], [ null, %35 ], [ %.1107237, %.thread209 ]
+  %.095 = phi i32 [ 0, %58 ], [ 0, %_load_cluster_settings.exit ], [ 0, %75 ], [ 0, %46 ], [ 0, %35 ], [ %.196238, %.thread209 ]
   %601 = load i8, ptr @ignore_state_errors, align 1, !range !11, !noundef !12
   %602 = trunc nuw i8 %601 to i1
   br i1 %602, label %604, label %603

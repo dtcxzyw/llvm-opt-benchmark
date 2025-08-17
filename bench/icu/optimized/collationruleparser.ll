@@ -5437,8 +5437,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %27, %.lr.ph.i
   %49 = icmp slt i64 %indvars.iv.next.i, %48
   br i1 %49, label %.lr.ph.i, label %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, !llvm.loop !58
 
-_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %37, %3
-  %.0.lcssa.i = phi i32 [ %1, %3 ], [ %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %38, %37 ]
+_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit:; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %37, %3
+  %49 = phi i32 [ %1, %3 ], [ %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ %38, %37 ]
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %51 = load ptr, ptr %10, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -5449,10 +5449,10 @@ _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_771
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = select i1 %54, i32 %58, i32 %56
-  %.not8797 = icmp slt i32 %.0.lcssa.i, %59
+  %.not8797 = icmp slt i32 %49, %59
   br i1 %.not8797, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, %.outer.backedge
+.lr.ph:; preds = %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, %.outer94
   %60 = phi i32 [ %179, %.outer.backedge ], [ %59, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ]
   %61 = phi i16 [ %173, %.outer.backedge ], [ %53, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ]
   %62 = phi ptr [ %171, %.outer.backedge ], [ %51, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ]
@@ -5461,15 +5461,15 @@ _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_771
   %63 = sext i32 %.028.ph98 to i64
   br label %64
 
-64:                                               ; preds = %.lr.ph, %.backedge
+67:                                               ; preds = %.lr.ph, %94
   %65 = phi i32 [ %60, %.lr.ph ], [ %113, %.backedge ]
   %66 = phi i16 [ %61, %.lr.ph ], [ %107, %.backedge ]
   %67 = phi ptr [ %62, %.lr.ph ], [ %105, %.backedge ]
   %.088 = phi i32 [ %.0.ph99, %.lr.ph ], [ %.028.ph98, %.backedge ]
   %68 = icmp ult i32 %.028.ph98, %65
-  br i1 %68, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66
+  br i1 %68, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %64
+_ZNK6icu_7713UnicodeString6charAtEi.exit:; preds = %67
   %69 = and i16 %66, 2
   %.not.i.i.i = icmp eq i16 %69, 0
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 10
@@ -5518,12 +5518,12 @@ switch.early.test:                                ; preds = %switch.lookup, %_ZN
     i16 45, label %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66
   ]
 
-82:                                               ; preds = %switch.early.test
+_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit: ; preds = %switch.early.test
   %83 = load i16, ptr %6, align 8, !tbaa !35
   %84 = icmp ugt i16 %83, 31
   br i1 %84, label %85, label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-85:                                               ; preds = %82
+85:; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit
   %86 = icmp slt i16 %83, 0
   %87 = ashr i16 %83, 5
   %88 = sext i16 %87 to i32
@@ -5554,9 +5554,9 @@ _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %85
 
 104:                                              ; preds = %93
   call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  br i1 %or.cond564, label %.loopexit, label %.backedge
+  br i1 %or.cond564, label %.loopexit, label %94
 
-.backedge:                                        ; preds = %104, %117, %121
+94:                                               ; preds = %104, %117, %121
   %105 = load ptr, ptr %10, align 8, !tbaa !17
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i16, ptr %106, align 8, !tbaa !35
@@ -5569,23 +5569,23 @@ _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %85
   %.not = icmp slt i32 %.028.ph98, %113
   br i1 %.not, label %64, label %.loopexit
 
-114:                                              ; preds = %93
-  %.not72 = icmp eq i32 %99, 0
-  br i1 %.not72, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %115
+95:                                               ; preds = %93
+  %96 = icmp eq i32 %99, 0
+  br i1 %96, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %115
 
-115:                                              ; preds = %114
+97:                                               ; preds = %95
   %116 = icmp slt i32 %99, 1025
   br i1 %116, label %117, label %121
 
-117:                                              ; preds = %115
+117:; preds = %97
   %118 = and i16 %94, 31
   %.tr.i.i.i = trunc i32 %100 to i16
   %119 = shl i16 %.tr.i.i.i, 5
   %120 = or disjoint i16 %119, %118
   store i16 %120, ptr %6, align 8, !tbaa !35
-  br i1 %or.cond564, label %.loopexit, label %.backedge
+  br i1 %or.cond564, label %.loopexit, label %94
 
-121:                                              ; preds = %115
+121:; preds = %97
   %122 = or i16 %94, -32
   store i16 %122, ptr %6, align 8, !tbaa !35
   store i32 %100, ptr %50, align 4, !tbaa !35
@@ -5597,8 +5597,8 @@ _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %85
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @_ZZNK6icu_7719CollationRuleParser9readWordsEiRNS_13UnicodeStringEE2sp) #17, !srcloc !43
   resume { ptr, i32 } %124
 
-_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66: ; preds = %64, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %switch.early.test, %switch.early.test, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit
-  %or.cond563 = phi i1 [ %or.cond564, %switch.early.test ], [ %or.cond564, %switch.early.test ], [ false, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit ], [ false, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ false, %64 ]
+_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread: ; preds = %64, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %switch.early.test, %switch.early.test, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit
+  %.0.i.i5258 = phi i1 [ %or.cond564, %switch.early.test ], [ %or.cond564, %switch.early.test ], [ false, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit ], [ false, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ false, %64 ]
   %.0.i.i5261 = phi i16 [ %75, %switch.early.test ], [ %75, %switch.early.test ], [ %75, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit ], [ %75, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ -1, %64 ]
   %125 = zext i16 %.0.i.i5261 to i32
   %126 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %125)
@@ -5609,86 +5609,86 @@ _ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66: ; preds = %64, %_
 128:                                              ; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 32, ptr %5, align 2, !tbaa !31
-  %129 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
+  %109 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %130 = load ptr, ptr %10, align 8, !tbaa !17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load i16, ptr %131, align 8, !tbaa !35
-  %133 = icmp slt i16 %132, 0
-  %134 = ashr i16 %132, 5
-  %135 = sext i16 %134 to i32
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 12
-  %137 = load i32, ptr %136, align 4
-  %138 = select i1 %133, i32 %137, i32 %135
-  %139 = icmp slt i32 %127, %138
-  br i1 %139, label %.lr.ph.preheader.i38, label %_ZN6icu_7713UnicodeString8truncateEi.exit
+  %110 = load ptr, ptr %10, align 8, !tbaa !17
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load i16, ptr %111, align 8, !tbaa !35
+  %113 = icmp slt i16 %112, 0
+  %114 = ashr i16 %112, 5
+  %115 = sext i16 %114 to i32
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 12
+  %117 = load i32, ptr %116, align 4
+  %118 = select i1 %113, i32 %117, i32 %115
+  %119 = icmp slt i32 %127, %118
+  br i1 %119, label %.lr.ph.preheader.i38, label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 .lr.ph.preheader.i38:                             ; preds = %128
-  %140 = sext i32 %127 to i64
+  %120 = sext i32 %127 to i64
   br label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %156, %.lr.ph.preheader.i38
-  %indvars.iv.i40 = phi i64 [ %140, %.lr.ph.preheader.i38 ], [ %indvars.iv.next.i45, %156 ]
-  %141 = phi i32 [ %138, %.lr.ph.preheader.i38 ], [ %166, %156 ]
-  %142 = phi i16 [ %132, %.lr.ph.preheader.i38 ], [ %160, %156 ]
-  %143 = phi ptr [ %130, %.lr.ph.preheader.i38 ], [ %158, %156 ]
-  %.04.i41 = phi i32 [ %127, %.lr.ph.preheader.i38 ], [ %157, %156 ]
-  %144 = trunc nsw i64 %indvars.iv.i40 to i32
-  %145 = icmp ugt i32 %141, %144
-  br i1 %145, label %146, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
+.lr.ph.i39:                                       ; preds = %136, %.lr.ph.preheader.i38
+  %indvars.iv.i40 = phi i64 [ %120, %.lr.ph.preheader.i38 ], [ %indvars.iv.next.i45, %156 ]
+  %121 = phi i32 [ %118, %.lr.ph.preheader.i38 ], [ %146, %156 ]
+  %122 = phi i16 [ %112, %.lr.ph.preheader.i38 ], [ %140, %156 ]
+  %123 = phi ptr [ %110, %.lr.ph.preheader.i38 ], [ %138, %156 ]
+  %.04.i41 = phi i32 [ %127, %.lr.ph.preheader.i38 ], [ %137, %156 ]
+  %124 = trunc nsw i64 %indvars.iv.i40 to i32
+  %125 = icmp ugt i32 %121, %124
+  br i1 %125, label %126, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
 
-146:                                              ; preds = %.lr.ph.i39
-  %147 = and i16 %142, 2
-  %.not.i.i.i.i46 = icmp eq i16 %147, 0
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 10
-  %149 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %150 = load ptr, ptr %149, align 8
-  %151 = select i1 %.not.i.i.i.i46, ptr %150, ptr %148
-  %152 = getelementptr inbounds i16, ptr %151, i64 %indvars.iv.i40
-  %153 = load i16, ptr %152, align 2, !tbaa !31
-  %154 = zext i16 %153 to i32
+126:                                              ; preds = %.lr.ph.i39
+  %127 = and i16 %122, 2
+  %.not.i.i.i.i46 = icmp eq i16 %127, 0
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 10
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %130 = load ptr, ptr %129, align 8
+  %131 = select i1 %.not.i.i.i.i46, ptr %130, ptr %128
+  %132 = getelementptr inbounds i16, ptr %131, i64 %indvars.iv.i40
+  %133 = load i16, ptr %132, align 2, !tbaa !31
+  %134 = zext i16 %133 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.i42:     ; preds = %146, %.lr.ph.i39
-  %.0.i.i.i43 = phi i32 [ %154, %146 ], [ 65535, %.lr.ph.i39 ]
-  %155 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i.i43)
-  %.not.i44 = icmp eq i8 %155, 0
-  br i1 %.not.i44, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %156
+_ZNK6icu_7713UnicodeString6charAtEi.exit.i42:     ; preds = %126, %.lr.ph.i39
+  %.0.i.i.i43 = phi i32 [ %134, %146 ], [ 65535, %.lr.ph.i39 ]
+  %135 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i.i43)
+  %.not.i44 = icmp eq i8 %135, 0
+  br i1 %.not.i44, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %136
 
-156:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
+136:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i40, 1
-  %157 = add nsw i32 %.04.i41, 1
-  %158 = load ptr, ptr %10, align 8, !tbaa !17
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %160 = load i16, ptr %159, align 8, !tbaa !35
-  %161 = icmp slt i16 %160, 0
-  %162 = ashr i16 %160, 5
-  %163 = sext i16 %162 to i32
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 12
-  %165 = load i32, ptr %164, align 4
-  %166 = select i1 %161, i32 %165, i32 %163
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next.i45, %167
-  br i1 %168, label %.lr.ph.i39, label %_ZN6icu_7713UnicodeString8truncateEi.exit, !llvm.loop !58
+  %137 = add nsw i32 %.04.i41, 1
+  %138 = load ptr, ptr %10, align 8, !tbaa !17
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load i16, ptr %139, align 8, !tbaa !35
+  %141 = icmp slt i16 %140, 0
+  %142 = ashr i16 %140, 5
+  %143 = sext i16 %142 to i32
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 12
+  %145 = load i32, ptr %144, align 4
+  %146 = select i1 %141, i32 %145, i32 %143
+  %147 = sext i32 %146 to i64
+  %148 = icmp slt i64 %indvars.iv.next.i45, %147
+  br i1 %148, label %.lr.ph.i39, label %_ZN6icu_7713UnicodeString8truncateEi.exit, !llvm.loop !58
 
-169:                                              ; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66
+149:                                              ; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %.0.i.i5261, ptr %4, align 2, !tbaa !31
-  %170 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
+  %150 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %or.cond563, label %.loopexit, label %.outer.backedge
+  br i1 %or.cond563, label %.loopexit, label %.outer94
 
-_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %114, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %82, %156, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42, %128
-  %or.cond562 = phi i1 [ %or.cond563, %128 ], [ %or.cond563, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond563, %156 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond564, %114 ]
+_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %95, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %82, %156, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42, %128
+  %.129 = phi i1 [ %.0.i.i5258, %128 ], [ %.0.i.i5258, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond563, %156 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond567, %114 ]
   %.129 = phi i32 [ %127, %128 ], [ %157, %156 ], [ %144, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph98, %82 ], [ %.028.ph98, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph98, %114 ]
   %.2 = phi i32 [ %.088, %128 ], [ %.088, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.088, %156 ], [ %.028.ph98, %82 ], [ %.028.ph98, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph98, %114 ]
-  br i1 %or.cond562, label %.loopexit, label %.outer.backedge
+  br i1 %.129, label %.loopexit, label %.outer94
 
-.outer.backedge:                                  ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %169
+.outer94:; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %169
   %.028.ph.be = phi i32 [ %127, %169 ], [ %.129, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
   %.0.ph.be = phi i32 [ %.088, %169 ], [ %.2, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
-  %171 = load ptr, ptr %10, align 8, !tbaa !17
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %158 = load ptr, ptr %10, align 8, !tbaa !17
+  %172 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %173 = load i16, ptr %172, align 8, !tbaa !35
   %174 = icmp slt i16 %173, 0
   %175 = ashr i16 %173, 5

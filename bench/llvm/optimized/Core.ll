@@ -2288,27 +2288,27 @@ define dso_local range(i32 0, 2) i32 @LLVMTypeIsSized(ptr noundef %0) local_unna
   %or.cond1 = or i1 %or.cond, %spec.select.i.i
   br i1 %or.cond1, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %6
+switch.early.test.i:; preds = %6
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split.i [
     i8 14, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
     i8 10, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
     i8 15, label %9
-    i8 16, label %9
+    i8 16, label %13
     i8 20, label %9
-    i8 18, label %9
-    i8 17, label %9
+    i8 18, label %13
+    i8 17, label %13
   ]
 
-9:                                                ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %10 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef null) #35
-  %11 = zext i1 %10 to i32
+13:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef null) #35
+  %15 = zext i1 %14 to i32
   br label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split.i: ; preds = %switch.early.test.i
   br label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %6, %1, %switch.early.test.i, %switch.early.test.i, %9, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split.i
-  %.0.i = phi i32 [ %11, %9 ], [ 1, %switch.early.test.i ], [ 1, %1 ], [ 1, %switch.early.test.i ], [ 0, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split.i ], [ 1, %6 ]
+  %.0.i = phi i32 [ %15, %9 ], [ 1, %switch.early.test.i ], [ 1, %1 ], [ 1, %switch.early.test.i ], [ 0, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split.i ], [ 1, %6 ]
   ret i32 %.0.i
 }
 

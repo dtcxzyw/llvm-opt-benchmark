@@ -64,44 +64,44 @@ declare ptr @dictCreate(ptr noundef) local_unnamed_addr #1
 define dso_local void @blockClient(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !34
-  %.fr12 = freeze i64 %4
-  %5 = and i64 %.fr12, 2
-  %.not13 = icmp eq i64 %5, 0
-  br i1 %.not13, label %.critedge, label %switch.early.test
+  %.fr16 = freeze i64 %4
+  %5 = and i64 %.fr16, 2
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %8, label %switch.early.test
 
 switch.early.test:                                ; preds = %2
   switch i32 %1, label %6 [
-    i32 9, label %.critedge
-    i32 4, label %.critedge
-    i32 7, label %.critedge
+    i32 9, label %8
+    i32 4, label %8
+    i32 7, label %8
   ]
 
-6:                                                ; preds = %switch.early.test
+7:                                                ; preds = %switch.early.test
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
   tail call void @abort() #6
   unreachable
 
-.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %2
-  %7 = or i64 %.fr12, 16
-  store i64 %7, ptr %3, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 %1, ptr %8, align 8, !tbaa !5
-  %9 = and i64 %.fr12, 134217728
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %13
+8:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %2
+  %9 = or i64 %.fr16, 16
+  store i64 %9, ptr %3, align 8, !tbaa !34
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 %1, ptr %10, align 8, !tbaa !5
+  %11 = and i64 %.fr16, 134217728
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %12, label %15
 
-10:                                               ; preds = %.critedge
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  %12 = add i32 %11, 1
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  br label %13
+12:                                               ; preds = %8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  %14 = add i32 %13, 1
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  br label %15
 
-13:                                               ; preds = %10, %.critedge
-  %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !56
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 4, !tbaa !56
+15:                                               ; preds = %12, %8
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !56
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !56
   tail call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
   ret void
 }
@@ -1073,13 +1073,13 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not48 = icmp eq i32 %5, 0
-  %wide.trip.count62 = zext nneg i32 %3 to i64
+  %wide.trip.count60 = zext nneg i32 %3 to i64
   br i1 %.not48, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %42 ], [ 0, %.lr.ph ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %42 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %15, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv59
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv57
   %19 = load ptr, ptr %18, align 8, !tbaa !102
   %20 = call ptr @dictAddRaw(ptr noundef %17, ptr noundef %19, ptr noundef null) #5
   %.not46.us = icmp eq ptr %20, null
@@ -1121,9 +1121,9 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %42
 
 42:                                               ; preds = %37, %.lr.ph.split.us
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !106
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !106
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
@@ -1188,7 +1188,7 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 78:                                               ; preds = %75, %73, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %78, %42, %13
@@ -1196,15 +1196,15 @@ define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 %5, ptr %79, align 8, !tbaa !32
   %.not45 = icmp eq i32 %1, 4
   %80 = load i64, ptr %8, align 8, !tbaa !34
-  %.fr12.i = freeze i64 %80
+  %.fr16.i = freeze i64 %80
   br i1 %.not45, label %.split, label %.split40
 
 .split:                                           ; preds = %._crit_edge
-  %81 = or i64 %.fr12.i, 16
+  %81 = or i64 %.fr16.i, 16
   store i64 %81, ptr %8, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 4, ptr %82, align 8, !tbaa !5
-  %83 = and i64 %.fr12.i, 134217728
+  %83 = and i64 %.fr16.i, 134217728
   %.not.i = icmp eq i64 %83, 0
   br i1 %.not.i, label %84, label %blockClient.exit
 
@@ -1218,50 +1218,50 @@ blockClient.exit:                                 ; preds = %.split, %84
   %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7608), align 8, !tbaa !56
   %88 = add i32 %87, 1
   store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7608), align 8, !tbaa !56
-  br label %102
+  br label %104
 
 .split40:                                         ; preds = %._crit_edge
-  %89 = or i64 %.fr12.i, 1073741824
+  %89 = or i64 %.fr16.i, 1073741824
   store i64 %89, ptr %8, align 8, !tbaa !34
-  %90 = and i64 %.fr12.i, 2
-  %.not13.i51 = icmp eq i64 %90, 0
-  br i1 %.not13.i51, label %.critedge.i53, label %switch.early.test.i52
+  %90 = and i64 %.fr16.i, 2
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %93, label %switch.early.test.i51
 
-switch.early.test.i52:                            ; preds = %.split40
+switch.early.test.i51:                            ; preds = %.split40
   switch i32 %1, label %91 [
-    i32 9, label %.critedge.i53
-    i32 7, label %.critedge.i53
+    i32 9, label %93
+    i32 7, label %93
   ]
 
-91:                                               ; preds = %switch.early.test.i52
+92:                                               ; preds = %switch.early.test.i51
   call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
   call void @abort() #6
   unreachable
 
-.critedge.i53:                                    ; preds = %switch.early.test.i52, %switch.early.test.i52, %.split40
-  %92 = or i64 %.fr12.i, 1073741840
-  store i64 %92, ptr %8, align 8, !tbaa !34
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 %1, ptr %93, align 8, !tbaa !5
-  %94 = and i64 %.fr12.i, 134217728
-  %.not.i54 = icmp eq i64 %94, 0
-  br i1 %.not.i54, label %95, label %blockClient.exit55
+93:                                               ; preds = %switch.early.test.i51, %switch.early.test.i51, %.split40
+  %94 = or i64 %.fr16.i, 1073741840
+  store i64 %94, ptr %8, align 8, !tbaa !34
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 %1, ptr %95, align 8, !tbaa !5
+  %96 = and i64 %.fr16.i, 134217728
+  %.not.i52 = icmp eq i64 %96, 0
+  br i1 %.not.i52, label %97, label %blockClient.exit53
 
-95:                                               ; preds = %.critedge.i53
-  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  %97 = add i32 %96, 1
-  store i32 %97, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  br label %blockClient.exit55
+97:                                               ; preds = %93
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  %99 = add i32 %98, 1
+  store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  br label %blockClient.exit53
 
-blockClient.exit55:                               ; preds = %.critedge.i53, %95
-  %98 = sext i32 %1 to i64
-  %99 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4, !tbaa !56
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 4, !tbaa !56
-  br label %102
+blockClient.exit53:                               ; preds = %93, %97
+  %100 = sext i32 %1 to i64
+  %101 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7592), i64 0, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !56
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %101, align 4, !tbaa !56
+  br label %104
 
-102:                                              ; preds = %blockClient.exit, %blockClient.exit55
+104:                                              ; preds = %blockClient.exit, %blockClient.exit53
   call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -1372,35 +1372,35 @@ define dso_local void @blockForReplication(ptr noundef initializes((488, 496), (
   %10 = tail call ptr @listAddNodeHead(ptr noundef %9, ptr noundef %0) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !34
-  %.fr12.i = freeze i64 %12
-  %13 = and i64 %.fr12.i, 2
-  %.not13.i = icmp eq i64 %13, 0
-  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
+  %.fr16.i = freeze i64 %12
+  %13 = and i64 %.fr16.i, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %4
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
   tail call void @abort() #6
   unreachable
 
-.critedge.i:                                      ; preds = %4
-  %14 = or i64 %.fr12.i, 16
-  store i64 %14, ptr %11, align 8, !tbaa !34
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 2, ptr %15, align 8, !tbaa !5
-  %16 = and i64 %.fr12.i, 134217728
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %17, label %blockClient.exit
+15:                                               ; preds = %4
+  %16 = or i64 %.fr16.i, 16
+  store i64 %16, ptr %11, align 8, !tbaa !34
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 2, ptr %17, align 8, !tbaa !5
+  %18 = and i64 %.fr16.i, 134217728
+  %.not.i = icmp eq i64 %18, 0
+  br i1 %.not.i, label %19, label %blockClient.exit
 
-17:                                               ; preds = %.critedge.i
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  %19 = add i32 %18, 1
-  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+19:                                               ; preds = %15
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  %21 = add i32 %20, 1
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
   br label %blockClient.exit
 
-blockClient.exit:                                 ; preds = %.critedge.i, %17
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7600), align 8, !tbaa !56
-  %21 = add i32 %20, 1
-  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7600), align 8, !tbaa !56
+blockClient.exit:                                 ; preds = %15, %19
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7600), align 8, !tbaa !56
+  %23 = add i32 %22, 1
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7600), align 8, !tbaa !56
   tail call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
   ret void
 }
@@ -1422,62 +1422,62 @@ define dso_local void @blockForAofFsync(ptr noundef initializes((488, 496), (512
   %12 = tail call ptr @listAddNodeHead(ptr noundef %11, ptr noundef %0) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !34
-  %.fr12.i = freeze i64 %14
-  %15 = and i64 %.fr12.i, 2
-  %.not13.i = icmp eq i64 %15, 0
-  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
+  %.fr16.i = freeze i64 %14
+  %15 = and i64 %.fr16.i, 2
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %5
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
   tail call void @abort() #6
   unreachable
 
-.critedge.i:                                      ; preds = %5
-  %16 = or i64 %.fr12.i, 16
-  store i64 %16, ptr %13, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 3, ptr %17, align 8, !tbaa !5
-  %18 = and i64 %.fr12.i, 134217728
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %19, label %blockClient.exit
+17:                                               ; preds = %5
+  %18 = or i64 %.fr16.i, 16
+  store i64 %18, ptr %13, align 8, !tbaa !34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 3, ptr %19, align 8, !tbaa !5
+  %20 = and i64 %.fr16.i, 134217728
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %21, label %blockClient.exit
 
-19:                                               ; preds = %.critedge.i
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  %21 = add i32 %20, 1
-  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+21:                                               ; preds = %17
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  %23 = add i32 %22, 1
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
   br label %blockClient.exit
 
-blockClient.exit:                                 ; preds = %.critedge.i, %19
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7604), align 4, !tbaa !56
-  %23 = add i32 %22, 1
-  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7604), align 4, !tbaa !56
+blockClient.exit:                                 ; preds = %17, %21
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7604), align 4, !tbaa !56
+  %25 = add i32 %24, 1
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7604), align 4, !tbaa !56
   tail call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @blockPostponeClient(ptr noundef initializes((480, 484), (488, 496)) %0) local_unnamed_addr #0 {
-.critedge.i:
+switch.early.test.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 0, ptr %1, align 8, !tbaa !28
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !34
-  %.fr12.i = freeze i64 %3
-  %4 = or i64 %.fr12.i, 16
+  %.fr16.i = freeze i64 %3
+  %4 = or i64 %.fr16.i, 16
   store i64 %4, ptr %2, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 7, ptr %5, align 8, !tbaa !5
-  %6 = and i64 %.fr12.i, 134217728
+  %6 = and i64 %.fr16.i, 134217728
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %7, label %blockClient.exit
 
-7:                                                ; preds = %.critedge.i
+7:                                                ; preds = %switch.early.test.i
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
   %9 = add i32 %8, 1
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
   br label %blockClient.exit
 
-blockClient.exit:                                 ; preds = %.critedge.i, %7
+blockClient.exit:                                 ; preds = %switch.early.test.i, %7
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7620), align 4, !tbaa !56
   %11 = add i32 %10, 1
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7620), align 4, !tbaa !56
@@ -1499,35 +1499,35 @@ blockClient.exit:                                 ; preds = %.critedge.i, %7
 define dso_local void @blockClientShutdown(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !34
-  %.fr12.i = freeze i64 %3
-  %4 = and i64 %.fr12.i, 2
-  %.not13.i = icmp eq i64 %4, 0
-  br i1 %.not13.i, label %.critedge.i, label %switch.early.test.i
+  %.fr16.i = freeze i64 %3
+  %4 = and i64 %.fr16.i, 2
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %6, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %1
   tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 72) #5
   tail call void @abort() #6
   unreachable
 
-.critedge.i:                                      ; preds = %1
-  %5 = or i64 %.fr12.i, 16
-  store i64 %5, ptr %2, align 8, !tbaa !34
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 8, ptr %6, align 8, !tbaa !5
-  %7 = and i64 %.fr12.i, 134217728
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %blockClient.exit
+6:                                                ; preds = %1
+  %7 = or i64 %.fr16.i, 16
+  store i64 %7, ptr %2, align 8, !tbaa !34
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store i32 8, ptr %8, align 8, !tbaa !5
+  %9 = and i64 %.fr16.i, 134217728
+  %.not.i = icmp eq i64 %9, 0
+  br i1 %.not.i, label %10, label %blockClient.exit
 
-8:                                                ; preds = %.critedge.i
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
-  %10 = add i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+10:                                               ; preds = %6
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
+  %12 = add i32 %11, 1
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7588), align 4, !tbaa !35
   br label %blockClient.exit
 
-blockClient.exit:                                 ; preds = %.critedge.i, %8
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7624), align 8, !tbaa !56
-  %12 = add i32 %11, 1
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7624), align 8, !tbaa !56
+blockClient.exit:                                 ; preds = %6, %10
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7624), align 8, !tbaa !56
+  %14 = add i32 %13, 1
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7624), align 8, !tbaa !56
   tail call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
   ret void
 }
