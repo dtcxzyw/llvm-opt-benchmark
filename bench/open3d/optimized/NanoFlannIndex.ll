@@ -113160,7 +113160,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIlfEESaIS2_EE6resizeEm.exit.i.i.i.i.i: ; pre
   %99 = load ptr, ptr %98, align 8, !tbaa !1235
   %100 = getelementptr float, ptr %99, i64 %96
   %101 = zext nneg i32 %.025.lcssa.i.i.i.i.i to i64
-  %wide.trip.count.i.i.i.i.i = zext i32 %78 to i64
+  %wide.trip.count.i.i.i.i.i = zext nneg i32 %78 to i64
   br label %.critedge.i.i.i.i.i
 
 102:                                              ; preds = %69, %.noexc30.i.i.i.i.i, %49, %_ZN9nanoflann15RadiusResultSetIflEC2EfRSt6vectorINS_10ResultItemIlfEESaIS4_EE.exit.i.i.i.i.i.i
@@ -114030,7 +114030,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIlfEESaIS2_EE6resizeEm.exit.i.i.i.i.i: ; pre
   %99 = load ptr, ptr %98, align 8, !tbaa !1235
   %100 = getelementptr float, ptr %99, i64 %96
   %101 = zext nneg i32 %.025.lcssa.i.i.i.i.i to i64
-  %wide.trip.count.i.i.i.i.i = zext i32 %78 to i64
+  %wide.trip.count.i.i.i.i.i = zext nneg i32 %78 to i64
   br label %.critedge.i.i.i.i.i
 
 102:                                              ; preds = %69, %.noexc30.i.i.i.i.i, %49, %_ZN9nanoflann15RadiusResultSetIflEC2EfRSt6vectorINS_10ResultItemIlfEESaIS4_EE.exit.i.i.i.i.i.i
@@ -117462,7 +117462,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE6resizeEm.exit.i.i.i.i.i: ; pre
   %99 = load ptr, ptr %98, align 8, !tbaa !1600
   %100 = getelementptr double, ptr %99, i64 %96
   %101 = zext nneg i32 %.025.lcssa.i.i.i.i.i to i64
-  %wide.trip.count.i.i.i.i.i = zext i32 %78 to i64
+  %wide.trip.count.i.i.i.i.i = zext nneg i32 %78 to i64
   br label %.critedge.i.i.i.i.i
 
 102:                                              ; preds = %69, %.noexc30.i.i.i.i.i, %49, %_ZN9nanoflann15RadiusResultSetIdlEC2EdRSt6vectorINS_10ResultItemIldEESaIS4_EE.exit.i.i.i.i.i.i
@@ -118337,7 +118337,7 @@ _ZNSt6vectorIN9nanoflann10ResultItemIldEESaIS2_EE6resizeEm.exit.i.i.i.i.i: ; pre
   %99 = load ptr, ptr %98, align 8, !tbaa !1600
   %100 = getelementptr double, ptr %99, i64 %96
   %101 = zext nneg i32 %.025.lcssa.i.i.i.i.i to i64
-  %wide.trip.count.i.i.i.i.i = zext i32 %78 to i64
+  %wide.trip.count.i.i.i.i.i = zext nneg i32 %78 to i64
   br label %.critedge.i.i.i.i.i
 
 102:                                              ; preds = %69, %.noexc30.i.i.i.i.i, %49, %_ZN9nanoflann15RadiusResultSetIdlEC2EdRSt6vectorINS_10ResultItemIldEESaIS4_EE.exit.i.i.i.i.i.i

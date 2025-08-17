@@ -5040,7 +5040,7 @@ IsAvailableOnList.exit.thread:                    ; preds = %23, %70, %.lr.ph.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8FindDataFormat(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2147483647) i32 @cmsIT8FindDataFormat(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8

@@ -7597,7 +7597,7 @@ define internal fastcc void @Cnf_AddCardinConstr(ptr noundef %0, ptr noundef cap
 54:                                               ; preds = %46, %._crit_edge
   %.137 = phi i32 [ %47, %46 ], [ %44, %._crit_edge ]
   store i32 %.137, ptr %5, align 4, !tbaa !38
-  %55 = icmp sgt i32 %.137, 1
+  %55 = icmp samesign ugt i32 %.137, 1
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge58, !llvm.loop !178
 
 ._crit_edge58:                                    ; preds = %54, %.critedge

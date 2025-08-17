@@ -675,9 +675,9 @@ detect_scene_change.exit:                         ; preds = %42, %47
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph5.i.i
 
 .lr.ph5.i.i:                                      ; preds = %332
-  %334 = call i32 @llvm.smax.i32(i32 %309, i32 1)
+  %334 = call i32 @llvm.umax.i32(i32 %309, i32 1)
   %335 = load i32, ptr %278, align 8, !tbaa !88
-  %336 = add i32 %309, 2
+  %336 = add nuw i32 %309, 2
   %.170.i.i = call i32 @llvm.smin.i32(i32 %336, i32 %335)
   %.not13.i.i = icmp sgt i32 %334, %.170.i.i
   br i1 %.not13.i.i, label %.loopexit.i.i, label %.lr.ph5.split.us.i.i
@@ -4141,6 +4141,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

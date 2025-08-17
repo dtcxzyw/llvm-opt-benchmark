@@ -2625,7 +2625,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN12_GLOBAL__N_1
   %47 = load ptr, ptr %43, align 8, !tbaa !74
   %48 = load i64, ptr %47, align 8, !tbaa !39
   %49 = sext i32 %32 to i64
-  %50 = sext i32 %45 to i64
+  %50 = zext nneg i32 %45 to i64
   %51 = add nuw i32 %31, 1
   %invariant.gep63.i.i.i = getelementptr double, ptr %46, i64 %34
   %invariant.gep.i.i.i = getelementptr i8, ptr %37, i64 %50

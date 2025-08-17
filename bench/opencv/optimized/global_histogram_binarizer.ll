@@ -1064,7 +1064,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit77:                 ; preds = %_ZN5zxing3RefINS_9B
 .lr.ph95:                                         ; preds = %.lr.ph98.split
   %194 = trunc nuw nsw i64 %indvars.iv106 to i32
   %195 = mul nsw i32 %192, %194
-  %196 = zext i32 %195 to i64
+  %196 = zext nneg i32 %195 to i64
   br label %202
 
 ._crit_edge96.loopexit:                           ; preds = %225

@@ -1271,8 +1271,8 @@ _ZN12_GLOBAL__N_19EMDSolver8calcCostERKN2cv3MatES4_iPFfPKfS6_iES4_.exit.thread.i
   %.val49.i.i = load ptr, ptr %416, align 8, !tbaa !83
   %484 = trunc nuw nsw i64 %indvars.iv64.i.i to i32
   %485 = mul nsw i32 %477, %484
-  %486 = sext i32 %485 to i64
-  %487 = getelementptr inbounds float, ptr %.val49.i.i, i64 %486
+  %486 = zext nneg i32 %485 to i64
+  %487 = getelementptr inbounds nuw float, ptr %.val49.i.i, i64 %486
   %488 = zext nneg i32 %477 to i64
   %489 = shl nuw nsw i64 %488, 2
   call void @llvm.memset.p0.i64(ptr align 4 %487, i8 0, i64 %489, i1 false), !tbaa !47
@@ -1293,8 +1293,8 @@ _ZN12_GLOBAL__N_19EMDSolver8calcCostERKN2cv3MatES4_iPFfPKfS6_iES4_.exit.thread.i
   %495 = load ptr, ptr %475, align 8
   %.val47.i.us.i = load ptr, ptr %416, align 8
   %496 = mul nsw i32 %477, %491
-  %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds float, ptr %.val47.i.us.i, i64 %497
+  %497 = zext nneg i32 %496 to i64
+  %498 = getelementptr inbounds nuw float, ptr %.val47.i.us.i, i64 %497
   br label %499
 
 499:                                              ; preds = %511, %.lr.ph55.i39.split.us.i

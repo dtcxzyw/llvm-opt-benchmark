@@ -4164,7 +4164,7 @@ _ZN13GrowableArrayImEC2Ei.exit:                   ; preds = %_ZN13GrowableArrayI
   %25 = call noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull align 8 dereferenceable(73) %24) #14
   br i1 %25, label %.lr.ph, label %_ZN13GrowableArrayIlED2Ev.exit
 
-.lr.ph99:                                         ; preds = %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE6appendERKm.exit
+.preheader:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE6appendERKm.exit
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -4315,10 +4315,10 @@ _ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE6appendERKm.exit: ; preds = 
   %93 = getelementptr inbounds nuw i64, ptr %.sroa.16.1, i64 %indvars.iv
   store i64 %71, ptr %93, align 8
   %94 = call noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull align 8 dereferenceable(73) %24) #14
-  br i1 %94, label %.lr.ph, label %.lr.ph99, !llvm.loop !23
+  br i1 %94, label %.lr.ph, label %.preheader, !llvm.loop !23
 
-95:                                               ; preds = %.lr.ph99, %95
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next107, %95 ]
+95:                                               ; preds = %.preheader, %95
+  %indvars.iv106 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next107, %95 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   store i8 1, ptr %26, align 8
   store i8 0, ptr %27, align 1

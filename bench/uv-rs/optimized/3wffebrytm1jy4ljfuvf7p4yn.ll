@@ -46,19 +46,15 @@ define void @_ZN8uv_shell5shlex30escape_posix_for_single_quotes17h3f6b8d581dbeb6
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !6
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !6
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %15
-  %storemerge.i = phi i64 [ 0, %15 ], [ %64, %58 ]
-  %.lcssa7578.i = phi i64 [ 0, %15 ], [ %.lcssa7579.i, %58 ]
-  %.sroa.531.0.i = phi i64 [ undef, %15 ], [ %.sroa.531.149.i, %58 ]
-  %.sroa.732.0.i = phi i64 [ undef, %15 ], [ %.sroa.732.150.i, %58 ]
-  %.sroa.07.0.i = phi i64 [ 0, %15 ], [ %.sroa.732.150.i, %58 ]
-  store i64 %storemerge.i, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !6
+  %.promoted.i2985.i = phi i64 [ 0, %15 ], [ %31, %58 ]
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %33, %.lr.ph.i.i
-  %18 = phi i64 [ %31, %33 ], [ %.lcssa7578.i, %.lr.ph.i.i ]
+  %18 = phi i64 [ %31, %33 ], [ %.promoted.i2985.i, %.lr.ph.i.i ]
   %19 = sub nuw i64 %2, %18
   %20 = getelementptr inbounds i8, ptr %1, i64 %18
   %21 = icmp ult i64 %19, 16
@@ -87,10 +83,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
 .noexc36.i:                                       ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
-  switch i64 %28, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread42.i" [
-    i64 1, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
-    i64 0, label %.critedge.i
-  ]
+  %switch.i.i = icmp eq i64 %28, 1
+  br i1 %switch.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %.critedge.i
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %.noexc36.i
   %.sroa.4.0.i26.i.i = phi i64 [ %29, %.noexc36.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
@@ -120,8 +114,9 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
           cleanup
   br label %12
 
-.critedge.i:                                      ; preds = %.noexc36.i, %33, %.preheader.i.i.i, %25
-  %gepdiff57.i = sub nsw i64 %2, %.sroa.07.0.i
+.critedge.i:                                      ; preds = %58, %33, %.noexc36.i, %.preheader.i.i.i, %25
+  %.promoted.i2969.i = phi i64 [ %.promoted.i2985.i, %25 ], [ %.promoted.i2985.i, %.preheader.i.i.i ], [ %.promoted.i2985.i, %.noexc36.i ], [ %.promoted.i2985.i, %33 ], [ %31, %58 ]
+  %gepdiff57.i = sub nsw i64 %2, %.promoted.i2969.i
   %36 = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !alias.scope !19, !noalias !6, !noundef !9
   %37 = load i64, ptr %5, align 8, !range !26, !alias.scope !19, !noalias !6, !noundef !9
   %38 = sub i64 %37, %36
@@ -136,12 +131,9 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %.pre.i.i.i = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !alias.scope !28, !noalias !6
   br label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h92a5e33452eff17aE.exit"
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread42.i": ; preds = %.noexc36.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit.i.i"
-  %.lcssa7579.i = phi i64 [ %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit.i.i" ], [ %2, %.noexc36.i ]
-  %.sroa.732.150.i = phi i64 [ %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit.i.i" ], [ %.sroa.732.0.i, %.noexc36.i ]
-  %.sroa.531.149.i = phi i64 [ %32, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit.i.i" ], [ %.sroa.531.0.i, %.noexc36.i ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.i
-  %gepdiff.i = sub nsw i64 %.sroa.531.149.i, %.sroa.07.0.i
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread42.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit.i.i"
+  %41 = getelementptr inbounds i8, ptr %1, i64 %.promoted.i2985.i
+  %gepdiff.i = sub nsw i64 %32, %.promoted.i2985.i
   %42 = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !alias.scope !29, !noalias !6, !noundef !9
   %43 = load i64, ptr %5, align 8, !range !26, !alias.scope !29, !noalias !6, !noundef !9
   %44 = sub i64 %43, %42
@@ -188,7 +180,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %62, ptr noundef nonnull align 1 dereferenceable(5) @anon.77d94f5363dedbf1bea444be1ed78dcf.19, i64 5, i1 false), !noalias !11
   %63 = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !alias.scope !44, !noalias !6, !noundef !9
   %64 = add i64 %63, 5
-  br label %.lr.ph.i.i
+  store i64 %64, ptr %.sroa.515.0..sroa_idx.i, align 8, !alias.scope !44, !noalias !6
+  br i1 %.not13.i.i, label %.critedge.i, label %.lr.ph.i.i
 
 65:                                               ; preds = %12
   %66 = landingpad { ptr, i32 }
@@ -201,7 +194,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
 
 "_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h92a5e33452eff17aE.exit": ; preds = %.critedge.i, %.noexc38.i
   %68 = phi i64 [ %36, %.critedge.i ], [ %.pre.i.i.i, %.noexc38.i ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.0.i
+  %69 = getelementptr inbounds i8, ptr %1, i64 %.promoted.i2969.i
   %70 = icmp sgt i64 %68, -1
   call void @llvm.assume(i1 %70)
   %71 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !28, !noalias !6, !nonnull !9, !noundef !9

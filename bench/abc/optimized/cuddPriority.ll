@@ -1161,7 +1161,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %28 = icmp ne i32 %27, 1
   %29 = zext i1 %28 to i32
   %30 = add nsw i32 %26, %29
-  %31 = add i32 %30, 1
+  %31 = add nsw i32 %30, 1
   %32 = shl i32 %.0180280, 1
   %33 = or disjoint i32 %32, 1
   %34 = ashr i32 %2, %25

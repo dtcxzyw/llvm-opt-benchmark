@@ -2411,13 +2411,13 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
 .lr.ph256.split.us.i:                             ; preds = %.lr.ph256.i
   %190 = load ptr, ptr %101, align 8, !tbaa !69
   %191 = mul nsw i32 %180, %184
-  %192 = sext i32 %191 to i64
+  %192 = zext nneg i32 %191 to i64
   %193 = zext nneg i32 %180 to i64
   br label %194
 
 194:                                              ; preds = %194, %.lr.ph256.split.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %194 ], [ 0, %.lr.ph256.split.us.i ]
-  %195 = add nsw i64 %indvars.iv, %192
+  %195 = add nuw nsw i64 %indvars.iv, %192
   %.idx91 = shl i64 %195, 3
   %196 = getelementptr i8, ptr %190, i64 %.idx91
   store float 0.000000e+00, ptr %196, align 4, !tbaa !71

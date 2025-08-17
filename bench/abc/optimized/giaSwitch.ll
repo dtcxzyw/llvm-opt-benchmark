@@ -373,7 +373,7 @@ Abc_Clock.exit130:                                ; preds = %57, %87
 .lr.ph27.split.i.preheader:                       ; preds = %.preheader.i
   %108 = zext nneg i32 %28 to i64
   %109 = shl nuw nsw i64 %108, 2
-  %110 = sext i32 %.0.lcssa.i to i64
+  %110 = zext nneg i32 %.0.lcssa.i to i64
   %111 = zext nneg i32 %28 to i64
   br label %.lr.ph27.split.i
 
@@ -405,8 +405,8 @@ Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
 
 .lr.ph27.split.i:                                 ; preds = %.lr.ph27.split.i.preheader, %.lr.ph27.split.i
   %indvars.iv293 = phi i64 [ %110, %.lr.ph27.split.i.preheader ], [ %indvars.iv.next294, %.lr.ph27.split.i ]
-  %121 = mul nsw i64 %indvars.iv293, %111
-  %122 = getelementptr inbounds i32, ptr %42, i64 %121
+  %121 = mul nuw nsw i64 %indvars.iv293, %111
+  %122 = getelementptr inbounds nuw i32, ptr %42, i64 %121
   call void @llvm.memset.p0.i64(ptr align 4 %122, i8 0, i64 %109, i1 false), !tbaa !53
   %.val.val.pre.i = load i32, ptr %105, align 4, !tbaa !43
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1

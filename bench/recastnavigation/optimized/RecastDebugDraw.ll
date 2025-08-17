@@ -2058,8 +2058,8 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
   %.092107 = phi i32 [ %56, %.lr.ph ], [ %109, %60 ]
   %61 = load ptr, ptr %24, align 8
   %62 = shl nsw i32 %.092107, 2
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %61, i64 %63
   %.idx = shl nsw i64 %indvars.iv, 4
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12

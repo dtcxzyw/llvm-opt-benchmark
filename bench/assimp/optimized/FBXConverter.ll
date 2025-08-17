@@ -1007,6 +1007,7 @@ $_ZTSSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE = comd
 @_ZTISt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [69 x i8] c"St15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @.str.231 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
+@switch.table._ZN6Assimp3FBX12FBXConverter31NeedsComplexTransformationChainERKNS0_5ModelE = private unnamed_addr constant [17 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr poison, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.30, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.31, ptr @.str.22, ptr @.str.25, ptr @.str.24, ptr @.str.23], align 8
 @switch.table._ZN6Assimp3FBX12FBXConverter27NameTransformationChainNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18TransformationCompE = private unnamed_addr constant [17 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.25, ptr @.str.24, ptr @.str.23], align 8
 @switch.table._ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEiP6aiNodeSD_ = private unnamed_addr constant [3 x i32] [i32 1, i32 2, i32 4], align 4
 @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_ = private unnamed_addr constant [17 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.30, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.31, ptr @.str.22, ptr @.str.25, ptr @.str.24, ptr @.str.23], align 8
@@ -14094,7 +14095,7 @@ switch.lookup:                                    ; preds = %9
   %13 = icmp eq i64 %.03063, 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = and i64 %.03063, 4294967295
-  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter22GenerateNodeAnimationsERSt6vectorIP10aiNodeAnimSaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS2_IPKNS0_18AnimationCurveNodeESaISI_EERKSt3mapISI_PKNS0_14AnimationLayerESt4lessISI_ESaISt4pairIKSI_SQ_EEEllRdS10_, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN6Assimp3FBX12FBXConverter31NeedsComplexTransformationChainERKNS0_5ModelE, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %7, ptr %4, align 8
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28

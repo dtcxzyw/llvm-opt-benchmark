@@ -2553,15 +2553,15 @@ define internal noundef i32 @vfat_hashi(ptr noundef %0, ptr noundef captures(non
   br i1 %23, label %15, label %24, !llvm.loop !6
 
 24:                                               ; preds = %19
-  %25 = ptrtoint ptr %0 to i64
-  %26 = trunc nuw i64 %16 to i32
+  %25 = trunc nuw i64 %16 to i32
+  %26 = ptrtoint ptr %0 to i64
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %29, %24
-  %30 = phi i64 [ %25, %24 ], [ %46, %29 ]
-  %31 = phi i32 [ %26, %24 ], [ %33, %29 ]
+  %30 = phi i64 [ %26, %24 ], [ %46, %29 ]
+  %31 = phi i32 [ %25, %24 ], [ %33, %29 ]
   %32 = phi ptr [ %10, %24 ], [ %34, %29 ]
   %33 = add i32 %31, -1
   %34 = getelementptr i8, ptr %32, i64 1

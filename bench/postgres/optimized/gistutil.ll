@@ -362,8 +362,8 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr %11, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %25 = trunc nuw nsw i64 %indvars.iv51 to i32
-  %26 = ashr i32 %25, 3
-  %27 = sext i32 %26 to i64
+  %26 = lshr i64 %indvars.iv51, 3
+  %27 = and i64 %26, 536870911
   %28 = and i32 %25, 7
   %29 = shl nuw nsw i32 1, %28
   %30 = getelementptr inbounds nuw [32 x %struct.FmgrInfo], ptr %19, i64 0, i64 %indvars.iv51
@@ -463,7 +463,7 @@ define dso_local void @gistMakeUnionItVec(ptr noundef %0, ptr noundef readonly c
 
 84:                                               ; preds = %47
   %85 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %27
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %27
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = and i32 %29, %88

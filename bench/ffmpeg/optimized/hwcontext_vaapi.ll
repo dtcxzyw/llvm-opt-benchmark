@@ -1227,9 +1227,9 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %44, align 8, !tbaa !94
-  %63 = add nsw i32 %.2, 1
-  %64 = sext i32 %.2 to i64
-  %65 = getelementptr inbounds %struct._VASurfaceAttrib, ptr %62, i64 %64
+  %63 = add nuw nsw i32 %.2, 1
+  %64 = zext nneg i32 %.2 to i64
+  %65 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %62, i64 %64
   %66 = load i32, ptr %14, align 4, !tbaa !45
   store i32 1, ptr %65, align 8, !tbaa !26
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 4

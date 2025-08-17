@@ -5984,8 +5984,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i: ; preds = %.lr.ph.s
   %139 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hefa91f9719f66b93E(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %132, i64 noundef %131), !noalias !817
   %140 = extractvalue { i64, i64 } %139, 0
   %141 = extractvalue { i64, i64 } %139, 1
-  %switch = icmp eq i64 %140, 1
-  br i1 %switch, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %_ZN10supermaven30supermaven_completion_provider42trim_to_end_of_line_unless_leading_newline17ha0365a7b7ed7e1d7E.exit
+  %switch.i.i.i = icmp eq i64 %140, 1
+  br i1 %switch.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i, label %_ZN10supermaven30supermaven_completion_provider42trim_to_end_of_line_unless_leading_newline17ha0365a7b7ed7e1d7E.exit
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i
   %.sroa.4.0.i26.i.i.i = phi i64 [ %141, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i ], [ %.sroa.01.05.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -6013,8 +6013,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i: ; preds = 
   %spec.select = select i1 %147, i64 %144, i64 %64
   br label %_ZN10supermaven30supermaven_completion_provider42trim_to_end_of_line_unless_leading_newline17ha0365a7b7ed7e1d7E.exit
 
-_ZN10supermaven30supermaven_completion_provider42trim_to_end_of_line_unless_leading_newline17ha0365a7b7ed7e1d7E.exit: ; preds = %102, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i, %.preheader.i.i.i.i, %145, %137, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h4513ff833c025330E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %spec.select, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h4513ff833c025330E.exit.i" ], [ %64, %137 ], [ %64, %145 ], [ %64, %.preheader.i.i.i.i ], [ %64, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i ], [ %64, %102 ]
+_ZN10supermaven30supermaven_completion_provider42trim_to_end_of_line_unless_leading_newline17ha0365a7b7ed7e1d7E.exit: ; preds = %102, %.preheader.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i, %145, %137, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h4513ff833c025330E.exit.i"
+  %.sroa.4.0.i = phi i64 [ %spec.select, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h4513ff833c025330E.exit.i" ], [ %64, %137 ], [ %64, %145 ], [ %64, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i ], [ %64, %.preheader.i.i.i.i ], [ %64, %102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !822
   %148 = getelementptr inbounds i8, ptr %60, i64 %.sroa.4.0.i
   store ptr %60, ptr %33, align 8, !alias.scope !825, !noalias !828

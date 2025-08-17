@@ -4407,7 +4407,7 @@ define void @_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11TransTableL14CalcPercentileEPKidi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(664216) %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #18 align 2 {
+define noundef range(i32 1, 0) i32 @_ZNK11TransTableL14CalcPercentileEPKidi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(664216) %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #18 align 2 {
   %.not11 = icmp slt i32 %3, 1
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 

@@ -1073,13 +1073,12 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %3
 
 .lr.ph:                                           ; preds = %.lr.ph172
   %47 = trunc nuw nsw i64 %indvars.iv226 to i32
-  %48 = shl nuw i32 1, %47
+  %48 = shl nuw nsw i32 1, %47
   %49 = add nuw nsw i64 %indvars.iv226, 1
   %50 = getelementptr inbounds nuw [4 x [8 x ptr]], ptr %10, i64 0, i64 %49
   %51 = getelementptr inbounds nuw [4 x [8 x ptr]], ptr %10, i64 0, i64 %indvars.iv226
   %52 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv226
-  %smax = call i32 @llvm.smax.i32(i32 %48, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %48 to i64
   br label %53
 
 53:                                               ; preds = %.lr.ph, %53

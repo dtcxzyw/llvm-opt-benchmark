@@ -912,30 +912,28 @@ define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS
   %13 = icmp slt i64 %indvars.iv.next.i, %12
   br i1 %13, label %6, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread, !llvm.loop !30
 
+_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %6
+  %14 = load ptr, ptr %5, align 8
+  %15 = and i64 %indvars.iv.i, 4294967295
+  %16 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %14, i64 %15, i32 5
+  %17 = load i32, ptr %16, align 8
+  %.not6 = icmp eq i32 %17, -1
+  br i1 %.not6, label %19, label %21
+
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; preds = %10, %2
-  %14 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %14, align 1
+  %18 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %18, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #9
   unreachable
 
-_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %6
-  %15 = load ptr, ptr %5, align 8
-  %sext = shl i64 %indvars.iv.i, 32
-  %16 = ashr exact i64 %sext, 27
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i32, ptr %18, align 8
-  %.not6 = icmp eq i32 %19, -1
-  br i1 %.not6, label %20, label %22
-
-20:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
-  %21 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %21, align 1
+19:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
+  %20 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %20, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
-22:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
-  ret i32 %19
+21:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
+  ret i32 %17
 }
 
 ; Function Attrs: noreturn
@@ -971,9 +969,8 @@ define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull al
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %9
   %17 = load ptr, ptr %8, align 8
-  %sext = shl i64 %indvars.iv.i, 32
-  %18 = ashr exact i64 %sext, 27
-  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  %18 = and i64 %indvars.iv.i, 4294967295
+  %19 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
@@ -1096,9 +1093,8 @@ _ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit: ; preds = %5, %30
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %39
   %47 = load ptr, ptr %38, align 8
-  %sext.i = shl i64 %indvars.iv.i.i, 32
-  %48 = ashr exact i64 %sext.i, 27
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %48 = and i64 %indvars.iv.i.i, 4294967295
+  %49 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
@@ -1190,9 +1186,8 @@ define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
   %21 = load ptr, ptr %12, align 8
-  %sext.i = shl i64 %indvars.iv.i.i, 32
-  %22 = ashr exact i64 %sext.i, 27
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %22 = and i64 %indvars.iv.i.i, 4294967295
+  %23 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
@@ -1276,9 +1271,8 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13Growa
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds = %13
   %21 = load ptr, ptr %12, align 8
-  %sext.i = shl i64 %indvars.iv.i.i, 32
-  %22 = ashr exact i64 %sext.i, 27
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %22 = and i64 %indvars.iv.i.i, 4294967295
+  %23 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1

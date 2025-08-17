@@ -739,7 +739,7 @@ Vec_IntFree.exit11:                               ; preds = %Vec_IntFree.exit, %
 declare ptr @Mio_CollectRootsNewDefault2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @Abc_NodeCheckFanoutHasFanin(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @Abc_NodeCheckFanoutHasFanin(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 44
   %.val11 = load i32, ptr %3, align 4, !tbaa !38
   %4 = icmp sgt i32 %.val11, 0

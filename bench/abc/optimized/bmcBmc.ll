@@ -1112,21 +1112,21 @@ Abc_Clock.exit205:                                ; preds = %220, %208
   %.val181 = load i32, ptr %201, align 8, !tbaa !34
   %232 = trunc nuw nsw i64 %indvars.iv242 to i32
   %233 = srem i32 %232, %.val181
-  %234 = sdiv i32 %232, %.val181
-  %235 = add nsw i32 %.val181, -1
-  %236 = icmp eq i32 %233, %235
-  br i1 %236, label %237, label %273
+  %234 = add nsw i32 %.val181, -1
+  %235 = icmp eq i32 %233, %234
+  br i1 %235, label %236, label %273
 
-237:                                              ; preds = %231
-  %238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.val181, i32 noundef %234)
+236:                                              ; preds = %231
+  %237 = udiv i32 %232, %.val181
+  %238 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.val181, i32 noundef %237)
   br i1 %.not162, label %242, label %239
 
-239:                                              ; preds = %237
+239:                                              ; preds = %236
   %240 = load i64, ptr %204, align 8, !tbaa !71
   %241 = sitofp i64 %240 to double
   br label %247
 
-242:                                              ; preds = %237
+242:                                              ; preds = %236
   %243 = call i32 @satoko_conflictnum(ptr noundef %.0150) #12
   %244 = sitofp i32 %243 to double
   %245 = call ptr @satoko_stats(ptr noundef %.0150) #12

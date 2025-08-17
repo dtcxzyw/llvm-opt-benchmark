@@ -757,7 +757,7 @@ count_items.exit245.thread:                       ; preds = %31, %count_items.ex
   %74 = load ptr, ptr %73, align 8, !tbaa !97
   %75 = getelementptr inbounds double, ptr %74, i64 %71
   %76 = zext nneg i32 %.0197.lcssa to i64
-  %wide.trip.count = zext i32 %.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.lcssa to i64
   br label %118
 
 .lr.ph:                                           ; preds = %.preheader284, %114

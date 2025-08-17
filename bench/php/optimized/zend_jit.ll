@@ -114619,15 +114619,11 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %62, %64
   %103 = trunc nuw i64 %indvars.iv to i32
   %104 = add i32 %.081, %103
   %105 = tail call i32 @_ir_SNAPSHOT(ptr noundef nonnull %0, i32 noundef %104) #35
-  %.not133 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not133, label %._crit_edge132, label %.lr.ph131.preheader
-
-.lr.ph131.preheader:                              ; preds = %.thread122
   %wide.trip.count = and i64 %indvars.iv, 4294967295
   br label %.lr.ph131
 
-.lr.ph131:                                        ; preds = %.lr.ph131.preheader, %115
-  %indvars.iv137 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next138, %115 ]
+.lr.ph131:                                        ; preds = %.thread122, %115
+  %indvars.iv137 = phi i64 [ 0, %.thread122 ], [ %indvars.iv.next138, %115 ]
   %106 = getelementptr inbounds nuw %struct._zend_jit_trace_stack, ptr %90, i64 %indvars.iv137
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4, !tbaa !58
@@ -114653,12 +114649,11 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %62, %64
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge132, label %.lr.ph131
 
-._crit_edge132:                                   ; preds = %115, %.thread122
-  %.080127142 = phi i32 [ 0, %.thread122 ], [ %103, %115 ]
+._crit_edge132:                                   ; preds = %115
   br i1 %86, label %117, label %128
 
 117:                                              ; preds = %._crit_edge132.thread, %._crit_edge132
-  %.080127142144 = phi i32 [ 0, %._crit_edge132.thread ], [ %.080127142, %._crit_edge132 ]
+  %.080127142144 = phi i32 [ 0, %._crit_edge132.thread ], [ %103, %._crit_edge132 ]
   %118 = phi i32 [ %102, %._crit_edge132.thread ], [ %105, %._crit_edge132 ]
   %119 = add i32 %.080127142144, 1
   %120 = getelementptr inbounds nuw i8, ptr %52, i64 72

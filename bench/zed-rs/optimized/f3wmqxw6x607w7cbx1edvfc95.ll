@@ -26164,9 +26164,9 @@ default.unreachable64:                            ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %30
 
-30:                                               ; preds = %._crit_edge, %.thread, %45, %47, %29
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %29 ], [ %.sroa.10.3, %45 ], [ %.sroa.10.4, %47 ], [ %14, %.thread ], [ %14, %._crit_edge ]
-  %.sroa.0.1 = phi i64 [ %22, %29 ], [ %.sroa.0.3, %45 ], [ %.sroa.0.4, %47 ], [ 0, %.thread ], [ 0, %._crit_edge ]
+30:                                               ; preds = %._crit_edge, %.thread, %46, %47, %29
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %29 ], [ %.sroa.10.3, %46 ], [ %.sroa.10.4, %47 ], [ %14, %.thread ], [ %14, %._crit_edge ]
+  %.sroa.0.1 = phi i64 [ %22, %29 ], [ %.sroa.0.3, %46 ], [ %.sroa.0.4, %47 ], [ 0, %.thread ], [ 0, %._crit_edge ]
   %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %32 = insertvalue { i64, ptr } %31, ptr %.sroa.10.1, 1
   ret { i64, ptr } %32
@@ -26192,23 +26192,23 @@ default.unreachable64:                            ; preds = %.lr.ph
 40:                                               ; preds = %33
   %41 = icmp eq ptr %38, null
   %spec.select41 = select i1 %41, i64 2, i64 0
-  br label %45
+  br label %46
 
 42:                                               ; preds = %33
   %43 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE(ptr %38)
   %44 = icmp eq i8 %43, 13
-  br i1 %44, label %46, label %45
+  br i1 %44, label %45, label %46
 
-45:                                               ; preds = %42, %40, %46
-  %.sroa.10.3 = phi ptr [ undef, %46 ], [ %38, %40 ], [ %38, %42 ]
-  %.sroa.0.3 = phi i64 [ 2, %46 ], [ %spec.select41, %40 ], [ 1, %42 ]
+45:                                               ; preds = %42
+  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha4816d620773d987E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %39)
+  br label %46
+
+46:                                               ; preds = %42, %40, %45
+  %.sroa.10.3 = phi ptr [ undef, %45 ], [ %38, %40 ], [ %38, %42 ]
+  %.sroa.0.3 = phi i64 [ 2, %45 ], [ %spec.select41, %40 ], [ 1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %30
-
-46:                                               ; preds = %42
-  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha4816d620773d987E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %39)
-  br label %45
 
 47:                                               ; preds = %16, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha4816d620773d987E.exit"
   %.sroa.10.4 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha4816d620773d987E.exit" ], [ %14, %16 ]

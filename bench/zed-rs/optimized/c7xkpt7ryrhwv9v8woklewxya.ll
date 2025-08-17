@@ -14321,11 +14321,11 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i: ; pred
   %62 = extractvalue { i64, i64 } %61, 0
   %63 = extractvalue { i64, i64 } %61, 1
   %switch.us.i.i.i.i.i.i.i.i = icmp eq i64 %62, 1
-  br i1 %switch.us.i.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i"
+  br i1 %switch.us.i.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i"
 
 .preheader.i.us.i.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.split.us.i.i.i.i.i.i.i.i
   %.not.i.us.i.i.i.i.i.i.i.i = icmp eq i64 %50, %57
-  br i1 %.not.i.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i", label %.lr.ph.i.us.i.i.i.i.i.i.i.i
+  br i1 %.not.i.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i", label %.lr.ph.i.us.i.i.i.i.i.i.i.i
 
 .lr.ph.i.us.i.i.i.i.i.i.i.i:                      ; preds = %.preheader.i.us.i.i.i.i.i.i.i.i, %67
   %.sroa.01.05.i.us.i.i.i.i.i.i.i.i = phi i64 [ %68, %67 ], [ 0, %.preheader.i.us.i.i.i.i.i.i.i.i ]
@@ -14337,7 +14337,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i: ; pred
 67:                                               ; preds = %.lr.ph.i.us.i.i.i.i.i.i.i.i
   %68 = add nuw i64 %.sroa.01.05.i.us.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.us.i.i.i.i.i.i.i.i = icmp eq i64 %68, %58
-  br i1 %exitcond.not.i.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i", label %.lr.ph.i.us.i.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.us.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i", label %.lr.ph.i.us.i.i.i.i.i.i.i.i
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i
   %.sroa.4.0.i26.us.i.i.i.i.i.i.i.i = phi i64 [ %63, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i ], [ %.sroa.01.05.i.us.i.i.i.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i.i.i.i.i ]
@@ -14362,7 +14362,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.split.split.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, %73
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %80
   %.sroa.01.05.i.i.i.i.i.i.i.i.i = phi i64 [ %81, %80 ], [ 0, %.preheader.i.i.i.i.i.i.i.i.i ]
@@ -14374,14 +14374,14 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i.i.i.i.i.i.i.
 80:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %81 = add nuw i64 %.sroa.01.05.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %81, %74
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.split.split.i.i.i.i.i.i.i.i
   %82 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hefa91f9719f66b93E(i8 noundef %.pre83.i.i.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %75, i64 noundef %74), !noalias !5866
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = extractvalue { i64, i64 } %82, 1
   %switch.i.i.i.i.i.i.i.i = icmp eq i64 %83, 1
-  br i1 %switch.i.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i"
+  br i1 %switch.i.i.i.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i"
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i
   %.sroa.4.0.i26.i.i.i.i.i.i.i.i = phi i64 [ %84, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i ], [ %.sroa.01.05.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ]
@@ -14408,17 +14408,11 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i: 
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef range(i64 0, 256) %53, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3c2c2a5f121c2bb149304928b3790702.114) #26, !noalias !5876
   unreachable
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i": ; preds = %.preheader.i.i.i.i.i.i.i.i.i, %.preheader.i.us.i.i.i.i.i.i.i.i, %80, %67
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i, %.preheader.i.us.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i, %80, %67
   store i64 %50, ptr %16, align 8, !alias.scope !5863, !noalias !5864
   br label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i.i.i.i"
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i
-  %.sroa.0.0.i20.i.i.i.i.i.i.i.i = phi i64 [ %62, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.us.i.i.i.i.i.i.i.i ], [ %83, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i.i.i.i.i ]
-  store i64 %50, ptr %16, align 8, !alias.scope !5863, !noalias !5864
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.i20.i.i.i.i.i.i.i.i to i1
-  br i1 %trunc.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.i.i.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i.i.i.i"
-
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i.i.i.i": ; preds = %87, %71, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18.i.i.i.i.i.i.i", %49
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i.i.i.i": ; preds = %87, %71, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.sink.split.i.i.i.i.i.i.i", %49
   store i8 1, ptr %13, align 1, !alias.scope !5879, !noalias !5858
   %92 = load i8, ptr %20, align 8, !range !775, !alias.scope !5879, !noalias !5858, !noundef !6
   %93 = trunc nuw i8 %92 to i1
@@ -14429,12 +14423,10 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i.i.i.i: 
   %94 = sub nuw i64 %.pre2.i.i.i.i.i.i.i.i, %.pre.i.i.i.i.i.i.i.i
   br i1 %or.cond.not.i.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %103
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i.i.i.i.i", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i"
-  %.sroa.6.016.i.i.i.i.i.i.i = phi i64 [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i" ], [ %86, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i.i.i.i.i" ]
-  %.sroa.4.0315.i.i.i.i.i.i.i = phi i64 [ undef, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.i.i.i.i" ], [ %89, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i.i.i.i.i" ]
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i.i.i.i.i"
   %95 = load i64, ptr %11, align 8, !alias.scope !5857, !noalias !5858, !noundef !6
-  %96 = sub nuw i64 %.sroa.4.0315.i.i.i.i.i.i.i, %95
-  store i64 %.sroa.6.016.i.i.i.i.i.i.i, ptr %11, align 8, !alias.scope !5857, !noalias !5858
+  %96 = sub nuw i64 %89, %95
+  store i64 %86, ptr %11, align 8, !alias.scope !5857, !noalias !5858
   br label %select.unfold.i.i.i.i.i
 
 select.unfold.i.i.i.i.i:                          ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.i.i.i.i", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i.i.i.i"

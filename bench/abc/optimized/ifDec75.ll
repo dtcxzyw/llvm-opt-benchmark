@@ -324,8 +324,8 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 46:                                               ; preds = %._crit_edge111
   %47 = trunc nuw i64 %indvars.iv.next to i32
   %48 = shl nuw i32 1, %47
-  %49 = icmp slt i32 %48, 2
-  br i1 %49, label %.preheader, label %.preheader96.us.preheader
+  %49 = icmp sgt i32 %48, 1
+  br i1 %49, label %.preheader96.us.preheader, label %.preheader
 
 .preheader96.us.preheader:                        ; preds = %46
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295

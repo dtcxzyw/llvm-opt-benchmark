@@ -400,7 +400,7 @@ put_bits_no_assert.exit:                          ; preds = %8, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 16) i32 @ff_h263_aspect_to_info(i64 %0) local_unnamed_addr #4 {
+define range(i32 1, 16) i32 @ff_h263_aspect_to_info(i64 %0) local_unnamed_addr #4 {
   %2 = and i64 %0, 4294967295
   %3 = icmp eq i64 %2, 0
   %4 = icmp ult i64 %0, 4294967296

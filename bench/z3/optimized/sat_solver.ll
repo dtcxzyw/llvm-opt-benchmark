@@ -14552,7 +14552,7 @@ _ZN6vectorIcLb0EjE7reserveEjRKc.exit:             ; preds = %_ZNK6vectorIcLb0EjE
   %29 = zext i32 %1 to i64
   br label %32
 
-.lr.ph24:                                         ; preds = %47
+.critedge.preheader:                              ; preds = %47
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3296
   %31 = and i64 %indvars.iv.next, 4294967295
   br label %.critedge
@@ -14587,10 +14587,10 @@ _ZN6vectorIcLb0EjE7reserveEjRKc.exit:             ; preds = %_ZNK6vectorIcLb0EjE
   %49 = icmp samesign ult i64 %indvars.iv.next, %29
   %50 = icmp ult i32 %48, %3
   %or.cond = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond, label %32, label %.lr.ph24, !llvm.loop !352
+  br i1 %or.cond, label %32, label %.critedge.preheader, !llvm.loop !352
 
-.critedge:                                        ; preds = %.lr.ph24, %.critedge
-  %indvars.iv26 = phi i64 [ %31, %.lr.ph24 ], [ %51, %.critedge ]
+.critedge:                                        ; preds = %.critedge.preheader, %.critedge
+  %indvars.iv26 = phi i64 [ %31, %.critedge.preheader ], [ %51, %.critedge ]
   %51 = add nsw i64 %indvars.iv26, -1
   %52 = getelementptr inbounds nuw %"class.sat::literal", ptr %2, i64 %51
   %.sroa.0.0.copyload = load i32, ptr %52, align 4, !tbaa !182
@@ -32168,7 +32168,7 @@ _ZN6vectorIcLb0EjE7reserveEjRKc.exit:             ; preds = %_ZNK6vectorIcLb0EjE
   %30 = zext i32 %1 to i64
   br label %34
 
-.lr.ph32:                                         ; preds = %55
+.critedge.preheader:                              ; preds = %55
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3288
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 3296
   %33 = and i64 %indvars.iv.next, 4294967295
@@ -32212,10 +32212,10 @@ _ZN6vectorIcLb0EjE7reserveEjRKc.exit:             ; preds = %_ZNK6vectorIcLb0EjE
   %57 = icmp samesign ult i64 %indvars.iv.next, %30
   %58 = icmp ult i32 %56, %3
   %or.cond = select i1 %57, i1 %58, i1 false
-  br i1 %or.cond, label %34, label %.lr.ph32, !llvm.loop !765
+  br i1 %or.cond, label %34, label %.critedge.preheader, !llvm.loop !765
 
-59:                                               ; preds = %.lr.ph32, %.critedge
-  %indvars.iv34 = phi i64 [ %33, %.lr.ph32 ], [ %60, %.critedge ]
+59:                                               ; preds = %.critedge.preheader, %.critedge
+  %indvars.iv34 = phi i64 [ %33, %.critedge.preheader ], [ %60, %.critedge ]
   %60 = add nsw i64 %indvars.iv34, -1
   %61 = getelementptr inbounds nuw %"class.sat::literal", ptr %2, i64 %60
   %.sroa.03.0.copyload = load i32, ptr %61, align 4, !tbaa !182

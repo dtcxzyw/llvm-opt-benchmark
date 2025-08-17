@@ -1755,13 +1755,12 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
 
 .lr.ph:                                           ; preds = %.preheader98
   %28 = trunc nuw nsw i64 %indvars.iv114 to i32
-  %29 = shl nuw i32 1, %28
+  %29 = shl nuw nsw i32 1, %28
   %30 = add nuw nsw i64 %indvars.iv114, 1
   %31 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %6, i64 0, i64 %30
   %32 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %6, i64 0, i64 %indvars.iv114
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv114
-  %smax = tail call i32 @llvm.smax.i32(i32 %29, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %29 to i64
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34

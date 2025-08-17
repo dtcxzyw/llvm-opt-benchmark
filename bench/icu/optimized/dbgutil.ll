@@ -626,7 +626,7 @@ _ZL10udbg_setupv.exit:                            ; preds = %8, %.loopexit.loope
 declare i32 @udbg_enumCount(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udbg_enumByString(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 {
+define range(i32 -1, 2147483647) i32 @udbg_enumByString(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 {
   %or.cond = icmp ugt i32 %0, 5
   br i1 %or.cond, label %.loopexit, label %3
 

@@ -163,7 +163,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 -1, 2147483647) i32 @findPendingSignal(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val9 = load ptr, ptr %2, align 8, !tbaa !3
   %3 = getelementptr i8, ptr %.val9, i64 4
@@ -1441,9 +1441,8 @@ findPendingSignal.exit:                           ; preds = %.lr.ph.i
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = getelementptr i8, ptr %.val.i, i64 8
   %.val43.val = load ptr, ptr %15, align 8, !tbaa !26
-  %sext = shl i64 %indvars.iv.i, 32
-  %16 = ashr exact i64 %sext, 29
-  %17 = getelementptr inbounds i8, ptr %.val43.val, i64 %16
+  %16 = and i64 %indvars.iv.i, 4294967295
+  %17 = getelementptr inbounds nuw ptr, ptr %.val43.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #16
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %14, ptr noundef %19)

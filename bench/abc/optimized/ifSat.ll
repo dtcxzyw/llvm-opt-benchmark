@@ -372,7 +372,8 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
   br i1 %.not31.i35, label %If_ManSat6ComposeLut4.exit60, label %.lr.ph28.i36
 
 .lr.ph28.i36:                                     ; preds = %._crit_edge77
-  %63 = shl nuw nsw i32 1, %.3.lcssa
+  %63 = shl nuw i32 1, %.3.lcssa
+  %smax35.i37 = tail call i32 @llvm.smax.i32(i32 %63, i32 1)
   %wide.trip.count.i46 = zext nneg i32 %.3.lcssa to i64
   br label %.lr.ph28.split.us.i47
 
@@ -403,7 +404,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
 74:                                               ; preds = %._crit_edge.us.i57, %.lr.ph28.split.us.i47
   %.1.us.i58 = phi i64 [ %76, %._crit_edge.us.i57 ], [ %.026.us.i48, %.lr.ph28.split.us.i47 ]
   %75 = add nuw nsw i32 %.01924.us.i49, 1
-  %exitcond36.not.i59 = icmp eq i32 %75, %63
+  %exitcond36.not.i59 = icmp eq i32 %75, %smax35.i37
   br i1 %exitcond36.not.i59, label %If_ManSat6ComposeLut4.exit60, label %.lr.ph28.split.us.i47, !llvm.loop !15
 
 ._crit_edge.us.i57:                               ; preds = %.preheader.us.i51

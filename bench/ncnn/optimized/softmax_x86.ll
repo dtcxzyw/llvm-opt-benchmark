@@ -4673,7 +4673,7 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph138.preheader:                              ; preds = %.preheader
   %109 = zext nneg i32 %.063.lcssa to i64
-  %wide.trip.count170 = zext i32 %107 to i64
+  %wide.trip.count170 = zext nneg i32 %107 to i64
   %110 = fdiv fast float 1.000000e+00, %.069.lcssa
   br label %.lr.ph138
 
@@ -5178,7 +5178,7 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph55.preheader:                               ; preds = %.preheader
   %63 = zext nneg i32 %.040.lcssa to i64
-  %wide.trip.count74 = zext i32 %61 to i64
+  %wide.trip.count74 = zext nneg i32 %61 to i64
   br label %.lr.ph55
 
 .lr.ph:                                           ; preds = %.preheader51, %.lr.ph
@@ -5582,7 +5582,7 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph52.preheader:                               ; preds = %.preheader
   %62 = zext nneg i32 %.038.lcssa to i64
-  %wide.trip.count71 = zext i32 %60 to i64
+  %wide.trip.count71 = zext nneg i32 %60 to i64
   br label %.lr.ph52
 
 .lr.ph:                                           ; preds = %.preheader48, %.lr.ph
@@ -5856,7 +5856,7 @@ define internal void @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6Opt
 
 .lr.ph154.preheader:                              ; preds = %.preheader
   %113 = zext nneg i32 %.067.lcssa to i64
-  %wide.trip.count188 = zext i32 %111 to i64
+  %wide.trip.count188 = zext nneg i32 %111 to i64
   %114 = fdiv fast float 1.000000e+00, %.072.lcssa
   br label %.lr.ph154
 

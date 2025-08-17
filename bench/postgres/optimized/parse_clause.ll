@@ -2174,8 +2174,8 @@ buildMergedJoinVar.exit:                          ; preds = %990, %991, %994, %9
 
 .thread467:                                       ; preds = %.thread467.loopexit, %893
   %.0340 = phi i32 [ 0, %893 ], [ %.us-phi606, %.thread467.loopexit ]
-  %1028 = sext i32 %.0340 to i64
-  %1029 = getelementptr inbounds %struct.ParseNamespaceColumn, ptr %680, i64 %1028
+  %1028 = zext nneg i32 %.0340 to i64
+  %1029 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %680, i64 %1028
   %1030 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %618, ptr noundef %621, ptr noundef %14, ptr noundef %13, ptr noundef %16, ptr noundef %1029)
   %1031 = add i32 %1030, %.0340
   %1032 = sext i32 %1031 to i64

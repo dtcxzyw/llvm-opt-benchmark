@@ -8513,45 +8513,43 @@ define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr noun
   br i1 %52, label %.preheader, label %.split89.us.thread, !llvm.loop !223
 
 .split89.us:                                      ; preds = %.split.us.us
-  %53 = trunc nuw nsw i64 %indvars.iv.next103 to i32
-  %54 = tail call i32 @llvm.usub.sat.i32(i32 %53, i32 1)
-  %55 = zext nneg i32 %54 to i64
+  %53 = and i64 %indvars.iv102, 4294967295
   br i1 %43, label %.split89.us.thread, label %.split89.us._crit_edge
 
 .split89.us._crit_edge:                           ; preds = %.split89.us
   %.pre = zext nneg i8 %3 to i32
-  br label %67
+  br label %65
 
 .split89.us.thread:                               ; preds = %.preheader, %.split89.us
-  %.us-phi90109 = phi i64 [ %55, %.split89.us ], [ 3, %.preheader ]
-  %56 = load float, ptr %7, align 4, !tbaa !30
-  %57 = load float, ptr %1, align 4, !tbaa !30
-  %58 = fneg float %57
-  %59 = tail call float @llvm.fmuladd.f32(float %56, float 1.000000e+01, float %58)
-  %60 = load float, ptr %15, align 4, !tbaa !30
-  %61 = fsub float %60, %57
-  %62 = fcmp olt float %59, %61
-  %.sroa.speculated58 = select i1 %62, float %61, float %59
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %64 = zext nneg i8 %3 to i32
-  %65 = fpext float %.sroa.speculated58 to double
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.182, i32 noundef %64, double noundef %65) #31
-  br label %67
+  %.us-phi90109 = phi i64 [ %53, %.split89.us ], [ 3, %.preheader ]
+  %54 = load float, ptr %7, align 4, !tbaa !30
+  %55 = load float, ptr %1, align 4, !tbaa !30
+  %56 = fneg float %55
+  %57 = tail call float @llvm.fmuladd.f32(float %54, float 1.000000e+01, float %56)
+  %58 = load float, ptr %15, align 4, !tbaa !30
+  %59 = fsub float %58, %55
+  %60 = fcmp olt float %57, %59
+  %.sroa.speculated58 = select i1 %60, float %59, float %57
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %62 = zext nneg i8 %3 to i32
+  %63 = fpext float %.sroa.speculated58 to double
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.182, i32 noundef %62, double noundef %63) #31
+  br label %65
 
-67:                                               ; preds = %.split89.us._crit_edge, %.split89.us.thread
-  %.us-phi90108 = phi i64 [ %55, %.split89.us._crit_edge ], [ %.us-phi90109, %.split89.us.thread ]
-  %.pre-phi = phi i32 [ %.pre, %.split89.us._crit_edge ], [ %64, %.split89.us.thread ]
+65:                                               ; preds = %.split89.us._crit_edge, %.split89.us.thread
+  %.us-phi90108 = phi i64 [ %53, %.split89.us._crit_edge ], [ %.us-phi90109, %.split89.us.thread ]
+  %.pre-phi = phi i32 [ %.pre, %.split89.us._crit_edge ], [ %62, %.split89.us.thread ]
   %.2 = phi float [ %33, %.split89.us._crit_edge ], [ %.sroa.speculated58, %.split89.us.thread ]
   store float %.2, ptr %4, align 4, !tbaa !30
-  %68 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 0, i64 %.us-phi90108
-  %69 = load float, ptr %68, align 4, !tbaa !30
-  %70 = fdiv float %.2, %69
-  store float %70, ptr %5, align 4, !tbaa !30
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %72 = load float, ptr %4, align 4, !tbaa !30
-  %73 = fpext float %72 to double
-  %74 = fpext float %70 to double
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.183, i32 noundef %.pre-phi, double noundef %73, double noundef %74) #31
+  %66 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 0, i64 %.us-phi90108
+  %67 = load float, ptr %66, align 4, !tbaa !30
+  %68 = fdiv float %.2, %67
+  store float %68, ptr %5, align 4, !tbaa !30
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %70 = load float, ptr %4, align 4, !tbaa !30
+  %71 = fpext float %70 to double
+  %72 = fpext float %68 to double
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.183, i32 noundef %.pre-phi, double noundef %71, double noundef %72) #31
   ret void
 }
 
@@ -10448,9 +10446,6 @@ declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

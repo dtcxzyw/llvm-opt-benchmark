@@ -19246,8 +19246,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   %indvars.iv24.i.i.i.i = phi i64 [ 0, %.lr.ph10.preheader.i.i.i.i ], [ %indvars.iv.next25.i.i.i.i, %2010 ]
   %.28.i.i.i.i = phi i32 [ %.115.i.i.i.i, %.lr.ph10.preheader.i.i.i.i ], [ %.3.i.i.i.i, %2010 ]
   %.0886.i.i.i.i = phi i32 [ %1978, %.lr.ph10.preheader.i.i.i.i ], [ %.pre-phi.i.i.i.i, %2010 ]
-  %1980 = sext i32 %.0886.i.i.i.i to i64
-  %1981 = getelementptr inbounds %struct.stbtt__point, ptr %1973, i64 %1980, i32 1
+  %1980 = zext nneg i32 %.0886.i.i.i.i to i64
+  %1981 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %1980, i32 1
   %1982 = load float, ptr %1981, align 4, !tbaa !444
   %1983 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %indvars.iv24.i.i.i.i, i32 1
   %1984 = load float, ptr %1983, align 4, !tbaa !444
@@ -19268,8 +19268,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   %.082.i.i.i.i = select i1 %1990, i32 %.0886.i.i.i.i, i32 %1991
   %.0.i.i.i.i449 = select i1 %1990, i32 %1991, i32 %.0886.i.i.i.i
   store i32 %storemerge.i.i.i.i, ptr %1989, align 4, !tbaa !448
-  %1992 = sext i32 %.082.i.i.i.i to i64
-  %1993 = getelementptr inbounds %struct.stbtt__point, ptr %1973, i64 %1992
+  %1992 = zext nneg i32 %.082.i.i.i.i to i64
+  %1993 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %1992
   %1994 = load float, ptr %1993, align 4, !tbaa !442
   %1995 = call float @llvm.fmuladd.f32(float %1994, float %1667, float 0.000000e+00)
   store float %1995, ptr %1988, align 4, !tbaa !450
@@ -19278,8 +19278,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   %1998 = call float @llvm.fmuladd.f32(float %1997, float %1673, float 0.000000e+00)
   %1999 = getelementptr inbounds nuw i8, ptr %1988, i64 4
   store float %1998, ptr %1999, align 4, !tbaa !451
-  %2000 = sext i32 %.0.i.i.i.i449 to i64
-  %2001 = getelementptr inbounds %struct.stbtt__point, ptr %1973, i64 %2000
+  %2000 = zext nneg i32 %.0.i.i.i.i449 to i64
+  %2001 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %2000
   %2002 = load float, ptr %2001, align 4, !tbaa !442
   %2003 = call float @llvm.fmuladd.f32(float %2002, float %1667, float 0.000000e+00)
   %2004 = getelementptr inbounds nuw i8, ptr %1988, i64 8

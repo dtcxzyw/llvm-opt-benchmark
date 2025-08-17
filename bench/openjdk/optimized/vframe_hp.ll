@@ -1024,7 +1024,7 @@ _ZN14compiledVFrame14update_monitorEiP11MonitorInfo.exit: ; preds = %114, %117
   %139 = add nuw nsw i64 %indvars.iv59, 1
   %140 = trunc nuw nsw i64 %139 to i32
   %141 = add nuw i32 %140, %129
-  %142 = add i32 %141, %138
+  %142 = add nuw i32 %141, %138
   tail call void @_ZN14compiledVFrame21update_deferred_valueE9BasicTypei6jvalue(ptr noundef nonnull align 8 dereferenceable(5076) %0, i8 noundef zeroext 12, i32 noundef %142, i64 %120)
   %.pre65 = load i32, ptr %102, align 4
   br label %143

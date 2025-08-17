@@ -1278,13 +1278,13 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
 460:                                              ; preds = %._crit_edge710
   %461 = lshr exact i32 %458, 1
   %462 = add nsw i32 %461, -1
-  %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds i8, ptr %.1544715, i64 %463
+  %463 = zext nneg i32 %462 to i64
+  %464 = getelementptr inbounds nuw i8, ptr %.1544715, i64 %463
   %465 = load i8, ptr %464, align 1, !tbaa !32
   %466 = zext nneg i32 %461 to i64
   %467 = getelementptr inbounds nuw i8, ptr %.1544715, i64 %466
   store i8 %465, ptr %467, align 1, !tbaa !32
-  %468 = getelementptr inbounds i8, ptr %.1539716, i64 %463
+  %468 = getelementptr inbounds nuw i8, ptr %.1539716, i64 %463
   %469 = load i8, ptr %468, align 1, !tbaa !32
   %470 = getelementptr inbounds nuw i8, ptr %.1539716, i64 %466
   store i8 %469, ptr %470, align 1, !tbaa !32
@@ -1374,13 +1374,13 @@ mszh_decomp.exit:                                 ; preds = %.._crit_edge_crit_e
 515:                                              ; preds = %._crit_edge695
   %516 = lshr exact i32 %513, 2
   %517 = add nsw i32 %516, -1
-  %518 = sext i32 %517 to i64
-  %519 = getelementptr inbounds i8, ptr %.2545700, i64 %518
+  %518 = zext nneg i32 %517 to i64
+  %519 = getelementptr inbounds nuw i8, ptr %.2545700, i64 %518
   %520 = load i8, ptr %519, align 1, !tbaa !32
   %521 = zext nneg i32 %516 to i64
   %522 = getelementptr inbounds nuw i8, ptr %.2545700, i64 %521
   store i8 %520, ptr %522, align 1, !tbaa !32
-  %523 = getelementptr inbounds i8, ptr %.2540701, i64 %518
+  %523 = getelementptr inbounds nuw i8, ptr %.2540701, i64 %518
   %524 = load i8, ptr %523, align 1, !tbaa !32
   %525 = getelementptr inbounds nuw i8, ptr %.2540701, i64 %521
   store i8 %524, ptr %525, align 1, !tbaa !32

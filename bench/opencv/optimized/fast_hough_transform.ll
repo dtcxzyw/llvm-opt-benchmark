@@ -1460,40 +1460,39 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIhEbRSt6vectorIN2
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv225 to i32
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %.sroa.speculated102 = add nsw i32 %24, -1
-  %25 = load ptr, ptr %12, align 8, !tbaa !67
-  %26 = load ptr, ptr %13, align 8, !tbaa !68
-  %27 = load i64, ptr %26, align 8, !tbaa !37
-  %28 = zext nneg i32 %.sroa.speculated102 to i64
-  %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
-  %31 = mul i64 %27, %indvars.iv225
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %.sroa.speculated102 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 1)
+  %24 = load ptr, ptr %12, align 8, !tbaa !67
+  %25 = load ptr, ptr %13, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !37
+  %27 = zext nneg i32 %.sroa.speculated102 to i64
+  %28 = mul i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = mul i64 %26, %indvars.iv225
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %33 = add nsw i32 %16, -1
-  %34 = trunc nuw nsw i64 %indvars.iv.next226 to i32
-  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = sext i32 %.sroa.speculated96 to i64
-  %36 = mul i64 %27, %35
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load i32, ptr %14, align 4, !tbaa !58
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph193, label %._crit_edge
+  %32 = add nsw i32 %16, -1
+  %33 = trunc nuw nsw i64 %indvars.iv.next226 to i32
+  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
+  %34 = sext i32 %.sroa.speculated96 to i64
+  %35 = mul i64 %26, %34
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !58
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph193, label %._crit_edge
 
 .lr.ph193:                                        ; preds = %22
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv225, 32
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+39:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv222 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next223.pre-phi, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %41 = phi i32 [ %38, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+  %40 = phi i32 [ %37, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0107.1191 = phi ptr [ %.sroa.0107.0203, %.lr.ph193 ], [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.18.1190 = phi ptr [ %.sroa.18.0202, %.lr.ph193 ], [ %.sroa.18.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.33.1189 = phi ptr [ %.sroa.33.0201, %.lr.ph193 ], [ %.sroa.33.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %42 = trunc nuw nsw i64 %indvars.iv222 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %43 = zext nneg i32 %smax to i64
+  %41 = trunc nuw nsw i64 %indvars.iv222 to i32
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
+  %43 = zext nneg i32 %42 to i64
   %44 = add nsw i64 %43, -1
   %45 = ptrtoint ptr %.sroa.18.1190 to i64
   %46 = ptrtoint ptr %.sroa.0107.1191 to i64
@@ -1502,8 +1501,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIhEbRSt6vectorIN2
   %49 = icmp ugt i64 %48, 10000
   br i1 %49, label %._crit_edge.loopexit, label %50
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv222
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv222
   %52 = load i8, ptr %51, align 1, !tbaa !40
   %53 = uitofp i8 %52 to float
   %54 = fcmp ugt float %3, %53
@@ -1514,9 +1513,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIhEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 55:                                               ; preds = %50
-  %.sroa.speculated82 = add nsw i32 %smax, -1
+  %.sroa.speculated82 = add nsw i32 %42, -1
   %56 = add nuw nsw i64 %indvars.iv222, 1
-  %57 = add nsw i32 %41, -1
+  %57 = add nsw i32 %40, -1
   %58 = trunc nuw nsw i64 %56 to i32
   %.sroa.speculated76 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %.not186 = icmp sgt i32 %.sroa.speculated82, %.sroa.speculated76
@@ -1529,19 +1528,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIhEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %.0146187 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select166, %71 ]
-  %60 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv
+  %60 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv
   %61 = load i8, ptr %60, align 1, !tbaa !40
   %62 = icmp ult i8 %52, %61
   br i1 %62, label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv
+  %64 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !40
   %66 = icmp ult i8 %52, %65
   br i1 %66, label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv
+  %68 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1, !tbaa !40
   %70 = icmp ult i8 %52, %69
   br i1 %70, label %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %71
@@ -1648,12 +1647,12 @@ _ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %94 = load i32, ptr %14, align 4, !tbaa !58
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next223.pre-phi, %95
-  br i1 %96, label %40, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %96, label %39, label %._crit_edge.loopexit, !llvm.loop !78
 
-._crit_edge.loopexit:                             ; preds = %40, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %40 ]
-  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %40 ]
-  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %40 ]
+._crit_edge.loopexit:                             ; preds = %39, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %39 ]
+  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %39 ]
+  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIhN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %39 ]
   %.pre = load i32, ptr %9, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -2127,40 +2126,39 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIaEbRSt6vectorIN2
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv225 to i32
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %.sroa.speculated102 = add nsw i32 %24, -1
-  %25 = load ptr, ptr %12, align 8, !tbaa !67
-  %26 = load ptr, ptr %13, align 8, !tbaa !68
-  %27 = load i64, ptr %26, align 8, !tbaa !37
-  %28 = zext nneg i32 %.sroa.speculated102 to i64
-  %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
-  %31 = mul i64 %27, %indvars.iv225
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %.sroa.speculated102 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 1)
+  %24 = load ptr, ptr %12, align 8, !tbaa !67
+  %25 = load ptr, ptr %13, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !37
+  %27 = zext nneg i32 %.sroa.speculated102 to i64
+  %28 = mul i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = mul i64 %26, %indvars.iv225
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %33 = add nsw i32 %16, -1
-  %34 = trunc nuw nsw i64 %indvars.iv.next226 to i32
-  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = sext i32 %.sroa.speculated96 to i64
-  %36 = mul i64 %27, %35
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load i32, ptr %14, align 4, !tbaa !58
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph193, label %._crit_edge
+  %32 = add nsw i32 %16, -1
+  %33 = trunc nuw nsw i64 %indvars.iv.next226 to i32
+  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
+  %34 = sext i32 %.sroa.speculated96 to i64
+  %35 = mul i64 %26, %34
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !58
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph193, label %._crit_edge
 
 .lr.ph193:                                        ; preds = %22
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv225, 32
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+39:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv222 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next223.pre-phi, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %41 = phi i32 [ %38, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+  %40 = phi i32 [ %37, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0107.1191 = phi ptr [ %.sroa.0107.0203, %.lr.ph193 ], [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.18.1190 = phi ptr [ %.sroa.18.0202, %.lr.ph193 ], [ %.sroa.18.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.33.1189 = phi ptr [ %.sroa.33.0201, %.lr.ph193 ], [ %.sroa.33.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %42 = trunc nuw nsw i64 %indvars.iv222 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %43 = zext nneg i32 %smax to i64
+  %41 = trunc nuw nsw i64 %indvars.iv222 to i32
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
+  %43 = zext nneg i32 %42 to i64
   %44 = add nsw i64 %43, -1
   %45 = ptrtoint ptr %.sroa.18.1190 to i64
   %46 = ptrtoint ptr %.sroa.0107.1191 to i64
@@ -2169,8 +2167,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIaEbRSt6vectorIN2
   %49 = icmp ugt i64 %48, 10000
   br i1 %49, label %._crit_edge.loopexit, label %50
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv222
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv222
   %52 = load i8, ptr %51, align 1, !tbaa !40
   %53 = sitofp i8 %52 to float
   %54 = fcmp ugt float %3, %53
@@ -2181,9 +2179,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIaEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 55:                                               ; preds = %50
-  %.sroa.speculated82 = add nsw i32 %smax, -1
+  %.sroa.speculated82 = add nsw i32 %42, -1
   %56 = add nuw nsw i64 %indvars.iv222, 1
-  %57 = add nsw i32 %41, -1
+  %57 = add nsw i32 %40, -1
   %58 = trunc nuw nsw i64 %56 to i32
   %.sroa.speculated76 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %.not186 = icmp sgt i32 %.sroa.speculated82, %.sroa.speculated76
@@ -2196,19 +2194,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIaEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %.0146187 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select166, %71 ]
-  %60 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv
+  %60 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv
   %61 = load i8, ptr %60, align 1, !tbaa !40
   %62 = icmp slt i8 %52, %61
   br i1 %62, label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv
+  %64 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !40
   %66 = icmp slt i8 %52, %65
   br i1 %66, label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv
+  %68 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1, !tbaa !40
   %70 = icmp slt i8 %52, %69
   br i1 %70, label %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %71
@@ -2315,12 +2313,12 @@ _ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %94 = load i32, ptr %14, align 4, !tbaa !58
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next223.pre-phi, %95
-  br i1 %96, label %40, label %._crit_edge.loopexit, !llvm.loop !102
+  br i1 %96, label %39, label %._crit_edge.loopexit, !llvm.loop !102
 
-._crit_edge.loopexit:                             ; preds = %40, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %40 ]
-  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %40 ]
-  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %40 ]
+._crit_edge.loopexit:                             ; preds = %39, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %39 ]
+  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %39 ]
+  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIaN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %39 ]
   %.pre = load i32, ptr %9, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -2794,40 +2792,39 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrItEbRSt6vectorIN2
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv225 to i32
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %.sroa.speculated102 = add nsw i32 %24, -1
-  %25 = load ptr, ptr %12, align 8, !tbaa !67
-  %26 = load ptr, ptr %13, align 8, !tbaa !68
-  %27 = load i64, ptr %26, align 8, !tbaa !37
-  %28 = zext nneg i32 %.sroa.speculated102 to i64
-  %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
-  %31 = mul i64 %27, %indvars.iv225
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %.sroa.speculated102 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 1)
+  %24 = load ptr, ptr %12, align 8, !tbaa !67
+  %25 = load ptr, ptr %13, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !37
+  %27 = zext nneg i32 %.sroa.speculated102 to i64
+  %28 = mul i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = mul i64 %26, %indvars.iv225
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %33 = add nsw i32 %16, -1
-  %34 = trunc nuw nsw i64 %indvars.iv.next226 to i32
-  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = sext i32 %.sroa.speculated96 to i64
-  %36 = mul i64 %27, %35
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load i32, ptr %14, align 4, !tbaa !58
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph193, label %._crit_edge
+  %32 = add nsw i32 %16, -1
+  %33 = trunc nuw nsw i64 %indvars.iv.next226 to i32
+  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
+  %34 = sext i32 %.sroa.speculated96 to i64
+  %35 = mul i64 %26, %34
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !58
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph193, label %._crit_edge
 
 .lr.ph193:                                        ; preds = %22
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv225, 32
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+39:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv222 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next223.pre-phi, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %41 = phi i32 [ %38, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+  %40 = phi i32 [ %37, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0107.1191 = phi ptr [ %.sroa.0107.0203, %.lr.ph193 ], [ %.sroa.0107.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.18.1190 = phi ptr [ %.sroa.18.0202, %.lr.ph193 ], [ %.sroa.18.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.33.1189 = phi ptr [ %.sroa.33.0201, %.lr.ph193 ], [ %.sroa.33.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %42 = trunc nuw nsw i64 %indvars.iv222 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %43 = zext nneg i32 %smax to i64
+  %41 = trunc nuw nsw i64 %indvars.iv222 to i32
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
+  %43 = zext nneg i32 %42 to i64
   %44 = add nsw i64 %43, -1
   %45 = ptrtoint ptr %.sroa.18.1190 to i64
   %46 = ptrtoint ptr %.sroa.0107.1191 to i64
@@ -2836,8 +2833,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrItEbRSt6vectorIN2
   %49 = icmp ugt i64 %48, 10000
   br i1 %49, label %._crit_edge.loopexit, label %50
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv222
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv222
   %52 = load i16, ptr %51, align 2, !tbaa !114
   %53 = uitofp i16 %52 to float
   %54 = fcmp ugt float %3, %53
@@ -2848,9 +2845,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrItEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 55:                                               ; preds = %50
-  %.sroa.speculated82 = add nsw i32 %smax, -1
+  %.sroa.speculated82 = add nsw i32 %42, -1
   %56 = add nuw nsw i64 %indvars.iv222, 1
-  %57 = add nsw i32 %41, -1
+  %57 = add nsw i32 %40, -1
   %58 = trunc nuw nsw i64 %56 to i32
   %.sroa.speculated76 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %.not186 = icmp sgt i32 %.sroa.speculated82, %.sroa.speculated76
@@ -2863,19 +2860,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrItEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %.0146187 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select166, %71 ]
-  %60 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
+  %60 = getelementptr inbounds i16, ptr %29, i64 %indvars.iv
   %61 = load i16, ptr %60, align 2, !tbaa !114
   %62 = icmp ult i16 %52, %61
   br i1 %62, label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv
+  %64 = getelementptr inbounds i16, ptr %31, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2, !tbaa !114
   %66 = icmp ult i16 %52, %65
   br i1 %66, label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %68 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !114
   %70 = icmp ult i16 %52, %69
   br i1 %70, label %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %71
@@ -2982,12 +2979,12 @@ _ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %94 = load i32, ptr %14, align 4, !tbaa !58
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next223.pre-phi, %95
-  br i1 %96, label %40, label %._crit_edge.loopexit, !llvm.loop !124
+  br i1 %96, label %39, label %._crit_edge.loopexit, !llvm.loop !124
 
-._crit_edge.loopexit:                             ; preds = %40, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %40 ]
-  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %40 ]
-  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %40 ]
+._crit_edge.loopexit:                             ; preds = %39, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %39 ]
+  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %39 ]
+  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairItN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %39 ]
   %.pre = load i32, ptr %9, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -3461,40 +3458,39 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIsEbRSt6vectorIN2
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv225 to i32
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %.sroa.speculated102 = add nsw i32 %24, -1
-  %25 = load ptr, ptr %12, align 8, !tbaa !67
-  %26 = load ptr, ptr %13, align 8, !tbaa !68
-  %27 = load i64, ptr %26, align 8, !tbaa !37
-  %28 = zext nneg i32 %.sroa.speculated102 to i64
-  %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
-  %31 = mul i64 %27, %indvars.iv225
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %.sroa.speculated102 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 1)
+  %24 = load ptr, ptr %12, align 8, !tbaa !67
+  %25 = load ptr, ptr %13, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !37
+  %27 = zext nneg i32 %.sroa.speculated102 to i64
+  %28 = mul i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = mul i64 %26, %indvars.iv225
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %33 = add nsw i32 %16, -1
-  %34 = trunc nuw nsw i64 %indvars.iv.next226 to i32
-  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = sext i32 %.sroa.speculated96 to i64
-  %36 = mul i64 %27, %35
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load i32, ptr %14, align 4, !tbaa !58
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph193, label %._crit_edge
+  %32 = add nsw i32 %16, -1
+  %33 = trunc nuw nsw i64 %indvars.iv.next226 to i32
+  %.sroa.speculated96 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
+  %34 = sext i32 %.sroa.speculated96 to i64
+  %35 = mul i64 %26, %34
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !58
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph193, label %._crit_edge
 
 .lr.ph193:                                        ; preds = %22
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv225, 32
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+39:                                               ; preds = %.lr.ph193, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv222 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next223.pre-phi, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %41 = phi i32 [ %38, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+  %40 = phi i32 [ %37, %.lr.ph193 ], [ %94, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0107.1191 = phi ptr [ %.sroa.0107.0203, %.lr.ph193 ], [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.18.1190 = phi ptr [ %.sroa.18.0202, %.lr.ph193 ], [ %.sroa.18.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.33.1189 = phi ptr [ %.sroa.33.0201, %.lr.ph193 ], [ %.sroa.33.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %42 = trunc nuw nsw i64 %indvars.iv222 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %43 = zext nneg i32 %smax to i64
+  %41 = trunc nuw nsw i64 %indvars.iv222 to i32
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
+  %43 = zext nneg i32 %42 to i64
   %44 = add nsw i64 %43, -1
   %45 = ptrtoint ptr %.sroa.18.1190 to i64
   %46 = ptrtoint ptr %.sroa.0107.1191 to i64
@@ -3503,8 +3499,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIsEbRSt6vectorIN2
   %49 = icmp ugt i64 %48, 10000
   br i1 %49, label %._crit_edge.loopexit, label %50
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv222
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv222
   %52 = load i16, ptr %51, align 2, !tbaa !114
   %53 = sitofp i16 %52 to float
   %54 = fcmp ugt float %3, %53
@@ -3515,9 +3511,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIsEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 55:                                               ; preds = %50
-  %.sroa.speculated82 = add nsw i32 %smax, -1
+  %.sroa.speculated82 = add nsw i32 %42, -1
   %56 = add nuw nsw i64 %indvars.iv222, 1
-  %57 = add nsw i32 %41, -1
+  %57 = add nsw i32 %40, -1
   %58 = trunc nuw nsw i64 %56 to i32
   %.sroa.speculated76 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %.not186 = icmp sgt i32 %.sroa.speculated82, %.sroa.speculated76
@@ -3530,19 +3526,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIsEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %.0146187 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select166, %71 ]
-  %60 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
+  %60 = getelementptr inbounds i16, ptr %29, i64 %indvars.iv
   %61 = load i16, ptr %60, align 2, !tbaa !114
   %62 = icmp slt i16 %52, %61
   br i1 %62, label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i16, ptr %32, i64 %indvars.iv
+  %64 = getelementptr inbounds i16, ptr %31, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2, !tbaa !114
   %66 = icmp slt i16 %52, %65
   br i1 %66, label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %68 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !114
   %70 = icmp slt i16 %52, %69
   br i1 %70, label %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %71
@@ -3649,12 +3645,12 @@ _ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %94 = load i32, ptr %14, align 4, !tbaa !58
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next223.pre-phi, %95
-  br i1 %96, label %40, label %._crit_edge.loopexit, !llvm.loop !144
+  br i1 %96, label %39, label %._crit_edge.loopexit, !llvm.loop !144
 
-._crit_edge.loopexit:                             ; preds = %40, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %40 ]
-  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %40 ]
-  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %40 ]
+._crit_edge.loopexit:                             ; preds = %39, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %.sroa.33.1.lcssa.ph = phi ptr [ %.sroa.33.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.33.1189, %39 ]
+  %.sroa.18.1.lcssa.ph = phi ptr [ %.sroa.18.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.18.1190, %39 ]
+  %.sroa.0107.1.lcssa.ph = phi ptr [ %.sroa.0107.2, %_ZNSt6vectorISt4pairIsN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0107.1191, %39 ]
   %.pre = load i32, ptr %9, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -4128,40 +4124,39 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIiEbRSt6vectorIN2
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv215 to i32
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
-  %.sroa.speculated99 = add nsw i32 %24, -1
-  %25 = load ptr, ptr %12, align 8, !tbaa !67
-  %26 = load ptr, ptr %13, align 8, !tbaa !68
-  %27 = load i64, ptr %26, align 8, !tbaa !37
-  %28 = zext nneg i32 %.sroa.speculated99 to i64
-  %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %29
-  %31 = mul i64 %27, %indvars.iv215
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %.sroa.speculated99 = tail call i32 @llvm.usub.sat.i32(i32 %23, i32 1)
+  %24 = load ptr, ptr %12, align 8, !tbaa !67
+  %25 = load ptr, ptr %13, align 8, !tbaa !68
+  %26 = load i64, ptr %25, align 8, !tbaa !37
+  %27 = zext nneg i32 %.sroa.speculated99 to i64
+  %28 = mul i64 %26, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
+  %30 = mul i64 %26, %indvars.iv215
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %33 = add nsw i32 %16, -1
-  %34 = trunc nuw nsw i64 %indvars.iv.next216 to i32
-  %.sroa.speculated93 = tail call i32 @llvm.smin.i32(i32 %33, i32 %34)
-  %35 = sext i32 %.sroa.speculated93 to i64
-  %36 = mul i64 %27, %35
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load i32, ptr %14, align 4, !tbaa !58
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph184, label %._crit_edge
+  %32 = add nsw i32 %16, -1
+  %33 = trunc nuw nsw i64 %indvars.iv.next216 to i32
+  %.sroa.speculated93 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
+  %34 = sext i32 %.sroa.speculated93 to i64
+  %35 = mul i64 %26, %34
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
+  %37 = load i32, ptr %14, align 4, !tbaa !58
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph184, label %._crit_edge
 
 .lr.ph184:                                        ; preds = %22
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv215, 32
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph184, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+39:                                               ; preds = %.lr.ph184, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv212 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next213.pre-phi, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %41 = phi i32 [ %38, %.lr.ph184 ], [ %94, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+  %40 = phi i32 [ %37, %.lr.ph184 ], [ %94, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0104.1182 = phi ptr [ %.sroa.0104.0194, %.lr.ph184 ], [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.17.1181 = phi ptr [ %.sroa.17.0193, %.lr.ph184 ], [ %.sroa.17.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.31.1180 = phi ptr [ %.sroa.31.0192, %.lr.ph184 ], [ %.sroa.31.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %42 = trunc nuw nsw i64 %indvars.iv212 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %43 = zext nneg i32 %smax to i64
+  %41 = trunc nuw nsw i64 %indvars.iv212 to i32
+  %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
+  %43 = zext nneg i32 %42 to i64
   %44 = add nsw i64 %43, -1
   %45 = ptrtoint ptr %.sroa.17.1181 to i64
   %46 = ptrtoint ptr %.sroa.0104.1182 to i64
@@ -4170,8 +4165,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIiEbRSt6vectorIN2
   %49 = icmp ugt i64 %48, 10000
   br i1 %49, label %._crit_edge.loopexit, label %50
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv212
+50:                                               ; preds = %39
+  %51 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv212
   %52 = load i32, ptr %51, align 4, !tbaa !60
   %53 = sitofp i32 %52 to float
   %54 = fcmp ugt float %3, %53
@@ -4182,9 +4177,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIiEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 55:                                               ; preds = %50
-  %.sroa.speculated79 = add nsw i32 %smax, -1
+  %.sroa.speculated79 = add nsw i32 %42, -1
   %56 = add nuw nsw i64 %indvars.iv212, 1
-  %57 = add nsw i32 %41, -1
+  %57 = add nsw i32 %40, -1
   %58 = trunc nuw nsw i64 %56 to i32
   %.sroa.speculated73 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %.not177 = icmp sgt i32 %.sroa.speculated79, %.sroa.speculated73
@@ -4197,19 +4192,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIiEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
   %indvars.iv = phi i64 [ %44, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %.0138178 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select158, %71 ]
-  %60 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %60 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !60
   %62 = icmp slt i32 %52, %61
   br i1 %62, label %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %63
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv
+  %64 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !60
   %66 = icmp slt i32 %52, %65
   br i1 %66, label %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
+  %68 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !60
   %70 = icmp slt i32 %52, %69
   br i1 %70, label %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %71
@@ -4316,12 +4311,12 @@ _ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %94 = load i32, ptr %14, align 4, !tbaa !58
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next213.pre-phi, %95
-  br i1 %96, label %40, label %._crit_edge.loopexit, !llvm.loop !164
+  br i1 %96, label %39, label %._crit_edge.loopexit, !llvm.loop !164
 
-._crit_edge.loopexit:                             ; preds = %40, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %.sroa.31.1.lcssa.ph = phi ptr [ %.sroa.31.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.31.1180, %40 ]
-  %.sroa.17.1.lcssa.ph = phi ptr [ %.sroa.17.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.17.1181, %40 ]
-  %.sroa.0104.1.lcssa.ph = phi ptr [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0104.1182, %40 ]
+._crit_edge.loopexit:                             ; preds = %39, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %.sroa.31.1.lcssa.ph = phi ptr [ %.sroa.31.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.31.1180, %39 ]
+  %.sroa.17.1.lcssa.ph = phi ptr [ %.sroa.17.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.17.1181, %39 ]
+  %.sroa.0104.1.lcssa.ph = phi ptr [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIiN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0104.1182, %39 ]
   %.pre = load i32, ptr %9, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -4771,36 +4766,35 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIfEbRSt6vectorIN2
 
 21:                                               ; preds = %14
   %22 = trunc nuw nsw i64 %indvars.iv212 to i32
-  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
-  %.sroa.speculated100 = add nsw i32 %23, -1
-  %24 = load ptr, ptr %11, align 8, !tbaa !67
-  %25 = load ptr, ptr %12, align 8, !tbaa !68
-  %26 = load i64, ptr %25, align 8, !tbaa !37
-  %27 = zext nneg i32 %.sroa.speculated100 to i64
-  %28 = mul i64 %26, %27
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
-  %30 = mul i64 %26, %indvars.iv212
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %30
+  %.sroa.speculated100 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 1)
+  %23 = load ptr, ptr %11, align 8, !tbaa !67
+  %24 = load ptr, ptr %12, align 8, !tbaa !68
+  %25 = load i64, ptr %24, align 8, !tbaa !37
+  %26 = zext nneg i32 %.sroa.speculated100 to i64
+  %27 = mul i64 %25, %26
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %27
+  %29 = mul i64 %25, %indvars.iv212
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %29
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %32 = add nsw i32 %15, -1
-  %33 = trunc nuw nsw i64 %indvars.iv.next213 to i32
-  %.sroa.speculated93 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
-  %34 = sext i32 %.sroa.speculated93 to i64
-  %35 = mul i64 %26, %34
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %35
-  %37 = load i32, ptr %13, align 4, !tbaa !58
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph181, label %._crit_edge
+  %31 = add nsw i32 %15, -1
+  %32 = trunc nuw nsw i64 %indvars.iv.next213 to i32
+  %.sroa.speculated93 = tail call i32 @llvm.smin.i32(i32 %31, i32 %32)
+  %33 = sext i32 %.sroa.speculated93 to i64
+  %34 = mul i64 %25, %33
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 %34
+  %36 = load i32, ptr %13, align 4, !tbaa !58
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %.lr.ph181, label %._crit_edge
 
 .lr.ph181:                                        ; preds = %21, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
   %indvars.iv209 = phi i64 [ %indvars.iv.next210.pre-phi, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ 0, %21 ]
-  %39 = phi i32 [ %91, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %37, %21 ]
+  %38 = phi i32 [ %91, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %36, %21 ]
   %.sroa.0105.1179 = phi ptr [ %.sroa.0105.2, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0105.0191, %21 ]
   %.sroa.17.1178 = phi ptr [ %.sroa.17.2, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.17.0190, %21 ]
   %.sroa.31.1177 = phi ptr [ %.sroa.31.2, %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.31.0189, %21 ]
-  %40 = trunc nuw nsw i64 %indvars.iv209 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %40, i32 1)
-  %41 = zext nneg i32 %smax to i64
+  %39 = trunc nuw nsw i64 %indvars.iv209 to i32
+  %40 = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
+  %41 = zext nneg i32 %40 to i64
   %42 = add nsw i64 %41, -1
   %43 = ptrtoint ptr %.sroa.17.1178 to i64
   %44 = ptrtoint ptr %.sroa.0105.1179 to i64
@@ -4810,7 +4804,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIfEbRSt6vectorIN2
   br i1 %47, label %._crit_edge.loopexit, label %48
 
 48:                                               ; preds = %.lr.ph181
-  %49 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv209
+  %49 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv209
   %50 = load float, ptr %49, align 4, !tbaa !175
   %51 = fcmp ult float %50, %3
   br i1 %51, label %._ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %52
@@ -4820,9 +4814,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIfEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 52:                                               ; preds = %48
-  %.sroa.speculated79 = add nsw i32 %smax, -1
+  %.sroa.speculated79 = add nsw i32 %40, -1
   %53 = add nuw nsw i64 %indvars.iv209, 1
-  %54 = add nsw i32 %39, -1
+  %54 = add nsw i32 %38, -1
   %55 = trunc nuw nsw i64 %53 to i32
   %.sroa.speculated73 = tail call i32 @llvm.smin.i32(i32 %54, i32 %55)
   %.not174 = icmp sgt i32 %.sroa.speculated79, %.sroa.speculated73
@@ -4835,19 +4829,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIfEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %68
   %indvars.iv = phi i64 [ %42, %.lr.ph.preheader ], [ %indvars.iv.next, %68 ]
   %.0139175 = phi i32 [ 0, %.lr.ph.preheader ], [ %.4.ph, %68 ]
-  %57 = getelementptr inbounds float, ptr %29, i64 %indvars.iv
+  %57 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !175
   %59 = fcmp olt float %50, %58
   br i1 %59, label %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %60
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
+  %61 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !175
   %63 = fcmp olt float %50, %62
   br i1 %63, label %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds float, ptr %36, i64 %indvars.iv
+  %65 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !175
   %67 = fcmp olt float %50, %66
   br i1 %67, label %_ZNSt6vectorISt4pairIfN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %68
@@ -5403,39 +5397,38 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIdEbRSt6vectorIN2
   %.sroa.17.0192 = phi ptr [ null, %.lr.ph196 ], [ %.sroa.17.1.lcssa, %._crit_edge ]
   %.sroa.31.0191 = phi ptr [ null, %.lr.ph196 ], [ %.sroa.31.1.lcssa, %._crit_edge ]
   %18 = trunc nuw nsw i64 %indvars.iv210 to i32
-  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
-  %.sroa.speculated99 = add nsw i32 %19, -1
-  %20 = load ptr, ptr %11, align 8, !tbaa !67
-  %21 = load ptr, ptr %12, align 8, !tbaa !68
-  %22 = load i64, ptr %21, align 8, !tbaa !37
-  %23 = zext nneg i32 %.sroa.speculated99 to i64
-  %24 = mul i64 %22, %23
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
-  %26 = mul i64 %22, %indvars.iv210
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %26
+  %.sroa.speculated99 = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 1)
+  %19 = load ptr, ptr %11, align 8, !tbaa !67
+  %20 = load ptr, ptr %12, align 8, !tbaa !68
+  %21 = load i64, ptr %20, align 8, !tbaa !37
+  %22 = zext nneg i32 %.sroa.speculated99 to i64
+  %23 = mul i64 %21, %22
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %23
+  %25 = mul i64 %21, %indvars.iv210
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %25
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %28 = add nsw i32 %16, -1
-  %29 = trunc nuw nsw i64 %indvars.iv.next211 to i32
-  %.sroa.speculated92 = tail call i32 @llvm.smin.i32(i32 %28, i32 %29)
-  %30 = sext i32 %.sroa.speculated92 to i64
-  %31 = mul i64 %22, %30
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 %31
-  %33 = icmp sgt i32 %17, 0
-  br i1 %33, label %.lr.ph183, label %._crit_edge
+  %27 = add nsw i32 %16, -1
+  %28 = trunc nuw nsw i64 %indvars.iv.next211 to i32
+  %.sroa.speculated92 = tail call i32 @llvm.smin.i32(i32 %27, i32 %28)
+  %29 = sext i32 %.sroa.speculated92 to i64
+  %30 = mul i64 %21, %29
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 %30
+  %32 = icmp sgt i32 %17, 0
+  br i1 %32, label %.lr.ph183, label %._crit_edge
 
 .lr.ph183:                                        ; preds = %15
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %indvars.iv210, 32
-  br label %34
+  br label %33
 
-34:                                               ; preds = %.lr.ph183, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %35 = phi i32 [ %17, %.lr.ph183 ], [ %87, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
+33:                                               ; preds = %.lr.ph183, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %34 = phi i32 [ %17, %.lr.ph183 ], [ %87, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %indvars.iv207 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next208.pre-phi, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.0104.1181 = phi ptr [ %.sroa.0104.0193, %.lr.ph183 ], [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.17.1180 = phi ptr [ %.sroa.17.0192, %.lr.ph183 ], [ %.sroa.17.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.31.1179 = phi ptr [ %.sroa.31.0191, %.lr.ph183 ], [ %.sroa.31.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ]
-  %36 = trunc nuw nsw i64 %indvars.iv207 to i32
-  %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
-  %37 = zext nneg i32 %smax to i64
+  %35 = trunc nuw nsw i64 %indvars.iv207 to i32
+  %36 = tail call i32 @llvm.umax.i32(i32 %35, i32 1)
+  %37 = zext nneg i32 %36 to i64
   %38 = add nsw i64 %37, -1
   %39 = ptrtoint ptr %.sroa.17.1180 to i64
   %40 = ptrtoint ptr %.sroa.0104.1181 to i64
@@ -5444,8 +5437,8 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIdEbRSt6vectorIN2
   %43 = icmp ugt i64 %42, 10000
   br i1 %43, label %._crit_edge.loopexit, label %44
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv207
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv207
   %46 = load double, ptr %45, align 8, !tbaa !49
   %47 = fcmp ult double %46, %14
   br i1 %47, label %._ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit_crit_edge, label %48
@@ -5455,9 +5448,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIdEbRSt6vectorIN2
   br label %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
 
 48:                                               ; preds = %44
-  %.sroa.speculated78 = add nsw i32 %smax, -1
+  %.sroa.speculated78 = add nsw i32 %36, -1
   %49 = add nuw nsw i64 %indvars.iv207, 1
-  %50 = add nsw i32 %35, -1
+  %50 = add nsw i32 %34, -1
   %51 = trunc nuw nsw i64 %49 to i32
   %.sroa.speculated72 = tail call i32 @llvm.smin.i32(i32 %50, i32 %51)
   %.not176 = icmp sgt i32 %.sroa.speculated78, %.sroa.speculated72
@@ -5470,19 +5463,19 @@ define linkonce_odr hidden noundef zeroext i1 @_Z12getLocalExtrIdEbRSt6vectorIN2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
   %.0138177 = phi i32 [ 0, %.lr.ph.preheader ], [ %.4.ph, %64 ]
-  %53 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %53 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !49
   %55 = fcmp olt double %46, %54
   br i1 %55, label %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %56
 
 56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds double, ptr %27, i64 %indvars.iv
+  %57 = getelementptr inbounds double, ptr %26, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !49
   %59 = fcmp olt double %46, %58
   br i1 %59, label %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds double, ptr %32, i64 %indvars.iv
+  %61 = getelementptr inbounds double, ptr %31, i64 %indvars.iv
   %62 = load double, ptr %61, align 8, !tbaa !49
   %63 = fcmp olt double %46, %62
   br i1 %63, label %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit, label %64
@@ -5584,13 +5577,13 @@ _ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.
   %87 = load i32, ptr %13, align 4, !tbaa !58
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next208.pre-phi, %88
-  br i1 %89, label %34, label %._crit_edge.loopexit, !llvm.loop !202
+  br i1 %89, label %33, label %._crit_edge.loopexit, !llvm.loop !202
 
-._crit_edge.loopexit:                             ; preds = %34, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
-  %90 = phi i32 [ %87, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %35, %34 ]
-  %.sroa.31.1.lcssa.ph = phi ptr [ %.sroa.31.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.31.1179, %34 ]
-  %.sroa.17.1.lcssa.ph = phi ptr [ %.sroa.17.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.17.1180, %34 ]
-  %.sroa.0104.1.lcssa.ph = phi ptr [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0104.1181, %34 ]
+._crit_edge.loopexit:                             ; preds = %33, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit
+  %90 = phi i32 [ %87, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %34, %33 ]
+  %.sroa.31.1.lcssa.ph = phi ptr [ %.sroa.31.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.31.1179, %33 ]
+  %.sroa.17.1.lcssa.ph = phi ptr [ %.sroa.17.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.17.1180, %33 ]
+  %.sroa.0104.1.lcssa.ph = phi ptr [ %.sroa.0104.2, %_ZNSt6vectorISt4pairIdN2cv6Point_IiEEESaIS4_EE9push_backEOS4_.exit ], [ %.sroa.0104.1181, %33 ]
   %.pre213 = load i32, ptr %8, align 8, !tbaa !59
   br label %._crit_edge
 
@@ -9299,10 +9292,13 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

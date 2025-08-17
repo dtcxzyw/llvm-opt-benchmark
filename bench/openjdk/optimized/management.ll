@@ -10720,52 +10720,51 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %69, %79
   %125 = icmp slt i64 %indvars.iv.next.i, %124
   br i1 %125, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit.thread", !llvm.loop !50
 
-"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit.thread": ; preds = %115, %122
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %6, ptr noundef nonnull @.str.8, i32 noundef 2012, ptr noundef %126, ptr noundef nonnull @.str.23) #17
-  br label %.loopexit
-
 "_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit": ; preds = %.lr.ph.i
-  %127 = load ptr, ptr %95, align 8
-  %sext = shl i64 %indvars.iv.i, 32
-  %128 = ashr exact i64 %sext, 29
-  %129 = getelementptr inbounds i8, ptr %127, i64 %128
+  %126 = load ptr, ptr %95, align 8
+  %127 = and i64 %indvars.iv.i, 4294967295
+  %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
+  %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw %struct.dcmdInfo, ptr %2, i64 %indvars.iv
-  store ptr %131, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %134, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %.sroa.0.0.copyload = load ptr, ptr %139, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %131 = getelementptr inbounds nuw %struct.dcmdInfo, ptr %2, i64 %indvars.iv
+  store ptr %130, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store ptr %133, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store ptr %136, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %.sroa.0.0.copyload = load ptr, ptr %138, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 32
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 40
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  store ptr %.sroa.0.0.copyload, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  store ptr %.sroa.2.0.copyload, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store ptr %.sroa.3.0.copyload, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store i32 %144, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %130, i64 52
-  %147 = load i8, ptr %146, align 4
-  %148 = and i8 %147, 1
-  %149 = getelementptr inbounds nuw i8, ptr %132, i64 52
-  store i8 %148, ptr %149, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  store ptr %.sroa.2.0.copyload, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  store ptr %.sroa.3.0.copyload, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
+  %143 = load i32, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  store i32 %143, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %129, i64 52
+  %146 = load i8, ptr %145, align 4
+  %147 = and i8 %146, 1
+  %148 = getelementptr inbounds nuw i8, ptr %131, i64 52
+  store i8 %147, ptr %148, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !51
+
+"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit.thread": ; preds = %115, %122
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %6, ptr noundef nonnull @.str.8, i32 noundef 2012, ptr noundef %149, ptr noundef nonnull @.str.23) #17
+  br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit", %86, %"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit.thread", %113, %108, %84
   %150 = load ptr, ptr %33, align 8

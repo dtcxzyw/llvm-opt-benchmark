@@ -151,17 +151,17 @@ define dso_local void @zend_ssa_find_sccs(ptr noundef readonly captures(none) %0
   %56 = sext i32 %.sroa.6.2 to i64
   %57 = getelementptr inbounds i32, ptr %23, i64 %56
   store i32 %.0.i292, ptr %57, align 4, !tbaa !24
-  %58 = sext i32 %.0.i292 to i64
-  %59 = getelementptr inbounds %struct._zend_scc_iterator, ptr %13, i64 %58
+  %58 = zext nneg i32 %.0.i292 to i64
+  %59 = getelementptr inbounds nuw %struct._zend_scc_iterator, ptr %13, i64 %58
   store i32 0, ptr %59, align 8, !tbaa !25
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 -1, ptr %60, align 4, !tbaa !27
-  %61 = getelementptr inbounds %struct._zend_ssa_var, ptr %53, i64 %58, i32 7
+  %61 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %53, i64 %58, i32 7
   %62 = load i8, ptr %61, align 8
   %63 = or i8 %62, 2
   store i8 %63, ptr %61, align 8
   %64 = load ptr, ptr %37, align 8, !tbaa !19
-  %65 = getelementptr inbounds %struct._zend_ssa_var, ptr %64, i64 %58, i32 1
+  %65 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %64, i64 %58, i32 1
   store i32 %.2306, ptr %65, align 4, !tbaa !20
   %66 = add nsw i32 %.2306, 1
   %67 = icmp sgt i32 %.sroa.6.2, -1

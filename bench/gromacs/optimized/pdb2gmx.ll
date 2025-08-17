@@ -8455,7 +8455,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit1244:             ; preds = %_ZNKSt7__cxx1112bas
 
 2409:                                             ; preds = %.critedge.i.i
   %2410 = trunc nuw nsw i64 %indvars.iv.i.i1247 to i32
-  %2411 = add nsw i32 %2410, 1
+  %2411 = add nuw nsw i32 %2410, 1
   %2412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.324, i32 noundef %2411)
   br label %2418
 
@@ -8767,7 +8767,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2512:                                             ; preds = %.critedge.i53.i
   %2513 = trunc nuw nsw i64 %indvars.iv.i54.i to i32
-  %2514 = add nsw i32 %2513, 1
+  %2514 = add nuw nsw i32 %2513, 1
   %2515 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.332, i32 noundef %2514)
   br label %2521
 
@@ -9079,7 +9079,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2615:                                             ; preds = %.critedge.i61.i
   %2616 = trunc nuw nsw i64 %indvars.iv.i62.i to i32
-  %2617 = add nsw i32 %2616, 1
+  %2617 = add nuw nsw i32 %2616, 1
   %2618 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.334, i32 noundef %2617)
   br label %2624
 
@@ -9391,7 +9391,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2718:                                             ; preds = %.critedge.i69.i
   %2719 = trunc nuw nsw i64 %indvars.iv.i70.i to i32
-  %2720 = add nsw i32 %2719, 1
+  %2720 = add nuw nsw i32 %2719, 1
   %2721 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.336, i32 noundef %2720)
   br label %2727
 
@@ -9707,7 +9707,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2822:                                             ; preds = %.critedge.i77.i
   %2823 = trunc nuw nsw i64 %indvars.iv.i78.i to i32
-  %2824 = add nsw i32 %2823, 1
+  %2824 = add nuw nsw i32 %2823, 1
   %2825 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.339, i32 noundef %2824)
   br label %2831
 
@@ -10032,7 +10032,7 @@ _ZN12_GLOBAL__N_126renameResidueInteractivelyEP7t_atomsPKcPFS3_iN3gmx8ArrayRefIK
 
 2928:                                             ; preds = %.lr.ph.split.us.i.i
   %2929 = trunc nuw nsw i64 %indvars.iv4.i.i to i32
-  %2930 = add nsw i32 %2929, 1
+  %2930 = add nuw nsw i32 %2929, 1
   %2931 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.325, ptr noundef nonnull @.str.340, i32 noundef %2930)
   br label %2937
 

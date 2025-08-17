@@ -1590,8 +1590,8 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.0142146 = phi i32 [ %27, %.lr.ph ], [ %99, %34 ]
   %35 = mul nsw i32 %.0142146, 3
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [36 x float], ptr %15, i64 0, i64 %36
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw [36 x float], ptr %15, i64 0, i64 %36
   %38 = mul nuw nsw i64 %indvars.iv, 3
   %39 = getelementptr inbounds nuw [36 x float], ptr %15, i64 0, i64 %38
   %40 = load float, ptr %15, align 4
@@ -1719,8 +1719,8 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %indvars.iv173 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next174, %131 ]
   %.0144153 = phi i32 [ %125, %.lr.ph155 ], [ %178, %131 ]
   %132 = mul nsw i32 %.0144153, 3
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [36 x float], ptr %113, i64 0, i64 %133
+  %133 = zext nneg i32 %132 to i64
+  %134 = getelementptr inbounds nuw [36 x float], ptr %113, i64 0, i64 %133
   %135 = mul nuw nsw i64 %indvars.iv173, 3
   %136 = getelementptr inbounds nuw [36 x float], ptr %113, i64 0, i64 %135
   %137 = load float, ptr %134, align 4

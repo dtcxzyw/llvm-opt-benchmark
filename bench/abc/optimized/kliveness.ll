@@ -622,7 +622,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectSafetyInvariantPOIndex(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
+define range(i32 -1, 2147483647) i32 @collectSafetyInvariantPOIndex(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val9 = load ptr, ptr %2, align 8, !tbaa !50
   %3 = getelementptr i8, ptr %.val9, i64 4

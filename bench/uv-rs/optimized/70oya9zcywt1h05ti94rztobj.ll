@@ -52844,8 +52844,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i: ; preds = %.lr.ph.spl
   %19 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef 58, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %11), !noalias !8829
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = extractvalue { i64, i64 } %19, 1
-  %switch = icmp eq i64 %20, 1
-  br i1 %switch, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %.loopexit
+  %switch.i.i = icmp eq i64 %20, 1
+  br i1 %switch.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i, label %.loopexit
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.lr.ph.i.i.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i
   %.sroa.4.0.i26.i.i = phi i64 [ %21, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i ], [ %.sroa.01.05.i.i.i, %.lr.ph.i.i.i ]
@@ -52865,7 +52865,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %27 = icmp eq i8 %lhsc.i, 58
   br i1 %27, label %30, label %25
 
-.loopexit:                                        ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %25, %.preheader.i.i.i, %17
+.loopexit:                                        ; preds = %25, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i, %.preheader.i.i.i, %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.bc7996b31a40e1e896f48586f561cfb2.375, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16

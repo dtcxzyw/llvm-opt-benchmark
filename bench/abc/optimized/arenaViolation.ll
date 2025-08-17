@@ -989,7 +989,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectWindowBeginSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @collectWindowBeginSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8, !tbaa !42
   %4 = icmp sgt i32 %.val911, 0
@@ -1028,7 +1028,7 @@ define range(i32 -2147483648, 2147483647) i32 @collectWindowBeginSignalWithDSC(p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectWithinWindowSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @collectWithinWindowSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8, !tbaa !42
   %4 = icmp sgt i32 %.val911, 0
@@ -1067,7 +1067,7 @@ define range(i32 -2147483648, 2147483647) i32 @collectWithinWindowSignalWithDSC(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectPendingSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @collectPendingSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8, !tbaa !42
   %4 = icmp sgt i32 %.val911, 0

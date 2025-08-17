@@ -844,7 +844,7 @@ define hidden noundef ptr @_ZN13GrowableCache2atEi(ptr noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK13GrowableCache4findEPK15GrowableElement(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 2147483647) i32 @_ZNK13GrowableCache4findEPK15GrowableElement(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -1704,9 +1704,8 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit: ; preds = %9
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %sext = shl i64 %indvars.iv.i.i.i, 32
-  %24 = ashr exact i64 %sext, 29
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %24 = and i64 %indvars.iv.i.i.i, 4294967295
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %21, align 8
   %28 = icmp sgt i32 %27, 0

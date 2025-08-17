@@ -170,7 +170,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %60 = load ptr, ptr %59, align 8, !tbaa !34
   %61 = call nsz float @llvm.fabs.f32(float %.124.i)
   %62 = zext nneg i32 %.1.i to i64
-  %wide.trip.count.i = zext i32 %57 to i64
+  %wide.trip.count.i = zext nneg i32 %57 to i64
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph8.i
@@ -349,7 +349,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %46 = load ptr, ptr %45, align 8, !tbaa !34
   %47 = call nsz float @llvm.fabs.f32(float %.124.i)
   %48 = zext nneg i32 %.1.i to i64
-  %wide.trip.count.i = zext i32 %43 to i64
+  %wide.trip.count.i = zext nneg i32 %43 to i64
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph8.i

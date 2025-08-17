@@ -4026,7 +4026,7 @@ _ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPa
   call void @llvm.memset.p0.i64(ptr align 4 %475, i8 0, i64 %477, i1 false)
   br label %.lr.ph677
 
-.lr.ph680.preheader:                              ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
+.preheader:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
   %478 = and i64 %indvars.iv.next691, 4294967294
   br label %.lr.ph680
 
@@ -4144,10 +4144,10 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 2
   %indvar.next = add nuw nsw i32 %indvar, 1
   %exitcond698.not = icmp eq i32 %indvar.next, %377
-  br i1 %exitcond698.not, label %.lr.ph680.preheader, label %.lr.ph677, !llvm.loop !34
+  br i1 %exitcond698.not, label %.preheader, label %.lr.ph677, !llvm.loop !34
 
-.lr.ph680:                                        ; preds = %.lr.ph680.preheader, %553
-  %indvars.iv699 = phi i64 [ 0, %.lr.ph680.preheader ], [ %indvars.iv.next700, %553 ]
+.lr.ph680:                                        ; preds = %.preheader, %553
+  %indvars.iv699 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next700, %553 ]
   %523 = getelementptr inbounds nuw i32, ptr %.sroa.25.2, i64 %indvars.iv699
   %524 = load i32, ptr %523, align 4
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 4

@@ -335,7 +335,7 @@ bytestream2_get_be24.exit:                        ; preds = %64, %65
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %115
   %151 = phi i32 [ %116, %115 ], [ %146, %._crit_edge.loopexit ]
   %.092.lcssa = phi i32 [ 0, %115 ], [ %150, %._crit_edge.loopexit ]
-  %152 = shl nsw i32 %.092.lcssa, 2
+  %152 = shl nuw nsw i32 %.092.lcssa, 2
   %153 = icmp slt i32 %152, %151
   br i1 %153, label %.lr.ph118.preheader, label %._crit_edge119
 

@@ -773,7 +773,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_PURPOSE_get_by_sname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2147483647) i32 @X509_PURPOSE_get_by_sname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %20, %1

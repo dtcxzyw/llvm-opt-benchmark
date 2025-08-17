@@ -122,98 +122,98 @@ logdb.exit.i:                                     ; preds = %39, %38
   %47 = getelementptr inbounds nuw [65537 x i64], ptr %4, i64 0, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !20
   %.not66.i = icmp eq i64 %48, 0
-  br i1 %.not66.i, label %49, label %.critedge.i
+  br i1 %.not66.i, label %49, label %55
 
 49:                                               ; preds = %45
   %50 = sub nuw nsw i64 32768, %indvars.iv95.i
   %51 = getelementptr inbounds nuw [65537 x i64], ptr %4, i64 0, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !20
   %.not67.i = icmp eq i64 %52, 0
-  br i1 %.not67.i, label %53, label %.critedge.i
+  br i1 %.not67.i, label %53, label %55
 
 53:                                               ; preds = %49
   %indvars.iv.next96.i = add nsw i64 %indvars.iv95.i, -1
   %54 = icmp samesign ugt i64 %indvars.iv95.i, 1
   br i1 %54, label %45, label %logdb.exit73.i, !llvm.loop !26
 
-.critedge.i:                                      ; preds = %45, %49
-  %55 = trunc nuw nsw i64 %indvars.iv95.i to i32
-  %56 = mul nsw i32 %55, %55
-  %57 = uitofp nneg i32 %56 to double
-  %58 = fmul nsz double %57, 0x3E10000000000000
-  %59 = tail call nsz double @llvm.log10.f64(double %58)
-  %60 = fmul nsz double %59, -1.000000e+01
+55:                                               ; preds = %49, %45
+  %56 = trunc nuw nsw i64 %indvars.iv95.i to i32
+  %57 = mul nsw i32 %56, %56
+  %58 = uitofp nneg i32 %57 to double
+  %59 = fmul nsz double %58, 0x3E10000000000000
+  %60 = tail call nsz double @llvm.log10.f64(double %59)
+  %61 = fmul nsz double %60, -1.000000e+01
   br label %logdb.exit73.i
 
-logdb.exit73.i:                                   ; preds = %53, %.critedge.i
-  %.0.i72.i = phi nsz double [ %60, %.critedge.i ], [ 9.100000e+01, %53 ]
-  %61 = fneg nsz double %.0.i72.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.8, double noundef %61) #7
-  br label %62
+logdb.exit73.i:                                   ; preds = %53, %55
+  %.0.i72.i = phi nsz double [ %61, %55 ], [ 9.100000e+01, %53 ]
+  %62 = fneg nsz double %.0.i72.i
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.8, double noundef %62) #7
+  br label %63
 
-62:                                               ; preds = %logdb.exit76.i, %logdb.exit73.i
+63:                                               ; preds = %logdb.exit76.i, %logdb.exit73.i
   %indvars.iv98.i = phi i64 [ 0, %logdb.exit73.i ], [ %indvars.iv.next99.i, %logdb.exit76.i ]
-  %63 = getelementptr inbounds nuw [65537 x i64], ptr %4, i64 0, i64 %indvars.iv98.i
-  %64 = load i64, ptr %63, align 8, !tbaa !20
-  %65 = add nsw i64 %indvars.iv98.i, -32768
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %logdb.exit76.i, label %67
+  %64 = getelementptr inbounds nuw [65537 x i64], ptr %4, i64 0, i64 %indvars.iv98.i
+  %65 = load i64, ptr %64, align 8, !tbaa !20
+  %66 = add nsw i64 %indvars.iv98.i, -32768
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %logdb.exit76.i, label %68
 
-67:                                               ; preds = %62
-  %68 = mul nsw i64 %65, %65
-  %69 = trunc nsw i64 %68 to i32
-  %70 = uitofp nneg i32 %69 to double
-  %71 = fmul nsz double %70, 0x3E10000000000000
-  %72 = tail call nsz double @llvm.log10.f64(double %71)
-  %73 = fmul nsz double %72, -1.000000e+01
-  %74 = fptosi double %73 to i32
-  %75 = sext i32 %74 to i64
+68:                                               ; preds = %63
+  %69 = mul nsw i64 %66, %66
+  %70 = trunc nsw i64 %69 to i32
+  %71 = uitofp nneg i32 %70 to double
+  %72 = fmul nsz double %71, 0x3E10000000000000
+  %73 = tail call nsz double @llvm.log10.f64(double %72)
+  %74 = fmul nsz double %73, -1.000000e+01
+  %75 = fptosi double %74 to i32
+  %76 = sext i32 %75 to i64
   br label %logdb.exit76.i
 
-logdb.exit76.i:                                   ; preds = %67, %62
-  %.0.i75.i = phi i64 [ %75, %67 ], [ 91, %62 ]
-  %76 = getelementptr inbounds [92 x i64], ptr %2, i64 0, i64 %.0.i75.i
-  %77 = load i64, ptr %76, align 8, !tbaa !20
-  %78 = add i64 %77, %64
-  store i64 %78, ptr %76, align 8, !tbaa !20
+logdb.exit76.i:                                   ; preds = %68, %63
+  %.0.i75.i = phi i64 [ %76, %68 ], [ 91, %63 ]
+  %77 = getelementptr inbounds [92 x i64], ptr %2, i64 0, i64 %.0.i75.i
+  %78 = load i64, ptr %77, align 8, !tbaa !20
+  %79 = add i64 %78, %65
+  store i64 %79, ptr %77, align 8, !tbaa !20
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 65536
-  br i1 %exitcond101.not.i, label %.preheader.i, label %62, !llvm.loop !27
+  br i1 %exitcond101.not.i, label %.preheader.i, label %63, !llvm.loop !27
 
-.preheader.i:                                     ; preds = %logdb.exit76.i, %81
-  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %81 ], [ 0, %logdb.exit76.i ]
-  %79 = getelementptr inbounds nuw [92 x i64], ptr %2, i64 0, i64 %indvars.iv102.i
-  %80 = load i64, ptr %79, align 8, !tbaa !20
-  %.not68.i = icmp eq i64 %80, 0
-  br i1 %.not68.i, label %81, label %.critedge2.i
+.preheader.i:                                     ; preds = %logdb.exit76.i, %82
+  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %82 ], [ 0, %logdb.exit76.i ]
+  %80 = getelementptr inbounds nuw [92 x i64], ptr %2, i64 0, i64 %indvars.iv102.i
+  %81 = load i64, ptr %80, align 8, !tbaa !20
+  %.not68.i = icmp eq i64 %81, 0
+  br i1 %.not68.i, label %82, label %.critedge2.i
 
-81:                                               ; preds = %.preheader.i
+82:                                               ; preds = %.preheader.i
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 92
   br i1 %exitcond105.not.i, label %print_stats.exit, label %.preheader.i, !llvm.loop !28
 
 .critedge2.i:                                     ; preds = %.preheader.i
-  %82 = udiv i64 %8, 1000
-  %83 = icmp samesign ult i64 %indvars.iv102.i, 92
-  %84 = icmp ugt i64 %8, 999
-  %or.cond85.i = select i1 %83, i1 %84, i1 false
+  %83 = udiv i64 %8, 1000
+  %84 = icmp samesign ult i64 %indvars.iv102.i, 92
+  %85 = icmp ugt i64 %8, 999
+  %or.cond85.i = select i1 %84, i1 %85, i1 false
   br i1 %or.cond85.i, label %.lr.ph.i, label %print_stats.exit
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.i
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.lr.ph.i ], [ %indvars.iv102.i, %.critedge2.i ]
-  %.087.i = phi i64 [ %88, %.lr.ph.i ], [ 0, %.critedge2.i ]
-  %85 = getelementptr inbounds nuw [92 x i64], ptr %2, i64 0, i64 %indvars.iv106.i
-  %86 = load i64, ptr %85, align 8, !tbaa !20
-  %87 = trunc nuw nsw i64 %indvars.iv106.i to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.9, i32 noundef %87, i64 noundef %86) #7
-  %88 = add i64 %86, %.087.i
+  %.087.i = phi i64 [ %89, %.lr.ph.i ], [ 0, %.critedge2.i ]
+  %86 = getelementptr inbounds nuw [92 x i64], ptr %2, i64 0, i64 %indvars.iv106.i
+  %87 = load i64, ptr %86, align 8, !tbaa !20
+  %88 = trunc nuw nsw i64 %indvars.iv106.i to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.9, i32 noundef %88, i64 noundef %87) #7
+  %89 = add i64 %87, %.087.i
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %89 = icmp samesign ult i64 %indvars.iv106.i, 91
-  %90 = icmp ult i64 %88, %82
-  %or.cond.i = select i1 %89, i1 %90, i1 false
+  %90 = icmp samesign ult i64 %indvars.iv106.i, 91
+  %91 = icmp ult i64 %89, %83
+  %or.cond.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %print_stats.exit, !llvm.loop !29
 
-print_stats.exit:                                 ; preds = %81, %.lr.ph.i, %9, %31, %.critedge2.i
+print_stats.exit:                                 ; preds = %82, %.lr.ph.i, %9, %31, %.critedge2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

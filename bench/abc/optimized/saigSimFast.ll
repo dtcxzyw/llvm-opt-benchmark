@@ -337,7 +337,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr noundef readonly captures
   %24 = shl nuw nsw i64 %23, 2
   %scevgep = getelementptr i8, ptr %10, i64 %24
   %25 = xor i32 %.0.lcssa, -1
-  %26 = add i32 %21, %25
+  %26 = add nsw i32 %21, %25
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 2
   %29 = add nuw nsw i64 %28, 4
@@ -348,7 +348,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr noundef readonly captures
   %.val81 = load i32, ptr %5, align 4, !tbaa !36
   %invariant.op = sub i32 %.val81, %21
   %30 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %21 to i64
+  %wide.trip.count = zext nneg i32 %21 to i64
   br label %48
 
 31:                                               ; preds = %.lr.ph, %42
@@ -409,7 +409,7 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr noundef readonly captures
 .lr.ph107:                                        ; preds = %.preheader92
   %.not78 = icmp eq i32 %.077122, 0
   %61 = zext nneg i32 %.3.lcssa to i64
-  %wide.trip.count150 = zext i32 %59 to i64
+  %wide.trip.count150 = zext nneg i32 %59 to i64
   br label %67
 
 .lr.ph104:                                        ; preds = %.preheader94, %.lr.ph104

@@ -7072,7 +7072,7 @@ rbimpl_intern_const.exit173:                      ; preds = %.lr.ph.i171, %rbimp
 .lr.ph233:                                        ; preds = %.loopexit215
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %85 = zext nneg i32 %.1 to i64
-  %wide.trip.count = zext i32 %82 to i64
+  %wide.trip.count = zext nneg i32 %82 to i64
   br label %86
 
 86:                                               ; preds = %.lr.ph233, %100

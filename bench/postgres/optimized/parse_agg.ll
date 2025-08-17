@@ -2043,7 +2043,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @get_aggregate_argtypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, -2147483648) i32 @get_aggregate_argtypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

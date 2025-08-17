@@ -4407,7 +4407,7 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %25, label %.lr.ph22.preheader.i, label %._crit_edge.i
 
 .lr.ph22.preheader.i:                             ; preds = %21
-  %wide.trip.count.i = zext i32 %26 to i64
+  %wide.trip.count.i = zext nneg i32 %26 to i64
   br label %.lr.ph22.i
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i

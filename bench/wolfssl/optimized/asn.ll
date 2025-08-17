@@ -3330,7 +3330,7 @@ define range(i32 -192, 1) i32 @CheckBitString(ptr noundef %0, ptr noundef captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define i32 @SetBitString(i32 noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define range(i32 3, 2) i32 @SetBitString(i32 noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %.thread
 

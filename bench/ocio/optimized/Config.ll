@@ -30838,7 +30838,7 @@ _ZNK19OpenColorIO_v2_5dev6Config4Impl17getNamedTransformEPKc.exit: ; preds = %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK19OpenColorIO_v2_5dev6Config21getIndexForColorSpaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK19OpenColorIO_v2_5dev6Config21getIndexForColorSpaceEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.77", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !34, !noalias !558

@@ -57500,15 +57500,15 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
 134:                                              ; preds = %127, %108
   %.054.i = phi i32 [ %133, %127 ], [ %.lobit.i, %108 ]
   %.not66.i = icmp eq i32 %.054.i, 0
-  br i1 %.not66.i, label %.loopexit, label %.preheader73.i
+  br i1 %.not66.i, label %.loopexit, label %.preheader.preheader.i
 
-.preheader73.i:                                   ; preds = %134
+.preheader.preheader.i:                           ; preds = %134
   %135 = add nuw i64 %indvars.iv.i, 2
   %wide.trip.count.i = and i64 %135, 4294967295
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %151, %.preheader73.i
-  %indvars.iv103.i = phi i64 [ 0, %.preheader73.i ], [ %indvars.iv.next104.i, %151 ]
+.preheader.i:                                     ; preds = %151, %.preheader.preheader.i
+  %indvars.iv103.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next104.i, %151 ]
   %136 = getelementptr inbounds nuw [3 x ptr], ptr @tableColumnList.azRowid, i64 0, i64 %indvars.iv103.i
   %137 = load ptr, ptr %136, align 8, !tbaa !29
   br label %139
@@ -57516,7 +57516,7 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
 138:                                              ; preds = %139
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader._crit_edge.loopexit.i, label %139, !llvm.loop !1099
+  br i1 %exitcond.not.i, label %.preheader._crit_edge.i, label %139, !llvm.loop !1099
 
 139:                                              ; preds = %138, %.preheader.i
   %indvars.iv100.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next101.i, %138 ]
@@ -57526,7 +57526,7 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %151, label %138
 
-.preheader._crit_edge.loopexit.i:                 ; preds = %138
+.preheader._crit_edge.i:                          ; preds = %138
   %144 = and i64 %indvars.iv103.i, 4294967295
   %145 = load ptr, ptr %0, align 8, !tbaa !485
   %146 = getelementptr inbounds nuw [3 x ptr], ptr @tableColumnList.azRowid, i64 0, i64 %144
@@ -57535,7 +57535,7 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %.loopexit
 
-150:                                              ; preds = %.preheader._crit_edge.loopexit.i
+150:                                              ; preds = %.preheader._crit_edge.i
   store ptr %147, ptr %.162.i, align 8, !tbaa !29
   br label %.loopexit
 
@@ -57548,7 +57548,7 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
-.loopexit:                                        ; preds = %151, %134, %.preheader._crit_edge.loopexit.i, %150
+.loopexit:                                        ; preds = %151, %134, %.preheader._crit_edge.i, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %153 = tail call ptr @__ctype_b_loc() #45
