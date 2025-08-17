@@ -599,27 +599,27 @@ if.then.i:                                        ; preds = %while.end74
 
 if.else.i:                                        ; preds = %while.end74
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %conv76
-  br i1 %cmp4.i, label %if.then5.i, label %for.body.preheader
+  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
   %add.ptr6.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv76
   %tobool.not.i.i = icmp eq ptr %0, %add.ptr6.i
-  br i1 %tobool.not.i.i, label %for.body.preheader, label %if.then.i.i48
+  br i1 %tobool.not.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %if.then5.i
   store ptr %add.ptr6.i, ptr %_M_finish.i, align 8
-  br label %for.body.preheader
+  br label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
 
-for.body.preheader:                               ; preds = %if.then.i.i48, %if.then5.i, %if.else.i, %if.then.i
+_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit: ; preds = %if.then.i.i48, %if.then5.i, %if.else.i, %if.then.i
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
+for.body:                                         ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, %for.body
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.body ], [ 0, %for.body.preheader ]
   %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv106
-  %12 = load i32, ptr %add.ptr.i50, align 4
-  %13 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv106
-  store i32 %12, ptr %add.ptr2.i52, align 4
+  %13 = load i32, ptr %add.ptr.i50, align 4
+  %14 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv106
+  store i32 %13, ptr %add.ptr2.i52, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %conv76
   br i1 %exitcond.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body, !llvm.loop !10
@@ -629,10 +629,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body
   ret void
 
 eh.resume:                                        ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %merged.sroa.0.0) #26
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress uwtable

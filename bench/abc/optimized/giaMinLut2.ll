@@ -5892,7 +5892,7 @@ define i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 Abc_TtHasVar.exit:                                ; preds = %._crit_edge.us.i, %29, %.preheader.lr.ph.i
   %49 = icmp sgt i64 %indvars.iv, 1
-  br i1 %49, label %22, label %.thread, !llvm.loop !131
+  br i1 %49, label %22, label %.thread.loopexit, !llvm.loop !131
 
 .loopexit.loopexit:                               ; preds = %43
   %50 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -5902,44 +5902,44 @@ Abc_TtHasVar.exit:                                ; preds = %._crit_edge.us.i, %
   %.0387682 = phi i32 [ %50, %.loopexit.loopexit ], [ %24, %30 ]
   %.038.in7585 = trunc i64 %indvars.iv to i32
   %51 = icmp slt i32 %.038.in7585, 7
-  br i1 %51, label %.thread, label %54
+  br i1 %51, label %.thread, label %55
 
-.thread:                                          ; preds = %Abc_TtHasVar.exit, %.loopexit
+.thread.loopexit:                                 ; preds = %Abc_TtHasVar.exit, %.loopexit
   %.038.in73 = phi i32 [ %.038.in7585, %.loopexit ], [ 0, %Abc_TtHasVar.exit ]
   %52 = load i64, ptr %1, align 8, !tbaa !16
   %53 = tail call i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %52, i32 noundef %.038.in73, ptr noundef %3)
   br label %Abc_TtIsConst0.exit.thread
 
-54:                                               ; preds = %.loopexit
-  %55 = tail call i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef %1, i32 noundef %.0387682, ptr noundef %3)
-  %56 = add nsw i32 %.038.in7585, -7
-  %57 = shl nuw i32 1, %56
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %1, i64 %58
-  %60 = tail call i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef nonnull %59, i32 noundef %.0387682, ptr noundef %3)
+55:                                               ; preds = %.loopexit
+  %56 = tail call i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef %1, i32 noundef %.0387682, ptr noundef %3)
+  %57 = add nsw i32 %.038.in7585, -7
+  %58 = shl nuw i32 1, %57
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i64, ptr %1, i64 %59
+  %61 = tail call i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef nonnull %60, i32 noundef %.0387682, ptr noundef %3)
   %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %66, label %61
+  br i1 %.not43, label %67, label %62
 
-61:                                               ; preds = %54
-  %62 = zext nneg i32 %.0387682 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !4
-  %65 = add nsw i32 %64, 1
-  br label %66
+62:                                               ; preds = %55
+  %63 = zext nneg i32 %.0387682 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %63
+  %65 = load i32, ptr %64, align 4, !tbaa !4
+  %66 = add nsw i32 %65, 1
+  br label %67
 
-66:                                               ; preds = %54, %61
-  %67 = phi i32 [ %65, %61 ], [ %.038.in7585, %54 ]
-  %68 = shl nsw i32 %67, 1
-  %69 = or disjoint i32 %68, 1
-  %70 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %69, i32 noundef %55)
-  %71 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %68, i32 noundef %60)
+67:                                               ; preds = %55, %62
+  %68 = phi i32 [ %66, %61 ], [ %.038.in7585, %54 ]
+  %69 = shl nsw i32 %68, 1
+  %70 = or disjoint i32 %69, 1
+  %71 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %70, i32 noundef %56)
+  %72 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %69, i32 noundef %61)
   %72 = xor i32 %70, 1
   %73 = xor i32 %71, 1
   %74 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %72, i32 noundef %73)
   %75 = xor i32 %74, 1
   br label %Abc_TtIsConst0.exit.thread
 
-Abc_TtIsConst0.exit.thread:                       ; preds = %13, %16, %12, %66, %.thread, %9
+Abc_TtIsConst0.exit.thread:                       ; preds = %13, %16, %12, %67, %.thread, %9
   %.0 = phi i32 [ %11, %9 ], [ %53, %.thread ], [ %75, %66 ], [ 0, %12 ], [ 1, %16 ], [ 0, %13 ]
   ret i32 %.0
 }

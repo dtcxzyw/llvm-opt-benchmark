@@ -8,12 +8,12 @@ define i32 @u_strToPunycode_77(ptr noundef readonly captures(address_is_null) %0
   %7 = alloca [1000 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %5, null
-  br i1 %8, label %265, label %9
+  br i1 %8, label %266, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %5, align 4, !tbaa !3
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %265
+  br i1 %11, label %12, label %266
 
 12:                                               ; preds = %9
   %13 = icmp eq ptr %0, null
@@ -31,7 +31,7 @@ define i32 @u_strToPunycode_77(ptr noundef readonly captures(address_is_null) %0
 
 19:                                               ; preds = %16, %12
   store i32 1, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
 20:                                               ; preds = %16
   %21 = icmp sgt i32 %1, 1000
@@ -39,7 +39,7 @@ define i32 @u_strToPunycode_77(ptr noundef readonly captures(address_is_null) %0
 
 22:                                               ; preds = %20
   store i32 31, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
 23:                                               ; preds = %20
   switch i32 %1, label %.lr.ph [
@@ -144,7 +144,7 @@ _ZL12asciiCaseMapca.exit224.us:                   ; preds = %51
 
 68:                                               ; preds = %63
   store i32 31, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
 69:                                               ; preds = %63
   %70 = icmp ult i16 %64, 128
@@ -230,7 +230,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
 
 114:                                              ; preds = %102, %99
   store i32 10, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
 115:                                              ; preds = %95, %110
   %.pn213 = phi i32 [ %113, %110 ], [ %66, %95 ]
@@ -336,7 +336,7 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
 
 .split.us:                                        ; preds = %152, %155, %158, %32, %35, %38
   store i32 10, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
 169:                                              ; preds = %146, %165
   %.pn = phi i32 [ %168, %165 ], [ %126, %146 ]
@@ -390,8 +390,8 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %.0172286 = phi i32 [ 72, %.preheader232.lr.ph ], [ %.2174, %._crit_edge277 ]
   %.6181285 = phi i32 [ %.5180, %.preheader232.lr.ph ], [ %.9, %._crit_edge277 ]
   %.0184284 = phi i32 [ %.2177, %.preheader232.lr.ph ], [ %.2186, %._crit_edge277 ]
-  %.0187283 = phi i32 [ 0, %.preheader232.lr.ph ], [ %261, %._crit_edge277 ]
-  %.2192282 = phi i32 [ 128, %.preheader232.lr.ph ], [ %262, %._crit_edge277 ]
+  %.0187283 = phi i32 [ 0, %.preheader232.lr.ph ], [ %262, %._crit_edge277 ]
+  %.2192282 = phi i32 [ 128, %.preheader232.lr.ph ], [ %263, %._crit_edge277 ]
   br label %.lr.ph257
 
 .lr.ph257:                                        ; preds = %.preheader232, %.lr.ph257
@@ -414,186 +414,186 @@ _ZL12asciiCaseMapca.exit224:                      ; preds = %138, %135
   %193 = add nsw i32 %.0184284, 1
   %194 = sdiv i32 %192, %193
   %195 = icmp sgt i32 %190, %194
-  br i1 %195, label %196, label %.lr.ph276.preheader
+  br i1 %195, label %196, label %197
 
 196:                                              ; preds = %._crit_edge
   store i32 5, ptr %5, align 4, !tbaa !3
-  br label %265
+  br label %266
 
-.lr.ph276.preheader:                              ; preds = %._crit_edge
-  %197 = mul nsw i32 %190, %193
-  %198 = add nsw i32 %197, %.0187283
+197:                                              ; preds = %._crit_edge
+  %198 = mul nsw i32 %190, %193
+  %199 = add nsw i32 %198, %.0187283
   br label %.lr.ph276
 
-.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %260
+.lr.ph276:                                        ; preds = %197, %261
   %indvars.iv309 = phi i64 [ 0, %.lr.ph276.preheader ], [ %indvars.iv.next310, %260 ]
   %.1173273 = phi i32 [ %.0172286, %.lr.ph276.preheader ], [ %.2174, %260 ]
   %.7182272 = phi i32 [ %.6181285, %.lr.ph276.preheader ], [ %.9, %260 ]
   %.1185271 = phi i32 [ %.0184284, %.lr.ph276.preheader ], [ %.2186, %260 ]
   %.1188270 = phi i32 [ %198, %.lr.ph276.preheader ], [ %.2189, %260 ]
-  %199 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv309
-  %200 = load i32, ptr %199, align 4, !tbaa !9
-  %201 = and i32 %200, 2147483647
-  %202 = icmp samesign ult i32 %201, %.1166
-  br i1 %202, label %203, label %205
+  %200 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %indvars.iv309
+  %201 = load i32, ptr %200, align 4, !tbaa !9
+  %202 = and i32 %201, 2147483647
+  %203 = icmp samesign ult i32 %202, %.1166
+  br i1 %203, label %204, label %206
 
-203:                                              ; preds = %.lr.ph276
-  %204 = add nsw i32 %.1188270, 1
-  br label %260
+204:                                              ; preds = %.lr.ph276
+  %205 = add nsw i32 %.1188270, 1
+  br label %261
 
-205:                                              ; preds = %.lr.ph276
-  %206 = icmp eq i32 %201, %.1166
-  br i1 %206, label %.preheader, label %260
+206:                                              ; preds = %.lr.ph276
+  %207 = icmp eq i32 %202, %.1166
+  br i1 %207, label %.preheader, label %261
 
-.preheader:                                       ; preds = %205
-  %207 = sub nsw i32 36, %.1173273
-  %208 = icmp sgt i32 %.1173273, 35
+.preheader:                                       ; preds = %206
+  %208 = sub nsw i32 36, %.1173273
+  %209 = icmp sgt i32 %.1173273, 35
   %.not215259 = icmp sgt i32 %.1173273, 10
-  %spec.select260 = select i1 %.not215259, i32 %207, i32 26
-  %.0162261 = select i1 %208, i32 1, i32 %spec.select260
-  %209 = icmp slt i32 %.1188270, %.0162261
-  br i1 %209, label %._crit_edge267, label %.lr.ph266.preheader
+  %spec.select260 = select i1 %.not215259, i32 %208, i32 26
+  %.0162261 = select i1 %209, i32 1, i32 %spec.select260
+  %210 = icmp slt i32 %.1188270, %.0162261
+  br i1 %210, label %._crit_edge267, label %.lr.ph266.preheader
 
 .lr.ph266.preheader:                              ; preds = %.preheader
-  %210 = sext i32 %.7182272 to i64
+  %211 = sext i32 %.7182272 to i64
   br label %.lr.ph266
 
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266._crit_edge
-  %indvars.iv306 = phi i64 [ %210, %.lr.ph266.preheader ], [ %indvars.iv.next307, %.lr.ph266._crit_edge ]
+  %indvars.iv306 = phi i64 [ %211, %.lr.ph266.preheader ], [ %indvars.iv.next307, %.lr.ph266._crit_edge ]
   %.0162265 = phi i32 [ %.0162261, %.lr.ph266.preheader ], [ %.0162, %.lr.ph266._crit_edge ]
-  %.0163264 = phi i32 [ 36, %.lr.ph266.preheader ], [ %221, %.lr.ph266._crit_edge ]
-  %.0164263 = phi i32 [ %.1188270, %.lr.ph266.preheader ], [ %214, %.lr.ph266._crit_edge ]
-  %211 = icmp slt i64 %indvars.iv306, %185
-  %212 = sub nsw i32 %.0164263, %.0162265
-  %213 = sub nsw i32 36, %.0162265
-  %214 = sdiv i32 %212, %213
-  %215 = srem i32 %212, %213
-  br i1 %211, label %_ZL12digitToBasicia.exit, label %.lr.ph266._crit_edge
+  %.0163264 = phi i32 [ 36, %.lr.ph266.preheader ], [ %222, %.lr.ph266._crit_edge ]
+  %.0164263 = phi i32 [ %.1188270, %.lr.ph266.preheader ], [ %215, %.lr.ph266._crit_edge ]
+  %212 = icmp slt i64 %indvars.iv306, %185
+  %213 = sub nsw i32 %.0164263, %.0162265
+  %214 = sub nsw i32 36, %.0162265
+  %215 = sdiv i32 %213, %214
+  %216 = srem i32 %213, %214
+  br i1 %212, label %_ZL12digitToBasicia.exit, label %.lr.ph266._crit_edge
 
 _ZL12digitToBasicia.exit:                         ; preds = %.lr.ph266
-  %216 = add nsw i32 %215, %.0162265
-  %217 = icmp slt i32 %216, 26
-  %218 = trunc i32 %216 to i16
-  %.0.i225.v = select i1 %217, i16 97, i16 22
-  %.0.i225 = add i16 %.0.i225.v, %218
+  %217 = add nsw i32 %216, %.0162265
+  %218 = icmp slt i32 %217, 26
+  %219 = trunc i32 %217 to i16
+  %.0.i225.v = select i1 %218, i16 97, i16 22
+  %.0.i225 = add i16 %.0.i225.v, %219
   %sext231 = shl i16 %.0.i225, 8
-  %219 = ashr exact i16 %sext231, 8
-  %220 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv306
-  store i16 %219, ptr %220, align 2, !tbaa !7
+  %220 = ashr exact i16 %sext231, 8
+  %221 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv306
+  store i16 %220, ptr %221, align 2, !tbaa !7
   br label %.lr.ph266._crit_edge
 
 .lr.ph266._crit_edge:                             ; preds = %.lr.ph266, %_ZL12digitToBasicia.exit
   %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
-  %221 = add nuw nsw i32 %.0163264, 36
-  %222 = sub nsw i32 %221, %.1173273
-  %223 = icmp slt i32 %222, 1
-  %224 = add nuw nsw i32 %.0163264, 10
-  %.not215 = icmp slt i32 %224, %.1173273
-  %spec.select = select i1 %.not215, i32 %222, i32 26
-  %.0162 = select i1 %223, i32 1, i32 %spec.select
-  %225 = icmp slt i32 %214, %.0162
-  br i1 %225, label %._crit_edge267.loopexit, label %.lr.ph266, !llvm.loop !18
+  %222 = add nuw nsw i32 %.0163264, 36
+  %223 = sub nsw i32 %222, %.1173273
+  %224 = icmp slt i32 %223, 1
+  %225 = add nuw nsw i32 %.0163264, 10
+  %.not215 = icmp slt i32 %225, %.1173273
+  %spec.select = select i1 %.not215, i32 %223, i32 26
+  %.0162 = select i1 %224, i32 1, i32 %spec.select
+  %226 = icmp slt i32 %215, %.0162
+  br i1 %226, label %._crit_edge267.loopexit, label %.lr.ph266, !llvm.loop !18
 
 ._crit_edge267.loopexit:                          ; preds = %.lr.ph266._crit_edge
-  %226 = trunc nsw i64 %indvars.iv.next307 to i32
+  %227 = trunc nsw i64 %indvars.iv.next307 to i32
   br label %._crit_edge267
 
 ._crit_edge267:                                   ; preds = %._crit_edge267.loopexit, %.preheader
-  %.8.lcssa = phi i32 [ %.7182272, %.preheader ], [ %226, %._crit_edge267.loopexit ]
-  %.0164.lcssa = phi i32 [ %.1188270, %.preheader ], [ %214, %._crit_edge267.loopexit ]
-  %227 = icmp slt i32 %.8.lcssa, %3
-  br i1 %227, label %228, label %242
+  %.8.lcssa = phi i32 [ %.7182272, %.preheader ], [ %227, %._crit_edge267.loopexit ]
+  %.0164.lcssa = phi i32 [ %.1188270, %.preheader ], [ %215, %._crit_edge267.loopexit ]
+  %228 = icmp slt i32 %.8.lcssa, %3
+  br i1 %228, label %229, label %243
 
-228:                                              ; preds = %._crit_edge267
-  %229 = icmp slt i32 %.0164.lcssa, 26
-  br i1 %229, label %230, label %236
+229:                                              ; preds = %._crit_edge267
+  %230 = icmp slt i32 %.0164.lcssa, 26
+  br i1 %230, label %231, label %237
 
-230:                                              ; preds = %228
-  %.not.i227 = icmp sgt i32 %200, -1
-  %231 = trunc i32 %.0164.lcssa to i8
-  br i1 %.not.i227, label %234, label %232
+231:                                              ; preds = %229
+  %.not.i227 = icmp sgt i32 %201, -1
+  %232 = trunc i32 %.0164.lcssa to i8
+  br i1 %.not.i227, label %235, label %233
 
-232:                                              ; preds = %230
-  %233 = add i8 %231, 65
+233:                                              ; preds = %231
+  %234 = add i8 %232, 65
   br label %_ZL12digitToBasicia.exit228
 
-234:                                              ; preds = %230
-  %235 = add i8 %231, 97
+235:                                              ; preds = %231
+  %236 = add i8 %232, 97
   br label %_ZL12digitToBasicia.exit228
 
-236:                                              ; preds = %228
-  %237 = trunc i32 %.0164.lcssa to i8
-  %238 = add i8 %237, 22
+237:                                              ; preds = %229
+  %238 = trunc i32 %.0164.lcssa to i8
+  %239 = add i8 %238, 22
   br label %_ZL12digitToBasicia.exit228
 
-_ZL12digitToBasicia.exit228:                      ; preds = %232, %234, %236
-  %.0.i226 = phi i8 [ %233, %232 ], [ %235, %234 ], [ %238, %236 ]
-  %239 = sext i8 %.0.i226 to i16
-  %240 = sext i32 %.8.lcssa to i64
-  %241 = getelementptr inbounds i16, ptr %2, i64 %240
-  store i16 %239, ptr %241, align 2, !tbaa !7
-  br label %242
+_ZL12digitToBasicia.exit228:                      ; preds = %233, %235, %237
+  %.0.i226 = phi i8 [ %234, %232 ], [ %236, %234 ], [ %239, %236 ]
+  %240 = sext i8 %.0.i226 to i16
+  %241 = sext i32 %.8.lcssa to i64
+  %242 = getelementptr inbounds i16, ptr %2, i64 %241
+  store i16 %240, ptr %242, align 2, !tbaa !7
+  br label %243
 
-242:                                              ; preds = %_ZL12digitToBasicia.exit228, %._crit_edge267
-  %243 = add nsw i32 %.8.lcssa, 1
-  %244 = add nsw i32 %.1185271, 1
+243:                                              ; preds = %_ZL12digitToBasicia.exit228, %._crit_edge267
+  %244 = add nsw i32 %.8.lcssa, 1
+  %245 = add nsw i32 %.1185271, 1
   %.not = icmp eq i32 %.1185271, %.2177
-  br i1 %.not, label %245, label %247
+  br i1 %.not, label %246, label %248
 
-245:                                              ; preds = %242
-  %246 = sdiv i32 %.1188270, 700
-  br label %249
+246:                                              ; preds = %243
+  %247 = sdiv i32 %.1188270, 700
+  br label %250
 
-247:                                              ; preds = %242
-  %248 = sdiv i32 %.1188270, 2
-  br label %249
+248:                                              ; preds = %243
+  %249 = sdiv i32 %.1188270, 2
+  br label %250
 
-249:                                              ; preds = %247, %245
-  %.012.i = phi i32 [ %246, %245 ], [ %248, %247 ]
-  %250 = sdiv i32 %.012.i, %244
-  %251 = add nsw i32 %250, %.012.i
-  %252 = icmp sgt i32 %251, 455
-  br i1 %252, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit
+250:                                              ; preds = %248, %246
+  %.012.i = phi i32 [ %247, %245 ], [ %249, %247 ]
+  %251 = sdiv i32 %.012.i, %245
+  %252 = add nsw i32 %251, %.012.i
+  %253 = icmp sgt i32 %252, 455
+  br i1 %253, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit
 
-.lr.ph.i:                                         ; preds = %249, %.lr.ph.i
-  %.014.i = phi i32 [ %254, %.lr.ph.i ], [ 0, %249 ]
-  %.113.i = phi i32 [ %253, %.lr.ph.i ], [ %251, %249 ]
-  %253 = udiv i32 %.113.i, 35
-  %254 = add nuw nsw i32 %.014.i, 36
-  %255 = icmp samesign ugt i32 %.113.i, 15959
-  br i1 %255, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !19
+.lr.ph.i:                                         ; preds = %250, %.lr.ph.i
+  %.014.i = phi i32 [ %255, %.lr.ph.i ], [ 0, %249 ]
+  %.113.i = phi i32 [ %254, %.lr.ph.i ], [ %252, %249 ]
+  %254 = udiv i32 %.113.i, 35
+  %255 = add nuw nsw i32 %.014.i, 36
+  %256 = icmp samesign ugt i32 %.113.i, 15959
+  br i1 %256, label %.lr.ph.i, label %_ZL9adaptBiasiia.exit, !llvm.loop !19
 
-_ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %249
-  %.1.lcssa.i = phi i32 [ %251, %249 ], [ %253, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ 0, %249 ], [ %254, %.lr.ph.i ]
-  %256 = mul nsw i32 %.1.lcssa.i, 36
-  %257 = add nsw i32 %.1.lcssa.i, 38
-  %258 = sdiv i32 %256, %257
-  %259 = add nsw i32 %258, %.0.lcssa.i
-  br label %260
+_ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %250
+  %.1.lcssa.i = phi i32 [ %252, %249 ], [ %254, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ 0, %249 ], [ %255, %.lr.ph.i ]
+  %257 = mul nsw i32 %.1.lcssa.i, 36
+  %258 = add nsw i32 %.1.lcssa.i, 38
+  %259 = sdiv i32 %257, %258
+  %260 = add nsw i32 %259, %.0.lcssa.i
+  br label %261
 
-260:                                              ; preds = %203, %_ZL9adaptBiasiia.exit, %205
-  %.2189 = phi i32 [ %204, %203 ], [ 0, %_ZL9adaptBiasiia.exit ], [ %.1188270, %205 ]
-  %.2186 = phi i32 [ %.1185271, %203 ], [ %244, %_ZL9adaptBiasiia.exit ], [ %.1185271, %205 ]
-  %.9 = phi i32 [ %.7182272, %203 ], [ %243, %_ZL9adaptBiasiia.exit ], [ %.7182272, %205 ]
-  %.2174 = phi i32 [ %.1173273, %203 ], [ %259, %_ZL9adaptBiasiia.exit ], [ %.1173273, %205 ]
+261:                                              ; preds = %204, %_ZL9adaptBiasiia.exit, %206
+  %.2189 = phi i32 [ %205, %203 ], [ 0, %_ZL9adaptBiasiia.exit ], [ %.1188270, %205 ]
+  %.2186 = phi i32 [ %.1185271, %203 ], [ %245, %_ZL9adaptBiasiia.exit ], [ %.1185271, %205 ]
+  %.9 = phi i32 [ %.7182272, %203 ], [ %244, %_ZL9adaptBiasiia.exit ], [ %.7182272, %205 ]
+  %.2174 = phi i32 [ %.1173273, %203 ], [ %260, %_ZL9adaptBiasiia.exit ], [ %.1173273, %205 ]
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count312
   br i1 %exitcond313.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !20
 
-._crit_edge277:                                   ; preds = %260
-  %261 = add nsw i32 %.2189, 1
-  %262 = add nuw nsw i32 %.1166, 1
-  %263 = icmp slt i32 %.2186, %174
-  br i1 %263, label %.preheader232, label %._crit_edge287, !llvm.loop !21
+._crit_edge277:                                   ; preds = %261
+  %262 = add nsw i32 %.2189, 1
+  %263 = add nuw nsw i32 %.1166, 1
+  %264 = icmp slt i32 %.2186, %174
+  br i1 %264, label %.preheader232, label %._crit_edge287, !llvm.loop !21
 
 ._crit_edge287:                                   ; preds = %._crit_edge277, %23, %.preheader233, %183
   %.6181.lcssa = phi i32 [ %.5180, %183 ], [ 0, %.preheader233 ], [ %1, %23 ], [ %.9, %._crit_edge277 ]
-  %264 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.6181.lcssa, ptr noundef nonnull %5)
-  br label %265
+  %265 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.6181.lcssa, ptr noundef nonnull %5)
+  br label %266
 
-265:                                              ; preds = %6, %9, %._crit_edge287, %196, %.split.us, %114, %68, %22, %19
-  %.0183 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 0, %196 ], [ %264, %._crit_edge287 ], [ 0, %68 ], [ 0, %114 ], [ 0, %.split.us ], [ 0, %9 ], [ 0, %6 ]
+266:                                              ; preds = %6, %9, %._crit_edge287, %196, %.split.us, %114, %68, %22, %19
+  %.0183 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 0, %196 ], [ %265, %._crit_edge287 ], [ 0, %68 ], [ 0, %114 ], [ 0, %.split.us ], [ 0, %9 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0183
 }

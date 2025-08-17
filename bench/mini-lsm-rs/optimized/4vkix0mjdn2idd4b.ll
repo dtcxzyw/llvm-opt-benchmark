@@ -6129,9 +6129,9 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
 .noexc49:                                         ; preds = %.noexc.i
   %52 = extractvalue { i64, i64 } %51, 0
   %switch.i2.i.i = icmp eq i64 %52, 0
-  br i1 %switch.i2.i.i, label %.thread17.i, label %29
+  br i1 %switch.i2.i.i, label %.thread.i, label %29
 
-.thread17.i:                                      ; preds = %.noexc49
+.thread.i:                                        ; preds = %.noexc49
   %53 = and i64 %.016.i, -8
   br label %68
 
@@ -6179,7 +6179,7 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   %67 = icmp eq i8 %66, 2
   br i1 %67, label %376, label %384
 
-68:                                               ; preds = %.noexc50, %54, %.thread17.i
+68:                                               ; preds = %.noexc50, %54, %.thread.i
   %.01516.in.i = phi i64 [ %53, %.thread17.i ], [ %33, %54 ], [ %33, %.noexc50 ]
   %.01516.i = inttoptr i64 %.01516.in.i to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7203,9 +7203,9 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
 .noexc49:                                         ; preds = %.noexc.i
   %51 = extractvalue { i64, i64 } %50, 0
   %switch.i2.i.i = icmp eq i64 %51, 0
-  br i1 %switch.i2.i.i, label %.thread17.i, label %28
+  br i1 %switch.i2.i.i, label %.thread.i, label %28
 
-.thread17.i:                                      ; preds = %.noexc49
+.thread.i:                                        ; preds = %.noexc49
   %52 = and i64 %.016.i, -8
   br label %67
 
@@ -7253,7 +7253,7 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   %66 = icmp eq i8 %65, 2
   br i1 %66, label %266, label %274
 
-67:                                               ; preds = %.noexc50, %53, %.thread17.i
+67:                                               ; preds = %.noexc50, %53, %.thread.i
   %.01516.in.i = phi i64 [ %52, %.thread17.i ], [ %32, %53 ], [ %32, %.noexc50 ]
   %.01516.i = inttoptr i64 %.01516.in.i to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -8082,9 +8082,9 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
 .noexc49:                                         ; preds = %.noexc.i
   %51 = extractvalue { i64, i64 } %50, 0
   %switch.i2.i.i = icmp eq i64 %51, 0
-  br i1 %switch.i2.i.i, label %.thread17.i, label %28
+  br i1 %switch.i2.i.i, label %.thread.i, label %28
 
-.thread17.i:                                      ; preds = %.noexc49
+.thread.i:                                        ; preds = %.noexc49
   %52 = and i64 %.016.i, -8
   br label %67
 
@@ -8132,7 +8132,7 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   %66 = icmp eq i8 %65, 2
   br i1 %66, label %266, label %274
 
-67:                                               ; preds = %.noexc50, %53, %.thread17.i
+67:                                               ; preds = %.noexc50, %53, %.thread.i
   %.01516.in.i = phi i64 [ %52, %.thread17.i ], [ %32, %53 ], [ %32, %.noexc50 ]
   %.01516.i = inttoptr i64 %.01516.in.i to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

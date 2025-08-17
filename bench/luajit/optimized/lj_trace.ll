@@ -2298,7 +2298,7 @@ define internal fastcc void @trace_start(ptr noundef %0) unnamed_addr #2 {
 26:                                               ; preds = %19, %14, %10, %9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %27, align 4, !tbaa !87
-  br label %168
+  br label %169
 
 28:                                               ; preds = %1
   br i1 %.not72, label %29, label %37
@@ -2314,7 +2314,7 @@ define internal fastcc void @trace_start(ptr noundef %0) unnamed_addr #2 {
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %36, align 4, !tbaa !87
-  br label %168
+  br label %169
 
 37:                                               ; preds = %29, %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -2340,56 +2340,56 @@ define internal fastcc void @trace_start(ptr noundef %0) unnamed_addr #2 {
   %wide.trip.count.i = zext i32 %44 to i64
   br label %49
 
-49:                                               ; preds = %55, %.lr.ph.i
+49:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %50 = getelementptr inbounds nuw %struct.GCRef, ptr %47, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8, !tbaa !41
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %trace_findfree.exit.thread78, label %55
+  br i1 %52, label %53, label %56
 
-trace_findfree.exit.thread78:                     ; preds = %49
-  %53 = trunc nuw i64 %indvars.iv.i to i32
-  %54 = add nuw i32 %53, 1
-  store i32 %54, ptr %38, align 8, !tbaa !39
+53:                                               ; preds = %49
+  %54 = trunc nuw i64 %indvars.iv.i to i32
+  %55 = add nuw i32 %54, 1
+  store i32 %55, ptr %38, align 8, !tbaa !39
   br label %82
 
-55:                                               ; preds = %49
+56:                                               ; preds = %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %56 = trunc nuw i64 %indvars.iv.next.i to i32
-  store i32 %56, ptr %38, align 8, !tbaa !39
+  %57 = trunc nuw i64 %indvars.iv.next.i to i32
+  store i32 %57, ptr %38, align 8, !tbaa !39
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !160
 
-._crit_edge.i:                                    ; preds = %55, %42
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1636
-  %58 = load i32, ptr %57, align 4, !tbaa !56
-  %59 = add i32 %58, 1
-  %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 2)
-  %.0.i = tail call i32 @llvm.umin.i32(i32 %60, i32 65535)
+._crit_edge.i:                                    ; preds = %56, %42
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %59 = load i32, ptr %58, align 4, !tbaa !56
+  %60 = add i32 %59, 1
+  %61 = tail call i32 @llvm.umax.i32(i32 %60, i32 2)
+  %.0.i = tail call i32 @llvm.umin.i32(i32 %61, i32 65535)
   %.not.i = icmp ult i32 %44, %.0.i
-  br i1 %.not.i, label %61, label %trace_findfree.exit.thread
+  br i1 %.not.i, label %62, label %trace_findfree.exit.thread
 
-61:                                               ; preds = %._crit_edge.i
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %63 = load ptr, ptr %62, align 8, !tbaa !7
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %65 = load ptr, ptr %64, align 8, !tbaa !40
-  %66 = tail call ptr @lj_mem_grow(ptr noundef %63, ptr noundef %65, ptr noundef nonnull %43, i32 noundef %.0.i, i32 noundef 8) #14
-  store ptr %66, ptr %64, align 8, !tbaa !40
-  %67 = load i32, ptr %43, align 4, !tbaa !59
-  %68 = icmp ult i32 %44, %67
-  br i1 %68, label %.lr.ph37.preheader.i, label %trace_findfree.exit
+62:                                               ; preds = %._crit_edge.i
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %64 = load ptr, ptr %63, align 8, !tbaa !7
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %66 = load ptr, ptr %65, align 8, !tbaa !40
+  %67 = tail call ptr @lj_mem_grow(ptr noundef %64, ptr noundef %66, ptr noundef nonnull %43, i32 noundef %.0.i, i32 noundef 8) #14
+  store ptr %67, ptr %65, align 8, !tbaa !40
+  %68 = load i32, ptr %43, align 4, !tbaa !59
+  %69 = icmp ult i32 %44, %68
+  br i1 %69, label %.lr.ph37.preheader.i, label %trace_findfree.exit
 
-.lr.ph37.preheader.i:                             ; preds = %61
-  %69 = zext nneg i32 %44 to i64
-  %70 = shl nuw nsw i64 %69, 3
-  %scevgep.i = getelementptr i8, ptr %66, i64 %70
-  %71 = xor i32 %44, -1
-  %72 = add i32 %67, %71
-  %73 = zext i32 %72 to i64
-  %74 = shl nuw nsw i64 %73, 3
-  %75 = add nuw nsw i64 %74, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %75, i1 false), !tbaa !41
+.lr.ph37.preheader.i:                             ; preds = %62
+  %70 = zext nneg i32 %44 to i64
+  %71 = shl nuw nsw i64 %70, 3
+  %scevgep.i = getelementptr i8, ptr %67, i64 %71
+  %72 = xor i32 %44, -1
+  %73 = add i32 %68, %72
+  %74 = zext i32 %73 to i64
+  %75 = shl nuw nsw i64 %74, 3
+  %76 = add nuw nsw i64 %75, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %76, i1 false), !tbaa !41
   br label %trace_findfree.exit
 
 trace_findfree.exit:                              ; preds = %61, %.lr.ph37.preheader.i
@@ -2402,14 +2402,14 @@ trace_findfree.exit._crit_edge:                   ; preds = %trace_findfree.exit
   br label %82
 
 trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %trace_findfree.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %79 = load ptr, ptr %78, align 8, !tbaa !7
-  %80 = tail call i32 @lj_trace_flushall(ptr noundef %79)
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 0, ptr %81, align 4, !tbaa !87
-  br label %168
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %81 = load ptr, ptr %80, align 8, !tbaa !7
+  %82 = tail call i32 @lj_trace_flushall(ptr noundef %81)
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i32 0, ptr %83, align 4, !tbaa !87
+  br label %169
 
-82:                                               ; preds = %trace_findfree.exit._crit_edge, %trace_findfree.exit.thread78
+84:                                               ; preds = %trace_findfree.exit._crit_edge, %53
   %83 = phi ptr [ %3, %trace_findfree.exit.thread78 ], [ %.pre, %trace_findfree.exit._crit_edge ]
   %84 = phi ptr [ %47, %trace_findfree.exit.thread78 ], [ %66, %trace_findfree.exit._crit_edge ]
   %.026.i80 = phi i32 [ %53, %trace_findfree.exit.thread78 ], [ %76, %trace_findfree.exit._crit_edge ]
@@ -2453,18 +2453,18 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8, !tbaa !70
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 147
-  %113 = load i8, ptr %112, align 1, !tbaa !75
-  %114 = and i8 %113, 2
+  %110 = getelementptr inbounds nuw i8, ptr %111, i64 147
+  %111 = load i8, ptr %110, align 1, !tbaa !75
+  %114 = and i8 %111, 2
   %.not73 = icmp eq i8 %114, 0
   br i1 %.not73, label %167, label %115
 
-115:                                              ; preds = %82
+115:; preds = %82
   %116 = tail call i64 @lj_vmevent_prepare(ptr noundef nonnull %108, i32 noundef -1765235911) #14
   %.not74 = icmp eq i64 %116, 0
   br i1 %.not74, label %167, label %117
 
-117:                                              ; preds = %115
+117:; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -2492,7 +2492,7 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %136 = load ptr, ptr %135, align 8, !tbaa !83
   %137 = load ptr, ptr %2, align 8, !tbaa !86
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 104
+  %136 = getelementptr inbounds nuw i8, ptr %137, i64 104
   %139 = ptrtoint ptr %136 to i64
   %140 = ptrtoint ptr %138 to i64
   %141 = sub i64 %139, %140
@@ -2504,7 +2504,7 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
   %.not75 = icmp eq i32 %145, 0
   br i1 %.not75, label %155, label %146
 
-146:                                              ; preds = %117
+146:; preds = %117
   %147 = load ptr, ptr %118, align 8, !tbaa !28
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %148, ptr %118, align 8, !tbaa !28
@@ -2519,7 +2519,7 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
   store double %154, ptr %150, align 8, !tbaa !4
   br label %166
 
-155:                                              ; preds = %117
+155:; preds = %117
   %156 = load ptr, ptr %135, align 8, !tbaa !83
   %157 = load i32, ptr %156, align 4, !tbaa !56
   %trunc = trunc i32 %157 to i8
@@ -2529,29 +2529,29 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
     i8 65, label %158
   ]
 
-158:                                              ; preds = %155, %155, %155
-  %159 = load ptr, ptr %118, align 8, !tbaa !28
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store ptr %160, ptr %118, align 8, !tbaa !28
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 3020
-  %162 = load i32, ptr %161, align 4, !tbaa !95
-  %163 = sitofp i32 %162 to double
-  store double %163, ptr %159, align 8, !tbaa !4
-  %164 = load ptr, ptr %118, align 8, !tbaa !28
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %165, ptr %118, align 8, !tbaa !28
-  store double -1.000000e+00, ptr %164, align 8, !tbaa !4
+159:                                              ; preds = %156, %156, %156
+  %160 = load ptr, ptr %118, align 8, !tbaa !28
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store ptr %161, ptr %118, align 8, !tbaa !28
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 3020
+  %163 = load i32, ptr %162, align 4, !tbaa !95
+  %164 = sitofp i32 %163 to double
+  store double %164, ptr %160, align 8, !tbaa !4
+  %165 = load ptr, ptr %118, align 8, !tbaa !28
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  store ptr %166, ptr %118, align 8, !tbaa !28
+  store double -1.000000e+00, ptr %165, align 8, !tbaa !4
   br label %166
 
 166:                                              ; preds = %158, %155, %146
   tail call void @lj_vmevent_call(ptr noundef nonnull %108, i64 noundef %116) #14
   br label %167
 
-167:                                              ; preds = %115, %166, %82
+167:                                              ; preds = %115, %166, %84
   tail call void @lj_record_setup(ptr noundef nonnull %0) #14
-  br label %168
+  br label %169
 
-168:                                              ; preds = %167, %trace_findfree.exit.thread, %35, %26
+169:                                              ; preds = %167, %trace_findfree.exit.thread, %35, %26
   ret void
 }
 

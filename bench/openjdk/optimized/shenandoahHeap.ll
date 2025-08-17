@@ -8953,7 +8953,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
   %30 = icmp ult ptr %.2, %20
   br i1 %30, label %.lr.ph73.backedge, label %.loopexit
 
-.preheader:                                       ; preds = %36
+.lr.ph76.preheader:                               ; preds = %36
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph76
 
@@ -8977,13 +8977,13 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
   %37 = icmp sgt i64 %22, %indvars.iv.next
   %38 = icmp ult ptr %.2, %20
   %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+  br i1 %39, label %.lr.ph73.backedge, label %.lr.ph76.preheader
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
   br label %.lr.ph73, !llvm.loop !61
 
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
   %41 = load ptr, ptr %40, align 8
@@ -18303,7 +18303,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %30 = icmp ult ptr %.2, %20
   br i1 %30, label %.lr.ph73.backedge, label %.loopexit
 
-.preheader:                                       ; preds = %36
+.lr.ph76.preheader:                               ; preds = %36
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph76
 
@@ -18327,13 +18327,13 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %37 = icmp sgt i64 %22, %indvars.iv.next
   %38 = icmp ult ptr %.2, %20
   %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+  br i1 %39, label %.lr.ph73.backedge, label %.lr.ph76.preheader
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
   br label %.lr.ph73, !llvm.loop !132
 
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
   %41 = load ptr, ptr %40, align 8
@@ -18544,7 +18544,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35Sh
   %30 = icmp ult ptr %.2, %20
   br i1 %30, label %.lr.ph73.backedge, label %.loopexit
 
-.preheader:                                       ; preds = %36
+.lr.ph76.preheader:                               ; preds = %36
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph76
 
@@ -18568,13 +18568,13 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35Sh
   %37 = icmp sgt i64 %22, %indvars.iv.next
   %38 = icmp ult ptr %.2, %20
   %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+  br i1 %39, label %.lr.ph73.backedge, label %.lr.ph76.preheader
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
   br label %.lr.ph73, !llvm.loop !135
 
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
   %41 = load ptr, ptr %40, align 8
@@ -29160,7 +29160,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %30 = icmp ult ptr %.2, %20
   br i1 %30, label %.lr.ph73.backedge, label %.loopexit
 
-.preheader:                                       ; preds = %36
+.lr.ph76.preheader:                               ; preds = %36
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph76
 
@@ -29184,13 +29184,13 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %37 = icmp sgt i64 %22, %indvars.iv.next
   %38 = icmp ult ptr %.2, %20
   %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+  br i1 %39, label %.lr.ph73.backedge, label %.lr.ph76.preheader
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
   br label %.lr.ph73, !llvm.loop !238
 
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
   %41 = load ptr, ptr %40, align 8
@@ -29401,7 +29401,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35Sh
   %30 = icmp ult ptr %.2, %20
   br i1 %30, label %.lr.ph73.backedge, label %.loopexit
 
-.preheader:                                       ; preds = %36
+.lr.ph76.preheader:                               ; preds = %36
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph76
 
@@ -29425,13 +29425,13 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35Sh
   %37 = icmp sgt i64 %22, %indvars.iv.next
   %38 = icmp ult ptr %.2, %20
   %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+  br i1 %39, label %.lr.ph73.backedge, label %.lr.ph76.preheader
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
   br label %.lr.ph73, !llvm.loop !241
 
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
   %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
   %41 = load ptr, ptr %40, align 8

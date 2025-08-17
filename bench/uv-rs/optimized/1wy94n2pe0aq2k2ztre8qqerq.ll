@@ -244,11 +244,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %110, %59
-  %.promoted.i72128.i.i.i = phi i64 [ 0, %59 ], [ %75, %110 ]
+  %storemerge.i.i.i = phi i64 [ 0, %59 ], [ %75, %110 ]
   br label %.lr.ph.split.split.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %77, %.lr.ph.i.i.i.i
-  %62 = phi i64 [ %75, %77 ], [ %.promoted.i72128.i.i.i, %.lr.ph.i.i.i.i ]
+  %62 = phi i64 [ %75, %77 ], [ %storemerge.i.i.i, %.lr.ph.i.i.i.i ]
   %63 = sub nuw i64 %44, %62
   %64 = getelementptr inbounds i8, ptr %41, i64 %62
   %65 = icmp ult i64 %63, 16
@@ -309,7 +309,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i: ; preds 
   br label %56
 
 .critedge.i.i.i:                                  ; preds = %110, %77, %.noexc37.i.i.i, %.preheader.i.i.i.i.i, %69
-  %.promoted.i72112.i.i.i = phi i64 [ %.promoted.i72128.i.i.i, %69 ], [ %.promoted.i72128.i.i.i, %.preheader.i.i.i.i.i ], [ %.promoted.i72128.i.i.i, %.noexc37.i.i.i ], [ %.promoted.i72128.i.i.i, %77 ], [ %75, %110 ]
+  %.promoted.i72112.i.i.i = phi i64 [ %storemerge.i.i.i, %69 ], [ %storemerge.i.i.i, %.preheader.i.i.i.i.i ], [ %storemerge.i.i.i, %.noexc37.i.i.i ], [ %storemerge.i.i.i, %77 ], [ %75, %110 ]
   %80 = getelementptr inbounds i8, ptr %41, i64 %.promoted.i72112.i.i.i
   %gepdiff100.i.i.i = sub nsw i64 %44, %.promoted.i72112.i.i.i
   %81 = load i64, ptr %.sroa.515.0..sroa_idx.i.i.i, align 8, !alias.scope !48, !noalias !35, !noundef !3
@@ -328,7 +328,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i: ; preds 
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread85.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7ff4fbebb72c159eE.exit.i.i.i.i"
   %86 = getelementptr inbounds i8, ptr %41, i64 %.promoted.i72128.i.i.i
-  %gepdiff.i.i.i = sub nsw i64 %76, %.promoted.i72128.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 %76, %storemerge.i.i.i
   %87 = load i64, ptr %.sroa.515.0..sroa_idx.i.i.i, align 8, !alias.scope !58, !noalias !35, !noundef !3
   %88 = load i64, ptr %7, align 8, !range !55, !alias.scope !58, !noalias !35, !noundef !3
   %89 = sub i64 %88, %87

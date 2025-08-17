@@ -1029,61 +1029,61 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   br i1 %139, label %132, label %.preheader.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %136
-  %140 = icmp sgt i32 %137, 0
-  br i1 %140, label %.lr.ph75.i.i, label %._crit_edge76.thread.i.i
+  %141 = icmp sgt i32 %137, 0
+  br i1 %141, label %.lr.ph75.i.i, label %._crit_edge76.thread.i.i
 
 .lr.ph75.i.i:                                     ; preds = %.preheader.i.i
-  %141 = load ptr, ptr %128, align 8
+  %142 = load ptr, ptr %128, align 8
   %wide.trip.count105.i.i = zext nneg i32 %137 to i64
-  br label %142
+  br label %143
 
-142:                                              ; preds = %147, %.lr.ph75.i.i
+143:                                              ; preds = %148, %.lr.ph75.i.i
   %indvars.iv102.i.i = phi i64 [ 0, %.lr.ph75.i.i ], [ %indvars.iv.next103.i.i, %147 ]
   %.074.i.i = phi i32 [ 0, %.lr.ph75.i.i ], [ %spec.select177.i.i, %147 ]
   %.414172.i.i = phi i32 [ -1, %.lr.ph75.i.i ], [ %spec.select.i.i, %147 ]
-  %143 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %141, i64 %indvars.iv102.i.i
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  %145 = load i32, ptr %144, align 4
-  %146 = and i32 %145, 8
-  %.not168.i.i = icmp eq i32 %146, 0
-  br i1 %.not168.i.i, label %147, label %.thread20.loopexit.i.i
+  %144 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %142, i64 %indvars.iv102.i.i
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  %146 = load i32, ptr %145, align 4
+  %147 = and i32 %146, 8
+  %.not168.i.i = icmp eq i32 %147, 0
+  br i1 %.not168.i.i, label %148, label %.thread20.loopexit.i.i
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  %149 = load i16, ptr %148, align 4
-  %150 = zext i16 %149 to i32
-  %151 = getelementptr inbounds nuw i8, ptr %143, i64 14
-  %152 = load i16, ptr %151, align 2
-  %153 = zext i16 %152 to i32
-  %154 = mul nuw nsw i32 %153, %150
-  %155 = icmp sgt i32 %154, %.074.i.i
-  %156 = trunc nuw nsw i64 %indvars.iv102.i.i to i32
-  %spec.select.i.i = select i1 %155, i32 %156, i32 %.414172.i.i
-  %spec.select177.i.i = call i32 @llvm.smax.i32(i32 %154, i32 %.074.i.i)
+148:                                              ; preds = %143
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  %150 = load i16, ptr %149, align 4
+  %151 = zext i16 %150 to i32
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 14
+  %153 = load i16, ptr %152, align 2
+  %154 = zext i16 %153 to i32
+  %155 = mul nuw nsw i32 %154, %151
+  %156 = icmp sgt i32 %155, %.074.i.i
+  %157 = trunc nuw nsw i64 %indvars.iv102.i.i to i32
+  %spec.select.i.i = select i1 %156, i32 %157, i32 %.414172.i.i
+  %spec.select177.i.i = call i32 @llvm.smax.i32(i32 %155, i32 %.074.i.i)
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
   %exitcond106.not.i.i = icmp eq i64 %indvars.iv.next103.i.i, %wide.trip.count105.i.i
-  br i1 %exitcond106.not.i.i, label %._crit_edge76.i.i, label %142, !llvm.loop !13
+  br i1 %exitcond106.not.i.i, label %._crit_edge76.i.i, label %143, !llvm.loop !13
 
-._crit_edge76.i.i:                                ; preds = %147
+._crit_edge76.i.i:                                ; preds = %148
   %.not169.i.i = icmp eq i32 %spec.select.i.i, -1
   br i1 %.not169.i.i, label %._crit_edge76.thread.i.i, label %.thread20.i.i
 
-.thread20.loopexit.i.i:                           ; preds = %142
-  %157 = trunc nuw nsw i64 %indvars.iv102.i.i to i32
+.thread20.loopexit.i.i:                           ; preds = %143
+  %158 = trunc nuw nsw i64 %indvars.iv102.i.i to i32
   br label %.thread20.i.i
 
 .thread20.i.i:                                    ; preds = %.thread20.loopexit.i.i, %._crit_edge76.i.i
-  %.514223.i.i = phi i32 [ %157, %.thread20.loopexit.i.i ], [ %spec.select.i.i, %._crit_edge76.i.i ]
-  %158 = sext i32 %.514223.i.i to i64
-  %159 = getelementptr inbounds %struct._drmModeModeInfo, ptr %141, i64 %158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %131, ptr noundef nonnull align 4 dereferenceable(68) %159, i64 68, i1 false)
+  %.514223.i.i = phi i32 [ %158, %.thread20.loopexit.i.i ], [ %spec.select.i.i, %._crit_edge76.i.i ]
+  %159 = sext i32 %.514223.i.i to i64
+  %160 = getelementptr inbounds %struct._drmModeModeInfo, ptr %142, i64 %159
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %131, ptr noundef nonnull align 4 dereferenceable(68) %160, i64 68, i1 false)
   br label %.thread26.i.i
 
 ._crit_edge76.thread.i.i:                         ; preds = %._crit_edge76.i.i, %.preheader.i.i, %.preheader39.i.i
-  %160 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.41) #13
-  %161 = load ptr, ptr @KMSDRM_drmModeFreeEncoder, align 8
+  %161 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.41) #13
+  %162 = load ptr, ptr @KMSDRM_drmModeFreeEncoder, align 8
   call void %161(ptr noundef nonnull %.49.i.i) #13
-  br i1 %160, label %411, label %KMSDRM_AddDisplay.exit.i
+  br i1 %161, label %411, label %KMSDRM_AddDisplay.exit.i
 
 .thread26.loopexit.i.i:                           ; preds = %132
   %162 = trunc nuw nsw i64 %indvars.iv99.i.i to i32

@@ -10721,7 +10721,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %69, %79
   br i1 %125, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit.thread", !llvm.loop !50
 
 "_ZNK17GrowableArrayViewIP8DCmdInfoE7find_ifIZ28jmm_GetDiagnosticCommandInfoE3$_0EEiT_.exit": ; preds = %.lr.ph.i
-  %126 = load ptr, ptr %95, align 8
+  %127 = load ptr, ptr %95, align 8
   %127 = and i64 %indvars.iv.i, 4294967295
   %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8
@@ -10742,21 +10742,21 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %69, %79
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 40
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store ptr %.sroa.0.0.copyload, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  store ptr %.sroa.2.0.copyload, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  store ptr %.sroa.3.0.copyload, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
-  %143 = load i32, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %131, i64 48
-  store i32 %143, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %129, i64 52
-  %146 = load i8, ptr %145, align 4
-  %147 = and i8 %146, 1
-  %148 = getelementptr inbounds nuw i8, ptr %131, i64 52
-  store i8 %147, ptr %148, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  store ptr %.sroa.2.0.copyload, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  store ptr %.sroa.3.0.copyload, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 48
+  %144 = load i32, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  store i32 %144, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %129, i64 52
+  %147 = load i8, ptr %146, align 4
+  %148 = and i8 %147, 1
+  %149 = getelementptr inbounds nuw i8, ptr %131, i64 52
+  store i8 %148, ptr %149, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !51

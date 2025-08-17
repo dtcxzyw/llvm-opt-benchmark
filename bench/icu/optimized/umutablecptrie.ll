@@ -2226,14 +2226,14 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   %356 = zext nneg i32 %93 to i64
   %brmerge.i.i.i = icmp samesign ult i32 %spec.select100.i123.i.i, 32783
   %.mux.i.i.i = select i1 %352, i32 12, i32 15
-  %.mux301.i.i.i = select i1 %352, i32 4095, i32 32767
-  %.mux302.i.i.i = select i1 %352, i32 6007, i32 50021
+  %.mux300.i.i.i = select i1 %352, i32 4095, i32 32767
+  %.mux301.i.i.i = select i1 %352, i32 6007, i32 50021
   %..i.i.i = select i1 %354, i32 17, i32 21
-  %.299.i.i.i = select i1 %354, i32 131071, i32 2097151
-  %.300.i.i.i = select i1 %354, i32 200003, i32 1500007
-  %.sink298.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux.i.i.i, i32 %..i.i.i
-  %.sink.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux301.i.i.i, i32 %.299.i.i.i
-  %.0.i119.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux302.i.i.i, i32 %.300.i.i.i
+  %.298.i.i.i = select i1 %354, i32 131071, i32 2097151
+  %.299.i.i.i = select i1 %354, i32 200003, i32 1500007
+  %.sink297.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux.i.i.i, i32 %..i.i.i
+  %.sink.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux300.i.i.i, i32 %.298.i.i.i
+  %.0.i119.i.i.i = select i1 %brmerge.i.i.i, i32 %.mux301.i.i.i, i32 %.299.i.i.i
   %.pre13.i122.i.i.i = shl nuw nsw i32 %.0.i119.i.i.i, 2
   %.pre14.i123.i.i.i = zext nneg i32 %.pre13.i122.i.i.i to i64
   br label %357
@@ -2244,7 +2244,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   %359 = phi ptr [ %341, %.lr.ph211.i.i.i ], [ %370, %540 ]
   %.0.i119.i182.i.i = phi i32 [ %.promoted184.i.i, %.lr.ph211.i.i.i ], [ %.0.i119.i180.i.i, %540 ]
   %.sink.i178.i.i = phi i32 [ %.promoted176.i.i, %.lr.ph211.i.i.i ], [ %.sink.i177.i.i, %540 ]
-  %.sink298.i175.i.i = phi i32 [ %.promoted.i.i, %.lr.ph211.i.i.i ], [ %.sink298.i174.i.i, %540 ]
+  %.sink297.i175.i.i = phi i32 [ %.promoted.i.i, %.lr.ph211.i.i.i ], [ %.sink297.i174.i.i, %540 ]
   %.199208.i.i.i = phi i32 [ 128, %.lr.ph211.i.i.i ], [ %.6.i.i.i, %540 ]
   %.0103207.i.i.i = phi i32 [ 64, %.lr.ph211.i.i.i ], [ %.1104.i.i.i, %540 ]
   %.0108206.i.i.i = phi i32 [ 8, %.lr.ph211.i.i.i ], [ %541, %540 ]
@@ -2254,7 +2254,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br i1 %360, label %361, label %368
 
 361:                                              ; preds = %357
-  store i32 %.sink298.i.i.i, ptr %355, align 8, !tbaa !57
+  store i32 %.sink297.i.i.i, ptr %355, align 8, !tbaa !57
   store i32 %.sink.i.i.i, ptr %353, align 4, !tbaa !59
   %362 = icmp sgt i32 %.0.i119.i.i.i, %.0.i119.i182.i.i
   br i1 %362, label %363, label %._crit_edge.i121.i.i.i
@@ -2291,7 +2291,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   %370 = phi ptr [ %367, %._crit_edge.i121.i.i.i ], [ %359, %357 ]
   %.0.i119.i180.i.i = phi i32 [ %.0.i119.i181.i.i, %._crit_edge.i121.i.i.i ], [ %.0.i119.i182.i.i, %357 ]
   %.sink.i177.i.i = phi i32 [ %.sink.i.i.i, %._crit_edge.i121.i.i.i ], [ %.sink.i178.i.i, %357 ]
-  %.sink298.i174.i.i = phi i32 [ %.sink298.i.i.i, %._crit_edge.i121.i.i.i ], [ %.sink298.i175.i.i, %357 ]
+  %.sink297.i174.i.i = phi i32 [ %.sink297.i.i.i, %._crit_edge.i121.i.i.i ], [ %.sink297.i175.i.i, %357 ]
   %.1112.i.i.i = phi i32 [ 1, %._crit_edge.i121.i.i.i ], [ %.0111204.i.i.i, %357 ]
   %.1110.i.i.i = phi i32 [ %.199208.i.i.i, %._crit_edge.i121.i.i.i ], [ %.0109205.i.i.i, %357 ]
   %.1104.i.i.i = phi i32 [ 16, %._crit_edge.i121.i.i.i ], [ %.0103207.i.i.i, %357 ]
@@ -2319,7 +2319,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br i1 %exitcond.not.i.i.i.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %380 = shl i32 %378, %.sink298.i174.i.i
+  %380 = shl i32 %378, %.sink297.i174.i.i
   %381 = add nsw i32 %.0.i119.i186.i.i, -1
   %382 = urem i32 %378, %381
   %383 = add nuw nsw i32 %382, 1
@@ -2428,7 +2428,7 @@ _ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i: ; preds = %42
 
 429:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i
   %.not36.i.not.i.i.i = icmp ult i32 %.0105192.i.i.i, %423
-  br i1 %.not36.i.not.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread265.i.i.i
+  br i1 %.not36.i.not.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread264.i.i.i
 
 .lr.ph.i.i85.i.i:                                 ; preds = %429, %.loopexit.i.i.i.i
   %.02237.i.in.i.i.i = phi i32 [ %.2.i.i.i.i, %.loopexit.i.i.i.i ], [ %.0105192.i.i.i, %429 ]
@@ -2459,7 +2459,7 @@ _ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i: ; preds = %42
 .loopexit.i.i.i.i:                                ; preds = %.loopexit.loopexit.i.i.i.i, %.lr.ph.i.i85.i.i
   %.2.i.i.i.i = phi i32 [ %.02237.i.i.i.i, %.lr.ph.i.i85.i.i ], [ %438, %.loopexit.loopexit.i.i.i.i ]
   %.not.not.i.i.i.i = icmp slt i32 %.2.i.i.i.i, %423
-  br i1 %.not.not.i.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread265.i.i.i, !llvm.loop !69
+  br i1 %.not.not.i.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread264.i.i.i, !llvm.loop !69
 
 _ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %434
   %439 = icmp sgt i32 %.02237.i.in.i.i.i, -2
@@ -2470,20 +2470,20 @@ _ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %434
 .critedge.i82.i.i:                                ; preds = %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
   %.0105.lcssa.i.i.i = phi i32 [ %.0.i127.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %.02237.i.i.i.i, %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i ]
   %.lcssa179.i.i.i = phi i1 [ %420, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %439, %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i ]
-  br i1 %.lcssa179.i.i.i, label %.critedge.thread.i.i.i, label %.critedge.thread265.i.i.i
+  br i1 %.lcssa179.i.i.i, label %.critedge.thread.i.i.i, label %.critedge.thread264.i.i.i
 
 .critedge.thread.i.i.i:                           ; preds = %_ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, %.critedge.i82.i.i
   %.0105182.i.i.i = phi i32 [ %.0105.lcssa.i.i.i, %.critedge.i82.i.i ], [ %.0105192.i.i.i, %_ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i ]
   store i32 %.0105182.i.i.i, ptr %375, align 4, !tbaa !25
   br label %540
 
-.critedge.thread265.i.i.i:                        ; preds = %429, %.loopexit.i.i.i.i, %.critedge.i82.i.i
+.critedge.thread264.i.i.i:                        ; preds = %429, %.loopexit.i.i.i.i, %.critedge.i82.i.i
   %.neg10.i.i.i.i = add nuw i32 %.199208.i.i.i, 1
   %441 = sub i32 %.neg10.i.i.i.i, %.1104.i.i.i
   %442 = icmp samesign ult i32 %441, %.199208.i.i.i
   br i1 %442, label %.lr.ph.preheader.i131.i.i.i, label %_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
 
-.lr.ph.preheader.i131.i.i.i:                      ; preds = %.critedge.thread265.i.i.i
+.lr.ph.preheader.i131.i.i.i:                      ; preds = %.critedge.thread264.i.i.i
   %443 = zext nneg i32 %.199208.i.i.i to i64
   %444 = zext nneg i32 %441 to i64
   br label %.lr.ph.i132.i.i.i
@@ -2505,7 +2505,7 @@ _ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %434
   %451 = trunc nuw nsw i64 %indvars.iv.i133.i.i.i to i32
   br label %_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
 
-_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %.critedge.loopexit.split.loop.exit15.i.i.i.i, %.critedge.thread265.i.i.i
+_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %.critedge.loopexit.split.loop.exit15.i.i.i.i, %.critedge.thread264.i.i.i
   %.0.lcssa.i.i.i.i = phi i32 [ %.199208.i.i.i, %.critedge.thread265.i.i.i ], [ %451, %.critedge.loopexit.split.loop.exit15.i.i.i.i ], [ %441, %449 ]
   %452 = sub nsw i32 %.199208.i.i.i, %.0.lcssa.i.i.i.i
   store i32 %.0.lcssa.i.i.i.i, ptr %375, align 4, !tbaa !25
@@ -2517,17 +2517,17 @@ _ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %
   br label %.lr.ph200.i.i.i
 
 .lr.ph200.i.i.i:                                  ; preds = %.lr.ph200.i.i.i, %.lr.ph200.preheader.i.i.i
-  %indvars.iv258.i.i.i = phi i64 [ %454, %.lr.ph200.preheader.i.i.i ], [ %indvars.iv.next259.i.i.i, %.lr.ph200.i.i.i ]
+  %indvars.iv257.i.i.i = phi i64 [ %454, %.lr.ph200.preheader.i.i.i ], [ %indvars.iv.next258.i.i.i, %.lr.ph200.i.i.i ]
   %.1106198.i.i.i = phi i32 [ %452, %.lr.ph200.preheader.i.i.i ], [ %456, %.lr.ph200.i.i.i ]
-  %indvars.iv.next259.i.i.i = add nuw nsw i64 %indvars.iv258.i.i.i, 1
-  %455 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv258.i.i.i
+  %indvars.iv.next258.i.i.i = add nuw nsw i64 %indvars.iv257.i.i.i, 1
+  %455 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv257.i.i.i
   store i32 %376, ptr %455, align 4, !tbaa !25
   %456 = add nsw i32 %.1106198.i.i.i, 1
-  %exitcond261.not.i.i.i = icmp eq i32 %456, %.1104.i.i.i
-  br i1 %exitcond261.not.i.i.i, label %._crit_edge201.loopexit.i.i.i, label %.lr.ph200.i.i.i, !llvm.loop !72
+  %exitcond260.not.i.i.i = icmp eq i32 %456, %.1104.i.i.i
+  br i1 %exitcond260.not.i.i.i, label %._crit_edge201.loopexit.i.i.i, label %.lr.ph200.i.i.i, !llvm.loop !72
 
 ._crit_edge201.loopexit.i.i.i:                    ; preds = %.lr.ph200.i.i.i
-  %457 = trunc nuw i64 %indvars.iv.next259.i.i.i to i32
+  %457 = trunc nuw i64 %indvars.iv.next258.i.i.i to i32
   br label %._crit_edge201.i.i.i
 
 ._crit_edge201.i.i.i:                             ; preds = %._crit_edge201.loopexit.i.i.i, %_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
@@ -2559,7 +2559,7 @@ _ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %
   br i1 %exitcond.not.i.i75.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i, label %467, !llvm.loop !73
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i: ; preds = %467
-  %472 = shl i32 %471, %.sink298.i174.i.i
+  %472 = shl i32 %471, %.sink297.i174.i.i
   %473 = add nsw i32 %.0.i119.i186.i.i, -1
   %474 = urem i32 %471, %473
   %475 = add nuw nsw i32 %474, 1
@@ -2641,12 +2641,12 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i
   br label %514
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i145.i.i.i
-  %513 = icmp sgt i64 %indvars.iv.in.i.i.i.i, 2
+  %513 = icmp sgt i64 %indvars.iv.i144.in.i.i.i, 2
   br i1 %513, label %514, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !76
 
 514:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i.i
-  %indvars.iv.in.i.i.i.i = phi i64 [ %511, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i.i ], [ %indvars.iv.i144.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
-  %indvars.iv.i144.i.i.i = add nsw i64 %indvars.iv.in.i.i.i.i, -1
+  %indvars.iv.i144.in.i.i.i = phi i64 [ %511, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i.i ], [ %indvars.iv.i144.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
+  %indvars.iv.i144.i.i.i = add nsw i64 %indvars.iv.i144.in.i.i.i, -1
   %515 = sub nsw i64 %512, %indvars.iv.i144.i.i.i
   %516 = getelementptr inbounds i32, ptr %304, i64 %515
   %517 = trunc nuw nsw i64 %indvars.iv.i144.i.i.i to i32
@@ -2680,19 +2680,19 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %_Z
   br label %.lr.ph.i79.i.i
 
 .lr.ph.i79.i.i:                                   ; preds = %.lr.ph.i79.i.i, %.lr.ph.preheader.i.i.i
-  %indvars.iv253.i.i.i = phi i64 [ %528, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next254.i.i.i, %.lr.ph.i79.i.i ]
-  %indvars.iv251.i.i.i = phi i64 [ %512, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next252.i.i.i, %.lr.ph.i79.i.i ]
-  %indvars.iv.next254.i.i.i = add nsw i64 %indvars.iv253.i.i.i, 1
-  %529 = getelementptr inbounds i32, ptr %464, i64 %indvars.iv253.i.i.i
+  %indvars.iv252.i.i.i = phi i64 [ %528, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next253.i.i.i, %.lr.ph.i79.i.i ]
+  %indvars.iv250.i.i.i = phi i64 [ %512, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next251.i.i.i, %.lr.ph.i79.i.i ]
+  %indvars.iv.next253.i.i.i = add nsw i64 %indvars.iv252.i.i.i, 1
+  %529 = getelementptr inbounds i32, ptr %464, i64 %indvars.iv252.i.i.i
   %530 = load i32, ptr %529, align 4, !tbaa !25
-  %indvars.iv.next252.i.i.i = add nuw nsw i64 %indvars.iv251.i.i.i, 1
-  %531 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv251.i.i.i
+  %indvars.iv.next251.i.i.i = add nuw nsw i64 %indvars.iv250.i.i.i, 1
+  %531 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv250.i.i.i
   store i32 %530, ptr %531, align 4, !tbaa !25
-  %exitcond.not.i80.i.i = icmp eq i64 %indvars.iv.next254.i.i.i, %511
+  %exitcond.not.i80.i.i = icmp eq i64 %indvars.iv.next253.i.i.i, %511
   br i1 %exitcond.not.i80.i.i, label %._crit_edge.loopexit.i81.i.i, label %.lr.ph.i79.i.i, !llvm.loop !77
 
 ._crit_edge.loopexit.i81.i.i:                     ; preds = %.lr.ph.i79.i.i
-  %532 = trunc nuw i64 %indvars.iv.next252.i.i.i to i32
+  %532 = trunc nuw i64 %indvars.iv.next251.i.i.i to i32
   br label %._crit_edge.i76.i.i
 
 ._crit_edge.i76.i.i:                              ; preds = %._crit_edge.loopexit.i81.i.i, %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i

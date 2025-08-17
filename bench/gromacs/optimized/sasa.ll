@@ -6824,8 +6824,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   br i1 %.not.us, label %47, label %.thread106
 
 47:                                               ; preds = %46
-  %sext = shl i64 %indvars.iv103, 32
-  %48 = ashr exact i64 %sext, 32
+  %sext118 = shl i64 %indvars.iv103, 32
+  %48 = ashr exact i64 %sext118, 32
   %49 = getelementptr inbounds i32, ptr %41, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !156
   %51 = icmp sgt i32 %50, -1

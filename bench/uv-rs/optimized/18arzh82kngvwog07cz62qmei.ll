@@ -1068,15 +1068,15 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   store ptr %18, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.515.0..sroa_idx, align 8
-  %.sroa.14.32.extract.trunc = trunc nuw nsw i32 %3 to i8
+  %.sroa.13.32.extract.trunc = trunc nuw nsw i32 %3 to i8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %68
-  %.promoted.i74130 = phi i64 [ 0, %17 ], [ %33, %68 ]
+  %.lcssa120123 = phi i64 [ 0, %17 ], [ %33, %68 ]
   br label %.lr.ph.split.split.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i, %35
-  %20 = phi i64 [ %33, %35 ], [ %.promoted.i74130, %.lr.ph.i ]
+  %20 = phi i64 [ %33, %35 ], [ %.lcssa120123, %.lr.ph.i ]
   %21 = sub nuw i64 %2, %20
   %22 = getelementptr inbounds i8, ptr %1, i64 %20
   %23 = icmp ult i64 %21, 16
@@ -1090,7 +1090,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   %.sroa.01.05.i.i = phi i64 [ %28, %27 ], [ 0, %.preheader.i.i ]
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.sroa.01.05.i.i
   %25 = load i8, ptr %24, align 1, !alias.scope !275, !noalias !278, !noundef !4
-  %26 = icmp eq i8 %25, %.sroa.14.32.extract.trunc
+  %26 = icmp eq i8 %25, %.sroa.13.32.extract.trunc
   br i1 %26, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
@@ -1099,7 +1099,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   br i1 %exitcond.not.i.i, label %.critedge, label %.lr.ph.i.i
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i: ; preds = %.lr.ph.split.split.i
-  %29 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.sroa.14.32.extract.trunc, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %21)
+  %29 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.sroa.13.32.extract.trunc, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %21)
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i
@@ -1123,7 +1123,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha8ad838f9705d52dE.exit.i": ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i
   %36 = getelementptr inbounds i8, ptr %1, i64 %34
   %lhsc = load i8, ptr %36, align 1
-  %37 = icmp eq i8 %lhsc, %.sroa.14.32.extract.trunc
+  %37 = icmp eq i8 %lhsc, %.sroa.13.32.extract.trunc
   br i1 %37, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread87", label %35
 
 .loopexit:                                        ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i
@@ -1137,7 +1137,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr
   br label %14
 
 .critedge:                                        ; preds = %68, %35, %.noexc37, %.preheader.i.i, %27
-  %.promoted.i74114 = phi i64 [ %.promoted.i74130, %27 ], [ %.promoted.i74130, %.preheader.i.i ], [ %.promoted.i74130, %.noexc37 ], [ %.promoted.i74130, %35 ], [ %33, %68 ]
+  %.promoted.i74114 = phi i64 [ %.lcssa120123, %27 ], [ %.lcssa120123, %.preheader.i.i ], [ %.lcssa120123, %.noexc37 ], [ %.promoted.i74130, %35 ], [ %33, %68 ]
   %gepdiff102 = sub nsw i64 %2, %.promoted.i74114
   %38 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !282, !noundef !4
   %39 = load i64, ptr %7, align 8, !range !289, !alias.scope !282, !noundef !4

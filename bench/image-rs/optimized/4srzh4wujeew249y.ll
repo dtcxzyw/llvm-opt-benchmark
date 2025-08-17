@@ -34750,13 +34750,13 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %9 = icmp ugt i16 %8, 511
   %10 = lshr i16 %8, 1
   %11 = trunc nuw i16 %10 to i8
-  br i1 %9, label %12, label %.lr.ph.i
+  br i1 %9, label %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit"
 
 12:                                               ; preds = %7
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.60689fdbfa59ae5f463a599edb886518.172, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.173, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60689fdbfa59ae5f463a599edb886518.335) #22
   unreachable
 
-.lr.ph.i:                                         ; preds = %7
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit": ; preds = %7
   %13 = and i16 %2, 1
   %14 = or disjoint i16 %13, 2
   %15 = zext nneg i16 %14 to i64
@@ -34774,7 +34774,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %.promoted21.i = load i8, ptr %23, align 8, !alias.scope !4334, !noalias !4337
   br label %24
 
-24:                                               ; preds = %50, %.lr.ph.i
+24:                                               ; preds = %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit"
   %25 = phi i8 [ %.promoted21.i, %.lr.ph.i ], [ %.0.i, %50 ]
   %26 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %51, %50 ]
   %.sroa.01.020.i = phi i8 [ 0, %.lr.ph.i ], [ %27, %50 ]
@@ -34834,7 +34834,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %.0.i = phi i8 [ 0, %46 ], [ %49, %48 ]
   store i8 %.0.i, ptr %23, align 8, !alias.scope !4334, !noalias !4337
   %exitcond.not.i35 = icmp eq i8 %27, %11
-  br i1 %exitcond.not.i35, label %56, label %24
+  br i1 %exitcond.not.i35, label %.loopexit, label %24
 
 52:                                               ; preds = %3
   %53 = add nuw nsw i16 %2, 1
@@ -34842,17 +34842,17 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %54, ptr %55, align 8
   store i8 10, ptr %0, align 8
-  br label %61
+  br label %60
 
-56:                                               ; preds = %50
-  %57 = add i64 %18, 1
-  %58 = add i64 %57, %37
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %58, ptr %59, align 8
+.loopexit:                                        ; preds = %50
+  %56 = add i64 %18, 1
+  %57 = add i64 %56, %37
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %57, ptr %58, align 8
   store i8 10, ptr %0, align 8
-  br label %61
+  br label %60
 
-60:                                               ; preds = %39
+59:                                               ; preds = %39
   store i8 4, ptr %40, align 1, !noalias !4340
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4340
   store i8 4, ptr %0, align 8
@@ -34862,9 +34862,9 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   store ptr %40, ptr %.sroa.419.sroa.2.0..sroa.419.0..sroa_idx.sroa_idx, align 8
   %.sroa.419.sroa.3.0..sroa.419.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @anon.1f4c41b43b6b1ec3b0d7299236cb1468.12.llvm.9742654456972663382, ptr %.sroa.419.sroa.3.0..sroa.419.0..sroa_idx.sroa_idx, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %60, %56, %52
+60:                                               ; preds = %59, %.loopexit, %52
   ret void
 }
 

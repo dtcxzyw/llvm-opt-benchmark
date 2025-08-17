@@ -3061,9 +3061,9 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
 
 338:                                              ; preds = %324, %334
   %339 = icmp samesign ugt i64 %indvars.iv439, 1
-  br i1 %339, label %.lr.ph419, label %._crit_edge420, !llvm.loop !143
+  br i1 %339, label %.lr.ph419, label %._crit_edge420.loopexit, !llvm.loop !143
 
-._crit_edge420:                                   ; preds = %338, %277
+._crit_edge420.loopexit:                          ; preds = %338, %277
   %.pre-phi = phi i64 [ %265, %277 ], [ %indvars.iv.next440, %338 ]
   %.3.lcssa = phi i32 [ %264, %277 ], [ 0, %338 ]
   %340 = add nsw i32 %.3.lcssa, 1
@@ -3072,16 +3072,16 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %343 = load float, ptr %342, align 4, !tbaa !95
   %344 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
   %345 = load float, ptr %344, align 4, !tbaa !95
-  %346 = getelementptr inbounds float, ptr %240, i64 %341
-  %347 = load float, ptr %346, align 4, !tbaa !95
+  %343 = getelementptr inbounds float, ptr %240, i64 %341
+  %344 = load float, ptr %343, align 4, !tbaa !95
   %348 = fadd float %345, %347
   %349 = tail call float @llvm.fmuladd.f32(float %348, float 5.000000e-01, float %343)
-  %350 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
-  %351 = load float, ptr %350, align 4, !tbaa !95
-  %352 = fcmp ogt float %351, %349
+  %347 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
+  %348 = load float, ptr %347, align 4, !tbaa !95
+  %352 = fcmp ogt float %348, %349
   br i1 %352, label %353, label %357
 
-353:                                              ; preds = %._crit_edge420
+353:; preds = %._crit_edge420.loopexit
   store float %349, ptr %350, align 4, !tbaa !95
   %354 = getelementptr inbounds i32, ptr %236, i64 %341
   %355 = load i32, ptr %354, align 4, !tbaa !68
@@ -3090,7 +3090,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %.pre462 = load float, ptr %344, align 4, !tbaa !95
   br label %357
 
-357:                                              ; preds = %353, %._crit_edge420
+357:; preds = %353, %._crit_edge420
   %358 = phi float [ %349, %353 ], [ %351, %._crit_edge420 ]
   %359 = phi float [ %.pre462, %353 ], [ %345, %._crit_edge420 ]
   %360 = getelementptr inbounds float, ptr %234, i64 %341
@@ -3102,7 +3102,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %366 = fcmp ogt float %358, %365
   br i1 %366, label %367, label %371
 
-367:                                              ; preds = %357
+367:; preds = %357
   store float %365, ptr %350, align 4, !tbaa !95
   %368 = getelementptr inbounds i32, ptr %238, i64 %341
   %369 = load i32, ptr %368, align 4, !tbaa !68
@@ -3111,7 +3111,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %.pre463 = load float, ptr %344, align 4, !tbaa !95
   br label %371
 
-371:                                              ; preds = %367, %357
+371:; preds = %367, %357
   %372 = phi float [ %365, %367 ], [ %358, %357 ]
   %373 = phi float [ %.pre463, %367 ], [ %359, %357 ]
   %374 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
@@ -3123,7 +3123,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   %380 = fcmp ogt float %372, %379
   br i1 %380, label %381, label %385
 
-381:                                              ; preds = %371
+381:; preds = %371
   store float %379, ptr %350, align 4, !tbaa !95
   %382 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
   %383 = load i32, ptr %382, align 4, !tbaa !68
@@ -3131,10 +3131,10 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   store i32 %383, ptr %384, align 4, !tbaa !68
   br label %385
 
-385:                                              ; preds = %371, %381
+385:       ; preds = %371, %381
   %indvars.iv.next443 = add nsw i64 %indvars.iv442, -1
-  %386 = icmp sgt i64 %indvars.iv442, 0
-  br i1 %386, label %.lr.ph424, label %._crit_edge425, !llvm.loop !144
+  %387 = icmp sgt i64 %indvars.iv442, 0
+  br i1 %387, label %.lr.ph424, label %._crit_edge425, !llvm.loop !144
 
 ._crit_edge425:                                   ; preds = %385, %._crit_edge416
   ret void
@@ -10044,9 +10044,9 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
 
 338:                                              ; preds = %324, %334
   %339 = icmp samesign ugt i64 %indvars.iv448, 1
-  br i1 %339, label %.lr.ph428, label %._crit_edge429, !llvm.loop !343
+  br i1 %339, label %.lr.ph428, label %._crit_edge429.loopexit, !llvm.loop !343
 
-._crit_edge429:                                   ; preds = %338, %277
+._crit_edge429.loopexit:                          ; preds = %338, %277
   %.pre-phi = phi i64 [ %265, %277 ], [ %indvars.iv.next449, %338 ]
   %.3.lcssa = phi i32 [ %264, %277 ], [ 0, %338 ]
   %340 = add nsw i32 %.3.lcssa, 1
@@ -10055,16 +10055,16 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %343 = load float, ptr %342, align 4, !tbaa !95
   %344 = getelementptr inbounds float, ptr %240, i64 %.pre-phi
   %345 = load float, ptr %344, align 4, !tbaa !95
-  %346 = getelementptr inbounds float, ptr %240, i64 %341
-  %347 = load float, ptr %346, align 4, !tbaa !95
+  %343 = getelementptr inbounds float, ptr %240, i64 %341
+  %344 = load float, ptr %343, align 4, !tbaa !95
   %348 = fadd float %345, %347
   %349 = tail call float @llvm.fmuladd.f32(float %348, float 5.000000e-01, float %343)
-  %350 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
-  %351 = load float, ptr %350, align 4, !tbaa !95
-  %352 = fcmp ogt float %351, %349
+  %347 = getelementptr inbounds float, ptr %231, i64 %.pre-phi
+  %348 = load float, ptr %347, align 4, !tbaa !95
+  %352 = fcmp ogt float %348, %349
   br i1 %352, label %353, label %357
 
-353:                                              ; preds = %._crit_edge429
+353:; preds = %._crit_edge429.loopexit
   store float %349, ptr %350, align 4, !tbaa !95
   %354 = getelementptr inbounds i32, ptr %236, i64 %341
   %355 = load i32, ptr %354, align 4, !tbaa !68
@@ -10073,7 +10073,7 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %.pre471 = load float, ptr %344, align 4, !tbaa !95
   br label %357
 
-357:                                              ; preds = %353, %._crit_edge429
+357:; preds = %353, %._crit_edge429
   %358 = phi float [ %349, %353 ], [ %351, %._crit_edge429 ]
   %359 = phi float [ %.pre471, %353 ], [ %345, %._crit_edge429 ]
   %360 = getelementptr inbounds float, ptr %234, i64 %341
@@ -10085,7 +10085,7 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %366 = fcmp ogt float %358, %365
   br i1 %366, label %367, label %371
 
-367:                                              ; preds = %357
+367:; preds = %357
   store float %365, ptr %350, align 4, !tbaa !95
   %368 = getelementptr inbounds i32, ptr %238, i64 %341
   %369 = load i32, ptr %368, align 4, !tbaa !68
@@ -10094,7 +10094,7 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %.pre472 = load float, ptr %344, align 4, !tbaa !95
   br label %371
 
-371:                                              ; preds = %367, %357
+371:; preds = %367, %357
   %372 = phi float [ %365, %367 ], [ %358, %357 ]
   %373 = phi float [ %.pre472, %367 ], [ %359, %357 ]
   %374 = getelementptr inbounds float, ptr %234, i64 %.pre-phi
@@ -10106,7 +10106,7 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   %380 = fcmp ogt float %372, %379
   br i1 %380, label %381, label %385
 
-381:                                              ; preds = %371
+381:; preds = %371
   store float %379, ptr %350, align 4, !tbaa !95
   %382 = getelementptr inbounds i32, ptr %238, i64 %.pre-phi
   %383 = load i32, ptr %382, align 4, !tbaa !68
@@ -10114,10 +10114,10 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   store i32 %383, ptr %384, align 4, !tbaa !68
   br label %385
 
-385:                                              ; preds = %371, %381
+385:       ; preds = %371, %381
   %indvars.iv.next452 = add nsw i64 %indvars.iv451, -1
-  %386 = icmp sgt i64 %indvars.iv451, 0
-  br i1 %386, label %.lr.ph433, label %._crit_edge434, !llvm.loop !344
+  %387 = icmp sgt i64 %indvars.iv451, 0
+  br i1 %387, label %.lr.ph433, label %._crit_edge434, !llvm.loop !344
 
 ._crit_edge434:                                   ; preds = %385, %._crit_edge425
   ret void
