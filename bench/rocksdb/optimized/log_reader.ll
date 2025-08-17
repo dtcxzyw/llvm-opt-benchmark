@@ -3035,6 +3035,9 @@ declare i64 @ROCKSDB_XXH3_64bits(ptr noundef captures(none), i64 noundef) local_
 
 declare i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
+; Function Attrs: mustprogress uwtable
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3 align 2
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i64 @ROCKSDB_XXH3_64bits_digest(ptr noundef captures(none)) local_unnamed_addr #11
 
@@ -8690,8 +8693,8 @@ switch.early.test:                                ; preds = %.critedge112
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %98
 
-98:                                               ; preds = %117, %90
-  %.0 = phi ptr [ %95, %90 ], [ null, %117 ]
+98:                                               ; preds = %113, %90
+  %.0 = phi ptr [ %95, %90 ], [ null, %113 ]
   %99 = load ptr, ptr %83, align 8, !tbaa !76
   %100 = load ptr, ptr %97, align 8, !tbaa !84
   %101 = load ptr, ptr %99, align 8, !tbaa !4
@@ -8704,52 +8707,42 @@ switch.early.test:                                ; preds = %.critedge112
 106:                                              ; preds = %98
   store ptr @.str.28, ptr %18, align 8, !tbaa !56
   store i64 0, ptr %9, align 8, !tbaa !57
-  br label %124
+  br label %120
 
 107:                                              ; preds = %98
   %108 = load i64, ptr %8, align 8, !tbaa !65
   %.not = icmp eq i64 %108, 0
-  br i1 %.not, label %117, label %109
+  br i1 %.not, label %113, label %109
 
 109:                                              ; preds = %107
-  %110 = load i64, ptr %92, align 8, !tbaa !68
-  %111 = sub i64 4611686018427387903, %110
-  %112 = icmp ult i64 %111, %108
-  br i1 %112, label %113, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-
-113:                                              ; preds = %109
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.40) #29
-  unreachable
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %109
-  %114 = load ptr, ptr %97, align 8, !tbaa !84
-  %115 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %114, i64 noundef %108)
+  %110 = load ptr, ptr %97, align 8, !tbaa !84
+  %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %110, i64 noundef %108)
   %.pre137 = load i64, ptr %8, align 8
-  %116 = icmp eq i64 %.pre137, 32768
-  br label %117
+  %112 = icmp eq i64 %.pre137, 32768
+  br label %113
 
-117:                                              ; preds = %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %118 = phi i1 [ false, %107 ], [ %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %119 = icmp ne i32 %104, 0
-  %120 = select i1 %119, i1 true, i1 %118
-  br i1 %120, label %98, label %121, !llvm.loop !290
+113:                                              ; preds = %107, %109
+  %114 = phi i1 [ false, %107 ], [ %112, %109 ]
+  %115 = icmp ne i32 %104, 0
+  %116 = select i1 %115, i1 true, i1 %114
+  br i1 %116, label %98, label %117, !llvm.loop !290
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %91, align 8, !tbaa !83
-  %123 = load i64, ptr %92, align 8, !tbaa !68
-  store ptr %122, ptr %1, align 8, !tbaa !84
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %91, align 8, !tbaa !83
+  %119 = load i64, ptr %92, align 8, !tbaa !68
+  store ptr %118, ptr %1, align 8, !tbaa !84
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %123, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !65
-  br label %124
+  store i64 %119, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !65
+  br label %120
 
-124:                                              ; preds = %121, %106
-  %storemerge = phi i8 [ %27, %121 ], [ -123, %106 ]
+120:                                              ; preds = %117, %106
+  %storemerge = phi i8 [ %27, %117 ], [ -123, %106 ]
   store i8 %storemerge, ptr %3, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %124, %.critedge, %.critedge110
-  %.2 = phi i1 [ true, %67 ], [ true, %86 ], [ true, %124 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %.thread ], [ false, %62 ], [ false, %45 ], [ false, %15 ]
+.loopexit:                                        ; preds = %15, %45, %62, %.thread, %78, %52, %37, %67, %86, %120, %.critedge, %.critedge110
+  %.2 = phi i1 [ true, %67 ], [ true, %86 ], [ true, %120 ], [ true, %78 ], [ true, %52 ], [ true, %37 ], [ false, %.critedge ], [ false, %.critedge110 ], [ false, %.thread ], [ false, %62 ], [ false, %45 ], [ false, %15 ]
   ret i1 %.2
 }
 

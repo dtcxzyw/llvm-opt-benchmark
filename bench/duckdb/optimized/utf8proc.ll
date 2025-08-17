@@ -1021,11 +1021,11 @@ _ZN6duckdb17utf8proc_categoryEi.exit:             ; preds = %1, %2
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option_tES0_(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
-  %or.cond241 = icmp ugt i32 %0, 1114111
-  br i1 %or.cond241, label %.thread215, label %.lr.ph.preheader
+  %or.cond242 = icmp ugt i32 %0, 1114111
+  br i1 %or.cond242, label %.thread216, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  %.tr229.be = and i32 %3, -4097
+  %.tr230.be = and i32 %3, -4097
   %6 = add nsw i32 %0, -44032
   %7 = and i32 %3, 24
   %.not292 = icmp ne i32 %7, 0
@@ -1070,44 +1070,44 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
 ._crit_edge:                                      ; preds = %16, %23
   %27 = urem i16 %.lhs.trunc, 28
   %.not207 = icmp eq i16 %27, 0
-  br i1 %.not207, label %.thread215, label %29
+  br i1 %.not207, label %.thread216, label %29
 
 .thread:                                          ; preds = %18
   %28 = urem i16 %.lhs.trunc, 28
-  %.not207213 = icmp eq i16 %28, 0
-  %spec.select = select i1 %.not207213, i64 2, i64 3
-  br label %.thread215
+  %.not207214 = icmp eq i16 %28, 0
+  %spec.select = select i1 %.not207214, i64 2, i64 3
+  br label %.thread216
 
 29:                                               ; preds = %._crit_edge
   %30 = icmp sgt i64 %2, 2
-  br i1 %30, label %31, label %.thread215
+  br i1 %30, label %31, label %.thread216
 
 31:                                               ; preds = %29
-  %narrow226 = add nuw nsw i16 %27, 4519
-  %32 = zext nneg i16 %narrow226 to i32
+  %narrow227 = add nuw nsw i16 %27, 4519
+  %32 = zext nneg i16 %narrow227 to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %32, ptr %33, align 4, !tbaa !3
-  br label %.thread215
+  br label %.thread216
 
 34:                                               ; preds = %tailrecurse.backedge, %.lr.ph298
   %.not297 = phi i1 [ %.not292, %.lr.ph298 ], [ %.not, %tailrecurse.backedge ]
   %.pn299.in = phi i32 [ %14, %.lr.ph298 ], [ %.tr.be, %tailrecurse.backedge ]
-  %.tr242296 = phi i32 [ %0, %.lr.ph298 ], [ %.tr.be, %tailrecurse.backedge ]
-  %.tr229243295 = phi i32 [ %3, %.lr.ph298 ], [ %.tr229.be, %tailrecurse.backedge ]
+  %.tr243296 = phi i32 [ %0, %.lr.ph298 ], [ %.tr.be, %tailrecurse.backedge ]
+  %.tr230244295 = phi i32 [ %3, %.lr.ph298 ], [ %.tr230.be, %tailrecurse.backedge ]
   %.pn299 = zext i32 %.pn299.in to i64
   %.pn.in.in = getelementptr inbounds nuw [44800 x i16], ptr @_ZN6duckdbL20utf8proc_stage2tableE, i64 0, i64 %.pn299
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !8
   %.pn = zext i16 %.pn.in to i64
   %35 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %.pn
   %36 = load i16, ptr %35, align 8, !tbaa !14
-  %37 = and i32 %.tr229243295, 64
+  %37 = and i32 %.tr230244295, 64
   %38 = icmp eq i32 %37, 0
   %39 = icmp ne i16 %36, 0
   %or.cond40 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond40, label %40, label %.thread215
+  br i1 %or.cond40, label %40, label %.thread216
 
 40:                                               ; preds = %34
-  %41 = and i32 %.tr229243295, 32
+  %41 = and i32 %.tr230244295, 32
   %.not194 = icmp eq i32 %41, 0
   br i1 %.not194, label %46, label %42
 
@@ -1116,16 +1116,16 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
   %44 = load i16, ptr %43, align 4
   %45 = and i16 %44, 4
   %.not195 = icmp eq i16 %45, 0
-  br i1 %.not195, label %46, label %.thread215
+  br i1 %.not195, label %46, label %.thread216
 
 46:                                               ; preds = %42, %40
-  %47 = and i32 %.tr229243295, 16384
+  %47 = and i32 %.tr230244295, 16384
   %48 = icmp eq i32 %47, 0
   %or.cond42 = select i1 %48, i1 true, i1 %39
-  br i1 %or.cond42, label %49, label %.thread215
+  br i1 %or.cond42, label %49, label %.thread216
 
 49:                                               ; preds = %46
-  %50 = and i32 %.tr229243295, 4096
+  %50 = and i32 %.tr230244295, 4096
   %.not196 = icmp eq i32 %50, 0
   br i1 %.not196, label %74, label %51
 
@@ -1133,29 +1133,29 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
   %52 = icmp eq i16 %36, 23
   br i1 %52, label %tailrecurse.backedge, label %53
 
-tailrecurse.backedge:                             ; preds = %71, %68, %65, %63, %switch.early.test249, %switch.early.test249, %58, %58, %55, %53, %switch.early.test, %switch.early.test, %51, %59, %60, %61, %62, %69, %70
-  %.tr.be = phi i32 [ 58, %59 ], [ 60, %60 ], [ 62, %61 ], [ 92, %62 ], [ 124, %69 ], [ 126, %70 ], [ 32, %51 ], [ 39, %switch.early.test ], [ 39, %switch.early.test ], [ 39, %53 ], [ 45, %55 ], [ 47, %58 ], [ 47, %58 ], [ 94, %switch.early.test249 ], [ 94, %switch.early.test249 ], [ 94, %63 ], [ 95, %65 ], [ 96, %68 ], [ 10, %71 ]
+tailrecurse.backedge:                             ; preds = %71, %68, %65, %63, %switch.early.test209, %switch.early.test209, %58, %58, %55, %53, %switch.early.test, %switch.early.test, %51, %59, %60, %61, %62, %69, %70
+  %.tr.be = phi i32 [ 58, %59 ], [ 60, %60 ], [ 62, %61 ], [ 92, %62 ], [ 124, %69 ], [ 126, %70 ], [ 32, %51 ], [ 39, %switch.early.test ], [ 39, %switch.early.test ], [ 39, %53 ], [ 45, %55 ], [ 47, %58 ], [ 47, %58 ], [ 94, %switch.early.test209 ], [ 94, %switch.early.test209 ], [ 94, %63 ], [ 95, %65 ], [ 96, %68 ], [ 10, %71 ]
   br label %34
 
 53:                                               ; preds = %51
-  %54 = and i32 %.tr242296, 2097150
+  %54 = and i32 %.tr243296, 2097150
   %or.cond5 = icmp eq i32 %54, 8216
   br i1 %or.cond5, label %tailrecurse.backedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %53
-  switch i32 %.tr242296, label %55 [
+  switch i32 %.tr243296, label %55 [
     i32 712, label %tailrecurse.backedge
     i32 700, label %tailrecurse.backedge
   ]
 
 55:                                               ; preds = %switch.early.test
   %56 = icmp eq i16 %36, 13
-  %57 = icmp eq i32 %.tr242296, 8722
+  %57 = icmp eq i32 %.tr243296, 8722
   %or.cond11 = or i1 %57, %56
   br i1 %or.cond11, label %tailrecurse.backedge, label %58
 
 58:                                               ; preds = %55
-  switch i32 %.tr242296, label %63 [
+  switch i32 %.tr243296, label %63 [
     i32 8725, label %tailrecurse.backedge
     i32 8260, label %tailrecurse.backedge
     i32 8758, label %59
@@ -1181,24 +1181,24 @@ switch.early.test:                                ; preds = %53
   br label %tailrecurse.backedge
 
 63:                                               ; preds = %58
-  %64 = and i32 %.tr242296, 2097149
+  %64 = and i32 %.tr243296, 2097149
   %or.cond23 = icmp eq i32 %64, 708
-  br i1 %or.cond23, label %tailrecurse.backedge, label %switch.early.test249
+  br i1 %or.cond23, label %tailrecurse.backedge, label %switch.early.test209
 
-switch.early.test249:                             ; preds = %63
-  switch i32 %.tr242296, label %65 [
+switch.early.test209:                             ; preds = %63
+  switch i32 %.tr243296, label %65 [
     i32 8963, label %tailrecurse.backedge
     i32 8248, label %tailrecurse.backedge
   ]
 
-65:                                               ; preds = %switch.early.test249
+65:                                               ; preds = %switch.early.test209
   %66 = icmp eq i16 %36, 12
-  %67 = icmp eq i32 %.tr242296, 717
+  %67 = icmp eq i32 %.tr243296, 717
   %or.cond29 = or i1 %67, %66
   br i1 %or.cond29, label %tailrecurse.backedge, label %68
 
 68:                                               ; preds = %65
-  switch i32 %.tr242296, label %71 [
+  switch i32 %.tr243296, label %71 [
     i32 715, label %tailrecurse.backedge
     i32 8739, label %69
     i32 8764, label %70
@@ -1211,23 +1211,23 @@ switch.early.test249:                             ; preds = %63
   br label %tailrecurse.backedge
 
 71:                                               ; preds = %68
-  %72 = and i32 %.tr229243295, 384
-  %or.cond209.not224 = icmp eq i32 %72, 384
+  %72 = and i32 %.tr230244295, 384
+  %or.cond210.not225 = icmp eq i32 %72, 384
   %73 = and i16 %36, -2
   %or.cond32 = icmp eq i16 %73, 24
-  %or.cond210 = select i1 %or.cond209.not224, i1 %or.cond32, i1 false
-  br i1 %or.cond210, label %tailrecurse.backedge, label %74
+  %or.cond211 = select i1 %or.cond210.not225, i1 %or.cond32, i1 false
+  br i1 %or.cond211, label %tailrecurse.backedge, label %74
 
 74:                                               ; preds = %71, %49
-  %75 = and i32 %.tr229243295, 8192
+  %75 = and i32 %.tr230244295, 8192
   %.not199 = icmp ne i32 %75, 0
   %.off = add i16 %36, -6
   %switch = icmp ult i16 %.off, 3
-  %or.cond212 = select i1 %.not199, i1 %switch, i1 false
-  br i1 %or.cond212, label %.thread215, label %76
+  %or.cond213 = select i1 %.not199, i1 %switch, i1 false
+  br i1 %or.cond213, label %.thread216, label %76
 
 76:                                               ; preds = %74
-  %77 = and i32 %.tr229243295, 1024
+  %77 = and i32 %.tr230244295, 1024
   %.not200 = icmp eq i32 %77, 0
   br i1 %.not200, label %83, label %78
 
@@ -1238,8 +1238,8 @@ switch.early.test249:                             ; preds = %63
   br i1 %.not201, label %83, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %80, ptr noundef %1, i64 noundef %2, i32 noundef %.tr229243295, ptr noundef %4)
-  br label %.thread215
+  %82 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %80, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244295, ptr noundef %4)
+  br label %.thread216
 
 83:                                               ; preds = %78, %76
   br i1 %.not297, label %84, label %93
@@ -1254,17 +1254,17 @@ switch.early.test249:                             ; preds = %63
   %88 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %89 = load i16, ptr %88, align 2, !tbaa !17
   %.not203 = icmp ne i16 %89, 0
-  %90 = and i32 %.tr229243295, 4
+  %90 = and i32 %.tr230244295, 4
   %.not204 = icmp eq i32 %90, 0
-  %or.cond211 = and i1 %.not204, %.not203
-  br i1 %or.cond211, label %93, label %91
+  %or.cond212 = and i1 %.not204, %.not203
+  br i1 %or.cond212, label %93, label %91
 
 91:                                               ; preds = %87
-  %92 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %86, ptr noundef %1, i64 noundef %2, i32 noundef %.tr229243295, ptr noundef %4)
-  br label %.thread215
+  %92 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %86, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244295, ptr noundef %4)
+  br label %.thread216
 
 93:                                               ; preds = %87, %84, %83
-  %94 = and i32 %.tr229243295, 2048
+  %94 = and i32 %.tr230244295, 2048
   %.not205 = icmp eq i32 %94, 0
   br i1 %.not205, label %.critedge, label %95
 
@@ -1281,27 +1281,27 @@ switch.early.test249:                             ; preds = %63
 
 104:                                              ; preds = %95
   %105 = icmp sgt i64 %2, 0
-  br i1 %105, label %106, label %.thread215
+  br i1 %105, label %106, label %.thread216
 
 106:                                              ; preds = %104
   store i32 -1, ptr %1, align 4, !tbaa !3
-  %.not225 = icmp eq i64 %2, 1
-  br i1 %.not225, label %.thread215, label %107
+  %.not226 = icmp eq i64 %2, 1
+  br i1 %.not226, label %.thread216, label %107
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.tr242296, ptr %108, align 4, !tbaa !3
-  br label %.thread215
+  store i32 %.tr243296, ptr %108, align 4, !tbaa !3
+  br label %.thread216
 
 .critedge:                                        ; preds = %95, %93
   %109 = icmp sgt i64 %2, 0
-  br i1 %109, label %110, label %.thread215
+  br i1 %109, label %110, label %.thread216
 
 110:                                              ; preds = %.critedge
-  store i32 %.tr242296, ptr %1, align 4, !tbaa !3
-  br label %.thread215
+  store i32 %.tr243296, ptr %1, align 4, !tbaa !3
+  br label %.thread216
 
-.thread215:                                       ; preds = %34, %42, %46, %5, %.thread, %104, %107, %106, %74, %.critedge, %110, %._crit_edge, %31, %29, %91, %81
+.thread216:                                       ; preds = %34, %42, %46, %5, %.thread, %104, %107, %106, %74, %.critedge, %110, %._crit_edge, %31, %29, %91, %81
   %.0 = phi i64 [ %82, %81 ], [ %92, %91 ], [ 2, %._crit_edge ], [ 3, %31 ], [ 3, %29 ], [ 1, %110 ], [ 1, %.critedge ], [ 0, %74 ], [ 2, %106 ], [ 2, %107 ], [ 2, %104 ], [ %spec.select, %.thread ], [ -4, %5 ], [ 0, %46 ], [ 0, %42 ], [ -4, %34 ]
   ret i64 %.0
 }

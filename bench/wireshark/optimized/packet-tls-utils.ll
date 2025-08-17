@@ -14616,10 +14616,15 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
   %61 = load i32, ptr %11, align 4
   %62 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %60, ptr noundef %1, i32 noundef %58, i32 noundef %61, i32 noundef 0)
   %63 = icmp eq ptr %7, null
-  %or.cond4 = or i1 %63, %spec.select
-  br i1 %or.cond4, label %76, label %64
+  br i1 %63, label %76, label %switch.early.test
 
-64:                                               ; preds = %57
+switch.early.test:                                ; preds = %57
+  switch i16 %15, label %64 [
+    i16 -260, label %77
+    i16 772, label %77
+  ]
+
+64:                                               ; preds = %switch.early.test
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %58, i32 noundef %61)
   %65 = call ptr @wmem_file_scope()
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 384
@@ -14638,13 +14643,13 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
   store i32 %75, ptr %73, align 8
   br label %76
 
-76:                                               ; preds = %64, %57
+76:                                               ; preds = %57, %64
   switch i16 %15, label %80 [
     i16 -260, label %77
     i16 772, label %77
   ]
 
-77:                                               ; preds = %76, %76
+77:                                               ; preds = %switch.early.test, %switch.early.test, %76, %76
   %78 = add i32 %61, %58
   %79 = call fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %23, ptr noundef %2, i32 noundef %78, i32 noundef %5, i8 noundef zeroext 4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
   br label %80

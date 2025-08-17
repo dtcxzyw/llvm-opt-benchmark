@@ -106,7 +106,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 40:                                               ; preds = %.lr.ph, %.thread166
   %.0280 = phi i64 [ 0, %.lr.ph ], [ %.1, %.thread166 ]
   %.095279 = phi i64 [ 0, %.lr.ph ], [ %.196, %.thread166 ]
-  %.0137278 = phi i32 [ 0, %.lr.ph ], [ %150, %.thread166 ]
+  %.0137278 = phi i32 [ 0, %.lr.ph ], [ %.1138, %.thread166 ]
   %41 = load i8, ptr %24, align 2, !tbaa !7, !range !26, !noundef !27
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
@@ -127,7 +127,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %152
+  br label %151
 
 .preheader:                                       ; preds = %46, %149
   %.2139 = phi i32 [ %133, %149 ], [ %.0137278, %46 ]
@@ -157,7 +157,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 55:                                               ; preds = %.preheader
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %152
+  br label %151
 
 57:                                               ; preds = %52
   %58 = landingpad { ptr, i32 }
@@ -444,7 +444,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 148:                                              ; preds = %.loopexit, %61, %57
   %.pn152.pn = phi { ptr, i32 } [ %.pn152, %.loopexit ], [ %62, %61 ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %152
+  br label %151
 
 .thread175:                                       ; preds = %146, %138, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -460,13 +460,12 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.1138 = phi i32 [ %.0137278, %46 ], [ %133, %.thread175 ], [ %.2139, %50 ]
   %.196 = phi i64 [ %.095279, %46 ], [ %.398, %.thread175 ], [ %.297, %50 ]
   %.1 = phi i64 [ %.0280, %46 ], [ %.3, %.thread175 ], [ %.2, %50 ]
-  %150 = freeze i32 %.1138
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %151 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
-  br i1 %151, label %40, label %._crit_edge.loopexit
+  %150 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
+  br i1 %150, label %40, label %._crit_edge.loopexit
 
-152:                                              ; preds = %55, %148, %47
+151:                                              ; preds = %55, %148, %47
   %.pn152.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn152.pn, %148 ], [ %56, %55 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -474,49 +473,49 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   resume { ptr, i32 } %.pn152.pn.pn.pn
 
 ._crit_edge.loopexit:                             ; preds = %.thread166
-  %153 = icmp ult i32 %150, 2
+  %152 = icmp ult i32 %.1138, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %.0137.lcssa = phi i1 [ true, %19 ], [ %153, %._crit_edge.loopexit ]
+  %.0137.lcssa = phi i1 [ true, %19 ], [ %152, %._crit_edge.loopexit ]
   %.095.lcssa = phi i64 [ 0, %19 ], [ %.196, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %19 ], [ %.1, %._crit_edge.loopexit ]
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 49202
-  %155 = load i8, ptr %154, align 2, !tbaa !7, !range !26, !noundef !27
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %159
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 49202
+  %154 = load i8, ptr %153, align 2, !tbaa !7, !range !26, !noundef !27
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %158
 
-157:                                              ; preds = %._crit_edge
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 100848
-  call void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %158)
-  br label %159
+156:                                              ; preds = %._crit_edge
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 100848
+  call void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %157)
+  br label %158
 
-159:                                              ; preds = %157, %._crit_edge
-  br i1 %.0137.lcssa, label %164, label %switch.early.test
+158:                                              ; preds = %156, %._crit_edge
+  br i1 %.0137.lcssa, label %163, label %switch.early.test
 
-switch.early.test:                                ; preds = %159
-  switch i32 %13, label %160 [
-    i32 84, label %164
-    i32 66, label %164
+switch.early.test:                                ; preds = %158
+  switch i32 %13, label %159 [
+    i32 84, label %163
+    i32 66, label %163
   ]
 
-160:                                              ; preds = %switch.early.test
+159:                                              ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z4itoalPwm(i64 noundef %.095.lcssa, ptr noundef nonnull %9, i64 noundef 20)
   call void @_Z4itoalPwm(i64 noundef %.0.lcssa, ptr noundef nonnull %10, i64 noundef 20)
-  br i1 %22, label %161, label %163
+  br i1 %22, label %160, label %162
 
-161:                                              ; preds = %160
-  %162 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0.lcssa, i64 noundef %.095.lcssa)
-  br label %163
+160:                                              ; preds = %159
+  %161 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0.lcssa, i64 noundef %.095.lcssa)
+  br label %162
 
-163:                                              ; preds = %160, %161
+162:                                              ; preds = %159, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %164
+  br label %163
 
-164:                                              ; preds = %switch.early.test, %switch.early.test, %159, %163
+163:                                              ; preds = %switch.early.test, %switch.early.test, %158, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

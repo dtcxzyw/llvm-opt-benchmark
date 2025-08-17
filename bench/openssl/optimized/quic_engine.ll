@@ -102,23 +102,27 @@ declare i64 @ossl_time_now() local_unnamed_addr #1
 define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !27
-  %.not = icmp eq ptr %4, null
-  %5 = add i64 %1, 1
-  %6 = icmp ult i64 %5, 2
-  %or.cond15 = select i1 %.not, i1 true, i1 %6
-  br i1 %or.cond15, label %12, label %7
+  %.fr = freeze ptr %4
+  %.not = icmp eq ptr %.fr, null
+  br i1 %.not, label %10, label %switch.early.test
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = tail call i64 %4(ptr noundef %9) #10
-  %..i = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %10)
-  %11 = tail call i64 @ossl_time_now() #10
-  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %11)
-  br label %12
+switch.early.test:                                ; preds = %2
+  switch i64 %1, label %5 [
+    i64 -1, label %10
+    i64 0, label %10
+  ]
 
-12:                                               ; preds = %7, %2
-  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %7 ], [ %1, %2 ]
+5:                                                ; preds = %switch.early.test
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %8 = tail call i64 %.fr(ptr noundef %7) #10
+  %..i = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %8)
+  %9 = tail call i64 @ossl_time_now() #10
+  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %9)
+  br label %10
+
+10:                                               ; preds = %switch.early.test, %switch.early.test, %2, %5
+  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %5 ], [ %1, %switch.early.test ], [ %1, %2 ], [ %1, %switch.early.test ]
   ret i64 %.sroa.07.0
 }
 

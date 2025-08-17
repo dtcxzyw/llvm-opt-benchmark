@@ -7355,17 +7355,17 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112b
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112basic_stringIcS3_SaIcEEEEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit
-  %.050 = phi i64 [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112basic_stringIcS3_SaIcEEEEv.exit ]
+  %.051 = phi i64 [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEcvNSt7__cxx1112basic_stringIcS3_SaIcEEEEv.exit ]
   %24 = load ptr, ptr %0, align 8, !tbaa !92
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.050
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.051
   %26 = load i8, ptr %25, align 1, !tbaa !3
-  %.fr52 = freeze i8 %26
-  %27 = and i8 %.fr52, -4
+  %.fr44 = freeze i8 %26
+  %27 = and i8 %.fr44, -4
   %or.cond8 = icmp eq i8 %27, 8
   br i1 %or.cond8, label %28, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr52, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit [
+  switch i8 %.fr44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit [
     i8 92, label %28
     i8 34, label %28
     i8 13, label %28
@@ -7375,9 +7375,9 @@ switch.early.test:                                ; preds = %.lr.ph
 
 28:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   store i8 92, ptr %25, align 1, !tbaa !3
-  %29 = add nuw i64 %.050, 1
+  %29 = add nuw i64 %.051, 1
   %30 = load i64, ptr %23, align 8, !tbaa !89
-  %.not = icmp ult i64 %.050, %30
+  %.not = icmp ult i64 %.051, %30
   br i1 %.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, label %39
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
@@ -7420,18 +7420,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i: ; preds = %28
-  %switch.tableidx = add i8 %.fr52, -7
+  %switch.tableidx = add i8 %.fr44, -7
   %40 = icmp ult i8 %switch.tableidx, 7
   %switch.cast = zext i8 %switch.tableidx to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 32200806190309985, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
-  %.042 = select i1 %40, i8 %switch.masked, i8 %.fr52
+  %.042 = select i1 %40, i8 %switch.masked, i8 %.fr44
   %41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %29, i64 noundef 0, i64 noundef 1, i8 noundef signext %.042)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit unwind label %.loopexit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit: ; preds = %switch.early.test, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i
-  %.1 = phi i64 [ %.050, %switch.early.test ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i, %switch.early.test
+  %.1 = phi i64 [ %.051, %switch.early.test ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i ]
   %42 = add i64 %.1, 1
   %43 = load i64, ptr %23, align 8, !tbaa !89
   %44 = icmp ult i64 %42, %43

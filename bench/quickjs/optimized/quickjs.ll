@@ -131168,7 +131168,7 @@ define internal fastcc range(i32 0, 2) i32 @string_get_tzoffset(ptr noundef nonn
   switch i8 %9, label %.critedge [
     i8 45, label %10
     i8 43, label %10
-    i8 90, label %71
+    i8 90, label %67
   ]
 
 10:                                               ; preds = %4, %4
@@ -131203,100 +131203,102 @@ define internal fastcc range(i32 0, 2) i32 @string_get_tzoffset(ptr noundef nonn
   br i1 %28, label %.critedge, label %string_get_digits.exit
 
 string_get_digits.exit:                           ; preds = %26
-  %29 = icmp ne i32 %3, 0
-  %30 = icmp ne i32 %27, 2
-  %31 = icmp ne i32 %27, 4
-  %32 = and i1 %30, %31
-  %or.cond5 = and i1 %29, %32
-  br i1 %or.cond5, label %.critedge, label %.preheader
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %.preheader, label %switch.early.test
+
+switch.early.test:                                ; preds = %string_get_digits.exit
+  switch i32 %27, label %.critedge [
+    i32 4, label %._crit_edge
+    i32 2, label %._crit_edge
+  ]
 
 .preheader:                                       ; preds = %string_get_digits.exit
-  %33 = icmp samesign ugt i32 %27, 4
-  br i1 %33, label %.lr.ph, label %._crit_edge
+  %29 = icmp samesign ugt i32 %27, 4
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.02873 = phi i32 [ %34, %.lr.ph ], [ %27, %.preheader ]
-  %.05872 = phi i32 [ %35, %.lr.ph ], [ %.120.i, %.preheader ]
-  %34 = add nsw i32 %.02873, -2
-  %35 = sdiv i32 %.05872, 100
-  %36 = icmp samesign ugt i32 %.02873, 6
-  br i1 %36, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !989
+  %.02873 = phi i32 [ %30, %.lr.ph ], [ %27, %.preheader ]
+  %.05872 = phi i32 [ %31, %.lr.ph ], [ %.120.i, %.preheader ]
+  %30 = add nsw i32 %.02873, -2
+  %31 = sdiv i32 %.05872, 100
+  %32 = icmp samesign ugt i32 %.02873, 6
+  br i1 %32, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !989
 
-._crit_edge:                                      ; preds = %.preheader
-  %37 = icmp samesign ugt i32 %27, 2
-  br i1 %37, label %._crit_edge.thread, label %40
+._crit_edge:                                      ; preds = %switch.early.test, %switch.early.test, %.preheader
+  %33 = icmp samesign ugt i32 %27, 2
+  br i1 %33, label %._crit_edge.thread, label %36
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.058.lcssa78 = phi i32 [ %.120.i, %._crit_edge ], [ %35, %.lr.ph ]
-  %38 = srem i32 %.058.lcssa78, 100
-  %39 = sdiv i32 %.058.lcssa78, 100
+  %.058.lcssa78 = phi i32 [ %.120.i, %._crit_edge ], [ %31, %.lr.ph ]
+  %34 = srem i32 %.058.lcssa78, 100
+  %35 = sdiv i32 %.058.lcssa78, 100
   br label %string_get_digits.exit45
 
-40:                                               ; preds = %._crit_edge
-  %41 = sext i32 %.1.i to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !46
-  %44 = icmp eq i8 %43, 58
-  br i1 %44, label %45, label %string_get_digits.exit45
+36:                                               ; preds = %._crit_edge
+  %37 = sext i32 %.1.i to i64
+  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !46
+  %40 = icmp eq i8 %39, 58
+  br i1 %40, label %41, label %string_get_digits.exit45
 
-45:                                               ; preds = %40
-  %46 = add i32 %.1.i, 1
-  %47 = add i32 %.1.i, 3
-  br label %48
+41:                                               ; preds = %36
+  %42 = add i32 %.1.i, 1
+  %43 = add i32 %.1.i, 3
+  br label %44
 
-48:                                               ; preds = %54, %45
-  %.019.i40 = phi i32 [ 0, %45 ], [ %58, %54 ]
-  %.018.i41 = phi i32 [ %46, %45 ], [ %59, %54 ]
-  %49 = sext i32 %.018.i41 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !46
-  %52 = add i8 %51, -48
-  %53 = icmp ult i8 %52, 10
-  br i1 %53, label %54, label %62
+44:                                               ; preds = %50, %41
+  %.019.i40 = phi i32 [ 0, %41 ], [ %54, %50 ]
+  %.018.i41 = phi i32 [ %42, %41 ], [ %55, %50 ]
+  %45 = sext i32 %.018.i41 to i64
+  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !46
+  %48 = add i8 %47, -48
+  %49 = icmp ult i8 %48, 10
+  br i1 %49, label %50, label %58
 
-54:                                               ; preds = %48
-  %55 = zext nneg i8 %51 to i32
-  %56 = mul i32 %.019.i40, 10
-  %57 = add i32 %56, -48
-  %58 = add i32 %57, %55
-  %59 = add i32 %.018.i41, 1
-  %60 = sub i32 %.018.i41, %.1.i
-  %61 = icmp eq i32 %60, 2
-  br i1 %61, label %62, label %48, !llvm.loop !975
+50:                                               ; preds = %44
+  %51 = zext nneg i8 %47 to i32
+  %52 = mul i32 %.019.i40, 10
+  %53 = add i32 %52, -48
+  %54 = add i32 %53, %51
+  %55 = add i32 %.018.i41, 1
+  %56 = sub i32 %.018.i41, %.1.i
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %58, label %44, !llvm.loop !975
 
-62:                                               ; preds = %54, %48
-  %.120.i42 = phi i32 [ %58, %54 ], [ %.019.i40, %48 ]
-  %.1.i43 = phi i32 [ %47, %54 ], [ %.018.i41, %48 ]
-  %63 = sub i32 %.1.i43, %46
-  %64 = icmp slt i32 %63, 2
-  br i1 %64, label %.critedge, label %string_get_digits.exit45
+58:                                               ; preds = %50, %44
+  %.120.i42 = phi i32 [ %54, %50 ], [ %.019.i40, %44 ]
+  %.1.i43 = phi i32 [ %43, %50 ], [ %.018.i41, %44 ]
+  %59 = sub i32 %.1.i43, %42
+  %60 = icmp slt i32 %59, 2
+  br i1 %60, label %.critedge, label %string_get_digits.exit45
 
-string_get_digits.exit45:                         ; preds = %40, %62, %._crit_edge.thread
-  %.159 = phi i32 [ %39, %._crit_edge.thread ], [ %.120.i, %62 ], [ %.120.i, %40 ]
-  %.056 = phi i32 [ %38, %._crit_edge.thread ], [ %.120.i42, %62 ], [ 0, %40 ]
-  %.0 = phi i32 [ %.1.i, %._crit_edge.thread ], [ %.1.i43, %62 ], [ %.1.i, %40 ]
-  %65 = icmp sgt i32 %.159, 23
-  %66 = icmp sgt i32 %.056, 59
-  %or.cond7 = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond7, label %.critedge, label %67
+string_get_digits.exit45:                         ; preds = %36, %58, %._crit_edge.thread
+  %.159 = phi i32 [ %35, %._crit_edge.thread ], [ %.120.i, %58 ], [ %.120.i, %36 ]
+  %.056 = phi i32 [ %34, %._crit_edge.thread ], [ %.120.i42, %58 ], [ 0, %36 ]
+  %.0 = phi i32 [ %.1.i, %._crit_edge.thread ], [ %.1.i43, %58 ], [ %.1.i, %36 ]
+  %61 = icmp sgt i32 %.159, 23
+  %62 = icmp sgt i32 %.056, 59
+  %or.cond7 = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond7, label %.critedge, label %63
 
-67:                                               ; preds = %string_get_digits.exit45
-  %68 = mul i32 %.159, 60
-  %69 = add i32 %68, %.056
+63:                                               ; preds = %string_get_digits.exit45
+  %64 = mul i32 %.159, 60
+  %65 = add i32 %64, %.056
   %.not38 = icmp eq i8 %9, 43
-  %70 = sub i32 0, %69
-  %spec.select = select i1 %.not38, i32 %69, i32 %70
-  br label %71
+  %66 = sub i32 0, %65
+  %spec.select = select i1 %.not38, i32 %65, i32 %66
+  br label %67
 
-71:                                               ; preds = %4, %67
-  %.154 = phi i32 [ %.0, %67 ], [ %6, %4 ]
-  %.2 = phi i32 [ %spec.select, %67 ], [ 0, %4 ]
+67:                                               ; preds = %4, %63
+  %.154 = phi i32 [ %.0, %63 ], [ %6, %4 ]
+  %.2 = phi i32 [ %spec.select, %63 ], [ 0, %4 ]
   store i32 %.154, ptr %1, align 4, !tbaa !67
   store i32 %.2, ptr %2, align 4, !tbaa !67
   br label %.critedge
 
-.critedge:                                        ; preds = %62, %26, %string_get_digits.exit, %string_get_digits.exit45, %4, %71
-  %.1 = phi i32 [ 1, %71 ], [ 0, %4 ], [ 0, %string_get_digits.exit45 ], [ 0, %string_get_digits.exit ], [ 0, %26 ], [ 0, %62 ]
+.critedge:                                        ; preds = %58, %26, %switch.early.test, %string_get_digits.exit45, %4, %67
+  %.1 = phi i32 [ 1, %67 ], [ 0, %4 ], [ 0, %string_get_digits.exit45 ], [ 0, %switch.early.test ], [ 0, %26 ], [ 0, %58 ]
   ret i32 %.1
 }
 

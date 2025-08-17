@@ -8432,7 +8432,7 @@ define internal fastcc range(i32 0, 5) i32 @do_match_pathspec(ptr noundef %0, pt
   %.not81.i = icmp eq i32 %40, 0
   %41 = sext i32 %37 to i64
   %.not84.i = icmp samesign ult i32 %6, 4
-  %or.cond88.i.not124 = or i1 %.not84.i, %.not83
+  %or.cond88.i.not125 = or i1 %.not84.i, %.not83
   %42 = getelementptr i8, ptr %36, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -1
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -8442,7 +8442,7 @@ define internal fastcc range(i32 0, 5) i32 @do_match_pathspec(ptr noundef %0, pt
 
 47:                                               ; preds = %.lr.ph, %within_depth.exit105.thread110
   %indvars.iv = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next, %within_depth.exit105.thread110 ]
-  %.070121 = phi i32 [ 0, %.lr.ph ], [ %.171, %within_depth.exit105.thread110 ]
+  %.070122 = phi i32 [ 0, %.lr.ph ], [ %.171, %within_depth.exit105.thread110 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %48 = load ptr, ptr %39, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw %struct.pathspec_item, ptr %48, i64 %indvars.iv.next, i32 2
@@ -8604,12 +8604,12 @@ ps_strncmp.exit94.i:                              ; preds = %117, %115
   %125 = sub nsw i32 %121, %4
   %126 = tail call i32 @git_fnmatch(ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef %36, i32 noundef %125)
   %.not83.i = icmp eq i32 %126, 0
-  %brmerge = select i1 %.not83.i, i1 true, i1 %or.cond88.i.not124
+  %brmerge = select i1 %.not83.i, i1 true, i1 %or.cond88.i.not125
   %.mux = select i1 %.not83.i, i32 3, i32 0
   br i1 %brmerge, label %match_pathspec_item.exit, label %128
 
 127:                                              ; preds = %119
-  br i1 %or.cond88.i.not124, label %match_pathspec_item.exit, label %128
+  br i1 %or.cond88.i.not125, label %match_pathspec_item.exit, label %128
 
 128:                                              ; preds = %124, %127
   br i1 %.not79.i, label %129, label %144
@@ -8694,8 +8694,8 @@ match_pathspec_item.exit:                         ; preds = %124, %74, %80, %82,
 164:                                              ; preds = %161
   %165 = load i32, ptr %45, align 4, !tbaa !251
   %.fr = freeze i32 %165
-  %.not125 = icmp eq i32 %.fr, -1
-  br i1 %.not125, label %within_depth.exit105, label %switch.early.test
+  %.not117 = icmp eq i32 %.fr, -1
+  br i1 %.not117, label %within_depth.exit105, label %switch.early.test
 
 switch.early.test:                                ; preds = %164
   switch i32 %.0.i96, label %166 [
@@ -8748,7 +8748,7 @@ within_depth.exit105:                             ; preds = %164, %161, %match_p
 
 within_depth.exit105.thread113:                   ; preds = %180, %switch.early.test, %within_depth.exit105
   %.068116 = phi i32 [ %.0.i96, %within_depth.exit105 ], [ %.0.i96, %switch.early.test ], [ 4, %180 ]
-  %spec.select94 = tail call i32 @llvm.smax.i32(i32 %.070121, i32 %.068116)
+  %spec.select94 = tail call i32 @llvm.smax.i32(i32 %.070122, i32 %.068116)
   br i1 %.not86, label %within_depth.exit105.thread110, label %187
 
 187:                                              ; preds = %within_depth.exit105.thread113
@@ -8764,7 +8764,7 @@ within_depth.exit105.thread113:                   ; preds = %180, %switch.early.
   br label %within_depth.exit105.thread110
 
 within_depth.exit105.thread110:                   ; preds = %185, %switch.early.test, %within_depth.exit105, %192, %187, %within_depth.exit105.thread113, %54, %52, %.critedge
-  %.171 = phi i32 [ %.070121, %.critedge ], [ %.070121, %52 ], [ %.070121, %54 ], [ %spec.select94, %192 ], [ %spec.select94, %187 ], [ %spec.select94, %within_depth.exit105.thread113 ], [ %.070121, %within_depth.exit105 ], [ %.070121, %switch.early.test ], [ %.070121, %185 ]
+  %.171 = phi i32 [ %.070122, %.critedge ], [ %.070122, %52 ], [ %.070122, %54 ], [ %spec.select94, %192 ], [ %spec.select94, %187 ], [ %spec.select94, %within_depth.exit105.thread113 ], [ %.070122, %within_depth.exit105 ], [ %.070122, %switch.early.test ], [ %.070122, %185 ]
   %194 = icmp sgt i64 %indvars.iv, 1
   br i1 %194, label %47, label %within_depth.exit, !llvm.loop !256
 

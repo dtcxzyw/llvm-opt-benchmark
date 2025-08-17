@@ -559,13 +559,13 @@ classify_message_type.exit.i:                     ; preds = %94, %87, %84, %82, 
   br i1 %118, label %119, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %114
-  switch i32 %.0.i.i, label %163 [
-    i32 16, label %119
-    i32 14, label %119
-    i32 12, label %119
-    i32 10, label %119
-    i32 8, label %119
-    i32 5, label %119
+  switch i16 %95, label %163 [
+    i16 16, label %119
+    i16 14, label %119
+    i16 12, label %119
+    i16 10, label %119
+    i16 8, label %119
+    i16 5, label %119
   ]
 
 119:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %114

@@ -2948,7 +2948,7 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
+define noundef i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %2, align 8, !tbaa !63
@@ -2977,19 +2977,18 @@ define i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noun
   br label %18
 
 18:                                               ; preds = %.preheader, %77
-  %.079 = phi i32 [ %9, %.preheader ], [ %78, %77 ]
-  %.06878 = phi i32 [ %1, %.preheader ], [ %.067, %77 ]
+  %.0.fr79 = phi i32 [ %9, %.preheader ], [ %78, %77 ]
+  %.06878 = phi i32 [ %1, %.preheader ], [ %.067.fr, %77 ]
   %.07077 = phi ptr [ %7, %.preheader ], [ %79, %77 ]
   %19 = load i8, ptr %.07077, align 1, !tbaa !13
   %20 = icmp ne i8 %19, 0
   %21 = icmp ne i32 %.06878, -1
-  %or.cond9 = select i1 %20, i1 %21, i1 false
+  %or.cond9 = and i1 %20, %21
   br i1 %or.cond9, label %22, label %.critedge
 
 22:                                               ; preds = %18
-  %.079.fr = freeze i32 %.079
-  %23 = icmp eq i32 %.079.fr, 2
-  %24 = and i32 %.079.fr, 14
+  %23 = icmp eq i32 %.0.fr79, 2
+  %24 = and i32 %.0.fr79, 14
   %25 = icmp eq i32 %24, 4
   %or.cond13 = or i1 %23, %25
   %26 = icmp eq i32 %24, 8
@@ -3109,12 +3108,13 @@ res_getArrayItem_77.exit:                         ; preds = %.thread27.i, %58, %
 
 77:                                               ; preds = %36, %res_getArrayItem_77.exit, %34
   %.067 = phi i32 [ %35, %34 ], [ %.1, %res_getArrayItem_77.exit ], [ -1, %36 ]
-  %78 = lshr i32 %.067, 28
+  %.067.fr = freeze i32 %.067
+  %78 = lshr i32 %.067.fr, 28
   %79 = load ptr, ptr %2, align 8, !tbaa !63
   br i1 %.not75, label %.critedge, label %18, !llvm.loop !68
 
-.critedge:                                        ; preds = %77, %18, %28, %switch.early.test, %8, %4
-  %.071 = phi i32 [ %1, %4 ], [ -1, %8 ], [ %.067, %77 ], [ %.06878, %18 ], [ %.06878, %switch.early.test ], [ -1, %28 ]
+.critedge:                                        ; preds = %switch.early.test, %77, %18, %28, %8, %4
+  %.071 = phi i32 [ %1, %4 ], [ -1, %8 ], [ %.067.fr, %77 ], [ %.06878, %18 ], [ %.06878, %switch.early.test ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.071

@@ -7932,8 +7932,7 @@ _ZNK4llvm6DIType7getNameEv.exit:                  ; preds = %_ZNK4llvm6DINode12g
   %.sroa.4.1.i.i = phi i64 [ %25, %22 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !703
-  %.fr = freeze i64 %28
-  %29 = lshr i64 %.fr, 3
+  %29 = lshr i64 %28, 3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i16, ptr %30, align 4, !tbaa !634
   %32 = and i64 %26, 2
@@ -8050,7 +8049,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i:          ; preds = %70
   br label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit
 
 _ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit: ; preds = %88, %82, %70, %65, %_ZNK4llvm13DIDerivedType14getAnnotationsEv.exit
-  %94 = icmp ugt i64 %.fr, 7
+  %94 = icmp ugt i64 %28, 7
   br i1 %94, label %switch.early.test, label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit64
 
 switch.early.test:                                ; preds = %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit
@@ -8063,15 +8062,15 @@ switch.early.test:                                ; preds = %_ZN4llvm9DwarfUnit7
 
 95:                                               ; preds = %switch.early.test
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %97 = icmp ult i64 %.fr, 2048
+  %97 = icmp ult i64 %28, 2048
   br i1 %97, label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i61, label %98
 
 98:                                               ; preds = %95
-  %99 = icmp ult i64 %.fr, 524288
+  %99 = icmp ult i64 %28, 524288
   br i1 %99, label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i61, label %100
 
 100:                                              ; preds = %98
-  %101 = icmp ult i64 %.fr, 34359738368
+  %101 = icmp ult i64 %28, 34359738368
   %102 = select i1 %101, i16 6, i16 7
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i61
 
@@ -8110,7 +8109,7 @@ _ZN4llvm10DIEInteger8BestFormEbm.exit.i61:        ; preds = %100, %98, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit64
 
-_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit64: ; preds = %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit, %117, %110
+_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit64: ; preds = %117, %110, %_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS3_4FormEEm.exit
   %123 = icmp eq i16 %31, 31
   br i1 %123, label %124, label %130
 

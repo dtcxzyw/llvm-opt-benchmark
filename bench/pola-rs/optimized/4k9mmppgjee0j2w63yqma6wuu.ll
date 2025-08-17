@@ -156141,22 +156141,21 @@ thread-pre-split752:                              ; preds = %276
 
 thread-pre-split784:                              ; preds = %438
   %.pr785 = load i8, ptr %51, align 16
-  %440 = freeze i8 %.pr785
-  br label %441
+  br label %440
 
-441:                                              ; preds = %thread-pre-split784, %447
-  %.fr803 = phi i8 [ %440, %thread-pre-split784 ], [ %448, %447 ]
-  %442 = and i8 %.fr803, 29
+440:                                              ; preds = %thread-pre-split784, %447
+  %441 = phi i8 [ %.pr785, %thread-pre-split784 ], [ %448, %447 ]
+  %442 = and i8 %441, 29
   %443 = icmp eq i8 %442, 17
   br i1 %443, label %444, label %switch.early.test
 
-switch.early.test:                                ; preds = %441
+switch.early.test:                                ; preds = %440
   switch i8 %439, label %451 [
     i8 19, label %444
     i8 16, label %444
   ]
 
-444:                                              ; preds = %switch.early.test, %switch.early.test, %441, %451, %438
+444:                                              ; preds = %switch.early.test, %switch.early.test, %440, %451, %438
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr %102, ptr %46, align 8
@@ -156186,14 +156185,14 @@ switch.early.test:                                ; preds = %441
 447:                                              ; preds = %438
   %448 = load i8, ptr %51, align 16, !range !228, !noundef !3
   %449 = icmp eq i8 %448, 26
-  br i1 %449, label %450, label %441
+  br i1 %449, label %450, label %440
 
 450:                                              ; preds = %447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(80) %101, i64 80, i1 false)
   br label %619
 
 451:                                              ; preds = %switch.early.test
-  switch i8 %.fr803, label %452 [
+  switch i8 %441, label %452 [
     i8 16, label %444
     i8 18, label %454
   ]

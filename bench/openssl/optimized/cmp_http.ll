@@ -38,17 +38,17 @@ define ptr @OSSL_CMP_MSG_http_perform(ptr noundef %0, ptr noundef %1) local_unna
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 103, ptr noundef null) #5
-  br label %78
+  br label %73
 
 10:                                               ; preds = %2
   %11 = call i32 @X509V3_add_value(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %78, label %12
+  br i1 %.not, label %73, label %12
 
 12:                                               ; preds = %10
   %13 = call ptr @ASN1_item_i2d_mem_bio(ptr noundef %6, ptr noundef nonnull %1) #5
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %76, label %15
+  br i1 %14, label %71, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -107,48 +107,54 @@ define ptr @OSSL_CMP_MSG_http_perform(ptr noundef %0, ptr noundef %1) local_unna
   %53 = load i32, ptr %52, align 4, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load i32, ptr %54, align 8, !tbaa !36
+  %.not.i = icmp eq i32 %55, 0
+  br i1 %.not.i, label %keep_alive.exit, label %switch.early.test.i
+
+switch.early.test.i:                              ; preds = %39
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   %58 = load i32, ptr %57, align 8, !tbaa !41
-  %59 = icmp ne i32 %55, 0
-  %60 = and i32 %58, -3
-  %61 = icmp ne i32 %60, 0
-  %or.cond3.i = and i1 %59, %61
-  %62 = icmp ne i32 %58, 4
-  %or.cond5.i = and i1 %62, %or.cond3.i
-  %63 = icmp ne i32 %58, 7
-  %or.cond7.i = and i1 %63, %or.cond5.i
-  %64 = icmp ne i32 %58, 25
-  %or.cond9.i = and i1 %64, %or.cond7.i
-  %spec.select.i = select i1 %or.cond9.i, i32 0, i32 %55
-  %65 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %31, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %43, i32 noundef %30, ptr noundef %45, ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef %49, ptr noundef %50, i32 noundef 0, ptr noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 1, i64 noundef 102400, i32 noundef %53, i32 noundef %spec.select.i) #5
-  %66 = call i32 @BIO_free(ptr noundef nonnull %13) #5
-  %67 = call ptr @ASN1_item_d2i_bio(ptr noundef %6, ptr noundef %65, ptr noundef null) #5
-  %68 = call i32 @BIO_free(ptr noundef %65) #5
-  %69 = load ptr, ptr %31, align 8, !tbaa !29
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %73
+  switch i32 %58, label %59 [
+    i32 25, label %keep_alive.exit
+    i32 7, label %keep_alive.exit
+    i32 4, label %keep_alive.exit
+    i32 2, label %keep_alive.exit
+    i32 0, label %keep_alive.exit
+  ]
 
-71:                                               ; preds = %39
-  %72 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %0, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform, ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #5
+59:                                               ; preds = %switch.early.test.i
+  br label %keep_alive.exit
+
+keep_alive.exit:                                  ; preds = %39, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %59
+  %.0.i = phi i32 [ 0, %59 ], [ %55, %switch.early.test.i ], [ 0, %39 ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ], [ %55, %switch.early.test.i ]
+  %60 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %31, ptr noundef %41, ptr noundef nonnull %3, ptr noundef %43, i32 noundef %30, ptr noundef %45, ptr noundef %47, ptr noundef null, ptr noundef null, ptr noundef %49, ptr noundef %50, i32 noundef 0, ptr noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 1, i64 noundef 102400, i32 noundef %53, i32 noundef %.0.i) #5
+  %61 = call i32 @BIO_free(ptr noundef nonnull %13) #5
+  %62 = call ptr @ASN1_item_d2i_bio(ptr noundef %6, ptr noundef %60, ptr noundef null) #5
+  %63 = call i32 @BIO_free(ptr noundef %60) #5
+  %64 = load ptr, ptr %31, align 8, !tbaa !29
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %keep_alive.exit
+  %67 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %0, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform, ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #5
+  br label %68
+
+68:                                               ; preds = %66, %keep_alive.exit
+  %.not43 = icmp eq ptr %62, null
+  br i1 %.not43, label %71, label %69
+
+69:                                               ; preds = %68
+  %70 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %0, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform, ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10) #5
+  br label %71
+
+71:                                               ; preds = %68, %69, %12
+  %.0 = phi ptr [ null, %12 ], [ %62, %69 ], [ null, %68 ]
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @OPENSSL_sk_pop_free(ptr noundef %72, ptr noundef nonnull @X509V3_conf_free) #5
   br label %73
 
-73:                                               ; preds = %71, %39
-  %.not43 = icmp eq ptr %67, null
-  br i1 %.not43, label %76, label %74
-
-74:                                               ; preds = %73
-  %75 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %0, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform, ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10) #5
-  br label %76
-
-76:                                               ; preds = %73, %74, %12
-  %.0 = phi ptr [ null, %12 ], [ %67, %74 ], [ null, %73 ]
-  %77 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @OPENSSL_sk_pop_free(ptr noundef %77, ptr noundef nonnull @X509V3_conf_free) #5
-  br label %78
-
-78:                                               ; preds = %10, %76, %9
-  %.035 = phi ptr [ null, %9 ], [ %.0, %76 ], [ null, %10 ]
+73:                                               ; preds = %10, %71, %9
+  %.035 = phi ptr [ null, %9 ], [ %.0, %71 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

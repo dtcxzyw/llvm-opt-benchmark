@@ -2147,32 +2147,32 @@ define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_122StringK
   %.not60.i.i = icmp eq i64 %30, 0
   br i1 %.not60.i.i, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit, label %.lr.ph.i.i
 
-31:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
-  %exitcond.not.i.i = icmp eq i64 %36, %30
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !99
-
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %31
-  %.02359.i.i = phi i64 [ %36, %31 ], [ 0, %.preheader.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 %.02359.i.i
-  %33 = load i8, ptr %32, align 1, !tbaa !4
-  %34 = sext i8 %33 to i32
-  %35 = call i32 @ispunct(i32 noundef %34) #35
-  %.fr.i.i = freeze i32 %35
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %35
+  %.02359.i.i = phi i64 [ %36, %35 ], [ 0, %.preheader.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 %.02359.i.i
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  %33 = sext i8 %32 to i32
+  %34 = call i32 @ispunct(i32 noundef %33) #35
+  %.fr.i.i = freeze i32 %34
   %.not.i.i = icmp eq i32 %.fr.i.i, 0
-  %36 = add nuw i64 %.02359.i.i, 1
-  br i1 %.not.i.i, label %31, label %switch.early.test.i.i
+  br i1 %.not.i.i, label %35, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
-  switch i8 %33, label %.loopexit.thread.i.i [
-    i8 63, label %31
-    i8 42, label %31
+  switch i8 %32, label %.loopexit.thread.i.i [
+    i8 63, label %35
+    i8 42, label %35
   ]
 
 .loopexit.thread.i.i:                             ; preds = %switch.early.test.i.i
   store i8 1, ptr %27, align 8, !tbaa !65
   br label %37
 
-.loopexit.i.i:                                    ; preds = %31, %18
+35:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
+  %36 = add nuw i64 %.02359.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %36, %30
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !99
+
+.loopexit.i.i:                                    ; preds = %35, %18
   br i1 %26, label %37, label %_ZNSt15__new_allocatorIN12_GLOBAL__N_122StringKeywordMatchItemEE9constructIS1_JRN3gmx24SelectionStringMatchTypeERPKcEEEvPT_DpOT0_.exit
 
 37:                                               ; preds = %.loopexit.i.i, %.loopexit.thread.i.i

@@ -81090,17 +81090,17 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14, label %21
 
 21:                                               ; preds = %18
-  br i1 %.not24.i, label %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread18, label %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit
+  br i1 %.not24.i, label %.thread, label %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit
 
-_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread18: ; preds = %21
+.thread:                                          ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !859
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %31
+  br label %switch.early.test
 
 _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14: ; preds = %14, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %54
+  br label %36
 
 _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit: ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 1
@@ -81111,47 +81111,46 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   %29 = icmp eq i16 %26, 0
   %30 = select i1 %20, i1 true, i1 %29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %30, label %31, label %54
+  br i1 %30, label %31, label %36
 
-31:                                               ; preds = %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread18, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit
-  %.113 = phi i64 [ 0, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread ], [ %28, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ], [ %23, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread18 ]
-  %.212 = phi i16 [ %13, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread ], [ %26, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ], [ 0, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread18 ]
-  %32 = icmp eq i16 %.212, 25
-  %33 = icmp eq i32 %.08, 289
-  %34 = and i32 %.08, -9
-  %35 = icmp eq i32 %34, 292
-  %36 = or i1 %33, %35
-  %37 = and i32 %.08, -257
-  %38 = icmp eq i32 %37, 37
-  %39 = or i1 %38, %36
-  %or.cond9 = select i1 %32, i1 true, i1 %39
-  %40 = icmp eq i32 %37, 39
-  %41 = icmp eq i32 %.08, 294
-  %42 = or i1 %41, %40
-  %43 = icmp eq i32 %.08, 40
-  %44 = or i1 %43, %42
-  %45 = and i32 %.08, -5
-  %46 = icmp eq i32 %45, 41
-  %47 = or i1 %46, %44
-  %or.cond21 = select i1 %or.cond9, i1 true, i1 %47
-  %48 = icmp eq i32 %.08, 57
-  %49 = icmp eq i32 %.08, 388
-  %50 = or i1 %48, %49
-  %or.cond25 = select i1 %or.cond21, i1 true, i1 %50
-  br i1 %or.cond25, label %54, label %51
+31:                                               ; preds = %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit
+  %.113 = phi i64 [ 0, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread ], [ %28, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ]
+  %.212 = phi i16 [ %13, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread ], [ %26, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ]
+  %.212.fr = freeze i16 %.212
+  %32 = icmp eq i16 %.212.fr, 25
+  br i1 %32, label %36, label %switch.early.test
 
-51:                                               ; preds = %31
-  switch i16 %.212, label %54 [
-    i16 27, label %52
-    i16 23, label %52
+switch.early.test:                                ; preds = %.thread, %31
+  %.21223 = phi i16 [ 0, %.thread ], [ %.212.fr, %31 ]
+  %.11322 = phi i64 [ %23, %.thread ], [ %.113, %31 ]
+  switch i32 %.08, label %33 [
+    i32 388, label %36
+    i32 300, label %36
+    i32 295, label %36
+    i32 294, label %36
+    i32 293, label %36
+    i32 292, label %36
+    i32 289, label %36
+    i32 57, label %36
+    i32 45, label %36
+    i32 41, label %36
+    i32 40, label %36
+    i32 39, label %36
+    i32 37, label %36
   ]
 
-52:                                               ; preds = %51, %51
-  %53 = icmp eq i64 %.113, 0
-  br label %54
+33:                                               ; preds = %switch.early.test
+  switch i16 %.21223, label %36 [
+    i16 27, label %34
+    i16 23, label %34
+  ]
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14, %51, %31, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit, %52
-  %.0 = phi i1 [ %53, %52 ], [ true, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ], [ true, %31 ], [ false, %51 ], [ true, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14 ]
+34:                                               ; preds = %33, %33
+  %35 = icmp eq i64 %.11322, 0
+  br label %36
+
+36:                                               ; preds = %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14, %33, %31, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit, %34
+  %.0 = phi i1 [ %35, %34 ], [ true, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %31 ], [ false, %33 ], [ true, %_ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AArch64MCExpr11VariantKindERNS1_15MCSymbolRefExpr11VariantKindERl.exit.thread14 ]
   ret i1 %.0
 }
 

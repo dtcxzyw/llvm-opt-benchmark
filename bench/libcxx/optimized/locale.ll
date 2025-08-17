@@ -18396,8 +18396,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIcNS_19ostreambuf_iteratorIcNS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !14
-  %.fr73 = freeze i32 %12
-  %13 = and i32 %.fr73, 74
+  %.fr70 = freeze i32 %12
+  %13 = and i32 %.fr70, 74
   %14 = icmp eq i32 %13, 64
   %15 = icmp eq i32 %13, 8
   %spec.select = select i1 %15, i32 16, i32 10
@@ -18418,26 +18418,26 @@ switch.early.test:                                ; preds = %5
   br label %.thread
 
 20:                                               ; preds = %5
-  %21 = and i32 %.fr73, 2048
-  %.not74 = icmp eq i32 %21, 0
-  br i1 %.not74, label %.thread, label %switch.early.test71
+  %21 = and i32 %.fr70, 2048
+  %.not71 = icmp eq i32 %21, 0
+  br i1 %.not71, label %.thread, label %switch.early.test69
 
-switch.early.test71:                              ; preds = %20
+switch.early.test69:                              ; preds = %20
   switch i32 %13, label %22 [
     i32 64, label %.thread
     i32 8, label %.thread
   ]
 
-22:                                               ; preds = %switch.early.test71
+22:                                               ; preds = %switch.early.test69
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 43, ptr %6, align 16, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %switch.early.test71, %switch.early.test71, %20, %17, %switch.early.test, %switch.early.test, %22
-  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test71 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test71 ]
-  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test71 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test71 ]
+.thread:                                          ; preds = %switch.early.test69, %switch.early.test69, %20, %17, %switch.early.test, %switch.early.test, %22
+  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test69 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test69 ]
+  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test69 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test69 ]
   %.not = icmp eq i64 %4, 0
-  %24 = and i32 %.fr73, 512
+  %24 = and i32 %.fr70, 512
   %.not56 = icmp eq i32 %24, 0
   %or.cond = or i1 %.not, %.not56
   br i1 %or.cond, label %34, label %25
@@ -18456,7 +18456,7 @@ switch.early.test71:                              ; preds = %20
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 48, ptr %.1, align 1, !tbaa !4
-  %31 = and i32 %.fr73, 16384
+  %31 = and i32 %.fr70, 16384
   %.not57 = icmp eq i32 %31, 0
   %32 = select i1 %.not57, i8 120, i8 88
   %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -18468,21 +18468,21 @@ switch.early.test71:                              ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = call { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne210000ImTnNS_9enable_ifIXntsr9is_signedIT_EE5valueEiE4typeELi0EEENS_17__to_chars_resultEPcS6_S2_i(ptr noundef nonnull %.2, ptr noundef nonnull %35, i64 noundef %.05368, i32 noundef %.052)
   %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = and i32 %.fr73, 16392
+  %38 = and i32 %.fr70, 16392
   %or.cond61.not = icmp ne i32 %38, 16392
-  %.not6069 = icmp eq ptr %.2, %37
-  %or.cond72 = select i1 %or.cond61.not, i1 true, i1 %.not6069
-  br i1 %or.cond72, label %.loopexit, label %.lr.ph
+  %.not6072 = icmp eq ptr %.2, %37
+  %or.cond74 = select i1 %or.cond61.not, i1 true, i1 %.not6072
+  br i1 %or.cond74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.370 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
-  %39 = load i8, ptr %.370, align 1, !tbaa !4
+  %.373 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
+  %39 = load i8, ptr %.373, align 1, !tbaa !4
   %switch.tableidx = add i8 %39, -97
   %40 = icmp ult i8 %switch.tableidx, 6
   %switch.offset = add i8 %39, -32
   %.0.i = select i1 %40, i8 %switch.offset, i8 %39
-  store i8 %.0.i, ptr %.370, align 1, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %.370, i64 1
+  store i8 %.0.i, ptr %.373, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.373, i64 1
   %.not60 = icmp eq ptr %41, %37
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !118
 
@@ -18614,8 +18614,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIcNS_19ostreambuf_iteratorIcNS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !14
-  %.fr73 = freeze i32 %12
-  %13 = and i32 %.fr73, 74
+  %.fr70 = freeze i32 %12
+  %13 = and i32 %.fr70, 74
   %14 = icmp eq i32 %13, 64
   %15 = icmp eq i32 %13, 8
   %spec.select = select i1 %15, i32 16, i32 10
@@ -18636,26 +18636,26 @@ switch.early.test:                                ; preds = %5
   br label %.thread
 
 20:                                               ; preds = %5
-  %21 = and i32 %.fr73, 2048
-  %.not74 = icmp eq i32 %21, 0
-  br i1 %.not74, label %.thread, label %switch.early.test71
+  %21 = and i32 %.fr70, 2048
+  %.not71 = icmp eq i32 %21, 0
+  br i1 %.not71, label %.thread, label %switch.early.test69
 
-switch.early.test71:                              ; preds = %20
+switch.early.test69:                              ; preds = %20
   switch i32 %13, label %22 [
     i32 64, label %.thread
     i32 8, label %.thread
   ]
 
-22:                                               ; preds = %switch.early.test71
+22:                                               ; preds = %switch.early.test69
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 43, ptr %6, align 16, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %switch.early.test71, %switch.early.test71, %20, %17, %switch.early.test, %switch.early.test, %22
-  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test71 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test71 ]
-  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test71 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test71 ]
+.thread:                                          ; preds = %switch.early.test69, %switch.early.test69, %20, %17, %switch.early.test, %switch.early.test, %22
+  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test69 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test69 ]
+  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test69 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test69 ]
   %.not = icmp eq i64 %4, 0
-  %24 = and i32 %.fr73, 512
+  %24 = and i32 %.fr70, 512
   %.not56 = icmp eq i32 %24, 0
   %or.cond = or i1 %.not, %.not56
   br i1 %or.cond, label %34, label %25
@@ -18674,7 +18674,7 @@ switch.early.test71:                              ; preds = %20
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 48, ptr %.1, align 1, !tbaa !4
-  %31 = and i32 %.fr73, 16384
+  %31 = and i32 %.fr70, 16384
   %.not57 = icmp eq i32 %31, 0
   %32 = select i1 %.not57, i8 120, i8 88
   %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -18686,21 +18686,21 @@ switch.early.test71:                              ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = call { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne210000IyTnNS_9enable_ifIXntsr9is_signedIT_EE5valueEiE4typeELi0EEENS_17__to_chars_resultEPcS6_S2_i(ptr noundef nonnull %.2, ptr noundef nonnull %35, i64 noundef %.05368, i32 noundef %.052)
   %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = and i32 %.fr73, 16392
+  %38 = and i32 %.fr70, 16392
   %or.cond61.not = icmp ne i32 %38, 16392
-  %.not6069 = icmp eq ptr %.2, %37
-  %or.cond72 = select i1 %or.cond61.not, i1 true, i1 %.not6069
-  br i1 %or.cond72, label %.loopexit, label %.lr.ph
+  %.not6072 = icmp eq ptr %.2, %37
+  %or.cond74 = select i1 %or.cond61.not, i1 true, i1 %.not6072
+  br i1 %or.cond74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.370 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
-  %39 = load i8, ptr %.370, align 1, !tbaa !4
+  %.373 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
+  %39 = load i8, ptr %.373, align 1, !tbaa !4
   %switch.tableidx = add i8 %39, -97
   %40 = icmp ult i8 %switch.tableidx, 6
   %switch.offset = add i8 %39, -32
   %.0.i = select i1 %40, i8 %switch.offset, i8 %39
-  store i8 %.0.i, ptr %.370, align 1, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %.370, i64 1
+  store i8 %.0.i, ptr %.373, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.373, i64 1
   %.not60 = icmp eq ptr %41, %37
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !119
 
@@ -20262,8 +20262,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIwNS_19ostreambuf_iteratorIwNS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !14
-  %.fr73 = freeze i32 %12
-  %13 = and i32 %.fr73, 74
+  %.fr70 = freeze i32 %12
+  %13 = and i32 %.fr70, 74
   %14 = icmp eq i32 %13, 64
   %15 = icmp eq i32 %13, 8
   %spec.select = select i1 %15, i32 16, i32 10
@@ -20284,26 +20284,26 @@ switch.early.test:                                ; preds = %5
   br label %.thread
 
 20:                                               ; preds = %5
-  %21 = and i32 %.fr73, 2048
-  %.not74 = icmp eq i32 %21, 0
-  br i1 %.not74, label %.thread, label %switch.early.test71
+  %21 = and i32 %.fr70, 2048
+  %.not71 = icmp eq i32 %21, 0
+  br i1 %.not71, label %.thread, label %switch.early.test69
 
-switch.early.test71:                              ; preds = %20
+switch.early.test69:                              ; preds = %20
   switch i32 %13, label %22 [
     i32 64, label %.thread
     i32 8, label %.thread
   ]
 
-22:                                               ; preds = %switch.early.test71
+22:                                               ; preds = %switch.early.test69
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 43, ptr %6, align 16, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %switch.early.test71, %switch.early.test71, %20, %17, %switch.early.test, %switch.early.test, %22
-  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test71 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test71 ]
-  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test71 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test71 ]
+.thread:                                          ; preds = %switch.early.test69, %switch.early.test69, %20, %17, %switch.early.test, %switch.early.test, %22
+  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test69 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test69 ]
+  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test69 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test69 ]
   %.not = icmp eq i64 %4, 0
-  %24 = and i32 %.fr73, 512
+  %24 = and i32 %.fr70, 512
   %.not56 = icmp eq i32 %24, 0
   %or.cond = or i1 %.not, %.not56
   br i1 %or.cond, label %34, label %25
@@ -20322,7 +20322,7 @@ switch.early.test71:                              ; preds = %20
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 48, ptr %.1, align 1, !tbaa !4
-  %31 = and i32 %.fr73, 16384
+  %31 = and i32 %.fr70, 16384
   %.not57 = icmp eq i32 %31, 0
   %32 = select i1 %.not57, i8 120, i8 88
   %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -20334,21 +20334,21 @@ switch.early.test71:                              ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = call { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne210000ImTnNS_9enable_ifIXntsr9is_signedIT_EE5valueEiE4typeELi0EEENS_17__to_chars_resultEPcS6_S2_i(ptr noundef nonnull %.2, ptr noundef nonnull %35, i64 noundef %.05368, i32 noundef %.052)
   %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = and i32 %.fr73, 16392
+  %38 = and i32 %.fr70, 16392
   %or.cond61.not = icmp ne i32 %38, 16392
-  %.not6069 = icmp eq ptr %.2, %37
-  %or.cond72 = select i1 %or.cond61.not, i1 true, i1 %.not6069
-  br i1 %or.cond72, label %.loopexit, label %.lr.ph
+  %.not6072 = icmp eq ptr %.2, %37
+  %or.cond74 = select i1 %or.cond61.not, i1 true, i1 %.not6072
+  br i1 %or.cond74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.370 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
-  %39 = load i8, ptr %.370, align 1, !tbaa !4
+  %.373 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
+  %39 = load i8, ptr %.373, align 1, !tbaa !4
   %switch.tableidx = add i8 %39, -97
   %40 = icmp ult i8 %switch.tableidx, 6
   %switch.offset = add i8 %39, -32
   %.0.i = select i1 %40, i8 %switch.offset, i8 %39
-  store i8 %.0.i, ptr %.370, align 1, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %.370, i64 1
+  store i8 %.0.i, ptr %.373, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.373, i64 1
   %.not60 = icmp eq ptr %41, %37
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !127
 
@@ -20480,8 +20480,8 @@ define linkonce_odr hidden ptr @_ZNKSt3__17num_putIwNS_19ostreambuf_iteratorIwNS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !14
-  %.fr73 = freeze i32 %12
-  %13 = and i32 %.fr73, 74
+  %.fr70 = freeze i32 %12
+  %13 = and i32 %.fr70, 74
   %14 = icmp eq i32 %13, 64
   %15 = icmp eq i32 %13, 8
   %spec.select = select i1 %15, i32 16, i32 10
@@ -20502,26 +20502,26 @@ switch.early.test:                                ; preds = %5
   br label %.thread
 
 20:                                               ; preds = %5
-  %21 = and i32 %.fr73, 2048
-  %.not74 = icmp eq i32 %21, 0
-  br i1 %.not74, label %.thread, label %switch.early.test71
+  %21 = and i32 %.fr70, 2048
+  %.not71 = icmp eq i32 %21, 0
+  br i1 %.not71, label %.thread, label %switch.early.test69
 
-switch.early.test71:                              ; preds = %20
+switch.early.test69:                              ; preds = %20
   switch i32 %13, label %22 [
     i32 64, label %.thread
     i32 8, label %.thread
   ]
 
-22:                                               ; preds = %switch.early.test71
+22:                                               ; preds = %switch.early.test69
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 43, ptr %6, align 16, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %switch.early.test71, %switch.early.test71, %20, %17, %switch.early.test, %switch.early.test, %22
-  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test71 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test71 ]
-  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test71 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test71 ]
+.thread:                                          ; preds = %switch.early.test69, %switch.early.test69, %20, %17, %switch.early.test, %switch.early.test, %22
+  %.05368 = phi i64 [ %4, %22 ], [ %4, %switch.early.test69 ], [ %4, %switch.early.test ], [ %4, %switch.early.test ], [ %19, %17 ], [ %4, %20 ], [ %4, %switch.early.test69 ]
+  %.1 = phi ptr [ %23, %22 ], [ %6, %switch.early.test69 ], [ %6, %switch.early.test ], [ %6, %switch.early.test ], [ %18, %17 ], [ %6, %20 ], [ %6, %switch.early.test69 ]
   %.not = icmp eq i64 %4, 0
-  %24 = and i32 %.fr73, 512
+  %24 = and i32 %.fr70, 512
   %.not56 = icmp eq i32 %24, 0
   %or.cond = or i1 %.not, %.not56
   br i1 %or.cond, label %34, label %25
@@ -20540,7 +20540,7 @@ switch.early.test71:                              ; preds = %20
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 48, ptr %.1, align 1, !tbaa !4
-  %31 = and i32 %.fr73, 16384
+  %31 = and i32 %.fr70, 16384
   %.not57 = icmp eq i32 %31, 0
   %32 = select i1 %.not57, i8 120, i8 88
   %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
@@ -20552,21 +20552,21 @@ switch.early.test71:                              ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = call { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne210000IyTnNS_9enable_ifIXntsr9is_signedIT_EE5valueEiE4typeELi0EEENS_17__to_chars_resultEPcS6_S2_i(ptr noundef nonnull %.2, ptr noundef nonnull %35, i64 noundef %.05368, i32 noundef %.052)
   %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = and i32 %.fr73, 16392
+  %38 = and i32 %.fr70, 16392
   %or.cond61.not = icmp ne i32 %38, 16392
-  %.not6069 = icmp eq ptr %.2, %37
-  %or.cond72 = select i1 %or.cond61.not, i1 true, i1 %.not6069
-  br i1 %or.cond72, label %.loopexit, label %.lr.ph
+  %.not6072 = icmp eq ptr %.2, %37
+  %or.cond74 = select i1 %or.cond61.not, i1 true, i1 %.not6072
+  br i1 %or.cond74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.370 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
-  %39 = load i8, ptr %.370, align 1, !tbaa !4
+  %.373 = phi ptr [ %41, %.lr.ph ], [ %.2, %34 ]
+  %39 = load i8, ptr %.373, align 1, !tbaa !4
   %switch.tableidx = add i8 %39, -97
   %40 = icmp ult i8 %switch.tableidx, 6
   %switch.offset = add i8 %39, -32
   %.0.i = select i1 %40, i8 %switch.offset, i8 %39
-  store i8 %.0.i, ptr %.370, align 1, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %.370, i64 1
+  store i8 %.0.i, ptr %.373, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.373, i64 1
   %.not60 = icmp eq ptr %41, %37
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !129
 

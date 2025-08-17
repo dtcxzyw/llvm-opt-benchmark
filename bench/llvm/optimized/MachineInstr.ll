@@ -9027,14 +9027,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr20wouldBeTriviallyDe
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i16, ptr %3, align 4, !tbaa !47
-  %switch.tableidx = add i16 %4, -22
+  %.fr = freeze i16 %4
+  %switch.tableidx = add i16 %.fr, -22
   %5 = icmp ult i16 %switch.tableidx, 22
   br i1 %5, label %switch.hole_check, label %6
 
 6:                                                ; preds = %switch.hole_check, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1, !tbaa !327
-  switch i16 %4, label %7 [
+  switch i16 %.fr, label %7 [
     i16 68, label %9
     i16 0, label %9
   ]
@@ -9256,24 +9257,25 @@ _ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_i
 ._crit_edge:                                      ; preds = %14, %_ZNK4llvm12LiveRegUnits9availableEt.exit, %_ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_iterator_tagEppEv.exit, %94, %_ZNK4llvm12MachineInstr8all_defsEv.exit
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %97 = load i16, ptr %96, align 4, !tbaa !47
-  %98 = add i16 %97, -1
+  %.fr.i = freeze i16 %97
+  %98 = add i16 %.fr.i, -1
   %spec.select.i = icmp ult i16 %98, 2
   br i1 %spec.select.i, label %_ZNK4llvm12MachineInstr20wouldBeTriviallyDeadEv.exit, label %99
 
 99:                                               ; preds = %._crit_edge
-  %100 = and i16 %97, -2
+  %100 = and i16 %.fr.i, -2
   %spec.select.i29 = icmp eq i16 %100, 22
   br i1 %spec.select.i29, label %_ZNK4llvm12MachineInstr20wouldBeTriviallyDeadEv.exit, label %101
 
 101:                                              ; preds = %99
-  %switch.tableidx = add i16 %97, -22
+  %switch.tableidx = add i16 %.fr.i, -22
   %102 = icmp ult i16 %switch.tableidx, 22
   br i1 %102, label %switch.hole_check, label %103
 
 103:                                              ; preds = %switch.hole_check, %101
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !327
-  switch i16 %97, label %104 [
+  switch i16 %.fr.i, label %104 [
     i16 68, label %106
     i16 0, label %106
   ]

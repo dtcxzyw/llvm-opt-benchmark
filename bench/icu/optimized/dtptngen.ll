@@ -7823,9 +7823,9 @@ define void @_ZN6icu_7724DateTimePatternGenerator16adjustFieldTypesERKNS_13Unico
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3208
   %39 = load i32, ptr %38, align 8, !tbaa !102
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph170, label %._crit_edge
+  br i1 %40, label %.lr.ph171, label %._crit_edge
 
-.lr.ph170:                                        ; preds = %36
+.lr.ph171:                                        ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 10
@@ -7839,7 +7839,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16adjustFieldTypesERKNS_13Unico
   %51 = icmp eq i32 %50, 0
   %52 = and i32 %5, 8192
   %53 = icmp eq i32 %52, 0
-  %.not172 = icmp eq ptr %3, null
+  %.not165 = icmp eq ptr %3, null
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4760
@@ -7861,12 +7861,12 @@ define void @_ZN6icu_7724DateTimePatternGenerator16adjustFieldTypesERKNS_13Unico
           cleanup
   br label %251
 
-65:                                               ; preds = %.lr.ph170, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133
-  %66 = phi ptr [ %37, %.lr.ph170 ], [ %245, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133 ]
-  %storemerge169 = phi i32 [ 0, %.lr.ph170 ], [ %244, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133 ]
+65:                                               ; preds = %.lr.ph171, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133
+  %66 = phi ptr [ %37, %.lr.ph171 ], [ %245, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133 ]
+  %storemerge170 = phi i32 [ 0, %.lr.ph171 ], [ %244, %_ZN6icu_7713UnicodeStringpLERKS0_.exit133 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = sext i32 %storemerge169 to i64
+  %68 = sext i32 %storemerge170 to i64
   %69 = getelementptr inbounds [50 x %"class.icu_77::UnicodeString"], ptr %67, i64 0, i64 %68
   invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %69)
           to label %70 unwind label %91
@@ -8143,11 +8143,11 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread176: ; preds = %172
   %187 = icmp eq i32 %146, 12
   %or.cond115 = and i1 %51, %187
   %or.cond117 = and i1 %53, %147
-  %or.cond171 = or i1 %or.cond115, %or.cond117
-  br i1 %or.cond171, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, label %188
+  %or.cond172 = or i1 %or.cond115, %or.cond117
+  br i1 %or.cond172, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, label %188
 
 188:                                              ; preds = %186
-  br i1 %.not172, label %201, label %switch.early.test
+  br i1 %.not165, label %201, label %switch.early.test
 
 switch.early.test:                                ; preds = %188
   switch i8 %175, label %189 [
@@ -8180,8 +8180,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %186
   %spec.store.select23162 = select i1 %or.cond22161, i16 101, i16 %176
   br label %226
 
-201:                                              ; preds = %switch.early.test, %switch.early.test, %188, %189
-  %.088 = phi i32 [ %spec.store.select, %switch.early.test ], [ %spec.select164, %189 ], [ %spec.store.select, %188 ], [ %spec.store.select, %switch.early.test ]
+201:                                              ; preds = %189, %switch.early.test, %switch.early.test, %188
+  %.088 = phi i32 [ %spec.store.select, %switch.early.test ], [ %spec.store.select, %188 ], [ %spec.store.select, %switch.early.test ], [ %spec.select164, %189 ]
   switch i32 %146, label %202 [
     i32 11, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
     i32 6, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
@@ -8258,7 +8258,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %201, %201, %201, %2
   br i1 %229, label %.lr.ph, label %_ZNK6icu_7714SkeletonFields13appendFieldToEiRNS_13UnicodeStringE.exit
 
 .lr.ph:                                           ; preds = %226, %231
-  %.0168 = phi i32 [ %232, %231 ], [ %.088153163, %226 ]
+  %.0169 = phi i32 [ %232, %231 ], [ %.088153163, %226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %.078, ptr %7, align 2, !tbaa !79
   %230 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
@@ -8266,8 +8266,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %201, %201, %201, %2
 
 231:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %232 = add nsw i32 %.0168, -1
-  %233 = icmp sgt i32 %.0168, 1
+  %232 = add nsw i32 %.0169, -1
+  %233 = icmp sgt i32 %.0169, 1
   br i1 %233, label %.lr.ph, label %_ZNK6icu_7714SkeletonFields13appendFieldToEiRNS_13UnicodeStringE.exit, !llvm.loop !149
 
 234:                                              ; preds = %.lr.ph

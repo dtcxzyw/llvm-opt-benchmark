@@ -29188,8 +29188,7 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_25AppleAccel
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3516
   %11 = load i32, ptr %10, align 4, !tbaa !830
-  %.fr = freeze i32 %11
-  %12 = icmp eq i32 %.fr, 1
+  %12 = icmp eq i32 %11, 1
   br i1 %12, label %38, label %13
 
 13:                                               ; preds = %7
@@ -29197,11 +29196,11 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_25AppleAccel
   %15 = load i16, ptr %14, align 4, !tbaa !1754
   %16 = icmp eq i16 %15, 74
   %17 = icmp eq i64 %5, 0
-  %or.cond18 = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond18, label %38, label %18
+  %or.cond = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond, label %38, label %18
 
 18:                                               ; preds = %13
-  %.not = icmp eq i32 %.fr, 2
+  %.not = icmp eq i32 %11, 2
   br i1 %.not, label %19, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
@@ -29247,7 +29246,7 @@ switch.early.test:                                ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %38
 
-38:                                               ; preds = %switch.early.test, %19, %29, %30, %7, %13
+38:                                               ; preds = %19, %29, %30, %switch.early.test, %7, %13
   ret void
 }
 
@@ -29271,8 +29270,7 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_23AppleAccel
   %9 = alloca i8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3516
   %11 = load i32, ptr %10, align 4, !tbaa !830
-  %.fr = freeze i32 %11
-  %12 = icmp eq i32 %.fr, 1
+  %12 = icmp eq i32 %11, 1
   br i1 %12, label %38, label %13
 
 13:                                               ; preds = %7
@@ -29280,11 +29278,11 @@ define linkonce_odr void @_ZN4llvm10DwarfDebug16addAccelNameImplINS_23AppleAccel
   %15 = load i16, ptr %14, align 4, !tbaa !1754
   %16 = icmp eq i16 %15, 74
   %17 = icmp eq i64 %5, 0
-  %or.cond18 = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond18, label %38, label %18
+  %or.cond = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond, label %38, label %18
 
 18:                                               ; preds = %13
-  %.not = icmp eq i32 %.fr, 2
+  %.not = icmp eq i32 %11, 2
   br i1 %.not, label %19, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
@@ -29330,7 +29328,7 @@ switch.early.test:                                ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %38
 
-38:                                               ; preds = %switch.early.test, %19, %29, %30, %7, %13
+38:                                               ; preds = %19, %29, %30, %switch.early.test, %7, %13
   ret void
 }
 

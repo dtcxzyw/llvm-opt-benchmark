@@ -165,17 +165,18 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit26:         ; preds = %_ZN8rawspeed10ByteS
   %.0.copyload.i.i.i.i.i.i24 = load i16, ptr %33, align 1
   %34 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i24)
   %spec.select.i.i.i.i.i.i25 = select i1 %20, i16 %.0.copyload.i.i.i.i.i.i24, i16 %34
+  %spec.select.i.i.i.i.i.i25.fr = freeze i16 %spec.select.i.i.i.i.i.i25
   store i32 %31, ptr %9, align 8, !tbaa !25
-  %35 = icmp ugt i16 %spec.select.i.i.i.i.i.i25, 13
+  %35 = icmp ugt i16 %spec.select.i.i.i.i.i.i25.fr, 13
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
-  %37 = zext i16 %spec.select.i.i.i.i.i.i25 to i32
+  %37 = zext i16 %spec.select.i.i.i.i.i.i25.fr to i32
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE, i32 noundef %37) #15
   unreachable
 
 38:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
-  %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25 to i8
+  %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25.fr to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %39, ptr %40, align 2, !tbaa !28
   %41 = zext nneg i32 %31 to i64
@@ -198,7 +199,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %38
   store i32 %44, ptr %9, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %spec.select.i.i.i.i.i.i29, ptr %48, align 4, !tbaa !29
-  %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25 to i64
+  %49 = zext nneg i16 %spec.select.i.i.i.i.i.i25.fr to i64
   %50 = getelementptr inbounds nuw [14 x i32], ptr @_ZN8rawspeed9TiffEntry10datashiftsE, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = lshr i32 -1, %51
@@ -257,7 +258,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZNK8rawspeed10Byte
   %75 = icmp sgt i32 %66, -1
   tail call void @llvm.assume(i1 %75)
   store i32 %73, ptr %9, align 8, !tbaa !25
-  br label %112
+  br label %105
 
 76:                                               ; preds = %55
   %77 = add nuw nsw i64 %58, 4
@@ -277,87 +278,83 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit34:         ; preds = %76
   %82 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i32)
   %spec.select.i.i.i.i.i.i33 = select i1 %20, i32 %.0.copyload.i.i.i.i.i.i32, i32 %82
   store i32 %79, ptr %9, align 8, !tbaa !25
-  %83 = icmp eq i16 %spec.select.i.i.i.i.i.i25, 13
-  %84 = icmp eq i16 %spec.select.i.i.i.i.i.i, -14796
-  %85 = icmp eq i16 %spec.select.i.i.i.i.i.i, -28036
-  %86 = or i1 %84, %85
-  %87 = icmp eq i16 %spec.select.i.i.i.i.i.i, 46
-  %88 = or i1 %86, %87
-  %89 = icmp eq i16 %spec.select.i.i.i.i.i.i, -4096
-  %90 = or i1 %88, %89
-  %or.cond63 = select i1 %83, i1 true, i1 %90
-  br i1 %or.cond63, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %._crit_edge.i.i.i.i.i.i
+  %83 = icmp eq i16 %spec.select.i.i.i.i.i.i25.fr, 13
+  br i1 %83, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %switch.early.test
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit34
+switch.early.test:                                ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit34
   switch i16 %spec.select.i.i.i.i.i.i, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50 [
+    i16 -4096, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
+    i16 -14796, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
+    i16 -28036, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
+    i16 46, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
     i16 -30871, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
     i16 330, label %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
   ]
 
-_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %_ZN8rawspeed10ByteStream6getU32Ev.exit34
+_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN8rawspeed10ByteStream6getU32Ev.exit34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 16, i1 false)
   store i32 %spec.select.i.i.i.i.i.i33, ptr %8, align 8, !tbaa !25
-  %91 = load i32, ptr %6, align 8, !tbaa !23
-  %.not.i.i35 = icmp ugt i32 %spec.select.i.i.i.i.i.i33, %91
-  br i1 %.not.i.i35, label %92, label %_ZN8rawspeed10ByteStream11setPositionEj.exit
+  %84 = load i32, ptr %6, align 8, !tbaa !23
+  %.not.i.i35 = icmp ugt i32 %spec.select.i.i.i.i.i.i33, %84
+  br i1 %.not.i.i35, label %85, label %_ZN8rawspeed10ByteStream11setPositionEj.exit
 
-92:                                               ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
+85:                                               ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #15
   unreachable
 
 _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread
-  %93 = icmp sgt i32 %91, -1
-  tail call void @llvm.assume(i1 %93)
-  %94 = icmp sgt i32 %spec.select.i.i.i.i.i.i33, -1
-  tail call void @llvm.assume(i1 %94)
-  %95 = zext nneg i32 %spec.select.i.i.i.i.i.i33 to i64
-  %96 = zext i32 %56 to i64
-  %97 = add nuw nsw i64 %95, %96
-  %98 = zext nneg i32 %91 to i64
-  %.not.i36 = icmp samesign ugt i64 %97, %98
-  br i1 %.not.i36, label %99, label %_ZNK8rawspeed10ByteStream5checkEj.exit
+  %86 = icmp sgt i32 %84, -1
+  tail call void @llvm.assume(i1 %86)
+  %87 = icmp sgt i32 %spec.select.i.i.i.i.i.i33, -1
+  tail call void @llvm.assume(i1 %87)
+  %88 = zext nneg i32 %spec.select.i.i.i.i.i.i33 to i64
+  %89 = zext i32 %56 to i64
+  %90 = add nuw nsw i64 %88, %89
+  %91 = zext nneg i32 %84 to i64
+  %.not.i36 = icmp samesign ugt i64 %90, %91
+  br i1 %.not.i36, label %92, label %_ZNK8rawspeed10ByteStream5checkEj.exit
 
-99:                                               ; preds = %_ZN8rawspeed10ByteStream11setPositionEj.exit
+92:                                               ; preds = %_ZN8rawspeed10ByteStream11setPositionEj.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10ByteStream5checkEj) #15
   unreachable
 
 _ZNK8rawspeed10ByteStream5checkEj.exit:           ; preds = %_ZN8rawspeed10ByteStream11setPositionEj.exit
-  %100 = add nuw nsw i32 %spec.select.i.i.i.i.i.i33, %56
-  %101 = icmp samesign ule i32 %100, %91
-  tail call void @llvm.assume(i1 %101)
-  %102 = icmp sgt i32 %56, -1
-  tail call void @llvm.assume(i1 %102)
-  br label %112
+  %93 = add nuw nsw i32 %spec.select.i.i.i.i.i.i33, %56
+  %94 = icmp samesign ule i32 %93, %84
+  tail call void @llvm.assume(i1 %94)
+  %95 = icmp sgt i32 %56, -1
+  tail call void @llvm.assume(i1 %95)
+  br label %105
 
-_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50: ; preds = %._crit_edge.i.i.i.i.i.i
-  %103 = zext i32 %spec.select.i.i.i.i.i.i33 to i64
-  %104 = zext i32 %56 to i64
-  %105 = add nuw nsw i64 %103, %104
-  %.not.i.i37 = icmp samesign ugt i64 %105, %15
-  br i1 %.not.i.i37, label %106, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42
+_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50: ; preds = %switch.early.test
+  %96 = zext i32 %spec.select.i.i.i.i.i.i33 to i64
+  %97 = zext i32 %56 to i64
+  %98 = add nuw nsw i64 %96, %97
+  %.not.i.i37 = icmp samesign ugt i64 %98, %15
+  br i1 %.not.i.i37, label %99, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42
 
-106:                                              ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50
+99:                                               ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15, !noalias !34
   unreachable
 
 _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42: ; preds = %_ZN8rawspeed4isInINS_7TiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread50
-  %107 = add nuw nsw i32 %spec.select.i.i.i.i.i.i33, %56
-  %108 = icmp samesign ule i32 %107, %14
-  tail call void @llvm.assume(i1 %108)
-  %109 = icmp sgt i32 %spec.select.i.i.i.i.i.i33, -1
-  tail call void @llvm.assume(i1 %109)
-  %110 = icmp sgt i32 %56, -1
-  tail call void @llvm.assume(i1 %110)
-  %111 = getelementptr inbounds nuw i8, ptr %21, i64 %103
+  %100 = add nuw nsw i32 %spec.select.i.i.i.i.i.i33, %56
+  %101 = icmp samesign ule i32 %100, %14
+  tail call void @llvm.assume(i1 %101)
+  %102 = icmp sgt i32 %spec.select.i.i.i.i.i.i33, -1
+  tail call void @llvm.assume(i1 %102)
+  %103 = icmp sgt i32 %56, -1
+  tail call void @llvm.assume(i1 %103)
+  %104 = getelementptr inbounds nuw i8, ptr %21, i64 %96
   %.sroa.4.8.insert.ext.i38 = zext i16 %19 to i64
   %.sroa.4.8.insert.shift.i39 = shl nuw nsw i64 %.sroa.4.8.insert.ext.i38, 32
-  %.sroa.2.8.insert.insert.i40 = or disjoint i64 %.sroa.4.8.insert.shift.i39, %104
-  store ptr %111, ptr %5, align 8
+  %.sroa.2.8.insert.insert.i40 = or disjoint i64 %.sroa.4.8.insert.shift.i39, %97
+  store ptr %104, ptr %5, align 8
   store i64 %.sroa.2.8.insert.insert.i40, ptr %6, align 8
   store i32 0, ptr %8, align 8
-  br label %112
+  br label %105
 
-112:                                              ; preds = %_ZNK8rawspeed10ByteStream5checkEj.exit, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42, %_ZN8rawspeed10ByteStream9skipBytesEj.exit
+105:                                              ; preds = %_ZNK8rawspeed10ByteStream5checkEj.exit, %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit42, %_ZN8rawspeed10ByteStream9skipBytesEj.exit
   ret void
 }
 

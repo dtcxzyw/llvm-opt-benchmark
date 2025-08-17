@@ -1022,7 +1022,7 @@ define hidden noundef ptr @_ZNK8MachNode8adr_typeEv(ptr noundef nonnull align 8 
   %4 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
-  br i1 %.not, label %6, label %56
+  br i1 %.not, label %6, label %51
 
 6:                                                ; preds = %1
   %magicptr = ptrtoint ptr %4 to i64
@@ -1034,21 +1034,21 @@ define hidden noundef ptr @_ZNK8MachNode8adr_typeEv(ptr noundef nonnull align 8 
 7:                                                ; preds = %6
   %8 = load i64, ptr %2, align 8
   switch i64 %8, label %11 [
-    i64 0, label %56
+    i64 0, label %51
     i64 -2000000001, label %9
   ]
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  br label %56
+  br label %51
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
-  br label %56
+  br label %51
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  br label %56
+  br label %51
 
 15:                                               ; preds = %6
   %16 = load ptr, ptr %4, align 8
@@ -1091,38 +1091,41 @@ _ZNK4Type8make_ptrEv.exit25:                      ; preds = %33, %_ZNK4Type8make
   %.1 = phi ptr [ %.016, %_ZNK4Type8make_ptrEv.exit ], [ %35, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = icmp eq i32 %37, 4
-  %39 = icmp ne ptr %.1, null
-  %40 = and i1 %39, %38
-  %41 = load i64, ptr %2, align 8
-  %42 = icmp ne i64 %41, 0
-  %43 = icmp ne i64 %41, -2000000001
-  %44 = and i1 %42, %43
-  %or.cond3 = select i1 %40, i1 %44, i1 false
-  br i1 %or.cond3, label %45, label %47
+  %38 = icmp ne i32 %37, 4
+  %.not3233 = icmp eq ptr %.1, null
+  %.not32 = or i1 %.not3233, %38
+  %39 = load i64, ptr %2, align 8
+  br i1 %.not32, label %42, label %switch.early.test
 
-45:                                               ; preds = %_ZNK4Type8make_ptrEv.exit25
-  %46 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
-  br label %56
+switch.early.test:                                ; preds = %_ZNK4Type8make_ptrEv.exit25
+  switch i64 %39, label %40 [
+    i64 -2000000001, label %.thread
+    i64 0, label %.thread
+  ]
 
-47:                                               ; preds = %_ZNK4Type8make_ptrEv.exit25
-  %48 = add i32 %37, -27
-  %or.cond.i = icmp ult i32 %48, -9
-  br i1 %or.cond.i, label %49, label %51
+40:                                               ; preds = %switch.early.test
+  %41 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
+  br label %51
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  br label %56
+42:                                               ; preds = %_ZNK4Type8make_ptrEv.exit25
+  %43 = add i32 %37, -27
+  %or.cond.i = icmp ult i32 %43, -9
+  %44 = or i1 %.not3233, %or.cond.i
+  br i1 %44, label %.thread, label %46
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %.1, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 192
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(44) %.1, i64 noundef %41) #13
-  br label %56
+.thread:                                          ; preds = %switch.early.test, %switch.early.test, %42
+  %45 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
+  br label %51
 
-56:                                               ; preds = %7, %1, %51, %49, %45, %13, %11, %9
-  %.0 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %46, %45 ], [ %50, %49 ], [ %55, %51 ], [ %5, %1 ], [ null, %7 ]
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %.1, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 192
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(44) %.1, i64 noundef %39) #13
+  br label %51
+
+51:                                               ; preds = %7, %1, %46, %.thread, %40, %13, %11, %9
+  %.0 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %41, %40 ], [ %45, %.thread ], [ %50, %46 ], [ %5, %1 ], [ null, %7 ]
   ret ptr %.0
 }
 
